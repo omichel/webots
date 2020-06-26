@@ -15,8 +15,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.3650235088419984 -0.9018337571390201 -0.2312005892665386 5.0279702
-  position 0.85252477 0.55969193 0.54871339
+  orientation -0.102299851517443 -0.502583686567921 -0.858454645496958 3.501991066738352
+  position 0.54871339 0.85252477 0.55969193
   follow "Thymio II"
 }
 TexturedBackground {
@@ -27,7 +27,8 @@ CircleArena {
   wallThickness 0.05
 }
 DEF THYMIO2 Thymio2 {
-  rotation 1 0 0 0
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
   controller "ros_python"
-  controllerArgs []
+  controllerArgs [
+  ]
 }

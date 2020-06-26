@@ -2,14 +2,15 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0 1 0 0
-  position 0 0.35 1.5
+  orientation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
+  position 1.5 0 0.35
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Robot {
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
   controller "ros"
   supervisor TRUE
 }

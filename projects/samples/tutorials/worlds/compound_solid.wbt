@@ -8,8 +8,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.5112230187570285 0.843269030939963 0.16597700608977947 5.42515
-  position -0.378361 0.390215 0.420816
+  orientation -0.7871856409522707 -0.31562602693849046 -0.5298291968149601 4.916033766667114
+  position 0.3816807168852503 -0.3779186635014238 0.3652075479055607
 }
 TexturedBackground {
 }
@@ -22,7 +22,7 @@ E-puck {
   controller "epuck_avoid_collision"
 }
 DEF BALL Solid {
-  translation 0 0.1 -0.2
+  translation -0.2 0 0.1
   children [
     Shape {
       appearance PBRAppearance {
@@ -47,7 +47,7 @@ DEF BALL Solid {
   }
 }
 DEF WALL_1 Solid {
-  translation 0.5 0.05 0
+  translation 0 0.5 0.05
   children [
     DEF WALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -56,7 +56,7 @@ DEF WALL_1 Solid {
         metalness 0
       }
       geometry Box {
-        size 0.02 0.1 0.98
+        size 0.98 0.02 0.1
       }
     }
   ]
@@ -64,7 +64,7 @@ DEF WALL_1 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_2 Solid {
-  translation -0.5 0.05 0
+  translation 0 -0.5 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -72,8 +72,8 @@ DEF WALL_2 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_3 Solid {
-  translation 0 0.05 -0.5
-  rotation 0 1 0 1.5708
+  translation -0.5 0 0.05
+  rotation 0 0 1 -1.5707953071795862
   children [
     USE WALL_SHAPE
   ]
@@ -81,8 +81,8 @@ DEF WALL_3 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_4 Solid {
-  translation 0 0.05 0.5
-  rotation 0 1 0 1.5708
+  translation 0.5 0 0.05
+  rotation 0 0 1 -1.5707953071795862
   children [
     USE WALL_SHAPE
   ]
@@ -90,8 +90,7 @@ DEF WALL_4 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF DUMBBELL Solid {
-  translation 0.2 0.1 -0.1
-  rotation 1 0 0 1.5708
+  translation -0.1 0.2 0.1
   children [
     DEF G0 Group {
       children [

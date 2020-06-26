@@ -15,7 +15,7 @@ PROTO E-puckDistanceSensor [
     rotation IS rotation
     children [
       DistanceSensor {
-        rotation 0 0 1 0.16
+        rotation 0 1 0 -0.16
         name IS name
         children [
           Shape { # sensor
@@ -25,7 +25,7 @@ PROTO E-puckDistanceSensor [
               metalness 0
             }
             geometry Box {
-              size 0.002 0.004 0.007
+              size 0.002 0.007 0.004
             }
           }
           Shape { # pins
@@ -35,14 +35,14 @@ PROTO E-puckDistanceSensor [
             geometry IndexedLineSet {
               coord Coordinate {
                 point [
-                  0 0 -0.003
-                  0 0.004 -0.003
-                  0 0 -0.001
-                  0 0.004 -0.001
-                  0 0 0.001
-                  0 0.004 0.001
-                  0 0 0.003
-                  0 0.004 0.003
+                  0 -0.003 0
+                  0 -0.003 0.004
+                  0 -0.001 0
+                  0 -0.001 0.004
+                  0 0.001 0
+                  0 0.001 0.004
+                  0 0.003 0
+                  0 0.003 0.004
                 ]
               }
               coordIndex [

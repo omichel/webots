@@ -21,8 +21,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.23226100856508938 0.9658260356167674 0.11504300424244096 0.836541
-  position 1.26589 0.649745 1.15773
+  orientation 0.247158013686274 0.607631409077341 0.754782741570937 2.564513843696027
+  position 1.15773 1.26589 0.649745
   follow "NAO"
 }
 TexturedBackground {
@@ -34,4 +34,5 @@ Floor {
   tileSize 0.8 0.8
 }
 Nao {
+  rotation 0 0 1 1.5708
 }

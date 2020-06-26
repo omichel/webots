@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 1 0 0 5.75
-  position -0.45 0.25 0.33
+  orientation -0.444231800447848 -0.444231800447848 -0.778020703414586 4.463981678371505
+  position 0.33 -0.45 0.25
   follow "e-puck"
 }
 TexturedBackground {
@@ -24,8 +24,7 @@ RectangleArena {
   }
 }
 DEF E_PUCK E-puck {
-  translation -0.44 0 0
-  rotation 0 1 0 6.28319
+  translation 0 -0.44 0
   controller "line_follower"
   camera_width 40
   camera_height 1

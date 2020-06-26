@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.702730921913247 0.6961909226399652 0.146585983711513 5.45898
-  position -5.30367 5.63958 6.90061
+  orientation -0.9983601613887231 0.05685320995117282 0.006685855975916737 5.033386695060522
+  position -0.3833871007693351 -1.9057724477119373 0.6278393680645045
 }
 TexturedBackground {
 }
@@ -15,15 +15,16 @@ RectangleArena {
   wallHeight 0.5
 }
 CardboardBox {
-  translation 1.31407 0.3 -0.444198
+  translation -0.444198 1.31407 0.3
 }
 CardboardBox {
-  translation 0.133486 0.3 -1.17773
+  translation -1.17773 0.793486 0.3
   name "cardboard box(1)"
 }
 WoodenBox {
-  translation -0.797045 0.3 1.02408
+  translation 1.43408 -0.797045 0.3
 }
 DEF PIONEER_3DX Pioneer3dx {
+  translation -0.6 -0.3825 0
   controller "ros"
 }

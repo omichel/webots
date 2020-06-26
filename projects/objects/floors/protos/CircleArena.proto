@@ -6,7 +6,7 @@
 
 PROTO CircleArena [
   field SFVec3f    translation     0 0 0
-  field SFRotation rotation        0 1 0 0
+  field SFRotation rotation        0 0 1 0
   field SFString   name            "circle arena"
   field SFFloat    radius          1.0                             # Defines the radius of the arena.
   field SFString   contactMaterial "default"                       # Is `Solid.contactMaterial`.
@@ -80,7 +80,8 @@ PROTO CircleArena [
     rotation IS rotation
     children [
       SolidPipe {
-        translation 0 %{= wallHeight / 2 }% 0
+        translation 0 0 %{= wallHeight / 2 }%
+        rotation 1 0 0 1.5708
         height %{= wallHeight }%
         radius %{= radius + wallThickness }%
         thickness %{= wallThickness }%
@@ -95,7 +96,7 @@ PROTO CircleArena [
           coord Coordinate {
             point [
               %{ for i, el in ipairs(circle) do }%
-                %{= el.x }% %{= 0 }% %{= el.y }%
+                %{= el.x }% %{= -el.y }% %{= 0 }%
               %{ end }%
             ]
           }
@@ -123,8 +124,11 @@ PROTO CircleArena [
     ]
     name IS name
     model "circle arena"
-    boundingObject Plane {
-      size %{= 2 * radius }% %{= 2 * radius }%
+    boundingObject Transform {
+      rotation 1 0 0 1.5708
+      children Plane {
+        size %{= 2 * radius }% %{= 2 * radius }%
+      }
     }
     contactMaterial IS contactMaterial
     locked TRUE

@@ -18,8 +18,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.06977387400214739 -0.9905006309379438 -0.11849095585008788 4.2967
-  position 2.29759 0.850855 -0.873861
+  orientation 0.123159218096659 -0.617232648607204 -0.777081504406812 2.815467950078324
+  position -0.873861 2.29759 0.850855
   follow "NAO"
 }
 TexturedBackground {
@@ -31,5 +31,6 @@ Floor {
   tileSize 0.8 0.8
 }
 Nao {
+  rotation 0 0 1 1.5708
   controller "nao_matlab"
 }

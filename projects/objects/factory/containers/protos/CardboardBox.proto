@@ -6,7 +6,7 @@
 
 PROTO CardboardBox [
   field SFVec3f    translation 0 0.3 0
-  field SFRotation rotation    0 1 0 0
+  field SFRotation rotation    0 0 1 0
   field SFString   name        "cardboard box"
   field SFVec3f    size        0.6 0.6 0.6      # Defines the size of the cardboard box.
   field SFFloat    mass        0                # Defines the mass of the cardboard box in kg. A value smaller or equal to 0 remove the physics of the cardboard box.
@@ -66,6 +66,7 @@ Solid {
   rotation IS rotation
   children [
     Transform {
+      rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
       scale %{= size.x }% %{= size.y }% %{= size.z }%
       children [
         Shape {

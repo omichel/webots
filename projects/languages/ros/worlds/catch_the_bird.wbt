@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.104674958073239 -0.9575576164575551 -0.26856389242876866 2.60605
-  position -1.59084 1.87221 -2.53085
+  orientation 0.653869253338458 -0.395444431442778 -0.64504162747803 1.371397327054171
+  position -2.53085 -1.59084 1.87221
 }
 TexturedBackground {
 }
@@ -12,7 +12,7 @@ TexturedBackgroundLight {
 RectangleArena {
 }
 Robot {
-  translation -0.1 0.09 0
+  translation 0 -0.1 0.09
   children [
     HingeJoint {
       jointParameters HingeJointParameters {
@@ -69,9 +69,10 @@ Robot {
   }
   locked TRUE
   controller "ros"
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
 }
 Solid {
-  translation 0.3 0.1 0
+  translation 0 0.3 0.1
   children [
     Solid {
       translation 0 -0.09 0
@@ -287,4 +288,5 @@ Solid {
   physics Physics {
   }
   locked TRUE
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
 }

@@ -8,6 +8,7 @@ PROTO NaoRoom [
 ]
 {
 Solid {
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
   children [
     DEF FLOOR Shape {
       appearance Parquetry {

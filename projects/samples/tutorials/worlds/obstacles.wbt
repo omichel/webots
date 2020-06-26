@@ -3,8 +3,8 @@ WorldInfo {
   basicTimeStep 16
 }
 Viewpoint {
-  orientation 0.5441571034132583 0.8018891523934346 0.24671204688590198 5.13385
-  position -1.2344 1.08104 0.796459
+  orientation -0.808767268069863 -0.231354924804847 -0.540712867303298 5.183332745448053
+  position 1.3164249548501334 -1.9965877673550207 1.7977258442366977
 }
 TexturedBackground {
 }
@@ -14,21 +14,21 @@ Floor {
   size 1 1
 }
 WoodenBox {
-  translation -0.2 0.05 0.15418
-  rotation 0 -1 0 0.3468
+  translation 0.15418 -0.2 0.05
+  rotation 0 0 -1 0.3468
   size 0.1 0.1 0.1
   mass 0.2
 }
 WoodenBox {
-  translation -0.2923 0.05 -0.3406
-  rotation 0 -1 0 0.3468
+  translation -0.3406 -0.2923 0.05
+  rotation 0 0 -1 0.3468
   name "wooden box(1)"
   size 0.1 0.1 0.1
   mass 0.2
 }
 WoodenBox {
-  translation 0.2296 0.05 -0.2316
-  rotation 0 -1 0 0.34688418883387256
+  translation -0.2316 0.2296 0.05
+  rotation 0 0 -1 0.346884188833873
   name "wooden box(2)"
   size 0.1 0.1 0.1
   mass 0.2
@@ -37,7 +37,7 @@ E-puck {
   controller "epuck_go_forward"
 }
 DEF BALL Solid {
-  translation 0 0.2 -0.2
+  translation -0.2 0 0.2
   children [
     Shape {
       appearance PBRAppearance {
@@ -56,7 +56,7 @@ DEF BALL Solid {
   }
 }
 DEF WALL_1 Solid {
-  translation 0.5 0.05 0
+  translation 0 0.5 0.05
   children [
     DEF WALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -65,7 +65,7 @@ DEF WALL_1 Solid {
         metalness 0
       }
       geometry Box {
-        size 0.02 0.1 0.98
+        size 0.98 0.02 0.1
       }
     }
   ]
@@ -73,7 +73,7 @@ DEF WALL_1 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_2 Solid {
-  translation -0.5 0.05 0
+  translation 0 -0.5 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -81,8 +81,8 @@ DEF WALL_2 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_3 Solid {
-  translation 0 0.05 -0.5
-  rotation 0 1 0 1.5708
+  translation -0.5 0 0.05
+  rotation 0 0 1 1.5708
   children [
     USE WALL_SHAPE
   ]
@@ -90,8 +90,8 @@ DEF WALL_3 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_4 Solid {
-  translation 0 0.05 0.5
-  rotation 0 1 0 1.5708
+  translation 0.5 0 0.05
+  rotation 0 0 1 1.5708
   children [
     USE WALL_SHAPE
   ]

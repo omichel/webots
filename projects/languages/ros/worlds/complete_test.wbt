@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.6194591910547989 0.7334082212488283 0.27996909047672397 0.888923
-  position 1.67801 1.75743 2.04642
+  orientation 0.237296652636407 0.446864140409813 0.862555933643352 2.390599969914083
+  position 2.04642 1.67801 1.75743
 }
 TexturedBackground {
 }
@@ -12,8 +12,8 @@ TexturedBackgroundLight {
 DEF GROUND RectangleArena {
 }
 Solid {
-  translation 0.182984 0.05 0.12186
-  rotation 0 -1 0 0.934348
+  translation 0.12186 0.182984 0.05
+  rotation 0.90645974507876 0.298605702015007 0.298605702015007 1.668847493700587
   children [
     Shape {
       appearance PBRAppearance {
@@ -33,12 +33,13 @@ Solid {
   }
 }
 DEF CONE Solid {
-  translation 0.240484 0.1 -0.258217
+  translation -0.258217 0.240484 0.1
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
   children [
     Shape {
       appearance PBRAppearance {
         baseColor 0 0.0392157 0.8
-        roughness 0.8760235838
+        roughness 0.876024
         metalness 0
         emissiveColor 0.027451 0.027451 0.968627
       }
@@ -51,7 +52,8 @@ DEF CONE Solid {
   name "solid(1)"
 }
 DEF RADAR_TARGET Solid {
-  translation 0 0 -1.86
+  translation -1.86 0 0
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
   children [
     Shape {
       appearance PBRAppearance {
@@ -69,7 +71,8 @@ DEF RADAR_TARGET Solid {
   radarCrossSection 1
 }
 Robot {
-  translation 0 0.1 0
+  translation 0 0 0.1
+  rotation 0.577350269189626 0.577350269189626 0.577350269189626 2.094395102393196
   children [
     SliderJoint {
       device [
@@ -88,7 +91,7 @@ Robot {
           Shape {
             appearance PBRAppearance {
               baseColor 1 0 0.0156863
-              roughness 0.6992117618
+              roughness 0.699212
               metalness 0
             }
             geometry Box {
@@ -145,7 +148,7 @@ Robot {
           Shape {
             appearance PBRAppearance {
               baseColor 1 0 0.0156863
-              roughness 0.6992117618
+              roughness 0.699212
               metalness 0
             }
             geometry Box {
@@ -275,7 +278,7 @@ Robot {
   customData "INITIAL"
   supervisor TRUE
   battery [
-    10, 10, 2
+    10 10 2
   ]
   window "info"
 }

@@ -3,8 +3,8 @@ WorldInfo {
   basicTimeStep 16
 }
 Viewpoint {
-  orientation -0.24852896702592445 -0.9044928799946061 -0.3465919540152224 2.16502
-  position -0.894428 1.0418 -0.559745
+  orientation 0.6476686426010657 -0.39794060607804677 -0.6497450295504614 1.3380107928194724
+  position -0.5367993275404352 -0.3643401342561678 0.44791059452631987
 }
 TexturedBackground {
 }
@@ -14,7 +14,7 @@ Floor {
   size 1 1
 }
 DEF WALL_1 Solid {
-  translation 0.5 0.05 0
+  translation 0 0.5 0.05
   children [
     DEF WALL_SHAPE Shape {
       appearance PBRAppearance {
@@ -23,14 +23,14 @@ DEF WALL_1 Solid {
         metalness 0
       }
       geometry Box {
-        size 0.02 0.1 0.98
+        size 0.98 0.02 0.1
       }
     }
   ]
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_2 Solid {
-  translation -0.5 0.05 0
+  translation 0 -0.5 0.05
   children [
     USE WALL_SHAPE
   ]
@@ -38,8 +38,8 @@ DEF WALL_2 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_3 Solid {
-  translation 0 0.05 -0.5
-  rotation 0 1 0 1.5708
+  translation -0.5 0 0.05
+  rotation 0 0 1 1.5708
   children [
     USE WALL_SHAPE
   ]
@@ -47,8 +47,8 @@ DEF WALL_3 Solid {
   boundingObject USE WALL_SHAPE
 }
 DEF WALL_4 Solid {
-  translation 0 0.05 0.5
-  rotation 0 1 0 1.5708
+  translation 0.5 0 0.05
+  rotation 0 0 1 1.5708
   children [
     USE WALL_SHAPE
   ]
@@ -56,8 +56,8 @@ DEF WALL_4 Solid {
   boundingObject USE WALL_SHAPE
 }
 Robot {
-  translation 0 0.05 0
-  rotation 0 -1 0 2.78858
+  translation 0 0 0.05
+  rotation 0 0 1 3.141592653589793
   children [
     DEF BODY Shape {
       appearance PBRAppearance {
@@ -66,12 +66,13 @@ Robot {
         metalness 0
       }
       geometry Box {
-        size 0.1 0.05 0.2
+        size 0.2 0.1 0.05
       }
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        anchor 0.06 0 0.05
+        axis 0 1 0
+        anchor 0.05 0.06 0
       }
       device [
         RotationalMotor {
@@ -79,8 +80,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.06 0 0.05
-        rotation 0 0 1 1.5708
+        translation 0.05 0.06 0
+        rotation 0 0 1 0
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -102,7 +103,8 @@ Robot {
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        anchor -0.06 0 0.05
+        axis 0 1 0
+        anchor 0.05 -0.06 0
       }
       device [
         RotationalMotor {
@@ -110,8 +112,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.06 0 0.05
-        rotation 0 0 1 1.5708
+        translation 0.05 -0.06 0
+        rotation 0 0 1 0
         children [
           USE WHEEL
         ]
@@ -123,7 +125,8 @@ Robot {
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        anchor 0.06 0 -0.05
+        axis 0 1 0
+        anchor -0.05 0.06 0
       }
       device [
         RotationalMotor {
@@ -131,8 +134,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.06 0 -0.05
-        rotation 0 0 1 1.5708
+        translation -0.05 0.06 0
+        rotation 0 0 1 0
         children [
           USE WHEEL
         ]
@@ -144,7 +147,8 @@ Robot {
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        anchor -0.06 0 -0.05
+        axis 0 1 0
+        anchor -0.05 -0.06 0
       }
       device [
         RotationalMotor {
@@ -152,8 +156,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.06 0 -0.05
-        rotation 0 0 1 1.5708
+        translation -0.05 -0.06 0
+        rotation 0 0 1 0
         children [
           USE WHEEL
         ]
@@ -164,8 +168,8 @@ Robot {
       }
     }
     DEF DS_RIGHT DistanceSensor {
-      translation -0.03 0 0.1
-      rotation 0 1 0 -1.87079
+      translation 0.1 -0.03 0
+      rotation 0 0 -1 0.299994
       children [
         Shape {
           appearance PBRAppearance {
@@ -181,8 +185,8 @@ Robot {
       name "ds_right"
     }
     DEF DS_LEFT DistanceSensor {
-      translation 0.03 0 0.1
-      rotation 0 1 0 -1.27079
+      translation 0.1 0.03 0
+      rotation 0 0 1 0.300006
       children [
         Shape {
           appearance PBRAppearance {

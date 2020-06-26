@@ -9,8 +9,8 @@ WorldInfo {
   lineScale 0.04
 }
 Viewpoint {
-  orientation 0.2737971179330687 0.9518924100101338 0.13760805927213854 5.31154
-  position -0.149567 0.0843526 0.281244
+  orientation -0.87514100063109 -0.289664686903943 -0.387585601093816 4.869548512200105
+  position 0.281244 -0.149567 0.0843526
   follow "e-puck"
 }
 TexturedBackground {
@@ -32,7 +32,7 @@ RectangleArena {
   wallHeight 0.05
 }
 DEF OBSTACLE1 Solid {
-  translation 0.0871577 0.025 -0.192401
+  translation -0.192401 0.0871577 0.025
   children [
     Shape {
       appearance PBRAppearance {
@@ -49,8 +49,8 @@ DEF OBSTACLE1 Solid {
   boundingObject USE BOX1
 }
 DEF OBSTACLE2 Solid {
-  translation -0.0740804 0.025 -0.0300418
-  rotation 0 1 0 3.82203
+  translation -0.0300418 -0.0740804 0.025
+  rotation -0.828943025531618 0.395508192344032 0.395508192344032 4.525876001979563
   children [
     Shape {
       appearance PBRAppearance {
@@ -67,8 +67,8 @@ DEF OBSTACLE2 Solid {
   boundingObject USE BOX2
 }
 DEF OBSTACLE3 Solid {
-  translation 0.116597 0.025 0.110302
-  rotation 0 1 0 13.7261
+  translation 0.110302 0.116597 0.025
+  rotation 0.145839657513285 0.69954656538947 0.69954656538947 2.851955272158707
   children [
     Shape {
       appearance PBRAppearance {
@@ -85,8 +85,8 @@ DEF OBSTACLE3 Solid {
   boundingObject USE BOX3
 }
 DEF EPUCK E-puck {
-  translation 0.0148 0 0.175
-  rotation 0 1 0 1.5
+  translation 0.175 0.0148 0
+  rotation 0 0 1 -1.5
   controller "e-puck_line_demo"
   groundSensorsSlot [
     E-puckGroundSensors {

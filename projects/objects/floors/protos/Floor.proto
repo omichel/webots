@@ -6,7 +6,7 @@
 
 PROTO Floor [
   field SFVec3f    translation     0 0 0
-  field SFRotation rotation        0 1 0 0
+  field SFRotation rotation        0 0 1 0
   field SFString   name            "floor"
   field SFString   contactMaterial "default"                       # Is `Solid.contactMaterial`.
   field SFVec2f    size            10 10                           # Defines the size of the floor.
@@ -47,10 +47,10 @@ PROTO Floor [
         geometry IndexedFaceSet {
           coord Coordinate {
             point [
-              %{= -(size.x / 2) }% 0 %{= -(size.y / 2) }%
-              %{= size.x / 2 }% 0 %{= -(size.y / 2) }%
-              %{= -(size.x / 2) }% 0 %{= size.y / 2 }%
-              %{= size.x / 2 }% 0 %{= size.y / 2 }%
+              %{= -(size.y / 2) }% %{= -(size.x / 2) }% 0
+              %{= -(size.y / 2) }% %{= size.x / 2 }% 0
+              %{= size.y / 2 }% %{= -(size.x / 2) }% 0
+              %{= size.y / 2 }% %{= size.x / 2 }% 0
             ]
           }
           texCoord TextureCoordinate {
@@ -72,8 +72,11 @@ PROTO Floor [
     ]
     name IS name
     model "floor"
-    boundingObject Plane {
-      size IS size
+    boundingObject Transform {
+      rotation 1 0 0 1.5708
+      children Plane {
+        size IS size
+      }
     }
     contactMaterial IS contactMaterial
     locked TRUE

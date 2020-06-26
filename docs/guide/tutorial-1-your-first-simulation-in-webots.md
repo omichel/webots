@@ -74,7 +74,7 @@ In the open dialog box, choose `PROTO nodes (Webots Projects) / objects / factor
 A big box should appear in the middle of the arena.
 Double-click on it in the scene tree to open its fields.
 1. Change its `size` to `0.1 0.1 0.1` instead of `0.6 0.6 0.6`.
-2. Change its `translation` to `0 0.05 0` instead of `0 0.3 0`.
+2. Change its `translation` to `0 0 0.05` instead of `0 0 0.3`.
 Alternatively, you may use the green arrow that appears in the 3D view to adjust its `translation.y` field.
 3. Now shift-click and drag the box in the 3D view and move it in some corner of the arena.
 4. Select the box and press Ctrl-C, Ctrl-V (Windows, Linux) or Cmd-C, Cmd-V (macOS) to copy and paste it.

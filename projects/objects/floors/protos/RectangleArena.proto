@@ -6,7 +6,7 @@
 
 PROTO RectangleArena [
   field SFVec3f    translation     0 0 0
-  field SFRotation rotation        0 1 0 0
+  field SFRotation rotation        0 0 1 0
   field SFString   name            "rectangle arena"
   field SFString   contactMaterial "default"                       # Is `Solid.contactMaterial`.
   field SFVec2f    floorSize       1 1                             # Defines the size of the floor.
@@ -75,30 +75,32 @@ PROTO RectangleArena [
         contactMaterial IS contactMaterial
       }
       SolidBox {
-        translation %{= floorSize.x / 2 + wallThickness / 2 }% %{= wallHeight / 2 }% 0
+        translation 0 %{= floorSize.x / 2 + wallThickness / 2 }% %{= wallHeight / 2 }%
         name "wall"
-        size %{= wallThickness }% %{= wallHeight }% %{= floorSize.y }%
+        size %{= floorSize.y }% %{= wallThickness }% %{= wallHeight }%
         appearance IS wallAppearance
         contactMaterial IS contactMaterial
       }
       SolidBox {
-        translation %{= -(floorSize.x / 2 + wallThickness / 2) }% %{= wallHeight / 2 }% 0
+        translation 0 %{= -(floorSize.x / 2 + wallThickness / 2) }% %{= wallHeight / 2 }%
         name "wall#2"
-        size %{= wallThickness }% %{= wallHeight }% %{= floorSize.y }%
+        size %{= floorSize.y }% %{= wallThickness }% %{= wallHeight }%
         appearance IS wallAppearance
         contactMaterial IS contactMaterial
       }
       SolidBox {
-        translation 0 %{= wallHeight / 2 }% %{= floorSize.y / 2 + wallThickness / 2 }%
+        translation %{= floorSize.y / 2 + wallThickness / 2 }% 0 %{= wallHeight / 2 }%
+        rotation 0 0 1 1.5708
         name "wall#3"
-        size %{= floorSize.x + 2 * wallThickness }% %{= wallHeight }% %{= wallThickness }%
+        size %{= floorSize.x + 2 * wallThickness }% %{= wallThickness }% %{= wallHeight }%
         appearance IS wallAppearance
         contactMaterial IS contactMaterial
       }
       SolidBox {
-        translation 0 %{= wallHeight / 2 }% %{= -(floorSize.y / 2 + wallThickness / 2) }%
+        translation %{= -(floorSize.y / 2 + wallThickness / 2) }% 0 %{= wallHeight / 2 }%
+        rotation 0 0 1 1.5708
         name "wall#4"
-        size %{= floorSize.x + 2 * wallThickness }% %{= wallHeight }% %{= wallThickness }%
+        size %{= floorSize.x + 2 * wallThickness }% %{= wallThickness }% %{= wallHeight }%
         appearance IS wallAppearance
         contactMaterial IS contactMaterial
       }

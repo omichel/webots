@@ -5,8 +5,8 @@
 # Model designed by Cyberbotics Ltd. according to the online documentation provided by Aldebaran Robotics.
 
 PROTO Nao [
-  field SFVec3f                      translation           0 0.334 0             # Is `Transform.translation`.
-  field SFRotation                   rotation              1 0 0 -1.5708         # Is `Transform.rotation`.
+  field SFVec3f                      translation           0 0 0.334             # Is `Transform.translation`.
+  field SFRotation                   rotation              0 0 1 0               # Is `Transform.rotation`.
   field SFString                     name                  "NAO"                 # Is `Solid.name`.
   field SFString{"3.3","4.0", "5.0"} version               "5.0"                 # Defines the Nao version; either "3.3","4.0" or "5.0".
   field SFInt32{21, 25}              degreeOfFreedom       25                    # Defines the number of degrees of freedom; either "21" (fixed fingers) or "25" (articulated fingers).

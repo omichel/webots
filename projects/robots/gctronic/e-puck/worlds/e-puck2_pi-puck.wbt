@@ -6,8 +6,8 @@ WorldInfo {
   title "e-puck simulation"
 }
 Viewpoint {
-  orientation 0.05086044091991352 0.9212822298940568 0.38555449476159137 3.3874501235150176
-  position -0.03698844537847237 0.21582913684047525 -0.16646690980822218
+  orientation -0.445281907264804 0.338881194506871 0.828784386358849 4.793030783715905
+  position -0.166466909808222 -0.036988445378472 0.215829136840475
   follow "e-puck2"
 }
 TexturedBackground {
@@ -18,36 +18,36 @@ RectangleArena {
   floorSize 2 2
 }
 WoodenBox {
-  translation -0.2 0.05 0.683174
-  rotation 0 1 0 0.5
+  translation 0.683174 -0.2 0.05
+  rotation 0 0 1 0.5
   size 0.1 0.1 0.1
 }
 WoodenBox {
-  translation -0.75 0.05 -0.35
-  rotation 0 1 0 4.96782
+  translation -0.35 -0.75 0.05
+  rotation 0 0 1 4.96782
   name "wooden box(1)"
   size 0.1 0.1 0.1
 }
 WoodenBox {
-  translation 0.5 0.05 0.35471
-  rotation 0 1 0 5.36782
+  translation 0.35471 0.5 0.05
+  rotation 0 0 1 5.36782
   name "wooden box(2)"
   size 0.1 0.1 0.1
 }
 WoodenBox {
-  translation -0.3 0.05 -0.36
-  rotation 0 1 0 5.36782
+  translation -0.36 -0.3 0.05
+  rotation 0 0 1 5.36782
   name "wooden box(3)"
   size 0.1 0.1 0.1
 }
 WoodenBox {
-  translation -0.65 0.05 0.66
-  rotation 0 1 0 5.36782
+  translation 0.66 -0.65 0.05
+  rotation 0 0 1 5.36782
   name "wooden box(4)"
   size 0.1 0.1 0.1
 }
 E-puck {
-  rotation 0 1 0 1.57
+  rotation 0 0 1 4.711592653589793
   name "e-puck2"
   controller "e-puck"
   version "2"

@@ -3,8 +3,8 @@ WorldInfo {
   basicTimeStep 16
 }
 Viewpoint {
-  orientation -0.6857303305232934 0.6744298306911318 0.2737121065542153 1.0463
-  position 1.5812 2.051 1.6038
+  orientation 0.173897756564092 0.389171138620979 0.90460234088047 2.388796804154396
+  position 1.6038 1.5812 2.051
 }
 TexturedBackground {
 }
@@ -15,21 +15,21 @@ RectangleArena {
   wallHeight 0.05
 }
 WoodenBox {
-  translation -0.2 0.05 0.15418
-  rotation 0 -1 0 0.3468
+  translation 0.15418 -0.2 0.05
+  rotation 0 0 -1 0.3468
   size 0.1 0.1 0.1
   mass 0.2
 }
 WoodenBox {
-  translation -0.2923 0.05 -0.3406
-  rotation 0 -1 0 0.3468
+  translation -0.3406 -0.2923 0.05
+  rotation 0 0 -1 0.3468
   name "wooden box(1)"
   size 0.1 0.1 0.1
   mass 0.2
 }
 WoodenBox {
-  translation 0.2296 0.05 -0.2316
-  rotation 0 -1 0 0.34688418883387256
+  translation -0.2316 0.2296 0.05
+  rotation 0 0 -1 0.346884188833873
   name "wooden box(2)"
   size 0.1 0.1 0.1
   mass 0.2

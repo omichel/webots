@@ -24,8 +24,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.37951271586001384 -0.9172517218104208 -0.12091061713668885 5.719550406102355
-  position 3.586979233245826 2.512310849351606 6.8670595512583645
+  orientation -0.3034948960896914 -0.6261050067343724 -0.7182502130801347 3.794540814211575
+  position 3.5236483972103136 2.0482870376416957 1.3402550048724946
 }
 Background {
   backUrl [
@@ -48,123 +48,126 @@ Background {
   ]
 }
 CeilingLight {
-  translation 0.2 2 1.25
+  translation 1.25 0.2 2
   pointLightIntensity 2
 }
 NaoRoom {
 }
 DEF LANDMARK VisualArmature {
-  translation -0.25 0.255 0.08
-  rotation 0 1 0 1.5708
+  translation 0.08 -0.25 0.255
+  rotation 0 0.707106781185355 0.707106781185355 3.1415927
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark1.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation 0.21 0.405 -0.995
+  translation -0.995 0.21 0.405
+  rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 2.0944
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark2.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation 1 0.45 -0.81
-  rotation 0 1 0 -1.5708
+  translation -0.81 1 0.45
+  rotation 1 0 0 1.5708
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark3.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation 1 0.35 0.08
-  rotation 0 1 0 -1.5708
+  translation 0.08 1 0.35
+  rotation 1 0 0 1.5708
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark4.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation 1 0.45 0.52
-  rotation 0 1 0 -1.5708
+  translation 0.52 1 0.45
+  rotation 1 0 0 1.5708
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark5.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation 0.6 0.45 1.6
-  rotation 0 1 0 -2.3562
+  translation 1.6 0.6 0.45
+  rotation 0.862854491765279 -0.357408817770689 -0.357408817770689 1.71777348670653
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark6.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation -0.45 0.45 2
-  rotation 0 1 0 -3.14159
+  translation 2 -0.45 0.45
+  rotation 0.577351290556813 -0.577349758505354 -0.577349758505354 2.094393570343092
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark7.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation -0.99 0.45 1.5
-  rotation 0 1 0 1.5708
+  translation 1.5 -0.99 0.45
+  rotation 0 0.707106781185355 0.707106781185355 3.1415927
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark8.png"
   ]
 }
 DEF LANDMARK VisualArmature {
-  translation -0.1 0.255 1
+  translation 1 -0.1 0.255
+  rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 2.0944
   dimension 0.09 0.09 0.001
   textureUrl [
     "landmarks/landmark9.png"
   ]
 }
 DEF PAINTING_BIG VisualArmature {
-  translation -0.6 1.3 1
+  translation 1 -0.6 1.3
+  rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 2.0944
   dimension 0.6 0.4 0.02
   textureUrl [
     "textures/nao_poster_5.jpg"
   ]
 }
 DEF PAINTING_TOP VisualArmature {
-  translation -0.25 1.3 -0.4
-  rotation 0 1 0 1.5708
+  translation -0.4 -0.25 1.3
+  rotation 0 0.707106781185355 0.707106781185355 3.1415927
   dimension 0.6 0.4 0.02
   textureUrl [
     "textures/nao_poster_1.jpg"
   ]
 }
 DEF PAINTING_MIDDLE VisualArmature {
-  translation -0.25 1.3 0.4
-  rotation 0 1 0 1.5708
+  translation 0.4 -0.25 1.3
+  rotation 0 0.707106781185355 0.707106781185355 3.1415927
   dimension 0.6 0.4 0.02
   textureUrl [
     "textures/nao_poster_3.jpg"
   ]
 }
 DEF PAINTING_VERTICAL VisualArmature {
-  translation 1 1.2 0.7
-  rotation 0 1 0 -1.5708
+  translation 0.7 1 1.2
+  rotation 1 0 0 1.5708
   dimension 0.675 0.9 0.02
   textureUrl [
     "textures/nao_poster_2.jpg"
   ]
 }
 DEF CALENDAR VisualArmature {
-  translation -0.25 0.45 0.08
-  rotation 0 1 0 1.5708
+  translation 0.08 -0.25 0.45
+  rotation 0 0.707106781185355 0.707106781185355 3.1415927
   dimension 0.3 0.3 0.01
   textureUrl [
     "textures/calendar.jpg"
   ]
 }
 DEF TABLE SolidBox {
-  translation -0.1 0.15 0.75
-  size 0.3 0.3 0.5
+  translation 0.75 -0.1 0.15
+  size 0.5 0.3 0.3
   appearance PBRAppearance {
     baseColor 0.8 0.8 0.8
     roughness 0.5
@@ -172,65 +175,67 @@ DEF TABLE SolidBox {
   }
 }
 Key {
-  translation 0.21 0.5 -0.935
-  rotation 1 0 0 1.5708
+  translation -0.935 0.21 0.5
+  rotation 0.707106781185355 0.707106781185355 0 3.1415927
   contactMaterial "key"
 }
 KeyHole {
-  translation 0.21 0.5 -0.985
+  translation -0.985 0.21 0.5
+  rotation 0 1 0 1.5707996938995747
   contactMaterial "keyhole"
 }
 KeyPot {
-  translation -0.1 0.3 0.925
+  translation 0.925 -0.1 0.3
+  rotation 1 0 0 1.5708
 }
 Tray {
-  translation 0.95 0 0.08
+  translation 0.08 0.95 0
+  rotation -0.57735126918836 -0.57735126918836 -0.5773482691869614 -2.0944
 }
 Distributor {
-  translation 0.95 0.55 0.08
-  rotation 0 1 0 -1.5708
+  translation 0.08 0.95 0.55
+  rotation 1 0 0 1.5708
 }
 Book {
-  translation -0.17 0.4 0.61
-  rotation 0 1 0 3.1415
+  translation 0.61 -0.17 0.4
+  rotation 0 0 1 3.1415927
   name "book(1)"
 }
 Book {
-  translation -0.17 0.4 0.63
-  rotation 0 1 0 3.1415
+  translation 0.63 -0.17 0.4
+  rotation 0 0 1 3.1415927
   name "book(2)"
 }
 Book {
-  translation -0.17 0.4 0.65
-  rotation 0 1 0 3.1415
+  translation 0.65 -0.17 0.4
+  rotation 0 0 1 3.1415927
   name "book(3)"
 }
 Book {
-  translation -0.17 0.4 0.67
-  rotation 0 1 0 3.1415
+  translation 0.67 -0.17 0.4
+  rotation 0 0 1 3.1415927
   name "book(4)"
 }
 Book {
-  translation -0.17 0.4 0.69
-  rotation 0 1 0 3.1415
+  translation 0.69 -0.17 0.4
+  rotation 0 0 1 3.1415927
   name "book(5)"
 }
 Book {
-  translation -0.17 0.4 0.71
-  rotation 0 1 0 3.1415
+  translation 0.71 -0.17 0.4
+  rotation 0 0 1 3.1415927
 }
 BunchOfSunFlowers {
-  translation 0.799875 1.94289e-16 -0.44332
-  rotation 0 -1 0 3.07714
+  translation -0.44332 0.799875 0
   name "bunch of sunflowers(1)"
 }
 BunchOfSunFlowers {
-  translation 0.0294025 -5.77316e-15 1.84614
-  rotation 0 1 0 1.88257
+  translation 1.84614 0.0294025 0
+  rotation 0 0 1 0.734
 }
 Nao {
-  translation -0.390563 0.34 1.80222
-  rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  translation 1.80222 -0.390563 0.34
+  rotation 0 0 1 3.1415927
   controller "void"
   cameraWidth 320
   cameraHeight 240

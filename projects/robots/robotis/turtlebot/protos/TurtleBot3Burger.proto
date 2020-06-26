@@ -6,7 +6,7 @@
 
 PROTO TurtleBot3Burger [
   field SFVec3f    translation     0 0 0                 # Is `Transform.translation`.
-  field SFRotation rotation        0 1 0 0               # Is `Transform.rotation`.
+  field SFRotation rotation        0 0 1 0               # Is `Transform.rotation`.
   field SFString   name            "TurtleBot3Burger"    # Is `Solid.name`.
   field SFString   controller      "void"                # Is `Robot.controller`.
   field MFString   controllerArgs  []                    # Is `Robot.controllerArgs`.
@@ -27,13 +27,14 @@ PROTO TurtleBot3Burger [
     synchronization IS synchronization
     children [
       Transform {
-        translation 0 0.153 0.03
+        rotation 0.5773503 -0.5773503 -0.5773503 2.0943951
+        translation -0.03 0 0.153
         children IS extensionSlot
       }
       DEF RIGHT_JOINT HingeJoint {
         jointParameters HingeJointParameters {
-          axis -1 0 0
-          anchor 0.08 0.033 0
+          axis 0 1 0
+          anchor 0 -0.08 0.033
         }
         device [
           RotationalMotor {
@@ -47,8 +48,7 @@ PROTO TurtleBot3Burger [
           }
         ]
         endPoint Solid {
-          translation 0.08 0.033 0
-          rotation 0 0 1 1.5708
+          translation 0 -0.08 0.03299
           children [
             DEF RIGHT_WHEEL Transform {
               rotation 1 0 0 -1.5708003061004252
@@ -155,8 +155,8 @@ PROTO TurtleBot3Burger [
       }
       DEF LEFT_JOINT HingeJoint {
         jointParameters HingeJointParameters {
-          axis -1 0 0
-          anchor -0.08 0.033 0
+          axis 0 1 0
+          anchor 0 0.08 0.033
         }
         device [
           RotationalMotor {
@@ -170,8 +170,8 @@ PROTO TurtleBot3Burger [
           }
         ]
         endPoint Solid {
-          translation -0.08 0.033 0
-          rotation 0.7071072811864784 0.7071062811860807 0 -3.1415853071795863
+          translation 0 0.08 0.03299
+          rotation 0 0 1 3.1415853071795863
           children [
             DEF RIGHT_WHEEL Transform {
               rotation 1 0 0 -1.5708003061004252
@@ -196,10 +196,10 @@ PROTO TurtleBot3Burger [
       }
       DEF CASTER_JOINT BallJoint {
         jointParameters BallJointParameters {
-          anchor 0 0.004 0.081
+          anchor -0.081 0 0.004
         }
         endPoint Solid {
-          translation 0 0.004 0.081
+          translation -0.081 0 0.004
           children [
             Shape {
               appearance PBRAppearance {
@@ -216,8 +216,7 @@ PROTO TurtleBot3Burger [
         }
       }
       DEF BODY Transform {
-        translation 0 0.01 0
-        rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
+        translation 0.000 0.000 0.010
         children [
           DEF LEFT_MOTOR Shape {
             appearance DEF MOTOR_APPEARANCE PBRAppearance {
@@ -485,22 +484,19 @@ PROTO TurtleBot3Burger [
         ]
       }
       Accelerometer {
-        translation 0 0.078 0.032
-        rotation -0.5773489358556708 0.5773509358554485 0.5773509358554485 2.0944
+        translation -0.032 0 0.078
       }
       Gyro {
-        translation 0 0.078 0.032
-        rotation -0.5773489358556708 0.5773509358554485 0.5773509358554485 2.0944
+        translation -0.032 0 0.078
       }
       Compass {
-        translation 0 0.078 0.032
-        rotation -0.5773489358556708 0.5773509358554485 0.5773509358554485 2.0944
+        translation -0.032 0 0.078
       }
     ]
     boundingObject Group {
       children [
         Transform {
-          translation 0 0.08 0.032
+          translation -0.032 0 0.08
           children [
             Box {
               size 0.097 0.1425 0.137
@@ -508,7 +504,7 @@ PROTO TurtleBot3Burger [
           ]
         }
         Transform {
-          translation 0 0.08 0.032
+          translation -0.032 0 0.08
           children [
             Box {
               size 0.135 0.143 0.095
@@ -521,7 +517,7 @@ PROTO TurtleBot3Burger [
       density -1
       mass 0.825735
       centerOfMass [
-        0 0.03 0.035
+        -0.035 0 0.03
       ]
     }
   }

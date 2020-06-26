@@ -17,7 +17,7 @@ RectangleArena {
   floorSize 2 2
 }
 DEF FOOT1 Solid {
-  translation 0.3597 0.02 0.354142
+  translation 0.354142 0.3597 0.02
   children [
     Shape {
       appearance PBRAppearance {
@@ -30,14 +30,14 @@ DEF FOOT1 Solid {
         metalness 0
       }
       geometry DEF short_brick_1_geometry Box {
-        size 0.1 0.04 0.1
+        size 0.1 0.1 0.04
       }
     }
   ]
   boundingObject USE short_brick_1_geometry
 }
 DEF FOOT2 Solid {
-  translation 0.3597 0.02 -0.535858
+  translation -0.535858 0.3597 0.02
   children [
     Shape {
       appearance PBRAppearance {
@@ -56,8 +56,8 @@ DEF FOOT2 Solid {
   boundingObject USE short_brick_1_geometry
 }
 DEF RAMP Solid {
-  translation -0.0883566 0.02 -0.0926487
-  rotation 0 0 1 0.05
+  translation -0.0926487 -0.0883566 0.02
+  rotation 1 0 0 0.05
   children [
     Shape {
       appearance PBRAppearance {
@@ -70,7 +70,7 @@ DEF RAMP Solid {
         metalness 0
       }
       geometry DEF short_brick_1_geometry Box {
-        size 1 0.01 1
+        size 1 1 0.01
       }
     }
   ]
@@ -78,7 +78,7 @@ DEF RAMP Solid {
   boundingObject USE short_brick_1_geometry
 }
 E-puck {
-  translation -0.00863959 0.0288237 0.0300262
-  rotation 0 1 0 1.6
+  translation 0.0300262 -0.00863959 0.0288237
+  rotation 0 0 1 1.6
   controller "e-puck_cross-compilation"
 }

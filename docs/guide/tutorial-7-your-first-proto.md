@@ -64,7 +64,7 @@ This should be done in the PROTO interface part (part between the `[` and the `]
 > **Hands-on #4**: Edit your PROTO file in your text editor and add the definition of the `translation`, `rotation` and `bodyMass` field in the PROTO interface part:
 ```
   field SFVec3f    translation  0 0 0
-  field SFRotation rotation     0 1 0 0
+  field SFRotation rotation     0 0 1 0
   field SFFloat    bodyMass     1
 ```
 Your PROTO node has now two open fields but they are not linked to any internal field.
@@ -82,7 +82,7 @@ Save your PROTO file, it should now look like this:
 ```
 PROTO FourWheelsRobot [
   field SFVec3f    translation  0 0 0
-  field SFRotation rotation     0 1 0 0
+  field SFRotation rotation     0 0 1 0
   field SFFloat    bodyMass     1
 ]
 {
