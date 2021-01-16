@@ -16,6 +16,7 @@
 # limitations under the License.
 
 import fnmatch
+import io
 import os
 import re
 import sys
@@ -100,7 +101,7 @@ for proto in prioritaryProtoList + fileList:
     fieldEnumeration = {}
     skipProto = False
     # parse the PROTO file
-    with open(proto, 'r') as file:
+    with io.open(proto, 'r', newline='') as file:
         content = file.read()
         # header
         matches = re.finditer(r'^#.*\n', content, re.MULTILINE)
@@ -190,7 +191,7 @@ for proto in prioritaryProtoList + fileList:
     # use the cache file to get the baseType
     cacheFile = proto.replace(os.path.basename(proto), '.' + os.path.basename(proto)).replace('.proto', '.cache')
     if os.path.isfile(cacheFile):
-        with open(cacheFile, 'r') as file:
+        with io.open(cacheFile, 'r', newline='') as file:
             for line in file.readlines():
                 match = re.match(r'baseType:\s*([a-zA-Z]*)', line)
                 if match:

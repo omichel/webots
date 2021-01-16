@@ -7,6 +7,7 @@
 #
 # Supported values for the `texture` field:
 #
+# - cinema_lobby
 # - dusk
 # - empty_office
 # - entrance_hall
@@ -22,6 +23,9 @@
 #
 # - dawn_cloudy_empty
 # - morning_cloudy_empty
+# - music_hall
+# - noon_building_overcast
+# - noon_cloudy_countryside
 # - noon_cloudy_empty
 # - noon_cloudy_mountains
 # - noon_stormy_empty
@@ -30,7 +34,10 @@
 # - twilight_cloudy_empty
 
 PROTO TexturedBackground [
-  field SFString{"dawn_cloudy_empty", "dusk", "empty_office", "entrance_hall", "factory", "mars", "morning_cloudy_empty", "mountains", "noon_building_overcast", "noon_cloudy_countryside", "noon_cloudy_empty", "noon_cloudy_mountains", "noon_park_empty", "noon_stormy_empty", "noon_sunny_empty", "noon_sunny_garden", "stadium", "twilight_cloudy_empty"}
+  field SFString{"cinema_lobby", "dawn_cloudy_empty", "dusk", "empty_office", "entrance_hall", "factory", "mars",
+                  "morning_cloudy_empty", "mountains", "music_hall", "noon_building_overcast", "noon_cloudy_countryside",
+                  "noon_cloudy_empty", "noon_cloudy_mountains", "noon_park_empty", "noon_stormy_empty", "noon_sunny_empty",
+                  "noon_sunny_garden", "stadium", "twilight_cloudy_empty"}
                  texture      "mountains"  # Defines the texture of the background.
   field SFFloat  luminosity   1            # Is `Background.luminosity`.
   field SFBool   skybox       TRUE         # Specifies if the `texture` field is used to define the skybox shown in the scene background.
@@ -40,6 +47,7 @@ PROTO TexturedBackground [
 {
   %{
     local hdrBackgrounds = {
+      "cinema_lobby",
       "dusk",
       "empty_office",
       "entrance_hall",

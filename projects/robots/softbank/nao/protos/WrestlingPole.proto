@@ -1,0 +1,52 @@
+#VRML_SIM R2020a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# A wrestling ring pole for the NAO robots
+
+PROTO WrestlingPole [
+  field SFVec3f translation 0 0.745 0
+  field SFRotation rotation 0 1 0 0
+  field SFString name "wrestling pole"
+]
+{
+  Solid {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    children [
+      DEF BASE Transform {
+        translation 0 -0.22 0
+        children [
+          Shape {
+            appearance PaintedWood {
+              colorOverride 0.427 0.212 0
+            }
+            geometry Box {
+              size 0.06 0.05 0.06
+            }
+          }
+        ]
+      }
+      DEF STICK Shape {
+        appearance PaintedWood {
+          colorOverride 0.667 0.333 0
+        }
+        geometry Capsule {
+          bottom FALSE
+          height 0.4
+          radius 0.012
+        }
+      }
+    ]
+    physics Physics {
+      mass 0.2
+      density -1
+    }
+    boundingObject Group {
+      children [
+        USE BASE
+        USE STICK
+      ]
+    }
+  }
+}

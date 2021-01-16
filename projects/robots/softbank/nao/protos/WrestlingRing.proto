@@ -1,0 +1,132 @@
+#VRML_SIM R2020a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# A wrestling ring for the NAO robots
+
+PROTO WrestlingRing [
+  field SFVec3f translation 0 0.25 0
+  field SFRotation rotation 0 1 0 0
+  field SFString name "wrestling ring"
+]
+{
+  Solid {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    children [
+      Shape {
+        appearance ScuffedPlastic {
+          colorOverride 0.95 0.9 0.8
+        }
+        geometry IndexedFaceSet {
+          coord Coordinate {
+            point [
+              0.96 0.251 0.96
+              -0.96 0.251 0.96
+              -0.96 0.251 -0.96
+              0.96 0.251 -0.96
+            ]
+          }
+          texCoord TextureCoordinate {
+            point [
+              0.25 0.25
+              0 0.25
+              0 0
+              0.25 0
+            ]
+          }
+          coordIndex [
+            3, 2, 1, 0, -1
+          ]
+          texCoordIndex [
+            3, 2, 1, 0, -1
+          ]
+        }
+      }
+      Shape {
+        appearance ScuffedPlastic {
+          colorOverride 0.95 0.2 0.05
+        }
+        geometry IndexedFaceSet {
+          coord Coordinate {
+            point [
+              0.96 0.251 0.96
+              -0.96 0.251 0.96
+              -0.96 0.251 -0.96
+              0.96 0.251 -0.96
+              1 0.251 1
+              -1 0.251 1
+              -1 0.251 -1
+              1 0.251 -1
+              1 0.241 1
+              -1 0.241 1
+              -1 0.241 -1
+              1 0.241 -1
+            ]
+          }
+          coordIndex [
+            0 1 5 4 -1
+            1 2 6 5 -1
+            2 3 7 6 -1
+            3 0 4 7 -1
+            4 5 9 8 -1
+            5 6 10 9 -1
+            6 7 11 10 -1
+            7 4 8 11 -1
+          ]
+        }
+      }
+
+
+      Shape {
+        appearance WornBurlap {
+          colorOverride 0.05 0.2 0.1
+        }
+        geometry IndexedFaceSet {
+          coord Coordinate {
+            point [
+              1 -0.25 1
+              -1 -0.25 1
+              -1 -0.25 -1
+              1 -0.25 -1
+              1 0.241 1
+              -1 0.241 1
+              -1 0.241 -1
+              1 0.241 -1
+            ]
+          }
+          texCoord TextureCoordinate {
+            point [
+              0.5 0.5
+              0 0.5
+              0 0
+              0.5 0
+              0.5 0.125
+              0 0.125
+              0 0
+              0.5 0
+              0.125 0.5
+              0 0.5
+              0 0
+              0.125 0
+            ]
+          }
+          coordIndex [
+            4, 5, 1, 0, -1
+            6, 7, 3, 2, -1,
+            0, 3, 7, 4, -1
+            1, 5, 6, 2, -1
+          ]
+          texCoordIndex [
+            4, 5, 6, 7, -1
+            4, 5, 6, 7, -1, 9, 10, 11, 8, -1
+            8, 9, 10, 11, -1
+          ]
+        }
+      }
+    ]
+    boundingObject Box {
+      size 2 0.5 2
+    }
+  }
+}

@@ -6,6 +6,7 @@
 #
 # Supported values for the `texture` field:
 #
+# - cinema_lobby
 # - dusk
 # - empty_office
 # - entrance_hall
@@ -21,6 +22,9 @@
 #
 # - dawn_cloudy_empty
 # - morning_cloudy_empty
+# - music_hall
+# - noon_building_overcast
+# - noon_cloudy_countryside
 # - noon_cloudy_empty
 # - noon_cloudy_mountains
 # - noon_stormy_empty
@@ -29,7 +33,10 @@
 # - twilight_cloudy_empty
 
 PROTO TexturedBackgroundLight [
-  field SFString{"dawn_cloudy_empty", "dusk", "empty_office", "entrance_hall", "factory", "mars", "morning_cloudy_empty", "mountains", "noon_building_overcast", "noon_cloudy_countryside", "noon_cloudy_empty", "noon_cloudy_mountains", "noon_park_empty", "noon_stormy_empty", "noon_sunny_empty", "noon_sunny_garden", "stadium", "twilight_cloudy_empty"}
+  field SFString{"cinema_lobby", "dawn_cloudy_empty", "dusk", "empty_office", "entrance_hall", "factory", "mars",
+                 "morning_cloudy_empty", "mountains", "music_hall", "noon_building_overcast", "noon_cloudy_countryside",
+                 "noon_cloudy_empty", "noon_cloudy_mountains", "noon_park_empty", "noon_stormy_empty", "noon_sunny_empty",
+                 "noon_sunny_garden", "stadium", "twilight_cloudy_empty"}
                  texture        "mountains"  # Should be equivalent to the 'texture' field of the TexturedBackground.
   field SFFloat  luminosity     1            # Multiplies the `Light.intensity` field.
   field SFBool   castShadows    TRUE         # Defines whether the light should cast shadows.
@@ -58,7 +65,8 @@ PROTO TexturedBackgroundLight [
       direction = {1, -0.8, -0.1}
       color = {1.0, 0.75, 0.5}
       intensity = 0.9
-    elseif fields.texture.value == "noon_building_overcast" or fields.texture.value == "factory" or fields.texture.value == "entrance_hall" then
+    elseif fields.texture.value == "noon_building_overcast" or fields.texture.value == "factory"
+        or fields.texture.value == "cinema_lobby" or fields.texture.value == "entrance_hall" then
       on = false
     elseif fields.texture.value == "noon_cloudy_countryside" then
       direction = {-0.3, -1, -0.1}
@@ -99,8 +107,12 @@ PROTO TexturedBackgroundLight [
     elseif fields.texture.value == "mountains" then
       direction = {-0.6, -1, 0.55}
       intensity = 2.7
+    elseif fields.texture.value == "music_hall" then
+      color = {0.9, 0.9, 1.0}
+      intensity = 0.5
+      direction = {-0.35, -0.45, -0.1}
     else
-      io.stderr:write("Unknown texture identifier\n")
+      io.stderr:write("Unknown texture identifier: " .. fields.texture.value .. "\n")
     end
     if context.coordinate_system == "ENU" then
       direction = {direction[3], direction[1], direction[2]}

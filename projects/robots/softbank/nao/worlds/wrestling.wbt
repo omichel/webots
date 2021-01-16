@@ -1,0 +1,106 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  basicTimeStep 20
+}
+Viewpoint {
+  orientation 0.3976 -0.9028 -0.1636 5.4664
+  position 2.4408 1.6732 2.6491
+  ambientOcclusionRadius 0.2
+  bloomThreshold 5
+}
+TexturedBackground {
+  texture "music_hall"
+}
+TexturedBackgroundLight {
+  texture "music_hall"
+}
+Floor {
+  size 6 6
+  tileSize 1 1
+  appearance Parquetry {
+  }
+}
+WrestlingRing {
+}
+StraightStairs {
+  translation -1.58 0 0
+  name "straight stairs red"
+  stepSize 0.13 0.03 0.4
+  stepRise 0.0835
+  stringerWidth 0.03
+  stepAppearance VarnishedPine {
+    colorOverride 0.4784 0.4 0.3412
+    textureTransform TextureTransform {
+      scale 4 4
+    }
+  }
+  stringerAppearance VarnishedPine {
+    colorOverride 0.4784 0.4 0.3412
+    textureTransform TextureTransform {
+      scale 4 4
+    }
+  }
+  leftRail []
+  rightRail []
+}
+StraightStairs {
+  translation 1.58 0 0
+  rotation 0 1 0 3.1416
+  name "straight stairs blue"
+  stepSize 0.13 0.03 0.4
+  stepRise 0.0835
+  stringerWidth 0.03
+  stepAppearance VarnishedPine {
+    colorOverride 0.4784 0.4 0.3412
+    textureTransform TextureTransform {
+      scale 4 4
+    }
+  }
+  stringerAppearance VarnishedPine {
+    colorOverride 0.4784 0.4 0.3412
+    textureTransform TextureTransform {
+      scale 4 4
+    }
+  }
+  leftRail []
+  rightRail []
+}
+WrestlingPole {
+  translation 0.96 0.745 0.96
+  name "pole 1"
+}
+WrestlingPole {
+  translation -0.96 0.745 0.96
+  name "pole 2"
+}
+WrestlingPole {
+  translation 0.96 0.745 -0.96
+  name "pole 3"
+}
+WrestlingPole {
+  translation -0.96 0.745 -0.96
+  name "pole 4"
+}
+RubberDuck {
+  translation 0 0.525 0.935
+  rotation 0 1 0 3.1416
+  name "rubber duck 1"
+}
+RubberDuck {
+  translation 0 0.525 -0.935
+  name "rubber duck 2"
+}
+DEF WRESTLER_RED Nao {
+  translation -0.88 0.834 0
+  name "wreslter red"
+  controller "wrestler_red"
+}
+DEF WRESTLER_BLUE Nao {
+  translation 0.88 0.834 0
+  rotation 0 0.7071 0.7071 -3.1416
+  name "wrestler blue"
+  color 0 0.3333 1
+  controller "wrestler_blue"
+}
+WrestlingReferee {
+}

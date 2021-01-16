@@ -1,0 +1,43 @@
+#VRML_SIM R2020a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# A worn scuffed plastic material. The color can be selected using the `colorOverride` field.
+
+PROTO ScuffedPlastic [
+  field SFColor colorOverride    1 1 1                           # Defines the plastic's color.
+  field SFNode  textureTransform TextureTransform { scale 4 4 }  # Defines an optional 2d texture transform.
+  field SFFloat IBLStrength      1                               # Defines the strength of ambient lighting from the Cubemap node.
+]
+{
+  PBRAppearance {
+    baseColor IS colorOverride
+    baseColorMap ImageTexture {
+      url [
+        "textures/scuffed_plastic/scuffed_plastic_base_color.jpg"
+      ]
+      filtering 5
+    }
+    roughnessMap ImageTexture {
+      url [
+        "textures/scuffed_plastic/scuffed_plastic_roughness.jpg"
+      ]
+      filtering 5
+    }
+    normalMap ImageTexture {
+      url [
+        "textures/scuffed_plastic/scuffed_plastic_normal.jpg"
+      ]
+      filtering 5
+    }
+    occlusionMap ImageTexture {
+      url [
+        "textures/scuffed_plastic/scuffed_plastic_occlusion.jpg"
+      ]
+      filtering 5
+    }
+    metalness 0
+    normalMapFactor 1
+    IBLStrength IS IBLStrength
+    textureTransform IS textureTransform
+  }
+}
