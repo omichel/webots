@@ -280,6 +280,7 @@ static void handleMessage(WbRequest *r, WbDeviceTag tag, WbNodeType type) {
     case WB_NODE_DISTANCE_SENSOR:
     case WB_NODE_GPS:
     case WB_NODE_GYRO:
+    case WB_NODE_LIDAR:
     case WB_NODE_LIGHT_SENSOR:
     case WB_NODE_MICROPHONE:
     case WB_NODE_POSITION_SENSOR:
@@ -291,6 +292,22 @@ static void handleMessage(WbRequest *r, WbDeviceTag tag, WbNodeType type) {
       else {
         // devices that have C_SET_SAMPLING_PERIOD and also other command
         switch (type) {
+          case WB_NODE_LIDAR:
+            switch (c){
+            case C_LIDAR_ENABLE_POINT_CLOUD:
+              //What should I do here?
+              break;
+            case C_LIDAR_SET_FREQUENCY:
+              CALL_INTERFACE_FUNCTION(wbr_lidar_set_frequency, tag, request_read_double(r));
+              break;
+            case C_CAMERA_GET_IMAGE:
+              wb_abstract_camera_update_timestamp(robot_get_device_with_node(tag, WB_NODE_LIDAR, true));
+              break;
+            default:
+              REQUEST_ASSERT(0, tag, type, c);
+              break;
+            }
+            break;
           case WB_NODE_CAMERA:
             switch (c) {
               case C_CAMERA_SET_FOV:

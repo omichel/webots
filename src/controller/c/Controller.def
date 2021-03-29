@@ -430,6 +430,8 @@ wbr_display_save_image
 wbr_distance_sensor_set_value
 wbr_gps_set_values
 wbr_gyro_set_values
+wbr_lidar_set_image
+wbr_lidar_set_frequency
 wbr_light_sensor_set_value
 wbr_microphone_set_buffer
 wbr_motor_set_force_feedback

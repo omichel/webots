@@ -190,6 +190,16 @@ int wb_lidar_get_unique_id(WbDevice *d) {
   return ac->unique_id;
 }
 
+
+void wbr_lidar_set_image(WbDeviceTag t, const float *image) {
+  WbDevice *d = lidar_get_device(t);
+  if (d)
+    wbr_abstract_camera_set_image(d, (const unsigned char *)image);
+  else
+    fprintf(stderr, "Error: %s(): invalid device tag.\n", __FUNCTION__);
+}
+
+/*
 void wbr_lidar_set_image(WbDeviceTag t, const unsigned char *image) {
   WbDevice *d = lidar_get_device(t);
   if (d)
@@ -197,6 +207,7 @@ void wbr_lidar_set_image(WbDeviceTag t, const unsigned char *image) {
   else
     fprintf(stderr, "Error: %s(): invalid device tag.\n", __FUNCTION__);
 }
+*/
 
 unsigned char *wbr_lidar_get_image_buffer(WbDeviceTag t) {
   WbDevice *d = lidar_get_device(t);

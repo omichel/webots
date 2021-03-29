@@ -60,6 +60,7 @@ void wbr_display_save_image(WbDeviceTag tag, int id, int width, int height, unsi
 void wbr_camera_set_image(WbDeviceTag tag, const unsigned char *image);
 unsigned char *wbr_camera_get_image_buffer(WbDeviceTag tag);
 
+void wbr_lidar_set_image(WbDeviceTag tag, const float *image);
 // Actuator functions (values written by the controller)
 typedef struct WbrInterface {
   // mandatory functions :
@@ -117,6 +118,8 @@ typedef struct WbrInterface {
   void (*wbr_display_image_delete)(WbDeviceTag tag, int id);
   void (*wbr_display_image_paste)(WbDeviceTag tag, int id, int x, int y);
   void (*wbr_display_image_save)(WbDeviceTag tag, int id);
+
+  void (*wbr_lidar_set_frequency)(WbDeviceTag tag, double frequency);
 
 } WbrInterface;
 
