@@ -5,19 +5,20 @@ WorldInfo {
   ]
   title "Inertial Unit"
   basicTimeStep 16
-  coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.2954309947130792 -0.9526699829513802 -0.07169679871694135 5.71352
-  position 0.72117 0.477662 1.14814
+  orientation 0.8139619244858666 0.3110328060963245 0.49063691159462386 1.323395155887867
+  position 1.2614701227291492 -1.5977252322374795 1.0377544723189254
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  rotation 1 0 0 1.5707963267948966
 }
 DEF ROBOT Robot {
+  rotation 1 0 0 1.5707963267948966
   children [
     DEF YAW_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
@@ -32,19 +33,19 @@ DEF ROBOT Robot {
         children [
           DEF PITCH_HINGE_JOINT HingeJoint {
             jointParameters HingeJointParameters {
-              axis 0 0 1
+              axis 0 0 -1
               anchor 0 0.33 0
             }
             device [
               RotationalMotor {
                 name "pitch motor"
-                minPosition -0.8
+                minPosition -2.3
                 maxPosition 1.5
               }
             ]
             endPoint Solid {
               translation 0 0.33 0
-              rotation 0 0 1 0
+              rotation 0 0 -1 5.307156870259904e-06
               children [
                 DEF ROLL_HINGE_JOINT HingeJoint {
                   jointParameters HingeJointParameters {
@@ -61,6 +62,7 @@ DEF ROBOT Robot {
                     children [
                       InertialUnit {
                         translation 0.08 0 0
+                        rotation 1 0 0 -1.5707953071795862
                         children [
                           Shape {
                             appearance PBRAppearance {

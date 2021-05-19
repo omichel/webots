@@ -1,11 +1,10 @@
 #VRML_SIM R2021b utf8
 WorldInfo {
   basicTimeStep 64
-  coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.3997983819956711 0.8905692950516011 0.21690455150811835 5.188871747341162
-  position -1.2985888613086023 0.8019966598476307 0.84451439831719
+  orientation 0.7063398661070559 -0.3455674265665903 -0.6177921553759084 1.3395789590523708
+  position -3.8262457662235203 -2.919826799527278 2.686526734609418
   follow "TurtleBot3Burger"
   followType "Pan and Tilt Shot"
 }
@@ -14,55 +13,66 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 CircleArena {
+  rotation 1 0 0 1.5707963267948966
   radius 3
   wallHeight 0.4
 }
 WoodenBox {
-  translation 0.467367 0.15 0.545426
+  translation 0.467367 -0.545426 0.15
+  rotation 1 0 0 1.5707963267948966
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation 1.26618 0.15 -1.07342
+  translation 1.26618 1.07342 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(1)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation -0.15697 0.15 -0.782967
+  translation -0.15697 0.782967 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(2)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation -1.62271 0.15 -1.08968
+  translation -1.62271 1.08968 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(3)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation -1.09887 0.15 0.301011
+  translation -1.09887 -0.301011 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(4)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation -2.71307 0.15 0.22263
+  translation -2.71307 -0.22263 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(7)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation -0.744103 0.15 -2.69736
+  translation -0.744103 2.69736 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(8)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation 2.30103 0.15 -0.203241
+  translation 2.30103 0.203241 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(9)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation 0.005323 0.15 1.57959
+  translation 0.005323 -1.57959 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(5)"
   size 0.3 0.3 0.3
 }
 WoodenBox {
-  translation -1.0974 0.15 1.8598
+  translation -1.0974 -1.8598 0.15
+  rotation 1 0 0 1.5707963267948966
   name "wooden box(6)"
   size 0.3 0.3 0.3
 }

@@ -130,7 +130,7 @@ def convert_physics(node, z_offset, initial_orientation):
 
 def convert_nodes(nodes, z_offset, initial_orientation):
     for node in nodes:
-        if 'Hinge' in node['name']:
+        if 'Joint' in node['name']:
             joint_parameters_node = get_field(node, 'jointParameters')['value']
 
             anchor = get_vector3(joint_parameters_node, name='anchor')

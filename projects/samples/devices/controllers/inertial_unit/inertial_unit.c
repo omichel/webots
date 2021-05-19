@@ -41,7 +41,7 @@ int main(int argc, const char *argv[]) {
   for (i = 0; true; i++) {
     // choose a random target
     double yaw = rand() / (double)RAND_MAX * 2.0 * M_PI - M_PI;
-    double pitch = rand() / (double)RAND_MAX * 2.3 - 0.8;
+    double pitch = - (rand() / (double)RAND_MAX * 2.3 - 0.8);
     double roll = rand() / (double)RAND_MAX * 2.0 * M_PI - M_PI;
 
     printf("new target #%d: roll/pitch/yaw=%f %f %f\n", i, roll, pitch, yaw);
