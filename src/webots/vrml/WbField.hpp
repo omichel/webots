@@ -71,6 +71,7 @@ public:
   const QList<WbField *> &internalFields() const { return mInternalFields; }
   bool isParameter() const { return mInternalFields.size() != 0; }
 
+  void setParameter(WbField *parameter) { mParameter = parameter; }
   void clearInternalFields() { mInternalFields.clear(); }
 
   void setParentNode(WbNode *node) { mParentNode = node; }
@@ -79,6 +80,8 @@ public:
   // template
   void setTemplateRegenerator(bool isRegenerator) { mIsTemplateRegenerator = isRegenerator; }
   bool isTemplateRegenerator() const { return mIsTemplateRegenerator; }
+
+  void disconnectField();
 
   // the field's name
   const QString &name() const;

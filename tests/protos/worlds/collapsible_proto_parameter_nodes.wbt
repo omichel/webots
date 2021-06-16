@@ -1,0 +1,213 @@
+#VRML_SIM R2021b utf8
+
+WorldInfo {
+  basicTimeStep 16
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.3434989325345835 -0.9106458211432591 -0.22963595489801025 5.24359
+  position 0.9040856147956129 0.6547890215621904 0.5817423862110167
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 0.13
+  location 0 0.3 0
+}
+DEF NODE_BASED Robot {
+  translation 0 0 0.2
+  controller "collapsible_proto_parameter_nodes"
+  name "non_proto"
+  children [
+    Emitter {
+      name "emitter"
+      channel 1
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+      }
+      device [
+        RotationalMotor {
+          name "motor0"
+        }
+        PositionSensor {
+          name "sensor0"
+        }
+      ]
+      endPoint Solid {
+        name "layer 1"
+        rotation 0 0 1 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+            }
+            geometry DEF BOX Box {
+              size 0.1 0.1 0.1
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              anchor 0 0.1 0
+            }
+            device [
+              RotationalMotor {
+                name "motor1"
+              }
+              PositionSensor {
+                name "sensor1"
+              }
+            ]
+            endPoint Solid {
+              name "layer 2"
+              translation 0 0.1 0
+              rotation 0 0 1 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0
+                  }
+                  geometry DEF BOX2 Box {
+                    size 0.1 0.1 0.1
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 1 0
+                    anchor 0 0.1 0
+                  }
+                  device [
+                    RotationalMotor {
+                      name "motor2"
+                    }
+                    PositionSensor {
+                      name "sensor2"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 0.1 0
+                    name "layer 3"
+                    children [
+                      Shape {
+                        appearance PBRAppearance {
+                          baseColor 0 0 1
+                        }
+                        geometry DEF BOX3 Box {
+                          size 0.1 0.1 0.1
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0 1 0
+                          anchor 0 0.1 0
+                        }
+                        device [
+                          RotationalMotor {
+                            name "motor3"
+                          }
+                          PositionSensor {
+                            name "sensor3"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0 0.1 0
+                          name "layer 4"
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0 1 1
+                              }
+                              geometry DEF BOX4 Box {
+                                size 0.1 0.1 0.1
+                              }
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                axis 0 1 0
+                                anchor 0 0.1 0
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "motor4"
+                                }
+                                PositionSensor {
+                                  name "sensor4"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0 0.1 0
+                                name "layer 5"
+                                children [
+                                  Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 1 1 0
+                                    }
+                                    geometry DEF BOX5 Box {
+                                      size 0.1 0.1 0.1
+                                    }
+                                  }
+                                ]
+                                boundingObject USE BOX5
+                                physics Physics {
+                                  mass 0.01
+                                  density -1
+                                }
+                              }
+                            }
+                          ]
+                          boundingObject USE BOX4
+                          physics Physics {
+                            mass 0.01
+                            density -1
+                          }
+                        }
+                      }
+                    ]
+                    boundingObject USE BOX3
+                    physics Physics {
+                      mass 0.01
+                      density -1
+                    }
+                  }
+                }
+              ]
+              boundingObject USE BOX2
+              physics Physics {
+                mass 0.01
+                density -1
+              }
+            }
+          }
+        ]
+        boundingObject USE BOX
+        physics Physics {
+          mass 0.01
+          density -1
+        }
+      }
+    }
+  ]
+}
+DEF PARTIALLY_VISIBLE PartiallyVisibleNestedProto {}
+DEF INVISIBLE InvisibleNestedProto {}
+DEF SUPERVISOR Robot {
+  children [
+    Receiver {
+      name "receiver"
+      channel 1
+    }
+    TestSuiteEmitter {
+    }
+  ]
+  name "supervisor"
+  controller "supervisor_collapsible_proto_parameter_nodes"
+  supervisor TRUE
+}
+TestSuiteSupervisor {
+}

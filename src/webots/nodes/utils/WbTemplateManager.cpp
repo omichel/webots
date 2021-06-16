@@ -411,6 +411,9 @@ void WbTemplateManager::regenerateNode(WbNode *node, bool restarted) {
     return;
   }
 
+  // after regeneration, check if any invisible proto parameter node can be removed from the new node
+  base->removeInvisibleProtoNodes();
+
   // if the viewpoint is being re-generated we need to re-get the correct pointer, not the old dangling pointer from before
   // the node was regenerated
   viewpoint = world->viewpoint();

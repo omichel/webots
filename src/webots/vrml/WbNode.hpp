@@ -181,10 +181,20 @@ public:
   void setProtoInstanceTemplateContent(const QByteArray &content);
   void updateNestedProtoFlag();
 
+  void removeFromFieldsOrParameters(WbField *item);
+  void clearProtoParameterNodeInstances() { mProtoParameterNodeInstances.clear(); }
+  void setProtoParameterNode(WbNode *node) { mProtoParameterNode = node; }
+  bool isInternalNode() const {  // node internal to a proto file
+    return !isProtoParameterNode() && mProtoParameterNode != NULL;
+  };
+
   // return if 'node' is a direct child of this PROTO parameters
   bool isProtoParameterChild(const WbNode *node) const;
   // is a parameter node contained in a PROTO instance
   bool isProtoParameterNode() const;
+
+  void disconnectInternalNode();
+
   // return the node instances redirected to this PROTO parameter node
   QVector<WbNode *> protoParameterNodeInstances() const { return mProtoParameterNodeInstances; }
   bool hasAProtoAncestor() const;

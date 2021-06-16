@@ -16,6 +16,7 @@
 #include "WbBasicJoint.hpp"
 #include "WbBoundingSphere.hpp"
 #include "WbDictionary.hpp"
+#include "WbField.hpp"
 #include "WbNodeOperations.hpp"
 #include "WbNodeUtilities.hpp"
 #include "WbSolid.hpp"
@@ -122,6 +123,126 @@ void WbBaseNode::validateProtoNodes() {
   foreach (WbNode *node, nodes) {
     if (node->isProtoInstance())
       dynamic_cast<WbBaseNode *>(node)->validateProtoNode();
+  }
+}
+
+bool WbBaseNode::isInternalNodeVisible(WbNode *internal) const {
+  // reach the highest parameter node in the chain, there can be multiple in a heavily nested PROTO
+  const WbNode *n = internal;
+  while (n && n->protoParameterNode() != NULL)
+    n = n->protoParameterNode();
+  // check if the parameter node itself is visible
+  if (WbNodeUtilities::isVisible(n))
+    return true;
+  // or if it exposes any visible parameter. It's possible for it to expose a single field without exposing the parameter
+  // (usually the case when SFNodes are involved) so the test is made on the fields instead
+  const QVector<WbField *> fields = n->fields();
+  for (int i = 0; i < fields.size(); ++i)
+    if (WbNodeUtilities::isVisible(fields[i]))
+      return true;
+
+  return false;
+}
+
+void WbBaseNode::removeInvisibleProtoNodes() {
+  // when loading, root is the global root. When regenerating, root is the finalized node after the regeneration process
+  const QList<WbNode *> nodes = subNodes(true, true, true);
+
+  // the internal node is used to keep track of what can be collapsed since it's the bottom of the chain and it's unique
+  // whereas the chain itself can be comprised of multiple parameter nodes which complicates keeping track of how they relate
+  QList<WbNode *> internalProtoNodes;
+
+  for (int i = 0; i < nodes.size(); ++i)
+    if (nodes[i]->isInternalNode())
+      internalProtoNodes.append(nodes[i]);
+
+  QList<WbNode *> tmp = internalProtoNodes;
+  for (int i = 0; i < internalProtoNodes.size(); ++i) {
+    if (isInternalNodeVisible(internalProtoNodes[i])) {
+      // cannot collapse visible nodes otherwise they no longer refresh on the interface
+      tmp.removeAll(internalProtoNodes[i]);
+      // also remove among the candidates any ancestor to this node otherwise it will be deleted indirectly.
+      // likewise any descendants can't be deleted either as they might be referenced indirectly (e.g if the texture url field
+      // is visible, the corresponding TextureCoordinate/IndexedFaceSet nodes can't be deleted even if themselves aren't)
+      for (int j = 0; j < internalProtoNodes.size(); ++j)
+        if (internalProtoNodes[j]->isAnAncestorOf(internalProtoNodes[i]) ||
+            internalProtoNodes[i]->isAnAncestorOf(internalProtoNodes[j]))
+          tmp.removeAll(internalProtoNodes[j]);
+    }
+  }
+  internalProtoNodes = tmp;
+
+  QList<WbNode *> invisibleProtoParameterNodes;
+  // follow the chain upwards, starting from the internal node, to extract all the protoParameterNodes that can be deleted
+  for (int i = 0; i < internalProtoNodes.size(); ++i) {
+    WbNode *n = internalProtoNodes[i]->protoParameterNode();
+
+    while (n != NULL) {
+      bool added = false;
+      for (int j = 0; j < invisibleProtoParameterNodes.size(); ++j)
+        if (n->level() > invisibleProtoParameterNodes[j]->level()) {  // insert them from lowest to highest level
+          invisibleProtoParameterNodes.insert(j, n);
+          added = true;
+          break;  // need to break otherwise invisibleProtoParameterNodes grows infinitly
+        }
+
+      if (!added)
+        invisibleProtoParameterNodes.append(n);
+
+      n = n->protoParameterNode();
+    }
+  }
+
+  if (invisibleProtoParameterNodes.isEmpty())
+    return;
+
+  // break link between [field] -> [parameter] and [internal node] -> [parameter node] (from internal node side)
+  for (int i = 0; i < internalProtoNodes.size(); ++i) {
+    internalProtoNodes[i]->disconnectInternalNode();
+    const QVector<WbField *> fields = internalProtoNodes[i]->fields();
+
+    for (int j = 0; j < fields.size(); j++)
+      fields[j]->setParameter(NULL);
+
+    internalProtoNodes[i]->setProtoParameterNode(NULL);  // break link with proto parameter node
+  }
+
+  // break link [parameter] -> [internal field] and [parameter node] -> [internal node] (from parameter node side)
+  for (int i = 0; i < invisibleProtoParameterNodes.size(); ++i) {
+    invisibleProtoParameterNodes[i]->clearProtoParameterNodeInstances();  // clear downward references
+
+    // clear internal field references (for protoParameterNodes the reference is kept in its fields)
+    const QVector<WbField *> fields = invisibleProtoParameterNodes[i]->fields();
+    for (int j = 0; j < fields.size(); ++j)
+      fields[j]->clearInternalFields();
+  }
+
+  // now the proto parameter nodes can be deleted, depending on the situation it can either be in the parameter or field side of
+  // the parent node. The signal is not emitted to prevent the internal node from being deleted as well in the process
+  for (int i = 0; i < invisibleProtoParameterNodes.size(); ++i) {
+    WbNode *parameterNode = invisibleProtoParameterNodes[i];
+    WbNode *parent = parameterNode->parentNode();
+
+    QVector<WbField *> fieldsAndParameters = parent->fields();
+    fieldsAndParameters.append(parent->parameters());
+
+    for (int j = 0; j < fieldsAndParameters.size(); ++j) {
+      WbSFNode *sfnode = dynamic_cast<WbSFNode *>(fieldsAndParameters[j]->value());
+      WbMFNode *mfnode = dynamic_cast<WbMFNode *>(fieldsAndParameters[j]->value());
+      if (sfnode && sfnode->value() == parameterNode) {
+        sfnode->blockSignals(true);
+        sfnode->setValue(NULL);
+        sfnode->blockSignals(false);
+        parent->removeFromFieldsOrParameters(fieldsAndParameters[j]);
+      } else {
+        if (mfnode && mfnode->nodeIndex(parameterNode) != -1) {
+          mfnode->blockSignals(true);
+          mfnode->removeNode(parameterNode);
+          mfnode->blockSignals(false);
+          parent->removeFromFieldsOrParameters(fieldsAndParameters[j]);
+        }
+      }
+    }
   }
 }
 

@@ -192,6 +192,9 @@ void WbWorld::finalize() {
   QSet<const QString> topSolidNameSet;
   foreach (WbSolid *s, mTopSolids)
     s->resolveNameClashIfNeeded(false, true, mTopSolids, &topSolidNameSet);
+
+  // simplify node structure, if possible
+  mRoot->removeInvisibleProtoNodes();
 }
 
 WbWorld::~WbWorld() {

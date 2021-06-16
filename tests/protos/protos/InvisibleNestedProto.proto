@@ -1,0 +1,182 @@
+#VRML_SIM R2021b utf8
+
+PROTO InvisibleNestedProto [
+]
+{
+  Robot {
+    translation 0 0 -0.2
+    controller "collapsible_proto_parameter_nodes"
+    name "invisible"
+    children [
+      Emitter {
+        name "emitter"
+        channel 1
+      }
+      ProtoHingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0 1 0
+        }
+        device [
+          RotationalMotor {
+            name "motor0"
+          }
+          PositionSensor {
+            name "sensor0"
+          }
+        ]
+        endPoint Solid {
+          name "layer 1"
+          rotation 0 0 1 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0
+              }
+              geometry DEF BOX Box {
+                size 0.1 0.1 0.1
+              }
+            }
+            ProtoHingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0 1 0
+                anchor 0 0.1 0
+              }
+              device [
+                RotationalMotor {
+                  name "motor1"
+                }
+                PositionSensor {
+                  name "sensor1"
+                }
+              ]
+              endPoint Solid {
+                name "layer 2"
+                translation 0 0.1 0
+                rotation 0 0 1 0
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 1 0 0
+                    }
+                    geometry DEF BOX2 Box {
+                      size 0.1 0.1 0.1
+                    }
+                  }
+                  ProtoHingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0 1 0
+                      anchor 0 0.1 0
+                    }
+                    device [
+                      RotationalMotor {
+                        name "motor2"
+                      }
+                      PositionSensor {
+                        name "sensor2"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0 0.1 0
+                      name "layer 3"
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 1
+                          }
+                          geometry DEF BOX3 Box {
+                            size 0.1 0.1 0.1
+                          }
+                        }
+                        ProtoHingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis 0 1 0
+                            anchor 0 0.1 0
+                          }
+                          device [
+                            RotationalMotor {
+                              name "motor3"
+                            }
+                            PositionSensor {
+                              name "sensor3"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0 0.1 0
+                            name "layer 4"
+                            children [
+                              Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 1 1
+                                }
+                                geometry DEF BOX4 Box {
+                                  size 0.1 0.1 0.1
+                                }
+                              }
+                              ProtoHingeJoint {
+                                jointParameters HingeJointParameters {
+                                  axis 0 1 0
+                                  anchor 0 0.1 0
+                                }
+                                device [
+                                  RotationalMotor {
+                                    name "motor4"
+                                  }
+                                  PositionSensor {
+                                    name "sensor4"
+                                  }
+                                ]
+                                endPoint Solid {
+                                  translation 0 0.1 0
+                                  name "layer 5"
+                                  children [
+                                    Shape {
+                                      appearance PBRAppearance {
+                                        baseColor 1 1 0
+                                      }
+                                      geometry DEF BOX5 Box {
+                                        size 0.1 0.1 0.1
+                                      }
+                                    }
+                                  ]
+                                  boundingObject USE BOX5
+                                  physics Physics {
+                                    mass 0.01
+                                    density -1
+                                  }
+                                }
+                              }
+                            ]
+                            boundingObject USE BOX4
+                            physics Physics {
+                              mass 0.01
+                              density -1
+                            }
+                          }
+                        }
+                      ]
+                      boundingObject USE BOX3
+                      physics Physics {
+                        mass 0.01
+                        density -1
+                      }
+                    }
+                  }
+                ]
+                boundingObject USE BOX2
+                physics Physics {
+                  mass 0.01
+                  density -1
+                }
+              }
+            }
+          ]
+          boundingObject USE BOX
+          physics Physics {
+            mass 0.01
+            density -1
+          }
+        }
+      }
+    ]
+  }
+}

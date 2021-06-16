@@ -417,6 +417,28 @@ void WbField::fieldChangedByOde() {
   mValue->emitChangedByOde();
 }
 
+void WbField::disconnectField() {
+  if (mParameter) {
+    if (mValue) {
+      const QString &fieldName = name();
+      if (fieldName == "translation") {
+        disconnect(static_cast<WbSFVector3 *>(mValue), &WbSFVector3::changedByOde, mParameter, &WbField::fieldChangedByOde);
+        disconnect(static_cast<WbSFVector2 *>(mValue), &WbSFVector2::changedByWebots, mParameter, &WbField::fieldChangedByOde);
+      } else if (fieldName == "rotation")
+        disconnect(static_cast<WbSFRotation *>(mValue), &WbSFRotation::changedByOde, mParameter, &WbField::fieldChangedByOde);
+      else if (fieldName == "position")
+        disconnect(static_cast<WbSFDouble *>(mValue), &WbSFDouble::changedByOde, mParameter, &WbField::fieldChangedByOde);
+
+      disconnect(mValue, &WbValue::changed, this, &WbField::valueChanged);
+    }
+
+    disconnect(mParameter, &WbField::valueChanged, mParameter, &WbField::parameterChanged);
+    disconnect(mParameter->value(), &WbValue::changedByUser, this->value(), &WbValue::changedByUser);
+
+    disconnect(this, &WbField::valueChanged, mParameter, &WbField::fieldChanged);
+  }
+}
+
 void WbField::copyValueFrom(const WbField *other) {
   assert(other);
   mValue->copyFrom(other->mValue);

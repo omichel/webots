@@ -1,0 +1,14 @@
+#VRML_SIM R2021b utf8
+
+PROTO ProtoHingeJoint [
+  field SFNode                                 jointParameters   NULL
+  field MFNode                                 device            [ ]
+  field SFNode                                 endPoint          NULL
+]
+{ 
+  HingeJoint {
+    jointParameters IS jointParameters
+    device IS device
+    endPoint IS endPoint
+  }
+}

@@ -817,6 +817,20 @@ int WbNode::findSubFieldIndex(const WbField *const searched) const {
   return -1;
 }
 
+void WbNode::disconnectInternalNode() {
+  QVector<WbField *> parameterList = parameters();
+  for (int i = 0; i < parameterList.size(); ++i) {
+    parameterList[i]->disconnectField();
+    disconnect(parameterList[i], &WbField::valueChanged, parentNode(), &WbNode::notifyParameterChanged);
+  }
+
+  QVector<WbField *> fieldList = fields();
+  for (int i = 0; i < fieldList.size(); ++i) {
+    fieldList[i]->disconnectField();
+    disconnect(fieldList[i], &WbField::valueChanged, parentNode(), &WbNode::notifyFieldChanged);
+  }
+}
+
 WbField *WbNode::findSubField(int index, WbNode *&parent) const {
   int count = 0;
   QList<WbNode *> list(subNodes(true, false, false));
@@ -1246,6 +1260,13 @@ bool WbNode::isDefault() const {
   }
 
   return true;
+}
+
+void WbNode::removeFromFieldsOrParameters(WbField *item) {
+  if (isProtoInstance())
+    mParameters.removeAll(item);
+  else
+    mFields.removeAll(item);
 }
 
 // recursively search for matching IS fields/parameters and redirect them to the PROTO parameter

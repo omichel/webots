@@ -74,6 +74,8 @@ public:
   // update context of PROTO parameter node instances
   virtual void updateContextDependentObjects();
 
+  void removeInvisibleProtoNodes();
+
   // Wren functions
   virtual void createWrenObjects();
   bool areWrenObjectsInitialized() const { return mWrenObjectsCreatedCalled; }
@@ -148,6 +150,9 @@ protected:
 private:
   WbBaseNode &operator=(const WbBaseNode &);  // non copyable
   void init();
+
+  // checks if a chain starting from an internal node is visible
+  bool isInternalNodeVisible(WbNode *internal) const;
 
   // WREN
   WrTransform *mWrenNode;
