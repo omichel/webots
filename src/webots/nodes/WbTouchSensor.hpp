@@ -46,6 +46,7 @@ public:
   void setSolidMerger() override;
   void createOdeObjects() override;
   bool refreshSensorIfNeeded() override;
+  void jerk(bool resetVelocities = true, bool rootJerk = true) override;
 
 protected:
   // reimplemented protected functions

@@ -14,6 +14,7 @@
 
 #include "WbTouchSensor.hpp"
 
+#include "WbBasicJoint.hpp"
 #include "WbFieldChecker.hpp"
 #include "WbLookupTable.hpp"
 #include "WbMFVector3.hpp"
@@ -281,4 +282,25 @@ bool WbTouchSensor::forceBehavior() const {
 
 void WbTouchSensor::setSolidMerger() {
   mSolidMerger = physics() ? new WbSolidMerger(this) : NULL;
+}
+
+void WbTouchSensor::jerk(bool resetVelocities, bool rootJerk) {
+  const WbSolid *const us = jointParent() ? NULL : upperSolid();
+  const bool inherit = us && us->physics();
+  WbSolidMerger *tempSolidMerger = inherit ? us->solidMerger() : QPointer<WbSolidMerger>(new WbSolidMerger(this));
+  bool isTempSolidMerger = physics() && tempSolidMerger && tempSolidMerger->solid() == this;
+
+  if (isTempSolidMerger) {
+    tempSolidMerger->setGeomAndBodyPositions(resetVelocities, jointParents().size() == 0 && !isTopSolid());
+  } else
+    tempSolidMerger->solid()->updateOdeGeomPosition();
+
+  foreach (WbSolid *const solid, solidChildren())
+    solid->jerk(resetVelocities, false);
+
+  foreach (WbBasicJoint *const joint, jointChildren())
+    joint->updateOdeWorldCoordinates();
+
+  if (isDynamic() && jointParents().size() > 0 && rootJerk)
+    emit positionChangedArtificially();
 }
