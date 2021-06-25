@@ -9,6 +9,7 @@ PROTO LandscapePainting [
   field SFString   name        "landscape painting"
   field SFColor    color       1 1 1                              # Defines the color of the painting.
   field MFString   textureUrl  "textures/landscape_painting.jpg"  # Defines the texure used for the painting.
+  field MFColor    recognitionColors []                           # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -49,5 +50,6 @@ Solid {
   boundingObject Box {
     size 1.5 1 0.05
   }
+    recognitionColors IS recognitionColors
 }
 }

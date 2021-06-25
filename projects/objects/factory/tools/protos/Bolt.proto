@@ -11,6 +11,7 @@ PROTO Bolt [
   field SFFloat    screwRadius      0.0055       # Defines the radius of the screw.
   field SFFloat    screwLength      0.035        # Defines the length of the screw.
   field SFString   contactMaterial  "default"    # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []          # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -351,5 +352,6 @@ PROTO Bolt [
       }
     }
     contactMaterial IS contactMaterial
+    recognitionColors IS recognitionColors
   }
 }

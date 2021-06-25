@@ -14,6 +14,7 @@ PROTO Floor [
 
   # Deprecated in R2019a
   hiddenField MFString   texture  "textures/checkered_parquetry.jpg"
+  field MFColor    recognitionColors []                            # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -76,5 +77,6 @@ PROTO Floor [
     }
     contactMaterial IS contactMaterial
     locked TRUE
+    recognitionColors IS recognitionColors
   }
 }

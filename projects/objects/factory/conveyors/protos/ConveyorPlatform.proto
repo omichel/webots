@@ -15,6 +15,7 @@ PROTO ConveyorPlatform [
   field  SFFloat     acceleration     -1                   # Defines the acceleration of the conveyor belt.
   field  SFFloat     timer            0.0                  # Defines for how long the conveyor belt should move (it will move forever if set to 0).
   field  SFFloat     textureAnimation 0.5                  # Defines the speed of the texture animation.
+  field  MFColor     recognitionColors []                  # Is `Solid.recognitionColors`.
 ]
 {
   Robot {
@@ -635,5 +636,6 @@ PROTO ConveyorPlatform [
     }
     physics Physics {
     }
+    recognitionColors IS recognitionColors
   }
 }

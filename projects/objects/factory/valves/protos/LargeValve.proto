@@ -12,6 +12,7 @@ PROTO LargeValve [
   field SFBool     supervisor      FALSE            # Is `Robot.supervisor`.
   field MFString   absoluteStop    "15.7079632679"  # Defines the maximum rotational angle in radians. This value is sent to the controller using the controllerArgs field.
   field SFString   contactMaterial "default"        # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []             # Is `Solid.recognitionColors`.
 ]
 {
   Robot {
@@ -327,5 +328,6 @@ PROTO LargeValve [
     supervisor IS supervisor
     controllerArgs IS absoluteStop
     contactMaterial IS contactMaterial
+    recognitionColors IS recognitionColors
   }
 }

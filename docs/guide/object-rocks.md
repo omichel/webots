@@ -21,6 +21,7 @@ Rock10cm {
   SFColor    color            1 1 1
   SFNode     physics          NULL
   SFBool     locked           FALSE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -56,6 +57,7 @@ Rock17cm {
   SFColor    color            1 1 1
   SFNode     physics          NULL
   SFBool     locked           FALSE
+  MFColor    recognitionColors []
 }
 ```
 

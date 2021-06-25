@@ -8,6 +8,7 @@ PROTO PaintBucket [
   field SFRotation rotation        0 1 0 0
   field SFString   name            "paint bucket"
   field SFString   contactMaterial "default"       # Is `Solid.recognitionColors`.
+  field MFColor    recognitionColors []            # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -3064,5 +3065,6 @@ PROTO PaintBucket [
         0 0.038 0
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

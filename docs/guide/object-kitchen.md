@@ -58,6 +58,7 @@ CerealBox {
   SFVec3f    size        0.08 0.3 0.2
   MFString   textureUrl  "textures/cereal_box_2.jpg"
   SFFloat    mass        1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -94,6 +95,7 @@ HoneyJar {
   MFString   textureLidUrl  "textures/bee_lid.jpg"
   SFFloat    mass           0.5
   SFColor    color          0.839216 0.572549 0.105882
+  MFColor    recognitionColors []
 }
 ```
 
@@ -163,6 +165,7 @@ HotPlate {
   SFRotation rotation    0 1 0 0
   SFString   name        "hot plate"
   MFString   textureUrl  "textures/components.jpg"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -193,6 +196,7 @@ Sink {
   SFRotation rotation    0 1 0 0
   SFString   name        "sink"
   MFString   textureUrl  "textures/components.jpg"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -258,6 +262,7 @@ Fridge {
   SFRotation rotation       0 1 0 0
   SFString   name           "fridge"
   SFColor    mainColor      1 1 1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -290,6 +295,7 @@ Oven {
   SFRotation rotation       0 1 0 0
   SFString   name           "oven"
   SFColor    mainColor      1 1 1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -322,6 +328,7 @@ Carafe {
   SFRotation rotation    0 1 0 0
   SFString   name        "carafe"
   SFFloat    mass        1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -353,6 +360,7 @@ Cookware {
   SFString   name       "cookware"
   SFColor    color      0.7 0.7 0.7
   SFFloat    mass       0.7
+  MFColor    recognitionColors []
 }
 ```
 
@@ -385,6 +393,7 @@ Fork {
   SFRotation rotation    0 1 0 0
   SFString   name        "fork"
   SFColor    color       0.75 0.75 0.75
+  MFColor    recognitionColors []
 }
 ```
 
@@ -415,6 +424,7 @@ Glass {
   SFRotation rotation    0 1 0 0
   SFString   name        "glass"
   SFFloat    mass        0.17
+  MFColor    recognitionColors []
 }
 ```
 
@@ -445,6 +455,7 @@ Knife {
   SFRotation rotation    0 1 0 0
   SFString   name        "knife"
   SFColor    color       0.75 0.75 0.75
+  MFColor    recognitionColors []
 }
 ```
 
@@ -511,6 +522,7 @@ Plate {
   SFFloat    height      0.01
   SFFloat    radius      0.11
   SFFloat    mass        0.3
+  MFColor    recognitionColors []
 }
 ```
 
@@ -548,6 +560,7 @@ Spoon {
   SFString    name        "spoon"
   SFColor     color       0.75 0.75 0.75
   SFString    type        "table"
+  MFColor     recognitionColors []
 }
 ```
 
@@ -580,6 +593,7 @@ Wineglass {
   SFRotation rotation    0 1 0 0
   SFString   name        "wine glass"
   SFFloat    mass        0.2
+  MFColor    recognitionColors []
 }
 ```
 
@@ -610,6 +624,7 @@ WoodenSpoon {
   SFRotation rotation    0 1 0 0
   SFString   name        "wooden spoon"
   MFString   textureUrl  "textures/wooden_spoon.jpg"
+  MFColor    recognitionColors []
 }
 ```
 

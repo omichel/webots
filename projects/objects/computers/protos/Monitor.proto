@@ -9,6 +9,7 @@ PROTO Monitor [
   field SFString   name        "monitor"
   field SFColor    color       0.15 0.15 0.15  # Defines the color of the monitor.
   field SFFloat    mass        0               # Defines the mass of the monitor in kg. A value smaller or equal to 0 removes the physics of the monitor.
+  field MFColor    recognitionColors []        # Is `Solid.recognitionColors`.
 ]
 {
 %{ local mass = fields.mass.value }%
@@ -106,5 +107,6 @@ Solid {
      mass IS mass
    }
    %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

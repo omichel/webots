@@ -13,6 +13,7 @@ PROTO Television [
   field SFInt32    displayHeight 64                         # Defines the height of the internal Display device.
   field SFString   controller    "television_switch_on"     # Defines the controller used to display images using the internal Display device.
   field SFBool     supervisor     FALSE                     # Is `Robot.supervisor`.
+  field MFColor    recognitionColors []                     # Is `Solid.recognitionColors`.
 ]
 {
 Robot {
@@ -116,5 +117,6 @@ Robot {
   }
   controller IS controller
   supervisor IS supervisor
+    recognitionColors IS recognitionColors
 }
 }

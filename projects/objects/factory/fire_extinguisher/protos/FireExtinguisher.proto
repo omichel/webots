@@ -8,6 +8,7 @@ PROTO FireExtinguisher [
   field SFRotation rotation        0 1 0 0
   field SFString   name            "fire extinguisher"
   field SFBool     enablePhysics   TRUE                 # Defines whether the fire extinguisher should have physics.
+  field MFColor    recognitionColors []                 # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -183,5 +184,6 @@ PROTO FireExtinguisher [
       mass 12
     }
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }

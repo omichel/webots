@@ -11,6 +11,7 @@ PROTO Bed [
   field SFNode     mattressAppearance PBRAppearance { roughness 1 metalness 0 }                                                         # Defines the appearance of the mattress.
   field SFNode     pillowAppearance   PBRAppearance { roughness 1 metalness 0 }                                                         # Defines the appearance of the pillows.
   field SFNode     blanketAppearance  PBRAppearance { baseColorMap ImageTexture { url "textures/duvet.jpg" } roughness 1 metalness 0 }  # Defines the appearance of the blanket.
+  field MFColor    recognitionColors  []                                                                                                # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -188,5 +189,6 @@ PROTO Bed [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

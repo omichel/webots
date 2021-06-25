@@ -142,6 +142,7 @@ CrossRoadsTrafficLight {
   SFString   controller  "crossroads_traffic_lights"
   SFBool     supervisor  FALSE
   SFVec2f    size        20.8 20.8
+  MFColor    recognitionColors []
 }
 ```
 
@@ -251,6 +252,7 @@ DivergentIndicator {
   SFFloat    height          1
   SFFloat    radius          0.5
   SFInt32    subdivision     24
+  MFColor    recognitionColors []
 }
 ```
 
@@ -363,6 +365,7 @@ GenericTrafficLight {
   SFFloat    greenTime   60
   SFFloat    redTime     15
   SFString   state       "off"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -410,6 +413,7 @@ HighwayPole {
   MFNode      rightVerticalSigns    [ HighwaySign { name "horizontal sign" height 2.1 length 3.2 texture "textures/highway_sign_la_ciotat.jpg" } ]
   MFNode      leftHorizontalSigns   [ ]
   MFNode      leftVerticalSigns     [ ]
+  MFColor     recognitionColors     []
 }
 ```
 
@@ -675,6 +679,7 @@ Pole {
   SFRotation rotation    0 1 0 0
   SFString   name        "pole"
   MFNode     slot        []
+  MFColor    recognitionColors []
 }
 ```
 
@@ -745,6 +750,7 @@ SignPole {
   SFFloat     radius        0.02
   SFColor     color         0.258824 0.258824 0.258824
   MFNode      signBoards    [ DirectionPanel {} ]
+  MFColor     recognitionColors []
 }
 ```
 
@@ -1072,6 +1078,7 @@ TrafficLightBigPole {
   MFNode     slot1       []
   MFNode     slot2       []
   MFNode     slot3       []
+  MFColor    recognitionColors []
 }
 ```
 

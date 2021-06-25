@@ -8,6 +8,7 @@ PROTO Toilet [
   field SFRotation rotation       0 1 0 0
   field SFString   name           "toilet"
   field SFColor    lidColor       0.45 0.62 0.81  # Defines the color fo the lid.
+  field MFColor    recognitionColors []           # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -135,5 +136,6 @@ PROTO Toilet [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

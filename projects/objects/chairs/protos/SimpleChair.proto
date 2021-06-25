@@ -11,6 +11,7 @@ PROTO SimpleChair [
   field SFColor    legColor    1 1 0           # Defines the color of the legs of the chair.
   field SFColor    seatColor   1 0.65 0        # Defines the color of the body of the chair.
   field SFFloat    mass        5               # Defines the mass of the chair in kg.
+  field MFColor    recognitionColors []        # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -93,5 +94,6 @@ PROTO SimpleChair [
       mass IS mass
       density -1
     }
+    recognitionColors IS recognitionColors
   }
 }

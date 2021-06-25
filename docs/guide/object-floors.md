@@ -25,6 +25,7 @@ CircleArena {
   SFFloat    wallHeight      0.1
   SFNode     wallAppearance  BrushedAluminium {}
   SFInt32    subdivision     48
+  MFColor    recognitionColors []
 }
 ```
 
@@ -70,6 +71,7 @@ Floor {
   SFVec2f    size            10 10
   SFVec2f    tileSize        0.5 0.5
   SFNode     appearance      Parquetry { type "chequered" }
+  MFColor    recognitionColors []
 }
 ```
 
@@ -110,6 +112,7 @@ RectangleArena {
   SFFloat    wallThickness   0.01
   SFFloat    wallHeight      0.1
   SFNode     wallAppearance  BrushedAluminium {}
+  MFColor    recognitionColors []
 }
 ```
 

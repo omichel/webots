@@ -26,6 +26,7 @@ Mirror {
   SFFloat    frameThickness  0.02
   SFNode     physics         NULL
   SFNode     frameAppearance VarnishedPine {}
+  MFColor    recognitionColors []
 }
 ```
 

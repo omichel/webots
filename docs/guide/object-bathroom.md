@@ -19,6 +19,7 @@ BathroomSink {
   SFString   name              "sink"
   SFNode     upperAppearance   VarnishedPine { }
   SFNode     bottomAppearance  MarbleTiles { }
+  MFColor    recognitionColors []
 }
 ```
 
@@ -50,6 +51,7 @@ Bathtube {
   SFVec3f    translation      0 0 0
   SFRotation rotation         0 0.7 0.7 3.141593
   SFString   name             "bathtube"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -76,6 +78,7 @@ Toilet {
   SFRotation rotation       0 1 0 0
   SFString   name           "toilet"
   SFColor    lidColor       0.45 0.62 0.81
+  MFColor    recognitionColors []
 }
 ```
 
@@ -105,6 +108,7 @@ WashingMachine {
   SFVec3f    translation    0 0 0
   SFRotation rotation       0 0.7 0.7 3.141593
   SFString   name           "whashing machine"
+  MFColor    recognitionColors []
 }
 ```
 

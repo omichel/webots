@@ -9,6 +9,7 @@ PROTO PannelWithTubes [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "panel with tubes"
   field SFNode     appearance  BrushedAluminium { textureTransform TextureTransform { scale 3 3 } }  # Defines the appearance of the panel.
+  field MFColor    recognitionColors []                                                              # Is `Solid.recognitionColors`.
 ]
 {
   %{ io.stderr:write("Deprecated 'PannelWithTubes' PROTO, please use the 'PanelWithTubes. \n") }%
@@ -17,5 +18,6 @@ PROTO PannelWithTubes [
     rotation IS rotation
     name IS name
     appearance IS appearance
+    recognitionColors IS recognitionColors
   }
 }

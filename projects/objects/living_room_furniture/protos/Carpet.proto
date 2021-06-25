@@ -8,6 +8,7 @@ PROTO Carpet [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "carpet"
   field SFColor    color       1 1 1                  # Defines the color of the carpet.
+  field MFColor    recognitionColors []               # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -206,5 +207,6 @@ Solid {
       }
     ]
   }
+    recognitionColors IS recognitionColors
 }
 }

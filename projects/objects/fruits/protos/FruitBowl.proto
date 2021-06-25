@@ -559,5 +559,6 @@ Solid {
     density -1
     mass IS mass
   }
+    recognitionColors IS recognitionColors
 }
 }

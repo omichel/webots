@@ -9,6 +9,7 @@ PROTO Wall [
   field SFString   name        "wall"
   field SFVec3f    size        1 2.4 0.2                                                        # Defines the size of the wall.
   field SFNode     appearance  Roughcast { textureTransform TextureTransform { scale 1 2.4 } }  # Defines the appearance of the wall.
+  field MFColor    recognitionColors []                                                         # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -39,5 +40,6 @@ PROTO Wall [
     ]
     name IS name
     model "wall"
+    recognitionColors IS recognitionColors
   }
 }

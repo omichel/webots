@@ -152,5 +152,6 @@ PROTO MetalStorageBox [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

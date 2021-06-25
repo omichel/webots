@@ -25,6 +25,7 @@ Ball {
   SFFloat    linearDamping   0.17
   SFFloat    angularDamping  0.33
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -97,6 +98,7 @@ PingPongBall {
   SFString   name                "ping pong ball"
   MFNode     immersionProperties []
   MFString   textureUrl          "textures/pingpong_logo.jpg"
+  MFColor    recognitionColors   []
 }
 ```
 
@@ -128,6 +130,7 @@ RobocupSoccerBall {
   SFRotation rotation     0 0 1 0
   SFString   name         "robocup soccer ball"
   SFInt32                 size 1
+  MFColor                 recognitionColors []
 }
 ```
 

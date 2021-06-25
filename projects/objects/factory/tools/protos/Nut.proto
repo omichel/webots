@@ -11,6 +11,7 @@ PROTO Nut [
   field SFFloat    innerRadius     0.006        # Defines the inner radius of the nut.
   field SFFloat    thickness       0.007        # Defines the thickness of the nut.
   field SFString   contactMaterial "default"    # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []         # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -320,5 +321,6 @@ PROTO Nut [
       density 8050
     }
     contactMaterial IS contactMaterial
+    recognitionColors IS recognitionColors
   }
 }

@@ -11,6 +11,7 @@ PROTO DivergentIndicator [
   field SFFloat    height          1                                   # Defines the height of the divergent indicator.
   field SFFloat    radius          0.5                                 # Defines the radius of the divergent indicator.
   field SFInt32    subdivision     24                                  # Defines the number of polygons used to represent the divergent indicator cylindrical part and so its resolution .
+  field MFColor    recognitionColors []                                # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -118,5 +119,6 @@ PROTO DivergentIndicator [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

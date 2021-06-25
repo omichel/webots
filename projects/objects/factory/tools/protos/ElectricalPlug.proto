@@ -12,6 +12,7 @@ PROTO ElectricalPlug [
   field MFVec3f    cablePath             [0 0 0, 0 0.03 0, 0 0.03 0.1]  # Defines the path followed by the cable.
   field SFBool     enablePhysics         TRUE                           # Defines whether the plug should have physics.
   field SFBool     enableBoundingObject  TRUE                           # Defines whether the plug should have a bounding object.
+  field MFColor    recognitionColors     []                             # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -159,5 +160,6 @@ PROTO ElectricalPlug [
         mass 0.1
       }
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }

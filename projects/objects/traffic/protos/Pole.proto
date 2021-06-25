@@ -8,6 +8,7 @@ PROTO Pole [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "pole"
   field MFNode     slot        []       # Extends the pole with panels or traffic lights.
+  field MFColor    recognitionColors [] # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -50,5 +51,6 @@ PROTO Pole [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

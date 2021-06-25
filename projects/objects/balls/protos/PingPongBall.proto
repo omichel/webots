@@ -9,6 +9,7 @@ PROTO PingPongBall [
   field SFString   name                "ping pong ball"
   field MFNode     immersionProperties []                            # Is `Solid.immersionProperties`.
   field MFString   textureUrl          "textures/pingpong_logo.jpg"  # Defines the texture used for the ball.
+  field MFColor    recognitionColors   []                            # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -45,5 +46,6 @@ PROTO PingPongBall [
         angular 0.1
       }
     }
+    recognitionColors IS recognitionColors
   }
 }

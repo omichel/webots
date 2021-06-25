@@ -19,6 +19,7 @@ LandscapePainting {
   SFString   name        "landscape painting"
   SFColor    color       1 1 1
   MFString   textureUrl  "textures/landscape_painting.jpg"
+  MFColor    recognitionColors []
 }
 ```
 

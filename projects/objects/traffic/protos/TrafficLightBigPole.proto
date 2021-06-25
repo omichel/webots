@@ -10,6 +10,7 @@ PROTO TrafficLightBigPole [
   field MFNode     slot1       []                        # Extends the pole with a traffic light located in the middle of the vertical part of the pole.
   field MFNode     slot2       []                        # Extends the pole with a traffic light located in the begining of the horizontal part of the pole.
   field MFNode     slot3       []                        # Extends the pole with a traffic light located in the end of the horizontal part of the pole.
+  field MFColor    recognitionColors []                  # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -82,5 +83,6 @@ PROTO TrafficLightBigPole [
         }
       ]
     }
+    recognitionColors IS recognitionColors
 }
 }

@@ -17,6 +17,7 @@ PROTO WoodenPalletStack [
   field SFFloat    palletMass               0                      # Defines the mass of one pallet in kg. A value smaller or equal to 0 remove the physics of the stack.
   field SFBool     boundingObject           TRUE                   # Defines whether the bounding object should be enabled.
   field SFBool     locked                   FALSE                  # Is `Solid.locked`.
+  field MFColor    recognitionColors        []                     # Is `Solid.recognitionColors`.
 ]
 {
 %{
@@ -103,5 +104,6 @@ Solid {
   }
   %{ end }%
   locked IS locked
+    recognitionColors IS recognitionColors
 }
 }

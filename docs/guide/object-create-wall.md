@@ -22,6 +22,7 @@ CreateWall {
   MFString   controllerArgs []
   SFBool     supervisor     FALSE
   SFString   name           "iRobot wall"
+  MFColor    recognitionColors []
 }
 ```
 

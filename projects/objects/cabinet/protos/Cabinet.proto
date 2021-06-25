@@ -45,6 +45,7 @@ PROTO Cabinet [
   field SFNode   handle              CabinetHandle {}  # Defines the handle of the cabinet.
   field SFNode   primaryAppearance   PaintedWood {}    # Defines the primary appearance.
   field SFNode   secondaryAppearance PaintedWood {}    # Defines the secondary appearance.
+  field MFColor  recognitionColors   []                # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -263,5 +264,6 @@ PROTO Cabinet [
     ]
     name IS name
     model "cabinet"
+    recognitionColors IS recognitionColors
   }
 }

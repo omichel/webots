@@ -20,6 +20,7 @@ BunchOfSunFlowers {
   MFString   flowerTextureUrl       "textures/bunch_of_sun_flowers_flower.png"
   MFString   leavesTextureUrl       "textures/bunch_of_sun_flowers_leaves.png"
   SFNode     physics                NULL
+  MFColor    recognitionColors      []
 }
 ```
 
@@ -56,6 +57,7 @@ PottedTree {
   SFColor    leavesColor          1 1 1
   MFString   leavesTextureUrl     "textures/potted_tree_leaves.png"
   SFNode     physics              NULL
+  MFColor    recognitionColors    []
 }
 ```
 

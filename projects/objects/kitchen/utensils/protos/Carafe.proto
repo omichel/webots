@@ -8,6 +8,7 @@ PROTO Carafe [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "carafe"
   field SFFloat    mass        1         # Defines the mass of the carafe in kg.
+  field MFColor    recognitionColors []  # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -134,5 +135,6 @@ Solid {
       mass IS mass
     }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

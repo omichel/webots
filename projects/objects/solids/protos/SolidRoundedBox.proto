@@ -15,6 +15,7 @@ PROTO SolidRoundedBox [
   field SFNode     appearance            PBRAppearance { baseColorMap ImageTexture { url [ "textures/tagged_wall.jpg" ] } metalness 0 roughness 0.5 }   # Defines the appearance of the box.
   field SFNode     physics               NULL                                                                                                           # Is `Solid.physics`.
   field SFBool     enableBoundingObject  TRUE                                                                                                           # Defines whether the solid should have a bounding object.
+  field MFColor    recognitionColors     []                                                                                                             # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -270,5 +271,6 @@ PROTO SolidRoundedBox [
     boundingObject USE SOLID_ROUNDED_BOX_GROUP
     %{ end }%
     physics IS physics
+    recognitionColors IS recognitionColors
   }
 }

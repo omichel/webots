@@ -9,6 +9,7 @@ PROTO Cookware [
   field SFString   name       "cookware"
   field SFColor    color      0.7 0.7 0.7  # Defines the color of the cookware.
   field SFFloat    mass       0.7          # Defines the mass of the cookware in kg.
+  field MFColor    recognitionColors []    # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -108,5 +109,6 @@ Solid {
       mass IS mass
     }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

@@ -17,6 +17,7 @@ PROTO PaperBoat [
         viscousResistanceForceCoefficient 200
       }
     ]
+  field MFColor    recognitionColors   []                                 # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -125,5 +126,6 @@ PROTO PaperBoat [
         angular 0.95
       }
     }
+    recognitionColors IS recognitionColors
   }
 }

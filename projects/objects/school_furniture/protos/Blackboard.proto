@@ -8,6 +8,7 @@ PROTO Blackboard [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "blackboard"
   field SFBool     castShadows TRUE          # Defines whether this object should cast shadows.
+  field MFColor    recognitionColors []      # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -77,5 +78,6 @@ PROTO Blackboard [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

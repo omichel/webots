@@ -21,6 +21,7 @@ Bed {
   SFNode     mattressAppearance PBRAppearance { roughness 1 metalness 0 }
   SFNode     pillowAppearance   PBRAppearance { roughness 1 metalness 0 }
   SFNode     blanketAppearance  PBRAppearance { baseColorMap ImageTexture { url "textures/duvet.jpg" } roughness 1 metalness 0 }
+  MFColor    recognitionColors  []
 }
 ```
 

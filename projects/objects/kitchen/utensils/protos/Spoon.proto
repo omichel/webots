@@ -9,6 +9,7 @@ PROTO Spoon [
   field SFString    name        "spoon"
   field SFColor     color       0.75 0.75 0.75  # Defines the color of the spoon.
   field SFString    type        "table"         # Defines the type of spoon. The value should be either `table` or `tea`.
+  field MFColor     recognitionColors []        # Is `Solid.recognitionColors`.
 ]
 {
 %{
@@ -83,5 +84,6 @@ Solid {
       0.01 0 0
     ]
   }
+    recognitionColors IS recognitionColors
 }
 }

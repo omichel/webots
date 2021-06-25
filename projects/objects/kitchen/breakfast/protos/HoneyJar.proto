@@ -10,6 +10,7 @@ PROTO HoneyJar [
   field MFString   textureLidUrl  "textures/bee_lid.jpg"      # Defines the texture used for the lid of the jar.
   field SFFloat    mass           0.5                         # Defines the mass of the jar in kg.
   field SFColor    color          0.839216 0.572549 0.105882  # Defines the color of the jar.
+  field MFColor    recognitionColors []                       # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -1402,5 +1403,6 @@ Solid {
       mass IS mass
     }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

@@ -8,6 +8,7 @@ PROTO Fridge [
   field SFRotation rotation       0 1 0 0
   field SFString   name           "fridge"
   field SFColor    mainColor      1 1 1                         # Defines the color of the fridge.
+  field MFColor    recognitionColors []                         # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -317,5 +318,6 @@ PROTO Fridge [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

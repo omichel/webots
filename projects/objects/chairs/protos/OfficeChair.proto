@@ -10,6 +10,7 @@ PROTO OfficeChair [
   field SFNode     legAppearance   BrushedAluminium { textureTransform TextureTransform { scale 5 5 } }  # Defines the appearance of the legs of the chair.
   field SFNode     seatAppearance  Leather { textureTransform TextureTransform { scale 10 10 } }         # Defines the appearance of the body of the chair.
   field SFBool     enablePhysics   TRUE                                                                  # Defines whether the chair should have physics.
+  field MFColor    recognitionColors []                                                                  # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -380,5 +381,6 @@ PROTO OfficeChair [
       mass 6
     }
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }

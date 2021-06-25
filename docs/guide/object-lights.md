@@ -26,6 +26,7 @@ CeilingLight {
   SFFloat    pointLightRadius           100
   SFBool     pointLightCastShadows      FALSE
   SFBool     castShadows                TRUE
+  MFColor    recognitionColors          []
 }
 ```
 
@@ -76,6 +77,7 @@ CeilingSpotLight {
   SFFloat    spotLightIntensity        1
   SFFloat    spotLightRadius           100
   SFBool     spotLightCastShadows      FALSE
+  MFColor    recognitionColors         []
 }
 ```
 
@@ -118,6 +120,7 @@ ConstructionLamp {
   SFFloat    spotLightIntensity        2
   SFFloat    spotLightRadius           100
   SFBool     spotLightCastShadows      FALSE
+  MFColor    recognitionColors         []
 }
 ```
 
@@ -157,6 +160,7 @@ DoubleFluorescentLamp {
   SFRotation rotation        0 1 0 0
   SFString   name            "double fuorescent lamp"
   SFFloat    intensity       10
+  MFColor    recognitionColors []
 }
 ```
 
@@ -195,6 +199,7 @@ FloorLight {
   SFFloat    pointLightRadius           100
   SFBool     pointLightCastShadows      FALSE
   SFNode     physics                    NULL
+  MFColor    recognitionColors          []
 }
 ```
 

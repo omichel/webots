@@ -12,6 +12,7 @@ PROTO CeilingSpotLight [
   field SFFloat    spotLightIntensity        1                  # Defines the intensity of the spot light.
   field SFFloat    spotLightRadius           100                # Defines the radius of the spot light.
   field SFBool     spotLightCastShadows      FALSE              # Defines whether the spot light should cast shadows.
+  field MFColor    recognitionColors         []                 # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -55,5 +56,6 @@ PROTO CeilingSpotLight [
     ]
     name IS name
     model "ceiling light"
+    recognitionColors IS recognitionColors
   }
 }

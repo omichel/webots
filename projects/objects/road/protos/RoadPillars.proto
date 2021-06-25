@@ -18,6 +18,7 @@ PROTO RoadPillars [
   field SFFloat    upperTilt          0                                                                 # Defines the tilt of the upper support.
   field SFNode     appearance         RoughConcrete { textureTransform TextureTransform { scale 4 1} }  # Defines the appearance of the pillar.
   field SFBool     boundingObject     TRUE                                                              # Defines whether the pillar should have a bounding object.
+  field MFColor    recognitionColors  []                                                                # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -113,5 +114,6 @@ PROTO RoadPillars [
         ]
       }
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }

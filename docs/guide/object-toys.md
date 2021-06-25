@@ -27,6 +27,7 @@ PaperBoat {
         viscousResistanceForceCoefficient 200
       }
     ]
+  MFColor    recognitionColors   []
 }
 ```
 

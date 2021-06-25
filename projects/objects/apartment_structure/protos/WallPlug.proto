@@ -10,6 +10,7 @@ PROTO WallPlug [
   field SFColor    mainColor              1 1 1        # Defines the main color of the plug.
   field SFColor    secondaryColor         0 0 0        # Defines the secondary color of the plug.
   field SFBool     enableBoundingObject   TRUE         # Defines whether the plug should have a bounding object.
+  field MFColor    recognitionColors      []           # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -127,5 +128,6 @@ PROTO WallPlug [
         ]
       }
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }

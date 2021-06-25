@@ -22,6 +22,7 @@ PROTO Door [
   field SFNode     doorHandle             DoorLever {}              # Defines an optional door handle.
   field MFNode     doorSlot               []                        # Extends the door with new nodes.
   field SFBool     castShadows            TRUE                      # Defines whether this object should cast shadows.
+  field MFColor    recognitionColors      []                        # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -184,5 +185,6 @@ PROTO Door [
     ]
     name IS name
     model "door"
+    recognitionColors IS recognitionColors
   }
 }

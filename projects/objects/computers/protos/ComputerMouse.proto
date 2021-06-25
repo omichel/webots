@@ -10,6 +10,7 @@ PROTO ComputerMouse [
   field SFColor    topColor    0.71 0.71 0.71     # Defines the color of the top part of the mouse.
   field SFColor    bottomColor 0.056 0.056 0.056  # Defines the color of the bottom part of the mouse.
   field SFFloat    mass        0.1                # Defines the mass of the mouse in kg. A value smaller or equal to 0 removes the physics of the mouse.
+  field MFColor    recognitionColors []           # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -70,5 +71,6 @@ Solid {
     mass IS mass
   }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

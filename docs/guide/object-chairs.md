@@ -53,6 +53,7 @@ OfficeChair {
   SFNode     legAppearance   BrushedAluminium { textureTransform TextureTransform { scale 5 5 } }
   SFNode     seatAppearance  Leather { textureTransform TextureTransform { scale 10 10 } }
   SFBool     enablePhysics   TRUE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -90,6 +91,7 @@ SimpleChair {
   SFColor    legColor    1 1 0
   SFColor    seatColor   1 0.65 0
   SFFloat    mass        5
+  MFColor    recognitionColors []
 }
 ```
 

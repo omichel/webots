@@ -21,6 +21,7 @@ PROTO RectangleArena [
   # Deprecated in R2019a-rev2
   hiddenField SFColor    wallColor 0.8 0.8 0.8
   hiddenField SFVec2f    wallTileSize 0.5 0.5
+  field MFColor    recognitionColors []                            # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -104,5 +105,6 @@ PROTO RectangleArena [
     ]
     name IS name
     model "rectangle arena"
+    recognitionColors IS recognitionColors
   }
 }

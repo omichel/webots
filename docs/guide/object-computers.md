@@ -20,6 +20,7 @@ ComputerMouse {
   SFColor    topColor    0.71 0.71 0.71
   SFColor    bottomColor 0.056 0.056 0.056
   SFFloat    mass        0.1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -55,6 +56,7 @@ DesktopComputer {
   SFString   name             "desktop computer"
   SFColor    powerbuttonColor 0.252903 0.263813 0.266361
   SFFloat    mass             0
+  MFColor    recognitionColors []
 }
 ```
 
@@ -88,6 +90,7 @@ Keyboard {
   SFString   name        "keyboard"
   SFColor    color       0.1 0.1 0.1
   SFFloat    mass        0
+  MFColor    recognitionColors []
 }
 ```
 
@@ -121,6 +124,7 @@ Laptop {
   SFString   name        "laptop"
   SFString   controller  "laptop_switch_on"
   SFBool     supervisor  FALSE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -152,6 +156,7 @@ Monitor {
   SFString   name        "monitor"
   SFColor    color       0.15 0.15 0.15
   SFFloat    mass        0
+  MFColor    recognitionColors []
 }
 ```
 

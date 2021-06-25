@@ -18,6 +18,7 @@ IntermodalContainer {
   SFRotation rotation     0 1 0 0
   SFString   name         "container"
   SFColor    color        0.9 0.1 0.1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -50,6 +51,7 @@ IntermodalOfficeContainer {
   SFString   name           "office"
   SFColor    primaryColor   0.9 0.1 0.1
   SFColor    secondaryColor 0.6 0.6 0.6
+  MFColor    recognitionColors []
 }
 ```
 

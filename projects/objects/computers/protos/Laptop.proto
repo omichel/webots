@@ -9,6 +9,7 @@ PROTO Laptop [
   field SFString   name        "laptop"
   field SFString   controller  "laptop_switch_on"  # Defines the controller of the laptop which can use the Display device to show images.
   field SFBool     supervisor  FALSE               # Is `Robot.supervisor`.
+  field MFColor    recognitionColors []            # Is `Solid.recognitionColors`.
 ]
 {
   Robot {
@@ -169,5 +170,6 @@ PROTO Laptop [
     physics Physics {
       density 1200
     }
+    recognitionColors IS recognitionColors
   }
 }

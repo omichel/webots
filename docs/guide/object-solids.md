@@ -25,6 +25,7 @@ SolidBox {
   SFNode     physics               NULL
   SFBool     enableBoundingObject  TRUE
   SFBool     castShadows           TRUE
+  MFColor    recognitionColors     []
 }
 ```
 
@@ -72,6 +73,7 @@ SolidPipe {
   SFNode     appearance            PBRAppearance { baseColorMap ImageTexture { url [ "textures/tagged_wall.jpg" ] } metalness 0 roughness 0.5 }
   SFNode     physics               NULL
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 
@@ -121,6 +123,7 @@ SolidRoundedBox {
   SFNode     appearance            PBRAppearance { baseColorMap ImageTexture { url [ "textures/tagged_wall.jpg" ] } metalness 0 roughness 0.5 }
   SFNode     physics               NULL
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 
@@ -167,6 +170,7 @@ SolidTorus {
   SFNode     appearance            PBRAppearance { baseColorMap ImageTexture { url [ "textures/tagged_wall.jpg" ] } metalness 0 roughness 0.5 }
   SFNode     physics               NULL
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 

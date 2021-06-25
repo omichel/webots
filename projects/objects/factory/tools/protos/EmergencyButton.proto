@@ -8,6 +8,7 @@ PROTO EmergencyButton [
   field SFRotation rotation               0 0 1 0
   field SFString   name                   "emergency button"
   field SFBool     includePositionSensor  FALSE               # Defines if a PositionSensor node should be included to retrieve the button position.
+  field MFColor    recognitionColors      []                  # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -123,5 +124,6 @@ PROTO EmergencyButton [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

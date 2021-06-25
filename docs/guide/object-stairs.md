@@ -27,6 +27,7 @@ StraightStairs {
   MFNode     rightRail          StraightStairsRail {}
   SFBool     startingStairs     TRUE
   SFString   contactMaterial    "default"
+  MFColor    recognitionColors  []
 }
 ```
 
@@ -83,6 +84,7 @@ StraightStairsLanding {
   SFNode     floorAppearance Parquetry {}
   MFNode     rail            []
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -139,6 +141,7 @@ StraightStairsRail {
   SFInt32    nBalusters       20
   SFNode     appearance       VarnishedPine { textureTransform TextureTransform { scale 4 4 } }
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 

@@ -8,6 +8,7 @@ PROTO Glass [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "glass"
   field SFFloat    mass        0.17     # Defines the mass of the glass in kg.
+  field MFColor    recognitionColors [] # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -66,5 +67,6 @@ Solid {
       mass IS mass
     }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

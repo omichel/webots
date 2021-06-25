@@ -6,6 +6,7 @@
 PROTO Telephone [
   field SFVec3f translation 0 0 0
   field SFRotation rotation 0 1 0 0
+  field MFColor    recognitionColors []                # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -63,5 +64,6 @@ PROTO Telephone [
       }
     ]
     name "Telephone"
+    recognitionColors IS recognitionColors
   }
 }

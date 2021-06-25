@@ -296,6 +296,7 @@ AddLanesRoadSegment {
          SFBool      leftBarrierBoundingObject TRUE
          SFBool      castShadows               FALSE
          SFString    contactMaterial           "default"
+         MFColor     recognitionColors         []
 }
 ```
 
@@ -853,6 +854,7 @@ RoadIntersection {
          SFBool               bottom                         FALSE
          SFBool               locked                         TRUE
          SFNode               appearance                     Asphalt { }
+         MFColor              recognitionColors              []
 }
 ```
 
@@ -965,6 +967,7 @@ RoadPillars {
   SFFloat    upperTilt          0
   SFNode     appearance         RoughConcrete { textureTransform TextureTransform { scale 4 1} }
   SFBool     boundingObject     TRUE
+  MFColor    recognitionColors  []
 }
 ```
 
@@ -1038,6 +1041,7 @@ Roundabout {
          SFString             contactMaterial          "default"
          SFBool               locked                   TRUE
          SFNode               appearance               Asphalt { }
+         MFColor              recognitionColors        []
 }
 ```
 

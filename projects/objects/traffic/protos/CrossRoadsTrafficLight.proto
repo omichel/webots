@@ -10,6 +10,7 @@ PROTO CrossRoadsTrafficLight [
   field SFString   controller  "crossroads_traffic_lights"  # Is `Robot.controller`.
   field SFBool     supervisor  FALSE                        # Is `Robot.supervisor`.
   field SFVec2f    size        20.8 20.8                    # Defines the size of the traffic lights.
+  field MFColor    recognitionColors []                     # Is `Solid.recognitionColors`.
 ]
 {
 %{
@@ -163,5 +164,6 @@ PROTO CrossRoadsTrafficLight [
     model "cross road traffic light"
     controller IS controller
     supervisor IS supervisor
+    recognitionColors IS recognitionColors
   }
 }

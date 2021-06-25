@@ -11,6 +11,7 @@ PROTO StripBuilding [
   field SFFloat    length                100              # Defines the minimum length of the strip (actual length is slightly bigger because buildings are not cut).
   field SFInt32    randomSeed            1                # Defines the seed of the random number generator. A value smaller or equal to 0 sets a random seed.
   field SFBool     enableBoundingObject  TRUE             # Defines whether the buildings should have bounding objects.
+  field MFColor    recognitionColors     []               # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -68,5 +69,6 @@ PROTO StripBuilding [
         end
       }%
     ]
+    recognitionColors IS recognitionColors
   }
 }

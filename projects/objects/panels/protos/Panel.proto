@@ -13,6 +13,7 @@ PROTO Panel [
   field SFInt32    panelsCount      2                                                                  # Defines the number of panels.
   field SFNode     appearance       VarnishedPine { textureTransform TextureTransform { scale 5 5 } }  # Defines the appearance of the panel body.
   field SFNode     borderAppearance BrushedAluminium {}                                                # Defines the appearance of the panel border(s).
+  field MFColor    recognitionColors []                                                                # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -228,5 +229,6 @@ PROTO Panel [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

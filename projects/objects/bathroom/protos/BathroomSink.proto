@@ -9,6 +9,7 @@ PROTO BathroomSink [
   field SFString   name              "sink"
   field SFNode     upperAppearance   VarnishedPine { }  # Defines the appearance of the upper plate.
   field SFNode     bottomAppearance  MarbleTiles { }  # Defines the appearance of the upper plate.
+  field MFColor    recognitionColors []               # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -165,5 +166,6 @@ PROTO BathroomSink [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

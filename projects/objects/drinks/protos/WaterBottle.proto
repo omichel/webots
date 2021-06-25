@@ -9,6 +9,7 @@ PROTO WaterBottle [
   field SFString   name        "water bottle"
   field MFString   textureUrl  "textures/evian.png"
   field SFFloat    mass        1
+  field MFColor    recognitionColors []                # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -105,5 +106,6 @@ Solid {
       mass IS mass
     }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

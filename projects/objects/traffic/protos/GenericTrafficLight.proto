@@ -11,6 +11,7 @@ PROTO GenericTrafficLight [
   field SFFloat    greenTime   60                       # Defines how long should be the green state in seconds.
   field SFFloat    redTime     15                       # Defines how long should be the red state in seconds.
   field SFString   state       "off"                    # Defines the current state of the traffic light, this field is automatically updated when the state change.
+  field MFColor    recognitionColors []                 # Is `Solid.recognitionColors`.
 ]
 {
 %{
@@ -52,5 +53,6 @@ PROTO GenericTrafficLight [
     controller "generic_traffic_light"
     controllerArgs %{= controllerArgs }%
     customData IS state
+    recognitionColors IS recognitionColors
   }
 }

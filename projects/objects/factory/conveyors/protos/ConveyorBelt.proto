@@ -14,6 +14,7 @@ PROTO ConveyorBelt [
   field SFFloat    speed            0.5                                                                  # Defines the rubber band speed in meters per second.
   field SFFloat    acceleration     -1                                                                   # Defines the acceleration of the conveyor belt.
   field SFFloat    timer            0.0                                                                  # Defines for how long the conveyor belt should move (it will move forever if set to 0).
+  field MFColor    recognitionColors []                                                                  # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -194,5 +195,6 @@ PROTO ConveyorBelt [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

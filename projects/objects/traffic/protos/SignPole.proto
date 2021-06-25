@@ -11,6 +11,7 @@ PROTO SignPole [
   field SFFloat     radius        0.02                        # Defines the radius of the sign.
   field SFColor     color         0.258824 0.258824 0.258824  # Defines the color of the pole.
   field MFNode      signBoards    [ DirectionPanel {} ]       # Defines the boards.
+  field MFColor     recognitionColors []                      # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -54,5 +55,6 @@ PROTO SignPole [
     ]
     name IS name
     model "sign pole"
+    recognitionColors IS recognitionColors
   }
 }

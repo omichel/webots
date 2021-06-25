@@ -11,6 +11,7 @@ PROTO Washer [
   field SFFloat    innerRadius      0.006        # Defines the inner radius of the washer.
   field SFFloat    thickness        0.0017       # Defines the thickness of the washer.
   field SFString   contactMaterial "default"     # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []          # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -69,5 +70,6 @@ PROTO Washer [
     physics Physics {
       density 8050
     }
+    recognitionColors IS recognitionColors
   }
 }

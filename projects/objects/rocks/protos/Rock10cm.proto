@@ -11,6 +11,7 @@ PROTO Rock10cm [
   field SFColor    color            1 1 1                # Defines the base color of the rock.
   field SFNode     physics          NULL                 # Is `Solid.physics`.
   field SFBool     locked           FALSE                # Is `Solid.locked`.
+  field MFColor    recognitionColors []                  # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -51,5 +52,6 @@ PROTO Rock10cm [
     locked IS locked
     boundingObject USE IFS
     physics IS physics
+    recognitionColors IS recognitionColors
   }
 }

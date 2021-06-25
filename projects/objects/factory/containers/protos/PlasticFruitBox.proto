@@ -198,5 +198,6 @@ PROTO PlasticFruitBox [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

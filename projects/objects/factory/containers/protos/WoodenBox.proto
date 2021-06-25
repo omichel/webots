@@ -11,6 +11,7 @@ PROTO WoodenBox [
   field SFFloat    mass                0            # Defines the mass of the wooden box in kg. A value smaller or equal to 0 remove the physics of the wooden box.
   field MFNode     immersionProperties []           # Is `Solid.immersionProperties`.
   field SFBool     locked              FALSE        # Is `Solid.locked`.
+  field MFColor    recognitionColors   []           # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -103,5 +104,6 @@ Solid {
   }
   %{ end }%
   locked IS locked
+    recognitionColors IS recognitionColors
 }
 }

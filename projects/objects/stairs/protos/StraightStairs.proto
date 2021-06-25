@@ -17,6 +17,7 @@ PROTO StraightStairs [
   field MFNode     rightRail          StraightStairsRail {}                                              # Defines the right rail.
   field SFBool     startingStairs     TRUE                                                               # Defines whether the bottom part of the stairs should be flat.
   field SFString   contactMaterial    "default"                                                          # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors  []                                                                 # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -249,5 +250,6 @@ PROTO StraightStairs [
       }%
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

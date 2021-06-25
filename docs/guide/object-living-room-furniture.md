@@ -20,6 +20,7 @@ Armchair {
   SFColor    color       1 1 1
   MFString   textureUrl  "textures/sofa.jpg"
   SFNode     physics     NULL
+  MFColor    recognitionColors []
 }
 ```
 
@@ -52,6 +53,7 @@ Carpet {
   SFRotation rotation    0 1 0 0
   SFString   name        "carpet"
   SFColor    color       1 1 1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -84,6 +86,7 @@ Sofa {
   SFColor    color       1 1 1
   MFString   textureUrl  "textures/sofa.jpg"
   SFNode     physics     NULL
+  MFColor    recognitionColors []
 }
 ```
 

@@ -18,6 +18,7 @@ PROTO StraightStairsLanding [
   field SFNode     floorAppearance Parquetry {}                                                       # Defines the floor appearance.
   field MFNode     rail            []                                                                 # Defines the rail.
   field SFString   contactMaterial "default"                                                          # Is `Solid.contactMaterial`.  
+  field MFColor    recognitionColors []                                                               # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -177,5 +178,6 @@ PROTO StraightStairsLanding [
     model "straight stairs landing"
     contactMaterial IS contactMaterial
     boundingObject USE LANDING_SHAPE
+    recognitionColors IS recognitionColors
   }
 }

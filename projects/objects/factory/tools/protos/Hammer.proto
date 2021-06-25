@@ -8,6 +8,7 @@ PROTO Hammer [
   field SFRotation rotation        0 1 0 0
   field SFString   name            "hammer"
   field SFString   contactMaterial "default"  # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []       # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -1828,5 +1829,6 @@ PROTO Hammer [
         0 0 -0.08
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

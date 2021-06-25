@@ -14,6 +14,7 @@ PROTO CabinetDoor [
   field SFNode   handle              CabinetHandle {}  # Defines door handle.
   field SFNode   primaryAppearance   NULL              # Defines the primary appearance (this field is not used but is required for compatibilty reason with the other cabinet modules).
   field SFNode   secondaryAppearance NULL              # Defines the secondary appearance.
+  field MFColor  recognitionColors   []                # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -103,5 +104,6 @@ PROTO CabinetDoor [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

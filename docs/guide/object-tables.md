@@ -50,6 +50,7 @@ RoundTable {
   SFString   name        "round table"
   SFNode     appearance  VarnishedPine { textureTransform TextureTransform { scale 6 6 } }
   SFNode     physics     NULL
+  MFColor    recognitionColors []
 }
 ```
 
@@ -87,6 +88,7 @@ Table {
   SFFloat    frameThickness 0.05
   SFNode     trayAppearance VarnishedPine { textureTransform TextureTransform { scale 10 10 } }
   SFNode     legAppearance  VarnishedPine { textureTransform TextureTransform { scale 4 5 } }
+  MFColor    recognitionColors []
 }
 ```
 

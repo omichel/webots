@@ -55,6 +55,7 @@ Cabinet {
   SFNode   handle              CabinetHandle {}
   SFNode   primaryAppearance   PaintedWood {}
   SFNode   secondaryAppearance PaintedWood {}
+  MFColor  recognitionColors   []
 }
 ```
 

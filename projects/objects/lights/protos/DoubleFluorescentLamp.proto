@@ -9,6 +9,7 @@ PROTO DoubleFluorescentLamp [
   field SFRotation rotation        0 1 0 0
   field SFString   name            "double fuorescent lamp"
   field SFFloat    intensity       10                        # Defines the intensity of the emissive color.
+  field MFColor    recognitionColors []                      # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -117,5 +118,6 @@ PROTO DoubleFluorescentLamp [
         USE CYLINDER_LEFT
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

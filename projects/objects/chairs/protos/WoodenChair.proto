@@ -522,5 +522,6 @@ Solid {
     ]
   }
   physics IS physics
+    recognitionColors IS recognitionColors
 }
 }

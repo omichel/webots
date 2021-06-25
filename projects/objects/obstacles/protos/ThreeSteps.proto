@@ -10,6 +10,7 @@ PROTO ThreeSteps [
   field SFString   name         "three steps"
   field SFVec3f    increment    0 0.1 0        # Defines the translation between each step.
   field SFColor    color        0.5 0.5 0.5    # Deines the color of the steps.
+  field MFColor    recognitionColors []        # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -59,5 +60,6 @@ PROTO ThreeSteps [
     ]
     name IS name
     model "three steps"
+    recognitionColors IS recognitionColors
   }
 }

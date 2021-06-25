@@ -338,6 +338,7 @@ Tree {
   SFNode     boundingObject       NULL
   SFBool     locked               TRUE
   SFBool     isPickable           TRUE
+  MFColor    recognitionColors    []
 }
 ```
 

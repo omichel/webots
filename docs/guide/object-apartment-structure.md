@@ -22,6 +22,7 @@ Ceiling {
   SFNode     appearance       Roughcast { textureTransform TextureTransform { scale 10 10 } }
   SFBool     locked           TRUE
   SFBool     castShadows      TRUE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -70,6 +71,7 @@ Door {
   SFNode     doorHandle             DoorLever {}
   MFNode     doorSlot               []
   SFBool     castShadows            TRUE
+  MFColor    recognitionColors      []
 }
 ```
 
@@ -262,6 +264,7 @@ Radiator {
   SFNode     finAppearance         Roughcast { textureTransform TextureTransform { scale 3 3 } }
   SFNode     tubeAppearance        HammeredCopper { }
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 
@@ -297,6 +300,7 @@ Wall {
   SFString   name        "wall"
   SFVec3f    size        1 2.4 0.2
   SFNode     appearance  Roughcast { textureTransform TextureTransform { scale 1 2.4 } }
+  MFColor    recognitionColors []
 }
 ```
 
@@ -331,6 +335,7 @@ WallPlug {
   SFColor    mainColor              1 1 1
   SFColor    secondaryColor         0 0 0
   SFBool     enableBoundingObject   TRUE
+  MFColor    recognitionColors      []
 }
 ```
 
@@ -373,6 +378,7 @@ Window {
   SFNode     wallAppearance         Roughcast {}
   SFNode     frameAppearance        VarnishedPine {}
   SFBool     castShadows            TRUE
+  MFColor    recognitionColors      []
 }
 ```
 

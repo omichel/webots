@@ -20,6 +20,7 @@ PROTO HighwayPole [
   field MFNode        rightVerticalSigns    [ HighwaySign { name "horizontal sign" height 2.1 length 3.2 texture "textures/highway_sign_la_ciotat.jpg" } ]  # Defines the vertical signs on the right side of the pole.
   field MFNode        leftHorizontalSigns   [ ]                                                                                                             # Defines the horizontal signs on the left side of the pole.
   field MFNode        leftVerticalSigns     [ ]                                                                                                             # Defines the vertical signs on the left side of the pole.
+  field MFColor       recognitionColors     []                                                                                                              # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -189,5 +190,6 @@ PROTO HighwayPole [
     ]
     name IS name
     model "highway pole"
+    recognitionColors IS recognitionColors
   }
 }

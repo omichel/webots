@@ -10,6 +10,7 @@ PROTO CerealBox [
   field SFVec3f    size        0.08 0.3 0.2                 # Defines the size of the box.
   field MFString   textureUrl  "textures/cereal_box_2.jpg"  # Defines the texture used for the box.
   field SFFloat    mass        1                            # Defines the mass of the box in kg.
+  field MFColor    recognitionColors []                     # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -124,5 +125,6 @@ Solid {
       mass IS mass
     }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

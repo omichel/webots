@@ -11,6 +11,7 @@ PROTO Radiator [
   field SFNode     finAppearance         Roughcast { textureTransform TextureTransform { scale 3 3 } }  # Defines the appearance of the fins.
   field SFNode     tubeAppearance        HammeredCopper { }                                             # Defines the appearance of the input and ouput tubes.
   field SFBool     enableBoundingObject  TRUE                                                           # Defines whether the radiator should have a bounding object.
+  field MFColor    recognitionColors     []                                                             # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -234,5 +235,6 @@ PROTO Radiator [
       ]
     }
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }

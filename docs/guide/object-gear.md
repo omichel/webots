@@ -26,6 +26,7 @@ Gear {
   SFFloat     density                0.001
   SFBool      bodyBoundingObject     TRUE
   SFBool      teethBoundingObject    FALSE
+  MFColor     recognitionColors      []
 }
 ```
 

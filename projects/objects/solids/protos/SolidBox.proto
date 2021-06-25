@@ -15,6 +15,7 @@ PROTO SolidBox [
   field SFNode     physics               NULL                                                                                                          # Is `Solid.physics`.
   field SFBool     enableBoundingObject  TRUE                                                                                                          # Defines whether the solid should have a bounding object.
   field SFBool     castShadows           TRUE                                                                                                          # Defines whether this object should cast shadows.
+  field MFColor    recognitionColors     []                                                                                                            # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -130,5 +131,6 @@ PROTO SolidBox [
     }
     %{ end }%
     physics IS physics
+    recognitionColors IS recognitionColors
   }
 }

@@ -7,6 +7,7 @@ PROTO Bathtube [
   field SFVec3f    translation      0 0 0
   field SFRotation rotation         0 0.7 0.7 3.141593
   field SFString   name             "bathtube"
+  field MFColor    recognitionColors []                # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -104,5 +105,6 @@ PROTO Bathtube [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

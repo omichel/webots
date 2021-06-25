@@ -11,6 +11,7 @@ PROTO PipeSection [
   field SFFloat    radius        0.03                                                                  # Defines the radius of the pipe.
   field SFInt32    subdivision   24                                                                    # Defines the number of polygons used to represent the pipe cylinder and so its resolution.
   field SFNode     appearance    MetalPipePaint { textureTransform TextureTransform { scale 1 1.5 } }  # Defines the appearance of the pipe.
+  field MFColor    recognitionColors []                                                                # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -31,5 +32,6 @@ PROTO PipeSection [
     name IS name
     model "pipe section"
     boundingObject USE PIPE
+    recognitionColors IS recognitionColors
   }
 }

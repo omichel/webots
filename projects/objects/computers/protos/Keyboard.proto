@@ -9,6 +9,7 @@ PROTO Keyboard [
   field SFString   name        "keyboard"
   field SFColor    color       0.1 0.1 0.1  # Defines the color of the keyboard.
   field SFFloat    mass        0            # Defines the mass of the keyboard in kg. A value smaller or equal to 0 removes the physics of the keyboard.
+  field MFColor    recognitionColors []     # Is `Solid.recognitionColors`.
 ]
 {
 %{ local mass = fields.mass.value }%
@@ -80,5 +81,6 @@ Solid {
   }
   %{ end }%
 
+    recognitionColors IS recognitionColors
 }
 }

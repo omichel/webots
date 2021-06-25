@@ -9,6 +9,7 @@ PROTO PlatformCart [
   field SFString   name        "platform cart"
   field MFNode     slot        []               # Extends the cart with new nodes in the slot.
   field SFNode     physics     Physics {}       # Is `Solid.physics`.
+  field MFColor    recognitionColors []         # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -199,5 +200,6 @@ PROTO PlatformCart [
       ]
     }
     physics IS physics
+    recognitionColors IS recognitionColors
   }
 }

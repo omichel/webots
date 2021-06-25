@@ -13,6 +13,7 @@ PROTO RobotstadiumSoccerField [
   field SFColor    frame1Color     1 1 1                        # Defines the color of the first goal frame.
   field SFColor    frame2Color     1 1 1                        # Defines the color of the second goal frame.
   field SFFloat    postRadius      0.05                         # Defines the radius of the goal posts.
+  field MFColor    recognitionColors []                         # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -243,5 +244,6 @@ Solid {
     ]
   }
   locked TRUE
+    recognitionColors IS recognitionColors
 }
 }

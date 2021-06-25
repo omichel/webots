@@ -23,6 +23,7 @@ Panel {
   SFInt32    panelsCount      2
   SFNode     appearance       VarnishedPine { textureTransform TextureTransform { scale 5 5 } }
   SFNode     borderAppearance BrushedAluminium {}
+  MFColor    recognitionColors []
 }
 ```
 
@@ -63,6 +64,7 @@ PanelWithTubes {
   SFRotation rotation    0 1 0 0
   SFString   name        "panel with tubes"
   SFNode     appearance  BrushedAluminium { textureTransform TextureTransform { scale 3 3 } }
+  MFColor    recognitionColors []
 }
 ```
 

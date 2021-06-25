@@ -10,6 +10,7 @@ PROTO Armchair [
   field SFColor    color       1 1 1                # Defines the color of the armchair.
   field MFString   textureUrl  "textures/sofa.jpg"  # Defines the texture used for the armchair.
   field SFNode     physics     NULL                 # Is `Solid.physics`.
+  field MFColor    recognitionColors []             # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -118,5 +119,6 @@ Solid {
     ]
   }
   physics IS physics
+    recognitionColors IS recognitionColors
 }
 }

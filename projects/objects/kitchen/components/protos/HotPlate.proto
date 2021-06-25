@@ -8,6 +8,7 @@ PROTO HotPlate [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "hot plate"
   field MFString   textureUrl  "textures/components.jpg"  # Defines the texture used for the hot plate.
+  field MFColor    recognitionColors []                   # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -109,5 +110,6 @@ Solid {
       }
     ]
   }
+    recognitionColors IS recognitionColors
 }
 }

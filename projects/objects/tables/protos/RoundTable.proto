@@ -9,6 +9,7 @@ PROTO RoundTable [
   field SFString   name        "round table"                                                      # Defines the color of the table.
   field SFNode     appearance  VarnishedPine { textureTransform TextureTransform { scale 6 6 } }  # Defines the appearance of the table.
   field SFNode     physics     NULL                                                               # Is `Solid.physics`.
+  field MFColor    recognitionColors []                                                           # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -570,5 +571,6 @@ Solid {
     ]
   }
   physics IS physics
+    recognitionColors IS recognitionColors
 }
 }

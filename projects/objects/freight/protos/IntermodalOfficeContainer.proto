@@ -10,6 +10,7 @@ PROTO IntermodalOfficeContainer [
   field SFString   name           "office"     # Is `Solid.name`.
   field SFColor    primaryColor   0.9 0.1 0.1  # Defines the primary color.
   field SFColor    secondaryColor 0.6 0.6 0.6  # Defines the secondary color.
+  field MFColor    recognitionColors []        # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -116,5 +117,6 @@ PROTO IntermodalOfficeContainer [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

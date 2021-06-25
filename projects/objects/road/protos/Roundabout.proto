@@ -38,6 +38,7 @@ PROTO Roundabout [
 
   hiddenField  SFFloat              startRoadsWith       7                                   # Deprecated in Webots R2018b.
   hiddenField  MFBool               startRoadsDashedLine FALSE                               # Deprecated in Webots R2018c.
+  field        MFColor              recognitionColors        []                                    # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -468,5 +469,6 @@ PROTO Roundabout [
     %{ end }%
     ]
     locked IS locked
+    recognitionColors IS recognitionColors
   }
 }

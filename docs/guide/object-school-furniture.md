@@ -18,6 +18,7 @@ Blackboard {
   SFRotation rotation    0 1 0 0
   SFString   name        "blackboard"
   SFBool     castShadows TRUE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -83,6 +84,7 @@ Clock {
   SFVec3f    translation 0 0 0
   SFRotation rotation    0 1 0 0
   SFString   name        "clock"
+  MFColor    recognitionColors []
 }
 ```
 

@@ -8,6 +8,7 @@ PROTO BeerBottle [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "beer bottle"
   field SFFloat    mass        0.4
+  field MFColor    recognitionColors []                # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -90,5 +91,6 @@ Solid {
       mass IS mass
     }
   %{ end }%
+    recognitionColors IS recognitionColors
 }
 }

@@ -9,6 +9,7 @@ PROTO Ramp30deg [
   field SFRotation rotation     0 1 0 0
   field SFString   name         "ramp 30 degrees"
   field SFColor    color        0.5 0.5 0.5        # Defines the color of the ramp.
+  field MFColor    recognitionColors []            # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -62,5 +63,6 @@ PROTO Ramp30deg [
     name IS name
     model "ramp 30 degrees"
     boundingObject USE RAMP
+    recognitionColors IS recognitionColors
   }
 }

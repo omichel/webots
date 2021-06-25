@@ -9,6 +9,7 @@ PROTO Wrench [
   field SFString   name            "wrench"
   field SFNode     appearance       OldSteel {}  # Defines the appearance of the wrench.
   field SFString   contactMaterial "default"     # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []          # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -2183,5 +2184,6 @@ PROTO Wrench [
       density -1
       mass 0.3
     }
+    recognitionColors IS recognitionColors
   }
 }

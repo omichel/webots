@@ -16,6 +16,7 @@ Derived from [Solid](../reference/solid.md).
 Telephone {
   SFVec3f translation 0 0 0
   SFRotation rotation 0 1 0 0
+  MFColor    recognitionColors []
 }
 ```
 
@@ -42,6 +43,7 @@ OfficeTelephone {
   SFRotation rotation       0 1 0 0
   SFString   name           "office telephone"
   SFBool     enablePhysics  TRUE
+  MFColor    recognitionColors []
 }
 ```
 

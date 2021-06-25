@@ -16,6 +16,7 @@ PROTO CeilingLight [
   field SFFloat    pointLightRadius           100                                      # Defines the radius of the point light.
   field SFBool     pointLightCastShadows      FALSE                                    # Defines whether the point light should cast shadows.
   field SFBool     castShadows                TRUE                                     # Defines whether this object should cast shadows.
+  field MFColor    recognitionColors          []                                       # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -380,5 +381,6 @@ Solid {
   ]
   name IS name
   model "ceiling light"
+    recognitionColors IS recognitionColors
 }
 }

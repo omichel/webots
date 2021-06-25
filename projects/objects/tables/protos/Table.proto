@@ -13,6 +13,7 @@ PROTO Table [
   field SFFloat    frameThickness 0.05                                                                 # Defines the thickness of the frame.
   field SFNode     trayAppearance VarnishedPine { textureTransform TextureTransform { scale 10 10 } }  # Defines the appearance of the tray.
   field SFNode     legAppearance  VarnishedPine { textureTransform TextureTransform { scale 4 5 } }    # Defines the appearance of the feet.
+  field MFColor    recognitionColors []                                                                # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -90,5 +91,6 @@ PROTO Table [
     ]
     name IS name
     model "table"
+    recognitionColors IS recognitionColors
   }
 }

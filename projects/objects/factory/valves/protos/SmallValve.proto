@@ -11,6 +11,7 @@ PROTO SmallValve [
   field SFString   controller    "valve_turner"   # Defines the controller of the valve which is used to limit its rotation.
   field SFBool     supervisor    FALSE            # Is `Robot.supervisor`.
   field MFString   absoluteStop  "15.7079632679"  # Defines the maximum rotational angle in radians. This value is sent to the controller using the controllerArgs field.
+  field MFColor    recognitionColors []           # Is `Solid.recognitionColors`.
 ]
 {
   Robot {
@@ -346,5 +347,6 @@ PROTO SmallValve [
     controller IS controller
     supervisor IS supervisor
     controllerArgs IS absoluteStop
+    recognitionColors IS recognitionColors
   }
 }

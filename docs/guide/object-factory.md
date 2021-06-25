@@ -22,6 +22,7 @@ CardboardBox {
   SFVec3f    size        0.6 0.6 0.6
   SFFloat    mass        0
   SFBool     locked      FALSE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -82,6 +83,7 @@ PlasticCrate {
   SFVec3f    size        0.6 0.6 0.6
   SFColor    color       0.9 0.2 0.2
   SFFloat    mass        0
+  MFColor    recognitionColors []
 }
 ```
 
@@ -138,6 +140,7 @@ WoodenBox {
   SFFloat    mass                0
   MFNode     immersionProperties []
   SFBool     locked              FALSE
+  MFColor    recognitionColors   []
 }
 ```
 
@@ -178,6 +181,7 @@ ConveyorBelt {
   SFFloat    speed            0.5
   SFFloat    acceleration     -1
   SFFloat    timer            0.0
+  MFColor    recognitionColors []
 }
 ```
 
@@ -225,6 +229,7 @@ ConveyorPlatform {
    SFFloat     acceleration     -1
    SFFloat     timer            0.0
    SFFloat     textureAnimation 0.5
+   MFColor     recognitionColors []
 }
 ```
 
@@ -263,6 +268,7 @@ FireExtinguisher {
   SFRotation rotation        0 1 0 0
   SFString   name            "fire extinguisher"
   SFBool     enablePhysics   TRUE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -296,6 +302,7 @@ SquareManhole {
   SFString   name                  "manhole"
   SFVec3f    size                  1 0.1 1
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 
@@ -335,6 +342,7 @@ WoodenPallet {
   SFFloat    mass           0
   SFBool     boundingObject TRUE
   SFBool     locked         FALSE
+  MFColor    recognitionColors []
 }
 ```
 
@@ -381,6 +389,7 @@ WoodenPalletStack {
   SFFloat    palletMass               0
   SFBool     boundingObject           TRUE
   SFBool     locked                   FALSE
+  MFColor    recognitionColors        []
 }
 ```
 
@@ -428,6 +437,7 @@ LJoint {
   SFString   name        "L joint pipe"
   SFVec3f    scale       1 1 1
   SFNode     appearance  OldSteel { textureTransform TextureTransform { rotation 0.78 scale 2 2 } }
+  MFColor    recognitionColors []
 }
 ```
 
@@ -461,6 +471,7 @@ PipeSection {
   SFFloat    radius        0.03
   SFInt32    subdivision   24
   SFNode     appearance    MetalPipePaint { textureTransform TextureTransform { scale 1 1.5 } }
+  MFColor    recognitionColors []
 }
 ```
 
@@ -498,6 +509,7 @@ TJoint {
   SFString   name        "T joint pipe"
   SFVec3f    scale       1 1 1
   SFNode     appearance  OldSteel { textureTransform TextureTransform { scale 3 3 } }
+  MFColor    recognitionColors []
 }
 ```
 
@@ -533,6 +545,7 @@ Bolt {
   SFFloat    screwRadius      0.0055
   SFFloat    screwLength      0.035
   SFString   contactMaterial  "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -572,6 +585,7 @@ CapScrew {
   SFString   contactMaterial       "default"
   SFBool     enablePhysics         TRUE
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 
@@ -614,6 +628,7 @@ ElectricalPlug {
   MFVec3f    cablePath             [0 0 0, 0 0.03 0, 0 0.03 0.1]
   SFBool     enablePhysics         TRUE
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 
@@ -650,6 +665,7 @@ EmergencyButton {
   SFRotation rotation               0 0 1 0
   SFString   name                   "emergency button"
   SFBool     includePositionSensor  FALSE
+  MFColor    recognitionColors      []
 }
 ```
 
@@ -683,6 +699,7 @@ EyeScrew {
   SFFloat    screwRadius      0.006
   SFFloat    screwLength      0.05
   SFString   contactMaterial  "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -717,6 +734,7 @@ Hammer {
   SFRotation rotation        0 1 0 0
   SFString   name            "hammer"
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -746,6 +764,7 @@ Nut {
   SFFloat    innerRadius     0.006
   SFFloat    thickness       0.007
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -780,6 +799,7 @@ PaintBucket {
   SFRotation rotation        0 1 0 0
   SFString   name            "paint bucket"
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -807,6 +827,7 @@ PlatformCart {
   SFString   name        "platform cart"
   MFNode     slot        []
   SFNode     physics     Physics {}
+  MFColor    recognitionColors []
 }
 ```
 
@@ -864,6 +885,7 @@ Screwdriver {
   SFRotation rotation        0 1 0 0
   SFString   name            "screwdriver"
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -893,6 +915,7 @@ Washer {
   SFFloat    innerRadius      0.006
   SFFloat    thickness        0.0017
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -928,6 +951,7 @@ Wrench {
   SFString   name            "wrench"
   SFNode     appearance       OldSteel {}
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -964,6 +988,7 @@ LargeValve {
   SFBool     supervisor      FALSE
   MFString   absoluteStop    "15.7079632679"
   SFString   contactMaterial "default"
+  MFColor    recognitionColors []
 }
 ```
 
@@ -999,6 +1024,7 @@ LeverValve {
   SFString   name          "lever valve"
   SFFloat    jointFriction 1
   SFVec3f    scale         0.7 0.7 0.7
+  MFColor    recognitionColors []
 }
 ```
 
@@ -1032,6 +1058,7 @@ SmallValve {
   SFString   controller    "valve_turner"
   SFBool     supervisor    FALSE
   MFString   absoluteStop  "15.7079632679"
+  MFColor    recognitionColors []
 }
 ```
 

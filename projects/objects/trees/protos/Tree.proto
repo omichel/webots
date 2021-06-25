@@ -13,6 +13,7 @@ PROTO Tree [
   field SFNode     boundingObject       NULL                         # Is `Solid.boundingObject`.
   field SFBool     locked               TRUE                         # Is `Solid.locked`.
   field SFBool     isPickable           TRUE
+  field MFColor    recognitionColors    []                           # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -71,5 +72,6 @@ PROTO Tree [
     model "tree"
     boundingObject IS boundingObject
     locked IS locked
+    recognitionColors IS recognitionColors
   }
 }

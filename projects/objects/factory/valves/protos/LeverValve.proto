@@ -9,6 +9,7 @@ PROTO LeverValve [
   field SFString   name          "lever valve"
   field SFFloat    jointFriction 1              # Defines the static friction of the valve joint.
   field SFVec3f    scale         0.7 0.7 0.7
+  field MFColor    recognitionColors []         # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -574,5 +575,6 @@ PROTO LeverValve [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

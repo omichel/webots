@@ -7,6 +7,7 @@ PROTO LegoWheel [
   field SFVec3f    translation 0 0.0219974 0
   field SFRotation rotation    0 1 0 0
   field SFString   name        "LEGO wheel"
+  field MFColor    recognitionColors []                # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -74,5 +75,6 @@ PROTO LegoWheel [
       density -1
       mass 0.027
     }
+    recognitionColors IS recognitionColors
   }
 }

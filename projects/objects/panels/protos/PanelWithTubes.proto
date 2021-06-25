@@ -8,6 +8,7 @@ PROTO PanelWithTubes [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "panel with tubes"
   field SFNode     appearance  BrushedAluminium { textureTransform TextureTransform { scale 3 3 } }  # Defines the appearance of the panel.
+  field MFColor    recognitionColors []                                                              # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -109,5 +110,6 @@ PROTO PanelWithTubes [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

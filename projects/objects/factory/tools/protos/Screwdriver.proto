@@ -8,6 +8,7 @@ PROTO Screwdriver [
   field SFRotation rotation        0 1 0 0
   field SFString   name            "screwdriver"
   field SFString   contactMaterial "default"      # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []           # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -712,5 +713,6 @@ PROTO Screwdriver [
         angular 0.7
       }
     }
+    recognitionColors IS recognitionColors
   }
 }

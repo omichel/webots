@@ -20,6 +20,7 @@ RobotstadiumGoal {
   SFString   name        "robotstadium goal"
   SFFloat    postRadius  0.05
   SFColor    frameColor  1 1 1
+  MFColor    recognitionColors []
 }
 ```
 
@@ -57,6 +58,7 @@ RobotstadiumSoccerField {
   SFColor    frame1Color     1 1 1
   SFColor    frame2Color     1 1 1
   SFFloat    postRadius      0.05
+  MFColor    recognitionColors []
 }
 ```
 

@@ -1068,6 +1068,7 @@ StripBuilding {
   SFFloat    length                100
   SFInt32    randomSeed            1
   SFBool     enableBoundingObject  TRUE
+  MFColor    recognitionColors     []
 }
 ```
 

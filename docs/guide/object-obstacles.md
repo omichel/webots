@@ -54,6 +54,7 @@ Ramp30deg {
   SFRotation rotation     0 1 0 0
   SFString   name         "ramp 30 degrees"
   SFColor    color        0.5 0.5 0.5
+  MFColor    recognitionColors []
 }
 ```
 
@@ -86,6 +87,7 @@ ThreeSteps {
   SFString   name         "three steps"
   SFVec3f    increment    0 0.1 0
   SFColor    color        0.5 0.5 0.5
+  MFColor    recognitionColors []
 }
 ```
 

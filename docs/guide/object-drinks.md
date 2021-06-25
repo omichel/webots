@@ -18,6 +18,7 @@ BeerBottle {
   SFRotation rotation    0 1 0 0
   SFString   name        "beer bottle"
   SFFloat    mass        0.4
+  MFColor    recognitionColors []
 }
 ```
 
@@ -73,6 +74,7 @@ WaterBottle {
   SFString   name        "water bottle"
   MFString   textureUrl  "textures/evian.png"
   SFFloat    mass        1
+  MFColor    recognitionColors []
 }
 ```
 

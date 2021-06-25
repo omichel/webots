@@ -9,6 +9,7 @@ PROTO LJoint [
   field SFString   name        "L joint pipe"
   field SFVec3f    scale       1 1 1
   field SFNode     appearance  OldSteel { textureTransform TextureTransform { rotation 0.78 scale 2 2 } }  # Defines the appearance of the pipe.
+  field MFColor    recognitionColors []                                                                    # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -701,5 +702,6 @@ PROTO LJoint [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

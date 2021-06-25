@@ -13,6 +13,7 @@ PROTO CabinetDrawer [
   field SFNode   handle              CabinetHandle {}  # Defines the drawer handle.
   field SFNode   primaryAppearance   NULL              # Defines the primary appearance.
   field SFNode   secondaryAppearance NULL              # Defines the secondary appearance.
+  field MFColor  recognitionColors   []                # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -128,5 +129,6 @@ PROTO CabinetDrawer [
         }
       ]
     }
+    recognitionColors IS recognitionColors
   }
 }

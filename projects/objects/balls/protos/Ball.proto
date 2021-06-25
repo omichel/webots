@@ -15,6 +15,7 @@ PROTO Ball [
   field SFFloat    linearDamping   0.17           # Defines the linear damping of the ball.
   field SFFloat    angularDamping  0.33           # Defines the angular damping of the ball.
   field SFString   contactMaterial "default"      # Is `Solid.contactMaterial`.
+  field MFColor    recognitionColors []           # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -47,5 +48,6 @@ PROTO Ball [
     }
     name IS name
     model "ball"
+    recognitionColors IS recognitionColors
   }
 }

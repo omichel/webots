@@ -67,5 +67,6 @@ Solid {
   boundingObject Box {
     size 0.82 1.01 0.05
   }
+    recognitionColors IS recognitionColors
 }
 }

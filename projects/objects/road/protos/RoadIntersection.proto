@@ -32,6 +32,7 @@ PROTO RoadIntersection [
 
   hiddenField  SFFloat              roadsWith                7                                     # Deprecated in Webots R2018b.
   hiddenField  MFBool               startRoadsDashedLine     TRUE                                  # Deprecated in Webots R2018c.
+  field        MFColor              recognitionColors              []                                    # Is `Solid.recognitionColors`.
 ]
 {
   %{
@@ -227,5 +228,6 @@ PROTO RoadIntersection [
       contactMaterial IS contactMaterial
       boundingObject USE INTERSECTION_GEOM
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }

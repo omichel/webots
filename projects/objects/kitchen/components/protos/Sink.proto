@@ -8,6 +8,7 @@ PROTO Sink [
   field SFRotation rotation    0 1 0 0
   field SFString   name        "sink"
   field MFString   textureUrl  "textures/components.jpg"  # Defines the texture used for the sink.
+  field MFColor    recognitionColors []                   # Is `Solid.recognitionColors`.
 ]
 {
 Solid {
@@ -119,5 +120,6 @@ Solid {
       }
     ]
   }
+    recognitionColors IS recognitionColors
 }
 }

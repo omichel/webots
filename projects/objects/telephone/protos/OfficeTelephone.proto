@@ -8,6 +8,7 @@ PROTO OfficeTelephone [
   field SFRotation rotation       0 1 0 0
   field SFString   name           "office telephone"
   field SFBool     enablePhysics  TRUE                # Defines whether the telephone should have physics.
+  field MFColor    recognitionColors []               # Is `Solid.recognitionColors`.
 ]
 {
   Solid {
@@ -160,5 +161,6 @@ PROTO OfficeTelephone [
       mass 1
     }
     %{ end }%
+    recognitionColors IS recognitionColors
   }
 }
