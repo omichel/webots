@@ -1,314 +1,314 @@
 {
-  "robotID": "n10",
-  "name": "aibo-ers7",
   "devices": [
     {
-      "maxPosition": 0.0524,
-      "type": "RotationalMotor",
-      "transformID": "n40",
       "anchor": "0 0.0195 -0.0675",
       "axis": "1 0 0",
+      "maxPosition": 0.0524,
       "minPosition": -1.3963,
       "name": "PRM:/r1/c1-Joint2:11",
-      "position": -0.5236
+      "position": -0.5236,
+      "transformID": "n40",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 1.6232,
-      "type": "RotationalMotor",
-      "transformID": "n48",
       "anchor": "0 0.08 0",
       "axis": "0 1 0",
+      "maxPosition": 1.6232,
       "minPosition": -1.6232,
       "name": "PRM:/r1/c1/c2-Joint2:12",
-      "position": 0
+      "position": 0,
+      "transformID": "n48",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 0.8727,
-      "type": "RotationalMotor",
-      "transformID": "n52",
       "anchor": "0 0 0",
       "axis": "1 0 0",
+      "maxPosition": 0.8727,
       "minPosition": -0.349,
       "name": "PRM:/r1/c1/c2/c3-Joint2:13",
-      "position": 0.5236
+      "position": 0.5236,
+      "transformID": "n52",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 0,
-      "type": "RotationalMotor",
-      "transformID": "n117",
       "anchor": "0 -0.0175 -0.04",
       "axis": "1 0 0",
+      "maxPosition": 0,
       "minPosition": -1.0472,
       "name": "PRM:/r1/c1/c2/c3/c4-Joint2:14",
-      "position": -0.0523599
+      "position": -0.0523599,
+      "transformID": "n117",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 0.2618,
-      "type": "RotationalMotor",
-      "transformID": "n85",
       "anchor": "-0.042 0.0145 0.011",
       "axis": "0 0 -1",
+      "maxPosition": 0.2618,
       "minPosition": 0,
       "name": "PRM:/r1/c1/c2/c3/e5-Joint4:15",
-      "position": 0
+      "position": 0,
+      "transformID": "n85",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 0.2618,
-      "type": "RotationalMotor",
-      "transformID": "n101",
       "anchor": "0.042 0.0145 0.011",
       "axis": "0 0 1",
+      "maxPosition": 0.2618,
       "minPosition": 0,
       "name": "PRM:/r1/c1/c2/c3/e6-Joint4:16",
-      "position": 0
+      "position": 0,
+      "transformID": "n101",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.3562,
-      "type": "RotationalMotor",
-      "transformID": "n256",
       "anchor": "0 0 -0.065",
       "axis": "1 0 0",
+      "maxPosition": 2.3562,
       "minPosition": -2.0944,
       "name": "PRM:/r2/c1-Joint2:21",
-      "position": 0
+      "position": 0,
+      "transformID": "n256",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 1.6232,
-      "type": "RotationalMotor",
-      "transformID": "n265",
       "anchor": "-0.0625 0 0",
       "axis": "0 0 -1",
+      "maxPosition": 1.6232,
       "minPosition": -0.5236,
       "name": "PRM:/r2/c1/c2-Joint2:22",
-      "position": 0
+      "position": 0,
+      "transformID": "n265",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.2166,
-      "type": "RotationalMotor",
-      "transformID": "n274",
       "anchor": "-0.0047 -0.0695 -0.009",
       "axis": "1 0 0",
+      "maxPosition": 2.2166,
       "minPosition": -0.5236,
       "name": "PRM:/r2/c1/c2/c3-Joint2:23",
-      "position": 0.523653
+      "position": 0.523653,
+      "transformID": "n274",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.0944,
-      "type": "RotationalMotor",
-      "transformID": "n306",
       "anchor": "0 0 0.065",
       "axis": "-1 0 0",
+      "maxPosition": 2.0944,
       "minPosition": -2.3562,
       "name": "PRM:/r3/c1-Joint2:31",
-      "position": 0
+      "position": 0,
+      "transformID": "n306",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 1.6232,
-      "type": "RotationalMotor",
-      "transformID": "n315",
       "anchor": "-0.0625 0 0",
       "axis": "0 0 -1",
+      "maxPosition": 1.6232,
       "minPosition": -0.2618,
       "name": "PRM:/r3/c1/c2-Joint2:32",
-      "position": 0
+      "position": 0,
+      "transformID": "n315",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.2166,
-      "type": "RotationalMotor",
-      "transformID": "n324",
       "anchor": "-0.0047 -0.0695 0.009",
       "axis": "-1 0 0",
+      "maxPosition": 2.2166,
       "minPosition": -0.5236,
       "name": "PRM:/r3/c1/c2/c3-Joint2:33",
-      "position": 0.523598
+      "position": 0.523598,
+      "transformID": "n324",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.3562,
-      "type": "RotationalMotor",
-      "transformID": "n160",
       "anchor": "0 0 -0.065",
       "axis": "1 0 0",
+      "maxPosition": 2.3562,
       "minPosition": -2.0944,
       "name": "PRM:/r4/c1-Joint2:41",
-      "position": 0
+      "position": 0,
+      "transformID": "n160",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 1.6232,
-      "type": "RotationalMotor",
-      "transformID": "n169",
       "anchor": "0.0625 0 0",
       "axis": "0 0 1",
+      "maxPosition": 1.6232,
       "minPosition": -0.2618,
       "name": "PRM:/r4/c1/c2-Joint2:42",
-      "position": 0
+      "position": 0,
+      "transformID": "n169",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.2166,
-      "type": "RotationalMotor",
-      "transformID": "n178",
       "anchor": "0.0047 -0.0695 -0.009",
       "axis": "1 0 0",
+      "maxPosition": 2.2166,
       "minPosition": -0.5236,
       "name": "PRM:/r4/c1/c2/c3-Joint2:43",
-      "position": 0.523619
+      "position": 0.523619,
+      "transformID": "n178",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.0944,
-      "type": "RotationalMotor",
-      "transformID": "n210",
       "anchor": "0 0 0.065",
       "axis": "-1 0 0",
+      "maxPosition": 2.0944,
       "minPosition": -2.3562,
       "name": "PRM:/r5/c1-Joint2:51",
-      "position": 0
+      "position": 0,
+      "transformID": "n210",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 1.6232,
-      "type": "RotationalMotor",
-      "transformID": "n219",
       "anchor": "0.0625 0 0",
       "axis": "0 0 1",
+      "maxPosition": 1.6232,
       "minPosition": -0.2618,
       "name": "PRM:/r5/c1/c2-Joint2:52",
-      "position": 0
+      "position": 0,
+      "transformID": "n219",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 2.2166,
-      "type": "RotationalMotor",
-      "transformID": "n228",
       "anchor": "0.0047 -0.0695 0.009",
       "axis": "-1 0 0",
+      "maxPosition": 2.2166,
       "minPosition": -0.5236,
       "name": "PRM:/r5/c1/c2/c3-Joint2:53",
-      "position": 0.523598
+      "position": 0.523598,
+      "transformID": "n228",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 1.1345,
-      "type": "RotationalMotor",
-      "transformID": "n135",
       "anchor": "0 0.033 0.102",
       "axis": "-1 0 0",
+      "maxPosition": 1.1345,
       "minPosition": 0,
       "name": "PRM:/r6/c1-Joint2:61",
-      "position": 0
+      "position": 0,
+      "transformID": "n135",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 1.0472,
-      "type": "RotationalMotor",
-      "transformID": "n143",
       "anchor": "0 0 0",
       "axis": "0 0 -1",
+      "maxPosition": 1.0472,
       "minPosition": -1.0472,
       "name": "PRM:/r6/c2-Joint2:62",
-      "position": 0
+      "position": 0,
+      "transformID": "n143",
+      "type": "RotationalMotor"
     },
     {
-      "transformOffset": "0 -0.00425 -0.10864",
-      "transformID": "n10",
       "name": "PRM:/p1-Sensor:p1",
+      "transformID": "n10",
+      "transformOffset": "0 -0.00425 -0.10864",
       "type": "DistanceSensor"
     },
     {
-      "transformOffset": "0 -0.0146 -0.08106",
-      "transformID": "n52",
       "name": "PRM:/r1/c1/c2/c3/i1-FbkImageSensor:F1",
+      "transformID": "n52",
+      "transformOffset": "0 -0.0146 -0.08106",
       "type": "Camera"
     },
     {
-      "transformOffset": "0.00325 0 -0.0769",
-      "transformID": "n52",
       "name": "PRM:/r1/c1/c2/c3/p1-Sensor:p1",
-      "type": "DistanceSensor"
-    },
-    {
-      "transformOffset": "-0.00695 0 -0.0769",
       "transformID": "n52",
-      "name": "PRM:/r1/c1/c2/c3/p2-Sensor:p2",
+      "transformOffset": "0.00325 0 -0.0769",
       "type": "DistanceSensor"
     },
     {
-      "type": "PositionSensor",
+      "name": "PRM:/r1/c1/c2/c3/p2-Sensor:p2",
+      "transformID": "n52",
+      "transformOffset": "-0.00695 0 -0.0769",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "PRM:/r2/c1/c2-JointSensor2:22",
       "transformID": "n265",
-      "name": "PRM:/r2/c1/c2-JointSensor2:22"
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
+      "name": "PRM:/r2/c1/c2/c3-JointSensor2:23",
       "transformID": "n274",
-      "name": "PRM:/r2/c1/c2/c3-JointSensor2:23"
+      "type": "PositionSensor"
     },
     {
-      "transformOffset": "0 -0.0658 0.0055",
-      "transformID": "n274",
       "name": "PRM:/r2/c1/c2/c3/c4-Sensor:24",
-      "type": "TouchSensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n306",
-      "name": "PRM:/r3/c1-JointSensor2:31"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n315",
-      "name": "PRM:/r3/c1/c2-JointSensor2:32"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n324",
-      "name": "PRM:/r3/c1/c2/c3-JointSensor2:33"
-    },
-    {
-      "transformOffset": "0 -0.0676 -0.01409",
-      "transformID": "n324",
-      "name": "PRM:/r3/c1/c2/c3/c4-Sensor:34",
-      "type": "TouchSensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n160",
-      "name": "PRM:/r4/c1-JointSensor2:41"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n169",
-      "name": "PRM:/r4/c1/c2-JointSensor2:42"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n178",
-      "name": "PRM:/r4/c1/c2/c3-JointSensor2:43"
-    },
-    {
+      "transformID": "n274",
       "transformOffset": "0 -0.0658 0.0055",
+      "type": "TouchSensor"
+    },
+    {
+      "name": "PRM:/r3/c1-JointSensor2:31",
+      "transformID": "n306",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "PRM:/r3/c1/c2-JointSensor2:32",
+      "transformID": "n315",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "PRM:/r3/c1/c2/c3-JointSensor2:33",
+      "transformID": "n324",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "PRM:/r3/c1/c2/c3/c4-Sensor:34",
+      "transformID": "n324",
+      "transformOffset": "0 -0.0676 -0.01409",
+      "type": "TouchSensor"
+    },
+    {
+      "name": "PRM:/r4/c1-JointSensor2:41",
+      "transformID": "n160",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "PRM:/r4/c1/c2-JointSensor2:42",
+      "transformID": "n169",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "PRM:/r4/c1/c2/c3-JointSensor2:43",
       "transformID": "n178",
+      "type": "PositionSensor"
+    },
+    {
       "name": "PRM:/r4/c1/c2/c3/c4-Sensor:44",
+      "transformID": "n178",
+      "transformOffset": "0 -0.0658 0.0055",
       "type": "TouchSensor"
     },
     {
-      "type": "PositionSensor",
+      "name": "PRM:/r5/c1-JointSensor2:51",
       "transformID": "n210",
-      "name": "PRM:/r5/c1-JointSensor2:51"
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
+      "name": "PRM:/r5/c1/c2-JointSensor2:52",
       "transformID": "n219",
-      "name": "PRM:/r5/c1/c2-JointSensor2:52"
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
+      "name": "PRM:/r5/c1/c2/c3-JointSensor2:53",
       "transformID": "n228",
-      "name": "PRM:/r5/c1/c2/c3-JointSensor2:53"
+      "type": "PositionSensor"
     },
     {
-      "transformOffset": "0 -0.0676 -0.014087",
-      "transformID": "n228",
       "name": "PRM:/r5/c1/c2/c3/c4-Sensor:54",
+      "transformID": "n228",
+      "transformOffset": "0 -0.0676 -0.014087",
       "type": "TouchSensor"
     },
     {
-      "type": "PositionSensor",
+      "name": "RM:/r2/c1-JointSensor2:21",
       "transformID": "n256",
-      "name": "RM:/r2/c1-JointSensor2:21"
+      "type": "PositionSensor"
     }
-  ]
+  ],
+  "name": "aibo-ers7",
+  "robotID": "n10"
 }

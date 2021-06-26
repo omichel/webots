@@ -146,9 +146,14 @@ void WbNodeEditor::update() {
     mStackedWidget->setCurrentIndex(EMPTY_PANE);
 
   const WbGeometry *node = dynamic_cast<WbGeometry *>(mNode);
-  if (node && !node->isUseNode())
-    mNbTriangles->setText(tr("Triangle count: %1").arg(node->triangleCount()));
-  else
+  if (node && !node->isUseNode()) {
+    const int maxTriangleNumberToCastShadows = node->maxIndexNumberToCastShadows() / 3;
+    int triangleCount = node->triangleCount();
+    if (triangleCount > maxTriangleNumberToCastShadows)
+      mNbTriangles->setText(tr("Triangle count: %1 (no shadow)").arg(triangleCount));
+    else
+      mNbTriangles->setText(tr("Triangle count: %1").arg(triangleCount));
+  } else
     mNbTriangles->clear();
 }
 

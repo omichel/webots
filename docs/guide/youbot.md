@@ -43,11 +43,38 @@ Youbot {
 
 You will find some samples in this folder: "WEBOTS\_HOME/projects/robots/kuka/youbot/worlds".
 
+> **Note:** For the mecanum wheels to behave correctly, the following [ContactProperties](../reference/contactproperties.md) should be added in the `contactProperties` field of the [WorldInfo](../reference/worldinfo.md) node:
+```
+  contactProperties [
+    ContactProperties {
+      material1 "InteriorWheelMat"
+      coulombFriction [
+        0, 2, 0
+      ]
+      frictionRotation -0.785398 0
+      bounce 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+    ContactProperties {
+      material1 "ExteriorWheelMat"
+      coulombFriction [
+        0, 2, 0
+      ]
+      frictionRotation 0.785398 0
+      bounce 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+  ]
+```
 #### youbot.wbt
 
 ![youbot.wbt.png](images/robots/youbot/youbot.wbt.thumbnail.jpg) This simulation shows the youBot grabbing a box, releasing it on its plate, moving to a target, and leaving it on the ground.
 Once this automatic behavior is completed, you can move the robot and its arm using the computer keyboard (please refer to the instruction displayed in the Webots console).
-A small C library called "youbot_control" (and located there: "WEBOTS\_HOME/projects/robots/kuka/youbot/libraries/youbot_control") facilitate the robot control.
+A small C library called "youbot\_control" (and located there: "WEBOTS\_HOME/projects/robots/kuka/youbot/libraries/youbot\_control") facilitate the robot control.
 
 #### youbot\_matlab.wbt
 

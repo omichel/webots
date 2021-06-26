@@ -20,6 +20,30 @@ Floor {
 Robot {
   translation 0 0.025 0
   children [
+    HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor"
+          multiplier 0.2
+        }
+      ]
+    }
+    HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor::hinge"
+          multiplier 5
+        }
+      ]
+    }
+    HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor::hinge2"
+          multiplier -5
+        }
+      ]
+    }
     Slot {
       endPoint Slot {
         endPoint HingeJoint {

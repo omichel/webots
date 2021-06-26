@@ -21,12 +21,13 @@ DistanceSensor {
   field     SFFloat    radarCrossSection   0.0               # radar cross section of this solid
   field     MFColor    recognitionColors   []                # colors returned for this Solid by Cameras with a Recognition node
   #fields specific to the DistanceSensor node:
-  field     MFVec3f                                             lookupTable     [ 0 0 0, 0.1 1000 0 ]  # return values are computed by extrapoling this table (measure in m., returned value integer, associated noise)
-  field     SFString{"generic", "infra-red" "sonar", "laser"}   type            "generic"              # distance sensor type
-  field     SFInt32                                             numberOfRays    1                      # number of rays
-  field     SFFloat                                             aperture        1.5708                 # aperture angle
-  field     SFFloat                                             gaussianWidth   1                      # gaussian distribution width
-  field     SFFloat                                             resolution     -1                      # resolution
+  field     MFVec3f                                             lookupTable          [ 0 0 0, 0.1 1000 0 ]  # return values are computed by extrapoling this table (measure in m., returned value integer, associated noise)
+  field     SFString{"generic", "infra-red" "sonar", "laser"}   type                 "generic"              # distance sensor type
+  field     SFInt32                                             numberOfRays         1                      # number of rays
+  field     SFFloat                                             aperture             1.5708                 # aperture angle
+  field     SFFloat                                             gaussianWidth        1                      # gaussian distribution width
+  field     SFFloat                                             resolution          -1                      # resolution
+  field     SFFloat                                             redColorSensitivity  1                      # red color sensitivity for infra-red distance sensor
 
   # hidden fields
   hiddenField SFVec3f linearVelocity  0 0 0   # (m/s) Solid's initial linear velocity

@@ -13,6 +13,7 @@ PROTO RobocupRobot [
   field SFRotation              rotation       0 0 1 0 # Is `Transform.rotation`.
   field SFString                name           ""      # Is `Solid.name`.
   field MFString                controllerArgs []      # Is `Robot.controllerArgs`.
+  field SFString                customData     ""      # Is `Robot.customData`.
 ]
 {
   Darwin-opHinge2Robocup {
@@ -20,6 +21,7 @@ PROTO RobocupRobot [
     rotation IS rotation
     name IS name
     controllerArgs IS controllerArgs
+    customData IS customData
     controller "player"
     selfCollision TRUE
     cameraWidth 320

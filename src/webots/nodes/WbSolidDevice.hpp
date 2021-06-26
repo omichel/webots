@@ -47,8 +47,6 @@ protected:
   void subscribeToRaysUpdate(dGeomID ray);
   virtual void updateRaysSetupIfNeeded() {}
 
-  const QString urdfName() const override;
-
 private:
   static QList<QPair<WbSolidDevice *, dGeomID>> cDirtySensors;
 };

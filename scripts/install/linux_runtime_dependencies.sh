@@ -19,5 +19,5 @@ elif [[ $UBUNTU_VERSION == "18.04" ]]; then
 elif [[ $UBUNTU_VERSION == "20.04" ]]; then
        apt install --yes ffmpeg
 else
-       echo "Unsupported Linux version."
+       echo "Unsupported Linux version: dependencies may not be completely installed. Only the two latest Ubuntu LTS are supported."
 fi

@@ -3,7 +3,6 @@
   "players": {
     "1": {
       "proto": "RobocupRobot",
-      "robotStartCmd": "TODO: docker pulling + starting with optional arguments",
       "halfTimeStartingPose": {
         "translation": [-3.5, -3.06, 0.24],
         "rotation": [0, 0, 1, 1.57]
@@ -23,7 +22,6 @@
     },
     "2": {
       "proto": "RobocupRobot",
-      "robotStartCmd": "TODO: docker pulling + starting with optional arguments",
       "halfTimeStartingPose": {
         "translation": [-3.5, 3.06, 0.24],
         "rotation": [0, 0, 1, -1.57]
@@ -43,7 +41,6 @@
     },
     "3": {
       "proto": "RobocupRobot",
-      "robotStartCmd": "TODO: docker pulling + starting with optional arguments",
       "halfTimeStartingPose": {
         "translation": [-0.75, -3.06, 0.24],
         "rotation": [0, 0, 1, 1.57]
@@ -63,7 +60,6 @@
     },
     "4": {
       "proto": "RobocupRobot",
-      "robotStartCmd": "TODO: docker pulling + starting with optional arguments",
       "halfTimeStartingPose": {
         "translation": [-0.75, 3.06, 0.24],
         "rotation": [0, 0, 1, -1.57]

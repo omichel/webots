@@ -41,7 +41,12 @@
 #include <wren/renderable.h>
 #include <wren/scene.h>
 
+#ifdef __EMSCRIPTEN__
+#include <GL/gl.h>
+#include <GLES3/gl3.h>
+#else
 #include <glad/glad.h>
+#endif
 
 #include <algorithm>
 #include <memory>
@@ -116,8 +121,13 @@ namespace wren {
 
   void Scene::bindPixelBuffer(int buffer) { glBindBuffer(GL_PIXEL_PACK_BUFFER, buffer); }
 
-  void *Scene::mapPixelBuffer(unsigned int accessMode) { return glMapBuffer(GL_PIXEL_PACK_BUFFER, accessMode); }
-
+  void *Scene::mapPixelBuffer(unsigned int accessMode) {
+#ifdef __EMSCRIPTEN__
+    return NULL;
+#else
+    return glMapBuffer(GL_PIXEL_PACK_BUFFER, accessMode);
+#endif
+  }
   void Scene::unMapPixelBuffer() { glUnmapBuffer(GL_PIXEL_PACK_BUFFER); }
 
   void Scene::terminateFrameCapture() {
@@ -375,6 +385,16 @@ namespace wren {
       DEBUG("Rendering skybox");
 
       glstate::setBlend(false);
+
+// GL_DEPTH_CLAMP is not available in webgl, so it is a way to work around
+// It must be here and not in glstate::setDepthClamp because we need to access the camera
+#ifdef __EMSCRIPTEN__
+      float near = mCurrentViewport->camera()->nearDistance();
+      mCurrentViewport->camera()->setNear(0.05);
+      float far = mCurrentViewport->camera()->farDistance();
+      mCurrentViewport->camera()->setFar(1000000.0f);
+      mCurrentViewport->camera()->updateUniforms();
+#endif
       glstate::setDepthClamp(true);
       glstate::setDepthMask(false);
       glstate::setDepthTest(true);
@@ -383,6 +403,12 @@ namespace wren {
       glstate::setColorMask(true, true, true, true);
 
       mSkybox->render();
+
+#ifdef __EMSCRIPTEN__
+      mCurrentViewport->camera()->setNear(near);
+      mCurrentViewport->camera()->setFar(far);
+      mCurrentViewport->camera()->updateUniforms();
+#endif
     }
 
     RenderQueue *renderQueue = &mRenderQueues[WR_RENDERABLE_DRAWING_ORDER_MAIN];

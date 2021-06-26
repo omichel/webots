@@ -62,7 +62,7 @@ void WbPhysicsVectorRepresentation::initializeTailAndArrow(const float *material
   mArrowRenderable = wr_renderable_new();
   wr_renderable_set_cast_shadows(mArrowRenderable, false);
   wr_renderable_set_receive_shadows(mArrowRenderable, false);
-  wr_renderable_set_visibility_flags(mArrowRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mArrowRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_renderable_set_mesh(mArrowRenderable, WR_MESH(mArrowMesh));
   wr_renderable_set_material(mArrowRenderable, mMaterial, NULL);
   wr_renderable_set_drawing_order(mArrowRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
@@ -71,7 +71,7 @@ void WbPhysicsVectorRepresentation::initializeTailAndArrow(const float *material
   wr_renderable_set_cast_shadows(mTailRenderable, false);
   wr_renderable_set_receive_shadows(mTailRenderable, false);
   wr_renderable_set_drawing_mode(mTailRenderable, WR_RENDERABLE_DRAWING_MODE_LINES);
-  wr_renderable_set_visibility_flags(mTailRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mTailRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_renderable_set_mesh(mTailRenderable, WR_MESH(mTailMesh));
   wr_renderable_set_material(mTailRenderable, mMaterial, NULL);
   wr_renderable_set_drawing_order(mTailRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
@@ -191,7 +191,7 @@ void WbTorqueRepresentation::initializeSpinSymbol() {
   wr_renderable_set_cast_shadows(mCoilRenderable, false);
   wr_renderable_set_receive_shadows(mCoilRenderable, false);
   wr_renderable_set_drawing_mode(mCoilRenderable, WR_RENDERABLE_DRAWING_MODE_LINES);
-  wr_renderable_set_visibility_flags(mCoilRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mCoilRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_renderable_set_mesh(mCoilRenderable, WR_MESH(mCoilMesh));
   wr_renderable_set_material(mCoilRenderable, mCoilMaterial, NULL);
   wr_renderable_set_drawing_order(mCoilRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
@@ -202,7 +202,7 @@ void WbTorqueRepresentation::initializeSpinSymbol() {
   mCoilArrowRenderable = wr_renderable_new();
   wr_renderable_set_cast_shadows(mCoilArrowRenderable, false);
   wr_renderable_set_receive_shadows(mCoilArrowRenderable, false);
-  wr_renderable_set_visibility_flags(mCoilArrowRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mCoilArrowRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_renderable_set_mesh(mCoilArrowRenderable, WR_MESH(mArrowMesh));
   wr_renderable_set_material(mCoilArrowRenderable, mCoilMaterial, NULL);
   wr_renderable_set_drawing_order(mCoilArrowRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);

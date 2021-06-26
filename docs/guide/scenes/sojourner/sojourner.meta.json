@@ -1,146 +1,146 @@
 {
-  "name": "sojourner",
   "devices": [
     {
-      "position": 0,
-      "name": "BackLeftArm",
-      "type": "RotationalMotor",
-      "minPosition": -1.5708,
-      "axis": "0 1 0",
       "anchor": "0.155 0.011 0.02",
+      "axis": "0 1 0",
       "maxPosition": 1.5708,
-      "transformID": "n78"
+      "minPosition": -1.5708,
+      "name": "BackLeftArm",
+      "position": 0,
+      "transformID": "n78",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
+      "anchor": "-0.108 0.015 0.2",
+      "axis": "0 0 1",
+      "maxPosition": 0,
+      "minPosition": -1,
       "name": "BackLeftBogie",
-      "type": "RotationalMotor",
-      "minPosition": -1,
-      "axis": "0 0 1",
-      "anchor": "-0.108 0.015 0.2",
-      "maxPosition": 0,
-      "transformID": "n66"
+      "position": 0,
+      "transformID": "n66",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "BackLeftWheel",
-      "type": "RotationalMotor",
-      "minPosition": 0,
-      "axis": "0 0 -1",
       "anchor": "0.025 -0.078 0",
+      "axis": "0 0 -1",
       "maxPosition": 0,
-      "transformID": "n82"
+      "minPosition": 0,
+      "name": "BackLeftWheel",
+      "position": 0,
+      "transformID": "n82",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "BackRightArm",
-      "type": "RotationalMotor",
-      "minPosition": -1.5708,
-      "axis": "0 1 0",
       "anchor": "0.155 0.011 -0.02",
+      "axis": "0 1 0",
       "maxPosition": 1.5708,
-      "transformID": "n206"
+      "minPosition": -1.5708,
+      "name": "BackRightArm",
+      "position": 0,
+      "transformID": "n206",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "BackRightBogie",
-      "type": "RotationalMotor",
-      "minPosition": -1,
+      "anchor": "-0.108 0.015 -0.2",
       "axis": "0 0 1",
-      "anchor": "-0.108 0.015 -0.2",
       "maxPosition": 0,
-      "transformID": "n199"
+      "minPosition": -1,
+      "name": "BackRightBogie",
+      "position": 0,
+      "transformID": "n199",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "BackRightWheel",
-      "type": "RotationalMotor",
-      "minPosition": 0,
-      "axis": "0 0 -1",
       "anchor": "0.025 -0.079 0",
+      "axis": "0 0 -1",
       "maxPosition": 0,
-      "transformID": "n216"
+      "minPosition": 0,
+      "name": "BackRightWheel",
+      "position": 0,
+      "transformID": "n216",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "FrontLeftArm",
-      "type": "RotationalMotor",
-      "minPosition": -1.5708,
-      "axis": "0 1 0",
       "anchor": "-0.15 -0.098 -0.005",
-      "maxPosition": 1.5708,
-      "transformID": "n164"
-    },
-    {
-      "position": 0,
-      "name": "FrontLeftBogie",
-      "type": "RotationalMotor",
-      "minPosition": 0,
-      "axis": "0 0 -1",
-      "anchor": "-0.108 0.015 0.2",
-      "maxPosition": 0,
-      "transformID": "n148"
-    },
-    {
-      "position": 0,
-      "name": "FrontLeftWheel",
-      "type": "RotationalMotor",
-      "minPosition": 0,
-      "axis": "0 0 -1",
-      "anchor": "0 -0.078 0",
-      "maxPosition": 0,
-      "transformID": "n174"
-    },
-    {
-      "position": 0,
-      "name": "FrontRightArm",
-      "type": "RotationalMotor",
-      "minPosition": -1.5708,
       "axis": "0 1 0",
-      "anchor": "-0.15 -0.098 0.005",
       "maxPosition": 1.5708,
-      "transformID": "n298"
+      "minPosition": -1.5708,
+      "name": "FrontLeftArm",
+      "position": 0,
+      "transformID": "n164",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "FrontRightBogie",
-      "type": "RotationalMotor",
-      "minPosition": 0,
+      "anchor": "-0.108 0.015 0.2",
       "axis": "0 0 -1",
-      "anchor": "-0.108 0.015 -0.2",
       "maxPosition": 0,
-      "transformID": "n282"
+      "minPosition": 0,
+      "name": "FrontLeftBogie",
+      "position": 0,
+      "transformID": "n148",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "FrontRightWheel",
-      "type": "RotationalMotor",
-      "minPosition": 0,
-      "axis": "0 0 -1",
       "anchor": "0 -0.078 0",
+      "axis": "0 0 -1",
       "maxPosition": 0,
-      "transformID": "n302"
+      "minPosition": 0,
+      "name": "FrontLeftWheel",
+      "position": 0,
+      "transformID": "n174",
+      "type": "RotationalMotor"
     },
     {
+      "anchor": "-0.15 -0.098 0.005",
+      "axis": "0 1 0",
+      "maxPosition": 1.5708,
+      "minPosition": -1.5708,
+      "name": "FrontRightArm",
       "position": 0,
-      "name": "MiddleLeftWheel",
-      "type": "RotationalMotor",
-      "minPosition": 0,
+      "transformID": "n298",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "-0.108 0.015 -0.2",
       "axis": "0 0 -1",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "FrontRightBogie",
+      "position": 0,
+      "transformID": "n282",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "0 -0.078 0",
+      "axis": "0 0 -1",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "FrontRightWheel",
+      "position": 0,
+      "transformID": "n302",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "-0.087 -0.078 0.02",
+      "axis": "0 0 -1",
       "maxPosition": 0,
-      "transformID": "n116"
+      "minPosition": 0,
+      "name": "MiddleLeftWheel",
+      "position": 0,
+      "transformID": "n116",
+      "type": "RotationalMotor"
     },
     {
-      "position": 0,
-      "name": "MiddleRightWheel",
-      "type": "RotationalMotor",
-      "minPosition": 0,
-      "axis": "0 0 -1",
       "anchor": "-0.087 -0.078 -0.017",
+      "axis": "0 0 -1",
       "maxPosition": 0,
-      "transformID": "n238"
+      "minPosition": 0,
+      "name": "MiddleRightWheel",
+      "position": 0,
+      "transformID": "n238",
+      "type": "RotationalMotor"
     }
   ],
+  "name": "sojourner",
   "robotID": "n10"
 }

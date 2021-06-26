@@ -126,7 +126,6 @@ void WbCamera::init() {
   mSegmentationCamera = NULL;
   mSegmentationEnabled = false;
   mSegmentationShm = NULL;
-  mSegmentationImageReady = false;
   mSegmentationImageChanged = false;
   mHasSegmentationSharedMemoryChanged = false;
   mInvalidRecognizedObjects = QList<WbRecognizedObject *>();
@@ -533,6 +532,12 @@ void WbCamera::writeConfigure(QDataStream &stream) {
 
 void WbCamera::writeAnswer(QDataStream &stream) {
   WbAbstractCamera::writeAnswer(stream);
+
+  if (mSegmentationImageChanged) {
+    copyImageToSharedMemory(mSegmentationCamera, (unsigned char *)mSegmentationShm->data());
+    mSegmentationImageChanged = false;
+  }
+
   if (recognition()) {
     if (refreshRecognitionSensorIfNeeded() || mRecognitionSensor->hasPendingValue()) {
       stream << tag();
@@ -598,12 +603,6 @@ void WbCamera::writeAnswer(QDataStream &stream) {
           stream << (int)(0);
         mHasSegmentationSharedMemoryChanged = false;
       }
-
-      if (mSegmentationImageReady) {
-        stream << (short unsigned int)tag();
-        stream << (unsigned char)C_CAMERA_GET_SEGMENTATION_IMAGE;
-        mSegmentationImageReady = false;
-      }
     }
   }
 }
@@ -668,13 +667,6 @@ void WbCamera::handleMessage(QDataStream &stream) {
       else
         updateOverlayMaskTexture();
       emit enabled(this, isEnabled());
-      break;
-    case C_CAMERA_GET_SEGMENTATION_IMAGE:
-      if (mSegmentationImageChanged) {
-        copyImageToSharedMemory(mSegmentationCamera, (unsigned char *)mSegmentationShm->data());
-        mSegmentationImageChanged = false;
-      }
-      mSegmentationImageReady = true;
       break;
     default:
       assert(0);

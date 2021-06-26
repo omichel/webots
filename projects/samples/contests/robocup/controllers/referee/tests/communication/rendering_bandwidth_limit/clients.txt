@@ -1,0 +1,3 @@
+--camera Camera2 16 -v 3 127.0.0.1 10001
+--camera Camera2 32 -v 3 127.0.0.1 10021
+--camera Camera2 64 -v 3 127.0.0.1 10022

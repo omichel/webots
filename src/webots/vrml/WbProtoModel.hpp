@@ -141,6 +141,7 @@ private:
   ~WbProtoModel();  // called from unref()
   void verifyAliasing(WbNode *root, WbTokenizer *tokenizer) const;
   void verifyNodeAliasing(WbNode *node, WbFieldModel *param, WbTokenizer *tokenizer, bool searchInParameters, bool &ok) const;
+  bool checkIfDocumentationPageExist(const QString &page) const;
 };
 
 #endif

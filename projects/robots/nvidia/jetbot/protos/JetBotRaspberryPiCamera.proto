@@ -1,0 +1,86 @@
+#VRML_SIM R2021b utf8
+# license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+# license url: https://cyberbotics.com/webots_assets_license
+# documentation url: https://www.cyberbotics.com/doc/guide/jetbot
+# Raspberry Camera v2 used by JetBot robot.
+
+PROTO JetBotRaspberryPiCamera [
+  field SFVec3f            translation           0 0 0                    # Is `Transform.translation`.
+  field SFRotation         rotation              0 1 0 0                  # Is `Transform.rotation`.
+  field SFString           name                  "camera"                 # Is `Camera.name`.
+  field SFFloat            fieldOfView           2.79253                  # Is `Camera.fieldOfView`.
+  field SFInt32            width                 1280                     # Is `Camera.width`.
+  field SFInt32            height                720                      # Is `Camera.height`.
+  field SFFloat            near                  0.01                     # Is `Camera.near`.
+  field SFFloat            far                   1.0                      # Is `Camera.far`.
+]
+{
+  Transform {
+    translation IS translation
+    rotation IS rotation
+    children [
+      DEF BOARD TexturedBoxShape {
+        size 0.024 0.024 0.001
+        textureUrl [
+          "textures/raspberry_pi_camera.jpg"
+        ]
+      }
+      Transform {
+        translation 0.0015 0 -0.003
+        children [
+          Shape {
+            appearance DEF LIGHT_GRAY_APPEARANCE PBRAppearance {
+              baseColor 0.729412 0.741176 0.713725
+              roughness 0.5
+              metalness 0.2
+            }
+            geometry Box {
+              size 0.027 0.022 0.004
+            }
+          }
+        ]
+      }
+      Camera {
+        translation -0.0013 0 0.0005
+        rotation 0.7071077811842907 -0.7071057811849097 1.872979420403323e-06 3.14159
+        children [
+          Transform {
+            translation 0 0 -0.003
+            rotation 1 0 0 -1.5707953071795862
+            children [
+              Transform {
+                translation 0 0.0036 0
+                children [
+                  Shape {
+                    appearance DEF BLACK_APPEARANCE PBRAppearance {
+                      baseColor 0.180392 0.203922 0.211765
+                      roughness 0.5
+                      metalness 0.2
+                    }
+                    geometry Cylinder {
+                      height 0.004
+                      radius 0.0043
+                    }
+                  }
+                ]
+              }
+              Shape {
+                appearance USE BLACK_APPEARANCE
+                geometry Cylinder {
+                  height 0.006
+                  radius 0.0032
+                }
+              }
+            ]
+          }
+        ]
+        name IS name
+        fieldOfView IS fieldOfView
+        width IS width
+        height IS height
+        near IS near
+        far IS far
+      }
+    ]
+  }
+}

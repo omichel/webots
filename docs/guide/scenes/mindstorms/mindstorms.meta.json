@@ -1,54 +1,54 @@
 {
-  "robotID": "n10",
-  "name": "mindstorms",
   "devices": [
     {
-      "maxPosition": 0,
-      "axis": "-1 0 0",
-      "transformID": "n37",
-      "type": "RotationalMotor",
       "anchor": "0 0.011918 0",
+      "axis": "-1 0 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "left wheel motor",
       "position": 0,
-      "minPosition": 0
+      "transformID": "n37",
+      "type": "RotationalMotor"
     },
     {
-      "maxPosition": 0,
-      "axis": "-1 0 0",
-      "transformID": "n51",
-      "type": "RotationalMotor",
       "anchor": "0 0.011918 0",
+      "axis": "-1 0 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "right wheel motor",
       "position": 0,
-      "minPosition": 0
-    },
-    {
-      "transformID": "n37",
-      "name": "left wheel sensor",
-      "type": "PositionSensor"
-    },
-    {
       "transformID": "n51",
-      "name": "right wheel sensor",
+      "type": "RotationalMotor"
+    },
+    {
+      "name": "left wheel sensor",
+      "transformID": "n37",
       "type": "PositionSensor"
     },
     {
+      "name": "right wheel sensor",
+      "transformID": "n51",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "S1",
       "transformID": "n10",
       "transformOffset": "-0.024 0.016 -0.0246",
-      "name": "S1",
       "type": "TouchSensor"
     },
     {
+      "name": "S2",
       "transformID": "n10",
       "transformOffset": "0 0.01 -0.0146",
-      "name": "S2",
       "type": "DistanceSensor"
     },
     {
+      "name": "S3",
       "transformID": "n10",
       "transformOffset": "0.024 0.016 -0.0246",
-      "name": "S3",
       "type": "TouchSensor"
     }
-  ]
+  ],
+  "name": "mindstorms",
+  "robotID": "n10"
 }

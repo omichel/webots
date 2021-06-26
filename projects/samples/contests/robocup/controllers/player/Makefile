@@ -20,11 +20,10 @@
 null :=
 space := $(null) $(null)
 WEBOTS_HOME_PATH=$(subst $(space),\ ,$(strip $(subst \,/,$(WEBOTS_HOME))))
-RESOURCES_PATH = $(WEBOTS_HOME)/projects/robots/robotis/darwin-op
-INCLUDE = -I"$(RESOURCES_PATH)/libraries/managers/include" -I"$(RESOURCES_PATH)/libraries/robotis-op2/robotis/Framework/include"
-LIBRARIES = -L"$(RESOURCES_PATH)/libraries/robotis-op2" -lrobotis-op2 -L"$(RESOURCES_PATH)/libraries/managers" -lmanagers -lprotobuf -ljpeg
+LIBRARIES = -lprotobuf -ljpeg
 CXX_SOURCES = player.cpp messages.pb.cpp
-FILES_TO_REMOVE = messages.pb.* client.exe client
+CFLAGS = -Wno-array-bounds
+FILES_TO_REMOVE = messages.pb.* client.exe client test_client.exe test_client
 ifeq ($(OS),Windows_NT)
 # on Windows, need to link with WinSock2
 LIBRARIES += -lws2_32
@@ -39,8 +38,9 @@ defaut: release
 
 release debug profile: clients
 
-clients: build/$(GOAL)/messages.pb.o
+clients: build/$(GOAL)/messages.pb.o messages.pb.h build/$(GOAL)/robot_client.o
 	$(MAKE) -f Makefile.client $(MAKECMDGOALS)
+	$(MAKE) -f Makefile.test_client $(MAKECMDGOALS)
 
 messages.pb.cpp message.pb.h:	messages.proto
 	@echo "#" compiling $<

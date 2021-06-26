@@ -26,7 +26,12 @@
 #include "Scene.hpp"
 #include "ShaderProgram.hpp"
 
+#ifdef __EMSCRIPTEN__
+#include <GL/gl.h>
+#include <GLES3/gl3.h>
+#else
 #include <glad/glad.h>
+#endif
 
 #include <vector>
 
@@ -145,8 +150,15 @@ namespace wren {
         const size_t maxSize = 3 * mesh->triangles().size() * sizeof(unsigned int);
         glstate::bindElementArrayBuffer(shadowVolume.mGlNameCapsIndexBuffer);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, maxSize, NULL, GL_STREAM_DRAW);
+
+        // Emscripten only accept the GL_MAP_INVALIDATE_BUFFER_BIT option
+#ifdef __EMSCRIPTEN__
+        unsigned int *data = static_cast<unsigned int *>(
+          glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT));
+#else
         unsigned int *data = static_cast<unsigned int *>(
           glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT));
+#endif
 
         size_t idx = 0;
         shadowVolume.mIndexCountCaps = 0;
@@ -192,8 +204,15 @@ namespace wren {
       const size_t maxSize = 3 * mesh->edges().size() * sizeof(unsigned int);
       glstate::bindElementArrayBuffer(shadowVolume.mGlNameSidesIndexBuffer);
       glBufferData(GL_ELEMENT_ARRAY_BUFFER, maxSize, NULL, GL_STREAM_DRAW);
+
+      // Emscripten only accept the GL_MAP_INVALIDATE_BUFFER_BIT option
+#ifdef __EMSCRIPTEN__
+      unsigned int *data = static_cast<unsigned int *>(
+        glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT));
+#else
       unsigned int *data = static_cast<unsigned int *>(
         glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT));
+#endif
 
       size_t idx = 0;
       shadowVolume.mIndexCountSides = 0;
@@ -228,8 +247,14 @@ namespace wren {
         const size_t maxSize = 6 * mesh->triangles().size() * sizeof(unsigned int);
         glstate::bindElementArrayBuffer(shadowVolume.mGlNameCapsIndexBuffer);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, maxSize, NULL, GL_STREAM_DRAW);
+        // Emscripten only accept the GL_MAP_INVALIDATE_BUFFER_BIT option
+#ifdef __EMSCRIPTEN__
+        unsigned long long *data = static_cast<unsigned long long *>(
+          glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT));
+#else
         unsigned long long *data = static_cast<unsigned long long *>(
           glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT));
+#endif
 
         size_t idx = 0;
         shadowVolume.mIndexCountCaps = 0;
@@ -286,8 +311,15 @@ namespace wren {
       glstate::bindElementArrayBuffer(shadowVolume.mGlNameSidesIndexBuffer);
       const size_t maxSize = 3 * mesh->edges().size() * sizeof(unsigned long long);
       glBufferData(GL_ELEMENT_ARRAY_BUFFER, maxSize, NULL, GL_STREAM_DRAW);
+
+      // Emscripten only accept the GL_MAP_INVALIDATE_BUFFER_BIT option
+#ifdef __EMSCRIPTEN__
+      unsigned long long *data = static_cast<unsigned long long *>(
+        glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT));
+#else
       unsigned long long *data = static_cast<unsigned long long *>(
         glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, maxSize, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT));
+#endif
 
       size_t idx = 0;
       const int stride = 8 * sizeof(unsigned int);

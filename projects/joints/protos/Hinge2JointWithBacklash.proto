@@ -8,8 +8,8 @@ PROTO Hinge2JointWithBacklash [
   field SFNode                                 jointParameters2  JointParameters {}
   field SFFloat                                backlash          0.01   # Defines the gear clearence for axis, [0, inf).
   field SFFloat                                backlash2         0.01   # Defines the gear clearence for axis2, [0, inf).
-  field SFFloat                                gearMass          0.01   # Defines the gear mass for axis, [0, inf).
-  field SFFloat                                gearMass2         0.01   # Defines the gear mass for axis2, [0, inf).
+  field SFFloat                                gearMass          0.1    # Defines the gear mass for axis, [0, inf).
+  field SFFloat                                gearMass2         0.1    # Defines the gear mass for axis2, [0, inf).
   field MFNode                                 device            [ ]    # {RotationalMotor, PositionSensor, Brake}.
   field MFNode                                 device2           [ ]    # {RotationalMotor, PositionSensor, Brake}.
   field MFNode{PositionSensor{}}               outputSensor      [ ]    # {PositionSensor}.
@@ -95,7 +95,7 @@ PROTO Hinge2JointWithBacklash [
             }
           ]
           physics Physics {
-            inertiaMatrix [ 4e-9 4e-9 4e-9, 0.0 0.0 0.0 ] # sphere of radius 0.001
+            inertiaMatrix [ 4e-8 4e-8 4e-8, 0.0 0.0 0.0 ] # sphere of radius 0.01
             centerOfMass %{= anchor.x }% %{= anchor.y }% %{= anchor.z }%
             density -1
             mass IS gearMass2
@@ -146,7 +146,7 @@ PROTO Hinge2JointWithBacklash [
                   }
                 ]
                 physics Physics {
-                  inertiaMatrix [ 4e-9 4e-9 4e-9, 0.0 0.0 0.0 ] # sphere of radius 0.001
+                  inertiaMatrix [ 4e-8 4e-8 4e-8, 0.0 0.0 0.0 ] # sphere of radius 0.01
                   centerOfMass %{= anchor.x }% %{= anchor.y }% %{= anchor.z }%
                   density -1
                   mass IS gearMass2
@@ -156,7 +156,7 @@ PROTO Hinge2JointWithBacklash [
           }
         ]
         physics Physics {
-          inertiaMatrix [ 4e-9 4e-9 4e-9, 0.0 0.0 0.0 ] # sphere of radius 0.001
+          inertiaMatrix [ 4e-8 4e-8 4e-8, 0.0 0.0 0.0 ] # sphere of radius 0.01
           centerOfMass %{= anchor.x }% %{= anchor.y }% %{= anchor.z }%
           density -1
           mass IS gearMass

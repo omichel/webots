@@ -31,6 +31,7 @@ namespace webots {
       // 3D rendering
       APPEARANCE,
       BACKGROUND,
+      BILLBOARD,
       BOX,
       CAPSULE,
       COLOR,
@@ -126,12 +127,20 @@ namespace webots {
     Node *getParentNode() const;
     bool isProto() const;
     Node *getFromProtoDef(const std::string &name) const;
+    int getNumberOfFields() const;
+    int getProtoNumberOfFields() const;
     Field *getField(const std::string &fieldName) const;
     Field *getProtoField(const std::string &fieldName) const;
+    Field *getFieldByIndex(const int index) const;
+    Field *getProtoFieldByIndex(const int index) const;
     const double *getPosition() const;
     const double *getOrientation() const;
     const double *getPose() const;
     const double *getPose(const Node *fromNode) const;
+    void enablePoseTracking(int samplingPeriod) const;
+    void disablePoseTracking() const;
+    void enablePoseTracking(int samplingPeriod, const Node *fromNode) const;
+    void disablePoseTracking(const Node *fromNode) const;
     const double *getCenterOfMass() const;
     const double *getContactPoint(int index) const;
     Node *getContactPointNode(int index) const;

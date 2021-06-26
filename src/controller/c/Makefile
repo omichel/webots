@@ -137,7 +137,7 @@ ifeq ($(VISUAL_STUDIO_PATH),)
 	@echo -e "# \033[0;33m'VISUAL_STUDIO_PATH' not set, skipping Controller.lib\033[0m"
 else
 	@echo "# creating "$@
-	@PATH="$(VISUAL_STUDIO_PATH)/VC/bin":"$(VISUAL_STUDIO_PATH)/Common7/IDE":"$(PATH)" lib /machine:X64 /def:Controller.def /out:Controller.lib > /dev/null
+	@PATH="$(VISUAL_STUDIO_PATH)/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64":$PATH lib /machine:X64 /def:Controller.def /out:Controller.lib > /dev/null
 	@mv Controller.lib "$(WEBOTS_CONTROLLER_LIB_PATH)"
 	@rm Controller.exp
 endif
@@ -152,7 +152,7 @@ ifeq ($(VISUAL_STUDIO_PATH),)
 	@echo -e "# \033[0;33m'VISUAL_STUDIO_PATH' not set, skipping Controller.lib (32 bit)\033[0m"
 else
 	@echo "# creating "$@" (32 bit)"
-	@PATH="$(VISUAL_STUDIO_PATH)/VC/bin":"$(VISUAL_STUDIO_PATH)/Common7/IDE":"$(PATH)" lib /machine:X86 /def:Controller.def /out:Controller32.lib > /dev/null
+	@PATH="$(VISUAL_STUDIO_PATH)/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64":$PATH lib /machine:X86 /def:Controller.def /out:Controller32.lib > /dev/null
 	@mv Controller32.lib "$(WEBOTS_HOME_PATH)/msys64/mingw32/lib/Controller.lib"
 	@rm Controller32.exp
 endif

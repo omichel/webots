@@ -85,7 +85,7 @@ Finally, *spot[i]* is a factor used only in case of a [SpotLight](spotlight.md),
 
 %end
 
-The value *I[i]* corresponds to the *intensity* field of light *i*, and *N* is the normal axis (x-axis) of the sensor (see [this figure](#the-irradiance-depends-on-the-angle-between-the-n-and-l-vectors)).
+The value *I[i]* corresponds to the *intensity* field of light *i*, and *N* is the normal axis (x-axis) of the sensor (see [this figure](#the-irradiance-e-depends-on-the-angle-phi-between-the-n-and-l-vectors)).
 In the case of a [PointLight](pointlight.md), *L* is the sensor-to-light-source vector.
 In the case of a [DirectionalLight](directionallight.md), *L* corresponds to the negative of the light's `direction` field.
 The * operation is a modified dot product: if dot < 0, then 0, otherwise, dot product.

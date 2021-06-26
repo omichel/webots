@@ -9,6 +9,7 @@ LinearMotor {
   field SFFloat    minPosition       0             # ignored if maxPosition = minPosition (m)
   field SFFloat    maxPosition       0             # ignored if maxPosition = minPosition (m)
   field SFFloat    maxForce          10            # max force (N)
+  field SFFloat    multiplier        1             # multiplicative factor applied to position, velocity and force commands 
   field SFString   sound "sounds/linear_motor.wav" # wave file of the motor sound
   field MFNode     muscles []                      # graphical representation of artificial muscles
 }

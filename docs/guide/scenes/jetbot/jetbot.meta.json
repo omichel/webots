@@ -1,0 +1,36 @@
+{
+  "devices": [
+    {
+      "anchor": "0.03 0.05215 0.03",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "left_wheel_hinge",
+      "position": -2.166075283053669e-09,
+      "transformID": "n669",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "0.03 -0.0595 0.03",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "right_wheel_hinge",
+      "position": -2.1895041033680007e-09,
+      "transformID": "n679",
+      "type": "RotationalMotor"
+    },
+    {
+      "name": "camera",
+      "transformID": "n709",
+      "type": "Camera"
+    },
+    {
+      "name": "display",
+      "transformID": "n625",
+      "type": "Display"
+    }
+  ],
+  "name": "jetbot",
+  "robotID": "n33"
+}

@@ -131,6 +131,10 @@ double Motor::getMaxTorque() const {
   return wb_motor_get_max_torque(getTag());
 }
 
+double Motor::getMultiplier() const {
+  return wb_motor_get_multiplier(getTag());
+}
+
 Brake *Motor::getBrake() {
   if (brake == NULL)
     brake = dynamic_cast<Brake *>(Robot::getDeviceFromTag(getBrakeTag()));

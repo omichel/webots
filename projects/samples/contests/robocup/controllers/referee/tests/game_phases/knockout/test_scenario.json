@@ -1,0 +1,241 @@
+[
+    {
+        "timing" : {
+            "time" : 2,
+            "clock_type" : "Simulated",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "1st HT: kickoff RED",
+                "kickoff" : "red"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 47,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "1st HT: transition to SET",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 6,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "1st HT: transition to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 25,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "1st HT: transition to 2nd HT INITIAL",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 47,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "2nd HT: transition to SET",
+                "state" : "SET",
+                "critical" : true
+            },
+            {
+                "name" : "1st HT: kickoff BLUE",
+                "kickoff" : "blue"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 6,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "2nd HT: transition to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 22,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "2nd HT: transition to INITIAL in 1st EHT",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 47,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "1st EHT: transition to SET",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "1st EHT: transition to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 22,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "1st EHT: transition to 2nd EHT",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 47,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 4
+        },
+        "tests" : [
+            {
+                "name" : "2nd EHT: transition to SET",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 4
+        },
+        "tests" : [
+            {
+                "name" : "2nd EHT: transition to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 22,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 4
+        },
+        "tests" : [
+            {
+                "name" : "2nd EHT: transition to penalty shootout",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14],
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 5
+        },
+        "tests" : [
+            {
+                "name" : "P1: stays in SET for 15 secs",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 17,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 5
+        },
+        "tests" : [
+            {
+                "name" : "P1: transition SET-> PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 65,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 5
+        },
+        "tests" : [
+            {
+                "name" : "P1: transition from PLAYING to P2 in SET",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    }
+]

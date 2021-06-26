@@ -917,7 +917,7 @@ void sCylinderBoxData::_cldClipBoxToCylinder()
             vPoint[2] += vCylinderCirclePos[2];
 
             dVector3Subtract(vPoint,m_vCylinderPos,vTemp);
-            ftmpdot = -vCylinderCircleNormal_Rel[nCYLINDER_AXIS] * dVector3Dot(vTemp, m_vCylinderAxis);
+            ftmpdot	 = dVector3Dot(vTemp, m_vNormal);
             fTempDepth = m_fBestrc - ftmpdot;
             // Depth must be positive
             if (fTempDepth > REAL(0.0))
@@ -951,7 +951,7 @@ void sCylinderBoxData::_cldClipBoxToCylinder()
             vPoint[2] += vCylinderCirclePos[2];
 
             dVector3Subtract(vPoint,m_vCylinderPos,vTemp);
-            ftmpdot	= -vCylinderCircleNormal_Rel[nCYLINDER_AXIS] * dVector3Dot(vTemp, m_vCylinderAxis);
+            ftmpdot	 = dVector3Dot(vTemp, m_vNormal);
             fTempDepth = m_fBestrc - ftmpdot;
             // Depth must be positive
             if (fTempDepth > REAL(0.0))

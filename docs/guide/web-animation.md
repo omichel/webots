@@ -17,7 +17,7 @@ The [figure below](#screenshot-of-a-web-animation-page-generated-by-webots) show
 
 ### How to Export a Web Animation
 
-Select the `File / Make HTML5 Animation...` menu item, select the desired `X3D` parameters and choose the target `HTML` file.
+Select the `File / Make HTML5 Animation...` menu item and choose the target `HTML` file.
 Webots will ask to playback the resulting file in the default Web browser (from the OS settings).
 
 For more details about the HTML export dialog please refer to [this section](web-scene.md#how-to-export-a-web-scene).
@@ -42,7 +42,8 @@ Additional limitations are described in [this section](web-scene.md#limitations)
 
 ### Scene Refresh Rate
 
-The scene refresh rate is defined by the `WorldInfo.FPS` field.
+The scene refresh rate is defined by the `window.requestAnimationFrame()` function. The number of refresh is generally 60 per seconds but will generally match the display refresh rate in most web browsers according to the [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame).
+
 However, the `WorldInfo.basicTimeStep` field have an impact on the refresh rate too, because the updates are only sent during the simulation step.
 The actual refresh rate can be computed with the following formula:
 

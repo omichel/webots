@@ -19,11 +19,11 @@ The following table summarizes the advantages (`+`) and disadvantages (`-`) of t
 | bandwidth requirements  | +     | -       |
 | simulation server load  | +     | -       |
 | page loading time       | -     | +       |
-| high fidelity to Webots | -     | +       |
+| high fidelity to Webots | +     | +       |
 
 %figure "Screenshot of Webots streaming server"
 
-![streaming-server-screenshot.png](images/streaming-server-screenshot.thumbnail.jpg)
+![streaming-server-screenshot.png](images/streaming-server-screenshot.thumbnail.png)
 
 %end
 
@@ -31,14 +31,13 @@ The web interface displays a toolbar with the following items:
 
 - **Simulation time**: this item indicates the current simulation time on the first line.
 The second line is not used with this streaming solution.
-- ![](images/web_interface_console.png =26x26) **Console**: open the console window where the simulation messages are printed.
-- ![](images/web_interface_help.png =26x26) **Help**: open the help window containing the documentation of the web interface.
+- ![](images/web_interface_quit.png =25x25) **Quit**: close the Webots web view.
+- ![](images/web_interface_reset.png =25x25) **Reset**: reset the simulation and the viewpoint.
+- ![](images/web_interface_step.png =26x26) **Step**: execute one step of the simulation.
+- ![](images/web_interface_real_time.png =26x26) **Play**: play the Webots simulation.
+- ![](images/web_interface_pause.png =26x26) **Pause**: pause the Webots simulation.
 - ![](images/web_interface_fullscreen.png =26x26) **Fullscreen**: enter full screen mode.
 - ![](images/web_interface_exit_fullscreen.png =26x26) **Exit fullscreen**: exit full screen mode.
-
-The sample JavaScript we provide to communicate with Webots supports advanced features that are not available during the basic broadcast streaming.
-This includes controlling the execution of the simulation, modifying the Python robot controller program and displaying the robot windows.
-All these functionalities are enabled when starting the streaming using the `simulation_server.py` and `session_server.py` as documented in the [Web simulation](web-simulation.md) section.
 
 ### How to Stream a Webots Simulation
 
@@ -55,9 +54,6 @@ Use the buttons on the top of the page to connect to the Webots streaming server
 
 **Note**: `IP` address and port for the streaming server and the client page should match.
 The port should not be used by another application.
-
-The streaming functionality use the `X3D` export parameters stored in the [project file](the-standard-file-hierarchy-of-a-project.md#the-project-files).
-These parameters are set when [exporting a HTML5 model](web-scene.md#how-to-export-a-web-scene) or [recording an animation](web-animation.md#how-to-export-a-web-animation).
 
 ### Network Settings
 

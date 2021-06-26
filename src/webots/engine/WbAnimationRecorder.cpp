@@ -17,8 +17,10 @@
 #include "WbField.hpp"
 #include "WbGroup.hpp"
 #include "WbLog.hpp"
+#include "WbRobot.hpp"
 #include "WbSFRotation.hpp"
 #include "WbSimulationState.hpp"
+#include "WbSupervisorUtilities.hpp"
 #include "WbViewpoint.hpp"
 #include "WbWorld.hpp"
 
@@ -216,6 +218,17 @@ void WbAnimationRecorder::populateCommands() {
         mCommands << command;
       }
     }
+
+    const QList<WbRobot *> &robots = WbWorld::instance()->robots();
+    foreach (WbRobot *const robot, robots) {
+      if (robot->supervisor()) {
+        foreach (QString label, robot->supervisorUtilities()->labelsState())
+          addChangedLabelToList(label);
+
+        connect(robot->supervisorUtilities(), &WbSupervisorUtilities::labelChanged, this,
+                &WbAnimationRecorder::addChangedLabelToList);
+      }
+    }
   }
 
   foreach (WbAnimationCommand *command, mCommands) {
@@ -236,6 +249,7 @@ void WbAnimationRecorder::cleanCommands() {
   }
   mCommands.clear();
   mChangedCommands.clear();
+  mChangedLabels.clear();
   foreach (WbAnimationCommand *command, mArtificialCommands)
     delete command;
   mArtificialCommands.clear();
@@ -244,6 +258,11 @@ void WbAnimationRecorder::cleanCommands() {
 void WbAnimationRecorder::addChangedCommandToList(WbAnimationCommand *command) {
   if (!mChangedCommands.contains(command))
     mChangedCommands.append(command);
+}
+
+void WbAnimationRecorder::addChangedLabelToList(const QString &label) {
+  if (!mChangedLabels.contains(label))
+    mChangedLabels.append(label);
 }
 
 void WbAnimationRecorder::handleNodeVisibilityChange(WbNode *node, bool visibility) {
@@ -309,7 +328,7 @@ QString WbAnimationRecorder::computeUpdateData(bool force) {
   const double time = WbSimulationState::instance()->time();
   out << "{\"time\":" << QString::number(time);
   const QList<WbAnimationCommand *> commands = mChangedCommands + mArtificialCommands;
-  if (commands.size() == 0) {
+  if (commands.size() == 0 && mChangedLabels.size() == 0) {
     out << "}";
     return result;
   }
@@ -328,11 +347,30 @@ QString WbAnimationRecorder::computeUpdateData(bool force) {
       out << "},";
     command->resetChanges();
   }
-  out << "]}";
+  out << "]";
+
+  if (mChangedLabels.size() != 0) {
+    out << ",\"labels\":[";
+    foreach (QString label, mChangedLabels) {
+      out << "{";
+      out << label;
+      mLabelsIds.insert(label.mid(5, label.indexOf("font") - 7));
+      if (label == mChangedLabels.last())
+        out << "}";
+      else
+        out << "},";
+    }
+    out << "]";
+  }
+
+  out << "}";
+
   mChangedCommands.clear();
   foreach (WbAnimationCommand *command, mArtificialCommands)
     delete command;
   mArtificialCommands.clear();
+  mChangedLabels.clear();
+
   return result;
 }
 
@@ -422,6 +460,19 @@ void WbAnimationRecorder::stopRecording() {
       out << command->node()->uniqueId();
     }
   }
+  out << "\",\n";
+
+  out << " \"labelsIds\":\"";
+  bool firstLabel = true;
+  foreach (QString id, mLabelsIds) {
+    // cppcheck-suppress knownConditionTrueFalse
+    if (!firstLabel)
+      out << ";";
+    else
+      firstLabel = false;
+    out << id;
+  }
+
   out << "\",\n";
 
   out << " \"frames\":[\n";

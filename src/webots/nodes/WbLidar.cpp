@@ -234,6 +234,16 @@ void WbLidar::addConfigureToStream(QDataStream &stream, bool reconfigure) {
   stream << (double)actualHorizontalResolution();
 }
 
+void WbLidar::writeAnswer(QDataStream &stream) {
+  if (isRotating())
+    mImageChanged = false;
+
+  WbAbstractCamera::writeAnswer(stream);
+
+  if (!isRotating() && mSensor->isEnabled())
+    copyAllLayersToSharedMemory();
+}
+
 void WbLidar::handleMessage(QDataStream &stream) {
   unsigned char command;
   stream >> command;
@@ -264,13 +274,6 @@ void WbLidar::handleMessage(QDataStream &stream) {
     stream >> frequency;
     mDefaultFrequency->setValue(frequency);
     return;
-  } else if (command == C_CAMERA_GET_IMAGE) {
-    if (mImageChanged && !isRotating()) {
-      // in case of rotating lidar the copy is done during the step
-      copyAllLayersToSharedMemory();
-    }
-    mImageReady = true;
-    return;
   } else if (WbAbstractCamera::handleCommand(stream, command))
     return;
 
@@ -281,7 +284,6 @@ void WbLidar::copyAllLayersToSharedMemory() {
   if (!hasBeenSetup() || !mImageShm)
     return;
 
-  mImageChanged = false;
   float *data = lidarImage();
   double skip = 1.0;
   if (height() != actualNumberOfLayers() && actualNumberOfLayers() != 1)
@@ -351,6 +353,7 @@ void WbLidar::copyAllLayersToSharedMemory() {
 void WbLidar::updatePointCloud(int minWidth, int maxWidth) {
   WbLidarPoint *lidarPoints = pointArray();
   const float *image = lidarImage();
+
   const int resolution = actualHorizontalResolution();
   const double w = width();
   const double time = WbSimulationState::instance()->time() / 1000.0;

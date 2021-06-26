@@ -9,14 +9,59 @@ You will also need to get familiar with Webots by reading the [Webots User Guide
 
 ## Installation
 
-1. [Build Webots from the source](https://github.com/cyberbotics/webots/wiki) from the [feature-robocup-controllers](https://github.com/cyberbotics/webots/tree/feature-robocup-controllers) branch (recommended) or install the latest nightly build of [Webots R2021b](https://github.com/cyberbotics/webots/releases) and checkout the content of this folder locally.
-2. Build the latest version of the [GameController](https://github.com/sheepsy90/GameController).
-3. Install the construct Python module: `pip install construct`.
-4. Define the `GAME_CONTROLLER_HOME` environment variable to point to the `GameController` folder: `export GAME_CONTROLLER_HOME=/my/folder/GameController`
+1. Build Webots from the source from the release branch on the official RoboCup Humanoid TC fork: https://github.com/RoboCup-Humanoid-TC/webots
+
+   ```
+   git clone --recurse-submodules --branch release https://github.com/RoboCup-Humanoid-TC/webots
+   cd webots
+   ./scripts/install/linux_compilation_dependencies.sh
+   make -j
+   echo WEBOTS_HOME=/path/to/webots >> ~/.bashrc
+   ```
+
+   If you already cloned the repo, update Webots like this:
+
+   ```
+   git pull --recurse-submodules
+   ./scripts/install/linux_compilation_dependencies.sh
+   git clean -xfd
+   make clean
+
+   # make sure that you have no modified files before continuing
+   git status
+
+   make -j
+   ```
+
+   Also see the Webots wiki for more information: https://github.com/cyberbotics/webots/wiki
+
+2. Build the latest version of the official RoboCup Humanoid TC fork of the [GameController](https://github.com/RoboCup-Humanoid-TC/GameController).
+   ```
+   apt-get install ant
+   git clone https://github.com/RoboCup-Humanoid-TC/GameController
+   cd GameController
+   ant
+   ```
+3. Install Python dependencies:
+   ```
+   cd webots/projects/samples/contests/robocup/controllers/referee
+   pip3 install -r requirements.txt
+   ```
+4. Build the controllers:
+   ```
+   apt-get install protobuf-compiler libprotobuf-dev libjpeg9-dev
+   cd webots/projects/samples/contests/robocup
+   make # This requires the environment variable WEBOTS_HOME to be set
+   ```
 
 ## Run the Demo
 
 1. Open the [robocup.wbt](worlds/robocup.wbt) world file in Webots and run it until you see the GameController window showing up.
+   ```
+   export GAME_CONTROLLER_HOME=/path/to/GameController JAVA_HOME=/usr
+   ./webots ./projects/samples/contests/robocup/worlds/robocup.wbt
+   ```
+   You have to pass the environment variables `GAME_CONTROLLER_HOME` which points to the `GameController` folder and `JAVA_HOME` which points to your Java installation (which might be under `/usr`).
 2. You can manually move the robots and the ball using the mouse (<kbd>Shift</kbd>-right-click-and-drag).
 3. Launch the sample robot controller [client.cpp](controllers/player/client.cpp) by typing `./client` in the [controllers/player](controllers/player) folder.
 4. The sample client program will simply move the neck of one of the Darwin-OP robot.
@@ -24,7 +69,7 @@ You will also need to get familiar with Webots by reading the [Webots User Guide
 ## Modify the Game and Teams Configuration
 
 1. Quit Webots.
-2. Edit the [game.json](controllers/referee/game.json) file to change the game configuration.
+2. Edit the [game.json](controllers/referee/game.json) file to change the game configuration. The ports in this file are where the API server will open ports and the API servers will only accept traffic from the whitelisted IP, i.e. you might want to change the IPs to 127.0.0.1 for a local setup.
 3. Edit the [team_1.json](controllers/referee/team_1.json) and [team_2.json](controllers/referee/team_2.json) files to change the teams configuration.
 4. Restart the simulation.
 
@@ -108,3 +153,9 @@ In order to facilitate Continuous Integration (CI) tests, a number of options ar
 - "supervisor" is used to define an optional extra supervisor controller process that will run in parallel with the referee.
 This extra supervisor controller will be spawned by the referee at the beginning of the game.
 The following new node with be added to the scene after the referee robot: `Robot { supervisor TRUE controller "MyTestSupervisor" }`.
+
+## Model verifier
+
+A semi-automated tool allowing to check if a robot respects the rules is available in
+the `controllers/model_verifier` directory.
+The available scripts are documented in a dedicated [README](controllers/model_verifier/README.md).

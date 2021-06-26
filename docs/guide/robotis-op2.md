@@ -637,7 +637,7 @@ Webots will also stop the auto start of the demo program at the startup of the r
 Then the controller code itself is sent to the robot.
 The whole controller directory is sent to the robot, so please put all the files needed by your controller in the same directory.
 The controller itself is then compiled for the robot and you can see the compilation in the `Robot console`.
-If the compilation succeeds and the robot is close to the [start position](#start-position-of-the-robot-the-robot-is-sitting-down) the controller will be initialized (head and eyes [LED](../reference/led.md) in red) and then started (head and eyes [LED](../reference/led.md) in green).
+If the compilation succeeds and the robot is close to the [start position](#start-position-of-the-robot-the-robot-is-sitting-down-same-start-position-as-in-simulation) the controller will be initialized (head and eyes [LED](../reference/led.md) in red) and then started (head and eyes [LED](../reference/led.md) in green).
 
 %figure "Start position of the robot. The robot is sitting down (same start position as in simulation)"
 
@@ -707,7 +707,7 @@ Moreover, the remote control mode allows you to visualize the state of the senso
 #### Using Remote Control from Robot Window
 
 To use remote control, open the robot window, go to the `Transfer` tab, as for remote compilation you have to set the connection settings (see [previous chapter](#settings) for more information).
-To start the remote control, stop and revert your simulation, put your robot in the [stable position](#start-position-of-the-robot-the-robot-is-sitting-down).
+To start the remote control, stop and revert your simulation, put your robot in the [stable position](#start-position-of-the-robot-the-robot-is-sitting-down-same-start-position-as-in-simulation).
 Then press the following button:
 
 %figure "Remote control button"
@@ -805,7 +805,7 @@ The controller is a very simple soccer player.
 It relies on most of the tools used in previous examples.
 We recommend you to study it by yourself and of course to improve it.
 
-To extend this controller you can add new files to the project, but do not forget to also add them to the makefile (add the cpp files to the `CXX_SOURCES` section).
+To extend this controller you can add new files to the project, but do not forget to also add them to the Makefile (add the cpp files to the `CXX_SOURCES` section).
 This example is also a good starting point for developing a more complicated controller.
 
 This example works in remote compilation.

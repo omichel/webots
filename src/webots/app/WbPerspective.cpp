@@ -123,11 +123,7 @@ bool WbPerspective::readContent(QTextStream &in, bool reloading) {
         mFilesList.append(dir.absoluteFilePath(file));  // make absolute path
         pos += rx.matchedLength();
       }
-    } else if (key == "documentationBook:")
-      ls >> mDocumentationBook;
-    else if (key == "documentationPage:")
-      ls >> mDocumentationPage;
-    else if (key == "robotWindow:") {
+    } else if (key == "robotWindow:") {
       if (!mRobotWindowNodeNames.isEmpty() || skipNodeIdsOptions)
         continue;
       QString s = line.right(line.length() - 12).trimmed();  // remove label
@@ -176,11 +172,6 @@ bool WbPerspective::readContent(QTextStream &in, bool reloading) {
         // handle case where a Solid name contains the character ';'
         deviceUniqueName += ";" + values.takeFirst();
       mRenderingDevicesPerspectiveList.insert(deviceUniqueName, values);
-    } else if (key.startsWith("x3dExport-")) {
-      QString label = key.split("-")[1].remove(":");
-      QString value;
-      ls >> value;
-      mX3dExportParameters.insert(label, value);
     } else
       WbLog::warning(QObject::tr("Unknown key in perspective file: %1 (ignored).").arg(key));
   }
@@ -275,10 +266,6 @@ bool WbPerspective::save() const {
   foreach (const QString file, mFilesList)
     out << " \"" << dir.relativeFilePath(file) << "\"";
   out << "\n";
-  if (!mDocumentationBook.isEmpty())
-    out << "documentationBook: " << mDocumentationBook << "\n";
-  if (!mDocumentationPage.isEmpty())
-    out << "documentationPage: " << mDocumentationPage << "\n";
   if (!mRobotWindowNodeNames.isEmpty())
     out << "robotWindow: " << joinUniqueNameList(mRobotWindowNodeNames) << "\n";
   if (!mEnabledOptionalRenderingList.isEmpty())
@@ -297,11 +284,6 @@ bool WbPerspective::save() const {
   QMap<QString, QStringList>::const_iterator it;
   for (it = mRenderingDevicesPerspectiveList.constBegin(); it != mRenderingDevicesPerspectiveList.constEnd(); ++it)
     out << "renderingDevicePerspectives: " << it.key() << ";" << it.value().join(";") << "\n";
-
-  QStringList x3dParametersKeys(mX3dExportParameters.keys());
-  x3dParametersKeys.sort();
-  foreach (QString key, x3dParametersKeys)
-    out << "x3dExport-" << key << ": " << mX3dExportParameters.value(key) << "\n";
 
   file.close();
 
@@ -359,10 +341,6 @@ QStringList WbPerspective::renderingDevicePerspective(const QString &deviceUniqu
 
 void WbPerspective::clearRenderingDevicesPerspectiveList() {
   mRenderingDevicesPerspectiveList.clear();
-}
-
-void WbPerspective::setX3dExportParameter(const QString &key, QString value) {
-  mX3dExportParameters.insert(key, value);
 }
 
 QString WbPerspective::joinUniqueNameList(const QStringList &nameList) {

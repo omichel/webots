@@ -34,12 +34,10 @@ private slots:
   void processTextMessage(QString) override;
 
   void propagateNodeDeletion(WbNode *node);
-  void sendLabelUpdate(const QString &labelDescription);
 
 private:
   void create(int port) override;
   void sendTcpRequestReply(const QString &requestedUrl, const QString &etag, QTcpSocket *socket) override;
-  void connectNewRobot(const WbRobot *robot) override;
   bool prepareWorld() override;
   void deleteWorld() override;
   void sendWorldToClient(QWebSocket *client) override;

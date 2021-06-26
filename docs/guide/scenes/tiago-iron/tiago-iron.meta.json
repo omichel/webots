@@ -1,121 +1,121 @@
 {
-  "robotID": "n27",
-  "name": "tiago-iron",
   "devices": [
     {
-      "type": "RotationalMotor",
       "anchor": "0.182 0 0",
       "axis": "0 0 1",
-      "transformID": "n836",
+      "maxPosition": 1.24,
+      "minPosition": -1.24,
       "name": "head_1_joint",
       "position": 0,
-      "minPosition": -1.24,
-      "maxPosition": 1.24
+      "transformID": "n837",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0.005 0 0.098",
       "axis": "0 -1 0",
-      "transformID": "n851",
+      "maxPosition": 0.79,
+      "minPosition": -0.98,
       "name": "head_2_joint",
       "position": 0,
-      "minPosition": -0.98,
-      "maxPosition": 0.79
+      "transformID": "n852",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0 0.2022 0",
       "axis": "0 1 0",
-      "transformID": "n320",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "wheel_left_joint",
       "position": 0,
-      "minPosition": 0,
-      "maxPosition": 0
+      "transformID": "n321",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0 -0.2022 0",
       "axis": "0 1 0",
-      "transformID": "n287",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "wheel_right_joint",
       "position": 0,
-      "minPosition": 0,
-      "maxPosition": 0
+      "transformID": "n288",
+      "type": "RotationalMotor"
     },
     {
-      "type": "LinearMotor",
       "anchor": "0 0 0",
       "axis": "0 0 1",
-      "transformID": "n811",
+      "maxPosition": 0.35,
+      "minPosition": 0,
       "name": "torso_lift_joint",
       "position": 0,
-      "minPosition": 0,
-      "maxPosition": 0.35
+      "transformID": "n812",
+      "type": "LinearMotor"
     },
     {
-      "type": "Accelerometer",
       "name": "accelerometer",
-      "transformID": "n27"
+      "transformID": "n27",
+      "type": "Accelerometer"
     },
     {
-      "type": "TouchSensor",
       "name": "base_cover_link",
-      "transformID": "n220"
+      "transformID": "n221",
+      "type": "TouchSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "base_sonar_01_link",
-      "transformID": "n265"
+      "transformID": "n266",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "base_sonar_02_link",
-      "transformID": "n247"
+      "transformID": "n248",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "base_sonar_03_link",
-      "transformID": "n229"
+      "transformID": "n230",
+      "type": "DistanceSensor"
     },
     {
-      "type": "Gyro",
       "name": "gyro",
-      "transformID": "n27"
+      "transformID": "n27",
+      "type": "Gyro"
     },
     {
-      "type": "PositionSensor",
       "name": "head_1_joint_sensor",
-      "transformID": "n836"
+      "transformID": "n837",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "head_2_joint_sensor",
-      "transformID": "n851"
+      "transformID": "n852",
+      "type": "PositionSensor"
     },
     {
-      "type": "Lidar",
       "name": "Hokuyo URG-04LX-UG01",
-      "transformID": "n908"
+      "transformID": "n909",
+      "type": "Lidar"
     },
     {
-      "type": "InertialUnit",
       "name": "inertial unit",
-      "transformID": "n27"
+      "transformID": "n27",
+      "type": "InertialUnit"
     },
     {
-      "type": "PositionSensor",
       "name": "torso_lift_joint_sensor",
-      "transformID": "n811"
+      "transformID": "n812",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "wheel_left_joint_sensor",
-      "transformID": "n320"
+      "transformID": "n321",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "wheel_right_joint_sensor",
-      "transformID": "n287"
+      "transformID": "n288",
+      "type": "PositionSensor"
     }
-  ]
+  ],
+  "name": "tiago-iron",
+  "robotID": "n27"
 }

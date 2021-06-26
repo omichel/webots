@@ -63,6 +63,7 @@ double wb_motor_get_available_force(WbDeviceTag tag);
 double wb_motor_get_max_force(WbDeviceTag tag);
 double wb_motor_get_available_torque(WbDeviceTag tag);
 double wb_motor_get_max_torque(WbDeviceTag tag);
+double wb_motor_get_multiplier(WbDeviceTag tag);
 
 WbDeviceTag wb_motor_get_brake(WbDeviceTag tag);
 WbDeviceTag wb_motor_get_position_sensor(WbDeviceTag tag);

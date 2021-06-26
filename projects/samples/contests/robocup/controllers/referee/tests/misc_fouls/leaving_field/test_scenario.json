@@ -1,0 +1,106 @@
+[
+    {
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-1.0, 0, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, robots not penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: Red 1 is not penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Player out of the field",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-5.0, 3.3, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [4.0,34],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Robot on turf, but out of field does not get penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Player out of the turf, ball on chosen side",
+        "timing" : {
+            "time" : 35.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-3.0, 4.3, 0.24]
+            },
+            {
+                "target" : "BALL",
+                "position" : [1.0, 2.3, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [35,54],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Robot out of turf does not get penalized immediately",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 60,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Robot out of turf does gets penalized after 20 seconds",
+                "target" : "RED_PLAYER_1",
+                "position" : [-3.0, -3.11, 0.24],
+                "penalty" : 34
+            }
+        ]
+    }
+]

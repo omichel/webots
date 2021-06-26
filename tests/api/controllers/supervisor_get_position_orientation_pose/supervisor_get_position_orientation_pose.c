@@ -49,6 +49,17 @@ int main(int argc, char **argv) {
 
   ts_assert_doubles_in_delta(16, pose, POSE, 0.0001, "wb_supervisor_node_get_pose() did not return the expected values.");
 
+  // supervisor pose tracking
+  wb_supervisor_node_enable_pose_tracking(node, TIME_STEP, node_parent);
+
+  for (int i = 0; i < 10; i++) {
+    wb_robot_step(TIME_STEP);
+    const double *tracked_pose = wb_supervisor_node_get_pose(node, node_parent);
+    ts_assert_doubles_in_delta(16, POSE, tracked_pose, 0.0001,
+                               "wb_supervisor_node_get_pose() did not return the expected values.");
+  }
+  wb_supervisor_node_disable_pose_tracking(node, node_parent);
+
   ts_send_success();
   return EXIT_SUCCESS;
 }

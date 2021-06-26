@@ -21,7 +21,12 @@
 
 #include <wren/dynamic_mesh.h>
 
+#ifdef __EMSCRIPTEN__
+#include <GL/gl.h>
+#include <GLES3/gl3.h>
+#else
 #include <glad/glad.h>
+#endif
 
 #include <unordered_map>
 

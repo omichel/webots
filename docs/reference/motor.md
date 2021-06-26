@@ -10,6 +10,7 @@ Motor {
   SFFloat  minPosition       0        # (-inf, inf) or [-pi, pi]
   SFFloat  maxPosition       0        # (-inf, inf) or [-pi, pi]
   SFFloat  maxVelocity       10       # [0, inf)
+  SFFloat  multiplier        1        # (inf, 0[ or ]0, inf)
   SFString sound             ""       # any string
   MFNode   muscles           []       # {Muscle, PROTO}
 }
@@ -65,6 +66,13 @@ These fields are described in more detail in the [Motor Limits section](#motor-l
 It is expressed in *meter per second* [m/s] for linear motors and in *radian per second* [rad/s] for rotational motors.
 The *velocity* can be changed at run-time with the `wb_motor_set_velocity` function.
 The value should always be positive (the default is 10).
+
+- The `multiplier` field specifies the factor by which position, velocity and force/torque commands sent by the controller are multiplied.
+Only the following API functions are affected by this field: `wb_motor_set_position`, `wb_motor_set_velocity`, `wb_motor_set_torque` and `wb_motor_set_force`.
+By default, this field is 1.
+
+> **Note:** When using a multiplier different from 1, the values `minPosition`, `maxPosition` and `maxVelocity` as displayed in the interface do not reflect the practical limits.
+For example, for a motor with `multiplier` = 2 and `maxVelocity` = 10, to remain within this limit the maximal velocity that the controller can set is 5, not 10.
 
 - The `sound` field specifies the URL of a WAVE sound file.
 If the `sound` value starts with `http://` or `https://`, Webots will get the file from the web.
@@ -205,6 +213,51 @@ Finally, note that when both soft (`minPosition` and `maxPosition`) and hard lim
 Moreover a simulation instability can appear if `position` is exactly equal to one of the bounds defined by the `minStop` and `maxStop` fields at the simulation startup.
 Warnings are displayed if theses rules are not respected.
 
+### Coupled Motors
+
+If multiple motors, be it [RotationalMotor](rotationalmotor.md), [LinearMotor](linearmotor.md) or a mixture of the two, share the same name structure and they belong to the same [Robot](robot.md) then they are considered as being coupled.
+When giving a command to a coupled motor, for instance using the functions [`wb_motor_set_position`](#wb_motor_set_position) or [`wb_motor_set_velocity`](#wb_motor_set_velocity), then the same instruction is relayed to all others.
+Although each sibling motor receives the same command, what the motors actually enforce depends on their own `multiplier` value.
+
+> **Note**: The motors are *logically* coupled together, not *mechanically*.
+If one of the motors is physically blocked, the others are in no way affected by it.
+
+> **Note**: Although any among the coupled motors can be controlled, commands should be given to just one among them at any given time in order to avoid confusion or conflicts.
+For instance, it isn't possible to do Position Control for one motor and Velocity Control another at the same time.
+Whatever command is given to a motor, it is relayed to all of its siblings hence overwriting any prior settings imposed on them.
+In other words, only the last command given is the one actually being enforced across the coupling.
+
+#### Naming Convention
+
+The naming convention for coupled motors is `"motor name::specifier name"`.
+Note the `::` used as delimiter.
+The string before the delimiter, here `"motor name"`, is used to determine to which coupling the specific motor belongs, therefore all the devices that share this same string will be coupled together.
+The string after the delimiter, here `"specifier name"`, allows to uniquely identify each motor among its siblings.
+When requesting the tag using the `wb_robot_get_device` function it is necessary to provide the full name, specifier included, otherwise no match will be found and `NULL` is returned.
+
+#### Coupled Motor Limits
+
+Since each motor applies the command received according to their own multiplier value, it must be ensured that the position and velocity limits are consistent across coupled motors.
+Therefore, in a coupled motor context, these motor limits have to be exactly a factor of each other.
+
+> **Note**: this rule is enforced only for `minPosition`, `maxPosition` and `maxVelocity`.
+For `maxForce` and `maxTorque` it is not and if due to the multiplier value a command beyond the limit is demanded, the corresponding warning messages are silenced but the limit itself as specified in the motor fields is nonetheless respected.
+
+For example, assume a set of four coupled motors having `multiplier` values of 2, 0.5, 4 and -4, the table below shows how the limits of motor B, C and D should be set.
+
+| motor (multiplier) | A (2) | B (0.5) | C (4) | D (-4) |
+|-------------------:|:-----:|:-------:|:-----:|:------:|
+|        minPosition |   -1  |  -0.25  |   -2  |   -4   |
+|        maxPosition |   2   |   0.5   |   4   |    2   |
+|        maxVelocity |   10  |   2.5   |   20  |   20   |
+
+
+> **Note**: For negative multipliers, the absolute value of the limit should be set.
+`minPosition` and `maxPosition` are an exception and they require additional care as in the presence of negative multipliers the two values might need to be swapped, as is the case here for motor D.
+
+> **Note**: If one motor of a coupling set has unlimited position (`minPosition` = `maxPosition` = 0), all its siblings must be unlimited as well.
+This same constraint is not enforced for `acceleration`.
+
 ### Energy Consumption
 
 If the [Robot](robot.md) ancestor of a [Motor](motor.md) node has a `battery` field defined, then the energy consumption is computed for the whole robot.
@@ -246,6 +299,7 @@ In such case the joint acceleration is set to `RotationalMotor.maxTorque` or `Li
 #### `wb_motor_get_max_force`
 #### `wb_motor_get_available_torque`
 #### `wb_motor_get_max_torque`
+#### `wb_motor_get_multiplier`
 
 %tab-component "language"
 
@@ -270,6 +324,7 @@ double wb_motor_get_available_force(WbDeviceTag tag);
 double wb_motor_get_max_force(WbDeviceTag tag);
 double wb_motor_get_available_torque(WbDeviceTag tag);
 double wb_motor_get_max_torque(WbDeviceTag tag);
+double wb_motor_get_multiplier(WbDeviceTag tag);
 ```
 
 %tab-end
@@ -297,6 +352,7 @@ namespace webots {
     double getMaxForce() const;
     double getAvailableTorque() const;
     double getMaxTorque() const;
+    double getMultiplier() const;
     // ...
   }
 }
@@ -326,6 +382,7 @@ class Motor (Device):
     def getMaxForce(self):
     def getAvailableTorque(self):
     def getMaxTorque(self):
+    def getMultiplier(self):
     # ...
 ```
 
@@ -353,6 +410,7 @@ public class Motor extends Device {
   public double getMaxForce();
   public double getAvailableTorque();
   public double getMaxTorque();
+  public double getMultiplier();
   // ...
 }
 ```
@@ -378,6 +436,7 @@ force = wb_motor_get_available_force(tag)
 force = wb_motor_get_max_force(tag)
 torque = wb_motor_get_available_torque(tag)
 torque = wb_motor_get_max_torque(tag)
+multiplier = wb_motor_get_multiplier(tag)
 ```
 
 %tab-end
@@ -402,6 +461,7 @@ torque = wb_motor_get_max_torque(tag)
 | `/<device_name>/get_max_force` | `service` | [`webots_ros::get_float`](ros-api.md#common-services) | |
 | `/<device_name>/get_available_torque` | `service` | [`webots_ros::get_float`](ros-api.md#common-services) | |
 | `/<device_name>/get_max_torque` | `service` | [`webots_ros::get_float`](ros-api.md#common-services) | |
+| `/<device_name>/get_multiplier` | `service` | [`webots_ros::get_float`](ros-api.md#common-services) | |
 
 %tab-end
 
@@ -488,6 +548,8 @@ The default value of *P, I* and *D* are specified by the `controlPID` field of t
 
 The `wb_motor_get_[min|max]_position` functions allow to get the values of respectively the `minPosition` and the `maxPosition` fields.
 Positions are expressed in *radian* [rad] for rotational motors and in *meter* [m] for linear motors.
+
+The `wb_motor_get_multiplier` function allows to retrieve the `multiplier` value specified for the provided motor.
 
 ---
 

@@ -1,0 +1,395 @@
+[
+    {
+        "description" : "Placing robots inside their own field",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "description" : "Placing Red 1 in front of blue goal",
+        "timing" : {
+            "time" : 2.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [4, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Placing ball in front of Red 1",
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [4.25, 0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Bouncing the ball on Red 1",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-5, 0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Placing ball in front of Red 1 after bouncing",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [4.25, 0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Red 1 Kicks the ball into the goal",
+        "timing" : {
+            "time" : 6.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-50, 0, 0]
+            }
+        ]
+    },
+    {
+        "description" : "Check if a goal is scored for red",
+        "timing" : {
+            "time" : 10,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Red scored a goal",
+                "target" : "RED",
+                "score" : 1
+            },
+            {
+                "name" : "Blue did not score a goal",
+                "target" : "BLUE",
+                "score" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 12.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "After 1st goal: state goes to READY",
+                "state" : "READY",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Placing robots inside their own field",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 47.0,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "After 1st goal: READY -> SET is automatic",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 110,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 220,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 330,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 440,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 550,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "After 1st goal: SET -> PLAYING is automatic",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 605,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Automatic transition to 1st Half PLAYING -> 2nd half INITIAL",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 3,
+            "clock_type" : "System",
+            "state" : "INITIAL",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Automatic transition to 1st Half PLAYING -> 2nd half READY",
+                "state" : "READY",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 48,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: 2nd half, automatic transition to SET",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: 2nd half, automatic transition to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 110,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,-1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 220,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 330,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 440,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 550,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 605,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "After 10 minutes of second half, state is FINISHED",
+                "state" : "FINISHED"
+            }
+        ]
+    }
+]

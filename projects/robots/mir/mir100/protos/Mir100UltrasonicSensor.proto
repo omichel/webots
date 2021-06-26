@@ -1,0 +1,120 @@
+#VRML_SIM R2021b utf8
+# license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+# license url: https://cyberbotics.com/webots_assets_license
+# Model of a generic ultrasonic sensor used for the MiR100 robot.
+
+PROTO Mir100UltrasonicSensor [
+  field   SFVec3f    translation    0 0 0
+  field   SFRotation rotation       0 1 0 0
+  field   SFString   name           "Mir100UltrasonicSensor"
+  field   MFVec3f    lookupTable    [0.01 1000 0, 0.35 0 0]   # Defines the `lookupTable` field of the `DistanceSensor`.
+  field   SFBool     enablePhysics  TRUE                      # Defines whether the sensor should have physics.
+]
+{
+  DistanceSensor {
+    translation IS translation
+    rotation IS rotation
+    children [
+      DEF SENSOR_BASE Shape {
+        appearance Plastic {
+          colorOverride 0.0168 0.352 0.6313
+        }
+        geometry Box {
+          size 0.001 0.05 0.0223
+        }
+      }
+      DEF LEFT_CYLINDER Transform {
+        translation 0.0057 0.0128 0
+        rotation 0 0 1 -1.5708
+        children [
+          DEF SENSOR_CYLINDER Group {
+            children [
+              Shape {
+                appearance CorrodedMetal {
+                  IBLStrength 3
+                }
+                geometry DEF SENSOR_CYLINDER_EXT Cylinder {
+                  height 0.012
+                  radius 0.01
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                }
+                geometry Cylinder {
+                  bottom FALSE
+                  height 0.0121
+                  radius 0.0085
+                }
+              }
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    emissiveColor 0.4 0.4 0.4
+                  }
+                  texture ImageTexture {
+                    url [
+                      "textures/grid.png"
+                    ]
+                  }
+                  textureTransform TextureTransform {
+                    scale 5 5
+                  }
+                }
+                geometry Cylinder {
+                  bottom FALSE
+                  height 0.0122
+                  radius 0.0065
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  roughness 0.2
+                }
+              }
+              Shape {
+              }
+            ]
+          }
+        ]
+      }
+      DEF RIGHT_CYLINDER Transform {
+        translation 0.0057 -0.0128 0
+        rotation 0 0 1 -1.5708
+        children [
+          USE SENSOR_CYLINDER
+        ]
+      }
+    ]
+    name IS name
+    model "Mir100UltrasonicSensor"
+    boundingObject Group {
+      children [
+        USE SENSOR_BASE
+        DEF LEFT_CYLINDER_BO Transform {
+          translation 0.0057 0.0128 0
+          rotation 0 0 1 -1.5708
+          children [
+            USE SENSOR_CYLINDER_EXT
+          ]
+        }
+        DEF RIGHT_CYLINDER_BO Transform {
+          translation 0.0057 -0.0128 0
+          rotation 0 0 1 -1.5708
+          children [
+            USE SENSOR_CYLINDER_EXT
+          ]
+        }
+      ]
+    }
+    %{ if fields.enablePhysics.value then }%
+    physics Physics {
+      density -1
+      mass 0.0085
+    }
+    %{ end }%
+    lookupTable IS lookupTable
+    type "sonar"
+  }
+}

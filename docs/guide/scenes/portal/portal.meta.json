@@ -1,48 +1,46 @@
 {
-  "name": "portal",
-  "robotID": "n10",
   "devices": [
     {
       "anchor": "-0.0058 0.057 0.012",
+      "axis": "0 0 1",
+      "maxPosition": 0,
       "minPosition": 0,
       "name": "gear",
+      "position": 0,
       "transformID": "n105",
-      "axis": "0 0 1",
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "position": 0
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
+      "axis": "1 0 0",
+      "maxPosition": 0.3,
       "minPosition": 0,
       "name": "gate",
+      "position": 0.03,
       "transformID": "n93",
-      "axis": "1 0 0",
-      "type": "LinearMotor",
-      "maxPosition": 0.3,
-      "position": 0.03
+      "type": "LinearMotor"
     },
     {
       "anchor": "0 0 0",
+      "axis": "0 1 0",
+      "maxPosition": 0,
       "minPosition": 0,
       "name": "rail",
+      "position": 0,
       "transformID": "n88",
-      "axis": "0 1 0",
-      "type": "LinearMotor",
-      "maxPosition": 0,
-      "position": 0
+      "type": "LinearMotor"
     },
     {
       "ledColors": [
         "1 0.878431 0"
       ],
       "ledGradual": false,
-      "name": "lamp",
-      "transformID": "n79",
-      "type": "LED",
       "ledPBRAppearanceIDs": [
         "n83"
-      ]
+      ],
+      "name": "lamp",
+      "transformID": "n79",
+      "type": "LED"
     },
     {
       "name": "closed",
@@ -79,5 +77,7 @@
       "transformID": "n236",
       "type": "TouchSensor"
     }
-  ]
+  ],
+  "name": "portal",
+  "robotID": "n10"
 }

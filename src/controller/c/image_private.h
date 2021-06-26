@@ -28,7 +28,6 @@ typedef struct {
   int shm_size;
   unsigned char *data;
   bool requested;
-  double update_time;
 #ifdef _WIN32
   HANDLE shm_file;
 #endif
@@ -38,6 +37,5 @@ Image *image_new();
 void image_cleanup_shm(Image *i);
 void image_setup_shm(Image *i, WbRequest *r);
 void image_get_shm(Image *i);
-bool image_request(Image *i, const char *functionName);
 
 #endif  // IMAGE_PRIVATE_H

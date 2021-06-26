@@ -147,20 +147,10 @@ double WbHinge2Joint::initialPosition(int index) const {
 }
 
 void WbHinge2Joint::setPosition(double position, int index) {
-  if (index == 1) {
-    mPosition = position;
-    mOdePositionOffset = position;
-    WbJointParameters *const p = parameters();
-    if (p)
-      p->setPosition(mPosition);
+  WbJoint::setPosition(position, index);
 
-    WbMotor *const m = motor();
-    if (m)
-      m->setTargetPosition(position);
+  if (index != 2)
     return;
-  }
-
-  assert(index == 2);
 
   mPosition2 = position;
   mOdePositionOffset2 = position;

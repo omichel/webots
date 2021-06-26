@@ -8,7 +8,7 @@
 # export PYTHON38_HOME=/C/Program\ Files/Python38                                  # Optionally defines the path to Python 3.8 home.
 # export PYTHON39_HOME=/C/Program\ Files/Python39                                  # Optionally defines the path to Python 3.9 home.
 # export MATLAB_HOME=/C/Program\ Files/MATLAB/R2018b                               # Optionally defines the path to MATLAB home.
-# export VISUAL_STUDIO_PATH="/C/Program Files (x86)/Microsoft Visual Studio 10.0"  # Optionally defines the path to Microsoft Visual Studio home.
+# export VISUAL_STUDIO_PATH="/C/Program Files (x86)/Microsoft Visual Studio/2017"  # Optionally defines the path to Microsoft Visual Studio home.
 # export INNO_SETUP_HOME="/C/Program Files (x86)/Inno Setup 6"                     # Optionally defines the path to Inno Setup home.
 
 
@@ -46,3 +46,9 @@ MSYS2_WINDOWS_HOME=`cygpath -w /`
 export MSYS2_HOME=${MSYS2_WINDOWS_HOME::-1}
 
 export LANG=en_US.UTF-8  # needed on some locales to avoid floating point representation issues
+
+####################################################################################
+# Uncomment / edit the following environment variable when Emscripten is installed #
+####################################################################################
+
+# source $HOME/emsdk/emsdk_env.sh >/dev/null 2>&1 # Activate PATH and other environment variables needed by Emscripten

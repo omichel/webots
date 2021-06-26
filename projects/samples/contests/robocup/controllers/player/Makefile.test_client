@@ -1,0 +1,28 @@
+ifeq ($(OS),Windows_NT)
+TARGET = test_client.exe
+LIBS = -lws2_32
+CXX=g++
+else
+TARGET = test_client
+LIBS = -lpthread
+endif
+ifeq ($(MAKECMDGOALS),)
+GOAL = release
+else
+GOAL = $(MAKECMDGOALS)
+endif
+
+LIBS += -lprotobuf
+
+.PHONY = build release debug profile
+
+build release debug profile: $(TARGET)
+
+build/$(GOAL)/robot_client.o:
+	$(CXX) robot_client.cpp -c -o $@
+
+$(TARGET): test_client.cpp build/$(GOAL)/messages.pb.o build/$(GOAL)/robot_client.o
+	$(CXX) $^  -o $@ $(LIBS)
+
+clean:
+	rm -f test_client.o test_client test_client.exe

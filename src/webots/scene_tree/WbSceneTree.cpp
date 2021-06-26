@@ -1114,10 +1114,8 @@ void WbSceneTree::updateSelection() {
   if (item) {
     WbBaseNode *baseNode = dynamic_cast<WbBaseNode *>(item->node());
     if (baseNode && baseNode->isProtoParameterNode())
-      // select proto parameter node instance
-      // if proto parameter is used only once
-      // baseNode = NULL if none or multiple instances exists
-      baseNode = baseNode->getSingleFinalizedProtoInstance();
+      // select first proto parameter node instance
+      baseNode = baseNode->getFirstFinalizedProtoInstance();
 
     if (baseNode && !baseNode->isPostFinalizedCalled())
       // ignore not initialized nodes
@@ -1125,7 +1123,9 @@ void WbSceneTree::updateSelection() {
 
     // enable move viewpoint to object if the item has a corresponding bounding sphere
     mActionManager->action(WbAction::MOVE_VIEWPOINT_TO_OBJECT)
-      ->setEnabled(baseNode && WbNodeUtilities::boundingSphereAncestor(baseNode) != NULL);
+      ->setEnabled(baseNode && WbNodeUtilities::boundingSphereAncestor(baseNode) != NULL &&
+                   baseNode->nodeType() != WB_NODE_BILLBOARD &&
+                   !WbNodeUtilities::findUpperNodeByType(baseNode, WB_NODE_BILLBOARD));
     mActionManager->action(WbAction::OPEN_HELP)->setEnabled(baseNode);
     emit nodeSelected(baseNode);
   }

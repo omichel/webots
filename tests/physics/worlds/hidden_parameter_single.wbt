@@ -1,0 +1,66 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "Tests the loading of hidden parameters."
+  ]
+  title "Hidden parameter load test"
+}
+Viewpoint {
+  orientation 0.7470290283624516 0.646616024550071 0.15438700586161153 5.42889
+  position -1.2077 1.6424 1.96945
+}
+Background {
+}
+DirectionalLight {
+  ambientIntensity 1
+  castShadows TRUE
+}
+DEF ROBOT RobotSlot {
+  hidden translation_0 0.1 0.1 0.23
+  hidden rotation_0 1 0 0 0.47
+  hidden linearVelocity_0 0 1 0
+  slot [
+    Shape {
+      geometry DEF BOX Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE BOX
+  physics Physics {
+  }
+}
+DEF HINGEJOINT RobotWithHingeJoint {
+  hidden position_0_0 0.111
+  translation -0.4 0 0.5
+}
+DEF SLIDERJOINT RobotWithSliderJoint {
+  hidden position_0_0 0.222
+  translation -0.2 0 0.5
+}
+DEF HINGEJOINT RobotWithHinge2Joint {
+  hidden position_0_0 0.333
+  hidden position2_0_0 0.444
+  translation 0 0 0.5
+}
+DEF HINGEJOINT RobotWithBallJoint {
+  hidden position_0_0 0.555
+  hidden position2_0_0 0.666
+  hidden position3_0_0 0.777
+  translation 0.2 0 0.5
+}
+Robot {
+  children [
+    Receiver {
+      name "receiver"
+      channel 1
+    }
+    TestSuiteEmitter {
+    }
+  ]
+  name "supervisor"
+  controller "hidden_parameter_single"
+  supervisor TRUE
+}
+TestSuiteSupervisor {
+}

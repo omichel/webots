@@ -102,6 +102,9 @@ namespace WbNodeUtilities {
   // is this node located directly or indirectly in the given field
   bool isFieldDescendant(const WbNode *node, const QString &fieldName);
 
+  // is this node located directly or indirectly under a Billboard
+  bool isDescendantOfBillboard(const WbNode *node);
+
   // is this node located in the boundingObject field of a Solid
   // use checkNodeUse() to inspect USE nodes and PROTO parameter instances
   bool isInBoundingObject(const WbNode *node);

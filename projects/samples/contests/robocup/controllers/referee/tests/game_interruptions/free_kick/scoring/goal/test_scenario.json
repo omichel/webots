@@ -1,0 +1,158 @@
+[
+    {
+        "description" : "Placing robots inside their own field",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-2, 2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, robots not penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: Red 1 is not penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: Red 2 is not penalized",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: Blue 1 is not penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "preparing the ball holding by red after ball is in play",
+        "timing" : {
+            "time" : 12,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-0.5, -0.4, 0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-0.5, 0.4, 0.24]
+            },
+            {
+                "target" : "BALL",
+                "position" : [-0.5, 0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Testing Setup + moving players away",
+        "timing" : {
+            "time" : 14,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "SETUP ends with free kick for team blue",
+                "secondary_state" : "DIRECT_FREEKICK",
+                "secondary_team_id" : 8,
+                "critical" : true
+            }
+        ],
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-0.5, -0.9, 0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-0.5, 0.9, 0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Setup phases are finished: place kicker blue apply ball contact",
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "secondary_state" : "DIRECT_FREEKICK",
+            "phase" : 1
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-0.2, 0, 0.24]
+            },
+            {
+                "target" : "BALL",
+                "force" : [10, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "secondary_state" : "DIRECT_FREEKICK",
+            "phase" : 1
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-130, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 15,
+            "clock_type" : "Simulated",
+            "secondary_state" : "DIRECT_FREEKICK",
+            "phase" : 1
+        },
+        "tests" : [
+            {
+                "name" : "Kickoff for red",
+                "state" : "READY",
+                "kick_off_team" : 1
+            },
+            {
+                "name" : "Goal is scored for team BLUE",
+                "target" : "BLUE",
+                "score" : 1
+            },
+            {
+                "name" : "No goal for team RED",
+                "target" : "RED",
+                "score" : 0
+            }
+        ]
+    }
+]

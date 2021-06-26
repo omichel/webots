@@ -58,7 +58,7 @@ with open(ROBOTS) as f:
         copyfile(TEMPLATE, WORLD)
 
         search_and_replace(WORLD, '%ROBOT_HEADER%',
-                           'Robot { name "%s" children [' % (component['name']) if 'insideRobot' in component else '')
+                                  'Robot { name "%s" children [' % (component['name']) if 'insideRobot' in component else '')
         search_and_replace(WORLD, '%ROBOT_FOOTER%', ']}' if 'insideRobot' in component else '')
         search_and_replace(WORLD, '%ROBOT%', component['proto'])
         search_and_replace(WORLD, '%ROBOT_TRANSLATION%', component['translation'])

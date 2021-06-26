@@ -8,7 +8,7 @@ local M = {}
 --             a matrix 3x3 is a table with 9 elements
 
 function M.equal(rA, rB)
-  return vA.x == vB.x and vA.y == vB.y and vA.z == vB.z and vA.a == vB.a
+  return rA.x == rB.x and rA.y == rB.y and rA.z == rB.z and rA.a == rB.a
 end
 
 function M.fromquaternion(q)
@@ -21,12 +21,12 @@ function M.fromquaternion(q)
     r["a"] = 0
   else
     -- normalize axes
-    local n = math.sqrt(q.x * q.x + q.y * q.y + q.z * q.z) 
+    local n = math.sqrt(q.x * q.x + q.y * q.y + q.z * q.z)
     r["x"] = q.x / n
     r["y"] = q.y / n
     r["z"] = q.z / n
   end
-  
+
   return r
 end
 
@@ -68,7 +68,7 @@ function M.tomatrix3(r)
   local t2 = r.x * r.z * t1;
   local t3 = r.x * r.y * t1;
   local t4 = r.y * r.z * t1;
-  
+
   m = {}
   m[1] = r.x * r.x * t1 + c;
   m[2] = t3 - r.z * s;
@@ -106,7 +106,7 @@ function M.normalizeaxis(r)
     r.y = 1
     r.z = 0
   end
-  
+
   local invl = 1 / math.sqrt(r.x * r.x + r.y * r.y + r.z * r.z)
   r.x = r.x * invl
   r.y = r.y * invl
@@ -122,7 +122,7 @@ end
 function M.combine(rA, rB)
   qA = M.toquaternion(rA)
   qB = M.toquaternion(rB)
-  
+
   q = {
     w = qA.w * qB.w - qA.x * qB.x - qA.y * qB.y - qA.z * qB.z,
     x = qA.w * qB.x + qA.x * qB.w + qA.y * qB.z - qA.z * qB.y,

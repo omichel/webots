@@ -111,6 +111,16 @@ Then both robots rotate their handles simultaneously, hence the light robot gets
 Then the light robot gets passed over another time by the second heavy robot and so on...
 All the robots in this simulation use the same controller; the different behaviors are selected according to the robot's name.
 
+### [coupled\_motor.wbt]({{ url.github_tree }}/projects/samples/devices/worlds/coupled_motor.wbt)
+
+**Keywords**: [Motor](../reference/motor.md), coupled motor, multiplier
+
+![coupled_motor.png](images/samples/coupled_motor.thumbnail.jpg) In this example is showcased the usage of coupled motors in a gripper.
+Although the gripper itself is comprised of two actuators (one for each finger), in practice only one of them is commanded in the controller.
+Coupled motors are obtained when two or more motors belonging to the same robot share the same name structure.
+By attributing a `multiplier` of -1 to the second motor, the motion is reversed.
+Additional information concerning coupled motors and the rules surrounding it are available in the [Motor](../reference/motor.md#coupled-motors) reference page.
+
 ### [display.wbt]({{ url.github_tree }}/projects/samples/devices/worlds/display.wbt)
 
 **Keywords**: [Display](../reference/display.md), write in textures, overlay

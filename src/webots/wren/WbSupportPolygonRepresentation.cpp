@@ -68,7 +68,7 @@ WbSupportPolygonRepresentation::WbSupportPolygonRepresentation() {
   wr_renderable_set_mesh(mPolygonRenderable, WR_MESH(mPolygonMesh));
   wr_renderable_set_drawing_order(mPolygonRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
   wr_renderable_set_material(mPolygonRenderable, mPolygonMaterial, NULL);
-  wr_renderable_set_visibility_flags(mPolygonRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mPolygonRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_renderable_set_face_culling(mPolygonRenderable, false);
   wr_renderable_set_drawing_mode(mPolygonRenderable, WR_RENDERABLE_DRAWING_MODE_TRIANGLE_FAN);
 
@@ -77,14 +77,14 @@ WbSupportPolygonRepresentation::WbSupportPolygonRepresentation() {
   wr_renderable_set_drawing_order(mPolygonOutlineRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
   wr_renderable_set_drawing_mode(mPolygonOutlineRenderable, WR_RENDERABLE_DRAWING_MODE_LINES);
   wr_renderable_set_material(mPolygonOutlineRenderable, mPolygonOutlineMaterial, NULL);
-  wr_renderable_set_visibility_flags(mPolygonRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mPolygonRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
 
   mCenterOfMassRenderable = wr_renderable_new();
   wr_renderable_set_mesh(mCenterOfMassRenderable, WR_MESH(mCenterOfMassMesh));
   wr_renderable_set_drawing_order(mCenterOfMassRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
   wr_renderable_set_drawing_mode(mCenterOfMassRenderable, WR_RENDERABLE_DRAWING_MODE_LINES);
   wr_renderable_set_material(mCenterOfMassRenderable, mCenterOfMassMaterial, NULL);
-  wr_renderable_set_visibility_flags(mCenterOfMassRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mCenterOfMassRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
 
   const float s = 0.1f * wr_config_get_line_scale();
   const float scale[3] = {s, s, s};

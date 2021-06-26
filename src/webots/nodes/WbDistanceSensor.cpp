@@ -183,6 +183,7 @@ void WbDistanceSensor::init() {
   mNumberOfRays = findSFInt("numberOfRays");
   mGaussianWidth = findSFDouble("gaussianWidth");
   mResolution = findSFDouble("resolution");
+  mRedColorSensitivity = findSFDouble("redColorSensitivity");
 
   mTransform = NULL;
   mMesh = NULL;
@@ -247,6 +248,7 @@ void WbDistanceSensor::postFinalize() {
   connect(mNumberOfRays, &WbSFInt::changed, this, &WbDistanceSensor::updateRaySetup);
   connect(mGaussianWidth, &WbSFDouble::changed, this, &WbDistanceSensor::updateRaySetup);
   connect(mResolution, &WbSFDouble::changed, this, &WbDistanceSensor::updateRaySetup);
+  connect(mRedColorSensitivity, &WbSFDouble::changed, this, &WbDistanceSensor::updateRaySetup);
 }
 
 void WbDistanceSensor::updateRaySetup() {
@@ -269,6 +271,8 @@ void WbDistanceSensor::updateRaySetup() {
   if (WbFieldChecker::resetDoubleIfNonPositive(this, mGaussianWidth, 1.0))
     return;  // in order to avoiding passing twice in this function
   if (WbFieldChecker::resetDoubleIfNonPositiveAndNotDisabled(this, mResolution, -1, -1))
+    return;  // in order to avoiding passing twice in this function
+  if (WbFieldChecker::resetDoubleIfNegative(this, mRedColorSensitivity, -mRedColorSensitivity->value()))
     return;  // in order to avoiding passing twice in this function
   if (mRayType == LASER && mNumberOfRays->value() > 1) {
     parsingWarn(tr("'type' \"laser\" must have one single ray."));
@@ -530,8 +534,9 @@ void WbDistanceSensor::computeValue() {
       mDistance += distance * mRays[i].weight();
     }
 
-    // apply infrared reflection factor
-    mDistance = mDistance / averageInfraRedFactor;
+    // apply infrared reflection factor and red color sensitivity
+    // before adding of red color sensitivity factor it was calculated with mDistance = mDistance / averageInfraRedFactor
+    mDistance = mDistance + (mDistance / averageInfraRedFactor - mDistance) * mRedColorSensitivity->value();
   } else if (mRayType == SONAR) {
     // use only the nearest ray collision, ignore ray weight
     mDistance = lutMaxRange;

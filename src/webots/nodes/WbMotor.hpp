@@ -45,6 +45,7 @@ public:
   double maxVelocity() const { return mMaxVelocity->value(); }
   double minPosition() const { return mMinPosition->value(); }
   double maxPosition() const { return mMaxPosition->value(); }
+  double multiplier() const { return mMultiplier->value(); }
   void setMinPosition(double position) { mMinPosition->setValue(position); }
   void setMaxPosition(double position) { mMaxPosition->setValue(position); }
   const QString &sound() const { return mSound->value(); }
@@ -53,7 +54,7 @@ public:
   bool runKinematicControl(double ms, double &position);
   double currentVelocity() const { return mCurrentVelocity; }
   int kinematicVelocitySign() const { return mKinematicVelocitySign; }
-  void setTargetPosition(double tp);
+  void setTargetPosition(double position);
   void resetPhysics();
   double energyConsumption() const override;
   void powerOn(bool) override;
@@ -106,6 +107,22 @@ private:
   static QList<const WbMotor *> cMotors;
 
   void addConfigureToStream(QDataStream &stream);
+  void inferMotorCouplings();
+  void enforceMotorLimitsInsideJointLimits();
+  void removeFromCoupledMotors(WbMotor *motor) { mCoupledMotors.removeAll(motor); };
+  void addToCoupledMotors(WbMotor *motor);
+
+  void checkMinAndMaxPositionAcrossCoupledMotors();
+  void checkMaxVelocityAcrossCoupledMotors();
+  void checkMultiplierAcrossCoupledMotors();
+
+  // the effect of these functions depends on the current control strategy
+  void setVelocity(double velocity);
+  void setAcceleration(double acceleration);
+  void setForceOrTorque(double forceOrTorque);
+  void setAvailableForceOrTorque(double availableForceOrTorque);
+
+  bool isPositionUnlimited() { return minPosition() == 0.0 && maxPosition() == 0.0; }
 
   WbMotor &operator=(const WbMotor &);  // non copyable
   void init();
@@ -134,6 +151,8 @@ private:
   QList<WbJointDevice *> mChangedAssociatedDevices;
   WbDeviceTag *mRequestedDeviceTag;
   WbDownloader *mDownloader;
+  WbSFDouble *mMultiplier;
+  QList<WbMotor *> mCoupledMotors;
 
 private slots:
   void updateSound();
@@ -141,6 +160,7 @@ private slots:
   void updateMaxAcceleration();
   void updateControlPID();
   void updateMuscles();
+  void updateMultiplier();
 };
 
 #endif

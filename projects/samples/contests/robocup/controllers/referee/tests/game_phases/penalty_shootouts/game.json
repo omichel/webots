@@ -1,0 +1,43 @@
+{
+  "type": "PENALTY",
+  "class": "KID",
+  "host": "192.168.1.133",
+  "minimum_real_time_factor": 0,
+  "side_left": "blue",
+  "kickoff": "red",
+  "supervisor": "test_supervisor",
+  "red": {
+    "id": 1,
+    "config": "tests/game_phases/penalty_shootouts/team_1.json",
+    "hosts": [
+      "127.0.0.1",
+      "192.168.123.21",
+      "192.168.123.22",
+      "192.168.123.23",
+      "192.168.123.24"
+    ],
+    "ports": [
+      10001,
+      10002,
+      10003,
+      10004
+    ]
+  },
+  "blue": {
+    "id": 4,
+    "config": "tests/game_phases/penalty_shootouts/team_2.json",
+    "hosts": [
+      "127.0.0.1",
+      "192.168.123.41",
+      "192.168.123.42",
+      "192.168.123.43",
+      "192.168.123.44"
+    ],
+    "ports": [
+      10021,
+      10022,
+      10023,
+      10024
+    ]
+  }
+}

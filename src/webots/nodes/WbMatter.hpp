@@ -64,7 +64,7 @@ public:
 
   // for wb_supervisor_simulation_reset_physics()
   virtual void resetPhysics(bool recursive = true) {}
-  virtual void pausePhysics() {}
+  virtual void pausePhysics(bool resumeAutomatically = false) {}
   virtual void resumePhysics() {}
 
   // handle artifical moves triggered by the user or a Supervisor

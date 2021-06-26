@@ -26,7 +26,7 @@ These sensors are listed by category [in the section below](#commercially-availa
 
 ### Commercially Available Sensors
 
-Please [contact us](https://www.cyberbotics.com/contact) if you would like to see your favorite sensor here.
+Please [contact us](https://cyberbotics.com/#contact) if you would like to see your favorite sensor here.
 
 #### Camera Sensors
 
@@ -54,6 +54,7 @@ Please [contact us](https://www.cyberbotics.com/contact) if you would like to se
 | ![robotis_lds01_icon.png](images/sensors/robotis_lds01_icon.png) | [LDS-01](lidar-sensors.md#robotis-lds-01) | Robotis |
 | ![sick_lms291_icon.png](images/sensors/sick_lms291_icon.png) | [LMS 291](lidar-sensors.md#sick-lms-291) | SICK |
 | ![sick_ld_mrs_icon.png](images/sensors/sick_ld_mrs_icon.png) | [LD-MRS](lidar-sensors.md#sick-ld-mrs) | SICK |
+| ![sick_s300_icon.png](images/sensors/sick_s300_icon.png) | [S300](lidar-sensors.md#sick-s300) | SICK |
 | ![velodyne_vpl_16_icon.png](images/sensors/velodyne_vpl_16_icon.png) | [VLP Puck](lidar-sensors.md#velodyne-puck) | Velodyne |
 | ![velodyne_hdl_32e_icon.png](images/sensors/velodyne_hdl_32e_icon.png) | [HDL 32E](lidar-sensors.md#velodyne-hdl-32e) | Velodyne |
 | ![velodyne_hdl_64e_icon.png](images/sensors/velodyne_hdl_64e_icon.png) | [HDL 64E](lidar-sensors.md#velodyne-hdl-64e) | Velodyne |

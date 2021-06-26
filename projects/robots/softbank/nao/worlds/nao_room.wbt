@@ -1,7 +1,10 @@
 #VRML_SIM R2021b utf8
 WorldInfo {
   info [
-    "A NAO robot in a living room"
+    "An Aldebaran's Nao H25 V5.0 robot in a living room"
+    "NAO is a programmable, 57-cm tall humanoid robot."
+    "The body has 25 degrees of freedom (DOF)."
+    "The sensors include 2 cameras, 4 microphones, sonar rangefinder, 2 IR emitters and receivers, 1 inertial board, and 8 pressure sensors."
   ]
   title "NAO room"
   basicTimeStep 10

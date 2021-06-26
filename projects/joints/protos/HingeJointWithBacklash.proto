@@ -6,7 +6,7 @@
 PROTO HingeJointWithBacklash [
   field SFNode                                 jointParameters   HingeJointParameters {}
   field SFFloat                                backlash          0.01   # Defines the gear clearence, [0, inf).
-  field SFFloat                                gearMass          0.01   # Defines the gear mass, [0, inf).
+  field SFFloat                                gearMass          0.1    # Defines the gear mass, [0, inf).
   field MFNode                                 device            [ ]    # {RotationalMotor, PositionSensor, Brake}.
   field MFNode{PositionSensor{}}               outputSensor      [ ]    # {PositionSensor}.
   field MFNode{Group{}, Transform{}, Shape{}}  startPoint        NULL   # {Group, Transform, or Shape}.
@@ -62,7 +62,7 @@ PROTO HingeJointWithBacklash [
           }
         ]
         physics Physics {
-          inertiaMatrix [ 4e-9 4e-9 4e-9, 0.0 0.0 0.0 ] # sphere of radius 0.001
+          inertiaMatrix [ 4e-8 4e-8 4e-8, 0.0 0.0 0.0 ] # sphere of radius 0.01
           centerOfMass %{= anchor.x}% %{= anchor.y}% %{= anchor.z}%
           density -1
           mass IS gearMass

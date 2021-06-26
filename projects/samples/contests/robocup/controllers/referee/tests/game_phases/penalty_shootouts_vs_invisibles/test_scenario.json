@@ -1,0 +1,231 @@
+[
+    {
+        "timing" : {
+            "time" : [0,4.5],
+            "clock_type" : "System",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: in fast mode, expecting 5 seconds of INITIAL time",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5.3,
+            "clock_type" : "System",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: reaching SET state automatically",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 1,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "T1. BLUE kicker is properly positioned",
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.8,0.0,0.24]
+            },
+            {
+                "name" : "T1. Sanity check: mode is penalty shootout",
+                "secondary_state" : "PENALTYSHOOT",
+                "critical" : true
+            },
+            {
+                "name" : "T1. Sanity check: BLUE has kickoff",
+                "kick_off_team" : 4,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14],
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "staying 15 seconds in state SET",
+                "state" : "SET"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "T1: automatic transition: SET -> PLAY",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.8,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-80, 10, 10]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 15,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "T1: trial automatically ends after a goal",
+                "state" : "SET",
+                "critical" : true
+            },
+            {
+                "name" : "T1: BLUE scored a goal",
+                "target" : "BLUE",
+                "score" : 1
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20,
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: Automatically moves to T3 PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 2,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2/T3: PLAYING phase of T2 is skipped",
+                "kick_off_team" : 4,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14],
+            "state" : "SET",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "T3. BLUE kicker is properly positioned",
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.8,0.0,0.24]
+            },
+            {
+                "name" : "T3. Staying in SET for 15 seconds and trial is for BLUE",
+                "state" : "SET",
+                "kick_off_team" : 4
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 63,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "T3: automatically ends after 60 seconds",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20,
+            "state" : "SET",
+            "state_count" : 4
+        },
+        "tests" : [
+            {
+                "name" : "T4: Automatically moves to T5 PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 2,
+            "state" : "PLAYING",
+            "state_count" : 4
+        },
+        "tests" : [
+            {
+                "name" : "T4/T5: PLAYING phase of T4 is skipped",
+                "kick_off_team" : 4,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 5
+        },
+        "tests" : [
+            {
+                "name" : "T5: automatic transition: SET -> PLAY",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    }
+]

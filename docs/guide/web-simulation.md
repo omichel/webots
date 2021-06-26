@@ -121,7 +121,7 @@ sequenceDiagram
       W-->>C: Return web page content
     deactivate W
     U->>C: Start simulation
-    Note left of C: webots.min.js
+    Note left of C: webots-streaming web component
     C->>SE: Open simulation session
     activate SE
       SE-->>C: Return simulation server web socket URL
@@ -144,13 +144,6 @@ sequenceDiagram
       loop Each simulation step
         SW1->>C: Send simulation world status
       end
-      U->>C: Edit and save controller
-      C->>W: Send new file
-      activate W
-        Note right of W: upload_file.php
-        W-->>C: Return OK
-      deactivate W
-      C->>SW1: Send new file
       U->>C: Reset simulation
       C->>SW1: Reset simulation
       loop Each simulation step
@@ -452,30 +445,30 @@ Also the robot windows are not yet supported.
 
 #### How to Embed a Web Scene in Your Website
 
-Similarly to [this section](web-streaming.md#how-to-embed-a-web-scene-in-your-website), to embed the simulation it is enough to instantiate a `webots.View` object from the [webots.min.js] package.
-In this case the `webots.View.broadcast` parameters doesn't have to be set to true.
-But some other parameters could be used:
-* `webots.CustomData`: application specific data to be passed to the simulation server and then to the `download_project.php` (see [init Simulation Data Download](web-simulation.md#init-simulation-data-download) section) script. These can be used to specify the setup of the simulation that will be copied in the Webots instance folder.
-* `webots.showRevert`: defines whether the revert button should be displayed in the web interface toolbar.
-* `webots.showQuit`:  defines whether the quit button should be displayed in the web interface toolbar.
+Similarly to [this section](web-streaming.md#how-to-embed-a-web-scene-in-your-website), to embed the simulation it is enough to instantiate a `webots-streaming` web component from the [WebotsStreaming.js] package.
 
-If the application requires individual access and authentication, then these additional parameters are available:
-* `webots.User1Id`: id of the main user (integer value > 0). If 0 or unset, the user is not logged in.
-* `webots.User1Name`: user name of the main user.
-* `webots.User1Authentication`: password hash or authentication data for the main user. Empty or unset if user not authenticated.
-* `webots.User2Id`: id of the secondary user, used for example in case of a soccer match between two different users. 0 or unset if not used.
-* `webots.User2Name`: user name of the secondary user.
+This is the API of the `webots-streaming` web component:
+* `connect(url, mode, broadcast, mobileDevice, callback, disconnectCallback) `: function instantiating the simulation web interface and taking as argument:
+  * `url`: Three different `url` formats are supported:
+      * URL to a WBT file (i.e. "ws://localhost:80/simple/worlds/simple.wbt"): this is the format required to start a web simulation. The `url` value specifies both the session server host and the desired simulation name.
+      * WebSocket URL (i.e. "ws://localhost:80"): this format is used for web broadcast streaming.
+      * URL to a X3D file (i.e. "file.x3d"): this format is used for showing a [web scene](web-scene.md) or a [web animation](web-animation.md).
+  * `mode`: `x3d` or `mjpeg`.
+  * `broadcast`: boolean variable enabling or not the broadcast.
+  * `mobileDevice`: boolean variable specifying if the application is running on a mobile device.
+  * `callback`: function to be executed once the simulation is ready.
+  * `disconnectCallback`: function to be executed once the web scene is closed.
+* `disconnect()`: close the simulation web scene.
+* `hideToolbar()`: hide the toolbar. Must be called after connect.
+* `showToolbar()`: show the toolbar. Must be called after connect. The toolbar is displayed by default.
+* `showQuit(enable)`: specify is the quit button must be displayed on the toolbar. Must be called before connect. The quit button is displayed by default.
+* `showRevert(enable)`: specify is the revert button must be displayed on the toolbar. Must be called before connect. The quit button is hidden by default.
+* `sendMessage(message)`: send a message to the streaming server through the web socket. Examples of messages could be:
+    *`real-time:-1`: to play the simulation.
+    *`pause`: to pause the simulation.
+    *`robot:{"name":"supervisor","message":"reset"}`: to send a message to the controller of a robot named "supervisor".
 
-This is the API of the `webots.View` class:
-* `webots.View(view3D, mobile)`: constructor instantiating the simulation web interface and taking as argument:
-  * `view3d`: DOM element that will contain the simulation web interface.
-  * `mobile`: boolean variable specifying if the application is running on a mobile device.
-* `webots.View.open(url)`: load the given simulation. Three different `url` formats are supported:
-  * URL to a WBT file (i.e. "ws://localhost:80/simple/worlds/simple.wbt"): this is the format required to start a web simulation. The `url` value specifies both the session server host and the desired simulation name.
-  * WebSocket URL (i.e. "ws://localhost:80"): this format is used for web broadcast streaming.
-  * URL to a X3D file (i.e. "file.x3d"): this format is used for showing a [web scene](web-scene.md) or a [web animation](web-animation.md)).
-* `webots.View.setTimeout(timeout)`: utility function to specify how long the simulation can run without user interaction. Setting a timeout value is useful to save resources on the server side and avoid having very long simulation running continuously on the machines and saturating the machines. The `timeout` value is expressed in seconds.
-* `webots.View.setWebotsDocUrl(url)`: utility function to specify the URL of the Webots documentation shown in the Help window.
+An example of a file using this API is available [here](https://cyberbotics1.epfl.ch/open-roberta/setup_viewer.js) and is used to run [this sample](https://cyberbotics1.epfl.ch/open-roberta/).
 
 ### Scene Refresh Rate
 

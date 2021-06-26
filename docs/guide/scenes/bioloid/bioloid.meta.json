@@ -1,276 +1,276 @@
 {
-  "robotID": "n10",
   "devices": [
     {
-      "type": "RotationalMotor",
-      "transformID": "n412",
-      "position": 0,
-      "maxPosition": 0,
-      "minPosition": 0,
       "anchor": "0.021 0.0135 0.062",
       "axis": "0 0 1",
-      "name": "back_left_1"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n422",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "back_left_1",
+      "position": 0,
+      "transformID": "n412",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 -0.014485 0.006",
       "axis": "1 0 0",
-      "name": "back_left_2"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n448",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "back_left_2",
+      "position": 0,
+      "transformID": "n422",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 0 0.083",
       "axis": "0 1 0",
-      "name": "back_left_3"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n492",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "back_left_3",
+      "position": 0,
+      "transformID": "n448",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0.021 0.0135 -0.062",
       "axis": "0 0 1",
-      "name": "back_right_1"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n502",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "back_right_1",
+      "position": 0,
+      "transformID": "n492",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 -0.014485 -0.006",
       "axis": "1 0 0",
-      "name": "back_right_2"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n528",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "back_right_2",
+      "position": 0,
+      "transformID": "n502",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 0 0.083",
       "axis": "0 1 0",
-      "name": "back_right_3"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n42",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "back_right_3",
+      "position": 0,
+      "transformID": "n528",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "-0.0565 0.0135 0.086",
       "axis": "0 0 1",
-      "name": "front_left_1"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n52",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "front_left_1",
+      "position": 0,
+      "transformID": "n42",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 -0.014485 0.006",
       "axis": "1 0 0",
-      "name": "front_left_2"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n78",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "front_left_2",
+      "position": 0,
+      "transformID": "n52",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 0 0.083",
       "axis": "0 1 0",
-      "name": "front_left_3"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n268",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "front_left_3",
+      "position": 0,
+      "transformID": "n78",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "-0.0565 0.0135 -0.086",
       "axis": "0 0 1",
-      "name": "front_right_1"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n278",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "front_right_1",
+      "position": 0,
+      "transformID": "n268",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 -0.014485 -0.006",
       "axis": "1 0 0",
-      "name": "front_right_2"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n304",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "front_right_2",
+      "position": 0,
+      "transformID": "n278",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0 0 0.083",
       "axis": "0 1 0",
-      "name": "front_right_3"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n192",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "front_right_3",
+      "position": 0,
+      "transformID": "n304",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "-0.067485 0.008015 0",
       "axis": "0 0 1",
-      "name": "head"
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "head",
+      "position": 0,
+      "transformID": "n192",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
-      "transformID": "n137",
-      "position": 0,
-      "maxPosition": 1.5708,
-      "minPosition": -1.5708,
       "anchor": "-0.079 0 0",
       "axis": "0 0 1",
-      "name": "neck_1"
+      "maxPosition": 1.5708,
+      "minPosition": -1.5708,
+      "name": "neck_1",
+      "position": 0,
+      "transformID": "n137",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
-      "transformID": "n147",
-      "position": 0,
-      "maxPosition": 0,
-      "minPosition": 0,
       "anchor": "-0.047 0 0",
       "axis": "1 0 0",
-      "name": "neck_2"
-    },
-    {
-      "type": "RotationalMotor",
-      "transformID": "n367",
-      "position": 0,
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "neck_2",
+      "position": 0,
+      "transformID": "n147",
+      "type": "RotationalMotor"
+    },
+    {
       "anchor": "0.0875 -0.0135 0",
       "axis": "1 0 0",
-      "name": "pelvis"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n412",
-      "name": "back_left_1_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n422",
-      "name": "back_left_2_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n448",
-      "name": "back_left_3_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n492",
-      "name": "back_right_1_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n502",
-      "name": "back_right_2_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n528",
-      "name": "back_right_3_sensor"
-    },
-    {
-      "type": "Camera",
-      "transformID": "n193",
-      "name": "camera"
-    },
-    {
-      "type": "DistanceSensor",
-      "transformID": "n198",
-      "name": "ds0"
-    },
-    {
-      "type": "DistanceSensor",
-      "transformID": "n202",
-      "name": "ds1"
-    },
-    {
-      "type": "DistanceSensor",
-      "transformID": "n206",
-      "name": "ds2"
-    },
-    {
-      "type": "Emitter",
-      "transformID": "n10",
-      "name": "emitter"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n42",
-      "name": "front_left_1_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n52",
-      "name": "front_left_2_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n78",
-      "name": "front_left_3_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n268",
-      "name": "front_right_1_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n278",
-      "name": "front_right_2_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n304",
-      "name": "front_right_3_sensor"
-    },
-    {
-      "type": "GPS",
-      "transformID": "n10",
-      "name": "gps"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n192",
-      "name": "head_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n137",
-      "name": "neck_1_sensor"
-    },
-    {
-      "type": "PositionSensor",
-      "transformID": "n147",
-      "name": "neck_2_sensor"
-    },
-    {
-      "type": "PositionSensor",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "pelvis",
+      "position": 0,
       "transformID": "n367",
-      "name": "pelvis_sensor"
+      "type": "RotationalMotor"
+    },
+    {
+      "name": "back_left_1_sensor",
+      "transformID": "n412",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "back_left_2_sensor",
+      "transformID": "n422",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "back_left_3_sensor",
+      "transformID": "n448",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "back_right_1_sensor",
+      "transformID": "n492",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "back_right_2_sensor",
+      "transformID": "n502",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "back_right_3_sensor",
+      "transformID": "n528",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "camera",
+      "transformID": "n193",
+      "type": "Camera"
+    },
+    {
+      "name": "ds0",
+      "transformID": "n198",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "ds1",
+      "transformID": "n202",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "ds2",
+      "transformID": "n206",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "emitter",
+      "transformID": "n10",
+      "type": "Emitter"
+    },
+    {
+      "name": "front_left_1_sensor",
+      "transformID": "n42",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "front_left_2_sensor",
+      "transformID": "n52",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "front_left_3_sensor",
+      "transformID": "n78",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "front_right_1_sensor",
+      "transformID": "n268",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "front_right_2_sensor",
+      "transformID": "n278",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "front_right_3_sensor",
+      "transformID": "n304",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "gps",
+      "transformID": "n10",
+      "type": "GPS"
+    },
+    {
+      "name": "head_sensor",
+      "transformID": "n192",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "neck_1_sensor",
+      "transformID": "n137",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "neck_2_sensor",
+      "transformID": "n147",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "pelvis_sensor",
+      "transformID": "n367",
+      "type": "PositionSensor"
     }
   ],
-  "name": "bioloid"
+  "name": "bioloid",
+  "robotID": "n10"
 }

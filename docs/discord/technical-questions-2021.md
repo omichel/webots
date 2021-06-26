@@ -13,7 +13,7 @@ I tried 3.9 and 3.7, same result both times.
 ##### RoboCoder 01/01/2021 01:32:28
 I tried a few things, but right now its set to "python"
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/01/2021 11:08:41
+##### Simon Steinmann [Moderator] 01/01/2021 11:08:41
 `@RoboCoder` What PATH variables did you set exactly? You should add something like this:
 
 C:\Users\USERNAME\AppData\Local\Programs\Python\Python38
@@ -26,13 +26,13 @@ Unless you are on Linux or Mac, then it looks differently.
 ##### RoboCoder 01/01/2021 16:51:01
 Should both of those be set in one PATH variable, or in two separate ones?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/01/2021 17:08:12
+##### Simon Steinmann [Moderator] 01/01/2021 17:08:12
 just add them beneath each other. Same variable
 
 ##### RoboCoder 01/01/2021 18:03:14
 Okay. Does the variable name matter?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/01/2021 18:03:34
+##### Simon Steinmann [Moderator] 01/01/2021 18:03:34
 you are on windows right?
 
 
@@ -50,7 +50,7 @@ Okay, it's working now! I restarted the computer and it solved my issue. Thank y
 ##### Yang 01/02/2021 11:50:31
 Hi folks, I'm new to webots, just tried out a few examples on my PC, feels great! I'm wondering whether webots accepts urdf format files and mesh files (.stl etc.)?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/02/2021 12:37:40
+##### Simon Steinmann [Moderator] 01/02/2021 12:37:40
 `@Yang` you can directly import 3d meshes through the webots menu. In order to convert URDF to webot's PROTO format, use this:
 
 [https://github.com/cyberbotics/urdf2webots](https://github.com/cyberbotics/urdf2webots)
@@ -66,7 +66,7 @@ thank you Simon, I will check that out!
 ##### Nicolas Y 01/03/2021 14:30:49
 Hi guys I'm also very new to Webots and I'm working on creating the 'Yamor Snake' but I can't figure out how to use 'Connectors' to get the pieces to stick together does anyone know how to get it done?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/03/2021 16:23:54
+##### Simon Steinmann [Moderator] 01/03/2021 16:23:54
 `@Nicolas Y` the hierarchy should look something like this:
 
 Robot > children  > Hingejoint > endPoint Solid > children > Hingejoint > endPoint Solid > children > Hingejoint  ...etc
@@ -74,7 +74,7 @@ Robot > children  > Hingejoint > endPoint Solid > children > Hingejoint > endPoi
 ##### pnaraltnsk 01/03/2021 16:25:38
 Hi, I am using webots for my graduation project and I am working on the Nao robot. I am trying to add pen node to my robot to mark the robot's walking path but for some reason, the pen node doesn't write. I added pen node to my robot's leftFootSlot and exactly like in pen.wbt example. Could you please help me out with this situation? Or do you know any other ways to mark the robot's walking path?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/03/2021 16:29:13
+##### Simon Steinmann [Moderator] 01/03/2021 16:29:13
 `@pnaraltnsk` Hi, make sure to follow the documentation: [https://cyberbotics.com/doc/reference/pen?tab-language=python](https://cyberbotics.com/doc/reference/pen?tab-language=python)
 
 Make sure you activated the pen and that the parameters work for you. Also keep this in mind:
@@ -150,13 +150,13 @@ wow great, thanks
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/795560824860311603/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 08:24:47
+##### Simon Steinmann [Moderator] 01/04/2021 08:24:47
 `@PowerYdRa`  A very simple way to check for "falling off" is to check the height of the robots. If the robot is below the arena surface, it loses. That's like 3 lines of code 🙂
 
 ##### PowerYdRa 01/04/2021 08:58:07
 yes, thats the idea, but how to show some notification in the arena (not in console) ? any suggestion?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:07:55
+##### Simon Steinmann [Moderator] 01/04/2021 09:07:55
 `from controller import Supervisor
 
 
@@ -225,13 +225,13 @@ while supervisor.step(timestep) != -1:
 ##### PowerYdRa 01/04/2021 09:08:52
 wow nice, thanks for the code, will try it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:09:11
+##### Simon Steinmann [Moderator] 01/04/2021 09:09:11
 let me know if you have questions
 
 ##### PowerYdRa 01/04/2021 09:09:24
 okay, thanks for your help
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:09:29
+##### Simon Steinmann [Moderator] 01/04/2021 09:09:29
 robot\_1 = supervisor.getFromDef('Robot\_1')
 
 robot\_2 = supervisor.getFromDef('Robot\_2')
@@ -240,13 +240,13 @@ robot\_2 = supervisor.getFromDef('Robot\_2')
 
 wups, these two lines are not needed
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/04/2021 09:12:27
+##### Olivier Michel [Cyberbotics] 01/04/2021 09:12:27
 You may use supervisor labels to display notifications in the 3D view: [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_set\_label](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_set_label)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:13:06
+##### Simon Steinmann [Moderator] 01/04/2021 09:13:06
 ahhh that's what I was looking for :p
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/04/2021 09:13:20
+##### Olivier Michel [Cyberbotics] 01/04/2021 09:13:20
 Or a Display device (which may be a child of your supervisor Robot): [https://www.cyberbotics.com/doc/reference/display](https://www.cyberbotics.com/doc/reference/display)
 
 ##### PowerYdRa 01/04/2021 09:14:55
@@ -254,7 +254,7 @@ noted, thanks for your reply
 
 will try it after fix the arena view, its look weird only show white 😆
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:38:20
+##### Simon Steinmann [Moderator] 01/04/2021 09:38:20
 `@PowerYdRa` added the display
 > **Attachment**: [sumo\_referee.py](https://cdn.discordapp.com/attachments/565154703139405824/795586909321560084/sumo_referee.py)
 
@@ -264,7 +264,7 @@ even changes the color from green to red, when a robot is out 😄
 ##### Master.L 01/04/2021 09:47:58
 Hi I have a question. I want to rotate the coordinates of the anchor. How can you do it?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:48:26
+##### Simon Steinmann [Moderator] 01/04/2021 09:48:26
 What do you mean by anchor?
 
 
@@ -273,7 +273,7 @@ you mean in a hingejoint?
 ##### Master.L 01/04/2021 09:49:34
 I want to rotate the anchor in the joint parameters of the hinge joint.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:50:02
+##### Simon Steinmann [Moderator] 01/04/2021 09:50:02
 it is relative to the parent
 
 
@@ -285,7 +285,7 @@ I want to add a joint at a specific location. But I can't hold the axis of rotat
 
 Where should I add the transform node?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 09:52:26
+##### Simon Steinmann [Moderator] 01/04/2021 09:52:26
 The easiest solution would be to position the hingejoint with a parent transform node.
 
 
@@ -356,7 +356,7 @@ can webots save the world with lock mode? I mean object in the world can't be re
 ##### PowerYdRa 01/04/2021 13:50:34
 this is because, I want to share the world to student, so they cant change everything except coding the robot only
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/04/2021 14:02:48
+##### Darko Lukić [Cyberbotics] 01/04/2021 14:02:48
 `@PowerYdRa` Something like that is not possible from Webots. It should be handled by your OS. For example, you can set the world file permissions to read-only mode, so only the administrator can edit it.
 
 ##### PowerYdRa 01/04/2021 14:04:29
@@ -364,12 +364,12 @@ if I setup server like in this tutorial [https://cyberbotics.com/doc/guide/web-s
 
 can other people do some programming for robot?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/04/2021 14:05:48
+##### Darko Lukić [Cyberbotics] 01/04/2021 14:05:48
 Yes, in that case it would be similar to:
 
 [https://robotbenchmark.net/](https://robotbenchmark.net/)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 14:15:39
+##### Simon Steinmann [Moderator] 01/04/2021 14:15:39
 `@PowerYdRa` you can have them export their robot as a .wbo file and give you their controller as well
 
 
@@ -384,13 +384,13 @@ I have set  SUPERVISOR field to TRUE, so to use  .getDevice() functions for sens
 ##### Stefania Pedrazzi [Cyberbotics] 01/04/2021 15:32:42
 Yes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:32:52
+##### Simon Steinmann [Moderator] 01/04/2021 15:32:52
 You have to put a "Robot" node as your base node `@Nicolas Y`
 
 ##### Nicolas Y 01/04/2021 15:33:01
 I did
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:33:13
+##### Simon Steinmann [Moderator] 01/04/2021 15:33:13
 and add motors in the device section of the hingejoints
 
 
@@ -402,7 +402,7 @@ I'm not sure how to get the components to stick
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/795676689534812170/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:35:37
+##### Simon Steinmann [Moderator] 01/04/2021 15:35:37
 Post your world file here
 
 
@@ -418,7 +418,7 @@ The individual Solids also need a physics node and a bounding Geometry
 This is my world file
 > **Attachment**: [YamorSnake1.wbt](https://cdn.discordapp.com/attachments/565154703139405824/795677996596985856/YamorSnake1.wbt)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:41:45
+##### Simon Steinmann [Moderator] 01/04/2021 15:41:45
 ohhh
 
 
@@ -433,7 +433,7 @@ ohhh
 
 I'll try that now
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:43:01
+##### Simon Steinmann [Moderator] 01/04/2021 15:43:01
 you can add boundingObject and physics by simply doubleclicking it
 
 
@@ -442,19 +442,19 @@ ohh wait, all the Yamor are individual robots?
 ##### Nicolas Y 01/04/2021 15:43:34
 yes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:43:55
+##### Simon Steinmann [Moderator] 01/04/2021 15:43:55
 are they supposed to be individually controlled?
 
 ##### Nicolas Y 01/04/2021 15:44:09
 no I want them to work as one
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:44:09
+##### Simon Steinmann [Moderator] 01/04/2021 15:44:09
 Because I'm not sure about a chain of robot nodes
 
 ##### Nicolas Y 01/04/2021 15:44:37
 oh?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:45:43
+##### Simon Steinmann [Moderator] 01/04/2021 15:45:43
 Perhaps the devs know the best solution for that. I'm not sure about Robots containing other Robots
 
 ##### Nicolas Y 01/04/2021 15:47:03
@@ -463,13 +463,13 @@ oh
 
 that complicates things
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:48:34
+##### Simon Steinmann [Moderator] 01/04/2021 15:48:34
 `@Olivier Michel` How does a hierarchy of robots work? Do the child robots act as devices if they don't have a controller assigned?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/04/2021 15:49:23
+##### Olivier Michel [Cyberbotics] 01/04/2021 15:49:23
 No, a robot can access only the devices it contains. If a robot contains another robot, the devices of the child robot are not available to the parent robot.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/04/2021 15:50:36
+##### Simon Steinmann [Moderator] 01/04/2021 15:50:36
 `@Nicolas Y` I think you are supposed to add one Yamor, then doubleclick on 'extensionSlot' and add another
 
 ##### Nicolas Y 01/04/2021 15:51:22
@@ -478,7 +478,7 @@ No, a robot can access only the devices it contains. If a robot contains another
 ![yamor.png](https://cdn.discordapp.com/attachments/565154703139405824/795680785843748954/yamor.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/04/2021 15:57:41
+##### Olivier Michel [Cyberbotics] 01/04/2021 15:57:41
 In this example (included in Webots), each module is an independent robot (there is no hierarchy).
 
 
@@ -487,13 +487,13 @@ Robots attach to each other with a Connector node.
 ##### Nicolas Y 01/04/2021 15:59:55
 `@Olivier Michel` okay thanks I'll try that
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/04/2021 16:17:39
+##### Olivier Michel [Cyberbotics] 01/04/2021 16:17:39
 I would recommend you to start from the yamor demo and modify it bit-by-bit to ensure you are not breaking anything.
 
 ##### Nicolas Y 01/04/2021 16:33:35
 `@Olivier Michel` sorry but despite checking the website I can't seem to figure out how to use the 'Connector' node to Combine the two 'Yamor' nodes
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/04/2021 16:34:45
+##### Olivier Michel [Cyberbotics] 01/04/2021 16:34:45
 I would recommend you to open the world file in a text  editor.
 
 
@@ -511,7 +511,7 @@ Yes you can do it using the supervisor, you can add and remove the nodes of the 
 ##### TerryWr1st 01/05/2021 00:50:29
 Ah ok, brilliant, thank you. Will take a look.
 
-##### pk1jk1 01/05/2021 03:35:29
+##### mayank.kishore 01/05/2021 03:35:29
 Has anyone successfully implemented RRT for a robot to get to a waypoint?
 
 ##### Alessia Valle 01/05/2021 08:54:35
@@ -534,7 +534,7 @@ There is an upper leg that moves by a hinge joint and a lower leg that is connec
 
 Since the hinge joint is moved after starting the simulation, the ball joint continues to rotate and the position value increases. Therefore, the part connected to the ball joint continues to rotate. How can I fix it?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/05/2021 09:15:59
+##### Simon Steinmann [Moderator] 01/05/2021 09:15:59
 `@Alessia Valle` a Position sensor measures the angle of a joint / motor. What you need is the Pose
 
 [http://docs.ros.org/en/melodic/api/nav\_msgs/html/msg/Odometry.html](http://docs.ros.org/en/melodic/api/nav_msgs/html/msg/Odometry.html)
@@ -542,7 +542,7 @@ Since the hinge joint is moved after starting the simulation, the ball joint con
 
 this is the nav\_msgs definition
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/05/2021 09:16:39
+##### Darko Lukić [Cyberbotics] 01/05/2021 09:16:39
 Hello `@Alessia Valle`,
 
 - For odometry, see the example here: [https://github.com/cyberbotics/webots\_ros2/blob/9682e06932929ea3bfab5a6a826f6fe67471aef6/webots\_ros2\_core/webots\_ros2\_core/webots\_differential\_drive\_node.py#L128-L197](https://github.com/cyberbotics/webots_ros2/blob/9682e06932929ea3bfab5a6a826f6fe67471aef6/webots_ros2_core/webots_ros2_core/webots_differential_drive_node.py#L128-L197)
@@ -555,7 +555,7 @@ Hello `@Alessia Valle`,
 
 (If you need URDF you can use [https://cyberbotics.com/doc/reference/robot#wb\_robot\_get\_urdf](https://cyberbotics.com/doc/reference/robot#wb_robot_get_urdf))
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/05/2021 09:21:38
+##### Simon Steinmann [Moderator] 01/05/2021 09:21:38
 is the ball joint passive? If so. you have to add friction
 
 
@@ -571,7 +571,7 @@ I am getting some weird results when I play the simulation.
 
 what could be the issue ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/05/2021 09:36:45
+##### Simon Steinmann [Moderator] 01/05/2021 09:36:45
 can you click on your robot and show a screenshot (with the white lines of the bounding box)
 
 
@@ -589,7 +589,7 @@ this the bounding box
 
 how could I rectify the problem ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/05/2021 09:40:13
+##### Simon Steinmann [Moderator] 01/05/2021 09:40:13
 oh the grey metal part is not part of the robot?
 
 
@@ -598,7 +598,7 @@ and it looks like therre is a horizontal part, which has no visual
 ##### yash 01/05/2021 09:40:55
 no it is not the part of the robot
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/05/2021 09:41:11
+##### Simon Steinmann [Moderator] 01/05/2021 09:41:11
 but the robot is attached to it?
 
 
@@ -607,7 +607,7 @@ In general it is much better (for performance AND accuracy) to replace the bound
 ##### yash 01/05/2021 09:42:08
 yes I have positioned the robot accordingly, but it is not attached to it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/05/2021 09:45:33
+##### Simon Steinmann [Moderator] 01/05/2021 09:45:33
 well it is hard to say. What do you expect to happen?
 
 ##### Master.L 01/05/2021 09:45:42
@@ -616,7 +616,7 @@ Thanks for solving it!!
 ##### yash 01/05/2021 09:47:12
 the 2 link manipulator should rotate about it's axis provided. With the metal plate at it's position only.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/05/2021 09:48:39
+##### Simon Steinmann [Moderator] 01/05/2021 09:48:39
 you have to make its axis static then
 
 
@@ -654,7 +654,7 @@ Also, why does the wizard default to a Release configuration instead of debug?
 ##### Diego Rojas 01/06/2021 05:50:10
 What would be the best way to simulate a ur5 robot on a 7th axis linear track using ROS2 and moveit2? I would like to control both the linear motion of the 7th axis track and the robot arm with moveit2. Using the follow\_joint\_trajectory action server, I was able to control the ur5 robot with ros2 control and moveit2, but now I want to attach the robot to a linear track. I have done this in the past in gazebo by creating a prismatic joint and using the follow\_joint\_trajectory controller to control it with ros\_control and moveit. Is this possible in webots also? How can I utilize the existing follow\_joint\_trajectory action server that is created in webots\_ros2 and create another follow\_joint\_trajectoy action server for a linear/prismatic joint with webots\_ros2?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/06/2021 07:12:43
+##### Olivier Michel [Cyberbotics] 01/06/2021 07:12:43
 Webots can compile controllers in either x64 or x86. However, by default it will build x64 binaries. If you want to build a x86 controller binary, you should be sure to link it with `WEBOTS_HOME\msys64\mingw32\bin\Controller.dll` instead of `WEBOTS_HOME\msys64\mingw64\bin\Controller.dll`.
 
 ##### yash 01/06/2021 07:38:12
@@ -669,19 +669,19 @@ The used formula comes from standard steering dynamics. Depending if the front o
 
 Here is the reference to a chapter about steering dynamics: [https://link.springer.com/chapter/10.1007/978-1-4614-8544-5\_7](https://link.springer.com/chapter/10.1007/978-1-4614-8544-5_7) but you can probably find other references on the web.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/06/2021 07:53:37
+##### Olivier Michel [Cyberbotics] 01/06/2021 07:53:37
 You should create a compound bounding object for the foot that is not a mesh, but a combination of simple primitives (spheres, capsules, cylinders and boxes). See this tutorial: [https://cyberbotics.com/doc/guide/tutorial-5-compound-solid-and-physics-attributes](https://cyberbotics.com/doc/guide/tutorial-5-compound-solid-and-physics-attributes) for an example of creating a compound bounding object.
 
 ##### yash 01/06/2021 08:01:33
 alright ! but this wiil solve the issue right irrespective of the solid geometry ?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/06/2021 08:02:22
+##### Olivier Michel [Cyberbotics] 01/06/2021 08:02:22
 It should (as long as you don't include any mesh in the bounding object).
 
 ##### yash 01/06/2021 08:02:48
 understood, thanks a lot !
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/06/2021 08:48:56
+##### Darko Lukić [Cyberbotics] 01/06/2021 08:48:56
 Hello `@Diego Rojas`, I have never tried adding 7th axis linear track, but here are a few ideas. `TrajectoryFollower` can control any motor present in the robot. Therefore, you can add the linear track (built with `SliderJoint` which behaves in the same way as the prismatic joint) in the Webots robot model.
 
 
@@ -693,14 +693,14 @@ Hi `@Darko Lukić`, thank you again for the suggestions.  I also found on the RO
 
 Moreover, I have another doubt about transforms and URDF. Actually I need the static transforms between the wheels, the base\_link and base\_laser to set up navigation. But how can I publish transforms without the URDF file? Do these frames take the name of the corresponding nodes on Webots?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/06/2021 09:20:51
+##### Darko Lukić [Cyberbotics] 01/06/2021 09:20:51
 You can use `diff_drive_controller` as well. Your objective is to publish `Odometry` topic and transforms that describe translation and orientation between `base_link` and `odom` frames. You can use `diff_drive_controller` or write one by yourself.
 
 
 
 You don't need URDF to publish transforms. In general, `robot_state_publisher` uses URDF to publish `TransformStamped` ([http://docs.ros.org/en/melodic/api/geometry\_msgs/html/msg/TransformStamped.html](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/TransformStamped.html)) messages. However, you can publish those messages by yourself.
 
-##### pk1jk1 01/06/2021 18:32:51
+##### mayank.kishore 01/06/2021 18:32:51
 Hi! Trying to setup my environment for ros2 on my mac and am getting a file not found error, am I missing something? [https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Development-Setup/#environment-setup](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Development-Setup/#environment-setup)
 
 
@@ -712,14 +712,14 @@ This is what my directory looks like:
 
 Hi! Were you able to solve this problem? Am running into the same issue
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/06/2021 18:53:25
-`@pk1jk1` 
+##### Darko Lukić [Cyberbotics] 01/06/2021 18:53:25
+`@mayank.kishore` 
 
 [https://index.ros.org/doc/ros2/Installation/Foxy/macOS-Install-Binary/](https://index.ros.org/doc/ros2/Installation/Foxy/macOS-Install-Binary/)
 
 You should follow a tutorial for macOS
 
-##### pk1jk1 01/06/2021 19:00:00
+##### mayank.kishore 01/06/2021 19:00:00
 ~~I was following the tutorial, ran `tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2` and am unsure why the next step of sourcing the ros2 file `. ~/ros2_foxy/ros2-osx/setup.bash` is trying to look for `local_setup.bash` in the directory above since the extract only puts everything into the `ros2-osx` folder as shown above~~
 
 
@@ -747,13 +747,13 @@ It seems to start successfully... but now I am having trouble testing if that wo
 
 As the documentation I am trying 'ws://localhost:1999/session?url=webots://github.com/cyberbotics/webots/branch/develop/projects/languages/python/worlds/example.wbt' in Connect to using the streaming viewer but i get streaming server error 1006
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/07/2021 08:43:56
+##### Simon Steinmann [Moderator] 01/07/2021 08:43:56
 `@Master.L` [https://gist.github.com/hugs/4231272](https://gist.github.com/hugs/4231272) this looks like what you're looking for
 
 
 [https://www.marginallyclever.com/other/samples/fk-ik-test.html](https://www.marginallyclever.com/other/samples/fk-ik-test.html) or this could help
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/07/2021 08:46:17
+##### Olivier Michel [Cyberbotics] 01/07/2021 08:46:17
 Did you try to check the monitor page http://localhost:1999/monitor to check the status of your server?
 
 ##### Luiz Felipe 01/07/2021 09:35:08
@@ -768,7 +768,7 @@ Oh... If I check it, it appears the load:
 
 But if i click the localhost/2000 I get 'This site can't be reached'... Hm...
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/07/2021 09:38:04
+##### Olivier Michel [Cyberbotics] 01/07/2021 09:38:04
 It should be http://localhost:2000 instead.
 
 ##### Luiz Felipe 01/07/2021 09:39:42
@@ -792,7 +792,7 @@ The session server and simulation servers seems to be up and rnning... Is that c
 ##### Alessia Valle 01/07/2021 11:56:31
 Hello everyone! My tutor wrote to me and he has changed his mind about my thesis. He asked me to implement SLAM algorithm on Webots without any integration with ROS. Do you have some resources/documentation about it? Is there any existing project in which SLAM has been implemented?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/07/2021 12:14:22
+##### Darko Lukić [Cyberbotics] 01/07/2021 12:14:22
 The only examples about SLAM and Webots include ROS and ROS2:
 
 [http://wiki.ros.org/webots\_ros/Tutorials/Sample%20Simulations](http://wiki.ros.org/webots_ros/Tutorials/Sample%20Simulations)
@@ -832,7 +832,7 @@ supervisor = Supervisor()
 
 Please help me with this !?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/07/2021 12:27:32
+##### Darko Lukić [Cyberbotics] 01/07/2021 12:27:32
 If you set the motor positions in the single step they all move at the same time. Your problem is therefore something else. For example, the motor in shoulder moves the endpoint faster than the motor in the wrist even though they rotate at the same speed (the motor in the shoulder is farther away from the endpoint than the motor in the wrist). One solution would be to find a lot of IK solutions along a straight line and apply the new IK solution in each step.
 
 
@@ -841,7 +841,7 @@ No. `robot = Supervisor()` is enough. It will give you methods from `Robot` and 
 ##### Alessia Valle 01/07/2021 12:34:06
 Thank you. So do you think that I will have to write the SLAM algorithm from scratch on my own?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/07/2021 12:35:39
+##### Darko Lukić [Cyberbotics] 01/07/2021 12:35:39
 Yes, but make sure the port is correct.
 
 ##### yash 01/07/2021 12:37:14
@@ -849,13 +849,13 @@ Yes, but make sure the port is correct.
 
 `@Darko Lukić`  thank you !
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/07/2021 12:38:28
+##### Darko Lukić [Cyberbotics] 01/07/2021 12:38:28
 I don't know :/ Depends on your project.
 
 ##### Alessia Valle 01/07/2021 12:45:00
 What do you mean by "it depends on your project?"😅
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/07/2021 12:47:48
+##### Darko Lukić [Cyberbotics] 01/07/2021 12:47:48
 I guess if you have a good understanding of SLAM than you can implement it, but if you want a robust solution it is better to use something like `cartographer`.
 
 ##### Alessia Valle 01/07/2021 12:58:44
@@ -867,7 +867,7 @@ Hi - I'm wondering about the current e-puc hardware and compatability with Webot
 ##### Luiz Felipe 01/07/2021 14:07:09
 I get streaming server error... will check the debug flags of the session and simulation servers...
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/07/2021 15:54:45
+##### Darko Lukić [Cyberbotics] 01/07/2021 15:54:45
 Hello `@josiehughes`, It is compatible
 
 ##### YCSU 01/07/2021 16:01:07
@@ -888,7 +888,7 @@ The most effective way to turn an epuck2 is by using time and angular speed itse
 ##### Luiz Felipe 01/08/2021 06:08:10
 In line 46 in [https://github.com/cyberbotics/webots/blob/master/resources/web/streaming\_viewer/index.html#L46](https://github.com/cyberbotics/webots/blob/master/resources/web/streaming_viewer/index.html#L46) of the new 2021a version the line it is not supposed to be:  `  <script src="[https://www.cyberbotics.com/wwi/R2021a/webots.min.js](https://www.cyberbotics.com/wwi/R2021a/webots.min.js)"></script>` ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/08/2021 08:16:27
+##### Darko Lukić [Cyberbotics] 01/08/2021 08:16:27
 `@Luiz Felipe` There is `webots.min.js` distributed with Webots packages (`resources/web/wwi/webots.min.js`), but you can also use the one available on Cyberbotics servers.
 
 ##### Luiz Felipe 01/08/2021 08:21:10
@@ -897,7 +897,7 @@ Yes `@Darko Lukić` , I changed to use the one available on Cyberbotics servers 
 
 I just thought it is better for the default to be the one available on the Cyberbotics servers.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/08/2021 08:28:01
+##### Olivier Michel [Cyberbotics] 01/08/2021 08:28:01
 It should be the same anyhow.
 
 ##### yash 01/08/2021 08:33:19
@@ -909,7 +909,7 @@ Yups... The streaming viewer however does not open... The 2020b version works fi
 ![Screenshot_from_2021-01-08_17-37-04.png](https://cdn.discordapp.com/attachments/565154703139405824/797021720057741312/Screenshot_from_2021-01-08_17-37-04.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/08/2021 08:43:19
+##### Olivier Michel [Cyberbotics] 01/08/2021 08:43:19
 Yes, you can. However to get the position of the contact point of the collision, you should use the supervisor API, not the touch sensor API.
 
 
@@ -929,7 +929,7 @@ Should I calculate by differentiating the position value?.
 
 Can I get it through the sensor?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/08/2021 09:25:36
+##### Simon Steinmann [Moderator] 01/08/2021 09:25:36
 add PositionSensors
 
 
@@ -960,7 +960,7 @@ Thanks!
 ##### Ragemor 01/08/2021 10:14:59
 Excuse me is there any Webots project about multi robot coordination using leader follower approach? I want to implement leader follower algorithm in my project but i cant understand how can i write code about that. Which nodes and api functions(or sensors) should i use? Do you have docs about leader follower and multi robots in webots?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/08/2021 10:19:44
+##### Olivier Michel [Cyberbotics] 01/08/2021 10:19:44
 No, we don't have any documentation about leader follower and I am not aware of any project about it.
 
 
@@ -984,13 +984,13 @@ I could pay for a call teaching me on how to do it
 ##### Maheed 01/08/2021 14:40:49
 Hi everyone, Im a webots beginner at the moment. I have 8 yamor modules connected together to look like a snake and I really need some help to program some controllers in C to make it do something such as move towards an a certain colour or avoid obstacles. Can anyone help me with this?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/08/2021 14:44:57
+##### Simon Steinmann [Moderator] 01/08/2021 14:44:57
 are you dead set on c?
 
 ##### Maheed 01/08/2021 14:46:30
 Yep
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/08/2021 14:47:47
+##### Simon Steinmann [Moderator] 01/08/2021 14:47:47
 Then I wont be able to help much. But my approach would be to create basic functionality as "move forward" "turn left" "turn right" etc. And then combine those into algorithms for obstacle avoidance etc.
 
 ##### Maheed 01/08/2021 15:27:37
@@ -1008,7 +1008,7 @@ Hello everyone, I have a problem regarding Webots and NAO robot. I am trying to 
 ![error.png](https://cdn.discordapp.com/attachments/565154703139405824/797253462727327784/error.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/09/2021 08:26:26
+##### Simon Steinmann [Moderator] 01/09/2021 08:26:26
 `@linexc` looks like a network problem. I have no experience with this exact thing, but usually you would use localhost
 
 
@@ -1032,7 +1032,7 @@ Hello everyone! Playing with lights and lighting in Webots.  I have placed three
 
 [https://youtu.be/jMzKwcVs\_08](https://youtu.be/jMzKwcVs_08)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/10/2021 12:37:11
+##### Simon Steinmann [Moderator] 01/10/2021 12:37:11
 `@DrakerDG` Hey, what part exactly don't you understand?
 
 ##### DrakerDG 01/10/2021 12:41:40
@@ -1041,7 +1041,7 @@ Hello everyone! Playing with lights and lighting in Webots.  I have placed three
 
 I understood that each robot should have its own controller, but apparently it is not entirely necessary
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/10/2021 12:50:15
+##### Simon Steinmann [Moderator] 01/10/2021 12:50:15
 Ah okay, I understand the confusion. Each robot runs its own instance of that controller. In a separate process
 
 
@@ -1056,7 +1056,7 @@ does that make sense?
 
 `@Simon Steinmann` If it were different robots if each one is configured with their controller, right?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/10/2021 12:56:16
+##### Simon Steinmann [Moderator] 01/10/2021 12:56:16
 yes
 
 
@@ -1068,13 +1068,13 @@ you can take a look at your task-manager while running it. You should see the ma
 ##### DrakerDG 01/10/2021 12:58:23
 `@Simon Steinmann` For example robots that play soccer use the same controller all, so
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/10/2021 12:58:30
+##### Simon Steinmann [Moderator] 01/10/2021 12:58:30
 I mostly use Python and often need similar functionality. So I have sub-modules or scripts, which I dont change and can use in different controllers by simply importing them
 
 ##### DrakerDG 01/10/2021 12:59:09
 Ok
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/10/2021 13:00:01
+##### Simon Steinmann [Moderator] 01/10/2021 13:00:01
 If you have one type of robot player, then yes, it would make sense to use the same controller. Or at least a shared base-version for stuff like movement, sensors etc.
 
 
@@ -1092,7 +1092,7 @@ I am currently programming in C language, but I am learning in a course to start
 
 `@Simon Steinmann` My object is to use Webots to test robot designs, observe their operation, mechanical behavior, improve it and then physically build the robot
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/10/2021 13:14:31
+##### Simon Steinmann [Moderator] 01/10/2021 13:14:31
 Python is definitely easier and quicker imho
 
 ##### DrakerDG 01/10/2021 13:17:40
@@ -1119,7 +1119,7 @@ The error for sure pertains to the robot window's javascript file. I'm also expe
 ##### AdityaDutt 01/10/2021 17:30:50
 should I stick with 2020 instead?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/10/2021 17:37:41
+##### Darko Lukić [Cyberbotics] 01/10/2021 17:37:41
 The robot window doesn't rely on webots.js. Could you tell me which world are you trying to open?
 
 ##### AdityaDutt 01/10/2021 17:39:01
@@ -1128,7 +1128,7 @@ I am using the erebus challenge world. [https://github.com/Shadow149/Erebus](htt
 
 well i went back to 2020a rev 1 and the error is no longer there
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/10/2021 21:00:41
+##### Darko Lukić [Cyberbotics] 01/10/2021 21:00:41
 `@AdityaDutt` , `@adiagr`  I have just checked and `MainSupervisorWindows.html` is not valid HTML file, so `webots` cannot be injected. The file content should be something like:
 
 ```html
@@ -1145,7 +1145,7 @@ well i went back to 2020a rev 1 and the error is no longer there
 ##### adiagr 01/10/2021 21:03:17
 Hey, in a robot window plugin, should the js file be explicitly included using the script tag?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/10/2021 22:03:29
+##### Darko Lukić [Cyberbotics] 01/10/2021 22:03:29
 Yes
 
 
@@ -1162,7 +1162,7 @@ What are the steps of designing a model for webots simulation? What is the proce
 ##### Diego Rojas 01/11/2021 00:13:32
 `@DrakerDG` Thanks!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 09:15:52
+##### Simon Steinmann [Moderator] 01/11/2021 09:15:52
 Take a look at this first: [https://www.cyberbotics.com/doc/guide/tutorial-7-your-first-proto](https://www.cyberbotics.com/doc/guide/tutorial-7-your-first-proto)
 
 In general, the simplest way in my opinion, would be to build up your model in webots, then export the robot as a .wbo
@@ -1182,7 +1182,7 @@ just visited the official website and then github and now i am here
 
 Hi `@Darko Lukić`  how are you? remember me?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/11/2021 10:11:47
+##### Darko Lukić [Cyberbotics] 01/11/2021 10:11:47
 I am sorry, I cannot recognize your username 🙁
 
 ##### JSK 01/11/2021 10:12:22
@@ -1200,7 +1200,7 @@ can you still help me to solve it?
 
 actually when i fetched gyro data recently, i started to make controller but it needs numpy
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/11/2021 10:14:09
+##### Darko Lukić [Cyberbotics] 01/11/2021 10:14:09
 I recall now! I am glad I was able to help.
 
 
@@ -1224,7 +1224,7 @@ this is the error in webots terminal
 ![Screenshot_from_2021-01-11_15-22-51.png](https://cdn.discordapp.com/attachments/565154703139405824/798134959138930698/Screenshot_from_2021-01-11_15-22-51.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/11/2021 10:23:46
+##### Darko Lukić [Cyberbotics] 01/11/2021 10:23:46
 You installed `numpy` for Python2, not Python3
 
 
@@ -1242,7 +1242,7 @@ installed it
 
 rebooting is necessary or not?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/11/2021 10:26:11
+##### Darko Lukić [Cyberbotics] 01/11/2021 10:26:11
 No, just restart the controller
 
 
@@ -1254,7 +1254,7 @@ ok
 
 i restaretd the controller but the problem is still there
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/11/2021 10:30:08
+##### Darko Lukić [Cyberbotics] 01/11/2021 10:30:08
 Do you get an error if you call?
 
 ```py
@@ -1281,7 +1281,7 @@ negative... i got no error
 ![pip3.png](https://cdn.discordapp.com/attachments/565154703139405824/798137348495245312/pip3.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/11/2021 10:34:13
+##### Darko Lukić [Cyberbotics] 01/11/2021 10:34:13
 If you installed Webots as `snap` it will not work. As `@Stefania Pedrazzi` suggested you should use external controller or install Webots as a Debian package.
 
 ##### JSK 01/11/2021 10:35:26
@@ -1331,19 +1331,19 @@ Double clicking on it should open the Software Application window to install it
 ##### JSK 01/11/2021 10:47:34
 alright that sounds good
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 10:48:29
+##### Simon Steinmann [Moderator] 01/11/2021 10:48:29
 `@JSK` You may also have to set environment variables, especially when using conda
 
 ##### JSK 01/11/2021 10:49:42
 yeah i read about environment variables in the documentation that `@Stefania Pedrazzi`  mentioned
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 10:51:02
+##### Simon Steinmann [Moderator] 01/11/2021 10:51:02
 you can launch webots from a terminal. it will have the variables of that terminal
 
 ##### JSK 01/11/2021 10:51:44
 to be honest i tried to set the variables but when i started to search `usr/local/webots` i was not able to find that and hence i came on this platform for help. i am trying this for 3 days
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 10:52:11
+##### Simon Steinmann [Moderator] 01/11/2021 10:52:11
 you can edit your .bashrc in your home folder to add variables
 
 ##### JSK 01/11/2021 10:53:05
@@ -1352,7 +1352,7 @@ what does "edit" mean.
 
 ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 10:53:17
+##### Simon Steinmann [Moderator] 01/11/2021 10:53:17
 open it in a text editor and add the variables
 
 
@@ -1364,7 +1364,7 @@ here is more detail
 ##### JSK 01/11/2021 10:54:51
 alright
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 10:57:26
+##### Simon Steinmann [Moderator] 01/11/2021 10:57:26
 you can add this at the end of your .bashrc
 
 `export WEBOTS\_HOME="/home/simon/webots"
@@ -1383,13 +1383,13 @@ keep in mind to change the first line to the correct Path of your installation, 
 ##### JSK 01/11/2021 11:00:44
 thanks let me do it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 11:00:45
+##### Simon Steinmann [Moderator] 01/11/2021 11:00:45
 the .bashrc file gets sourced every time you open a new terminal. So you have to open a new terminal for it to take effect. Then you can launch webots from the terminal, and it will have those variables
 
 ##### JSK 01/11/2021 11:03:18
 can you tell me how to access .bashrc file? i cant find it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 11:03:28
+##### Simon Steinmann [Moderator] 01/11/2021 11:03:28
 it's hidden
 
 
@@ -1401,7 +1401,7 @@ found it
 
 updated .bashrc as you mentioned `@Simon Steinmann` .
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 11:07:37
+##### Simon Steinmann [Moderator] 01/11/2021 11:07:37
 now you can open a new terminal and launch webots from there. the variables should be set
 
 
@@ -1419,7 +1419,7 @@ Use a camera sensor and look into canny edge detection and hough line transform
 
 I don't know your programming language preference, but I strongly recommend you use python since OpenCV makes it a much easier task than it seems.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/11/2021 11:11:27
+##### Darko Lukić [Cyberbotics] 01/11/2021 11:11:27
 Something like this?
 
 [https://github.com/lukicdarkoo/webots-example-lane-follower](https://github.com/lukicdarkoo/webots-example-lane-follower)
@@ -1445,7 +1445,7 @@ And it does put up a paywall after 3 visits to the site I believe, but a bit of 
 
 I have a question of my own, using reset simulation crashes the whole program. The world is quite complex, however even leaving it to run for a long while after hitting reset doesn't seem to help.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 11:23:12
+##### Simon Steinmann [Moderator] 01/11/2021 11:23:12
 Perhaps try removing things from the world one by one and hit reset after. Try to find out what is causing the crash
 
 ##### Alessia Valle 01/11/2021 11:25:21
@@ -1460,7 +1460,7 @@ Yeah, that makes sense. Thanks.
 
 Anyone with some deeper knowledge of arctan2 and trigonometry in general want to help me out a bit?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 14:16:06
+##### Simon Steinmann [Moderator] 01/11/2021 14:16:06
 `@MartinG` whaz do you want to k ow?
 
 
@@ -1478,7 +1478,7 @@ I do this by taking 5 points along the path, then converting them into a lot of 
 
 The problem is figuring out how to calculate the angle the car needs to turn using arctan2
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 14:24:26
+##### Simon Steinmann [Moderator] 01/11/2021 14:24:26
 
 %figure
 ![220px-Atan2definition.png](https://cdn.discordapp.com/attachments/565154703139405824/798195623940718622/220px-Atan2definition.png)
@@ -1487,7 +1487,7 @@ The problem is figuring out how to calculate the angle the car needs to turn usi
 ##### MartinG 01/11/2021 14:24:42
 I've seen that graphic many times ahahah.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 15:09:39
+##### Simon Steinmann [Moderator] 01/11/2021 15:09:39
 btw, this link can be very useful for checking calculations etc.
 
 [https://www.andre-gaschler.com/rotationconverter/](https://www.andre-gaschler.com/rotationconverter/)
@@ -1512,7 +1512,7 @@ It says that 'Robot' does not specify a type, and same with 'Motor' and 'Positio
 
 I'm sort of a noob with C++ and OOP, so I'm not really sure what the issue is
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/11/2021 16:44:57
+##### Simon Steinmann [Moderator] 01/11/2021 16:44:57
 [https://www.cyberbotics.com/doc/guide/controller-programming?tab-language=c++](https://www.cyberbotics.com/doc/guide/controller-programming?tab-language=c++)
 
 
@@ -1643,7 +1643,7 @@ Just reporting. I think I found a bug (not sure), but receiving the message from
 
 I am solving that by changing the message sent from the simulation server. I will check if it will also work with 'x3d' option or if using this solution only solves the 'mjpeg' but starts the error when using 'x3d'.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 07:19:17
+##### Olivier Michel [Cyberbotics] 01/12/2021 07:19:17
 Thank you for this contribution! Once you have implemented and tested it, please open a new PR to submit your change, so that it will be integrated into Webots).
 
 ##### yash 01/12/2021 07:39:03
@@ -1651,7 +1651,7 @@ How can I extract the position moved by a manipulator link ? I have used a hinge
 
 So when a manipulator link hits a solid it stops, at this moment I want to know the position of the link .?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 07:51:50
+##### Olivier Michel [Cyberbotics] 01/12/2021 07:51:50
 Can't you use the position sensor for that?
 
 ##### yash 01/12/2021 08:11:01
@@ -1665,22 +1665,22 @@ If I git clone the webots repository the dependencies are not downloaded right? 
 
 I guess I should use --recurse-submodules... will test it!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 08:45:02
+##### Olivier Michel [Cyberbotics] 01/12/2021 08:45:02
 Yes.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/12/2021 08:45:23
+##### Simon Steinmann [Moderator] 01/12/2021 08:45:23
 Use the build from source instructions on github
 
 
 They give you a step for step process, including all dependencies
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 08:46:04
+##### Olivier Michel [Cyberbotics] 01/12/2021 08:46:04
 Please follow strictly the instructions at [https://github.com/cyberbotics/webots/wiki/Linux-installation](https://github.com/cyberbotics/webots/wiki/Linux-installation) (assuming you are on Linux)
 
 ##### Luiz Felipe 01/12/2021 08:49:05
 Thanks 🙂 doing that now
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/12/2021 08:51:44
+##### Simon Steinmann [Moderator] 01/12/2021 08:51:44
 `@AdityaDutt` `@Chernayaten`  [http://www.hmc.edu/lair/ARW/ARW-Lecture01-Odometry.pdf](http://www.hmc.edu/lair/ARW/ARW-Lecture01-Odometry.pdf) Take a look at this lecture presentation. Especially slide 23
 
 
@@ -1711,7 +1711,7 @@ I recommend staying with radians all the times. The only exception maybe being w
 ##### Luiz Felipe 01/12/2021 09:22:18
 I followed the page, re-build webots, also installed the optional dependencies, but still nothing on the wwi/dependencies folder... should I download the dependencies in that folder manually?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/12/2021 09:23:19
+##### Simon Steinmann [Moderator] 01/12/2021 09:23:19
 what are you trying to achieve? Webots built successfully?
 
 ##### Luiz Felipe 01/12/2021 09:24:25
@@ -1720,10 +1720,10 @@ yups.. webots built successfully, i can open v2021a
 
 i am trying to check a possible bug in the multimedia\_client.js file
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/12/2021 09:24:56
+##### Simon Steinmann [Moderator] 01/12/2021 09:24:56
 okay... and what is the issue?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/12/2021 09:27:01
+##### Darko Lukić [Cyberbotics] 01/12/2021 09:27:01
 `@Luiz Felipe` Can you check whether you have node/npm installed, `npm --version`. If there is a missing dependency `make` skips compiling the corresponding part. Node should be included in the optional dependencies, but just to make sure whether it is properly installed
 
 ##### Luiz Felipe 01/12/2021 09:28:28
@@ -1732,19 +1732,19 @@ Probably that is the reason `@Darko Lukić` (npm is installed correctly but prob
 
 does make clear works to re-build one more time?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/12/2021 09:29:20
+##### Darko Lukić [Cyberbotics] 01/12/2021 09:29:20
 Yes, `make clean` works
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 09:29:39
+##### Olivier Michel [Cyberbotics] 01/12/2021 09:29:39
 `make clean`
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/12/2021 09:29:59
+##### Darko Lukić [Cyberbotics] 01/12/2021 09:29:59
 Correct, sorry
 
 ##### Luiz Felipe 01/12/2021 09:30:15
 Thanks =), I will re-build
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 09:30:18
+##### Olivier Michel [Cyberbotics] 01/12/2021 09:30:18
 Or even more powerful `make cleanse` (will remove the dependencies).
 
 ##### Luiz Felipe 01/12/2021 09:31:38
@@ -1753,7 +1753,7 @@ For the web part, is there a list of bugs or features that need help? (I dont kn
 
 Now I got the dependencies `@Darko Lukić` . Thank you very much. I got an error during make regarding the npm but all the dependencies seems to be in the /dependencies folder.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/12/2021 09:44:24
+##### Darko Lukić [Cyberbotics] 01/12/2021 09:44:24
 What is the error?
 
 ##### Luiz Felipe 01/12/2021 09:47:20
@@ -1765,7 +1765,7 @@ What is the error?
 
 but it works
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/12/2021 09:51:21
+##### Darko Lukić [Cyberbotics] 01/12/2021 09:51:21
 Maybe to clean the npm cache `npm cache clean --force` and repeat the compilation. To clean the project you can also use `git clean -dfx`.
 
 ##### Luiz Felipe 01/12/2021 09:56:25
@@ -1800,7 +1800,7 @@ GPS is simple to use, you can also check out its section oncthe webots site to s
 ##### owongcho 01/12/2021 16:39:37
 hello! what type of simulation Webots generates? For example, is the type of simulation an emulation, discrete event simulation, or something else?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 16:41:49
+##### Olivier Michel [Cyberbotics] 01/12/2021 16:41:49
 I would say emulation. The time is simulated and there is a fixed time step.
 
 ##### owongcho 01/12/2021 17:43:03
@@ -1891,13 +1891,13 @@ One solution which seems technically possible but perhaps not practical is some 
 ##### Wasabi Fan 01/13/2021 05:01:28
 I tried that once with a "normal" time-step (~60Hz) and it did not seem to change the results. Setting up the toolchain to compile physics plugins is a bit of extra work (which I preferred to not introduce into my general setup process), which is why I haven't done a lot of experimenting with it, but it's not out of the question. However, it's not clear to me what that sample plugin is intended to do -- is there an expectation that the joint-attachment collision handling is better in a scenario like this?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 07:11:38
+##### Olivier Michel [Cyberbotics] 01/13/2021 07:11:38
 A possible solution (without a physics plugin) would be to turn the bullet into a Robot with the supervisor field set to TRUE. Then, add a distance sensor to the bullet looking backwards. At each time step, you should get the current position of the bullet and compute the vector between the current position and the previous position. You will use this vector to change the orientation of the distance sensor so that it looks exactly at the previous position and make a sensor measurement in the same time step. If the distance measured is smaller than the distance between the current and previous position, then a collision occurred and you should set the position of the bullet at the place of collision (which can easily be computed along the distance sensor ray).
 
 ##### Wasabi Fan 01/13/2021 07:16:36
 Oh wow, that's very inventive and \_sounds\_ workable. I think there are some details I'd need to work out but I shall try that in the next few days and report back if I run into issues. Thanks!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 07:17:28
+##### Olivier Michel [Cyberbotics] 01/13/2021 07:17:28
 I would truly appreciate your feedback on this.
 
 ##### Moha 01/13/2021 08:38:00
@@ -1929,7 +1929,7 @@ KeyError: 'WEBOTS\_HOME'
 
 Process finished with exit code 1
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/13/2021 08:40:21
+##### Simon Steinmann [Moderator] 01/13/2021 08:40:21
 [https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-language=python&tab-os=linux](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-language=python&tab-os=linux)
 
 
@@ -1938,7 +1938,7 @@ you have to set your environment variablres
 ##### Moha 01/13/2021 08:41:58
 in pycharm or windows environment variables ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/13/2021 08:42:39
+##### Simon Steinmann [Moderator] 01/13/2021 08:42:39
 usually windows
 
 
@@ -1959,7 +1959,7 @@ also add the Path variables
 ##### yash 01/13/2021 11:00:50
 Hi !  I want to use this supervisor function -  def addForce(self, force, relative). Therefore what exactly should I specify in the relative argument .?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/13/2021 11:23:34
+##### Simon Steinmann [Moderator] 01/13/2021 11:23:34
 You're right, the documentation is not 100% clear here. When you look at the C or C++ code, you see the type is BOOL
 
 
@@ -1971,16 +1971,16 @@ so I'd assume setting it to True = force relative to Solid, False = force relati
 ##### yash 01/13/2021 11:26:15
 okay , let me try that.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 11:28:03
+##### Olivier Michel [Cyberbotics] 01/13/2021 11:28:03
 It seems clear to me: [https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_add\_force](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_add_force)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/13/2021 11:28:31
+##### Simon Steinmann [Moderator] 01/13/2021 11:28:31
 when looking at the Python code, it is not clear that it is boolean
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 11:28:45
+##### Olivier Michel [Cyberbotics] 01/13/2021 11:28:45
 Feel free to suggest some change here: [https://github.com/cyberbotics/webots/edit/released/docs/reference/supervisor.md](https://github.com/cyberbotics/webots/edit/released/docs/reference/supervisor.md)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/13/2021 11:28:56
+##### Simon Steinmann [Moderator] 01/13/2021 11:28:56
 already at it 😉
 
 
@@ -1989,7 +1989,7 @@ already at it 😉
 ##### Chernayaten 01/13/2021 11:34:43
 From Tutorial 6 on the 4 wheeled robot, the anchor field of the HingeJointParameters node should have the same values as the Solid translation one. Is this correct?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 11:37:19
+##### Olivier Michel [Cyberbotics] 01/13/2021 11:37:19
 Reviewed.
 
 
@@ -1998,7 +1998,7 @@ Yes.
 ##### Chernayaten 01/13/2021 11:41:13
 There's a discrepancy in the pen.wbt device example
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 11:43:27
+##### Olivier Michel [Cyberbotics] 01/13/2021 11:43:27
 What is the problem?
 
 ##### Chernayaten 01/13/2021 11:44:30
@@ -2007,19 +2007,19 @@ The anchor field of the HingeJointParameters node is 0 0.025 0 whereas the Solid
 
 This is in the Pen device example
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 11:49:28
+##### Olivier Michel [Cyberbotics] 01/13/2021 11:49:28
 This is correct, but is it not essential as the anchor may be anywhere on the rotation axis. However, you are right it is better to have it as close as possible to the rotating part (the wheel in this case) for stability reasons. May I let you propose a patch here: [https://github.com/cyberbotics/webots/edit/master/projects/samples/devices/worlds/pen.wbt](https://github.com/cyberbotics/webots/edit/master/projects/samples/devices/worlds/pen.wbt) ?
 
 ##### Chernayaten 01/13/2021 11:53:48
 Done
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 11:55:40
+##### Olivier Michel [Cyberbotics] 01/13/2021 11:55:40
 Thank you. I approved it. You should be able to merge it once the CI tests are complete.
 
 ##### Chernayaten 01/13/2021 13:00:44
 " Only those with write access to this repository can merge pull requests. "
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/13/2021 13:06:56
+##### Olivier Michel [Cyberbotics] 01/13/2021 13:06:56
 OK, I merged it. Thank you.
 
 
@@ -2034,7 +2034,7 @@ On robot includes uses two display nodeeO
 
 The other one is controlling the Mavic drone
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/14/2021 12:57:13
+##### Darko Lukić [Cyberbotics] 01/14/2021 12:57:13
 Are you sure that Webots uses all that memory and not the controllers?
 
 
@@ -2048,7 +2048,7 @@ In the system monitor it appears assigned to the webots - bin process
 
 Any controller is executed isolated from main process right?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/14/2021 12:59:18
+##### Darko Lukić [Cyberbotics] 01/14/2021 12:59:18
 Yes
 
 ##### AngelAyala 01/14/2021 13:01:13
@@ -2068,13 +2068,13 @@ here is the pic of the uncentered boundingObject Box
 
 PS: I'm on Ubuntu
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/14/2021 19:55:04
+##### Darko Lukić [Cyberbotics] 01/14/2021 19:55:04
 You can add the `Box` node in a `Transform` node.
 
 ##### Kirlin 01/14/2021 19:56:45
 Can you describe more how I do this ? I've never used a Transform node
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/14/2021 19:59:54
+##### Darko Lukić [Cyberbotics] 01/14/2021 19:59:54
 It should be `boundingObject > Transform > children > Box`
 
 
@@ -2091,7 +2091,7 @@ I'm taking a look at this in more depth, and now realize one part of my desired 
 
 I think this could be solved if there is a way to know what object the distance sensor is seeing -- is this a possibility? One option we see is to add a `Recognition` on a camera, with small FOV, pointing in the same direction as the distance sensor, and use that to disambiguate. I think it \_should\_ work, minus approximation error for the bounding boxes and any perf hit. Is there a more sensible way?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 08:19:14
+##### Olivier Michel [Cyberbotics] 01/15/2021 08:19:14
 Yes, this should work but it looks a bit overkill. Instead of this, you could add `TouchSensor` nodes in the walls and when you move back the bullet into the wall, this touch sensor would be activated so that you know which wall was hit.
 
 ##### MartinG 01/15/2021 08:37:13
@@ -2100,7 +2100,7 @@ Yes, this should work but it looks a bit overkill. Instead of this, you could ad
 
 There's a ton of information on collision detection online, however if you have any specific issue, I'd be glad to help.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 08:58:34
+##### Simon Steinmann [Moderator] 01/15/2021 08:58:34
 Perhaps try running it without the displays. That is a lot of memory. Sounds to me like a lot of visual data is cumulatively buffered. You could also share your project (you can pm me too) and I'll have a look.
 
 
@@ -2112,13 +2112,13 @@ this happens when I use the function---  addTorque()
 ![Screenshot_from_2021-01-15_14-31-59.png](https://cdn.discordapp.com/attachments/565154703139405824/799564262326272000/Screenshot_from_2021-01-15_14-31-59.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:08:49
+##### Simon Steinmann [Moderator] 01/15/2021 09:08:49
 In the Webots source code there is CCD functionality (Continuous collision detection). This would probably solve this problem. `@Olivier Michel` Is it possible to use that collision detection method? Either through a plugin or custom compile?
 
 ##### MartinG 01/15/2021 09:13:26
 Where can I find it? I'd like to look through it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:14:13
+##### Simon Steinmann [Moderator] 01/15/2021 09:14:13
 [https://github.com/cyberbotics/webots/tree/master/src/ode](https://github.com/cyberbotics/webots/tree/master/src/ode)
 
 
@@ -2127,13 +2127,13 @@ libccd is the library
 
 [https://github.com/danfis/libccd](https://github.com/danfis/libccd)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 09:14:35
+##### Olivier Michel [Cyberbotics] 01/15/2021 09:14:35
 This might be possible but would certainly require a significant development effort.
 
 ##### MartinG 01/15/2021 09:14:54
 Thanks.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:17:42
+##### Simon Steinmann [Moderator] 01/15/2021 09:17:42
 I suspected as much. I hope something along these lines is somewhere on the roadmap. This is one of the few areas, where Webots is behind its competition: The low level control of physic engine settings and choice of different collision detection methods.
 
 
@@ -2145,7 +2145,7 @@ Hey, I tried to install webots on ubuntu but it tells me that it can't download 
 ![Screenshot_from_2021-01-15_03-23-15.png](https://cdn.discordapp.com/attachments/565154703139405824/799570511645376522/Screenshot_from_2021-01-15_03-23-15.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:30:02
+##### Simon Steinmann [Moderator] 01/15/2021 09:30:02
 what command did you use?
 
 
@@ -2167,7 +2167,7 @@ sudo apt-get install webots
 ##### mjc87 01/15/2021 09:34:28
 `@DrakerDG` I noticed that there is a mistake in the install script it should be releases/download/R2021a/webots\_2021a\_amd64.deb I think
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:34:48
+##### Simon Steinmann [Moderator] 01/15/2021 09:34:48
 maybe download it manually. The version just changed to 2021. **[https://github.com/cyberbotics/webots/releases/tag/R2021a](https://github.com/cyberbotics/webots/releases/tag/R2021a)**
 
 
@@ -2179,25 +2179,25 @@ Ok, I will try
 ##### MartinG 01/15/2021 09:36:28
 What's the exact command you entered to download it? Can you copy it from your console?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:36:42
+##### Simon Steinmann [Moderator] 01/15/2021 09:36:42
 he did
 
 ##### MartinG 01/15/2021 09:36:53
 Oh, sorry I didn't see.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 09:48:37
+##### Olivier Michel [Cyberbotics] 01/15/2021 09:48:37
 Which script are you referring to?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:52:04
+##### Simon Steinmann [Moderator] 01/15/2021 09:52:04
 I dont know how apt works, but It looks for the wrong file. Read the last 4 lines of his console screenshot
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 09:53:27
+##### Olivier Michel [Cyberbotics] 01/15/2021 09:53:27
 Yes, I saw that, but there is no script about it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 09:53:57
+##### Simon Steinmann [Moderator] 01/15/2021 09:53:57
 what could cause this issue?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 09:54:10
+##### Olivier Michel [Cyberbotics] 01/15/2021 09:54:10
 I don't know. I am investigating...
 
 ##### mjc87 01/15/2021 09:54:45
@@ -2222,7 +2222,7 @@ sure
 
 this is the controller code
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 09:58:21
+##### Olivier Michel [Cyberbotics] 01/15/2021 09:58:21
 Are you on Ubuntu 20.04?
 
 ##### MartinG 01/15/2021 10:00:58
@@ -2267,7 +2267,7 @@ Okay, give me five minutes.
 
 I'll message you privately to not crowd the chat here.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 10:38:38
+##### Olivier Michel [Cyberbotics] 01/15/2021 10:38:38
 I believe the problem is now fixed (it was due to a misconfiguration of our debian server). Can you try again and report and success or failure?
 
 ##### DrakerDG 01/15/2021 10:46:47
@@ -2276,16 +2276,16 @@ I believe the problem is now fixed (it was due to a misconfiguration of our debi
 ##### mjc87 01/15/2021 10:46:57
 `@Simon Steinmann` I've seen you've done some domain randomisation in the past, is it possible to introduce randomness to world descriptions so that blocks appear in a different place each time a simulation is started?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 10:56:24
+##### Olivier Michel [Cyberbotics] 01/15/2021 10:56:24
 Great, let me know if that finally works.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 10:57:59
+##### Simon Steinmann [Moderator] 01/15/2021 10:57:59
 `@mjc87` [https://drive.google.com/file/d/1Z2332YFU1Um1NCwx3PoTcOE2jdu6QUxP/view?usp=sharing](https://drive.google.com/file/d/1Z2332YFU1Um1NCwx3PoTcOE2jdu6QUxP/view?usp=sharing) I did this a while back. Domain Randomization to create cv training dataset
 
 ##### mjc87 01/15/2021 10:59:55
 Thanks, please could you give me a pointer how you implemented it? I'm trying to generate a student robot challenge where some 'targets' are randomly placed
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 11:00:40
+##### Simon Steinmann [Moderator] 01/15/2021 11:00:40
 let me see if I can find that project
 
 
@@ -2309,7 +2309,7 @@ It is works 😆 thank you)
 ![Screenshot_from_2021-01-15_05-55-28.png](https://cdn.discordapp.com/attachments/565154703139405824/799615195914960906/Screenshot_from_2021-01-15_05-55-28.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/15/2021 13:03:56
+##### Olivier Michel [Cyberbotics] 01/15/2021 13:03:56
 Nice! Thank you for the feedback.
 
 ##### R\_ 01/15/2021 13:57:14
@@ -2321,7 +2321,7 @@ Hello, can anyone help me out? This is my very first time using webots and I'm u
 ![Screenshot_2021-01-15_at_15.48.25.png](https://cdn.discordapp.com/attachments/565154703139405824/799651562208755773/Screenshot_2021-01-15_at_15.48.25.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/15/2021 18:27:02
+##### Simon Steinmann [Moderator] 01/15/2021 18:27:02
 `@valeria` [https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-os=macos&tab-language=java](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-os=macos&tab-language=java) This may help. You have to set up some environment variables when using extern controllers (your own IDE like VC)
 
 ##### devDbb 01/16/2021 15:58:04
@@ -2387,7 +2387,7 @@ position IS frontRightLeg[0]
 
 These both gave errors
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/18/2021 11:02:58
+##### Olivier Michel [Cyberbotics] 01/18/2021 11:02:58
 You cannot based on the `IS` keyword. Instead, you should rely on Lua scripting to extract the individual components of a `SFVec3f`.
 
 ##### Tahir [Moderator] 01/18/2021 11:04:34
@@ -2404,7 +2404,7 @@ This should work
 
 ?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/18/2021 11:08:55
+##### Olivier Michel [Cyberbotics] 01/18/2021 11:08:55
 Yes, see an example of this page: [https://cyberbotics.com/doc/reference/procedural-proto-nodes](https://cyberbotics.com/doc/reference/procedural-proto-nodes)
 
 
@@ -2419,7 +2419,7 @@ Hi guys, How can we use openai gym in this platform? i want to simulate and trai
 ##### MartinG 01/18/2021 11:59:48
 I'll go ahead and guess that the Supervisor functionality is going to be your best friend for that.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/18/2021 13:04:02
+##### Darko Lukić [Cyberbotics] 01/18/2021 13:04:02
 You may find the following project relevant:
 
 [https://github.com/aidudezzz/deepbots](https://github.com/aidudezzz/deepbots)
@@ -2427,7 +2427,7 @@ You may find the following project relevant:
 ##### John520 01/18/2021 17:11:34
 Hi guys, would it be possible to create a crop field, for example a canola field, and a tractor can go inside the field to harvest? Thank you very much for your help!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/18/2021 17:13:46
+##### Simon Steinmann [Moderator] 01/18/2021 17:13:46
 Probably depends on how visually accurate you want it. The simplest method I can imagine, is using a texture of the field, and then paining with the Pen node on top of that picture, where the tractor has harvested
 
 
@@ -2442,7 +2442,7 @@ Thank you very much for your help, `@Simon Steinmann` ! Except for creating a fi
 
 In other words, could the canola field be created with different heights?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/18/2021 17:31:01
+##### Simon Steinmann [Moderator] 01/18/2021 17:31:01
 [https://cyberbotics.com/doc/reference/elevationgrid?tab-language=python](https://cyberbotics.com/doc/reference/elevationgrid?tab-language=python)
 
 
@@ -2454,7 +2454,7 @@ I dont know how you would harvest it though
 ##### John520 01/18/2021 17:40:51
 Thank you, `@Simon Steinmann`. Can the tractor go inside the field created by the elevationGrid? Can a lidar sensor detect the field?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/18/2021 18:45:07
+##### Simon Steinmann [Moderator] 01/18/2021 18:45:07
 it should be possible. You can disable collision and only have the visual Grid
 
 ##### John520 01/18/2021 20:56:29
@@ -2491,13 +2491,13 @@ I guess the serialization problem can't be solved because of Swig, however, I th
 
 Thanks in advance!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 08:19:41
+##### Simon Steinmann [Moderator] 01/19/2021 08:19:41
 `@Homeralf` Taking a step back, why do you want it to run from the same process? What data do you want to share?
 
 
 In general [https://docs.python.org/3/library/multiprocessing.html](https://docs.python.org/3/library/multiprocessing.html) can work really well for parallel processing and data sharing. Then there is middlewares such as ROS. Webots itself has the Transmitter and Receiver node, which you can use to send data between Robots
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/19/2021 08:45:08
+##### Darko Lukić [Cyberbotics] 01/19/2021 08:45:08
 Hello `@Homeralf`. I am glad you like Webots. As you mentioned, the objects cannot be serialized because of SWIG. If you saw PR with objective to move away from SWIG in favor of Python native bindings then I believe that will not solve your problem. Maybe we can do something like this:
 
 [https://stackoverflow.com/questions/9310053/how-to-make-my-swig-extension-module-work-with-pickle](https://stackoverflow.com/questions/9310053/how-to-make-my-swig-extension-module-work-with-pickle)
@@ -2505,7 +2505,7 @@ Hello `@Homeralf`. I am glad you like Webots. As you mentioned, the objects cann
 
 You cannot run the controllers in the same process
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 09:29:02
+##### Simon Steinmann [Moderator] 01/19/2021 09:29:02
 You also might want to take a look at pyro5. Could be exactly what you need
 
 ##### Homeralf 01/19/2021 09:42:57
@@ -2555,7 +2555,7 @@ I would like now to go further and to do so, I need to know the position of some
 
 Any idea how I can achieve this using C++/ROS2 API?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/19/2021 10:29:20
+##### Darko Lukić [Cyberbotics] 01/19/2021 10:29:20
 `@gaitt` You can use Supervisor:
 
 [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_position](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_position)
@@ -2564,14 +2564,14 @@ Any idea how I can achieve this using C++/ROS2 API?
 
 Do you use the `webots_ros2` package or you created your own interface?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 10:31:16
+##### Simon Steinmann [Moderator] 01/19/2021 10:31:16
 If you want positions of objects relative to others (your robot for example), then you can use this script I made. Or you can at least take inspiration from it and create it in c++
 > **Attachment**: [get\_relative\_position.py](https://cdn.discordapp.com/attachments/565154703139405824/801036050230673468/get_relative_position.py)
 
 ##### gaitt 01/19/2021 10:31:26
 Yes I already use the  `webots_ros2` package.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 10:32:11
+##### Simon Steinmann [Moderator] 01/19/2021 10:32:11
 The supervisor only gives you absolute (world) coordinates. For inverse kinematics you usually need it realtive to the robot base
 
 
@@ -2583,13 +2583,13 @@ Thanks `@Simon Steinmann`, well absolute position is what I need.
 
 I was thinking there was an easier solution that writing a new ROS2 node.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 10:40:46
+##### Simon Steinmann [Moderator] 01/19/2021 10:40:46
 You need a supervisor controller (can be your ur5e). It can then get and publish the positions of anything in the simulation
 
 ##### yash 01/19/2021 11:39:11
 Hi ! I am using wb\_motor\_get\_torque\_feedback(),  to get torque of motors for a 2R manipulator. But the function returns me the same value of torque for all the motors ? What could be the issue ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 11:47:41
+##### Simon Steinmann [Moderator] 01/19/2021 11:47:41
 can you post your code or controller file?
 
 ##### yash 01/19/2021 11:48:01
@@ -2599,7 +2599,7 @@ alright
 
 > **Attachment**: [force\_control.py](https://cdn.discordapp.com/attachments/565154703139405824/801055822753955870/force_control.py)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 11:53:24
+##### Simon Steinmann [Moderator] 01/19/2021 11:53:24
 line 104-108
 
 
@@ -2611,13 +2611,13 @@ that might be it 😉
 ##### yash 01/19/2021 11:58:30
 shit yes ! thanks a lot , very silly thing.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 11:58:50
+##### Simon Steinmann [Moderator] 01/19/2021 11:58:50
 it happens :p
 
 ##### yash 01/19/2021 11:58:57
 I would like to plot these values , how can it be done ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 11:59:24
+##### Simon Steinmann [Moderator] 01/19/2021 11:59:24
 double click on the robot, it should be plotted there
 
 
@@ -2629,7 +2629,7 @@ No, but these are values that give torque feedback and doesn’t take any sensor
 
 account*
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 12:06:56
+##### Simon Steinmann [Moderator] 01/19/2021 12:06:56
 then you have to either make a custom robot window, or plot it yourself with a python library
 
 
@@ -2638,13 +2638,13 @@ or use external IDEs
 ##### yash 01/19/2021 12:08:01
 understood, I am using matplotlib, but I plot them with respect to time right i.e robot.step(timestep)?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 12:08:51
+##### Simon Steinmann [Moderator] 01/19/2021 12:08:51
 time = robot.getTime()
 
 ##### yash 01/19/2021 12:09:06
 oh okay
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 12:09:17
+##### Simon Steinmann [Moderator] 01/19/2021 12:09:17
 that is the simulation time you see in Webots
 
 
@@ -2659,7 +2659,7 @@ hello is there any tutorials on how to creat a snake like robot in webots as i k
 ##### gaitt 01/19/2021 15:07:29
 Can I retrieve a Supervisor from an already running instance of webots?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/19/2021 15:23:29
+##### Simon Steinmann [Moderator] 01/19/2021 15:23:29
 A supervisor is used like the robot node. So you have to start a controller of a robot, which has supervisor = true checkmark in the scene tree
 
 
@@ -2668,7 +2668,7 @@ And instead of robot =Robot() you do robot = Supervisor()
 ##### gaitt 01/19/2021 15:37:11
 Ok I managed to get it! It look likes, if webots is running I can't get the handle. I need first to create the supervisor and then launch webots to get the handle properly. Now let see how to parse the rootNode ...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/20/2021 08:49:55
+##### Simon Steinmann [Moderator] 01/20/2021 08:49:55
 `@gaitt` A supervisor needs to be initialized. For that a robot controller needs to be launched. Usually all robots controllers are launched, when the simulation starts. Through the use of a supervisor controller, you can start and stop other controllers. But I dont think you can start your first supervisor controller later on in the simulation.
 
 
@@ -2679,7 +2679,7 @@ You'll have to reference it constantly. Luckily it is very detailed. Also rememb
 ##### Majanao 01/20/2021 11:31:45
 Hi all, I would like to balance the camera of the DJI Mavic. Is it possible to rotate it through a python script or do I have to add two motors to the drone model?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/20/2021 11:33:53
+##### Olivier Michel [Cyberbotics] 01/20/2021 11:33:53
 Sure, this is possible. You will have to edit the drone model (PROTO file) to add this capability.
 
 
@@ -2705,7 +2705,7 @@ I did self.wheel\_radius = 0.021 and self.distance\_between\_weels = 0.052
 
 but I don't have the full turn angle converge (I do it through the values PositionSensor)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/20/2021 17:31:46
+##### Darko Lukić [Cyberbotics] 01/20/2021 17:31:46
 `@Apashe` This may help:
 
 [https://github.com/cyberbotics/webots\_ros2/wiki/Tutorial-E-puck-for-ROS2-Beginners#differential-drive-calibration](https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-E-puck-for-ROS2-Beginners#differential-drive-calibration)
@@ -2763,13 +2763,13 @@ Thanks a lot, much appreciated.
 ##### Apashe 01/20/2021 17:39:00
 I don't use ros
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/20/2021 17:39:55
+##### Darko Lukić [Cyberbotics] 01/20/2021 17:39:55
 I know, but the principle is the same. You rotate the robot and move it along the line to calibrate it
 
 ##### Apashe 01/20/2021 17:40:19
 I used the standard example for PositionSensor from Webots and [https://www.youtube.com/watch?v=WSjTWcTojHg&t=536s](https://www.youtube.com/watch?v=WSjTWcTojHg&t=536s)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/20/2021 17:41:01
+##### Darko Lukić [Cyberbotics] 01/20/2021 17:41:01
 `@Apashe` 
 
 ```py
@@ -2785,13 +2785,13 @@ I did try `toolSlot` but as I expected it moves when the robot moves, I would li
 ##### Apashe 01/20/2021 17:42:36
 Thank you I'll go try it
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/20/2021 17:43:33
+##### Darko Lukić [Cyberbotics] 01/20/2021 17:43:33
 I see, in that case you can add it in directly in the world
 
 ##### gaitt 01/20/2021 17:53:08
 I'm not sure how, could you elaborate? Device node must belong to a robot node, right?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/20/2021 19:13:51
+##### Darko Lukić [Cyberbotics] 01/20/2021 19:13:51
 Yes, you would have two robot and two controllers, one of them just publishing the point cloud
 
 
@@ -2803,7 +2803,7 @@ Ok thanks, I will try that!
 ##### MartinG 01/21/2021 10:22:45
 Anyone have some tips on getting started with Lidars in Webots?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/21/2021 10:46:21
+##### Simon Steinmann [Moderator] 01/21/2021 10:46:21
 Read the API documentation and just try them out :)
 
 ##### Tej 01/21/2021 14:55:02
@@ -2857,7 +2857,7 @@ the robot also has receiver, why doesn't it work?
 
 how to connect to receiver without convert root to base node
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/21/2021 19:06:06
+##### Darko Lukić [Cyberbotics] 01/21/2021 19:06:06
 [https://cyberbotics.com/doc/guide/spot](https://cyberbotics.com/doc/guide/spot)
 
 ##### fowzan 01/22/2021 08:42:53
@@ -2866,7 +2866,7 @@ Thank you
 
 Is there any simulation for fleet management systems `@Darko Lukić`
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/22/2021 08:45:02
+##### Darko Lukić [Cyberbotics] 01/22/2021 08:45:02
 Something like this:
 
 [http://www.diegoantognini.com/projects/dis/](http://www.diegoantognini.com/projects/dis/)
@@ -2874,7 +2874,7 @@ Something like this:
 ##### Apashe 01/22/2021 08:45:11
 Help me, please
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/22/2021 08:47:12
+##### Darko Lukić [Cyberbotics] 01/22/2021 08:47:12
 I don't understand the issue. Can you send us a minimal example of the project so we can reproduce the problem?
 
 ##### Apashe 01/22/2021 08:52:58
@@ -2893,7 +2893,7 @@ What are the commands to move spot mini in webots ? I’m unable to navigate it
 
 Kindly share the commands
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/22/2021 08:59:08
+##### Darko Lukić [Cyberbotics] 01/22/2021 08:59:08
 Your emitter and receiver don't use the same channel. Either change the `receiver_channel` value in the e-puck node, or `Emitter > channel` in the supervisor node.
 
 
@@ -2926,13 +2926,13 @@ Kindly help me out
 ##### MartinG 01/22/2021 09:49:48
 getRangeImage and getLayerRangeImage both return the same amount of elements, the documentation says that getLayerRangeImage should only return the values of the requested layer.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/22/2021 10:02:11
+##### Darko Lukić [Cyberbotics] 01/22/2021 10:02:11
 `@MartinG` Can you confirm that `getRangeImage` is not equal to 1
 
 ##### MartinG 01/22/2021 10:06:37
 I can now, just checked.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/22/2021 10:18:49
+##### Darko Lukić [Cyberbotics] 01/22/2021 10:18:49
 It indeed seems like a bug (I can reproduce it). Could please report the issue:
 
 [https://github.com/cyberbotics/webots/issues/new?assignees=&labels=&template=bug\_report.md](https://github.com/cyberbotics/webots/issues/new?assignees=&labels=&template=bug_report.md)
@@ -2943,7 +2943,7 @@ Will do. Thanks.
 ##### gaitt 01/22/2021 10:36:59
 Hey Darko, so I have tried the first approach. I added a 2nd robot with only the kinect in it. The robot controller is set to extern, supervisor is true for all robot. But when I launch the "webots\_robotic\_arm\_node", it seems to me that the joint state publisher get stuck! My custom ROS2 node seems to behave correctly and is loaded as controller for the 2nd robot. Can we have multiple supervisor, 1 per robot?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/22/2021 10:40:21
+##### Darko Lukić [Cyberbotics] 01/22/2021 10:40:21
 `@gaitt` Check this example on how to have more than 1 robot in a simulation:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/master/webots\_ros2\_demos/launch/armed\_robots.launch.py#L31-L45](https://github.com/cyberbotics/webots_ros2/blob/master/webots_ros2_demos/launch/armed_robots.launch.py#L31-L45)
@@ -2961,7 +2961,7 @@ how does the saveExperimentData() works in webots controller terminating?
 
 It says  "NameError: name 'saveExperimentData' is not defined"
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/22/2021 10:53:29
+##### Darko Lukić [Cyberbotics] 01/22/2021 10:53:29
 The `saveExperimentData` function is a placeholder function, you should implement it by yourself, it is just an example.
 
 ##### JSK 01/22/2021 11:00:23
@@ -2990,7 +2990,7 @@ Thank you
 
 I will add another question regarding to first problem, my object does not stand on the floor it passes, anyone knows anything about it?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/23/2021 08:24:52
+##### Simon Steinmann [Moderator] 01/23/2021 08:24:52
 <@132121297277812736> your mesh file seems to be faulty. How did you generate it? There is tools and programs that can fix meshes. Webots told you the things that might be wrong
 
 
@@ -3002,7 +3002,7 @@ Should fix your second issue too
 ##### babaev1 01/23/2021 08:56:10
 I am sorry for stupid question. Why Y axis stands for vertical direction? This I find in most of sample worlds. Conventionally Z stands for vertical. How much troubles I can encounter if I create world with Z vertical ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/23/2021 09:30:41
+##### Simon Steinmann [Moderator] 01/23/2021 09:30:41
 In world info you can change the coordinate system from nue to enu (or create a new world through the wizard with that)
 
 ##### msoyer34 01/23/2021 13:56:04
@@ -3011,7 +3011,7 @@ Thank you Simon for your responses. I am using NX for my design and I export my 
 
 `@Simon Steinmann`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/23/2021 15:36:39
+##### Simon Steinmann [Moderator] 01/23/2021 15:36:39
 make sure the mesh is watertight
 
 ##### babaev1 01/23/2021 16:15:06
@@ -3049,7 +3049,7 @@ Please help me regarding this.
 ##### Cyber Police Officer 01/25/2021 09:25:31
 Thank you!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 10:29:08
+##### Simon Steinmann [Moderator] 01/25/2021 10:29:08
 Hold something in a stretched out arm at your side and lift it up until you hold it horizontally. The torque required at your shoulder changes constantly, even if you move at constant speed. When accelerating or compensating external forces (stretched out arm), you need more torque. Without load and a constant speed, you need no torque (or just a little bit to compensate for friction)
 
 ##### yash 01/25/2021 10:35:02
@@ -3085,13 +3085,13 @@ it depends on what external forces are acting on the link
 ##### yash 01/25/2021 14:22:24
 Only the gravity
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 14:22:28
+##### Simon Steinmann [Moderator] 01/25/2021 14:22:28
 Just to make sure, do you understand what forces, torques, velocities and accelerations are? And how they interact with one another?
 
 ##### yash 01/25/2021 14:23:33
 Yes.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 14:25:00
+##### Simon Steinmann [Moderator] 01/25/2021 14:25:00
 Okay, so lets assume an instance, where there is no gravity, and no friction. In this case, you only need torque to accelerate or decelerate. Remaining still,  or at constant velocity, requires no torque.
 
 
@@ -3100,19 +3100,19 @@ Is this clear, or is there something you want me to explain in more detail?
 ##### yash 01/25/2021 14:28:08
 Oh okay , well understand !
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 14:29:13
+##### Simon Steinmann [Moderator] 01/25/2021 14:29:13
 Now we turn gravity on. It will pull on the link and joint. This creates torque in the joint, assisting or fighting against the motor. So the motor torque has to change
 
 ##### yash 01/25/2021 14:30:56
 Alright , because of the gravity or some exeternal force !
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 14:31:45
+##### Simon Steinmann [Moderator] 01/25/2021 14:31:45
 Just imagine, you would suddenly turn the motor off, and it would just be a joint without friction. Would anything fall down, slow down, speed up? If the answer is yes, the motor would have to apply a torque to counter that
 
 ##### yash 01/25/2021 14:32:55
 Understood, 👍
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 14:33:07
+##### Simon Steinmann [Moderator] 01/25/2021 14:33:07
 [https://en.wikipedia.org/wiki/Newton%27s\_laws\_of\_motion](https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion) Newtons laws in action 😄
 
 
@@ -3123,7 +3123,7 @@ Robotics is great. You actually need all the Maths and Physics you learned in sc
 
 `@Simon Steinmann`  true !!!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 14:34:46
+##### Simon Steinmann [Moderator] 01/25/2021 14:34:46
 [https://en.wikipedia.org/wiki/Rotation\_around\_a\_fixed\_axis](https://en.wikipedia.org/wiki/Rotation_around_a_fixed_axis) this might be worth a read too.
 
 ##### yash 01/25/2021 14:35:21
@@ -3185,7 +3185,7 @@ This is one of the cones I wanted to introduce in the sim:
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/803314977511440404/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 17:28:49
+##### Simon Steinmann [Moderator] 01/25/2021 17:28:49
 Webots supports cones
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/803315455736414208/unknown.png)
@@ -3203,7 +3203,7 @@ It does supports cones but not as a  Bounding Object.
 
 link: [https://cyberbotics.com/doc/reference/node-chart](https://cyberbotics.com/doc/reference/node-chart)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/25/2021 17:37:53
+##### Simon Steinmann [Moderator] 01/25/2021 17:37:53
 hmm you are right
 
 ##### AdityaDutt 01/25/2021 18:58:57
@@ -3217,7 +3217,7 @@ in my simulation, my simulation window is drifting around in a circular shape wi
 ##### R\_ 01/26/2021 06:52:22
 Is there a method Webots to create a 'ghost' robot (pure pose transformation through space without the effects of gravity and collisions affecting it?). This is shown in the video below. The robot in the darker shade is present in the physical world, whereas the other one is a ghost [https://www.youtube.com/watch?v=aiWxIjtMMFI](https://www.youtube.com/watch?v=aiWxIjtMMFI)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/26/2021 06:56:38
+##### Olivier Michel [Cyberbotics] 01/26/2021 06:56:38
 Yes, this possible by creating a robot without physics and animating it from a supervisor controller.
 
 ##### JSK 01/26/2021 07:40:41
@@ -3244,7 +3244,7 @@ what could be the possible reason?
 
 i am stuck here. need help
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/26/2021 07:45:06
+##### Olivier Michel [Cyberbotics] 01/26/2021 07:45:06
 How did you create your drone model? Did you create it from the Mavic example?
 
 ##### JSK 01/26/2021 08:13:09
@@ -3253,7 +3253,7 @@ yes
 
 Excuse me!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/26/2021 08:29:10
+##### Olivier Michel [Cyberbotics] 01/26/2021 08:29:10
 I would recommend you to revert back to the original drone model to check if it works with your controller and make changes step-by-step to identify where did the problem come from.
 
 ##### JSK 01/26/2021 09:30:03
@@ -3262,7 +3262,7 @@ Actually that drone is just imported in my\_first\_Simulation. it has nothing bu
 ![Screenshot_from_2021-01-26_14-01-08.png](https://cdn.discordapp.com/attachments/565154703139405824/803557358000930826/Screenshot_from_2021-01-26_14-01-08.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 11:42:51
+##### Simon Steinmann [Moderator] 01/26/2021 11:42:51
 Perhaps share your project. It's hard to tell otherwise
 
 ##### Cyber Police Officer 01/26/2021 11:46:01
@@ -3271,7 +3271,7 @@ Is there a way to chain transform nodes in a bounding object? The bounding objec
 
 Or if there's a way to automatically compute the equivalent transform
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 11:48:08
+##### Simon Steinmann [Moderator] 01/26/2021 11:48:08
 With just translations you can simply add them. Otherwise you have to do matrix multiplication
 
 
@@ -3286,13 +3286,13 @@ Yeah, i have the transform on matlab. But i was trying to dynamically generate t
 
 Thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 12:07:31
+##### Simon Steinmann [Moderator] 01/26/2021 12:07:31
 You may be able to simply chain them. I don't know if it works or not
 
 ##### Cyber Police Officer 01/26/2021 12:14:26
 Its a chain of 3 transform with both rotation and translation. I could indeed multiply the matrices to obtain the equivalent transform, and then extract the translation and rotation, but i was wondering if there was a tool, in the PROTO, to automatically compute the chain of transforms. Or if there was a way to allow the chain to be interpreted as one transform in the bounding object
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 12:15:19
+##### Simon Steinmann [Moderator] 01/26/2021 12:15:19
 try it out
 
 ##### Cyber Police Officer 01/26/2021 12:16:25
@@ -3404,7 +3404,7 @@ i am not quite sure what you mean by "called to be used in the bounding object"
 
 but yes the bounding object should be a child of the solid
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 12:41:11
+##### Simon Steinmann [Moderator] 01/26/2021 12:41:11
 A solid node has the field BoundingObject, that's where you add the collision geometry
 
 ##### Cyber Police Officer 01/26/2021 12:41:27
@@ -3449,7 +3449,7 @@ A solid node has the field BoundingObject, that's where you add the collision ge
 
 This is what i'm trying to do
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 12:41:40
+##### Simon Steinmann [Moderator] 01/26/2021 12:41:40
 the visual shape you add in the children field
 
 ##### Cyber Police Officer 01/26/2021 12:41:48
@@ -3458,7 +3458,7 @@ Sorry for the horrible indentation
 
 But it doesn't allow me, because the MOBILE\_PLATFORM\_SHAPE has a chain of Transforms. If it was only one transform it would work
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 12:43:22
+##### Simon Steinmann [Moderator] 01/26/2021 12:43:22
 the Shape has to have the DEF
 
 ##### Cyber Police Officer 01/26/2021 12:44:53
@@ -3467,7 +3467,7 @@ Yeah, but if i do that the boundingObject will be in the wrong place, because it
 
 I could start with the chain of transforms, and define the solid has a child of it. But this is a end-effector of a joint and it only allows the end-effector to be a solid
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 12:46:37
+##### Simon Steinmann [Moderator] 01/26/2021 12:46:37
 why do you need that chain of transforms anyways?
 
 ##### Cyber Police Officer 01/26/2021 12:50:49
@@ -3516,13 +3516,13 @@ Is there any way I can modify the default traffic cone of webots with my model i
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/803645582152433705/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 15:21:46
+##### Simon Steinmann [Moderator] 01/26/2021 15:21:46
 of course, just add a new object and load in your model for the visual shape and Bounding object
 
 ##### alejanpa17 01/26/2021 15:28:13
 the problem is that my model has too many faces so the sim is giving me "Your world may be too complex."
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 15:29:10
+##### Simon Steinmann [Moderator] 01/26/2021 15:29:10
 you should approximate the bounding object with simple geometries
 
 
@@ -3534,7 +3534,7 @@ Hey guys I have a few questions: There is a kinematic mode mentioned (no physics
 
 and the other question extends this: is there a way to import humans + skeletal animation, again in kinematics mode?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/26/2021 15:51:46
+##### Olivier Michel [Cyberbotics] 01/26/2021 15:51:46
 The `TrafficCone.proto` has a `physics` field which is set to `NULL`. Simply adding a `Physics` node in there should add physics to it.
 
 
@@ -3561,7 +3561,7 @@ Thank you so much  `@Simon Steinmann` `@Olivier Michel`  😀
 ##### jejay 01/26/2021 16:06:30
 the motion functions ([https://cyberbotics.com/doc/reference/motion-functions](https://cyberbotics.com/doc/reference/motion-functions)) are for physics/actuators only? I dont understand how you record them and where the motion editor is that is mentioned in the docs
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/26/2021 16:09:39
+##### Olivier Michel [Cyberbotics] 01/26/2021 16:09:39
 The motion editor doesn't exist any more. The motion functions work for both physics and non-physics actuators.
 
 
@@ -3573,7 +3573,7 @@ The motion editor is actually deprecated and provided only for the Robotis-OP2 r
 
 But you can create a motion file from a simple text editor (the format is human readable).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 16:15:27
+##### Simon Steinmann [Moderator] 01/26/2021 16:15:27
 you can also make a simple controller and use a supervisor to set jointagnles or right out the position and orientation of solids
 
 
@@ -3585,7 +3585,7 @@ thanks, yeah I guess thats kind of equivalent, thanks
 
 Thanks a lot!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 16:21:11
+##### Simon Steinmann [Moderator] 01/26/2021 16:21:11
 let us know if you have further questions
 
 
@@ -3609,13 +3609,13 @@ I am actually an "expert" to help students in a robotics practical at  UoEdinbur
 
 thats sounds good 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 16:26:52
+##### Simon Steinmann [Moderator] 01/26/2021 16:26:52
 you're welcome, and good luck 🙂
 
 ##### jejay 01/26/2021 16:37:17
 ah maybe actually one final thing. If I stay in physics mode and take for example the bmw scene. Now I turn on manual mode and drive around. Can I record this into a motion file to replay the physics control in a later simulation? or would I need to write a controller that records my actions and then write those into a motion file (which in then could also be my own file format)?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 16:38:12
+##### Simon Steinmann [Moderator] 01/26/2021 16:38:12
 you can record and replay anything you want. You could log the position of the whole model for example, and the then just replay that
 
 
@@ -3624,7 +3624,7 @@ with a supervisor you can set anything really
 ##### jejay 01/26/2021 16:38:46
 yeah but i need to code that supervisor, right
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 16:39:04
+##### Simon Steinmann [Moderator] 01/26/2021 16:39:04
 very simple
 
 ##### jejay 01/26/2021 16:39:07
@@ -3636,7 +3636,7 @@ yeah makes sense
 
 yeah I see that this is simple 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/26/2021 16:39:34
+##### Simon Steinmann [Moderator] 01/26/2021 16:39:34
 you get a handle to the node or field you want to change, and change it
 
 
@@ -3650,12 +3650,12 @@ Hi, can I get the force in the Hing2Joint?
 
 I can get the torque by adding the rotational motor, but I also want to know how to get the force in the Hing2Joint
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/27/2021 07:42:59
+##### Darko Lukić [Cyberbotics] 01/27/2021 07:42:59
 Hello `@chungshan`, the Motor node returns a force feedback as well:
 
 [https://cyberbotics.com/doc/reference/motor#wb\_motor\_get\_force\_feedback](https://cyberbotics.com/doc/reference/motor#wb_motor_get_force_feedback)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/27/2021 10:03:31
+##### Simon Steinmann [Moderator] 01/27/2021 10:03:31
 `@chungshan` What exactly do you mean by the force in the joint? A joint can only have a torque. Only linear actuators can have forces. Perhaps you can clarify 🙂
 
 ##### DrVoodoo [Moderator] 01/27/2021 11:44:16
@@ -3693,13 +3693,13 @@ Will not be selectable in the 3D viewer although it is still selectable in the s
 ##### DrVoodoo [Moderator] 01/27/2021 12:58:24
 `@Stefania Pedrazzi`  excellent, thanks. I was banging my head on that one
 
-##### pk1jk1 01/28/2021 01:27:09
+##### mayank.kishore 01/28/2021 01:27:09
 Does anyone have experience creating an overhead map with a camera? And potentially stitching multiple images together to create an encompassing overhead map?
 
 ##### Laojiang 01/28/2021 06:35:05
 How can I make a object whose the shape is a bowl?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/28/2021 07:53:16
+##### Darko Lukić [Cyberbotics] 01/28/2021 07:53:16
 In Webots? You can add a camera to a Supervisor robot or drone and take the images. Then, add the images to a software such as Pix4d (but probably there is a free alternative) to create a map.
 
 ##### Bitbots\_Jasper [Moderator] 01/28/2021 08:42:52
@@ -3720,13 +3720,13 @@ Sorry for the message before. Please ignore it.      I would like to know that i
 
    In this case when the execution is in the for loop will the robot.step(timestep) be updated ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/29/2021 10:06:37
+##### Simon Steinmann [Moderator] 01/29/2021 10:06:37
 no, only when the robot.step() is executed, which is every iteration of the while loop
 
 ##### JSK 01/29/2021 10:06:50
 Nop.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/29/2021 10:06:56
+##### Simon Steinmann [Moderator] 01/29/2021 10:06:56
 you could add an extra robot.step() inside the for loop
 
 ##### yash 01/29/2021 10:07:13
@@ -3747,13 +3747,13 @@ I'm sorry I don't know much about windows, maybe someone else can help with that
 ##### Lynerea 01/29/2021 10:48:04
 That's fine, thank you for trying anyways 🙂
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/29/2021 10:48:59
+##### Olivier Michel [Cyberbotics] 01/29/2021 10:48:59
 Can you run the other demos of Webots (e.g., guided tour) without any problem?
 
 ##### Lynerea 01/29/2021 10:49:43
 I opened the introductory demos, all of them I believe, with no issues at all
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/29/2021 10:50:48
+##### Olivier Michel [Cyberbotics] 01/29/2021 10:50:48
 So what is particular with your world file? Did you add any specific object?
 
 ##### Lynerea 01/29/2021 10:52:10
@@ -3762,7 +3762,7 @@ I created a new project Directory via the wizard and ticked all the boxes when g
 
 I added a model of BB-8 after I created the world and the floor didn't work
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/29/2021 11:33:29
+##### Olivier Michel [Cyberbotics] 01/29/2021 11:33:29
 I tried, but cannot reproduce this problem (tested on Windows 10).
 
 ##### Lynerea 01/29/2021 11:34:53
@@ -3774,7 +3774,7 @@ Hi everyone! I am new to webots and not sure if this is the right place to be as
 ##### Krish 01/30/2021 06:03:49
 Wait for this year's lineup.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 14:23:48
+##### Simon Steinmann [Moderator] 01/30/2021 14:23:48
 `@smasud98` This is generally the right place to ask any questions regarding Webots. I think you should be fine with the macbook. While Webots is an x86 program, Apple's Rosetta 2 - x86 emulation seems to be very good and powerful. In general you should ask yourself the question though, whether a macbook is the right tool. If you want to dive deep into programming and development, engineering applications and linux, then it might be more advisable to get an x86 machine.  Perhaps you can tell me what you want to use your laptop for in general. Whether you are willing to switch to linux and/or linux is another big factor.
 
 ##### Krish 01/30/2021 15:24:37
@@ -3788,7 +3788,7 @@ Also, not all the apps and programming languages are configured to run on the M1
 
 So he says if Webots does not run on it, he will just return and take the refund back.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 15:39:30
+##### Simon Steinmann [Moderator] 01/30/2021 15:39:30
 The new macbook is a completely new hardware & software product. It probably works really well for a pure consumer, but as soon as you start development and go outside of MacOS, I foresee a lot of issues. Linux can run on arm, but by far not all software and programs.  I have a Lenovo Legion laptop. It is basically a gamer laptop, that looks more professional. I bought it for robotic simulation and Reinforcement Learning. I dont see macbooks being a good choice for that. For AI you kinda need a Nvidia GPU, and a powerful x86 CPU is a godsent when compiling and running lots of parallelized code / many instances.
 
 ##### PymZoR [Premier Service] 01/30/2021 15:46:55
@@ -3803,7 +3803,7 @@ like on a bad bike
 
 By looking at the tree I see small  values in the `translation` field of the wheel although the joint is configured to only allow rotation on an axis
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 15:51:18
+##### Simon Steinmann [Moderator] 01/30/2021 15:51:18
 can you share your world or a screenshot of your hingjoint? with JointParameters expanded in the scene tree
 
 ##### PymZoR [Premier Service] 01/30/2021 15:54:41
@@ -3818,7 +3818,7 @@ can you share your world or a screenshot of your hingjoint? with JointParameters
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/805103881205841930/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 15:58:32
+##### Simon Steinmann [Moderator] 01/30/2021 15:58:32
 it is always good practice to have the same anchor as translation of the endPoint solid.  currently it rotates around the y-axis of in the 2nd image
 
 
@@ -3833,7 +3833,7 @@ On top of my Hinge I have a Transform
 
 I can remove the Transform, and instead use anchor & translation on the endpoint solid right ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 16:00:19
+##### Simon Steinmann [Moderator] 01/30/2021 16:00:19
 the transform is fine.
 
 
@@ -3854,13 +3854,13 @@ The translation of the enpoint was the result of the bug, I did not manually edi
 
 I just tried this, deleting the Transform above the Joint, no success
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 16:08:58
+##### Simon Steinmann [Moderator] 01/30/2021 16:08:58
 the translation of the endPoint changes with when the joint rotates. So at the start, the anchor and translation have to be the same (assuming you want the endPoint to rotate around its origin)
 
 ##### PymZoR [Premier Service] 01/30/2021 16:09:47
 which is the case on my last screenshot right ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 16:09:56
+##### Simon Steinmann [Moderator] 01/30/2021 16:09:56
 yes
 
 ##### PymZoR [Premier Service] 01/30/2021 16:10:30
@@ -3869,7 +3869,7 @@ yes
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/805107686977830952/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 16:10:47
+##### Simon Steinmann [Moderator] 01/30/2021 16:10:47
 this should work too
 
 ##### PymZoR [Premier Service] 01/30/2021 16:10:53
@@ -3878,7 +3878,7 @@ Which is also the case when the transform is done above; I have the same endpoin
 
 Still have the problem though 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 16:11:06
+##### Simon Steinmann [Moderator] 01/30/2021 16:11:06
 what problem?
 
 ##### PymZoR [Premier Service] 01/30/2021 16:11:50
@@ -3887,7 +3887,7 @@ When the robot is turning in place, the wheels are slightly translating
 
 instead of only rotating around the joint axis
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 16:12:54
+##### Simon Steinmann [Moderator] 01/30/2021 16:12:54
 I would have to see the whole thing. But just stick with the solution that works
 
 
@@ -3896,7 +3896,7 @@ that is the 'proper' way to do it
 ##### PymZoR [Premier Service] 01/30/2021 16:13:06
 No solution works atm haha
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 01/30/2021 16:13:21
+##### Simon Steinmann [Moderator] 01/30/2021 16:13:21
 share your world file
 
 
@@ -4031,7 +4031,7 @@ Thank you!
 ##### iagsav 02/01/2021 12:31:47
 Hi! Please tell me how you can read the data from the compass of the Firebird 6 robot?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 12:35:42
+##### Simon Steinmann [Moderator] 02/01/2021 12:35:42
 `@iagsav` if you right-click on the robot, you can select "view PROTO source"
 
 
@@ -4054,7 +4054,7 @@ print(cmp)
 
 but it returns 'None'
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 12:42:36
+##### Simon Steinmann [Moderator] 02/01/2021 12:42:36
 for i in range(robot.getNumberOfDevices()):
 
     device = supervisor.getDeviceByIndex(i)
@@ -4079,7 +4079,7 @@ should I set the supervisor field to true?
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/805780673922859038/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 12:45:12
+##### Simon Steinmann [Moderator] 02/01/2021 12:45:12
 oh, do it robot.getDeviceByIndex
 
 
@@ -4100,7 +4100,7 @@ Thanks you! it worked
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/805781066035757117/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 12:46:47
+##### Simon Steinmann [Moderator] 02/01/2021 12:46:47
 hmm model doesnt seem to work for some reason
 
 
@@ -4169,13 +4169,13 @@ I reinstall python 3.7.9 (64) twice
 
 and restart webots too
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 13:10:37
+##### Simon Steinmann [Moderator] 02/01/2021 13:10:37
 ps[i] is empty in this case
 
 ##### iagsav 02/01/2021 13:11:33
 I understand, but why? I use standard world file
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 13:11:58
+##### Simon Steinmann [Moderator] 02/01/2021 13:11:58
 show me the controller?
 
 ##### iagsav 02/01/2021 13:12:18
@@ -4190,7 +4190,7 @@ I take it from tutorial
 
 [https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers?tab-language=python](https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers?tab-language=python)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 13:13:32
+##### Simon Steinmann [Moderator] 02/01/2021 13:13:32
 put a "print(i)" in front of the ps[i].enable
 
 ##### iagsav 02/01/2021 13:14:12
@@ -4199,7 +4199,7 @@ put a "print(i)" in front of the ps[i].enable
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/805788096221544488/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 13:15:19
+##### Simon Steinmann [Moderator] 02/01/2021 13:15:19
 weird, that error is new now
 
 
@@ -4211,7 +4211,7 @@ I found similar issue here: [https://github.com/cyberbotics/webots/issues/2570](
 
 I use file e\_puck.wbt, I think it is correct
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 13:16:56
+##### Simon Steinmann [Moderator] 02/01/2021 13:16:56
 you are on the newest version of webots?
 
 
@@ -4226,7 +4226,7 @@ Now i install newest webots version
 
 It is very strange, but all works: I get compass in fire bird 6
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 13:39:06
+##### Simon Steinmann [Moderator] 02/01/2021 13:39:06
 great 🙂
 
 ##### iagsav 02/01/2021 13:42:06
@@ -4235,7 +4235,7 @@ yee!!! Thank you!!!
 ##### PRVG 02/01/2021 15:33:51
 Hello i would like to know if anyone as implemented a optical flow sensor in Webots. Looking through the documentation i do not think there is one available in the sensor nodes. Thank you very much.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/01/2021 15:39:16
+##### Olivier Michel [Cyberbotics] 02/01/2021 15:39:16
 You are right, there is no such sensor. But basically, this can be implemented at the controller level from a standard camera flow, not inside Webots.
 
 ##### PRVG 02/01/2021 15:41:49
@@ -4247,7 +4247,7 @@ I'm trying to make k-team's hemisson robot rotate around itself using the setPos
 
 I'm also facing an issue with its pen node which simply doesn't work at times. I've made a few tests starting it from random positions and it might work or it might not work. At times when it is not working, if I start manually  moving the robot around while the simulation is running it might write a bit and then stop or it might start writing normally
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 18:34:50
+##### Simon Steinmann [Moderator] 02/01/2021 18:34:50
 the setPosition most likely changes the wheel angle, not the robot rotation. So to rotate, you have to turn one clockwise and the other ccw
 
 ##### Chernayaten 02/01/2021 18:39:45
@@ -4256,7 +4256,7 @@ That is what I am doing. I use the motor.getTargetPosition() to get the position
 
 I've performed the following simple test. Set both wheel positions at 100 and run it. The robot moves forward. Reset and set both wheel positions at -100. Robot moves forward again, even though it should be moving backwards
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 18:53:34
+##### Simon Steinmann [Moderator] 02/01/2021 18:53:34
 for wheels you should probably use velocity control
 
 
@@ -4274,13 +4274,13 @@ Weirdly enough, if I do use setVelocity with +/- on the wheels it does work as i
 ##### PymZoR [Premier Service] 02/01/2021 19:05:13
 Hi everyone, I was wondering if someone tried to use asyncio for a python controller ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/01/2021 20:02:38
+##### Simon Steinmann [Moderator] 02/01/2021 20:02:38
 if your starting position is -200, then it will drive forward in both cases, setting the target to -100 and 100
 
 ##### Chernayaten 02/01/2021 20:38:15
 That's why I said in my first message that I use the .getTargetPosition() method. The increase/decrease is always done in regards to the wheel position at that moment. That means that if my starting position was -200 then one wheel would increase to -100 and the other would decrease to -300
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/02/2021 10:57:01
+##### Simon Steinmann [Moderator] 02/02/2021 10:57:01
 `@Chernayaten`  Why are you using .getTargetPosition() instead of using the position sensor to get the current position?
 
 
@@ -4314,7 +4314,7 @@ Hello everyone
 
 dose anyone knows how can I train robot using pytorch in webots?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/02/2021 18:59:26
+##### Simon Steinmann [Moderator] 02/02/2021 18:59:26
 [https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers)
 
 
@@ -4329,7 +4329,7 @@ Hi all, I'm a student working on a project using Webots for the first time. This
 ##### John520 02/03/2021 15:03:45
 Hi guys, I'd like to create a crop field for a lidar detection simulation. I found out that Webots provides Trees and Plants objects. My questions are, 1. Can the Tree and Plant objects (shape and leaves) be detected by a lidar in the simulation? 2. Is there a way to create a crop object by myself? Thank you!
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/03/2021 15:07:50
+##### Darko Lukić [Cyberbotics] 02/03/2021 15:07:50
 Hello `@John520`, 1. Yes. You can create a simple robot, add a Lidar, and visualize the point cloud (option in the View menu). 2. Yes. Create a terrain, add some plants, trees...
 
 
@@ -4344,7 +4344,7 @@ Hello `@LucasW`, the returned values from the DistanceSensor node are in meters.
 ##### John520 02/03/2021 15:13:24
 `@Darko Lukić` Thank you very much for your reply. Would be possible to create a crop or plant that is not included in the Trees and Plants objects by myself. For example, can I create a cereal object somewhere and then import it into Webots? Thank you!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/03/2021 15:14:47
+##### Olivier Michel [Cyberbotics] 02/03/2021 15:14:47
 Yes, of course. It is just a matter of creating a new proto file.
 
 ##### gaitt 02/03/2021 15:16:22
@@ -4353,7 +4353,7 @@ Hello, I'm wondering how do I retrieve the camera behind a DEF. I'm using C++ AP
 ##### John520 02/03/2021 15:16:59
 Oh sounds great! Thank you `@Olivier Michel`. Would you have any tutorial about creating a new proto file? Could you share a link, please? Thank you!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/03/2021 15:17:15
+##### Olivier Michel [Cyberbotics] 02/03/2021 15:17:15
 You should use the `getCamera` method instead.
 
 
@@ -4365,16 +4365,16 @@ Thank you very much `@Olivier Michel` for your help!!!
 ##### gaitt 02/03/2021 15:25:44
 Well did not find such method in the documentation, on which class the method is available?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/03/2021 15:26:52
+##### Olivier Michel [Cyberbotics] 02/03/2021 15:26:52
 on Robot (from which Supervisor inherits).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/03/2021 15:28:21
+##### Simon Steinmann [Moderator] 02/03/2021 15:28:21
 [https://drive.google.com/drive/folders/1rI7xeOP5CCi\_IFTOmZu37nEZDxR-Uj6\_?usp=sharing](https://drive.google.com/drive/folders/1rI7xeOP5CCi_IFTOmZu37nEZDxR-Uj6_?usp=sharing) this could be useful
 
 ##### gaitt 02/03/2021 15:33:29
 Ok thanks, I found it in the .hpp but it definitely not in the doc [https://cyberbotics.com/doc/reference/robot](https://cyberbotics.com/doc/reference/robot)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/03/2021 15:34:06
+##### Olivier Michel [Cyberbotics] 02/03/2021 15:34:06
 It's there: [https://cyberbotics.com/doc/reference/robot?tab-language=c++#wb\_robot\_get\_device](https://cyberbotics.com/doc/reference/robot?tab-language=c++#wb_robot_get_device)
 
 
@@ -4401,13 +4401,13 @@ Its been a while
 ##### John520 02/03/2021 19:18:15
 `@Krish` Thanks. I forgot about it.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/04/2021 07:04:37
+##### Olivier Michel [Cyberbotics] 02/04/2021 07:04:37
 IndexedFaceSet are usually designed as meshes in a 3D modelling software (like Blender or other) and then exported to VRML97, copy/pasted in to the PROTO file.
 
 ##### Stefania Pedrazzi [Cyberbotics] 02/04/2021 07:20:32
 You should add it in the `turretSlot` filed of the e-puck.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/04/2021 08:06:40
+##### Darko Lukić [Cyberbotics] 02/04/2021 08:06:40
 Ok, I see. It is possible that GCtronic integrated API that returns scaled values. However, if you don't have a strong reason to use the `lookupTable` parameter, you can skip modeling that part. Without the lookup table you will get actual distance. The other parameters, `numberOfRays`, `aperture`, and`resolution` are more important for modeling a realistic sensor. Also, you can use the lookup table without scaling the values, only imposing a noise at different distances.
 
 ##### Iris230 02/04/2021 08:47:29
@@ -4422,7 +4422,7 @@ hello guys, I'm wondering how could Logitech G29 get connected to webots and con
 
 I opened a sample world called 'village center' and I added a BMW node. But I can't change to this point of view, like you are sitting in this car. 🥲😭
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/04/2021 08:54:20
+##### Olivier Michel [Cyberbotics] 02/04/2021 08:54:20
 A sample controller for interfacing a G29 (and other racing wheels) is available in `WEBOTS_HOME/projects/vehicles/controllers/racing_wheel/`.
 
 ##### Iris230 02/04/2021 08:58:04
@@ -4443,13 +4443,13 @@ Hi ! This warning pops up in middle of the program running.....whats the reason 
 ![Screenshot_from_2021-02-04_23-50-28.png](https://cdn.discordapp.com/attachments/565154703139405824/806952763439054878/Screenshot_from_2021-02-04_23-50-28.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/04/2021 18:23:45
+##### Darko Lukić [Cyberbotics] 02/04/2021 18:23:45
 It means that the controller has crashed. Try to simplify it
 
 ##### yash 02/04/2021 18:26:18
 oh okay ! any hints you could give me about how to do it if there's any general solution, or it depends on the way the controller code is written ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/04/2021 18:26:48
+##### Darko Lukić [Cyberbotics] 02/04/2021 18:26:48
 It depends a lot on the controller implementation
 
 ##### yash 02/04/2021 18:27:40
@@ -4473,7 +4473,7 @@ As you can see from the picture, it won't flow with the water
 
 This happens in my another simulation. I don't know how to fix this problem.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/05/2021 08:45:36
+##### Darko Lukić [Cyberbotics] 02/05/2021 08:45:36
 `@Troy` Please check this minimal example:
 
 ```vrml
@@ -4564,7 +4564,7 @@ I am a bit confused as to how some of the supervisor funtions work, maybe someon
 
  is this the same DEF that is used in the proto file for the DEF-USE mechanism ([https://www.cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment#def-use-mechanism](https://www.cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment#def-use-mechanism)) or is it something different?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:23:59
+##### Simon Steinmann [Moderator] 02/05/2021 18:23:59
 `@Bitbots_Jasper` in the scene tree, you can give any node a DEF. You can then retrieve that node with the supervisor
 
 
@@ -4580,13 +4580,13 @@ guys i have a question
 
 how do i enable the robot window using roboits darwin\_op2 in webots using python?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:25:02
+##### Simon Steinmann [Moderator] 02/05/2021 18:25:02
 what exactly are you trying to do?
 
 ##### Bitbots\_Jasper [Moderator] 02/05/2021 18:25:24
 finding the position of certain solids in world coordinates
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:26:06
+##### Simon Steinmann [Moderator] 02/05/2021 18:26:06
 what robot?
 
 ##### Bitbots\_Jasper [Moderator] 02/05/2021 18:26:19
@@ -4595,7 +4595,7 @@ my own 😄
 
 [https://github.com/bit-bots/wolfgang\_robot/blob/master/wolfgang\_webots\_sim/protos/Wolfgang.proto](https://github.com/bit-bots/wolfgang_robot/blob/master/wolfgang_webots_sim/protos/Wolfgang.proto)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:26:41
+##### Simon Steinmann [Moderator] 02/05/2021 18:26:41
 you can expose fields in a proto
 
 
@@ -4616,7 +4616,7 @@ i read that there is wb\_supervisor\_node\_get\_from\_proto\_def or getFromProto
 
 [https://www.cyberbotics.com/doc/reference/supervisor?tab-os=linux&tab-language=python#description](https://www.cyberbotics.com/doc/reference/supervisor?tab-os=linux&tab-language=python#description)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:30:13
+##### Simon Steinmann [Moderator] 02/05/2021 18:30:13
 ohh right
 
 
@@ -4628,7 +4628,7 @@ I only used fields inside of protos so far
 ##### Bitbots\_Jasper [Moderator] 02/05/2021 18:30:53
 sorry this link is correct: [https://www.cyberbotics.com/doc/reference/supervisor?tab-os=linux&tab-language=python#wb\_supervisor\_node\_get\_from\_proto\_def](https://www.cyberbotics.com/doc/reference/supervisor?tab-os=linux&tab-language=python#wb_supervisor_node_get_from_proto_def)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:33:23
+##### Simon Steinmann [Moderator] 02/05/2021 18:33:23
 baseNode = supervisor.getSelf()
 
 node1 = baseNode.getFromProtoDef("defName")
@@ -4641,7 +4641,7 @@ I think that should work
 ##### Bitbots\_Jasper [Moderator] 02/05/2021 18:38:29
 awesome, it works, i only have to go back into my proto and add a DEF to each solid :D, or is there a option to do it using urdf2webots, otherwise i can work on implementing it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:39:14
+##### Simon Steinmann [Moderator] 02/05/2021 18:39:14
 urdf files dont have DEF names. they have names
 
 
@@ -4650,7 +4650,7 @@ I guess you could add a parsable option, to turn urdf link-names into DEF names 
 ##### Bitbots\_Jasper [Moderator] 02/05/2021 18:40:58
 that is what i meant, so that they can be retrieved using the getFromProtoDef function
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:41:57
+##### Simon Steinmann [Moderator] 02/05/2021 18:41:57
 [https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/writeProto.py#L101](https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/writeProto.py#L101)
 
 
@@ -4662,7 +4662,7 @@ link.name contains the link-name
 ##### Bitbots\_Jasper [Moderator] 02/05/2021 18:42:43
 thanks so much for your help `@Simon Steinmann` , i'll work on it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:43:06
+##### Simon Steinmann [Moderator] 02/05/2021 18:43:06
 [https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/importer.py#L190](https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/importer.py#L190) here you have to add a parsable argument
 
 
@@ -4680,7 +4680,7 @@ can you look at this error plz?
 
 i cant seems to display the robot window?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 18:48:20
+##### Simon Steinmann [Moderator] 02/05/2021 18:48:20
 is the library at the specified path?
 
 ##### Welsh\_dragon64 02/05/2021 18:48:33
@@ -4704,7 +4704,7 @@ I think it depends on your use case, to convert the model to a proto you can use
 
 if they do not come as a tile, you can create your own tile using single wheat plants. for that [https://www.cyberbotics.com/doc/reference/def-and-use](https://www.cyberbotics.com/doc/reference/def-and-use) is probably useful
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/05/2021 19:44:39
+##### Simon Steinmann [Moderator] 02/05/2021 19:44:39
 `@Bitbots_Jasper` PR looks good to me, havent tested it though. Please also add your changes to the readme [https://github.com/cyberbotics/urdf2webots/blob/master/README.md#arguments](https://github.com/cyberbotics/urdf2webots/blob/master/README.md#arguments)
 
 ##### John520 02/05/2021 21:18:25
@@ -4731,7 +4731,7 @@ can you give some more information on your setup? have you checked if the file t
 ##### Anand 02/06/2021 00:49:15
 Hey! I have set all the env variables correctly. Yet when I type "webots" in the terminal, I get an error saying "Command not found, but can be installed with snap". Any idea how to fix this?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/06/2021 10:55:52
+##### Simon Steinmann [Moderator] 02/06/2021 10:55:52
 `@Anand` you have to add an entry in the .bash\_aliases launching the executable
 
 
@@ -4740,7 +4740,7 @@ Hey! I have set all the env variables correctly. Yet when I type "webots" in the
 ##### Bitbots\_Jasper [Moderator] 02/06/2021 11:37:01
 It depends on what you want to detect. If it is just a red circle on a flat background open cv is fine, if you want to detect different object classes you might want to use yolo, but it could be overkill
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/06/2021 11:39:07
+##### Simon Steinmann [Moderator] 02/06/2021 11:39:07
 I've only dabbled in computer vision, but I think going opencv first is the best approach. You can add YOLO to opencv
 
 
@@ -4758,7 +4758,7 @@ I just opened the 'highway' sample world, and I changed the controller to the 'r
 ##### Usama 02/07/2021 17:43:24
 hi guys, i am new to webot, i am trying to add a lidar sensor to my robot but i cannot seem to find it in the base nodes.  in fact i can not find any sensor. how can i add the sensors to the node library?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/07/2021 17:44:13
+##### Simon Steinmann [Moderator] 02/07/2021 17:44:13
 Sensors have to be children of Solids, Robots or Transforms
 
 
@@ -4852,7 +4852,7 @@ OpenGL renderer: AMD Radeon (TM) R5 M430 (0x6660)
 
 OpenGL version: 4.5.13469 Compatibility Profile Context 21.19.512.4
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/08/2021 15:28:18
+##### Olivier Michel [Cyberbotics] 02/08/2021 15:28:18
 Did you try to update your graphics driver?
 
 ##### bertlangton 02/08/2021 15:38:29
@@ -4885,7 +4885,7 @@ Hey guys, i need some help here. I have DEF this boundingObject but when i want 
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/808376461911261244/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/08/2021 16:50:00
+##### Olivier Michel [Cyberbotics] 02/08/2021 16:50:00
 You can include a USE of this DEF only at a lower position in the scene tree. Where are you trying to include a USE of it?
 
 ##### alejanpa17 02/08/2021 16:52:41
@@ -4897,7 +4897,7 @@ For example in this one
 
 I just found out that you can include a USE only upper the DEF (in the way closer to the root of the scene tree). So if it is at the same level is impossible?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/08/2021 17:09:52
+##### Olivier Michel [Cyberbotics] 02/08/2021 17:09:52
 Yes, it should be possible at the same level, but the DEF has to come first (upper).
 
 
@@ -4935,7 +4935,7 @@ Just found out this is working!! It turns out that you need a Shape node between
 ##### AJ121 02/09/2021 06:51:52
 Which sensor in webots can differentiate between colors?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/09/2021 07:04:37
+##### Olivier Michel [Cyberbotics] 02/09/2021 07:04:37
 A standard RGB camera.
 
 
@@ -4947,13 +4947,13 @@ if you just want a simple color sensor you can probably set the resolution to 1x
 ##### AJ121 02/09/2021 07:06:00
 I want to differentiate between black and white paths in a line follower
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/09/2021 07:07:00
+##### Olivier Michel [Cyberbotics] 02/09/2021 07:07:00
 In that case, it is simpler and more efficient to use a DistanceSensor with type set to "infra-red". You will measure a larger value for the white and a lower value for the black.
 
 ##### AJ121 02/09/2021 07:07:47
 Somehow the reading of my infrared come just the opposite for white it is <1000 and for black it is 1000
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/09/2021 07:10:18
+##### Olivier Michel [Cyberbotics] 02/09/2021 07:10:18
 That may depend on the values set in lookupTable of the DistanceSensor.
 
 ##### AJ121 02/09/2021 07:11:31
@@ -4971,7 +4971,7 @@ i try to use the camera to read rgb but i am not getting the write value
 
 my camera is close to an ir sensor, deos this affect it?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/09/2021 09:07:09
+##### Olivier Michel [Cyberbotics] 02/09/2021 09:07:09
 No, it shouldn't.
 
 ##### Bitbots\_Jasper [Moderator] 02/09/2021 09:07:17
@@ -5108,13 +5108,13 @@ thank you!
 ##### nelsondmmg 02/09/2021 13:42:16
 Hi, I'm would like to write a sh file that executes multiple webots simulations (sequentially), changing the arguments of the controllers used inside the simulation. Can I modify such parameters from the command line directly or do I need to modify the .wbt file before each execution? Also, is it possible to register videos from the simulation using the command line (if possible without opening the webots window). How can I automatize these simulations .In the documentation the "Starting webots" page only gives details about launching the application. Thanks.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/09/2021 13:44:16
+##### Simon Steinmann [Moderator] 02/09/2021 13:44:16
 `@nelsondmmg` you could use extern controllers and start those seperately, parsing arguments with python for example
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/09/2021 13:44:17
+##### Darko Lukić [Cyberbotics] 02/09/2021 13:44:17
 `@nelsondmmg` You can add a Supervisor node which changes the arguments and restarts the simulation. Same for videos, you can use the Supervisor node to record videos.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/09/2021 13:46:24
+##### Simon Steinmann [Moderator] 02/09/2021 13:46:24
 you can also load the world from a python script
 
 
@@ -5145,7 +5145,7 @@ i try to se their position but they do some funny moves
 
 i think it might be an issue with the reference position
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/09/2021 14:12:57
+##### Simon Steinmann [Moderator] 02/09/2021 14:12:57
 `@nelsondmmg` If it is the same world and robots, just turn the controllers into extern controllers. After a reset or world load, the simulation will only start, if all extern controllers have been started. So you can just launch them with the specific args you want
 
 
@@ -5163,7 +5163,7 @@ but when i set the motors' position at an angle, they move randomy
 
 i think it is because they are not oriented correctly
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/09/2021 14:19:08
+##### Simon Steinmann [Moderator] 02/09/2021 14:19:08
 Make sure the axis of the jont is defined properly
 
 
@@ -5181,13 +5181,13 @@ i will try it and i will let you know!
 ##### nelsondmmg 02/09/2021 14:21:50
 Is there some documentation about extern controllers? Maybe is a new feature and I'm not familiarized, but since there is some dependency related to the control of objects in the code (in my case I need to initialize the driver object to control vehicles) I should not start these controllers outside webots and then attach then to the webots process.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/09/2021 14:22:27
+##### Simon Steinmann [Moderator] 02/09/2021 14:22:27
 [https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers)
 
 ##### nelsondmmg 02/09/2021 14:40:59
 Ahh thanks, now it is much more clear.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/09/2021 15:51:37
+##### Olivier Michel [Cyberbotics] 02/09/2021 15:51:37
 It could be very nice if you could share your experience using Webots with ROS at [https://discourse.ros.org/t/why-is-robotics-simulation-hard/15888/11](https://discourse.ros.org/t/why-is-robotics-simulation-hard/15888/11)
 
 ##### popo74013 02/10/2021 10:02:13
@@ -5199,7 +5199,7 @@ is there a way to make a motor act as a servo?
 
 i am trying to make a really simple grabbing mechanism and i just want to make 2 beams to rotate from 0 to 90 degrees
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/10/2021 10:03:53
+##### Darko Lukić [Cyberbotics] 02/10/2021 10:03:53
 Hello `@popo74013`, Yes, if you control the motor using `wb_motor_set_position` it acts as a servo.
 
 ##### popo74013 02/10/2021 10:04:15
@@ -5218,7 +5218,7 @@ for i in range(2):
 
 i am writing in python but this doesnt seem to work
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 10:39:36
+##### Simon Steinmann [Moderator] 02/10/2021 10:39:36
 `@popo74013` dont set the velocity
 
 ##### popo74013 02/10/2021 10:39:56
@@ -5236,7 +5236,7 @@ so i modified the right motor and beam to look like the left and now it works
 
 thank you!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 10:41:21
+##### Simon Steinmann [Moderator] 02/10/2021 10:41:21
 [https://cyberbotics.com/doc/reference/motor?tab-language=python#force-and-torque-control](https://cyberbotics.com/doc/reference/motor?tab-language=python#force-and-torque-control)
 
 
@@ -5245,7 +5245,7 @@ this table tells you exactly what the commands do. Motors can be in position-, v
 ##### Saud 02/10/2021 11:16:36
 Hello, I have created a sphere on a new world. I want to know if and how i can increase the size of this shpere with respect to time as the simulation runs? i am very new to webots
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 11:22:30
+##### Simon Steinmann [Moderator] 02/10/2021 11:22:30
 `@Saud` The easiest would be to use a supervisor controller. Get a handle to the radius Field of the sphere, and change the value
 
 ##### bingdong 02/10/2021 11:52:53
@@ -5253,7 +5253,7 @@ Hi! New to Webots and Blender. As I understand both support python programming. 
 
 I found a simple legged robot blender file online which makes it move when a python script. When I exported it to Webots, the model doesn't move. I'm guessing that the same script won't work for controller? What can I do to make the robot move then?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 12:11:05
+##### Simon Steinmann [Moderator] 02/10/2021 12:11:05
 You will have to write a controller [https://www.cyberbotics.com/doc/guide/controller-programming](https://www.cyberbotics.com/doc/guide/controller-programming)
 
 
@@ -5267,7 +5267,7 @@ For the moment the way to go is to write a controller program that reads the ani
 ##### bingdong 02/10/2021 12:34:31
 `@Simon Steinmann` `@Stefania Pedrazzi` Thanks for the guidance. I'll try it out!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 12:48:51
+##### Simon Steinmann [Moderator] 02/10/2021 12:48:51
 is there an example for this? I remember this question coming up 3 times this winter already
 
 ##### Stefania Pedrazzi [Cyberbotics] 02/10/2021 12:50:57
@@ -5279,7 +5279,7 @@ Hello everyone! I'm just starting using webots to simulate an autonomous vehicle
 ##### csnametala 02/10/2021 12:56:31
 Hello everyone! I'm using a PEN function on the e-puck robot, it leaves a trail that doesn't erase. Can I define a distance from this trail? For it to erase as the robot walks
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/10/2021 13:13:31
+##### Olivier Michel [Cyberbotics] 02/10/2021 13:13:31
 You can, at the controller level, add an extra layer that will alter sensor data before passing then to your control algorithm. Also, in Webots, depending on the sensor, you can add different types of noise. See the specific sensor descriptions in the documentation to understand what kind of noise can be added.
 
 
@@ -5291,13 +5291,13 @@ OK, thank you!
 
 I found the problem I was having. I should control the evaporation of the pen in the inkEvaporation field of the WorldInfo node. thank you again.
 
-##### bobbbbbyyy 02/10/2021 15:00:16
+##### waleed 02/10/2021 15:00:16
 Can someone help on how to build a connection between the webots drone and kinect sensor
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:01:35
+##### Simon Steinmann [Moderator] 02/10/2021 15:01:35
 Can you be a bit more specific? What exactly do you want? Physically attach the kinect to the drone?
 
-##### bobbbbbyyy 02/10/2021 15:02:31
+##### waleed 02/10/2021 15:02:31
 So i am using a physical kinect sensor and a simulated drone that is available in the webots software
 
 
@@ -5306,7 +5306,7 @@ So the drone is not physical
 
 I want to develop a communication between the physical kinect sensor and the drone available in webots software
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:04:11
+##### Simon Steinmann [Moderator] 02/10/2021 15:04:11
 [https://www.cyberbotics.com/doc/reference/emitter](https://www.cyberbotics.com/doc/reference/emitter)
 
 
@@ -5315,37 +5315,37 @@ you can use emitter and receiver nodes in Webots
 
 basically simulates radio communication
 
-##### bobbbbbyyy 02/10/2021 15:05:58
+##### waleed 02/10/2021 15:05:58
 I see that so in my case i could send signals and use the kinect sensor to receive the nodes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:06:22
+##### Simon Steinmann [Moderator] 02/10/2021 15:06:22
 what exactly do you want to do?
 
 
 send movement commands to the drone depending on what the kinect sees?
 
-##### bobbbbbyyy 02/10/2021 15:06:59
+##### waleed 02/10/2021 15:06:59
 Yes exactly
 
 
 Like that
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:07:17
+##### Simon Steinmann [Moderator] 02/10/2021 15:07:17
 then add a receiver to the drone, and an emitter to the kinect
 
 
 both have to be defined as a robot. With a controller each
 
-##### bobbbbbyyy 02/10/2021 15:08:57
+##### waleed 02/10/2021 15:08:57
 Just one more clarification the code for my kinect is written in C# and i have used visual community in windows so do i have to change my code into C++ to make it possible
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:09:46
+##### Simon Steinmann [Moderator] 02/10/2021 15:09:46
 I'm a python and ROS guy, so I dont know. But that seems right.
 
 
 I'd recommend going through some of the documentation of Webots and having a look at some sample worlds, in order to get a better base understanding of Webots
 
-##### bobbbbbyyy 02/10/2021 15:11:02
+##### waleed 02/10/2021 15:11:02
 Okay fair enough! But#bw to run the testing of the physical kinect using webots
 
 
@@ -5354,22 +5354,22 @@ To test ny gestures on a physical kinect sensor is it possible
 
 ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:11:36
+##### Simon Steinmann [Moderator] 02/10/2021 15:11:36
 wait, do you want to simulate the kinect, or use the physical kinect to control the simulated drone?
 
-##### bobbbbbyyy 02/10/2021 15:11:54
+##### waleed 02/10/2021 15:11:54
 Yes use the physical kinect to control the simulated drone
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:12:02
+##### Simon Steinmann [Moderator] 02/10/2021 15:12:02
 ohhhh okay, that is different
 
 
 you're using the mavic2Pro in Webots?
 
-##### bobbbbbyyy 02/10/2021 15:12:25
+##### waleed 02/10/2021 15:12:25
 Yes mavic 2 pro
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:12:46
+##### Simon Steinmann [Moderator] 02/10/2021 15:12:46
 the default controller there is in c
 
 
@@ -5381,16 +5381,16 @@ how you do it, does not really matter
 
 or you write your own in any of the supported languages
 
-##### bobbbbbyyy 02/10/2021 15:14:29
+##### waleed 02/10/2021 15:14:29
 Yes i have gone through the default controller snd the only part i dont get is how to get the kinect data in there
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 15:15:03
+##### Simon Steinmann [Moderator] 02/10/2021 15:15:03
 I have no experience with c#
 
 
 <@&568329906048598039> Does anyone know how communicate between c# and c/c++?
 
-##### bobbbbbyyy 02/10/2021 15:16:39
+##### waleed 02/10/2021 15:16:39
 Well i would change my code from C# to C++ so webots can support that language
 
 
@@ -5399,7 +5399,7 @@ It is just the communication bit that needs to be sorted between a physical kine
 ##### HANEEN AL ALI 02/10/2021 15:20:16
 Hi, I am building a manipulator and I want the first joint to move 180 along the x axis.  How i can do that? Do I need to change the motor parameters or is it related to the code?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 16:54:37
+##### Simon Steinmann [Moderator] 02/10/2021 16:54:37
 Linear or rotational motor?
 
 
@@ -5414,7 +5414,7 @@ The type of movement is defined in the joint
 
 Rotational motor like pic above . I want link 1 to move from -x to x
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/10/2021 18:12:03
+##### Simon Steinmann [Moderator] 02/10/2021 18:12:03
 ohh, like a cartpole?
 
 
@@ -5442,8 +5442,8 @@ I need a brief syntax of switching leds on and off in webots ...please help
 ##### Stefania Pedrazzi [Cyberbotics] 02/11/2021 07:27:24
 Here is the LED API: [https://www.cyberbotics.com/doc/reference/led#wb\_led\_set](https://www.cyberbotics.com/doc/reference/led#wb_led_set)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/11/2021 07:44:08
-`@bobbbbbyyy` You want to send images from your physical Kinect to the simulated drone? In that case, you don't need C#-C/C++ communication, you can read the images directly in your C/C++ controller:
+##### Darko Lukić [Cyberbotics] 02/11/2021 07:44:08
+`@waleed` You want to send images from your physical Kinect to the simulated drone? In that case, you don't need C#-C/C++ communication, you can read the images directly in your C/C++ controller:
 
 [https://homes.cs.washington.edu/~edzhang/tutorials/kinect2/kinect1.html](https://homes.cs.washington.edu/~edzhang/tutorials/kinect2/kinect1.html)
 
@@ -5490,7 +5490,7 @@ it sounds like you want to teacha bayesian neural network to do inverse kinemati
 ##### Mohannad Kassar 02/11/2021 10:53:40
 exactly
 
-##### bobbbbbyyy 02/11/2021 10:54:09
+##### waleed 02/11/2021 10:54:09
 Hi — thanks for the help and i will look into it. But in my case i was going to do live gestures and in my opinion if i were to send images that would produce a lot error in controlling the simulated drone
 
 ##### Bitbots\_Jasper [Moderator] 02/11/2021 10:55:05
@@ -5605,7 +5605,7 @@ Hi guys, I have a question about adding the physics to the potted tree. When the
 ![Kazam_screenshot_00005.png](https://cdn.discordapp.com/attachments/565154703139405824/809449947904737290/Kazam_screenshot_00005.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/11/2021 15:58:30
+##### Simon Steinmann [Moderator] 02/11/2021 15:58:30
 `@John520` you can give then a seperate contact material and decrease the soft\_cfm value
 
 
@@ -5620,7 +5620,7 @@ you can also decrease the cfm value of the whole world, but collisions might bec
 
 By the way, why it does not work if the material2 is "TruckWheel"?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/11/2021 16:15:02
+##### Simon Steinmann [Moderator] 02/11/2021 16:15:02
 what does not work?
 
 
@@ -5635,7 +5635,7 @@ you can add as many contact properties as you like
 
 But if the material2 is "TruckWheels", the truck will not sink and it looks very good.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/11/2021 16:37:32
+##### Simon Steinmann [Moderator] 02/11/2021 16:37:32
 contact properties adjust the interaction between 2 contact materials
 
 
@@ -5644,7 +5644,7 @@ so it depends on what material you have in your wheels
 ##### John520 02/11/2021 16:47:38
 Thank you `@Simon Steinmann`. Should I check the Proto file to know what the material it is?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/11/2021 17:01:37
+##### Simon Steinmann [Moderator] 02/11/2021 17:01:37
 in the scene tree, just change the contactmaterial name of your wheels
 
 ##### John520 02/11/2021 17:19:08
@@ -5653,7 +5653,7 @@ Thank you very much. I found the contactMaterial name of the truck in the TruckW
 
 But I could not find the contactMaterial name of the PottedTree.proto. Please see [https://github.com/cyberbotics/webots/blob/released/projects/objects/plants/protos/PottedTree.proto](https://github.com/cyberbotics/webots/blob/released/projects/objects/plants/protos/PottedTree.proto)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/11/2021 17:22:26
+##### Simon Steinmann [Moderator] 02/11/2021 17:22:26
 you could convert it to basenodes and add it yourself
 
 
@@ -5668,7 +5668,7 @@ Thank you very much for your help! It works!
 
 Is there a setting in the PottedTree to allow a truck to go through it? It is like a tractor going through in the crop field.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/11/2021 17:42:18
+##### Simon Steinmann [Moderator] 02/11/2021 17:42:18
 disable the bounding Object
 
 ##### vinwan 02/11/2021 17:52:16
@@ -5677,7 +5677,7 @@ I tried running the latest webots build on computer which has intel core i5 2520
 ##### John520 02/11/2021 17:52:32
 Thank you `@Simon Steinmann` . I first convert the PottedTree to the base node and then reset its boundingObject Group to default value. But the PottedTree will sink and disappear under the floor.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/11/2021 17:53:22
+##### Simon Steinmann [Moderator] 02/11/2021 17:53:22
 then disable physics to make them static objeccts
 
 ##### John520 02/11/2021 17:57:20
@@ -5761,7 +5761,7 @@ just as a little fyi and also because I cannot help shaking my head, there was n
 ##### vinwan 02/12/2021 07:31:37
 I tried running the latest webots build on computer which has intel core i5 2520M which ha intel HD 3000 graphics with directX 12 but no dedicated GPU . After Webots was installed it opened and quit on me after 2 seconds or soo i only saw the loading screen .could someone help me out on this?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/12/2021 07:56:41
+##### Darko Lukić [Cyberbotics] 02/12/2021 07:56:41
 Can you try a safe mode:
 
 [https://www.cyberbotics.com/doc/guide/starting-webots#safe-mode](https://www.cyberbotics.com/doc/guide/starting-webots#safe-mode)
@@ -5774,7 +5774,7 @@ Hi, I have a question about the usega of extern controllers. During a simulation
 
 EDIT: Just found out that I just needed to set synchronization to false (but the pedestrians in my version, 2020a, did not have this attribute so I created).
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/12/2021 14:54:59
+##### Olivier Michel [Cyberbotics] 02/12/2021 14:54:59
 Did you run the youbot demo distributed with Webots? The source code of the controller shows you how to make all these movements, including the side movement. Also, when the demo is over, you should be able to control the robot from the keyboard on all these motions.
 
 ##### vinwan 02/12/2021 15:03:25
@@ -5799,7 +5799,7 @@ I am doing one of the tutorials and i tried to add the supervisor. and got this 
 ![Screenshot_2021-02-12_at_19.20.10.png](https://cdn.discordapp.com/attachments/565154703139405824/809866771536412682/Screenshot_2021-02-12_at_19.20.10.png)
 %end
 
-##### bobbbbbyyy 02/12/2021 20:06:53
+##### waleed 02/12/2021 20:06:53
 Shello
 
 
@@ -5814,7 +5814,7 @@ Can something be done about this?
 ![IMG-20210213-WA0001.jpg](https://cdn.discordapp.com/attachments/565154703139405824/810052752037380116/IMG-20210213-WA0001.jpg)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/13/2021 16:56:12
+##### Simon Steinmann [Moderator] 02/13/2021 16:56:12
 `@Saud` you initialize the robot class, and then the supervisor. The supervisor has all the robot functionality plus extra supervisor ones. So when your robot is a supervisor, don't use robot. Only use supervisor. You can use it in the very same wa as the robot
 
 
@@ -5832,7 +5832,7 @@ You can keep the same variable name as before, so you only need to change line 3
 
 `@Simon Steinmann` I think an older version of webots such as webots 8,7 will work but unfortunately those require licensing . This not for me this for a few high school students im teaching webots to
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/13/2021 17:28:29
+##### Simon Steinmann [Moderator] 02/13/2021 17:28:29
 Problem is, that 2nd gen Intel integrated gpus only support opengl 3.1,nit 3.2
 
 
@@ -5841,7 +5841,7 @@ Perhaps look for a dirt cheap low end dedicated gpu?
 
 <@&568329906048598039> this is not my expertise, but is it possible to run webots somehow with opengl3. 1?  I think docker uses CPU graphics
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/13/2021 17:31:57
+##### Olivier Michel [Cyberbotics] 02/13/2021 17:31:57
 No, it's a no go unfortunately.
 
 
@@ -5850,10 +5850,10 @@ Webots in CI uses software rendering (super slow). It might be possible to repla
 ##### vinwan 02/13/2021 17:33:14
 I thought of this but these are laptops and im not sure if this can be done
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/13/2021 17:33:37
+##### Olivier Michel [Cyberbotics] 02/13/2021 17:33:37
 Unfortunately, with a laptop you're stuck and cannot upgrade the GPU...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/13/2021 17:35:15
+##### Simon Steinmann [Moderator] 02/13/2021 17:35:15
 Is it just one machine or multiple?
 
 
@@ -5862,10 +5862,10 @@ Is it just one machine or multiple?
 ##### vinwan 02/13/2021 17:35:44
 4 machines so far
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/13/2021 17:36:00
+##### Olivier Michel [Cyberbotics] 02/13/2021 17:36:00
 Can you tell me what is the model of your Intel GPU?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/13/2021 17:36:12
+##### Simon Steinmann [Moderator] 02/13/2021 17:36:12
 Sandybridge
 
 
@@ -5877,19 +5877,19 @@ So you need Intel 3rd gen or newer
 ##### vinwan 02/13/2021 17:37:44
 I know but this is the best they've got
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/13/2021 17:38:14
+##### Simon Steinmann [Moderator] 02/13/2021 17:38:14
 And they are all laptops?
 
 
 Are you a high school teacher?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/13/2021 17:39:08
+##### Olivier Michel [Cyberbotics] 02/13/2021 17:39:08
 You might be able to work out something with this: [https://www.reddit.com/r/archlinux/comments/8stpmt/how\_can\_i\_get\_opengl\_33\_with\_glsl\_33\_support/](https://www.reddit.com/r/archlinux/comments/8stpmt/how_can_i_get_opengl_33_with_glsl_33_support/)
 
 
 (you will have to install Linux)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/13/2021 17:39:54
+##### Simon Steinmann [Moderator] 02/13/2021 17:39:54
 Perhaps you can ask around for people who could donate an old laptop
 
 ##### vinwan 02/13/2021 17:39:55
@@ -5904,13 +5904,13 @@ Ill try thank you
 
 Ill check it out thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/13/2021 17:43:01
+##### Simon Steinmann [Moderator] 02/13/2021 17:43:01
 Awesome! Thx for doing that. Perhaps you can ask the school faculty or even just the other students. I bet there are people with older machines. We are talking 2012 or newer
 
 ##### vinwan 02/13/2021 17:45:33
 The school can't help us because schools are closed so we are on our own. Thank you for this insight into webots ill keep these requirements in mind  for next time
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/13/2021 17:51:23
+##### Olivier Michel [Cyberbotics] 02/13/2021 17:51:23
 The only two solutions I see are:
 
 - Try this: [https://dhern023.wordpress.com/2020/05/15/update-intel-sandy-bridge-opengl-compatibility-to-3-3/](https://dhern023.wordpress.com/2020/05/15/update-intel-sandy-bridge-opengl-compatibility-to-3-3/)
@@ -5935,7 +5935,7 @@ There also is a difference between resetting the world and reloading it.
 ##### Vangiel 02/14/2021 10:17:10
 The problem with saving the world after I add the nodes is that it will save all of it in the wbt file right? and I want to load random scenarios each time
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/14/2021 16:14:29
+##### Simon Steinmann [Moderator] 02/14/2021 16:14:29
 `@Vangiel` what exactly do you want to happen? Remove everything? World reload seems like the easiest clean option. I'm not sure what exactly doesn't work for you there. Otherwise, you could simply remove all the nodes using the supervisor api
 
 
@@ -5950,7 +5950,7 @@ Feel free to pm me, I can take a look. Kinda curious about your project. Worked 
 
 controlling it individually
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 08:04:47
+##### Darko Lukić [Cyberbotics] 02/15/2021 08:04:47
 The reset feature is documented here:
 
 [https://www.cyberbotics.com/doc/guide/the-user-interface#file-menu](https://www.cyberbotics.com/doc/guide/the-user-interface#file-menu)
@@ -5966,7 +5966,7 @@ However, according to your description it seems that the reset doesn't work prop
 ##### Siliconlad 02/15/2021 08:05:43
 Good morning! I'm currently trying to create an external C++  ROS noetic controllers for our robot. So in my `.cpp` file I have include statements of the form `#include "webots/Robot.hpp"` alongside ROS include statements like `#include "ros/ros.h"`. Is there a way to link the webots cpp api using CMake so that I can run `catkin build` in my workspace and then just run the controllers (using `rosrun` or via a launch file) and have them connect to the simulator?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 10:03:56
+##### Darko Lukić [Cyberbotics] 02/15/2021 10:03:56
 Here is a CMake example for ROS 2, but for ROS 1 should be very similar:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/5af9fe3b25e4f5be9b584b4e64f62078b063eaad/webots\_ros2\_cpp/CMakeLists.txt#L17-L26](https://github.com/cyberbotics/webots_ros2/blob/5af9fe3b25e4f5be9b584b4e64f62078b063eaad/webots_ros2_cpp/CMakeLists.txt#L17-L26)
@@ -6022,7 +6022,7 @@ ERROR: Communication with node[http://rosPC:33375/] failed!
 
 The above rosnode info gives communication error whereas everything is running on same PC
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 12:58:19
+##### Darko Lukić [Cyberbotics] 02/15/2021 12:58:19
 ```
  * /cmd_vel [unknown type]
 ```
@@ -6042,7 +6042,7 @@ after publishing this topic is recognised
 
 I am having ROS melodic so that's Python2
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 13:02:26
+##### Darko Lukić [Cyberbotics] 02/15/2021 13:02:26
 [https://github.com/cyberbotics/webots\_ros/blob/master/scripts/ros\_python.py](https://github.com/cyberbotics/webots_ros/blob/master/scripts/ros_python.py)
 
 Does this example work for you?
@@ -6065,7 +6065,7 @@ I have found the word
 
 world*
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 13:26:29
+##### Darko Lukić [Cyberbotics] 02/15/2021 13:26:29
 [https://github.com/cyberbotics/webots\_ros/blob/master/launch/webots\_ros\_python.launch](https://github.com/cyberbotics/webots_ros/blob/master/launch/webots_ros_python.launch)
 
 You should be able to launch this file
@@ -6073,7 +6073,7 @@ You should be able to launch this file
 ##### Tahir [Moderator] 02/15/2021 13:27:30
 Yes this example is working
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 13:33:19
+##### Darko Lukić [Cyberbotics] 02/15/2021 13:33:19
 Your class `TeleopRobot` looks good, but maybe I am missing something. I would suggest to you to try rebuilding your controller from the example I sent to you
 
 ##### Tahir [Moderator] 02/15/2021 13:59:27
@@ -6086,13 +6086,13 @@ In this part the real working is happening where I am sending the commands to th
 
 I know `rospy.loginfo` is triggering something but what that I am not able to understand
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 14:37:00
+##### Darko Lukić [Cyberbotics] 02/15/2021 14:37:00
 Strange... Thank you for sharing details with us!
 
 ##### alejanpa17 02/15/2021 15:14:20
 Hey guys, quick question, is there any way I can add a parameter of downforce to a car?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/15/2021 16:32:17
+##### Darko Lukić [Cyberbotics] 02/15/2021 16:32:17
 No, but you can simulate it. You can use `wb_supervisor_node_get_velocity` ([https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_velocity](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_velocity)) to get car's velocity and `wb_supervisor_node_add_force` ([https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_add\_force](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_add_force)) to apply the downforce as a function of the velocity.
 
 ##### alejanpa17 02/15/2021 17:02:24
@@ -6101,13 +6101,13 @@ Thanks :))
 ##### Callum98 02/15/2021 17:12:34
 Hey guys, can anyone help me program a camera using Java? I'm unsure what commands I need for the image to be shown: its currently just a black screen
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/15/2021 17:13:39
+##### Simon Steinmann [Moderator] 02/15/2021 17:13:39
 [https://www.cyberbotics.com/doc/reference/camera](https://www.cyberbotics.com/doc/reference/camera)
 
 ##### Bitbots\_Jasper [Moderator] 02/15/2021 17:14:03
 make sure to enable your camera using  camera.enable(sampling\_peroid)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/15/2021 17:14:06
+##### Simon Steinmann [Moderator] 02/15/2021 17:14:06
 you have to enable most sensors before you can use them
 
 
@@ -6141,7 +6141,7 @@ My Nvidia Config is setup to 'NVIDIA On-Demand'
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/810940196996513853/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/15/2021 18:39:37
+##### Simon Steinmann [Moderator] 02/15/2021 18:39:37
 on linux, integrated gpu + dedicated can be tricky sometimes
 
 
@@ -6153,13 +6153,13 @@ or explicitly launching webots with Nvidia gpu
 ##### R\_ 02/15/2021 18:42:09
 how do I do this?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/15/2021 18:42:40
+##### Simon Steinmann [Moderator] 02/15/2021 18:42:40
 what operating system?
 
 ##### R\_ 02/15/2021 18:43:24
 Ubuntu 20.04
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/15/2021 18:43:53
+##### Simon Steinmann [Moderator] 02/15/2021 18:43:53
 disable your iGPU or google it
 
 ##### R\_ 02/15/2021 18:49:18
@@ -6168,13 +6168,13 @@ But it is showing this
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/810945854043193394/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/15/2021 18:51:07
+##### Simon Steinmann [Moderator] 02/15/2021 18:51:07
 Did you install the latest nvidia drivers?
 
 ##### R\_ 02/15/2021 18:58:40
 yes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/15/2021 19:40:38
+##### Simon Steinmann [Moderator] 02/15/2021 19:40:38
 I just disabled the iGPU in bios, and everything works fine
 
 ##### modymu 02/16/2021 06:38:38
@@ -6186,7 +6186,7 @@ I'm trying to keep increasing the size of a box, as well as changing its color. 
 ![3Y_Iproject_supervisor_testCode.JPG](https://cdn.discordapp.com/attachments/565154703139405824/811175758138572860/3Y_Iproject_supervisor_testCode.JPG)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 10:21:12
+##### Olivier Michel [Cyberbotics] 02/16/2021 10:21:12
 1. You check that every `WbNodeRef` and `WbFieldRef` you retrieve is not NULL.
 
 2. It's a bad idea to use `Box` for a DEF name as it is a reserved VRML keyword for the `Box` node.
@@ -6204,13 +6204,13 @@ Hi, is there a way to continue a simulation given that one robot is already fini
 ##### oroulet [Premier Service] 02/16/2021 12:34:08
 How can I run webots in the background to be used for functional testing? I could not find any command line arguments. Maybe some environment variable?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 12:34:42
+##### Olivier Michel [Cyberbotics] 02/16/2021 12:34:42
 You should use the `--batch` command line option.
 
 ##### oroulet [Premier Service] 02/16/2021 12:35:16
 but it still starts a window. Can we run it without window at all? or do I need to use framebuffer and co
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 12:36:53
+##### Olivier Michel [Cyberbotics] 02/16/2021 12:36:53
 You may add the `--minimize` command line option to have the window minimized at startup. It is not possible to avoid the creation of the window because Webots need to be connected to the OpenGL context via a window.
 
 
@@ -6222,7 +6222,7 @@ OK. My goal was to use webots on gitlab/github CI. So then I probably need to se
 
 ja exactly. I will try. thanks
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 12:38:10
+##### Olivier Michel [Cyberbotics] 02/16/2021 12:38:10
 Yes.
 
 
@@ -6234,7 +6234,7 @@ See [https://github.com/cyberbotics/webots/tree/master/.github/workflows](https:
 ##### oroulet [Premier Service] 02/16/2021 12:39:35
 Thanks. I just need to find out where in this files the framebuffer is set 😉
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 12:40:06
+##### Olivier Michel [Cyberbotics] 02/16/2021 12:40:06
 [https://github.com/cyberbotics/webots/blob/master/.github/workflows/test\_suite\_linux.yml#L102](https://github.com/cyberbotics/webots/blob/master/.github/workflows/test_suite_linux.yml#L102)
 
 
@@ -6243,7 +6243,7 @@ Or [https://github.com/cyberbotics/webots/blob/master/.github/workflows/test\_su
 ##### oroulet [Premier Service] 02/16/2021 12:41:12
 thanks . found the lines now. I think I have done something similar earlier. I will try
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 12:43:19
+##### Olivier Michel [Cyberbotics] 02/16/2021 12:43:19
 You can either make that the robot will not actually quit, but execute `wb_robot_step()` in an endless loop, or you could simply replace the robot controller with an empty or void controller from a supervisor program.
 
 ##### oroulet [Premier Service] 02/16/2021 12:45:47
@@ -6251,7 +6251,7 @@ ahah. Last comment, made me think I need a way to stop webots if I make it run i
 
 you know we are the strange guys using webots without physics 😉
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 12:47:05
+##### Olivier Michel [Cyberbotics] 02/16/2021 12:47:05
 I remember 😄 . You need to use this function: [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_simulation\_quit](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_simulation_quit)
 
 ##### oroulet [Premier Service] 02/16/2021 12:47:45
@@ -6260,19 +6260,19 @@ great . thanks
 ##### nelsondmmg 02/16/2021 14:17:19
 Thanks. Is there a way to remove the fullscreen warning when the movie recording is started by code? This step block the start of execution each time.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 15:05:36
+##### Olivier Michel [Cyberbotics] 02/16/2021 15:05:36
 Did you try the `--batch` mode?
 
 ##### Callum98 02/16/2021 15:40:12
 Hi guys, do any of the prebuilt robots have working cameras programmed in java that you know of?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 15:41:29
+##### Olivier Michel [Cyberbotics] 02/16/2021 15:41:29
 Yes, many of them have a camera and all of them can be programmed in Java.
 
 ##### Callum98 02/16/2021 15:42:44
 But are any of them written in java? Im trying to create a colour recognition robot as part of a coursework but I dont know how to get the camera working so wanna use one as an example
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 15:44:12
+##### Olivier Michel [Cyberbotics] 02/16/2021 15:44:12
 The Java example in projects/languages/java features robots with camera and Java controllers.
 
 ##### Callum98 02/16/2021 15:45:59
@@ -6281,7 +6281,7 @@ Sorry where is this?
 
 Im new to this and programming haha
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/16/2021 15:47:24
+##### Olivier Michel [Cyberbotics] 02/16/2021 15:47:24
 File menu / Open Sample World
 
 ##### Callum98 02/16/2021 15:48:02
@@ -6293,7 +6293,7 @@ Ahh thanks I did not saw this option before
 ##### bellino 02/16/2021 17:29:17
 Hello all, this may be a trivial question but I have been stuck since yesterday. I want to use ros2 due to the nav2 package but with webots as my simulator. I am struggling to figure out how to exactly use this package because I suppose I need to use different topics like cmd\_vel to publish speed etc. to. Does this package only tell me by how much to rotate my robot/ where to go or can it handle the actual joint movement?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/16/2021 19:03:02
+##### Darko Lukić [Cyberbotics] 02/16/2021 19:03:02
 Have you checked `webots_ros2_turtlebot`:
 
 [https://github.com/cyberbotics/webots\_ros2/tree/master/webots\_ros2\_turtlebot](https://github.com/cyberbotics/webots_ros2/tree/master/webots_ros2_turtlebot)
@@ -6307,7 +6307,7 @@ It implements support for navigation:
 ##### bellino 02/16/2021 21:00:43
 thank you! I also have another question. My robot has two wheels with a motor and one wheel for stabilization, I am turning by rotating the wheels in the opposite direction and using position sensors to track by how far each wheel has rotated, but the rotation is not exact. For instance, when I want to rotate by pi/2, I rotate by 1.58 instead. Is there a better way to deal with this?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/16/2021 21:33:37
+##### Darko Lukić [Cyberbotics] 02/16/2021 21:33:37
 You probably need to calibrate the axle length and wheel radius. Try with different values until you get a more accurate rotation.
 
 
@@ -6341,7 +6341,7 @@ Okay I followed the driver tutorial here [https://github.com/cyberbotics/webots\
 
 Okay a little edit, I am now using WebotsDifferentialDriveNode and it says an external controller has been started. How would I go about actually moving the robot now? Do I have to publish something to some topic?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/17/2021 07:42:39
+##### Darko Lukić [Cyberbotics] 02/17/2021 07:42:39
 Hello Daniel, that sounds as a good approach. Can you run a Python2 controller from Webots UI? Make sure `Tools > Preferences > Python command` is set to `python2`
 
 
@@ -6359,7 +6359,7 @@ This does seem to work in the webots UI itself
 
 Looking at the environment variables set in the UI, there are numerous webots variables. Defining WEBOTS\_TMP\_PATH and WEBOTS\_SERVER I now at least get an error message from running `Robot()`. But copying the values from the UI won't work as they refer to tmp paths. Is there a guide somewhere which of these and how I have to set them?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/17/2021 09:16:18
+##### Darko Lukić [Cyberbotics] 02/17/2021 09:16:18
 What you did is enough to run an external controller:
 
 ```
@@ -6384,7 +6384,7 @@ I am trying to reproduce your problem, but it works fine for me with Noetic (I d
 ##### Daniel Honerkamp 02/17/2021 09:26:23
 Hmm. Outside of the webots UI it's as simple as running robot=Robot()  for me and the python shell immediately terminates. Happens in both python2.7 and python3. I'm using ros melodic. Maybe I'm missing a step that would configure these things when not using the webots UI? I actually don't think it is related to ROS
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/17/2021 09:37:47
+##### Darko Lukić [Cyberbotics] 02/17/2021 09:37:47
 If you run only `robot = Robot()` the controller exists as there is no more things to do. You have have to add something like: `while robot.step(32) != -1: pass` to make it run.
 
 
@@ -6400,7 +6400,7 @@ In the UI I have this path: `LD_LIBRARY_PATH: /home/honerkam/Downloads/my_projec
 
 And again, if I do define these two WEBOTS\_TMP\_PATH and WEBOTS\_SERVER I at least get an error about the server path being wrong. But I don't know if that means that I got further or less far in instantiating the Robot()
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/17/2021 10:40:11
+##### Darko Lukić [Cyberbotics] 02/17/2021 10:40:11
 Are you sure the controller is crashing? Maybe it simply finished.
 
 ##### Daniel Honerkamp 02/17/2021 10:41:05
@@ -6414,7 +6414,7 @@ $python
 
 and then the python shell crashed
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/17/2021 10:41:26
+##### Darko Lukić [Cyberbotics] 02/17/2021 10:41:26
 In your LD\_LIBRARY\_PATH you are using `;` and `:` as separator. I am not sure you can use `;`, it is usually `:`
 
 
@@ -6423,7 +6423,7 @@ But since you are overriding `LD_LIBRARY_PATH` it shouldn't make a difference
 ##### Daniel Honerkamp 02/17/2021 10:42:18
 This is the path that it prints out in the webots UI where it works, not the one on my shell
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/17/2021 11:00:57
+##### Darko Lukić [Cyberbotics] 02/17/2021 11:00:57
 It is really strange. Just to confirm a few things. You use Ubuntu 18.04 and you installed Webots R2021a from a Debian package? The `python` command comes from Ubuntu, not from Conda or similar?
 
 
@@ -6447,7 +6447,7 @@ And there are really not other steps I'm missing than this to be configured corr
 
 3. start a python console
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/17/2021 11:15:00
+##### Darko Lukić [Cyberbotics] 02/17/2021 11:15:00
 The robot in the world has to have the  `controller` field equal to `<extern>`
 
 
@@ -6459,7 +6459,7 @@ If I get some idea why it doesn't work I will let you know
 ##### Steven37 02/17/2021 11:17:27
 I am trying to get familiar with the camera in webots but I am wondering is there any function where I can get the width, height and color of only the recognized object from the camera instead of the image as a whole?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/17/2021 11:30:46
+##### Olivier Michel [Cyberbotics] 02/17/2021 11:30:46
 You should probably use the recognition module of the camera device, see [https://cyberbotics.com/doc/reference/camera#wb\_camera\_recognition\_enable](https://cyberbotics.com/doc/reference/camera#wb_camera_recognition_enable)
 
 ##### Steven37 02/17/2021 11:50:02
@@ -6516,7 +6516,7 @@ I am trying to start multiple extern controllers as described here: [https://cyb
 
 I have multiple robots with the same proto but a different DEF. Is it possible to start an external robot controller and connect it to a Robot Node with a certain DEF? Otherwise, should I modify my proto files such that they have different names?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/18/2021 11:53:53
+##### Darko Lukić [Cyberbotics] 02/18/2021 11:53:53
 Hello `@Bitbots_Jasper`, usually the `name` field should be exported. For example:
 
 [https://github.com/cyberbotics/webots/blob/794d40381d6179faaadf97cb8c890116cea5ce90/projects/robots/gctronic/e-puck/protos/E-puck.proto#L13](https://github.com/cyberbotics/webots/blob/794d40381d6179faaadf97cb8c890116cea5ce90/projects/robots/gctronic/e-puck/protos/E-puck.proto#L13)
@@ -6531,13 +6531,13 @@ Hi everyone,
 
 is there a way that, if as a supervisor I have the node of a camera on a different robot, to get the image data of that camera?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/18/2021 18:08:54
+##### Darko Lukić [Cyberbotics] 02/18/2021 18:08:54
 It is not possible. You have to implement some kind of communication between those two controllers to transfer the images.
 
 ##### yanan 02/18/2021 18:10:18
 Hi everyone, it seems like it is impossible to run both a robot like dji and a vehicle at the same time within an environment?  is that right?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/18/2021 18:10:50
+##### Darko Lukić [Cyberbotics] 02/18/2021 18:10:50
 It is possible, what error do you get?
 
 ##### yanan 02/18/2021 18:12:32
@@ -6545,7 +6545,7 @@ thanks for your reply. actually, I am trying to use both dji and a tesla within 
 
      wbu\_driver\_init();'   and it reports  'Error: Only nodes based on the 'Car' node can used the car library.'
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/18/2021 18:17:05
+##### Darko Lukić [Cyberbotics] 02/18/2021 18:17:05
 There should be two controllers. One controller with `wb_robot_init` for the drone, and another one with `wbu_driver_init` for the car.
 
 ##### yanan 02/18/2021 18:24:25
@@ -6566,7 +6566,7 @@ danke schoen. I will give it a try
 ##### danielvicente 02/18/2021 18:51:07
 okay, thanks
 
-##### pk1jk1 02/18/2021 20:58:46
+##### mayank.kishore 02/18/2021 20:58:46
 Would anyone be willing to chat with me on how to create a custom launch file? Am essentially trying to us `@Darko Lukić`'s navigation package and use it on a different environment with multiple robots: 
 
 
@@ -6598,7 +6598,7 @@ So is there a way to merge each of these shapes of the 3D model (mesh?) In order
 
 Thank you in advance !
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/19/2021 08:12:10
+##### Olivier Michel [Cyberbotics] 02/19/2021 08:12:10
 Yes can either merge these object using a 3D modeling software, like Blender, or put them all together inside a Group node.
 
 ##### h.sciascia 02/19/2021 08:14:04
@@ -6609,7 +6609,7 @@ Hello again !
 
 Is that possible to launch Webots in command line (no graphical interface) ?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/19/2021 13:22:06
+##### Olivier Michel [Cyberbotics] 02/19/2021 13:22:06
 `webots --batch --minimize` should do it.
 
 ##### h.sciascia 02/19/2021 13:42:32
@@ -6624,10 +6624,10 @@ I want to implement a multi robot controller, for example to realize some algori
 ##### bellino 02/19/2021 16:17:01
 Hello, what unit is used for shape sizes in webots? I thought m at first but it doesn't seem quite right
 
-##### pk1jk1 02/19/2021 16:20:26
+##### mayank.kishore 02/19/2021 16:20:26
 Do I need to have a share directory to create a launch file?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/19/2021 16:20:28
+##### Olivier Michel [Cyberbotics] 02/19/2021 16:20:28
 Yes, it's meters.
 
 ##### bellino 02/19/2021 18:19:32
@@ -6878,7 +6878,7 @@ I keep on getting a "python.exe was not found" error when running WeBots, I've c
 
 I have windows 10
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/21/2021 09:51:26
+##### Olivier Michel [Cyberbotics] 02/21/2021 09:51:26
 Which python version did you install?
 
 ##### bertlangton 02/21/2021 09:51:54
@@ -6887,7 +6887,7 @@ Which python version did you install?
 
 Ah, managed to clear it up... but now it doesnt seem to find numpy, though I installed it with anaconda
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/21/2021 09:58:25
+##### Olivier Michel [Cyberbotics] 02/21/2021 09:58:25
 Anaconda is not supported out of the box, you should use python from python.org and pip to install numpy. Alternatively, you can recompile the python bindings to work with anaconda python. See details on this in the user guide.
 
 ##### bertlangton 02/21/2021 10:02:41
@@ -6910,7 +6910,7 @@ Hello ! I've installed Webots in Windows 10 and also in a docker in W10.
 
 I would like to run a world created under W10 with Docker Command line . Is that possible ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/22/2021 09:41:38
+##### Darko Lukić [Cyberbotics] 02/22/2021 09:41:38
 If you include the world file in your Docker image there should not be any problem. Do you want to Webots UI in Docker as well?
 
 ##### h.sciascia 02/22/2021 09:45:31
@@ -6918,7 +6918,7 @@ Ok (I'm new to Docker thanks)
 
 No UI only command line interface, I try to explore all the possibilities to speed-up simulations
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/22/2021 09:47:02
+##### Darko Lukić [Cyberbotics] 02/22/2021 09:47:02
 If you want to get a good performance in Docker make sure you use nvidia-docker (if you have NVIDIA GPU)
 
 
@@ -6929,7 +6929,7 @@ Also, check this:
 ##### h.sciascia 02/22/2021 09:48:19
 A graphic card is required ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/22/2021 09:49:22
+##### Darko Lukić [Cyberbotics] 02/22/2021 09:49:22
 It is not required, but it will boost performance, especially if you use LiDARs, cameras, range finders and similar
 
 ##### h.sciascia 02/22/2021 09:49:39
@@ -6947,7 +6947,7 @@ I am on Linux and I have a 4k screen
 
 Can you guys tell me how I can scale the UI properly? I have had a look in the docs but couldn't find anything.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/22/2021 12:36:33
+##### Darko Lukić [Cyberbotics] 02/22/2021 12:36:33
 Check this:
 
 [https://github.com/cyberbotics/webots/pull/2631](https://github.com/cyberbotics/webots/pull/2631)
@@ -6968,13 +6968,13 @@ QT_ENABLE_HIGHDPI_SCALING = 1
 ##### cindy 02/22/2021 13:57:22
 Hi guys for ultrasonic sensors, in the actual code, is there a way of editing the angle range at which rays will be returned from 45 to something else?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/22/2021 14:19:33
+##### Olivier Michel [Cyberbotics] 02/22/2021 14:19:33
 Do you want to change the `DistanceSensor.aperture` value at run-time?
 
 ##### cindy 02/22/2021 14:19:59
 Yes, basically. Because we need to detect lots of small objects from a distance
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/22/2021 14:20:18
+##### Olivier Michel [Cyberbotics] 02/22/2021 14:20:18
 But if you change it in the model, wouldn't that be sufficient?
 
 ##### cindy 02/22/2021 14:21:00
@@ -6983,7 +6983,7 @@ Ah how do you do that
 
 I have not got much webots experience sadly
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/22/2021 14:21:30
+##### Olivier Michel [Cyberbotics] 02/22/2021 14:21:30
 See [https://cyberbotics.com/doc/reference/distancesensor](https://cyberbotics.com/doc/reference/distancesensor)
 
 ##### cindy 02/22/2021 14:22:39
@@ -7004,7 +7004,7 @@ I want to use this model as my boundingObject because i do not have a mesh file 
 
 What do you think? I do not find an answer on the web
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 15:48:52
+##### Simon Steinmann [Moderator] 02/22/2021 15:48:52
 a urdf file does not contain any 3D model definitions itself
 
 
@@ -7022,7 +7022,7 @@ it converts urdf files into proto files, which you can directly load into Webots
 ##### h.sciascia 02/22/2021 15:52:12
 I want to find a way to "resolve"/get around this issue [https://github.com/cyberbotics/webots/issues/2584](https://github.com/cyberbotics/webots/issues/2584)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 15:55:13
+##### Simon Steinmann [Moderator] 02/22/2021 15:55:13
 I'm not sure how your urdf comes into play here
 
 
@@ -7031,7 +7031,7 @@ you can use the shapes of your model as your bounding objects
 ##### h.sciascia 02/22/2021 15:56:54
 Not for boundingObject Group nodes..
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 15:57:37
+##### Simon Steinmann [Moderator] 02/22/2021 15:57:37
 share your world file (project dir) and urdf pls
 
 
@@ -7042,14 +7042,14 @@ Ok I send you a pm in the evening
 
  `@Darko Lukić` must see what i mean
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 16:21:59
+##### Simon Steinmann [Moderator] 02/22/2021 16:21:59
 I dont quite understand the issue to be honest
 
 ##### Steven37 02/22/2021 17:22:49
 I am using a Pioneer robot with a camera attached to take a picture of the trees on the sides like in the video. Then I want it to print out some of the characteristics of those trees but nothing is printed. I have successfully tried with one tree, but it didn't work when I put several trees at the same time like that. Can someone tell me why, please? Thank you!
 > **Attachment**: [3Y\_Iproject\_Pioneer3AT\_cameraTesting.mp4](https://cdn.discordapp.com/attachments/565154703139405824/813460803847454823/3Y_Iproject_Pioneer3AT_cameraTesting.mp4)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:23:43
+##### Simon Steinmann [Moderator] 02/22/2021 17:23:43
 Perhaps is something as simple as the trees not having unique names
 
 ##### Steven37 02/22/2021 17:23:47
@@ -7058,7 +7058,7 @@ Also, here's my code to print it out. I can still print "Hello World" but there 
 ![3Y_Iproject_Pioneer_cameraTesting.JPG](https://cdn.discordapp.com/attachments/565154703139405824/813461049537200189/3Y_Iproject_Pioneer_cameraTesting.JPG)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:26:56
+##### Simon Steinmann [Moderator] 02/22/2021 17:26:56
 did you enable object recognition?
 
 
@@ -7067,7 +7067,7 @@ did you enable object recognition?
 ##### Steven37 02/22/2021 17:28:21
 Must all the trees have a different name? So why doesn't it print the figure for a tree in it?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:28:38
+##### Simon Steinmann [Moderator] 02/22/2021 17:28:38
 was just a suggestion. can you post your entire code?
 
 ##### Steven37 02/22/2021 17:29:37
@@ -7076,7 +7076,7 @@ yes, i think so
 ![Pioneer_cameraEnable.JPG](https://cdn.discordapp.com/attachments/565154703139405824/813462518147710986/Pioneer_cameraEnable.JPG)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:31:09
+##### Simon Steinmann [Moderator] 02/22/2021 17:31:09
 > Only Solids whose recognitionColors field is not empty can be recognized by the camera.
 
 ##### Steven37 02/22/2021 17:35:52
@@ -7091,7 +7091,7 @@ that's my code
 ![3Y_pioneer_code2.JPG](https://cdn.discordapp.com/attachments/565154703139405824/813464160930889759/3Y_pioneer_code2.JPG)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:36:40
+##### Simon Steinmann [Moderator] 02/22/2021 17:36:40
 do the trees have recognition colors assigned?
 
 ##### Steven37 02/22/2021 17:36:57
@@ -7103,7 +7103,7 @@ and this is my solid scene tree
 
 Is there any problem?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:40:12
+##### Simon Steinmann [Moderator] 02/22/2021 17:40:12
 I have never used this functionality
 
 
@@ -7127,7 +7127,7 @@ how can I?
 
 I have successfully tried with one tree before
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:44:29
+##### Simon Steinmann [Moderator] 02/22/2021 17:44:29
 just set the velocities and then execute the while loop
 
 
@@ -7136,7 +7136,7 @@ you can have an if statement in the loop, that aborts it or sets the speed to 0 
 ##### Steven37 02/22/2021 17:48:48
 I removed the stop section but still didn't work
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:49:11
+##### Simon Steinmann [Moderator] 02/22/2021 17:49:11
 the 140*timestep is the issue
 
 ##### Steven37 02/22/2021 17:49:12
@@ -7145,7 +7145,7 @@ how can I share my project to you?
 
 Why?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:49:27
+##### Simon Steinmann [Moderator] 02/22/2021 17:49:27
 just zip the project folder
 
 
@@ -7154,7 +7154,7 @@ well you execute 140 timesteps, BEFORE you start your object recognition
 ##### Steven37 02/22/2021 17:55:11
 I have changed it but still the same
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:55:27
+##### Simon Steinmann [Moderator] 02/22/2021 17:55:27
 zip your project and send it to me
 
 
@@ -7164,7 +7164,7 @@ just drag & drop in discord
 this is the world
 > **Attachment**: [Pioneer3AT.wbt](https://cdn.discordapp.com/attachments/565154703139405824/813469090978332732/Pioneer3AT.wbt)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:56:04
+##### Simon Steinmann [Moderator] 02/22/2021 17:56:04
 the whole directory, with the controllers folder and the worlds folder
 
 ##### Steven37 02/22/2021 17:56:17
@@ -7174,7 +7174,7 @@ this is my controller
 
 sorry but is it still ok?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 17:57:15
+##### Simon Steinmann [Moderator] 02/22/2021 17:57:15
 whole directory is much easier for me
 
 
@@ -7184,7 +7184,7 @@ I dont have to manually create and name all the folders
 
 > **Attachment**: [3Y\_Webots\_Pioneer.rar](https://cdn.discordapp.com/attachments/565154703139405824/813470919791476776/3Y_Webots_Pioneer.rar)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:03:32
+##### Simon Steinmann [Moderator] 02/22/2021 18:03:32
 of course this does not work
 
 
@@ -7196,13 +7196,13 @@ dont execute robot steps outside of your loop
 ##### Steven37 02/22/2021 18:06:51
 still the same when i put those code into the loop
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:07:04
+##### Simon Steinmann [Moderator] 02/22/2021 18:07:04
 show me that code
 
 ##### Steven37 02/22/2021 18:08:08
 i just cut all the movement code above and paste them inside the while loop
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:08:20
+##### Simon Steinmann [Moderator] 02/22/2021 18:08:20
 dont call the timestep
 
 
@@ -7217,7 +7217,7 @@ yes, i have changed it as wll
 
 as well
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:09:07
+##### Simon Steinmann [Moderator] 02/22/2021 18:09:07
 works perfectly for me
 
 ##### Steven37 02/22/2021 18:09:26
@@ -7226,7 +7226,7 @@ can you show me, please?
 
 What have you changed exactly?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:10:30
+##### Simon Steinmann [Moderator] 02/22/2021 18:10:30
 
 > **Attachment**: [MyPoineer3AT\_controller.c](https://cdn.discordapp.com/attachments/565154703139405824/813472806300942376/MyPoineer3AT_controller.c)
 
@@ -7236,7 +7236,7 @@ as I said. removed all the extra robot steps
 ##### Steven37 02/22/2021 18:16:45
 So if I don't just go straight now but I want my robot to turn at some points, what can I do? I think I must use wb\_robot\_step () to do that.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:20:25
+##### Simon Steinmann [Moderator] 02/22/2021 18:20:25
 Do it like this
 > **Attachment**: [MyPoineer3AT\_controller.c](https://cdn.discordapp.com/attachments/565154703139405824/813475300750524416/MyPoineer3AT_controller.c)
 
@@ -7253,7 +7253,7 @@ I wrote the code like this so the robot can move the way I want, but this time i
 ![3Y_pioneer_movement.JPG](https://cdn.discordapp.com/attachments/565154703139405824/813478543127609344/3Y_pioneer_movement.JPG)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:34:25
+##### Simon Steinmann [Moderator] 02/22/2021 18:34:25
 check the newest example I uploaded
 
 
@@ -7268,7 +7268,7 @@ I don't know what can be said to thank you
 
 Thank you, love you so much!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/22/2021 18:45:33
+##### Simon Steinmann [Moderator] 02/22/2021 18:45:33
 just pass on your knowledge once you gathered more expertise 🙂
 
 
@@ -7292,13 +7292,13 @@ there might be an easier way to do it though 😄
 
 I also have a question. I am looking to adjust the maximum velocity of a motor from my (non supervisor) controller. I had the idea to export the field from the proto, but this a) requires a supervisor and b) does not work without reloading the model. Does anybody have an idea? I am basically looking for an alternative to the function setMaxVelocity() (which does not exist)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/23/2021 10:09:50
+##### Olivier Michel [Cyberbotics] 02/23/2021 10:09:50
 Are you applying position, velocity or force control?
 
 ##### Bitbots\_Jasper [Moderator] 02/23/2021 10:10:01
 position control
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/23/2021 10:15:58
+##### Olivier Michel [Cyberbotics] 02/23/2021 10:15:58
 Did you try to use `wb_motor_set_velocity` followed by `wb_motor_set_position`? Does it take the specified velocity to achieve the requested position?
 
 ##### Bitbots\_Jasper [Moderator] 02/23/2021 10:16:17
@@ -7310,7 +7310,7 @@ That seems to work, I assumed, that `wb_motor_set_velocity` was only for velocit
 
 thank you for your help `@Olivier Michel`
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/23/2021 10:23:37
+##### Olivier Michel [Cyberbotics] 02/23/2021 10:23:37
 I believe it is clear also from this table: [https://cyberbotics.com/doc/reference/motor#force-and-torque-control](https://cyberbotics.com/doc/reference/motor#force-and-torque-control)
 
 ##### Bitbots\_Jasper [Moderator] 02/23/2021 10:25:59
@@ -7329,7 +7329,7 @@ I also have enabled the recognitionColors like this
 ##### Harris 02/23/2021 12:14:47
 Hi, I am pretty new to webots. I am wondering if there's anyway to transfer list type data from a supervisor to a robot controller in Python? I use emmitter/reciever function(emmitter.send) but can only transfer string, thank you lol.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/23/2021 12:20:59
+##### Olivier Michel [Cyberbotics] 02/23/2021 12:20:59
 `recognitionColors` is not meant for that: it is to assign a color to each object so that the object gets segmented with that color. If you want to recognize the color of the cube, you should read the pixels of the camera image instead.
 
 
@@ -7341,7 +7341,7 @@ Can someone please suggest a pick and transport algorithm using a camera?
 ##### Steven37 02/23/2021 12:50:30
 Can you explain to me in a little more detail, please? I don't really get that yet.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/23/2021 13:44:24
+##### Olivier Michel [Cyberbotics] 02/23/2021 13:44:24
 You should look at this example to understand how to recognize the color of an object from a camera image: [https://cyberbotics.com/doc/guide/samples-devices#camera-wbt](https://cyberbotics.com/doc/guide/samples-devices#camera-wbt)
 
 ##### iagsav 02/23/2021 13:51:39
@@ -7366,13 +7366,13 @@ Thank you!
 ##### John520 02/23/2021 15:09:09
 Hi guys, I'd like to import a CAD vehicle model into Webots. I am happy that the latest Webots release already supports the direct importation of .stl and .obj model. My question is how to make the imported vehicle run, just like the vehicles here [https://cyberbotics.com/doc/automobile/car](https://cyberbotics.com/doc/automobile/car). Thanks a lot.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/23/2021 15:11:21
+##### Olivier Michel [Cyberbotics] 02/23/2021 15:11:21
 Importing meshes isn't enough to model a robot. You should follow the tutorial about robot modeling: [https://cyberbotics.com/doc/guide/tutorials](https://cyberbotics.com/doc/guide/tutorials) (at least until tutorial 7).
 
 ##### John520 02/23/2021 15:51:25
 Thank you `@Olivier Michel`. I went through the tutorial before. Am I right that I will need to add joints and motors to the wheels for the imported vehicle to run?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/23/2021 15:53:12
+##### Olivier Michel [Cyberbotics] 02/23/2021 15:53:12
 Yes.
 
 ##### John520 02/23/2021 15:54:31
@@ -7405,7 +7405,7 @@ Do you had this issue ?
 
 Thank in advance !
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:14:59
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:14:59
 Why do you want to mount the Windows folder to `/usr/local`?
 
 
@@ -7417,7 +7417,7 @@ Oh ok ..
 
 I just want to run my Webots developped under Windows in a Docker container (to see if the simulation speed up without GUI)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:24:03
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:24:03
 Then you have to mount only the Webots project folder (from Windows)
 
 ##### h.sciascia 02/23/2021 16:24:12
@@ -7425,45 +7425,45 @@ It's ok now with this :
 
 `docker run -it -v c:/Users/h.sciascia/Documents/Webots:/data cyberbotics/webots:latest ls /data`
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:24:49
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:24:49
 Looks better
 
 ##### h.sciascia 02/23/2021 16:24:51
 Thanks, i did not know that webots was at /usr/local
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:25:33
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:25:33
 But your simulation will not run faster in Docker because the Docker image uses a virtual display. In the best case, it will run at the same speed.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:25:55
+##### Simon Steinmann [Moderator] 02/23/2021 16:25:55
 `@Darko Lukić` Is Webots actually running headless in docker, when not using any visual based sensors?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:26:42
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:26:42
 No, it never uses truly headless mode.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:26:51
+##### Simon Steinmann [Moderator] 02/23/2021 16:26:51
 For parallel simulation, this is the main thing holding Webots back compared to Pybullet
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:28:23
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:28:23
 We should implement something like this:
 
 [https://developer.nvidia.com/blog/egl-eye-opengl-visualization-without-x-server/](https://developer.nvidia.com/blog/egl-eye-opengl-visualization-without-x-server/)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:29:37
+##### Simon Steinmann [Moderator] 02/23/2021 16:29:37
 It would probably be a very tall order, but the Server-Client setup of gazebo and PyBullet makes a lot of sense. Wish Webots would support that
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:29:49
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:29:49
 Do you have some analysis of that. I would like to know what was the bottleneck for you, VRAM or RAM?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:30:07
+##### Simon Steinmann [Moderator] 02/23/2021 16:30:07
 both
 
 
 If I remember correctly, Vram was always at 800 MB, even when minimized and not rendering anything
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:30:40
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:30:40
 How much RAM/VRAM usage, how many instances, and what is the world complexity?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:30:56
+##### Simon Steinmann [Moderator] 02/23/2021 16:30:56
 it was a very simple world with just a robotic arm
 
 
@@ -7475,7 +7475,7 @@ was like 5 month ago
 ##### h.sciascia 02/23/2021 16:31:42
 So there is no way to run faster the simulation using Windows 10 ? :/
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:31:46
+##### Simon Steinmann [Moderator] 02/23/2021 16:31:46
 webots also used I think 1.1 GB of ram minimum. However, now on windows, I see it uses below 370MB
 
 
@@ -7490,28 +7490,28 @@ it was cpu only simulation, so it kinda sucked to spend resources on something t
 
 What is your goal, what are you simulating?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:35:35
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:35:35
 I have just tested, it is 330MB with `pioneer3at.wbt` (relatively big world + LiDAR)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:35:52
+##### Simon Steinmann [Moderator] 02/23/2021 16:35:52
 windows or linux?
 
 ##### h.sciascia 02/23/2021 16:39:05
 I cannot explain a lot for confidentiality reason but I use an URDF robot which explore all of its envrionment to detect the collisions (with a personalised physics plugin), go through them and save each collision in a CSV file
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:39:25
+##### Simon Steinmann [Moderator] 02/23/2021 16:39:25
 Yeah, on windows I get 360MB RAM and 220MB VRAM. That is already MUCH better. I still wish it would be possible to run without any gui at all
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:39:33
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:39:33
 Linux
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:39:59
+##### Simon Steinmann [Moderator] 02/23/2021 16:39:59
 mobile robot or robotic arm?
 
 ##### h.sciascia 02/23/2021 16:40:11
 So I did simulation for 1-2-3-4 DOF, but with 5 DOF it's becoming really really long (should take 2-3 days to explore all the possibilities)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:40:34
+##### Simon Steinmann [Moderator] 02/23/2021 16:40:34
 did you profile your code?
 
 
@@ -7529,10 +7529,10 @@ No IK , just iterative imbricated loop for be sure to run trhough all the possib
 
 yep i did the increase for step size of the motors and use cubes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:42:29
+##### Simon Steinmann [Moderator] 02/23/2021 16:42:29
 what is your realtime factor?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:47:48
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:47:48
 `@h.sciascia`  As Simon mentioned, you should profile your controller and the physics plugin. The controller is usually cause for the slow simulations.
 
 ##### MrPie 02/23/2021 16:48:34
@@ -7541,7 +7541,7 @@ Hi, just created my robot and I wanted to add a rgbD camera (RFID camera ) But I
 
 RgbD is a depth camera
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:49:11
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:49:11
 You should combine the camera node and the range finder node
 
 ##### MrPie 02/23/2021 16:49:41
@@ -7550,7 +7550,7 @@ Oh OK, will have a look into that
 
 Thanks so much
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/23/2021 16:50:39
+##### Darko Lukić [Cyberbotics] 02/23/2021 16:50:39
 Just use the same pose for both nodes and the same intrinsic parameters (e.g. FoV)
 
 
@@ -7558,7 +7558,7 @@ I discovered a bug:
 
 [https://github.com/cyberbotics/webots/issues/2776](https://github.com/cyberbotics/webots/issues/2776)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 16:51:27
+##### Simon Steinmann [Moderator] 02/23/2021 16:51:27
 let me verify
 
 
@@ -7605,7 +7605,7 @@ Has anyone worked on a simple object transportation algorithm using a camera wit
 
 I'm essentially trying to search for an object and transport it to a "nest" in the fastest way possible avoiding any obstacles
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:26:19
+##### Simon Steinmann [Moderator] 02/23/2021 20:26:19
 what do you mean by "transport" ?
 
 
@@ -7614,7 +7614,7 @@ Are we talking abstract 3d movement, or a roboter manipulating it?
 ##### Srivastav\_Udit 02/23/2021 20:27:46
 I've created a robot that is supposed to detect a ball in an arena and transport it to a nest
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:28:01
+##### Simon Steinmann [Moderator] 02/23/2021 20:28:01
 can you share a screenshot?
 
 ##### Srivastav\_Udit 02/23/2021 20:29:41
@@ -7623,13 +7623,13 @@ can you share a screenshot?
 ![PXL_20210223_202905478.jpg](https://cdn.discordapp.com/attachments/565154703139405824/813870218840375306/PXL_20210223_202905478.jpg)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:30:21
+##### Simon Steinmann [Moderator] 02/23/2021 20:30:21
 oh, is this your actual physical setup?
 
 ##### Srivastav\_Udit 02/23/2021 20:30:49
 Yes, the robot has a gripper that can hold the ball
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:31:02
+##### Simon Steinmann [Moderator] 02/23/2021 20:31:02
 are you using ROS?
 
 
@@ -7638,7 +7638,7 @@ to control the bot
 ##### Srivastav\_Udit 02/23/2021 20:31:46
 No, I'm not very familiar with ROS yet
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:32:19
+##### Simon Steinmann [Moderator] 02/23/2021 20:32:19
 are you using an overhead camera? or onboard?
 
 
@@ -7650,7 +7650,7 @@ I have a camera attached to the bot. It essentially spins till it detects the ba
 
 I'm trying to work out how it can find the best path to the nest avoiding obstacles. I also need to understand how I can release the ball in the nest and then go search the arena again.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:35:45
+##### Simon Steinmann [Moderator] 02/23/2021 20:35:45
 sorry, I dont have experience with this
 
 
@@ -7680,13 +7680,13 @@ but if you want to get into robotics, it's really useful to know ROS
 ##### Srivastav\_Udit 02/23/2021 20:39:35
 Do you have any algorithm/sample project I could use for reference?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:39:53
+##### Simon Steinmann [Moderator] 02/23/2021 20:39:53
 no, sorry
 
 ##### Srivastav\_Udit 02/23/2021 20:40:49
 Can you give me a reference point to get started with ROS? I don't have a lot of obstacles in my environment but I do have to attempt a swarm implementation later on.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:43:20
+##### Simon Steinmann [Moderator] 02/23/2021 20:43:20
 ROS takes a while to wrap your head around
 
 ##### Bitbots\_Jasper [Moderator] 02/23/2021 20:43:43
@@ -7698,7 +7698,7 @@ yes `@Simon Steinmann`  is right, it takes quite a bit of time to get to know it
 
 there is also the ROS2 controller for webots [https://github.com/cyberbotics/webots\_ros2](https://github.com/cyberbotics/webots_ros2)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/23/2021 20:45:06
+##### Simon Steinmann [Moderator] 02/23/2021 20:45:06
 [https://www.theconstructsim.com/](https://www.theconstructsim.com/) I did this online academy. Yes it cost a bit of money, but I learned in 2 weeks much more than I did in the 2-3 moth before, trying to figure it out myself
 
 ##### Bitbots\_Jasper [Moderator] 02/23/2021 20:45:52
@@ -7814,13 +7814,13 @@ you should have created a `robot.proto`file, to define the robot. can you share 
 
  if you dont want it publicly, you can also pm me
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 11:39:42
+##### Simon Steinmann [Moderator] 02/24/2021 11:39:42
 realtime factor is the speed your simulation runs at. If you had an absolutely perfect 1x realtime factor, the simulation time and real time would progress at the same rate. From what you describe, you should be able to get realtime factors in the area of 10x-200x. Of course this also heavily depends on your system, in particualr the single core speed of your CPU. What are your system specs?
 
 ##### Callum98 02/24/2021 11:41:08
 I don't think I have a proto file, the protos folder is empty. Don't worry they aren't too bad, should be good enough for my robot to work, thank you for the help anyway
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 11:41:30
+##### Simon Steinmann [Moderator] 02/24/2021 11:41:30
 `@Callum98` how did you add the cameras?
 
 
@@ -7835,13 +7835,13 @@ look at your robot node in the scene tree on the left. What settings do you have
 ##### Callum98 02/24/2021 11:42:37
 In robot children clicked the add button and specified camera, creating a shape as something to see
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 11:43:05
+##### Simon Steinmann [Moderator] 02/24/2021 11:43:05
 the default resolution is 64x64
 
 ##### Callum98 02/24/2021 11:43:55
 How do I change the resolution so I can show camera image bigger? without it losing focus
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 11:44:37
+##### Simon Steinmann [Moderator] 02/24/2021 11:44:37
 expand the camera node
 
 
@@ -7859,7 +7859,7 @@ Like this, I just want the image to be a bit clearer
 ![Camera.png](https://cdn.discordapp.com/attachments/565154703139405824/814101812394852372/Camera.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 11:50:20
+##### Simon Steinmann [Moderator] 02/24/2021 11:50:20
 increase the resolution
 
 ##### Callum98 02/24/2021 11:55:45
@@ -7872,19 +7872,19 @@ Yes, there is two mean time, when I saved nothing simulation can go 300-400x, an
 
 Very old specs : 4GB Ram, Intel Core i5 4310U (2-2.6 GHz) , no graphic card
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 12:39:34
+##### Simon Steinmann [Moderator] 02/24/2021 12:39:34
 that is already really good. I dont think you'll get much faster than that. But for your task you might want to look into different solutions, as you dont require physics
 
 ##### h.sciascia 02/24/2021 12:40:37
 Yes I will try ROS , maybe it's better for my app
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 12:41:01
+##### Simon Steinmann [Moderator] 02/24/2021 12:41:01
 just rviz or moveit could work
 
 ##### h.sciascia 02/24/2021 12:41:37
 Ok I will try them, thanks a lot ! 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/24/2021 12:42:03
+##### Simon Steinmann [Moderator] 02/24/2021 12:42:03
 [https://github.com/BerkeleyAutomation/python-fcl](https://github.com/BerkeleyAutomation/python-fcl)
 
 
@@ -7896,7 +7896,7 @@ Ok it's noted , thanks !
 ##### John520 02/24/2021 15:17:48
 Hi `@Olivier Michel`, I'd like to follow up on the question I asked yesterday. In order to run the imported vehicle, I will need to add joints and motors to the wheels. In the tutorial [https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot?tab-language=c++](https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot?tab-language=c++), a controller is used to control the motors. My question is, could I use ROS to control the motors? Thank you!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/24/2021 15:20:48
+##### Olivier Michel [Cyberbotics] 02/24/2021 15:20:48
 Yes, of course. There are many online tutorials explaining how to use ROS and ROS 2 with Webots.
 
 ##### John520 02/24/2021 15:30:08
@@ -7908,7 +7908,7 @@ Hi there, I would like to generate a  dataset by frequently setting the position
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/814168637875027998/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/24/2021 16:24:00
+##### Olivier Michel [Cyberbotics] 02/24/2021 16:24:00
 It looks good to me. The error is probably somewhere else...
 
 ##### Bitbots\_Jasper [Moderator] 02/24/2021 16:29:55
@@ -7950,7 +7950,7 @@ good to hear it works 👍
 ##### yanan 02/24/2021 17:47:39
 sorry to bother again. is there any way to share variables or communication between two controllers, such as mavic2pro and Tesla. Actually, I checked the Emitter and Receiver, it seems like it is for robots,  not robot and vehicle?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/24/2021 18:14:00
+##### Olivier Michel [Cyberbotics] 02/24/2021 18:14:00
 A vehicle in Webots is a Robot. So, it should work with Emitter/Receiver.
 
 ##### yanan 02/24/2021 18:14:46
@@ -7962,7 +7962,7 @@ just a feedback,  you are right, it works.  thanks
 ##### Kirlin 02/24/2021 22:06:53
 Hello everyone, I am migrating the simulation of my robot project to Webots and, to be as close to reality as possible, I would like to use a controller based on ros topics, not services like the premade controller on Webots\_ros package. I tried use the Custom Ros Controller tutorials on the webots website itself, but I didn't get any results in compiling webots and ros together. Do you suggest any tutorial or material bigger or more complete than the site?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 07:51:07
+##### Darko Lukić [Cyberbotics] 02/25/2021 07:51:07
 Hello, here is a custom ROS controller example:
 
 [https://github.com/cyberbotics/webots\_ros/blob/master/scripts/ros\_python.py](https://github.com/cyberbotics/webots_ros/blob/master/scripts/ros_python.py)
@@ -7978,7 +7978,7 @@ Hi.
 
 How can i stop conveyorBelt in python?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 13:20:15
+##### Darko Lukić [Cyberbotics] 02/25/2021 13:20:15
 You can use Supervisor to get the speed field and set it to 0:
 
 [https://cyberbotics.com/doc/reference/supervisor](https://cyberbotics.com/doc/reference/supervisor)
@@ -7992,7 +7992,7 @@ I am planning to build a a kaleidoscope.
 
 I know it sounds weird, but I just wanted to give it a try.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 13:46:45
+##### Darko Lukić [Cyberbotics] 02/25/2021 13:46:45
 [https://cyberbotics.com/doc/guide/object-mirror](https://cyberbotics.com/doc/guide/object-mirror)
 
 ##### yanan 02/25/2021 14:26:36
@@ -8001,7 +8001,7 @@ Hi all, I am trying to move the vehicle into different postions in a loop, do yo
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/814503623235993620/unknown.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 14:32:16
+##### Darko Lukić [Cyberbotics] 02/25/2021 14:32:16
 You cannot use `sleep(1)` you need `wb_robot_step(1024)` instead
 
 ##### yanan 02/25/2021 14:41:45
@@ -8016,13 +8016,13 @@ I am trying to get conveyorBelt speed but it's not work
 ##### yanan 02/25/2021 14:43:17
 you saved my afternoon. danke schoen
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 14:44:35
+##### Darko Lukić [Cyberbotics] 02/25/2021 14:44:35
 If you use `getFromDef` then you have to match DEF of the ConveyorBelt
 
 ##### Chernayaten 02/25/2021 14:45:06
 You probably need to do getSFFloat  to get the speed, and you should also be doing that inside the while, otherwise the value will not update
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 14:46:18
+##### Darko Lukić [Cyberbotics] 02/25/2021 14:46:18
 
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/814508581600755724/unknown.png)
@@ -8040,7 +8040,7 @@ thank you
 ##### Le Fromage 02/25/2021 15:28:24
 does anyone know how to set the point of rotation for a shape?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/25/2021 15:28:55
+##### Simon Steinmann [Moderator] 02/25/2021 15:28:55
 what do you mean by point of rotation?
 
 ##### Le Fromage 02/25/2021 15:31:37
@@ -8049,7 +8049,7 @@ im pretty new, im basically trying to make 4 legs for an animal of some sort
 
 so the rotational motor would need to be at the top of the leg
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/25/2021 15:34:01
+##### Simon Steinmann [Moderator] 02/25/2021 15:34:01
 a motor is always inside of hingejoint. And a hingejoint connects two Solids
 
 
@@ -8085,7 +8085,7 @@ Hi, is it possible to give an object a malleability property?
 
 And other question, is it possible to limit the render distance in order to optimize the simulation performance?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 16:27:10
+##### Darko Lukić [Cyberbotics] 02/25/2021 16:27:10
 You can start a Webots instance and external controller pair with the same `WEBOTS_TMPDIR`:
 
 [https://cyberbotics.com/doc/guide/running-extern-robot-controllers#running-extern-robot-controller-with-the-snap-version-of-webots](https://cyberbotics.com/doc/guide/running-extern-robot-controllers#running-extern-robot-controller-with-the-snap-version-of-webots)
@@ -8097,7 +8097,7 @@ That way you are sure multiple Webots instance/controller pairs are isolated fro
 ##### Steven37 02/25/2021 16:31:32
 yes, i have for all green, blue and red. I don't know why only green is right but the other two are wrong.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 16:31:58
+##### Darko Lukić [Cyberbotics] 02/25/2021 16:31:58
 No, Webots is a rigid body physics simulator
 
 
@@ -8138,7 +8138,7 @@ how can i see the value of "range Slider" in cyberbotic website?
 ##### Vangiel 02/25/2021 18:27:17
 Hello, is there any implementation to check if a collision between two entities has occurred? (Using python)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/25/2021 19:01:29
+##### Darko Lukić [Cyberbotics] 02/25/2021 19:01:29
 You can use the touch sensor:
 
 [https://cyberbotics.com/doc/reference/touchsensor](https://cyberbotics.com/doc/reference/touchsensor)
@@ -8160,7 +8160,7 @@ Thank you, I will give it a try
 ##### yanan 02/26/2021 09:33:09
 Hello, I am using two controllers, one for Mavic2Pro with an emitter, the other for TeslaModel3 with a receiver.  The Tesla is receiving the position information from the drone. However, it seems like the receiver can not real-timely get the latest info from the emitter, it can only get a pack one by one hence resulting in a delay to get the latest info from the emitter.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 09:34:07
+##### Darko Lukić [Cyberbotics] 02/26/2021 09:34:07
 How do you receive the messages?
 
 ##### yanan 02/26/2021 09:35:11
@@ -8175,7 +8175,7 @@ How do you receive the messages?
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/814792782798913546/unknown.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 09:39:40
+##### Darko Lukić [Cyberbotics] 02/26/2021 09:39:40
 If you send N messages in the single step you receive only 1?
 
 ##### yanan 02/26/2021 09:40:45
@@ -8184,7 +8184,7 @@ yeah, that's true.  and that 1 is not latest
 
 is there any synchronization mechanism between two controllers using emitter and receiver?  or do I have to use same amount of sending packs and receiving packs?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 09:43:50
+##### Darko Lukić [Cyberbotics] 02/26/2021 09:43:50
 That is strange. Can you send us a minimal example?
 
 
@@ -8201,7 +8201,7 @@ this is a simplified version of two controllers
 
 it might also because the emitting frequency is different from receiver's.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 09:51:39
+##### Darko Lukić [Cyberbotics] 02/26/2021 09:51:39
 But you are sending only one message per step
 
 
@@ -8216,7 +8216,7 @@ Sure,  much appreciated for that.
 
 I am using Windows 10 with the latest version of Webots
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 10:13:10
+##### Darko Lukić [Cyberbotics] 02/26/2021 10:13:10
 Inside of `while (wb_receiver_get_queue_length(receiver) > 0)` you are essentially doing:
 
 ```
@@ -8250,22 +8250,22 @@ where R is the 3×3 submatrix describing rotation and T is the 3×1 submatrix de
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/814809890202845204/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 10:56:20
+##### Simon Steinmann [Moderator] 02/26/2021 10:56:20
 `@h.sciascia` what language are you using?
 
 ##### h.sciascia 02/26/2021 10:56:28
 Python
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 10:56:33
+##### Simon Steinmann [Moderator] 02/26/2021 10:56:33
 use numpy then
 
 ##### h.sciascia 02/26/2021 10:57:09
 I cannot get it with a node ? Like a GPS ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 10:57:14
+##### Darko Lukić [Cyberbotics] 02/26/2021 10:57:14
 [https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_position](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_position)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 10:57:18
+##### Simon Steinmann [Moderator] 02/26/2021 10:57:18
 take a look at this python module I made for getting relative positions
 > **Attachment**: [get\_relative\_position.py](https://cdn.discordapp.com/attachments/565154703139405824/814813337358434325/get_relative_position.py)
 
@@ -8280,19 +8280,19 @@ you can fill a 4x4 array like this
 ##### h.sciascia 02/26/2021 10:59:00
 Thanks, I will try the two solutions ! 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 10:59:14
+##### Simon Steinmann [Moderator] 02/26/2021 10:59:14
 if you want a working ik / fk solution, let us know 😉
 
 ##### h.sciascia 02/26/2021 10:59:42
 Yes I find one with PyRobotics for FK
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 10:59:57
+##### Simon Steinmann [Moderator] 02/26/2021 10:59:57
 do you need FK only, or also IK?
 
 ##### Steven37 02/26/2021 11:29:22
 Is it possible for me to use supervisor to remove an object and adding a new object to the same position?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 11:29:36
+##### Simon Steinmann [Moderator] 02/26/2021 11:29:36
 yes
 
 
@@ -8304,14 +8304,14 @@ remove and insert Field
 ##### Steven37 02/26/2021 11:39:38
 If possible, is there any sample code on how to use those functions to do that?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 12:03:35
+##### Simon Steinmann [Moderator] 02/26/2021 12:03:35
 this is an example to spawn a node in a field
 > **Attachment**: [spawn\_target.py](https://cdn.discordapp.com/attachments/565154703139405824/814830020979064832/spawn_target.py)
 
 ##### h.sciascia 02/26/2021 12:32:08
 FK only, I use IKPY for IK
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 02/26/2021 12:37:57
+##### Simon Steinmann [Moderator] 02/26/2021 12:37:57
 ikpy has fk
 
 
@@ -8341,7 +8341,7 @@ The original confusion came from rospy checking the parameter `ROS_NAMESPACE`at 
 ##### SirLambda 02/26/2021 14:46:13
 Hello, is it possible that I use different contact materials or textures for certain vertices in an IndexedFaceSet for example?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/26/2021 14:49:24
+##### Olivier Michel [Cyberbotics] 02/26/2021 14:49:24
 No: you will have to create two IndexedFaceSet nodes for that.
 
 ##### SirLambda 02/26/2021 14:52:43
@@ -8350,7 +8350,7 @@ Ok, thank you for the quick answer 🙂
 ##### Icy\_Flurry 02/26/2021 14:58:21
 what units do the pioneer 3dx distance sensors use?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 15:31:18
+##### Darko Lukić [Cyberbotics] 02/26/2021 15:31:18
 They use the following lookup table:
 
 ```
@@ -8370,7 +8370,7 @@ thanks, ill look at that!
 
 i dont quite understand how i would use that to convert the readings into mm/cm/m
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 02/26/2021 17:20:54
+##### Darko Lukić [Cyberbotics] 02/26/2021 17:20:54
 The lookup table emulates the raw readings from the sensor
 
 
@@ -8390,7 +8390,7 @@ Hi, i was just wondering if anyone could tell me how to get a light sensor to di
 ##### Krish 02/27/2021 06:14:10
 Did you try performing image processing by a camera provided in the robot(if any) and using color detection algorithms, differentiate between colors.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/27/2021 07:57:14
+##### Olivier Michel [Cyberbotics] 02/27/2021 07:57:14
 Did you try to set a `colorFilter` to the `LigthSensor` node? [https://www.cyberbotics.com/doc/reference/lightsensor](https://www.cyberbotics.com/doc/reference/lightsensor)
 
 ##### tbt24 02/27/2021 11:30:48
@@ -8404,7 +8404,7 @@ I have played with color sensors before, but not a light sensor.
 ##### tbt24 02/27/2021 11:35:30
 The light sensor will just return the intensity of light. Then, when a colour filter is applied, ideally the light intensity will be multiplied by some value between 0 and 1 for RGB depending on the colour. However, the light sensor currently does not detect an 'LED' spotlight in my world
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/27/2021 12:34:55
+##### Olivier Michel [Cyberbotics] 02/27/2021 12:34:55
 What about using two light sensors? One with a red filter and the other one with a green filter?
 
 ##### moeonethego 02/28/2021 12:23:52
@@ -8418,7 +8418,7 @@ it seems like the problem with the animatedGeometry , or the definition of the b
 
 ## March
 
-##### pk1jk1 03/01/2021 01:52:56
+##### mayank.kishore 03/01/2021 01:52:56
 Is it possible to base64 the camera.getImage() function?
 
 ##### Stefania Pedrazzi [Cyberbotics] 03/01/2021 06:47:29
@@ -8496,7 +8496,7 @@ Hi `@Olivier Michel`, when I am running the simulation, the positions of axis of
 ##### Bitbots\_Jasper [Moderator] 03/01/2021 17:38:10
 I would like to start two controllers for two robots in the same process. Is there a way to do this or do they have to be separate processes? I currently get this error message: `Only one instance of the Robot class should be created`
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/01/2021 18:02:12
+##### Olivier Michel [Cyberbotics] 03/01/2021 18:02:12
 This is unfortunately not possible.
 
 ##### Bitbots\_Jasper [Moderator] 03/01/2021 18:03:09
@@ -8676,7 +8676,7 @@ but you can check the documentation of the webots to see what its format is [htt
 
 scroll a bit down to the python note from the link
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/02/2021 11:25:45
+##### Simon Steinmann [Moderator] 03/02/2021 11:25:45
 `@Welsh_dragon64` 
 
 `def getFrame():
@@ -8700,7 +8700,7 @@ Hi, I was following the export tutorial for blender files on GitHub. Could someo
 ![Screenshot_20210302-181104__01.jpg](https://cdn.discordapp.com/attachments/565154703139405824/816290698084352010/Screenshot_20210302-181104__01.jpg)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/02/2021 13:16:21
+##### Darko Lukić [Cyberbotics] 03/02/2021 13:16:21
 Double click on the robot
 
 
@@ -8784,7 +8784,7 @@ If the object is already detected (make sure it detects the color as well and no
 ##### Callum98 03/02/2021 16:22:34
 Ok sure thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/02/2021 16:37:06
+##### Simon Steinmann [Moderator] 03/02/2021 16:37:06
 Take a look at this:
 
 [https://cyberbotics.com/doc/reference/hingejoint?tab-language=python](https://cyberbotics.com/doc/reference/hingejoint?tab-language=python)
@@ -8798,7 +8798,7 @@ Or at least, only rotating around the hingejoint axis
 ##### John520 03/02/2021 16:40:58
 `@Simon Steinmann` Thanks a lot for your explanation. Is it possible to make the translation of the endPoint Solid not change?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/02/2021 16:41:50
+##### Simon Steinmann [Moderator] 03/02/2021 16:41:50
 it can be much easier to translate the parent to where you want it, and only translating the anchor and endPoint along the joint axis
 
 
@@ -8807,7 +8807,7 @@ in your case, only in x - direction
 ##### John520 03/02/2021 16:42:15
 SInce other wheels have the same changes, the vehicle is not able to go straight.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/02/2021 16:44:30
+##### Simon Steinmann [Moderator] 03/02/2021 16:44:30
 You can add Transforms or Solid nodes as a parent of the hingejoint
 
 
@@ -8823,7 +8823,7 @@ I'm trying to select and place sensors on a robot that's meant to search for sma
 
 My problem is, I don't understand why IR sensors are modelled to give an average distance reading with a gaussian weighting of the rays in Webots. Is that actually realistic to how an IR would work? I've looked at datasheets and I can't tell. I'm worried it would mess up the readings if blocks/a block and a wall are close in bearing but at different distances to the robot. Would it be reasonable to ignore the IR sensor presets on Webots and just model it to return the nearest distance with a small viewing angle?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/02/2021 17:36:33
+##### Olivier Michel [Cyberbotics] 03/02/2021 17:36:33
 No, IR sensors models in Webots are as realistic as possible. Because they reflect IR light, the return value depends on the amount of reflected light. If only one small area (represented by a few rays) reflects light, the measured value will be small, which is what you can observe in real IR sensors.
 
 
@@ -8832,7 +8832,7 @@ If you need the nearest value, you should set the type to "laser" or "sonar".
 ##### Elizaveta\_Potemkina 03/02/2021 17:39:05
 I see. I've found a proto in the default Webots files for the exact IR I'd have access to IRL for this project. (Sharp GP2Y0A02YK0F). It's made by the manufacturer, and I can see that it's modeled as having only 1 ray. Should I just chalk that up to the manufacturer being optimistic about their own product?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/02/2021 17:40:48
+##### Olivier Michel [Cyberbotics] 03/02/2021 17:40:48
 Having only one ray is probably a performance / accuracy compromise.
 
 
@@ -8892,7 +8892,7 @@ Here is a sample code from the built-in Webots projects/samples/devices/worlds/d
 ##### Tosidis 03/03/2021 09:24:36
 Thanks!
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 10:04:19
+##### Darko Lukić [Cyberbotics] 03/03/2021 10:04:19
 Check this out:
 
 [https://cyberbotics.com/doc/guide/using-python#use-an-alternative-python-version](https://cyberbotics.com/doc/guide/using-python#use-an-alternative-python-version)
@@ -8932,19 +8932,19 @@ But note that only the physics engine is using multi-threading, so you will only
 ##### h.sciascia 03/03/2021 12:48:19
 Oh okok thanks
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:24:21
+##### Simon Steinmann [Moderator] 03/03/2021 13:24:21
 `@h.sciascia` in most circumstances 1 is the best
 
 ##### h.sciascia 03/03/2021 13:25:17
 Ok :/ Because we are doing a lot of calculations and save with an reinforcement learning IA
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:26:11
+##### Simon Steinmann [Moderator] 03/03/2021 13:26:11
 you can do multiple instances of webots
 
 ##### h.sciascia 03/03/2021 13:26:30
 for a single simulation?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:26:36
+##### Simon Steinmann [Moderator] 03/03/2021 13:26:36
 yes
 
 
@@ -8953,7 +8953,7 @@ there is RL algorithms that you can train in parallel
 ##### h.sciascia 03/03/2021 13:27:12
 how to do multiple instances ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:27:22
+##### Simon Steinmann [Moderator] 03/03/2021 13:27:22
 [https://drive.google.com/file/d/1C4ICDz30GjKs5PkuYxNW8\_mFCcxEJlPs/view?usp=sharing](https://drive.google.com/file/d/1C4ICDz30GjKs5PkuYxNW8_mFCcxEJlPs/view?usp=sharing)
 
 
@@ -8962,7 +8962,7 @@ how to do multiple instances ?
 ##### h.sciascia 03/03/2021 13:29:01
 Ok but the purpose is to train only one RL agent
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:29:20
+##### Simon Steinmann [Moderator] 03/03/2021 13:29:20
 what algorithm are you using?
 
 ##### h.sciascia 03/03/2021 13:29:26
@@ -8972,7 +8972,7 @@ td3
 
 > **Attachment**: [Motion\_Planning\_of\_Robot\_Manipulators\_for\_a\_Smoother\_Path\_Using\_a\_Twin\_Delayed\_Deep\_Deterministic\_Po.pdf](https://cdn.discordapp.com/attachments/565154703139405824/816663760780918855/Motion_Planning_of_Robot_Manipulators_for_a_Smoother_Path_Using_a_Twin_Delayed_Deep_Deterministic_Po.pdf)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:30:40
+##### Simon Steinmann [Moderator] 03/03/2021 13:30:40
 that one does not support multi Processing
 
 ##### h.sciascia 03/03/2021 13:31:30
@@ -8981,37 +8981,37 @@ So it's not possible
 
 thanks
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 13:31:41
+##### Darko Lukić [Cyberbotics] 03/03/2021 13:31:41
 We did some initial testings with TD3 and you should first verify whether your algorithm is bottleneck. If TD3 takes a lot of time calculate time than Webots multiprocessing will not help.
 
 ##### h.sciascia 03/03/2021 13:32:04
 lot of time yes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:32:27
+##### Simon Steinmann [Moderator] 03/03/2021 13:32:27
 run a profiler and find out, what takes how long
 
 
 if the simulation is only 5% of runtime, then there is little to optimize
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 13:33:12
+##### Darko Lukić [Cyberbotics] 03/03/2021 13:33:12
 How much time does the `step()` function from the OpenAI Gym takes?
 
 ##### h.sciascia 03/03/2021 13:34:06
 we did not try it on OpenAI Gym Env because there is no environment that corresponds to our needs
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:34:46
+##### Simon Steinmann [Moderator] 03/03/2021 13:34:46
 what are you using? stable-baselines? or some custom solution?
 
 ##### h.sciascia 03/03/2021 13:35:26
 i built the algo using pytorch
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:36:11
+##### Simon Steinmann [Moderator] 03/03/2021 13:36:11
 stable-baselines3 is based on pytorch. You might save yourself A LOT of work using that
 
 
 [https://github.com/DLR-RM/stable-baselines3](https://github.com/DLR-RM/stable-baselines3)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 13:36:24
+##### Darko Lukić [Cyberbotics] 03/03/2021 13:36:24
 You can easily integrate Webots with OpenAI Gym:
 
 [https://www.cyberbotics.com/doc/guide/samples-howto?version=master#openai\_gym-wbt](https://www.cyberbotics.com/doc/guide/samples-howto?version=master#openai_gym-wbt)
@@ -9019,10 +9019,10 @@ You can easily integrate Webots with OpenAI Gym:
 ##### h.sciascia 03/03/2021 13:36:46
 thank you this is helpful
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:36:58
+##### Simon Steinmann [Moderator] 03/03/2021 13:36:58
 [https://github.com/DLR-RM/rl-baselines3-zoo](https://github.com/DLR-RM/rl-baselines3-zoo) this can be easily combined with stable-baselines3
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 13:38:01
+##### Darko Lukić [Cyberbotics] 03/03/2021 13:38:01
 How much time does your algorithm take to calculate an action from the given state?
 
 ##### h.sciascia 03/03/2021 13:38:06
@@ -9040,7 +9040,7 @@ that updates the neural networks
 
 along side another function that check for collision with obstacles present in the environment
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:40:02
+##### Simon Steinmann [Moderator] 03/03/2021 13:40:02
 maybe have a look at this paper: [https://www.groundai.com/project/towards-simplicity-in-deep-reinforcement-learning-streamlined-off-policy-learning/2](https://www.groundai.com/project/towards-simplicity-in-deep-reinforcement-learning-streamlined-off-policy-learning/2)
 
 
@@ -9049,28 +9049,28 @@ SAC could be a better choice, maybe.
 ##### h.sciascia 03/03/2021 13:40:48
 okay thank you
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 13:41:30
+##### Darko Lukić [Cyberbotics] 03/03/2021 13:41:30
 Could you please benchmark all those functions so we better understand the bottleneck?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:41:56
+##### Simon Steinmann [Moderator] 03/03/2021 13:41:56
 also, you should use HER together with TD3 or SAC, if you want to significantly increase sample efficiency
 
 ##### h.sciascia 03/03/2021 13:42:09
 yeah i use HER
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/03/2021 13:42:22
+##### Simon Steinmann [Moderator] 03/03/2021 13:42:22
 good 🙂
 
 ##### h.sciascia 03/03/2021 13:42:27
 i will
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 14:32:29
+##### Darko Lukić [Cyberbotics] 03/03/2021 14:32:29
 `@h.sciascia` Please let us know the results. We are trying to optimize Webots for DRL, so your feedback will be very useful to us
 
 ##### h.sciascia 03/03/2021 15:36:14
 Yes I will try to do this as fast as possible, lot of work in the company I cannot garantee you a date because I have others functions
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/03/2021 15:48:37
+##### Darko Lukić [Cyberbotics] 03/03/2021 15:48:37
 Sure, no problem. Thank you!
 
 ##### Cyber Police Officer 03/03/2021 18:57:26
@@ -9099,7 +9099,7 @@ In addition, I am trying to give values to a total of 3 joints by calling rosser
 
 How can I send values at the same time?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/04/2021 08:41:36
+##### Darko Lukić [Cyberbotics] 03/04/2021 08:41:36
 If the `synchronization` field of your robot is set to `TRUE` then all service calls should be performed in the single timestep:
 
 [https://cyberbotics.com/doc/reference/robot](https://cyberbotics.com/doc/reference/robot)
@@ -9117,7 +9117,7 @@ to ensure that all the service calls are performed in the single timestep
 
 I currently use the controller as ros and create a ros package and run it externally.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/04/2021 09:25:23
+##### Darko Lukić [Cyberbotics] 03/04/2021 09:25:23
 Unfortunately, there is no example. You should configure the robot as in picture
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/816964535080321064/unknown.png)
@@ -9129,7 +9129,7 @@ And you should get the `time_step` service exposed that you have to call at each
 ##### Master.L 03/04/2021 09:48:00
 `@Darko Lukić` Should I call time\_step before calling set\_position to each joint?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/04/2021 09:49:03
+##### Darko Lukić [Cyberbotics] 03/04/2021 09:49:03
 After. The `time_step` service calls the `wb_robot_step` function:
 
 [https://cyberbotics.com/doc/reference/robot#wb\_robot\_step](https://cyberbotics.com/doc/reference/robot#wb_robot_step)
@@ -9153,7 +9153,7 @@ I can not seem to find the documentation of which UV mapping is applied when `te
 
 does somebody know where to find this information?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/04/2021 21:27:18
+##### Olivier Michel [Cyberbotics] 03/04/2021 21:27:18
 It's inherited from VRML97: [https://tecfa.unige.ch/guides/vrml/vrml97/spec/part1/nodesRef.html#IndexedFaceSet](https://tecfa.unige.ch/guides/vrml/vrml97/spec/part1/nodesRef.html#IndexedFaceSet)
 
 
@@ -9176,13 +9176,13 @@ How can I modify the initial coordinate system of a solid without modifying the 
 
 Thanks
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/05/2021 09:13:30
+##### Darko Lukić [Cyberbotics] 03/05/2021 09:13:30
 `@h.sciascia` You have to change the solid so it matches the new coordinate system.
 
 ##### h.sciascia 03/05/2021 09:15:42
 Okok thanks !
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/05/2021 09:18:40
+##### Darko Lukić [Cyberbotics] 03/05/2021 09:18:40
 For example, if you are converting from NUE to ENU then you have rotate all solid's children and bounding objects by (-0.57, 0.57, 0.57, -2.09)
 
 ##### h.sciascia 03/05/2021 09:46:11
@@ -9264,7 +9264,7 @@ yea they are all bounded with physics and they are different solids.
 ##### Bitbots\_Jasper [Moderator] 03/06/2021 18:22:24
 can you share your world file? pm is fine too
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/08/2021 08:00:52
+##### Darko Lukić [Cyberbotics] 03/08/2021 08:00:52
 We fixed some issues regarding the MATLAB path (that may affect your problem as well):
 
 [https://github.com/cyberbotics/webots/pull/2624](https://github.com/cyberbotics/webots/pull/2624)
@@ -9326,7 +9326,7 @@ Just to be clear, I'm not just criticize the API, I'm really enthousiastic about
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/818545029400100904/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/08/2021 18:22:39
+##### Simon Steinmann [Moderator] 03/08/2021 18:22:39
 `@Vial`  think it is as simple as "ctrl + 8"
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/818549292040978512/unknown.png)
@@ -9415,10 +9415,10 @@ I can try to save a template of the whole "shape pointCloud" as a .wbo file, and
 
 I'll try tomorow, thanks a lot for your time 🙂
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/09/2021 07:11:46
+##### Olivier Michel [Cyberbotics] 03/09/2021 07:11:46
 You approach seems globally correct. If you need to reload the world to see the correct color, it might be a bug in Webots. Please test it with the latest Webots R2021a-rev1 nightly build where the bug might be already fixed. If not fixed, please open a bug report on GitHub with a simple source code example and we will look into it.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/09/2021 07:32:44
+##### Darko Lukić [Cyberbotics] 03/09/2021 07:32:44
 As far as I know you have to combine `wb_supervisor_field_set_mf_vec3f`, `wb_supervisor_field_insert_mf_vec3f`, and `wb_supervisor_field_remove_mf`.
 
 ##### Saud 03/09/2021 10:11:08
@@ -9451,7 +9451,7 @@ ok great thanks i managed to change that. i am quite confused one how to represe
 ##### DDaniel [Cyberbotics] 03/09/2021 12:59:29
 To visualise it you can activate the rendering of the cloud: view > optional rendering >  show lidar point cloud
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/09/2021 13:01:10
+##### Darko Lukić [Cyberbotics] 03/09/2021 13:01:10
 [https://cyberbotics.com/doc/guide/using-your-ide](https://cyberbotics.com/doc/guide/using-your-ide)
 
 ##### Deleted User 03/09/2021 14:20:25
@@ -9488,7 +9488,7 @@ I have had a look at the sample but i dont know how its using the values and i c
 
 ok i have managed to get values now but when i get the number of layers of the lidar it only returns 1 which means there are only 2 layers? quite confused why this is. i guess it explains the two lines. Currently i am using Hokuyo UTM-30LX. What i want is the drone to make a scan of the ground like a scanner would. Is this the correct lidar for that?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/09/2021 19:46:50
+##### Simon Steinmann [Moderator] 03/09/2021 19:46:50
 fieldOfView 4.71238
 
   verticalFieldOfView %{= 4.18879 / fields.resolution.value }%
@@ -9520,7 +9520,7 @@ Good day everyone, I'm new to webots, sorry if I'm asking a naive question. I'm 
 ##### SeanLuTW 03/10/2021 02:48:19
 Hello, can I get object identity a connector currently connected to?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/10/2021 07:10:25
+##### Olivier Michel [Cyberbotics] 03/10/2021 07:10:25
 Yes, this is possible: you should use the supervisor API to add/remove nodes while the simulation is running.
 
 ##### Uanuan 03/10/2021 07:27:49
@@ -9603,7 +9603,7 @@ Hi , Im trying to make a python code to switch spotlights turn on when light goe
 
 light measured from a light sensor that is
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 19:21:04
+##### Simon Steinmann [Moderator] 03/10/2021 19:21:04
 give them a DEF
 
 
@@ -9624,7 +9624,7 @@ Hi, I’m trying to get my robot to go forward and avoids walls but stop and pic
 ![image0.jpg](https://cdn.discordapp.com/attachments/565154703139405824/819294033511186493/image0.jpg)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 19:50:35
+##### Simon Steinmann [Moderator] 03/10/2021 19:50:35
 `@EmzG` can you upload actual screenshots or the files themselves?
 
 
@@ -9634,7 +9634,7 @@ win + shift + s  to take a screenshot
 this is a notpad file of my code
 > **Attachment**: [controller\_help.txt](https://cdn.discordapp.com/attachments/565154703139405824/819297500069494834/controller_help.txt)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 20:19:26
+##### Simon Steinmann [Moderator] 03/10/2021 20:19:26
 your code is a bit confusing. What is the exact behavior you want?
 
 
@@ -9646,7 +9646,7 @@ what is `obstacle_p` supposed to mean?
 ##### EmzG 03/10/2021 20:23:21
 obstacle\_p is supposed to be another counter for the object sensor. this sensor is the one that will stop at small object.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 20:23:35
+##### Simon Steinmann [Moderator] 03/10/2021 20:23:35
 you are using the same name for object and distance sensor
 
 
@@ -9665,7 +9665,7 @@ also changed the indentation a bit. was hard to read
 ##### EmzG 03/10/2021 20:27:49
 right is that what's the problem. cause i initially started with two file one which just had the two left and right sensors then the other file had the object sensor and both work fine independently. but combine them and wont work, i will give it a try. thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 20:28:37
+##### Simon Steinmann [Moderator] 03/10/2021 20:28:37
 also, the way you have set it up, it will never move again, once it detected an object and stops
 
 ##### EmzG 03/10/2021 20:34:57
@@ -9674,7 +9674,7 @@ these errors seem to come up. that os is not declared
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/819307365581062174/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 20:35:23
+##### Simon Steinmann [Moderator] 03/10/2021 20:35:23
 yeah, you have to adjust your initialization
 
 
@@ -9696,7 +9696,7 @@ try this. I'm not very good with c++, but this might work
 ##### EmzG 03/10/2021 20:49:07
 thank you so so much that works perfect now. so all i needed to do was initialise it better . I was doing my nut trying to work out what was wrong the last few day and it was an oversite like that. you are amazing.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 20:49:26
+##### Simon Steinmann [Moderator] 03/10/2021 20:49:26
 welcome to programming 😄
 
 
@@ -9705,7 +9705,7 @@ you're welcome
 ##### cooolwhip14 03/10/2021 21:01:03
 What does the supervisor controller allow?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 21:01:47
+##### Simon Steinmann [Moderator] 03/10/2021 21:01:47
 getting a handle to the light node and to manipulate it
 
 
@@ -9727,7 +9727,7 @@ Hi, I am trying to use connector function to simulate gripping hardware by a suc
 ![image0.jpg](https://cdn.discordapp.com/attachments/565154703139405824/819327126552707162/image0.jpg)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/10/2021 21:55:45
+##### Simon Steinmann [Moderator] 03/10/2021 21:55:45
 Can you try to rephrase that or show with a video? (webots has included video capture)
 
 
@@ -9759,7 +9759,7 @@ Any idea on how to fix this?
 
 Nvm I found the issue. I went to Preferences and then typed Python3 for “Python command”
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 09:13:44
+##### Darko Lukić [Cyberbotics] 03/11/2021 09:13:44
 The GPS sensor returns position in the global coordinate system. The coordinate system of your robot is not relevant. Can you provide more details about the issue?
 
 
@@ -9770,7 +9770,7 @@ There is a Moose example. Press `A` to turn off the autopilot and use the arrow 
 ##### cindy 03/11/2021 10:10:07
 Our code is written in C++ and it is crashing at different times every time we run it. It is a simple one robot controller for a uni project and we aren't entirely sure if it has anything to do with running on laptops that don't use the supported graphics cards (worth noting that if I close as many things as possible in Task Manager, the time of crash increases)? Would an indexing problem cause this sort of issue in multi-threading? And if so, how do I localise the issue if I can't use print statements?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/11/2021 10:11:13
+##### Olivier Michel [Cyberbotics] 03/11/2021 10:11:13
 See [https://cyberbotics.com/doc/guide/debugging-c-cpp-controllers](https://cyberbotics.com/doc/guide/debugging-c-cpp-controllers)
 
 ##### Elizaveta\_Potemkina 03/11/2021 11:32:59
@@ -9797,7 +9797,7 @@ Also mention that I have the Lidar and Point Cloud enable in the robot window
 ##### Mohannad Kassar 03/11/2021 13:54:36
 Hello, I have a question if a webots robot can be controller using a mobile application for example or a web page, any one can help ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 13:56:20
+##### Darko Lukić [Cyberbotics] 03/11/2021 13:56:20
 Yes, you can add a WebSocket server or web server in the robot controller
 
 
@@ -9812,7 +9812,7 @@ Hello, I have a problem when i create my own protos. The video below explains my
 
 I add a proto. I save and then reload and they are gone. I tried on another PC and the proto isn't removed. If you have any idea why it would help alot thatnks
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 14:01:36
+##### Darko Lukić [Cyberbotics] 03/11/2021 14:01:36
 Are you getting any warnings in the console? What are the `LeftSide` and `RightSide` fields?
 
 ##### James Le Poidevin 03/11/2021 14:03:01
@@ -9821,7 +9821,7 @@ No Warnings, errors or even message
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/819571118162575410/unknown.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 14:05:59
+##### Darko Lukić [Cyberbotics] 03/11/2021 14:05:59
 Can you send the project to me, so I can test it
 
 ##### James Le Poidevin 03/11/2021 14:06:33
@@ -9834,7 +9834,7 @@ a ZIP ok ?
 
 The world is TEST.wbt
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 14:11:58
+##### Darko Lukić [Cyberbotics] 03/11/2021 14:11:58
 It should look like this?
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/819573372399779880/unknown.png)
@@ -9843,7 +9843,7 @@ It should look like this?
 ##### James Le Poidevin 03/11/2021 14:12:33
 yes it's the front bogie of a rover
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 14:12:57
+##### Darko Lukić [Cyberbotics] 03/11/2021 14:12:57
 Just rename the `World` folder to `worlds`
 
 ##### James Le Poidevin 03/11/2021 14:14:29
@@ -9854,7 +9854,7 @@ Thank you `@Darko Lukić`
 
 I would like to know the position of the end-effector relative to the robot base through the sensor in the simulation. How can I do it?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 17:53:05
+##### Darko Lukić [Cyberbotics] 03/11/2021 17:53:05
 Typical way of calculating end-point pose (in the real-world) is by putting an encoder in each joint of the arm. Then, you just calculate a forward kinematics given the encoder values and the robot model. You can do the same thing in the simulation.
 
 
@@ -9876,10 +9876,10 @@ You can change it to calculate the forward kinematics:
 ##### Matzah 03/11/2021 18:06:00
 hi ive been trying to use webots for school but the world doesnt play when i hit the play button, the timer just stays at 0. any ideas of what could be causing this?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/11/2021 18:06:22
+##### Darko Lukić [Cyberbotics] 03/11/2021 18:06:22
 Is there any warning in the console?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/11/2021 18:06:58
+##### Simon Steinmann [Moderator] 03/11/2021 18:06:58
 you need a running controller, which periodically calls robot.step()
 
 ##### Matzah 03/11/2021 18:08:43
@@ -9934,7 +9934,7 @@ OK. I solved it now. Thank you so much!
 ##### Harris 03/12/2021 03:29:42
 Hi, I am still struggling of this problem, can anyone plz help me to solve this connector problem? Thank you.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/12/2021 08:00:56
+##### Darko Lukić [Cyberbotics] 03/12/2021 08:00:56
 It is very time consuming to debug your simulation. Could you please create MRE:
 
 [https://github.com/cyberbotics/webots/wiki/Webots-User-Support#how-to-ask-a-question](https://github.com/cyberbotics/webots/wiki/Webots-User-Support#how-to-ask-a-question)
@@ -9946,7 +9946,7 @@ Here's my MRE project, press G to grip and press B to move. Thanks for your time
 
 > **Attachment**: [Webots\_MRE.7z](https://cdn.discordapp.com/attachments/565154703139405824/819855346155126795/Webots_MRE.7z)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/12/2021 08:55:12
+##### Darko Lukić [Cyberbotics] 03/12/2021 08:55:12
 Could you please make it simpler, just the world file is 10MB
 
 
@@ -9968,7 +9968,7 @@ Hi, I am trying to calculate the degree difference between my nao robot and a ta
 
 This is how I calculate the degree between the robot and the target point. I subtract this from the robots angle and I rotate the robot according to result. But my robot doesn't stop rotating. I think that the problem is that robots position doesn't change so it keeps rotating and doesn't move forward. Do you have any ideas of how I can solve this problem.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/12/2021 13:16:47
+##### Darko Lukić [Cyberbotics] 03/12/2021 13:16:47
 You can check this example as a reference:
 
 [https://github.com/cyberbotics/webots/blob/9a71190bb2084fec04246bd1008d9d311bef656f/projects/robots/clearpath/moose/controllers/moose\_path\_following/moose\_path\_following.c#L149-L190](https://github.com/cyberbotics/webots/blob/9a71190bb2084fec04246bd1008d9d311bef656f/projects/robots/clearpath/moose/controllers/moose_path_following/moose_path_following.c#L149-L190)
@@ -9983,7 +9983,7 @@ I just solve it, thank you for the reply and instruction!
 ##### Gregory Rasputin 03/12/2021 16:10:31
 How can I access (set/get) a Device field? In particular I want to set the colorFilter field of the LightSensor
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/12/2021 16:11:21
+##### Darko Lukić [Cyberbotics] 03/12/2021 16:11:21
 You can use the Supervisor node:
 
 [https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_field](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_field)
@@ -10002,7 +10002,7 @@ hello.
 
 how can i get my robot translation in controller?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/12/2021 19:01:37
+##### Simon Steinmann [Moderator] 03/12/2021 19:01:37
 Either through a gps sensor, or you "cheat" by using a supervisor controller
 
 
@@ -10014,7 +10014,7 @@ Either through a gps sensor, or you "cheat" by using a supervisor controller
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/820009748451688448/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/12/2021 19:07:13
+##### Simon Steinmann [Moderator] 03/12/2021 19:07:13
 use the checkbox "Supervisor" in your scene tree
 
 
@@ -10036,7 +10036,7 @@ Do you have any ideas for the implementation, is there anything similar already?
 ##### enbakom ghebremichael 03/13/2021 18:57:46
 I was simulate  a wall follower epuck hawever, the robot couldnt reach all rooms but it can follow the walls inside one room . could some one help me to improve my codes ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/13/2021 23:45:24
+##### Simon Steinmann [Moderator] 03/13/2021 23:45:24
 You will have to give us more details than that. Perhaps show us in a video what it is doing and provide your controller code. Try to narrow down the issue yourself and try to ask a specific question 🙂
 
 ##### bingdong 03/14/2021 08:20:43
@@ -10056,19 +10056,19 @@ oh thanks! Do you have more for Laserscanner or Infrared instead of using a came
 ##### Gregory Rasputin 03/14/2021 13:46:16
 Nope. 😭 But camera is cool.
 
-##### pk1jk1 03/14/2021 21:54:41
+##### mayank.kishore 03/14/2021 21:54:41
 Hi! Am working with the Moose robot and the right motors are not working? Says the velocity for each one is set at 10 but do not see any movement? Left motors work as expected, any ideas why?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/14/2021 22:54:11
-`@pk1jk1` perhaps you can give us more information. Share your project folder. Are you sure you spelled the motor names correctly?
+##### Simon Steinmann [Moderator] 03/14/2021 22:54:11
+`@mayank.kishore` perhaps you can give us more information. Share your project folder. Are you sure you spelled the motor names correctly?
 
-##### pk1jk1 03/15/2021 01:26:06
+##### mayank.kishore 03/15/2021 01:26:06
 Identified the issue as not setting the inital position to infinity
 
 ##### bingdong 03/15/2021 07:28:33
 Hi, is there a simple example of how I can use the path stored in an external file to transform a solid/robot link in the simulation? I guess it would be using the supervisor property but not sure where to begin.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/15/2021 07:38:06
+##### Darko Lukić [Cyberbotics] 03/15/2021 07:38:06
 Check out this code:
 
 [https://github.com/lukicdarkoo/webots-example-visual-tracking/blob/master/controllers/ball\_supervisor/ball\_supervisor.py](https://github.com/lukicdarkoo/webots-example-visual-tracking/blob/master/controllers/ball_supervisor/ball_supervisor.py)
@@ -10088,7 +10088,7 @@ And here you can find an example: [https://github.com/cyberbotics/webots/blob/re
 How can I solve this?
 > **Attachment**: [screen-capture\_4\_3.webm](https://cdn.discordapp.com/attachments/565154703139405824/820949773908836362/screen-capture_4_3.webm)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/15/2021 09:22:17
+##### Darko Lukić [Cyberbotics] 03/15/2021 09:22:17
 Try starting Webots in a safe mode:
 
 [https://cyberbotics.com/doc/guide/starting-webots#safe-mode](https://cyberbotics.com/doc/guide/starting-webots#safe-mode)
@@ -10102,7 +10102,7 @@ the simulation was blocked
 
 any ideas?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/15/2021 09:24:06
+##### Darko Lukić [Cyberbotics] 03/15/2021 09:24:06
 Can you share your controller?
 
 ##### Rody El Hamod 03/15/2021 09:25:29
@@ -10112,7 +10112,7 @@ Can you share your controller?
 ##### sanindu 03/15/2021 09:32:07
 `@Darko Lukić` It's not working😕
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/15/2021 09:33:44
+##### Darko Lukić [Cyberbotics] 03/15/2021 09:33:44
 This doesn't look related to Webots. Your `p1` process is accessing to the `robot` instance from the main process. You need something like queues to synchronize them and exchange data. Note that multiprocessing is different from multithreading.
 
 ##### sanindu 03/15/2021 09:33:54
@@ -10152,7 +10152,7 @@ And also the bus error changes but the rest of the error is the same.
 ##### sanindu 03/15/2021 09:42:19
 <@&568329906048598039> please help me
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/15/2021 09:44:33
+##### Darko Lukić [Cyberbotics] 03/15/2021 09:44:33
 That is strange
 
 
@@ -10172,7 +10172,7 @@ Did you try the official Docker image for Webots? Does it work?
 
 Here you can find the environment setup we use:  [https://github.com/cyberbotics/webots-docker/blob/master/Dockerfile](https://github.com/cyberbotics/webots-docker/blob/master/Dockerfile)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/15/2021 09:50:40
+##### Darko Lukić [Cyberbotics] 03/15/2021 09:50:40
 [https://cyberbotics.com/doc/guide/starting-webots#windows](https://cyberbotics.com/doc/guide/starting-webots#windows)
 
 What do you get when you run Webots with the `--sysinfo` flag?
@@ -10183,7 +10183,7 @@ thanks, I'm using my companies docker package for webots but try your version.
 ##### sanindu 03/15/2021 09:52:44
 What's meant by --sysinfo flag?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/15/2021 09:58:26
+##### Darko Lukić [Cyberbotics] 03/15/2021 09:58:26
 The `print()` should be visible only after the `robot.step()` is called. Make sure `robot.step()` is called after the `print()` function.
 
 ##### sanindu 03/15/2021 09:59:41
@@ -10238,7 +10238,7 @@ Hi everyone! I am trying to make a pothole detection system for an autonomous ve
 
 Does anyone have an idea?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/15/2021 16:20:33
+##### Olivier Michel [Cyberbotics] 03/15/2021 16:20:33
 You should probably create your own `RoadWithPothole.proto` file that could use a ElevationGrid or several Boxes to model the pothole...
 
 ##### AleBurzio 03/15/2021 16:42:03
@@ -10311,7 +10311,7 @@ Hello! I have a question.
 
 I want to control the speed of the end-effector of the robot arm, not the speed of each joint. What should I do?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 01:24:33
+##### Simon Steinmann [Moderator] 03/16/2021 01:24:33
 You have to use inverse kinematics
 
 
@@ -10327,7 +10327,7 @@ When moving, I want to control the speed of the end-effector like a motion profi
 
 I want to include acceleration/deceleration in the speed.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 01:35:38
+##### Simon Steinmann [Moderator] 03/16/2021 01:35:38
 use moveit with ROS for exact motion control
 
 
@@ -10356,7 +10356,7 @@ Checking other examples, it was a method of giving the first position once and c
 
 Am I wrong the way I do it?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 02:26:21
+##### Simon Steinmann [Moderator] 03/16/2021 02:26:21
 use the trajectory follower example
 
 
@@ -10374,7 +10374,7 @@ hey guys, is there a way in webots (using Python) to make the robot wait between
 ##### Chernayaten 03/16/2021 12:02:32
 I used a positionSensor to do the exact thing you're trying to do and had it loop through a while function until the diff was small enough. There might be a better way to do it though
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/16/2021 12:33:41
+##### Olivier Michel [Cyberbotics] 03/16/2021 12:33:41
 Simply call the Robot.step() method with the number of milliseconds you need to wait.
 
 ##### Elizaveta\_Potemkina 03/16/2021 12:41:14
@@ -10383,7 +10383,7 @@ I ended up using a while loop to just iterate +=1 on an integer variable for a f
 ##### h.sciascia 03/16/2021 15:38:47
 Hello Everyone ! Can I deactivate completely the PID of my motors ?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/16/2021 15:49:24
+##### Olivier Michel [Cyberbotics] 03/16/2021 15:49:24
 Yes, if you control the motor in torque, Webots will not use it's built in PID controller.
 
 ##### madberg 03/16/2021 17:03:57
@@ -10393,7 +10393,7 @@ Is the world used for the example recognition segmentation image [0] available s
 
 [0] [https://www.cyberbotics.com/doc/reference/recognition#](https://www.cyberbotics.com/doc/reference/recognition#)!
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/16/2021 17:05:21
+##### Darko Lukić [Cyberbotics] 03/16/2021 17:05:21
 Yes, you can find it here:
 
 [https://github.com/cyberbotics/webots/blob/master/projects/samples/devices/worlds/camera\_segmentation.wbt](https://github.com/cyberbotics/webots/blob/master/projects/samples/devices/worlds/camera_segmentation.wbt)
@@ -10416,13 +10416,13 @@ I Have just donwnloaded it to a new computer...
 
 GPU ATI Radeon HD 4350...
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/16/2021 19:39:41
+##### Darko Lukić [Cyberbotics] 03/16/2021 19:39:41
 [https://www.cyberbotics.com/doc/guide/verifying-your-graphics-driver-installation](https://www.cyberbotics.com/doc/guide/verifying-your-graphics-driver-installation)
 
 ##### reinaldobianchi 03/16/2021 19:41:09
 But why a compiler error?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/16/2021 19:41:57
+##### Olivier Michel [Cyberbotics] 03/16/2021 19:41:57
 Because the graphics card is too old and doesn't support recent versions of OpenGL and corresponding shading language.
 
 ##### reinaldobianchi 03/16/2021 19:42:35
@@ -10434,7 +10434,7 @@ After installation.
 
 This message was very criptic 🙂
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/16/2021 19:43:27
+##### Olivier Michel [Cyberbotics] 03/16/2021 19:43:27
 AMD was not very good at being fully OpenGL compliant. This driver may in theory support OpenGL 3.3, but not in practice...
 
 ##### reinaldobianchi 03/16/2021 19:44:02
@@ -10443,7 +10443,7 @@ That's why there is no error after installation?
 
 I am a teacher and this semester I am using Webots with 80+ students... I am facing errors I have never seen before 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:12:20
+##### Simon Steinmann [Moderator] 03/16/2021 20:12:20
 `@reinaldobianchi` Webots requires 3rd gen intel cpus. For more detail, you can check this link. [https://www.katsbits.com/codex/blender-opengl-compatibility/](https://www.katsbits.com/codex/blender-opengl-compatibility/) OpenGL 3.3 has to be supported
 
 ##### reinaldobianchi 03/16/2021 20:14:10
@@ -10452,13 +10452,13 @@ Yes... What happened is that I trusted that the GPU was OK when no message of er
 
 This one wasn't.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:14:41
+##### Simon Steinmann [Moderator] 03/16/2021 20:14:41
 ATI Radeon HD 4350 should be supported. Perhaps the driver needs an update
 
 ##### reinaldobianchi 03/16/2021 20:15:46
 Already did that... bus it is an old GPU...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:17:10
+##### Simon Steinmann [Moderator] 03/16/2021 20:17:10
 OpenGL 3.3 is installed? and it still does not work? Are you sure no integrated GPU might be accidentally used? Especially on Linux dual graphics can be tricky at times
 
 
@@ -10473,7 +10473,7 @@ OpenGL installed...
 
 single gpu
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:18:00
+##### Simon Steinmann [Moderator] 03/16/2021 20:18:00
 which one?
 
 
@@ -10488,25 +10488,25 @@ not sure which one
 
 have to check with the student
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:19:35
+##### Simon Steinmann [Moderator] 03/16/2021 20:19:35
 I bet it's 1st or 2nd gen intel
 
 ##### reinaldobianchi 03/16/2021 20:19:40
 probably
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:19:52
+##### Simon Steinmann [Moderator] 03/16/2021 20:19:52
 it might try to use the integrated graphics, which dont support the openGL 3.3 version
 
 ##### reinaldobianchi 03/16/2021 20:19:55
 old computer, as the one he was using fried...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:20:07
+##### Simon Steinmann [Moderator] 03/16/2021 20:20:07
 you could try disabling integrated gpu in bios
 
 ##### reinaldobianchi 03/16/2021 20:21:19
 I will do that also...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 20:21:25
+##### Simon Steinmann [Moderator] 03/16/2021 20:21:25
 good luck!
 
 ##### reinaldobianchi 03/16/2021 20:21:27
@@ -10515,7 +10515,7 @@ Thanks!
 ##### Srivastav\_Udit 03/16/2021 22:21:06
 Can someone please help me resolve this error: fatal error: webots/servo.h: No such file or directory
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 23:06:00
+##### Simon Steinmann [Moderator] 03/16/2021 23:06:00
 Is the library present? servo.h is not a standard library of webots
 
 
@@ -10524,7 +10524,7 @@ I take it you based your controller code on some other? Make sure you provide al
 ##### Srivastav\_Udit 03/16/2021 23:17:58
 Yes, is there anyway I can get the servo.h file?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/16/2021 23:19:01
+##### Simon Steinmann [Moderator] 03/16/2021 23:19:01
 where did you get your code from? That code will surely have it
 
 ##### Srivastav\_Udit 03/16/2021 23:24:14
@@ -10545,7 +10545,7 @@ running Webots from script in background testing everything and shuting it down
 
 thanks for any advice in advance
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/17/2021 15:28:10
+##### Darko Lukić [Cyberbotics] 03/17/2021 15:28:10
 Something like this?
 
 [https://www.youtube.com/watch?v=CDOrTKQAOqs](https://www.youtube.com/watch?v=CDOrTKQAOqs)
@@ -10567,7 +10567,7 @@ AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': Dev
 ALSA lib pcm_dmix.c:1052:(snd_pcm_dmix_open) unable to open slave
 ```
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/17/2021 16:02:32
+##### Darko Lukić [Cyberbotics] 03/17/2021 16:02:32
 Webots has problem accessing the playback device. It is not critical for the simulation, only the sound will not work.
 
 ##### James Le Poidevin 03/17/2021 16:02:52
@@ -10582,7 +10582,7 @@ Good afternoon! Can a Supervisor control all robots in a world? I'm trying to ha
 
 I've been through the docs, to me it looks like no. But I might very well have overlooked something...
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/18/2021 17:36:50
+##### Darko Lukić [Cyberbotics] 03/18/2021 17:36:50
 You cannot control motors or read sensors from the other robots, but you can change everything in the scene tree (for example translation/rotation of the robots). You can use emitter/receiver to send and receive data from the other robots:
 
 [https://www.cyberbotics.com/doc/reference/emitter](https://www.cyberbotics.com/doc/reference/emitter)
@@ -10601,7 +10601,7 @@ Is there any other way to get the simulation from a headless server to viewers?
 
 I've read in the news section a new web UI is coming up, would this help in my case?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/18/2021 17:49:16
+##### Darko Lukić [Cyberbotics] 03/18/2021 17:49:16
 In general, the web streaming should produce a minimal overhead. Did you use `x3d` or `mjpeg` streaming?
 
 [https://cyberbotics.com/doc/guide/web-streaming](https://cyberbotics.com/doc/guide/web-streaming)
@@ -10615,19 +10615,19 @@ Didn't get mjpeg to work...
 
 I was a bit surprised myself about the performance.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/18/2021 17:55:22
+##### Darko Lukić [Cyberbotics] 03/18/2021 17:55:22
 Just to check, everything is fine on the server, but your laptop has performance issues just by showing the simulation in a web browser?
 
 ##### Götz 03/18/2021 17:59:17
 Yup, this is how it looks to me. So the client should not get a lot of load during streaming?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/18/2021 18:00:33
+##### Darko Lukić [Cyberbotics] 03/18/2021 18:00:33
 No, I don't think we have ever had similar problem
 
 ##### Götz 03/18/2021 18:00:37
 I better test with another client then...
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/18/2021 18:01:06
+##### Darko Lukić [Cyberbotics] 03/18/2021 18:01:06
 What about this simulation:
 
 [https://lukicdarkoo.github.io/webots-example-visual-tracking/master/#visual\_tracking](https://lukicdarkoo.github.io/webots-example-visual-tracking/master/#visual_tracking)
@@ -10650,13 +10650,13 @@ I took the Student Robotics Competition world as a base because it looks quite b
 
 Thanks, will get back!
 
-##### Lefteris Gkliatis 03/18/2021 23:09:56
+##### Hoplite 03/18/2021 23:09:56
 Hello everyone, I have just begun using Webots and I have a question about transferring code to a robot. I read the documentation on the website, but it wasn't very clear. My group and I are trying to build a small drone and a robotic arm. We are probably going to use an arduino and I was wondering how can I cross-compile a webots controller code into arduino code (I think it is c++)
 
 
 Also, does it matter if our webots controller is in C++ or Python ??
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/19/2021 08:00:48
+##### Olivier Michel [Cyberbotics] 03/19/2021 08:00:48
 It all depends if your arduino board support C++ and Python. The idea is to write a wrapper between the Webots API and your hardware.
 
 
@@ -10665,7 +10665,7 @@ See [https://cyberbotics.com/doc/guide/transfer-to-your-own-robot](https://cyber
 ##### James Le Poidevin 03/19/2021 08:24:51
 Hello, I just wanted to know if there was anything integrated in webots that allows me to projected the FOV of a camera onto the floor or will i have to pas directly by openGL ?(For example for a NavCams or LocCams on a rover)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/19/2021 08:45:03
+##### Olivier Michel [Cyberbotics] 03/19/2021 08:45:03
 Not sure to understand your question... Do you want to see the intersection of the camera frustum with the floor?
 
 
@@ -10680,7 +10680,7 @@ Something like this
 
 But only show like a square on the floor showing what the robot can see
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/19/2021 09:19:07
+##### Olivier Michel [Cyberbotics] 03/19/2021 09:19:07
 Well, I believe this is not directly possible, but the View menu, Optional Rendering, Show Camera Frustum option will let you see what the robot see at the top of the frustum.
 
 ##### James Le Poidevin 03/19/2021 09:21:40
@@ -10690,13 +10690,13 @@ Ok thank you i'll look at OpenGL to see if it's possible . The Camera Frustum is
 Hello again, I have a question about implementing a bogie (like what is on the sojourner), I've go the exact same hinge joint config as on the sojourner but mine messes up sometime. It often works fine but on some occasions it's as if the joint goes solid. (cf video)
 > **Attachment**: [Bogie-test.mp4](https://cdn.discordapp.com/attachments/565154703139405824/822455077415026708/Bogie-test.mp4)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/19/2021 13:14:19
+##### Olivier Michel [Cyberbotics] 03/19/2021 13:14:19
 It looks like the left and right joints are connected, isn't it?
 
 ##### James Le Poidevin 03/19/2021 13:15:29
 Yes it's 1 solid from the wheel on the left to the one on the right (of the bogie)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/19/2021 13:21:12
+##### Olivier Michel [Cyberbotics] 03/19/2021 13:21:12
 Then depending on the constraint on the other side, the behavior you get may be normal, isn't it?
 
 
@@ -10787,7 +10787,7 @@ hello guys, I'm wondering that how can I fix this error? I just want to follow t
 ![step.png](https://cdn.discordapp.com/attachments/565154703139405824/822759358566891530/step.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/20/2021 10:36:16
+##### Darko Lukić [Cyberbotics] 03/20/2021 10:36:16
 We have dozens of automated tests running in our CI, testing most of the API functions, physics, parser, rendering... We make sure they all pass before the nightly builds. Stable releases are tested manually in addition to the automated tests.
 
 
@@ -10808,13 +10808,13 @@ Hi guys, I'm trying to run webots with an extern controller but I'm getting this
 ![Screenshot_2021-03-20_at_11.30.54.png](https://cdn.discordapp.com/attachments/565154703139405824/822794481522311188/Screenshot_2021-03-20_at_11.30.54.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/20/2021 11:51:35
+##### Darko Lukić [Cyberbotics] 03/20/2021 11:51:35
 Delete the `add` prefix
 
 ##### danielvicente 03/20/2021 11:53:55
 Still get the same error
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/20/2021 11:54:54
+##### Darko Lukić [Cyberbotics] 03/20/2021 11:54:54
 What happens if you `ls ${PYTHONPATH}`?
 
 ##### danielvicente 03/20/2021 11:55:43
@@ -10838,7 +10838,7 @@ Hi, i am playing around with "Tutorial-E-puck-for-ROS2-Beginners", is there a fe
 ##### aslisevil 03/20/2021 16:33:15
 Hello, I am trying to calculate the angle between a target point and Nao robot. I tried to do vectoral angle calculation but it does not give correct result. Any ideas of how to do this? Sorry if the question seems a bit odd I am new to webots.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/20/2021 21:50:17
+##### Simon Steinmann [Moderator] 03/20/2021 21:50:17
 `@aslisevil` I assume you only need the 2D angle (Thetha) around the vertical axis
 
 
@@ -10860,7 +10860,7 @@ Hello . I wanted to know , in the coulomb friction field , do I have to set the 
 ##### Max\_K 03/21/2021 13:55:04
 Hello. I am working on a Gripper mounted on a robot. Does someone know why my fingers of the Gripper does not collide with any objects while i move the robot. And why do my fingers disconnect from my model and hanging around at the original position when i moved the robot and let an object collide with the fingers?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 17:32:06
+##### Simon Steinmann [Moderator] 03/21/2021 17:32:06
 `@Max_K` which gripper on which robot? how did you attach it?
 
 
@@ -10871,7 +10871,7 @@ Thanks for the reply. It's an self-desigend 3F-Gripper which grep objects from a
 
 Now I am trying to pick a puck or small cylinder, but it just falls to the ground. Is there something like a glue?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 17:41:44
+##### Simon Steinmann [Moderator] 03/21/2021 17:41:44
 you only need a connector node if you want to connect and disconnect something dynamically
 
 
@@ -10883,13 +10883,13 @@ and have a look how they are structured. it's the universal robotics arms with a
 ##### Max\_K 03/21/2021 17:45:21
 ok there is an connector node for picking with 3f gripper the bottles?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 17:45:45
+##### Simon Steinmann [Moderator] 03/21/2021 17:45:45
 no, you should use the fingers and the physics interactions
 
 ##### aslisevil 03/21/2021 18:59:54
 thank you for the feedback but unfortunately it did not work. To calculate I took robot's rot vec and target's translation vector. Results were incoherent.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 19:33:35
+##### Simon Steinmann [Moderator] 03/21/2021 19:33:35
 `@aslisevil` the x and y values in my example were the both the translation values
 
 
@@ -10912,7 +10912,7 @@ hi guys 🙂
 
 how can I average 3 output values from the robot E-Puck and use this for further processing?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 20:37:02
+##### Simon Steinmann [Moderator] 03/21/2021 20:37:02
 `@Zändi` just get all 3 values, and then do with those values whatever you want.  The simplest would be` v_avg = (v1 + v2 + v3)/3`
 
 ##### Zändi 03/21/2021 20:41:40
@@ -10933,19 +10933,19 @@ double left\_ir\_avg;
 
  left\_ir\_avg = (left\_ir\_value + left\_ir\_value + left\_ir\_value)/3;
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 20:44:56
+##### Simon Steinmann [Moderator] 03/21/2021 20:44:56
 that is programming basics
 
 ##### Zändi 03/21/2021 20:45:00
 does this make sense?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 20:45:07
+##### Simon Steinmann [Moderator] 03/21/2021 20:45:07
 i'm not good with c and c++
 
 ##### Zändi 03/21/2021 20:45:13
 I am a beginner, sorry
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 20:45:50
+##### Simon Steinmann [Moderator] 03/21/2021 20:45:50
 with Python I can help, but this is not webots specific. Just google online how to set and manipulate variables
 
 
@@ -10957,7 +10957,7 @@ Unless you are not required to do C or C++ (which one do you use?), I would reco
 ##### Zändi 03/21/2021 20:47:30
 Thank you. I must use c++
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 20:50:44
+##### Simon Steinmann [Moderator] 03/21/2021 20:50:44
 then use google a lot. stack-overflow etc. are your friend
 
 ##### Zändi 03/21/2021 20:51:47
@@ -10969,7 +10969,7 @@ Hi, I am trying to rotate my robot around Z-axis using this code.  I followed ex
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/823322601974661170/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 22:37:13
+##### Simon Steinmann [Moderator] 03/21/2021 22:37:13
 all those calculations use Radians
 
 
@@ -10987,7 +10987,7 @@ thank you for the response. Currently, I am able to calculate the angle correctl
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/823338380301566052/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/21/2021 23:41:54
+##### Simon Steinmann [Moderator] 03/21/2021 23:41:54
 is the nao angle correct? This code can only work, if the axis in the rotation field points straight up
 
 
@@ -11072,7 +11072,7 @@ the second code didn't execute properly and freeze
 
 I comment block one if block to execute other one
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/22/2021 13:13:25
+##### Darko Lukić [Cyberbotics] 03/22/2021 13:13:25
 Your simulation seems to be relatively simple. In general, it should work just fine. Can you try deleting the nodes to identify what causes it work slowly? Try putting the `controller` field to `void` to isolate the impact of the controllers on the performance.
 
 ##### DDaniel [Cyberbotics] 03/22/2021 13:16:15
@@ -11081,7 +11081,7 @@ Your simulation seems to be relatively simple. In general, it should work just f
 ##### Götz 03/22/2021 13:30:53
 Hi Darko, do you mean reducing the number of robots? Or other non-robot nodes?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/22/2021 13:33:06
+##### Darko Lukić [Cyberbotics] 03/22/2021 13:33:06
 Both. Start by choosing a simple controller just move them around and then deleting the nodes, one by one, and comparing the performances
 
 ##### yanan 03/22/2021 14:36:14
@@ -11111,7 +11111,7 @@ Hello, is the coordinate system in meters?
 ##### Dorteel 03/22/2021 16:01:52
 Yes it is. And I saw that the transform node has a Position tab where I can see the relative position to the frame, but I'm not sure how to access it from a Supervisor node
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/22/2021 16:05:25
+##### Darko Lukić [Cyberbotics] 03/22/2021 16:05:25
 Hello `@Dorteel`, you have to calculate it:
 
 [https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_orientation](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_orientation)
@@ -11128,7 +11128,7 @@ Thank you very much `@Darko Lukić` !
 ##### Götz 03/22/2021 17:15:36
 Sigh... seems to be my controller, sim runs fine with a very basic collision avoidance Python controller even with 12 robots. My controller is actually a Python Tornado app going into a loop, listening for API commands and executing them. Finding the issue might be well beyond my dev capabilities, are there any things that come to your mind I could look for?  😔
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/22/2021 17:58:25
+##### Simon Steinmann [Moderator] 03/22/2021 17:58:25
 `@Götz` "world may be too complex" warning has nothing to do with the GPU. The limit will be the CPU. And it is usually limited by the speed of a single core. This makes servers less suited, as they have many weak cores.
 
 
@@ -11143,13 +11143,13 @@ I can take a look if you want
 ##### Götz 03/22/2021 18:00:38
 Every robot is starting an instance of the python controller with customData=<portnumber>, the controller is then opening this port for the robot.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/22/2021 18:01:34
+##### Simon Steinmann [Moderator] 03/22/2021 18:01:34
 send me your project and I can take a look
 
 ##### Götz 03/22/2021 18:01:52
 The controller is working fine but is still more like a proof of concept. Just saying so it's not getting to embarrassing when you look at it. 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/22/2021 18:02:35
+##### Simon Steinmann [Moderator] 03/22/2021 18:02:35
 😄 dont worry about it. Code usually looks messy until it's done
 
 
@@ -11164,13 +11164,13 @@ Hey, I'm working for the worlds largest Open Source software company, sharing is
 
 And BTW I'd be more then happy to have one controller controlling the robots... but I couldn't figure it out and a supervisor can't do it... if I'm correct...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/22/2021 18:05:56
+##### Simon Steinmann [Moderator] 03/22/2021 18:05:56
 it would probably be slower too
 
 ##### watchdogs132 03/22/2021 18:19:13
 Thank you for your reply .  I want to know do I have to set the friction coefficient between the surfaces in that field ?. In the sample world 'track' the coulomb friction is set at 300. However when it comes to coefficient of friction usually the values are like 0.5 0.6 something like that .
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/22/2021 18:37:09
+##### Simon Steinmann [Moderator] 03/22/2021 18:37:09
 I assume the friction was set to something that high as a workaround, to ensure non slip. If nothing is defined, default values are used
 
 
@@ -11185,7 +11185,7 @@ What does the controlPID field do for rotational motors? I'm not seeing any chan
 
 I'm essentially trying to draw a square but it isn't drawing a perfect one because of real world constraints, so I assumed changing values in the controlPID field would improve the robot's performance but that's not the case..
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/24/2021 02:23:44
+##### Simon Steinmann [Moderator] 03/24/2021 02:23:44
 `@Srivastav_Udit` Can you show us the issue in more detail? And you might want to read up on the documentation: [https://cyberbotics.com/doc/reference/motor](https://cyberbotics.com/doc/reference/motor)
 
 
@@ -11194,7 +11194,7 @@ but in general you should not have to change the PID values.  Webot's default me
 ##### main 03/24/2021 03:15:21
 In contact properties, what goes in ‘material 1 ‘ and ‘material 2’ the PBR appearance name, or the name of the solids that are making contact?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/24/2021 03:15:51
+##### Simon Steinmann [Moderator] 03/24/2021 03:15:51
 `@main` solids have a field called "contact material"
 
 ##### main 03/24/2021 03:18:28
@@ -11214,7 +11214,7 @@ If so, should I add the connector to the child after converting the box to conve
 ##### rschilli 03/24/2021 08:44:17
 Hey guys. In robocup we are using simspark in 3d-simulation league and we have a DRL framework with stable-baseline/ppo to learn kicks/walking etc. For the virtual competition this year I've implemented a external controller and connect it to our DRL, so I am able to learn in webots as well. Now I want to paralize  this process by using multiple simulation instances, but here's the problem: either the docker approach nor native (starting multiple webots instances and define WEBOTS\_PID to select instance\_X) is working. With docker I can't connect to the running instance inside the container (extern controller running locally/outside), with native webots instances it seems that the WEBOTS\_PID is ignored/not parsed correctly, cause it is always connecting to the same instance. I've seen some posts of solutions but no documentation is working. Would be nice if someone could help me? Further details: DRL implemented in Python, Controller/Behavior logic in Java (Client-Server communication between both)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/24/2021 08:46:06
+##### Olivier Michel [Cyberbotics] 03/24/2021 08:46:06
 Although it kinda works, the Connector is not the ideal way to model vacuum grippers. See details on this issue: [https://github.com/cyberbotics/webots/issues/2889](https://github.com/cyberbotics/webots/issues/2889)
 
 ##### Master.L 03/24/2021 09:02:09
@@ -11222,13 +11222,13 @@ Thank you `@Olivier Michel`. But I don't understand the content of the link you 
 
 Can you make it in a different way now than the way I said?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/24/2021 09:08:10
+##### Olivier Michel [Cyberbotics] 03/24/2021 09:08:10
 We should actually modify Webots to extend the connector node, so that it can connect with any solid node and works like a suction cup. Using a Connector node as it is currently implement doesn't work well to simulate a vacuum gripper.
 
 
 I believe the modification of Webots is not very difficult, but is not on our roadmap yet. Any contribution (including from you) is welcome.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/24/2021 09:13:57
+##### Darko Lukić [Cyberbotics] 03/24/2021 09:13:57
 You can set a  `WEBOTS_TMPDIR` for each Webots instance and controller pair. See about the `WEBOTS_TMPDIR` here:
 
 [https://cyberbotics.com/doc/guide/running-extern-robot-controllers#running-extern-robot-controller-with-the-snap-version-of-webots](https://cyberbotics.com/doc/guide/running-extern-robot-controllers#running-extern-robot-controller-with-the-snap-version-of-webots)
@@ -11242,7 +11242,7 @@ thanks for the hint, this brings me a bit closer to the solution. now I'm able t
 
 sry, wrong answer link, thanks goes to `@Darko Lukić`  😉
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/24/2021 15:20:12
+##### Darko Lukić [Cyberbotics] 03/24/2021 15:20:12
 In Python, we use the multiprocessing library to create multiple controllers. Probably there is something similar in Java
 
 ##### John520 03/24/2021 16:28:53
@@ -11254,7 +11254,7 @@ Hi guys, I'd like to connect the part on the left to the three links on the righ
 
 The local coordinate of the part on the left is not on the joints.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/24/2021 17:07:47
+##### Darko Lukić [Cyberbotics] 03/24/2021 17:07:47
 Check the Stewart Platform example, it is the closed-loop mechanism:
 
 [https://cyberbotics.com/doc/guide/samples-demos#stewart\_platform-wbt](https://cyberbotics.com/doc/guide/samples-demos#stewart_platform-wbt)
@@ -11274,7 +11274,7 @@ What exactly is a supervisor controller/node?
 ##### Isha 03/24/2021 18:11:09
 Hi! In the Webots, is it possible for two epuck robots to communicate via Bluetooth using python apis?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/24/2021 23:18:49
+##### Simon Steinmann [Moderator] 03/24/2021 23:18:49
 `@Isha` Webots includes a transmitter and emitter node, which can be used for communication.
 
 
@@ -11283,7 +11283,7 @@ Hi! In the Webots, is it possible for two epuck robots to communicate via Blueto
 
 `@main` [https://cyberbotics.com/doc/reference/supervisor](https://cyberbotics.com/doc/reference/supervisor) if a robot controller is a supervisor controller, it has all the normal robot controller functions, but expands its capabilities to do pretty much anything. Read the documentation to get an overview of all its functions
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 07:10:33
+##### Olivier Michel [Cyberbotics] 03/25/2021 07:10:33
 Beware that when you start Webots on Linux, there are two process created, one is named `webots-bin` and the other one is the launcher, called `webots`. The `WEBOTS_PID` variable correspond to the first one. You can check it by listing the content of the`/tmp/` folder which should contain a sub-folder with named `webots-PID` where `PID` is the value you should set in `WEBOTS_PID`. Let me know if that helps.
 
 ##### rschilli 03/25/2021 07:59:20
@@ -11292,13 +11292,13 @@ Thanks for this additional hint. Meanwhile I can connect to multiple instances, 
 ##### danielvicente 03/25/2021 09:10:12
 Hello, I'm trying to run webots on fast mode but it doesn't do anything and runs like normal, I tried doing it with the menu option simulation > fast and also by running webots with the flag --mode=fast , none of the options worked. Anyone knows how to fix this? thank you
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 09:26:40
+##### Olivier Michel [Cyberbotics] 03/25/2021 09:26:40
 Normally the speedometer should indicate a value above 1 if your simulation is not too complex. Otherwise, it should display a value below 1 and the fast mode makes indeed no difference with the run mode in this case.
 
 ##### danielvicente 03/25/2021 09:27:24
 the speedometer remains about the same in both modes, is that normal?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 09:27:37
+##### Olivier Michel [Cyberbotics] 03/25/2021 09:27:37
 Yes, if it's below 1.
 
 
@@ -11310,13 +11310,13 @@ okay, thanks
 
 I thought the 3d window was supposed to be black with fast mode enables
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 09:29:21
+##### Olivier Michel [Cyberbotics] 03/25/2021 09:29:21
 You can disable the rendering in the 3D rendering in the main window by pressing the button next to the fast button (the wireframe box).
 
 ##### danielvicente 03/25/2021 09:30:42
 is there any way to do that through the command line?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 09:30:53
+##### Olivier Michel [Cyberbotics] 03/25/2021 09:30:53
 Yes.
 
 
@@ -11356,7 +11356,7 @@ And then: when I use an IU to control turns, I do have to turn a bit, get yaw va
 
 Thanks!
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/25/2021 12:09:56
+##### Darko Lukić [Cyberbotics] 03/25/2021 12:09:56
 You can measure difference between two steps, if it is bigger than let's say 0.3 rad that means it means the robot has crossed 0/2pi
 
 
@@ -11381,25 +11381,25 @@ If this still doesn't solve the issue you should check if any warning is printed
 ##### James Le Poidevin 03/25/2021 12:35:58
 Sorry when i meant "filled" i mean that items could not pass in between the wires. I have a mesh in meshlab that i export in .stl (or .dae ...) and i want to use it as a floor for my simulation but the objects fall though it.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 12:37:49
+##### Olivier Michel [Cyberbotics] 03/25/2021 12:37:49
 Did you set the boundingObject for the Solid node?
 
 ##### James Le Poidevin 03/25/2021 12:37:57
 yes
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 12:38:38
+##### Olivier Michel [Cyberbotics] 03/25/2021 12:38:38
 Is it an IndexedFaceSet or an ElevationGrid?
 
 ##### James Le Poidevin 03/25/2021 12:39:05
 indexedFaceSet
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 12:39:39
+##### Olivier Michel [Cyberbotics] 03/25/2021 12:39:39
 Collision detection with IndexedFaceSet nodes and small or large objects is sometimes buggy...
 
 ##### James Le Poidevin 03/25/2021 12:40:21
 Ok It is a 1km floor so that could be it
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/25/2021 12:40:57
+##### Olivier Michel [Cyberbotics] 03/25/2021 12:40:57
 Indeed.
 
 
@@ -11414,7 +11414,7 @@ I've spent the last 2 days trying to convert my .tif file to an elevation grid b
 ##### Götz 03/25/2021 12:56:19
 0/2pi...? TBH I still don't get it. How do I handle the IU value going up and then at 3.14 rad turning negative and going down? But hey, I'm perfectly aware you can't provide engineering 101 support here... I'll try to figure it out. Thanks!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/25/2021 19:16:00
+##### Simon Steinmann [Moderator] 03/25/2021 19:16:00
 `@Götz` Take this image. If you turn counter clock wise, at 180° you have 3.14 (pi) radians. But instead of going up from there to describe the angle around the origin, you can start at 0 ° / 0 rad, and go clockwise. The values will become negative: -90° (- pi / 2) until you reach -180° (-pi). A Full circle is 360° or 2*pi. but you can just move it and define it from -180° to 180° and -pi to pi.
 %figure
 ![xsAa3.png](https://cdn.discordapp.com/attachments/565154703139405824/824723314315755571/xsAa3.png)
@@ -11441,7 +11441,7 @@ Secondly, we tried to run webots using gpu in docker following this repository [
 ##### Westin 03/25/2021 21:45:25
 I found the SolidReference in the documentation and that is what I was missing. My joint still isn't working, but I suspect I have joint parameters that aren't in agreement about which way things are going to go.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/25/2021 22:55:41
+##### Simon Steinmann [Moderator] 03/25/2021 22:55:41
 `@Westin` closed loops are very difficult. it is often easier to 'fake' the linear actuation by putting a motor into the joint.
 
 ##### Westin 03/25/2021 22:59:08
@@ -11453,7 +11453,7 @@ Is this what the tree should look like? I'm unsure whether the two hinge joints 
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/824780857847709786/unknown.png)
 %end
 
-##### eturtle21 03/26/2021 02:57:58
+##### 이 거북이 03/26/2021 02:57:58
 I dont understand how to make the Hoap2 robot to move can anyone help?
 
 ##### Uanuan 03/26/2021 06:35:46
@@ -11468,7 +11468,7 @@ Sorry for double posting, here's a screenshot of what I'm trying to do: the bot 
 ##### Laprase13 03/26/2021 08:13:26
 Hi, how do I run Webots using the dedicated GPU of my laptop? It is an NVIDIA GPU, but the NVIDIA control panel doesn't show the application
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/26/2021 08:13:53
+##### Darko Lukić [Cyberbotics] 03/26/2021 08:13:53
 You can use the `wb_supervisor_field_import_mf_node_from_string` function instead:
 
 [https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_field\_import\_mf\_node\_from\_string](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_field_import_mf_node_from_string)
@@ -11582,13 +11582,13 @@ My name is: ds\_left
 
 My name is: wheel1 <--- it's supposed to be "blahblahblah" based on my\_controller.py, but it still stays as wheel1
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/26/2021 08:26:19
+##### Darko Lukić [Cyberbotics] 03/26/2021 08:26:19
 You should restart the controller if you change the name like that
 
 ##### Uanuan 03/26/2021 08:28:09
 thanks, how should I do that? I did try supervisor.\_\_init\_\_() but it seems to get stuck in an infinite loop. I think it reruns my\_controller.py again and again while trying to add wheel1 into the children node, which then generated an error with a message like: wheel1 already exists.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/26/2021 08:34:05
+##### Darko Lukić [Cyberbotics] 03/26/2021 08:34:05
 You can use the `wb_supervisor_node_restart_controller` function:
 
 [https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_restart\_controller](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_restart_controller)
@@ -11616,13 +11616,13 @@ Are objects with colliding bounding boxes allowed to move together in space? say
 ##### DDaniel [Cyberbotics] 03/26/2021 18:27:02
 `@main`  they turn red when a collision occurs. Consecutive solids (two solids linked by a joint) don't trigger it, but if there's a third layer, that one can collide with the first. Internal collisions like these only occur if the selfCollision field at the level of the robot is enabled, otherwise all of them are ignored.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/26/2021 19:26:48
+##### Simon Steinmann [Moderator] 03/26/2021 19:26:48
 Can you elaborate on what exactly you want to achieve? In general a Supervisor controller can get and set any information in a simulation.
 
 ##### Pancha 03/27/2021 17:41:31
 Is there some way of simulating a suction cup (a type of gripper)? I have an arm with a suction cup on the end which would work in the same fashion as a pick-and-place robot.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/27/2021 17:51:44
+##### Simon Steinmann [Moderator] 03/27/2021 17:51:44
 `@Pancha` there is the connector node, this could be used for suction gripping, however, you can only attach and detach two connectors, not grip an object at any spot you like
 
 ##### Pancha 03/27/2021 18:52:02
@@ -11634,7 +11634,7 @@ One more question, which seems rather simple, but I haven't found a proper solut
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/825455526938804274/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/28/2021 00:03:44
+##### Simon Steinmann [Moderator] 03/28/2021 00:03:44
 `@Pancha` you can select any of the children (so it is highlighted). Pasting or adding a node, adds it underneath the highlighted child
 
 ##### Pancha 03/28/2021 00:05:04
@@ -11643,7 +11643,7 @@ Wow! Why didn't I think of that 😅  Thanks again 😉
 ##### yash 03/28/2021 13:25:57
 I want to use Model predictive control -MPC for trajectory tracking , but Webots already runs a PID controller , so how can I neglect the Webots  PID controller to design my own MPC controller ?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/28/2021 16:17:43
+##### Olivier Michel [Cyberbotics] 03/28/2021 16:17:43
 You can control your motor in torque and Webots won't use the built-in PID controller as documented in the table here: [https://cyberbotics.com/doc/reference/motor#force-and-torque-control](https://cyberbotics.com/doc/reference/motor#force-and-torque-control)
 
 ##### yash 03/28/2021 16:19:26
@@ -11651,7 +11651,7 @@ So but then I will have to drive the motors in torque mode right .?> You can con
 
 `@Olivier Michel`  So but then I will have to drive the motors in torque mode right .?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/28/2021 16:19:47
+##### Olivier Michel [Cyberbotics] 03/28/2021 16:19:47
 Yes.
 
 ##### yash 03/28/2021 16:20:10
@@ -11660,7 +11660,7 @@ Alright thank you 👍
 ##### Chinwei.Chang 03/29/2021 00:59:47
 How to experience VR tour using a virtual reality headset (HTC Vive) to view the simulation? I have installed steam and steamVR on windows. However, it doesn't work! My webots  version is 2021a.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/29/2021 01:08:12
+##### Simon Steinmann [Moderator] 03/29/2021 01:08:12
 [https://cyberbotics.com/doc/guide/computer-peripherals](https://cyberbotics.com/doc/guide/computer-peripherals)
 
 
@@ -11698,7 +11698,7 @@ I have tried the webots\_ros2\_tesla package and it works fine (even though lane
 
 I thought the problem was the basic time step in my world being a lot smaller but they're both set to 10, so I'm not exactly sure what could be causing this issue? Is there a setting for camera frames per second? (camera resolution is the same)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/29/2021 11:53:40
+##### Darko Lukić [Cyberbotics] 03/29/2021 11:53:40
 Hello, it is a simple example, not robust, but it should not crash, we should fix it.
 
 
@@ -11716,7 +11716,7 @@ thanks for the fast reply, I'll send you a quick video to reproduce the crash
 
 how can I check how fast the image is being acquired? Is this a ROS problem or is there some setting that can force a certain acquisition speed for the camera directly in webots?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/29/2021 12:07:17
+##### Darko Lukić [Cyberbotics] 03/29/2021 12:07:17
 You change the camera resolution in the Webots world and the camera publish rate through the ROS 2 driver, see an example:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/d0f772b358252cda6b9e56768e5ec5cf7454a5ff/webots\_ros2\_epuck/webots\_ros2\_epuck/driver.py#L72](https://github.com/cyberbotics/webots_ros2/blob/d0f772b358252cda6b9e56768e5ec5cf7454a5ff/webots_ros2_epuck/webots_ros2_epuck/driver.py#L72)
@@ -11742,7 +11742,7 @@ Thank you! That's what I was looking for 🙂
 This is a video of the crash, should I open an issue on GitHub?
 > **Attachment**: [lane\_follower\_crash.mp4](https://cdn.discordapp.com/attachments/565154703139405824/826067795573866556/lane_follower_crash.mp4)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/29/2021 12:19:12
+##### Darko Lukić [Cyberbotics] 03/29/2021 12:19:12
 Yes, please. Thank you!
 
 
@@ -11766,13 +11766,13 @@ The documentation says that using setPosition() when controlling in torque will 
 ##### Stefania Pedrazzi [Cyberbotics] 03/29/2021 13:43:00
 Yes, it is enough to set the position to switch to position control. Velocity control is only enabled when the position is set to infinity.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/29/2021 14:52:11
+##### Darko Lukić [Cyberbotics] 03/29/2021 14:52:11
 You can stop the car when there is no lane. It is an example, we are not making autonomous cars 😄
 
 ##### enbakom ghebremichael 03/29/2021 15:58:57
 Haw can I change the  objects size in the world. I add a bed hawever I couldnt change the size of the bed. could you help me with that?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/29/2021 16:24:10
+##### Darko Lukić [Cyberbotics] 03/29/2021 16:24:10
 You cannot change the size of the bed. You can import different 3D model though.
 
 
@@ -11790,7 +11790,7 @@ Search for the `Import 3D Model...` feature:
 ##### Westin 03/29/2021 20:17:54
 Does physics need to be enabled for a robot to have a functional mechanical loop?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/29/2021 20:22:37
+##### Olivier Michel [Cyberbotics] 03/29/2021 20:22:37
 Yes.
 
 ##### Westin 03/29/2021 20:24:31
@@ -11805,7 +11805,7 @@ Yes.
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/826190144650084362/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/29/2021 20:32:03
+##### Olivier Michel [Cyberbotics] 03/29/2021 20:32:03
 Yes, that looks good.
 
 ##### Westin 03/29/2021 20:38:48
@@ -11817,7 +11817,7 @@ Yes, that looks good.
 ##### SeanLuTW 03/30/2021 02:20:02
 In the document, it mentioned that `the duration parameter must be a multiple of the WorldInfo.basicTimeStep`. What if, say, I have `basicTimeStep` 16 and try to call `robot.step(8)`?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/30/2021 02:21:43
+##### Simon Steinmann [Moderator] 03/30/2021 02:21:43
 that is an issue
 
 
@@ -11826,7 +11826,7 @@ you can only call 16, 32 etc.
 ##### SeanLuTW 03/30/2021 02:44:55
 In my simulation with `basicTimeStep` set to 16, I called `robot.step(1000)` and it just worked fine. I wonder what will happen if the duration is non-integer multiple of `basicTimeStep`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/30/2021 02:45:12
+##### Simon Steinmann [Moderator] 03/30/2021 02:45:12
 it probably rounds
 
 ##### Srivastav\_Udit 03/30/2021 03:02:22
@@ -11844,7 +11844,7 @@ Hello, Is it possible to publish GPS and RangeFinder data to a ros2 topic ? I ca
 ##### Bitbots\_Jasper [Moderator] 03/30/2021 11:26:54
 I have a question about terminology. what are the fields in the beginning of a proto which can be overwritten in the world file called? exported fields, exposed fields?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/30/2021 11:27:19
+##### Olivier Michel [Cyberbotics] 03/30/2021 11:27:19
 exposed fields.
 
 ##### Bitbots\_Jasper [Moderator] 03/30/2021 11:27:25
@@ -11925,7 +11925,7 @@ And my error
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/826456383947669514/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/30/2021 14:04:22
+##### Olivier Michel [Cyberbotics] 03/30/2021 14:04:22
 You need to equip your Robot with a Display device named "ground\_display"...
 
 ##### briiiii 03/30/2021 15:21:08
@@ -11934,10 +11934,10 @@ Hi Olivier, I did but I still have the error
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/826476145507696700/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/30/2021 15:22:03
+##### Olivier Michel [Cyberbotics] 03/30/2021 15:22:03
 It's not a Display, it's a Solid node...
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/30/2021 15:22:57
+##### Darko Lukić [Cyberbotics] 03/30/2021 15:22:57
 Have you tried?
 
 [https://github.com/cyberbotics/webots\_ros2](https://github.com/cyberbotics/webots_ros2)
@@ -11951,7 +11951,7 @@ yes I use webots\_ros2
 ##### John520 03/30/2021 15:30:29
 Hi guys, I am looking for an inclinometer in Webots but could not find one in Nodes. Does Webots have a sensor that works similarly to an inclinometer? Thank you!
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/30/2021 15:31:45
+##### Darko Lukić [Cyberbotics] 03/30/2021 15:31:45
 GPS and IMU data should be automatically published, that doesn't work for you?
 
 
@@ -11965,7 +11965,7 @@ Ahh, thank you `@Darko Lukić` !
 ##### [DER]Mad[MAN] 03/30/2021 15:37:25
 I tried several way. The one that I post here, GPS works. But I can't read data from the IMU. I use this one  [https://cyberbotics.com/doc/reference/inertialunit?tab-language=python#wb\_inertial\_unit\_enable](https://cyberbotics.com/doc/reference/inertialunit?tab-language=python#wb_inertial_unit_enable). I tried to load the IMU with the device\_manager. But when I tried to echo topic's data, the controller stoped
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/30/2021 15:39:18
+##### Darko Lukić [Cyberbotics] 03/30/2021 15:39:18
 Sounds like a bug. Can you report it:
 
 [https://github.com/cyberbotics/webots\_ros2/issues/new?assignees=&labels=&template=bug\_report.md](https://github.com/cyberbotics/webots_ros2/issues/new?assignees=&labels=&template=bug_report.md)
@@ -11973,7 +11973,7 @@ Sounds like a bug. Can you report it:
 ##### [DER]Mad[MAN] 03/30/2021 15:40:07
 Okay !
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/30/2021 15:42:18
+##### Darko Lukić [Cyberbotics] 03/30/2021 15:42:18
 BTW, the device manager automatically disables a device when not used. See here how to enable it all the time:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/d0f772b358252cda6b9e56768e5ec5cf7454a5ff/webots\_ros2\_epuck/webots\_ros2\_epuck/driver.py#L60](https://github.com/cyberbotics/webots_ros2/blob/d0f772b358252cda6b9e56768e5ec5cf7454a5ff/webots_ros2_epuck/webots_ros2_epuck/driver.py#L60)
@@ -12004,7 +12004,7 @@ But I never call getValues() method in my controller.
 
 either I'm not using the IMU correctly or the problem comes from calling a function that doesn't seem to exist in the IMU driver
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/30/2021 16:08:51
+##### Darko Lukić [Cyberbotics] 03/30/2021 16:08:51
 I see, we fixed that in the `develop` branch, but it targets Webots R2021b:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/dce214b403edee795fee63d926cb70d015fffefc/webots\_ros2\_core/webots\_ros2\_core/devices/imu\_device.py#L90](https://github.com/cyberbotics/webots_ros2/blob/dce214b403edee795fee63d926cb70d015fffefc/webots_ros2_core/webots_ros2_core/devices/imu_device.py#L90)
@@ -12012,10 +12012,10 @@ I see, we fixed that in the `develop` branch, but it targets Webots R2021b:
 ##### [DER]Mad[MAN] 03/30/2021 16:12:46
 Yes I run R2021a. Do I still must open bug report ? (I'm junior and new in debugging world ^^') Or do something else ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/30/2021 16:15:49
+##### Darko Lukić [Cyberbotics] 03/30/2021 16:15:49
 Yes please. No worries, it is good that you noticed the bug
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/30/2021 18:57:37
+##### Simon Steinmann [Moderator] 03/30/2021 18:57:37
 video capture does not work. ubuntu 20. 2021a (.ros install)
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/826530625141342238/unknown.png)
@@ -12045,7 +12045,7 @@ FIX:  running `linux_runtime_dependencies.sh` fixed the issue
 ##### Westin 03/30/2021 20:18:22
 Is there a way to change the size of the joint axes?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/30/2021 21:07:15
+##### Simon Steinmann [Moderator] 03/30/2021 21:07:15
 change the size?
 
 
@@ -12054,16 +12054,16 @@ the way it is displayed or the actual size?
 ##### Westin 03/30/2021 21:25:36
 `@Simon Steinmann` The way it is displayed. I'm talking about the xyz triad that is visible when the "Show Joint Axes" option is enabled.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/31/2021 00:36:26
+##### Simon Steinmann [Moderator] 03/31/2021 00:36:26
 `@Westin` you can use "lineScale" under Worldinfo to change the size of optionally rendered lines such as the joint axes
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/31/2021 06:14:57
+##### Olivier Michel [Cyberbotics] 03/31/2021 06:14:57
 How did you install Webots? From the .deb package, snap or tarball? Depending on the installation method, in particular with the tarball, some additional steps are needed to get ffmpeg properly installed to allow Webots to make movies. This is normally fully documented here: [https://cyberbotics.com/doc/guide/installation-procedure#installing-the-tarball-package](https://cyberbotics.com/doc/guide/installation-procedure#installing-the-tarball-package)
 
 ##### SeanLuTW 03/31/2021 06:17:43
 Can I get the status of `movieStopRecording`? I want to reload and restart my world after the video is saved, currently I use sleep to wait the process, but the duration is hard to decide
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/31/2021 06:19:44
+##### Olivier Michel [Cyberbotics] 03/31/2021 06:19:44
 Did you try to use movieIsReady()? See [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_movie\_is\_ready](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_movie_is_ready)
 
 ##### SeanLuTW 03/31/2021 06:31:31
@@ -12075,7 +12075,7 @@ Hello, I'm using webots with ros2 and using the start\_device\_manager(), it cor
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/826752040771387422/unknown.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 03/31/2021 12:17:22
+##### Darko Lukić [Cyberbotics] 03/31/2021 12:17:22
 Is it possible that you have multiple position sensors for a single motor? This is how the joint state publisher is discovering the motors:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/d0f772b358252cda6b9e56768e5ec5cf7454a5ff/webots\_ros2\_core/webots\_ros2\_core/joint\_state\_publisher.py#L50-L53](https://github.com/cyberbotics/webots_ros2/blob/d0f772b358252cda6b9e56768e5ec5cf7454a5ff/webots_ros2_core/webots_ros2_core/joint_state_publisher.py#L50-L53)
@@ -12089,7 +12089,7 @@ How can I change the colour of a solid after a particular event?
 ##### benj3110 03/31/2021 19:16:07
 hey guys sry to ask again but is there a way to set the measurement of an accelerometer to the world coordinate sys rather than the objects? or should i use a GPS node and then work out the acceleration?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/31/2021 20:35:15
+##### Simon Steinmann [Moderator] 03/31/2021 20:35:15
 `@benj3110` you can get the orientation rotation 3x3 matrix (R) of the robot and transform your acceleration vectors into those coordinates
 
 
@@ -12113,7 +12113,7 @@ If take drone up and leave, only this time I can turn drone to left or right but
 ##### Srivastav\_Udit 03/31/2021 22:07:31
 Is it possible to make the recognitionColors field for a solid null after a certain point in the supervisor?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/31/2021 22:07:57
+##### Simon Steinmann [Moderator] 03/31/2021 22:07:57
 you can edit any field in the supervisor
 
 ##### Canberk Arıcı 03/31/2021 22:11:58
@@ -12122,7 +12122,7 @@ Even if I edit drone controller code, I cannot see the change in simulation. Can
 ##### Srivastav\_Udit 03/31/2021 22:15:52
 Could you guide me to some sample world/code that does this?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/31/2021 22:16:14
+##### Simon Steinmann [Moderator] 03/31/2021 22:16:14
 [https://www.cyberbotics.com/doc/reference/supervisor?tab-language=python](https://www.cyberbotics.com/doc/reference/supervisor?tab-language=python)
 
 
@@ -12147,7 +12147,7 @@ you have to set the correct data type
 ##### Canberk Arıcı 03/31/2021 22:20:46
 Can't I change controller of drone?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/31/2021 22:20:55
+##### Simon Steinmann [Moderator] 03/31/2021 22:20:55
 you can
 
 
@@ -12162,7 +12162,7 @@ if it's c, c++ or java, you have to compile the changes first
 ##### Canberk Arıcı 03/31/2021 22:21:53
 Okay, I'll try this, thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 03/31/2021 22:22:10
+##### Simon Steinmann [Moderator] 03/31/2021 22:22:10
 F7 in webots I believe.. check the menu
 
 ##### Canberk Arıcı 03/31/2021 22:22:28
@@ -12222,7 +12222,7 @@ ground\_display.setColor(0x000000)
 
 ground\_display.fillRectangle(0,0, 30, 30)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/01/2021 21:14:08
+##### Simon Steinmann [Moderator] 04/01/2021 21:14:08
 you are right, you should do the inverse
 
 
@@ -12249,13 +12249,13 @@ but i dont want it to collapse while unpowered
 
 what would be my solution to this?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/01/2021 23:29:13
+##### Simon Steinmann [Moderator] 04/01/2021 23:29:13
 you are asking inside of webots?
 
 ##### deleted 04/01/2021 23:50:03
 no, physically
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/02/2021 00:10:50
+##### Simon Steinmann [Moderator] 04/02/2021 00:10:50
 this is the webots discord, I'm sure there is robotics servers and forums 🙂
 
 
@@ -12264,10 +12264,10 @@ perhaps adding spring tension or something
 ##### deleted 04/02/2021 00:30:26
 yeah i just assumed that people here would know that.. since its something you would have to consider while designing a robot lol
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/02/2021 00:48:25
+##### Simon Steinmann [Moderator] 04/02/2021 00:48:25
 most robots I know are collapsed when unpowered
 
-##### KNTRL 04/02/2021 10:42:27
+##### KNTRL [Premier Service] 04/02/2021 10:42:27
 Hi guys, I'm absolutely new and just finished the tutorial up to the ROS part (I need to get to know ROS first), and I'll be writing my master thesis with Webots + ROS, so I'll be more active here for the next months probably.
 
 
@@ -12279,7 +12279,7 @@ Cheers, and I'm looking forward to the further input in here.
 ##### DDaniel [Cyberbotics] 04/02/2021 11:29:38
 `@KNTRL` when you notice interpenetration between solids like you mention it's usually that the `basicTimeStep` (in worldInfo node) being used is too big. This is especially noticeable for heavy objects. The physics engine will detect the violation and progressively correct it in the following steps but  the fact remains that the timestep being used isn't suitable. Another factor is the contactProperties (also in worldInfo) between the two objects, you can lower the `softCFM` parameter to get better results. [https://cyberbotics.com/doc/reference/worldinfo](https://cyberbotics.com/doc/reference/worldinfo)
 
-##### KNTRL 04/02/2021 11:35:10
+##### KNTRL [Premier Service] 04/02/2021 11:35:10
 <@787796043987025941> thank you, appreciate the info!
 
 ##### Shyam 04/02/2021 15:52:43
@@ -12307,13 +12307,13 @@ I have M1 MacBook with 11.2.3 macOS bigsur
 ![image0.jpg](https://cdn.discordapp.com/attachments/565154703139405824/827804172610175016/image0.jpg)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/03/2021 07:28:53
+##### Olivier Michel [Cyberbotics] 04/03/2021 07:28:53
 Did you try with Python 3.8 from python.org?
 
 ##### Yi Zhou 04/03/2021 07:35:43
 Hello everyone, I have a question about webots. When I try to integrated a kinect camera into panda robot, the kinect was attached perfectly, but the image windows show nothing, I checked some demo about camera, it look like I need  some code to make kinect work. So, does anyone know how to make kinect work?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/03/2021 13:57:04
+##### Darko Lukić [Cyberbotics] 04/03/2021 13:57:04
 You have to enable the camera:
 
 [https://cyberbotics.com/doc/reference/camera#wb\_camera\_enable](https://cyberbotics.com/doc/reference/camera#wb_camera_enable)
@@ -12324,13 +12324,13 @@ I tried but show error the code crash 😢 and didn’t work
 ##### benj3110 04/03/2021 14:19:20
 Thank you! really big help!😁
 
-##### ali\_69426 04/05/2021 03:32:29
+##### Ali\_1 04/05/2021 03:32:29
 Hi, 
 
 How can I move a solid object (with physics) on a path in the  supervisor node?  Since physics is enabled if falls when I simply change its position.
 
 ##### DDaniel [Cyberbotics] 04/05/2021 08:28:38
-`@ali_69426` if the object is supposed to be entirely moved by the supervisor you need to manually set it's translation/rotation field at every timestep. If instead you want the object to have physics but "float"  then you can insert the solid object as a child of the robot, then give physics to the object itself but not to the parent (the robot)
+`@Ali_1` if the object is supposed to be entirely moved by the supervisor you need to manually set it's translation/rotation field at every timestep. If instead you want the object to have physics but "float"  then you can insert the solid object as a child of the robot, then give physics to the object itself but not to the parent (the robot)
 
 ##### Yi Zhou 04/05/2021 09:33:15
 Hello, thanks for your reply, I get my kinect camera by using "getFromDEF" because the kinect camera was defined as DEF. But there is no enable function
@@ -12436,7 +12436,7 @@ what is LIGHT\_THRESHOLD = 500 ?
 
 NOSE\_SENSITIVITY = 0.25   ?  Where can I get any explanation about  that?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/05/2021 20:47:54
+##### Simon Steinmann [Moderator] 04/05/2021 20:47:54
 look lower in the code and see how it is used
 
 ##### enbakom ghebremichael 04/05/2021 21:58:16
@@ -12456,7 +12456,7 @@ what is LIGHT\_THRESHOLD = 500 ?
 
 NOSE\_SENSITIVITY = 0.25   ?  Where can I get any explanation about  that?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/05/2021 22:05:51
+##### Simon Steinmann [Moderator] 04/05/2021 22:05:51
 it is using those variables to comprehend the distance sensor values
 
 
@@ -12465,13 +12465,13 @@ top\_wall and side\_wall are boolean (True or false).
 ##### enbakom ghebremichael 04/05/2021 22:52:52
 Still not clear to me .  LIGHT\_THRESHOLD = 500 ? what is 500 ?  or what is 0.25 ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/05/2021 22:54:54
+##### Simon Steinmann [Moderator] 04/05/2021 22:54:54
 values that get compared to the sensor values
 
 ##### James Le Poidevin 04/06/2021 13:18:24
 Hello, Is it possible to use the supervisor API with ros2 to move an object during a simulation ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/06/2021 13:25:02
+##### Darko Lukić [Cyberbotics] 04/06/2021 13:25:02
 Hello `@reinaldobianchi`. Could you please provide a more details?
 
 
@@ -12512,7 +12512,7 @@ but if you use sensor s03 as a front sensor, distance to a wall will increase...
 
 DX and AT
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/06/2021 13:30:06
+##### Darko Lukić [Cyberbotics] 04/06/2021 13:30:06
 Position of the `so3`
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/828984920038178856/unknown.png)
@@ -12627,7 +12627,7 @@ using the AT
 
 Pioneer 3 AT
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/06/2021 13:32:53
+##### Darko Lukić [Cyberbotics] 04/06/2021 13:32:53
 Yes, you can extend the `WebotsNode`, see an example:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/99fa4a1a9d467e4ba71eff17ddf4e82444c78938/webots\_ros2\_examples/webots\_ros2\_examples/khepera\_driver.py#L69-L108](https://github.com/cyberbotics/webots_ros2/blob/99fa4a1a9d467e4ba71eff17ddf4e82444c78938/webots_ros2_examples/webots_ros2_examples/khepera_driver.py#L69-L108)
@@ -12638,7 +12638,7 @@ Hi, I have a question regarding supervisor's getNumberofContactPoints() function
 ##### James Le Poidevin 04/06/2021 13:45:54
 I'm not sure I explained properly what i wanted. i want to use the function setSFVec3f(self, values) on a a class that inherited from WebotsNode.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/06/2021 13:52:47
+##### Darko Lukić [Cyberbotics] 04/06/2021 13:52:47
 I have just properly checked and the orientation is correct. The confusion may come from the fact that the Pioneer robot uses a lookup table for the distance sensors:
 
 [https://github.com/cyberbotics/webots/blob/ab8b93ff30523825a8193327db756f44f12d390c/projects/robots/adept/pioneer3/protos/Pioneer3DistanceSensor.proto#L191-L194](https://github.com/cyberbotics/webots/blob/ab8b93ff30523825a8193327db756f44f12d390c/projects/robots/adept/pioneer3/protos/Pioneer3DistanceSensor.proto#L191-L194)
@@ -12666,7 +12666,7 @@ if you move to the viewpoint "Front", you will see the back of the P3 AT
 
 And vice versa.
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/06/2021 13:57:14
+##### Darko Lukić [Cyberbotics] 04/06/2021 13:57:14
 Maybe a better example:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/master/webots\_ros2\_tesla/webots\_ros2\_tesla/tesla\_driver.py](https://github.com/cyberbotics/webots_ros2/blob/master/webots_ros2_tesla/webots_ros2_tesla/tesla_driver.py)
@@ -12687,7 +12687,7 @@ class YourDriver(WebotsNode):
 ##### James Le Poidevin 04/06/2021 13:58:16
 Brilliant thanks 👍
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/06/2021 14:00:20
+##### Darko Lukić [Cyberbotics] 04/06/2021 14:00:20
 `Front View` refers to the world, not to the robot
 
 ##### reinaldobianchi 04/06/2021 14:03:21
@@ -12703,10 +12703,10 @@ ImportError: libCppController.so: cannot open shared object file: No such file o
 
 How can I solve this problem?
 
-##### jfarhan 04/07/2021 06:13:37
+##### notjfarhan 04/07/2021 06:13:37
 Hello , I wanted to know if there was a webots model for the intel realsense camera .
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/07/2021 07:10:13
+##### Darko Lukić [Cyberbotics] 04/07/2021 07:10:13
 Make sure the `LD_LIBRARY_PATH` is pointing to the correct directory
 
 ##### Harris 04/07/2021 07:28:14
@@ -12721,7 +12721,7 @@ Yes it is pointing to the correct one
 ![2021-04-07_01-27-34_.png](https://cdn.discordapp.com/attachments/565154703139405824/829256254685708319/2021-04-07_01-27-34_.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/07/2021 07:37:10
+##### Darko Lukić [Cyberbotics] 04/07/2021 07:37:10
 You can check whether the configuration works independent from your IDE:
 
 ```bash
@@ -12739,7 +12739,7 @@ Do u mean type these in the IDE terminal? Programs can be started in the termina
 ![2021-04-07_02-19-35_.png](https://cdn.discordapp.com/attachments/565154703139405824/829269859526246431/2021-04-07_02-19-35_.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/07/2021 08:26:13
+##### Darko Lukić [Cyberbotics] 04/07/2021 08:26:13
 That's a good sign. Now, you just need to configure PyCharm. Unfortunately, I have close to zero experience with PyCharm.
 
 
@@ -12770,7 +12770,7 @@ It happens after there is a mistake in my external controleur(i.e forgot a " or 
 ##### [DER]Mad[MAN] 04/07/2021 12:14:26
 Hello there ! I have a question about a detail from Webots ros2 sensors messages. It seems that they are not reliable, I need to switch rviz2 topic subscription to best\_effort to be able to visualize pointcloud (for example). Is this normal? Is there a way to get reliable messages?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/07/2021 12:22:02
+##### Darko Lukić [Cyberbotics] 04/07/2021 12:22:02
 The newest version of `webots_ros2` (available in the master branch) uses `qos_profile_sensor_data` QoS for all sensors.
 
 
@@ -12782,7 +12782,7 @@ Okay, thanks. I'll check, but I thought I had the latest version of the package
 ##### Westin 04/07/2021 22:14:23
 Is there a way to batch import STL files?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/08/2021 06:02:46
+##### Olivier Michel [Cyberbotics] 04/08/2021 06:02:46
 You can use the Mesh node to import STL files, see [https://cyberbotics.com/doc/reference/mesh](https://cyberbotics.com/doc/reference/mesh)
 
 ##### Pancha 04/08/2021 09:06:54
@@ -12804,7 +12804,7 @@ I've followed various online resources and the `connector.wbt` sample world (pro
 
 Hope someone has an idea nudging me in the correct direction 🙂
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/08/2021 09:17:01
+##### Darko Lukić [Cyberbotics] 04/08/2021 09:17:01
 If you are comfortable with C/C++ you can try to implement it in the Webots core:
 
 [https://github.com/cyberbotics/webots/issues/2889#issuecomment-804073941](https://github.com/cyberbotics/webots/issues/2889#issuecomment-804073941)
@@ -12819,7 +12819,7 @@ Cheers, I’ll try this out 😁👍
 ##### tudor 04/08/2021 10:26:40
 Could anyone please clarify: What happens to controllers of robots created during the simulation, when using simulationReset? Am I right to assume that the get killed by the webots main process?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/08/2021 10:50:58
+##### Darko Lukić [Cyberbotics] 04/08/2021 10:50:58
 Nothing, you have to reset each controller explicitly:
 
 [https://cyberbotics.com/doc/reference/supervisor?version=develop#resetreload-matrix](https://cyberbotics.com/doc/reference/supervisor?version=develop#resetreload-matrix)
@@ -12830,7 +12830,7 @@ Thanks for the prompt response. Don't you find this behaviour a bit weird ? Say 
 ##### Yi Zhou 04/08/2021 11:14:27
 Hello everyone, I have got the image array by using python function "getImageArray" from camera, but when I try to show image array by using Pillow, it did not show the image that camera shows on webots, does anyone know what's the reason?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/08/2021 11:20:10
+##### Darko Lukić [Cyberbotics] 04/08/2021 11:20:10
 That function returns list of lists in Python. You should use `getImage` instead, see here:
 
 [https://github.com/lukicdarkoo/webots-example-lane-follower/blob/3ca866b0c41b65faa01d3d998de062c941680708/controllers/lane\_follower/lane\_follower.py#L17-L18](https://github.com/lukicdarkoo/webots-example-lane-follower/blob/3ca866b0c41b65faa01d3d998de062c941680708/controllers/lane_follower/lane_follower.py#L17-L18)
@@ -12867,7 +12867,7 @@ Hi, this is my first time posting where I could use your help.  Yet as a JrHi/Sr
 ##### thonk enthusiast 04/09/2021 05:52:12
 Ah so the wbt file doesn’t work cross-platform?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/09/2021 06:24:36
+##### Olivier Michel [Cyberbotics] 04/09/2021 06:24:36
 Everything should work cross-platform, especially if your controllers are interpreted language (MATLAB or Python) or Java. For C and C++ controllers, you will need to recompile them from the source, but that's very easy from the Webots IDE.
 
 ##### thonk enthusiast 04/09/2021 06:30:34
@@ -12879,7 +12879,7 @@ Is there a way through code to reset the console if `Reset Simulation` button is
 ##### AleBurzio 04/09/2021 14:22:57
 Hello! Is there any way I can acquire the simulation time, aside from counting the simulation steps and multiplying by the world time step?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/09/2021 14:24:04
+##### Darko Lukić [Cyberbotics] 04/09/2021 14:24:04
 [https://cyberbotics.com/doc/reference/robot#wb\_robot\_get\_time](https://cyberbotics.com/doc/reference/robot#wb_robot_get_time)
 
 There is the `wb_robot_get_time()` function
@@ -13100,7 +13100,7 @@ not to discredit them but
 
 [https://cdn.discordapp.com/emojis/693723538552782888.png?size=64](https://cdn.discordapp.com/emojis/693723538552782888.png?size=64)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/09/2021 21:38:51
+##### Simon Steinmann [Moderator] 04/09/2021 21:38:51
 `@meww` This is a technical support server for Webots. Please refrain from using profane language, insulting people and try to conduct yourself in a respectful manner. Otherwise we'll have to ban you.
 
 
@@ -13136,7 +13136,7 @@ very interesting
 
 maybe you ought to implement a *rules channel*
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/10/2021 08:49:54
+##### Olivier Michel [Cyberbotics] 04/10/2021 08:49:54
 For graphical programming of robots in Webots, you might be interested to check this out: [https://www.stormingrobots.com/prod/dev2.html](https://www.stormingrobots.com/prod/dev2.html) (especially the first project with Blockly programming in Webots).
 
 ##### Stormtrooper 04/10/2021 12:22:02
@@ -13203,7 +13203,7 @@ Yeah, I'm also a student
 
 `@rendermite_` Where in the US? If you're in the west coast go to DMs
 
-##### ali\_69426 04/11/2021 05:08:50
+##### Ali\_1 04/11/2021 05:08:50
 Hi, is it possible to change the cursor style in 3D view?
 
 ##### rendermite\_ 04/11/2021 05:11:06
@@ -13436,7 +13436,7 @@ I have an OP3 robot, I want to access to one of its link with supervisor, for ex
 
 How can I use "supervisor.getFromProtoDef()" in python?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/12/2021 09:26:29
+##### Darko Lukić [Cyberbotics] 04/12/2021 09:26:29
 The `getFromProtoDef` is a member method of a node, so you should get the node first. For example, `supervisor.getFromDef('MY_ROBOT').getFromProtoDef(...`
 
 ##### alireza1992 04/12/2021 10:02:39
@@ -13448,7 +13448,7 @@ Hi, I am doing collision check in a specific situation. Stage 1 is detect a movi
 ##### Yi Zhou 04/12/2021 14:40:29
 Hello everyone, I have tried to use ikpy package in my python script, and there is a demo about how to use it in webots, but when I try to use getUrdf to get my link, the number of link I got is incorrect. Could anyone tell me if you have better way to use ikpy in webots?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/12/2021 14:47:47
+##### Darko Lukić [Cyberbotics] 04/12/2021 14:47:47
 Hello, you can define links manually, see:
 
 [https://github.com/cyberbotics/webots/blob/d7ecc8022d19c00242781a0edb173c6b494c8b84/projects/robots/abb/irb/controllers/inverse\_kinematics/inverse\_kinematics.py#L31-L68](https://github.com/cyberbotics/webots/blob/d7ecc8022d19c00242781a0edb173c6b494c8b84/projects/robots/abb/irb/controllers/inverse_kinematics/inverse_kinematics.py#L31-L68)
@@ -13460,7 +13460,7 @@ Do you get less or more links with `getUrdf`? The link is exported if the corres
 ##### Yi Zhou 04/12/2021 14:48:38
 Hi, actually, I got less link
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/12/2021 14:52:09
+##### Darko Lukić [Cyberbotics] 04/12/2021 14:52:09
 Hello, maybe this can help:
 
 [https://cyberbotics.com/doc/reference/supervisor?tab-language=python](https://cyberbotics.com/doc/reference/supervisor?tab-language=python)
@@ -13477,7 +13477,7 @@ You should be able to solve it by adding more solid nodes
 ##### Yi Zhou 04/12/2021 14:54:59
 Could you please tell me how I can add more solid nodes?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/12/2021 14:56:39
+##### Darko Lukić [Cyberbotics] 04/12/2021 14:56:39
 Did you model the robot in Webots?
 
 ##### Yi Zhou 04/12/2021 15:03:20
@@ -13616,7 +13616,7 @@ int main(int argc, char **argv) {
 
 This is my code
 
-##### KNTRL 04/12/2021 17:17:38
+##### KNTRL [Premier Service] 04/12/2021 17:17:38
 Hi guys,
 
 So I am trying to figure out all of the sensors and while trying to work on the range-finder, I have my doubts that the sample-file is working as intendet for me? I also tried to play around in a simple project, but the results on the data-array are either minrange or maxrange values, no matter what I do
@@ -13631,7 +13631,7 @@ Me to I’m having the same error if anyone can help us please I well be so grat
 ##### Beginner26798 04/12/2021 19:47:01
 I have rhe 2020b
 
-##### KNTRL 04/12/2021 20:01:12
+##### KNTRL [Premier Service] 04/12/2021 20:01:12
 <@787796043987025941> I'm on 2021a too, and I haven't touched the file before simulating.
 
 ##### Beginner26798 04/12/2021 20:30:29
@@ -13857,13 +13857,13 @@ This file is specific to the OP2 robot
 
 Is there any workaround to run a Webot world file code in the OP2 robot rather than the Transfer window in Webot?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/13/2021 05:43:12
+##### Olivier Michel [Cyberbotics] 04/13/2021 05:43:12
 Yes, using a supervisor.
 
 ##### aja\_discord 04/13/2021 06:04:18
 Hi Guys, I'm trying to make a self balancing robot that learns from a genetic algorithm. But I'm unable to restore the position of the robot properly..From my observations it seems the supervisor and controller are out of sync...meaning that when the supervisor resets the robots position the robot controller still keeps on running it motors hence loosing its balance early on, unlike what I want...I don't understand how to get this fixed...Here are the links to the supervisor and controlloer...Thanks in advance...The functions in concern are  **restore\_robot\_position(), run\_optimization(), evaluate\_genotype() ** ***Links :***[https://pastebin.com/H0jnEjN5](https://pastebin.com/H0jnEjN5)     [https://pastebin.com/eyzcPrey](https://pastebin.com/eyzcPrey)
 
-##### KNTRL 04/13/2021 06:41:07
+##### KNTRL [Premier Service] 04/13/2021 06:41:07
 <@787796043987025941> I'm on Windows 10. I'll try a new installation later today
 
 ##### h.sciascia 04/13/2021 06:45:55
@@ -13917,7 +13917,7 @@ Hello everyone hope you’re fine I’m facing a problem in my webots project I�
 ##### bingdong 04/13/2021 10:59:43
 Controller Arguments was what I needed, yes. Thank you!
 
-##### KNTRL 04/13/2021 11:20:08
+##### KNTRL [Premier Service] 04/13/2021 11:20:08
 <@787796043987025941> I installed the R2021a new and I am still having the same problem (Windows 10, 64 Bit), but here comes the interesting part: I also have a 2020b Version on the machine where it seems to work.
 
 
@@ -13956,7 +13956,7 @@ Cheers,
 
 Suti
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/14/2021 06:59:41
+##### Darko Lukić [Cyberbotics] 04/14/2021 06:59:41
 Hello, Webots creates a fixed joint between two connectors when locked:
 
 [https://github.com/cyberbotics/webots/blob/180777b4f9114e336eb39f70f8feda42a7ffc552/src/webots/nodes/WbConnector.cpp#L486](https://github.com/cyberbotics/webots/blob/180777b4f9114e336eb39f70f8feda42a7ffc552/src/webots/nodes/WbConnector.cpp#L486)
@@ -14008,7 +14008,7 @@ class SocketServer(threading.Thread): <--- when run() is called, it just enters 
 ##### James Le Poidevin 04/14/2021 09:26:49
 Hello, Is there an example of a ros2 package that doesn't launch a world file but uses one already open (either by another pkg or just by hand)?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/14/2021 09:29:20
+##### Darko Lukić [Cyberbotics] 04/14/2021 09:29:20
 No, but you should be able to exclude the Webots world from the launch files and then run only controller
 
 ##### Stefania Pedrazzi [Cyberbotics] 04/14/2021 09:40:16
@@ -14024,7 +14024,7 @@ I'm using an example of the robot_launch.py file from github and i keep getting 
 
 Do i even need to use the `webots = IncludeLaunchDescription(...)` part ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 04/14/2021 11:00:02
+##### Darko Lukić [Cyberbotics] 04/14/2021 11:00:02
 You cannot use `robot_launch.py`, but you can take inspiration from it:
 
 [https://github.com/cyberbotics/webots\_ros2/blob/master/webots\_ros2\_core/launch/robot\_launch.py](https://github.com/cyberbotics/webots_ros2/blob/master/webots_ros2_core/launch/robot_launch.py)
@@ -14048,4 +14048,4618 @@ Ok thank you i'll give it a try
 
 
 Thank you  i got it to work just needed to remove the 'webots' from the launch
+
+##### bingdong 04/14/2021 15:13:17
+Hi!
+
+Is it the case that I can't run an infinite while loop inside the main loop in robot controller like this?
+
+while robot.step(timestep)!=-1:
+
+    #Commands
+
+     while True:
+
+         # Commands
+
+##### Darko Lukić [Cyberbotics] 04/14/2021 15:14:36
+`@bingdong` You can, but nothing from the loop will be executed until you call `robot.step()`
+
+##### Nick R 04/14/2021 17:19:46
+Hi all, I'm very new to Webots and evaluating it against a few other simulators for use at my company. I'm trying to test a number of sensors (eg a few Velodyne LIDARs and a handful of mono cameras) in a reasonably-complex world. However, I'm struggling to understand how I can extend any of the sample robot/car model PROTOs to add these sensors. `@Olivier Michel` suggested I use the extension slots on the BmwX5 model (thank you VERY much for all your help yesterday by the way!) but it would be very helpful if there's some example model I can follow which has a sensor added to a slot.
+
+
+
+Alternatively, if there is a simpler way to evaluate a number of sensors please do let me know. Mainly looking to test real-time performance and understand processing limitations. Thank you!
+
+##### baby\_droid\_yoda 04/14/2021 18:00:05
+Hi, How can I make YOLOv3 with Webots? Webots' controller give me image parameters 4 (BGRA) and Yolov3 is getting image array parameters 3(BGR).
+
+##### Simon Steinmann [Moderator] 04/14/2021 19:38:33
+`@Nick R` You can simply add a Robot base node and add all the sensor as children. as controller select 'Void'. run the simulation and right click on the robot in the scene tree -> view Robot Window. Here you can enable the sensors and view them. You can move the robot in the 3d view when selected. And you can move the sensors relative to the robot when you select them.
+
+
+`@baby_droid_yoda` [https://cyberbotics.com/doc/reference/camera?tab-language=python#wb\_camera\_get\_image](https://cyberbotics.com/doc/reference/camera?tab-language=python#wb_camera_get_image) I suggest you study the api documentation. It really depends on what language you use, and what exactly you want and need
+
+##### Beginner26798 04/14/2021 20:41:03
+Good evening everyone ... i need a code to control the ur10e robotic hand please
+
+##### Simon Steinmann [Moderator] 04/14/2021 21:51:13
+`@Beginner26798` which hand? the Robotiq 3f gripper?
+
+
+and what language?
+
+##### Beginner26798 04/14/2021 21:52:51
+If ther is a code to this hand without a gripper i will replace it with a camera.
+
+Using C language
+
+##### Simon Steinmann [Moderator] 04/14/2021 21:53:07
+what exactly do you want to achieve?
+
+##### Beginner26798 04/14/2021 21:54:05
+I am working of a controlled hand that moves due to color recognition caused by the camera
+
+
+If you want more details i can dm you
+
+##### Simon Steinmann [Moderator] 04/14/2021 22:12:11
+look at the documentation, motors are very simple to control
+
+##### Emiliano Borghi 04/15/2021 00:24:26
+Hello, I'm doing some tests with Pioneer with ROS. I was able to compile the official controller  ([https://github.com/cyberbotics/webots\_ros/blob/master/src/pioneer3at.cpp](https://github.com/cyberbotics/webots_ros/blob/master/src/pioneer3at.cpp)) and run it as "ros", but when I set the world option as "<extern>", it's not able to find it.
+
+
+
+Webots terminal is not showing any useful data. How can I see more useful logs?
+
+##### Simon Steinmann [Moderator] 04/15/2021 00:28:08
+pretty sure you have to run the ros controller in webots, not the extern
+
+##### Uanuan 04/15/2021 01:15:26
+Cool, thanks a lot. I'm going to try that out. I'm also wondering if there's a way to reference multiple (different) robot supervisor in the world? is there such a thing: bot1 =Supervisor("some id") then bot2 = Supervisor("another id") in the API?
+
+##### Nick R 04/15/2021 03:15:52
+Thanks a bunch! I was able to do this and get a number of sensors running simultaneously and streamed to ROS2 using the webots\_ros2\_core launch file robot\_launch.py, however I have the issue that the transform tree in ROS2 is empty. I get launch errors like the following, seems a link is not unique, anyone have an idea where to look to solve this? The 'solid\_37725' is not referenced anywhere in the .wbt that I can see, not sure where this comes from...
+
+
+
+[robot\_state\_publisher-1] Error:   link 'solid\_37725' is not unique.
+
+[robot\_state\_publisher-1]          at line 134 in /tmp/binarydeb/ros-foxy-urdfdom-2.3.3/urdf\_parser/src/model.cpp
+
+[robot\_state\_publisher-1] [WARN] [1618456336.778552563] [robot\_state\_publisher]: Unable to initialize urdf::model from robot description
+
+##### Stefania Pedrazzi [Cyberbotics] 04/15/2021 06:23:59
+An independent controller instance is run for each Robot/Supervisor, so you can only create one supervisor instance per controller and use the Supervisor API with the robot associated with the controller.
+
+But you can use the same controller for multiple robots (multiple instances will be started) and identify and use for example the `Robot.name` value to identify it (see [https://www.cyberbotics.com/doc/reference/robot#wb\_robot\_get\_name](https://www.cyberbotics.com/doc/reference/robot#wb_robot_get_name)).
+
+##### Darko Lukić [Cyberbotics] 04/15/2021 06:53:19
+Webots doesn't require solid names to be unique, so we add a suffix to the solid name if there is a solid with the same name. However, it is strange that you are getting the error. Is it a custom robot?
+
+##### Uanuan 04/15/2021 08:32:33
+Thanks again. I got the timestep thingy in place, and everything is working fine atm. Really appreciate your help on this, I'm going to experiment with the Robot.name in my python code later 🙂
+
+##### Maurice Faraj 04/15/2021 09:07:17
+Hello everyone hope you’re doing well I’m facing some problems to controle a ure10 hand that contain a camera on its periferic and the camera by recongnize color should order the ure10 to move if anyone can help me please how to controle it and thank you everyone
+
+##### Baziyad 04/15/2021 09:38:37
+Dear `@Darko Lukić`, thanks for your efforts.
+
+I am facing the following error when  I try to remotley connect Webot  to OP2 robot:
+
+Any clues?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/832188154474790912/unknown.png)
+%end
+
+##### Johan2021 04/15/2021 10:13:12
+Hi `@Darko Lukić` , thanks a lot for your reply! In this case, the fixed joint would only be created when a compatible peer connector is present - if I understood correctly - which would not necessarily be the case for me. Would there be a way to declare the `isLocked` value as a "global variable" to the simulator or scene tree that could then be read out from the plugin (I am still new with Webots)?
+
+##### Darko Lukić [Cyberbotics] 04/15/2021 10:55:30
+Yes, you can write the start in e.g. `customData` robot field:
+
+[https://cyberbotics.com/doc/reference/robot](https://cyberbotics.com/doc/reference/robot)
+
+
+
+And update it using:
+
+[https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_field\_set\_sf\_string](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_field_set_sf_string)
+
+and read it using:
+
+[https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_field\_get\_sf\_string](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_field_get_sf_string)
+
+##### KNTRL [Premier Service] 04/15/2021 11:05:59
+Can someone explain the way the RadarTarget list is being sorted? I don't seem to figure out the way it gets sorted after a new target is added.
+
+##### Stefania Pedrazzi [Cyberbotics] 04/15/2021 11:18:24
+At simulation load the RadarTarget list is initialized using the order in the scene tree. If you then add new targets after the simulation load, the new target is appended to the end of the list.
+
+##### Johan2021 04/15/2021 11:19:27
+This is great! Just to make sure; this would mean that the supervisor class and its functions are available to the `plugin` (reading out the value) as well as to the `controller` (setting the value), after declaring the robot node as supervisor?
+
+##### Darko Lukić [Cyberbotics] 04/15/2021 11:39:52
+Unfortunately, I don't think you can access these fields from the Physics plugin. I afraid you need to fallback to your initial idea.
+
+##### Emiliano Borghi 04/15/2021 12:01:54
+But it's possible according to the documentation but I haven't found an example in webots\_ros package.
+
+##### aslisevil 04/15/2021 12:40:30
+hello, is it possible to create a motion file automatically for Nao robot using some program? I am trying to add a box lifting motion to it.
+
+##### Iris230 04/15/2021 12:49:18
+guys, I just added the controller' racing\_wheel' to a BMW5. 
+
+But when I keep my foot on the gas, the speed is so low. Is there someone knowing what the problem is? :smiling\_face\_with\_tear:
+%figure
+![68b2c851b73d6578.png](https://cdn.discordapp.com/attachments/565154703139405824/832236141054132245/68b2c851b73d6578.png)
+%end
+%figure
+![-1add8774e3bb647a.png](https://cdn.discordapp.com/attachments/565154703139405824/832236141318635520/-1add8774e3bb647a.png)
+%end
+
+
+sorry It's a BmwX5
+
+##### Nick R 04/15/2021 14:14:01
+Yes, this is a custom "robot" created as a Robot base node with two LIDAR sensors as children. The LIDAR names are unique, so I'm not sure what else is preventing this from working. Unfortunately since the robot\_state\_publisher won't run, I can't access /tf and visualize all the data in map frame (which I assume should work if launched successfully)
+
+##### Steven37 04/15/2021 15:12:06
+I am trying to create a function to control my 4-wheeled robot by continuously changing the speed of 4 wheels so that the robot can move in random directions. Then, I want to print out the robot's position every 3 seconds using the supervisor. I have coded for that function as shown in the image I attached. However, I did not see the robot's position printed out. Can someone help me, please?
+%figure
+![3Y_project_CodeForExperiment11.JPG](https://cdn.discordapp.com/attachments/565154703139405824/832272078747992084/3Y_project_CodeForExperiment11.JPG)
+%end
+
+##### DDaniel [Cyberbotics] 04/15/2021 16:45:43
+`@Steven37` the condition for it to print doesn't do what you want it to do, variable `t` doesn't change. The function you're thinking of is probably [https://cyberbotics.com/doc/reference/robot?tab-language=c++#wb\_robot\_get\_time](https://cyberbotics.com/doc/reference/robot?tab-language=c++#wb_robot_get_time) (still need to fix the condition though)
+
+##### ~E 04/15/2021 16:49:57
+Hi all,
+
+
+
+I am using the e-puck sample bot with the collision detection and pulling accelerometer data for further data analysis. I am using matlab for the code since my school gets paid A LOT of money to use them, and therefore cannot use Python like any other sensible person would (only joking a little bit ;).
+
+
+
+I can post my code, but would like to limit how much I post since this is a project for school, and I do not want classmates to find this and plagiarize.
+
+
+
+> **Attachment**: [E-Puck\_jerky\_movement.mp4](https://cdn.discordapp.com/attachments/565154703139405824/832297321935929434/E-Puck_jerky_movement.mp4)
+
+##### Darko Lukić [Cyberbotics] 04/15/2021 17:14:12
+Is it possible to send the robot model to me so I can investigate it? Also, we did some improvements to the URDF exporter in R2021b. Therefore, if it doesn't take too much time then you can try R2021b:
+
+[https://github.com/cyberbotics/webots/releases](https://github.com/cyberbotics/webots/releases)
+
+##### ~E 04/15/2021 17:25:27
+I just spoke to my professor, and apparently we aren't even supposed to make the robot collide with anything. I can still DM the files to it if you're curious
+
+##### Nick R 04/15/2021 17:36:22
+Sure, I can send it, but I'll try to use 2021b instead first (currently on 2021a). Thanks!
+
+##### ~E 04/15/2021 19:24:57
+Can someone confirm for me that if your basicsteptime = 4, that means that each step is equal to 0.004 seconds (4ms)?
+
+##### Simon Steinmann [Moderator] 04/15/2021 19:29:23
+yes
+
+
+4 is quite small. Usually 16 works quite well
+
+
+webots is very stable compared to other simulators
+
+##### ~E 04/15/2021 19:30:29
+I just have some REALLY high jerk in starting my movement, and my prof wants us to integrate to find velocity
+
+
+Also, I hate that matlab starts arrays at 1
+
+##### Simon Steinmann [Moderator] 04/15/2021 20:18:49
+😆  I feel you
+
+
+oh integrate acceleration to fin vel?
+
+
+I guess when you are only allowed to use the accelerometer. Wheel motors seem more logical
+
+
+can you show an example of the jerk in starting movement? It might just be a very high torque setting (unrealisticly high).
+
+
+you can always speed up in a slower and controlled manner
+
+##### geflowers 04/16/2021 04:06:15
+Hey everyone, I'm pretty new with working on webots and had a quick question on how to obtain a certain movement with a rotational motor
+
+
+So the idea is to have this arm begin at this initial position and after a timestep, have the rotational motor kind of "jerk" the arm back to this horizontal position and repeatedly do that
+%figure
+![Concept_art_-_Function.PNG](https://cdn.discordapp.com/attachments/565154703139405824/832467213767671828/Concept_art_-_Function.PNG)
+%end
+
+
+Was recommended to base it off PID control but kinda struggling on getting the rotational motor to move using the created controller
+
+
+Any ideas or resources I could use as reference to do this?
+
+##### Max\_K 04/16/2021 07:13:58
+Hey, is it possible to run a opc ua server inside webots and are there any examples?
+
+##### KNTRL [Premier Service] 04/16/2021 08:21:21
+What could cause that the point cloud randomly disappears during the simulation? This was done on Win10, R2021a, and it is the same with R2021a on Ubuntu 18.04.5.
+> **Attachment**: [lidar\_samplefile\_win10\_R2021a.mp4](https://cdn.discordapp.com/attachments/565154703139405824/832531097040191528/lidar_samplefile_win10_R2021a.mp4)
+
+##### DDaniel [Cyberbotics] 04/16/2021 08:24:28
+`@KNTRL` was a bug, [https://github.com/cyberbotics/webots/pull/2666](https://github.com/cyberbotics/webots/pull/2666) but should be fixed in the nightly version of webots
+
+##### bingdong 04/16/2021 15:45:48
+Hi, I seem to have done something in the properties which is why I'm seeing this in the rendering screen. Can someone let me know how I can fix this?
+%figure
+![Screenshot_from_2021-04-16_21-05-30.png](https://cdn.discordapp.com/attachments/565154703139405824/832642948872011806/Screenshot_from_2021-04-16_21-05-30.png)
+%end
+
+##### Nick R 04/16/2021 15:45:52
+The nightly version seems to have fixed my issue with URDF export/robot description generation to be used in building the tf tree. Thank you for the suggestion!! Maybe worth making a note that there may be an issue with 2021a
+
+##### DDaniel [Cyberbotics] 04/16/2021 15:51:05
+`@bingdong` not sure as the pic isn't super clear but try F11 or view > plain rendering, might be that
+
+##### bingdong 04/16/2021 16:05:49
+Yes, right. I'd switched it to wireframe rendering somehow. Thank you!
+
+##### Nick R 04/16/2021 17:26:44
+When simulating a VLP-16 LIDAR, I can run the simulation in fast mode at >10x speed. However, if I subscribe to the ROS2 topic for the LIDAR data in any way (for example viewing it in RViz2, or even just echoing the topic), then the speed cuts in half. Is this expected due to the overhead of ROS2 communication? Anything that can be done about it?
+
+##### Darko Lukić [Cyberbotics] 04/16/2021 20:25:25
+By default, the Lidar publishes data every 128ms as data is very large:
+
+[https://github.com/cyberbotics/webots\_ros2/blob/b37b9916f002503148171279a9a4a1051cd1092d/webots\_ros2\_core/webots\_ros2\_core/devices/lidar\_device.py#L44](https://github.com/cyberbotics/webots_ros2/blob/b37b9916f002503148171279a9a4a1051cd1092d/webots_ros2_core/webots_ros2_core/devices/lidar_device.py#L44)
+
+
+
+P.S. FastDDS recently published a zero-copy feature that should significantly improve transfer speeds between nodes. This should allow publishing lidar data at higher rates.
+
+##### Nick R 04/16/2021 20:52:22
+Would the zero-copy feature work to reduce overhead from webots to ROS2 though? I'm new to ROS2, but that sounds like the concept of nodelets in ROS1
+
+
+Also, I experimented a bit more and the RTF (realtime factor) actually decreases much more when subscribing to a single camera stream (800x800) than a single VLP16, which I was surprised by. Unfortunately I want to stream several of each of those sensors at once, but the RTF goes down below 1.0 in that case 😦
+
+##### Simon Steinmann [Moderator] 04/16/2021 21:05:57
+`@Nick R` This is a lot of data. 800 * 800 * 4 Byte = 2.5 MB per frame
+
+
+if you have 30 frames per second (32ms timestep), that is 75MB/s
+
+
+this can easily saturate a network connection
+
+
+keep in mind, that this image data is uncompressed
+
+
+you might want to consider publishing at a lower rate, or turning it into a service or action, only publishing on request
+
+##### Nick R 04/16/2021 21:10:12
+Thanks, it does make sense then. I'm actually not sure the output rate, it's the default for the Camera sensor, but I forgot to check on the ROS2 side. Can the data be sent as a compressed ROS2 msg?
+
+##### Simon Steinmann [Moderator] 04/16/2021 21:10:32
+I'm actually googling that right now :p
+
+##### Nick R 04/16/2021 21:10:42
+I was suprised because in Gazebo, I was able to run at RTF=1.0 for a large number of camera sensors. They must use some zero-copy mechanism under the hood, I should dig further
+
+##### Simon Steinmann [Moderator] 04/16/2021 21:10:52
+[http://wiki.ros.org/compressed\_image\_transport](http://wiki.ros.org/compressed_image_transport)
+
+##### Nick R 04/16/2021 21:11:28
+Thanks, yeah I'm aware of this for ROS1, not sure about ROS2, and if webots side would need to be modified in either case
+
+##### Simon Steinmann [Moderator] 04/16/2021 21:11:30
+the question is, where exactly the bottleneck lies. It might be inside webots or in ros
+
+
+do you have python code?
+
+##### Nick R 04/16/2021 21:12:45
+I just use the webots\_ros2\_core launch file robot\_launch.py to create the ROS2 interface, with my simple "robot" having some sensors and the controller set to <extern>
+
+##### Simon Steinmann [Moderator] 04/16/2021 21:12:55
+oh, what gpu do you have? and is it being utilized properly?
+
+
+could you pm me your project? wanna do some digging and analysis
+
+##### alireza1992 04/17/2021 10:38:10
+Hi everyone;
+
+I would like to change the position of robot's links immediately after taking command, that is I don't want to use from joints and motors of robot because they need to spent several time step.
+
+Probably one way is that define several field corresponding to every link and change their values by supervisor. Is there any other way? 
+
+Can you help me? 
+
+Thank you.
+
+##### Beginner26798 04/17/2021 20:36:19
+Good evening ... i need a code to change the shoulder and elbow angle of the ure10 robot please
+
+
+Continously
+
+
+`@Darko Lukić` can you please help me
+
+##### Simon Steinmann [Moderator] 04/18/2021 01:20:12
+`@Beginner26798` use the motors to change the position. The  position is the angle in radian. Take a look at the example world ure.wbt
+
+##### tomala 04/18/2021 22:58:50
+Hi! I came across some problems while I was working on my robot. 
+
+
+
+I defined some additional parameters on the top of the proto and used them in the file with command IS. However webots shows me the error which says that my parameter has no matching IS field.
+
+
+
+Next problem occured when I was adding HingeJointWithBacklash. I think that everything is written correctly but I still see error that HingeJointWithBacklash is skipped.
+
+
+
+Do you have any ideas what I could have done wrong?
+%figure
+![errory_backlash.PNG](https://cdn.discordapp.com/attachments/565154703139405824/833476700058026064/errory_backlash.PNG)
+%end
+
+
+
+%figure
+![definicja_nie_dziala.PNG](https://cdn.discordapp.com/attachments/565154703139405824/833476775463223306/definicja_nie_dziala.PNG)
+%end
+
+
+
+%figure
+![hingejointwithbacklash.PNG](https://cdn.discordapp.com/attachments/565154703139405824/833476855330897940/hingejointwithbacklash.PNG)
+%end
+
+##### Simon Steinmann [Moderator] 04/18/2021 23:22:25
+`@tomala`  try avoiding the dashes, that could be it
+
+##### tomala 04/18/2021 23:27:50
+Unfortunately, it didn't help
+
+##### Simon Steinmann [Moderator] 04/18/2021 23:46:00
+What is HingeJointWithBacklash?
+
+
+did you actually add this node or is it a dev build node?
+
+
+[https://cyberbotics.com/doc/reference/hingejointparameters?tab-language=python](https://cyberbotics.com/doc/reference/hingejointparameters?tab-language=python)
+
+
+these fields dont exist in hingjointparams
+
+##### main 04/19/2021 03:32:20
+Anyone know why when STL files are used to import models they end up so huge?
+
+
+I imported a wheel as an stl file but its bigger than the entire scene (should only be a few hundred millimeters by a few hundred) does anyone know how this scaling works?
+
+
+As i can scale it down to say 0.001 making it small , but i dont know how much to scale it so that the dimensions are identical to the real dimensions of the stl file (hope that makes sense?)
+
+##### SeanLuTW 04/19/2021 06:08:04
+Is it possible to take screenshot by the supervisor API when the simulator is running?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/19/2021 06:09:30
+Yes with the `wb_supervisor_export_image` function [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_export\_image](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_export_image)
+
+##### SeanLuTW 04/19/2021 06:11:17
+Oh, thanks!
+
+##### Stefania Pedrazzi [Cyberbotics] 04/19/2021 06:11:31
+There are just two ways to move joints to specific position:
+
+1) use the Motor API to simulate real motor behavior
+
+2) use the Supervisor API to change the joint position field
+
+
+You could use a position sensor to detect when the joint reaches the desired position. Note that there is the gravity force acting on the joint end solid so you have to make sure that your motor has enough torque to keep the position.
+
+Alternatively, if you don't want to reproduce a real motor behavior, you can use the Supervisor API to immediately set the joint position field.
+
+Here are some examples:
+
+- [https://www.cyberbotics.com/doc/guide/samples-devices#position\_sensor-wbt](https://www.cyberbotics.com/doc/guide/samples-devices#position_sensor-wbt)
+
+- [https://www.cyberbotics.com/doc/guide/samples-devices#motor-wbt](https://www.cyberbotics.com/doc/guide/samples-devices#motor-wbt)
+
+##### geflowers 04/19/2021 06:20:40
+Thank you so much! Really appreciate the help
+
+##### Stefania Pedrazzi [Cyberbotics] 04/19/2021 06:31:33
+It depends on the scale. Webots scale unit is meters, when exporting STL you should make sure that the meters scale unit is used as well. Usually graphical editors like Blender give the option to choose the scale unit in the export dialog.
+
+Otherwise, you can simply scale the Mesh node by setting the `Transform.scale`. The correct scale value depends on the scale unit used in the STL file.
+
+##### DDaniel [Cyberbotics] 04/19/2021 06:34:34
+`@tomala` Hi, which version of Webots are you using? The `HingeJointWithBacklash` proto is available only in the develop branch of Webots, so if you're using anything else it won't find it. Also, did you follow the hierarchy described here for your project? [https://cyberbotics.com/doc/guide/the-standard-file-hierarchy-of-a-project#the-root-directory-of-a-project](https://cyberbotics.com/doc/guide/the-standard-file-hierarchy-of-a-project#the-root-directory-of-a-project). As for the other error, I assume you're making your own robot proto. From what you've showed the call to `HingeJointWithBacklash`  looks good to me, could you post more (or send via PM) about the robot proto itself? Might be easier to pin point.
+
+##### Johan2021 04/19/2021 07:43:03
+Hi everyone, I am writing a Physics plugin that is supposed to exert a force onto a body at every timestep, but the simulation crashes at start-up pointing to `dBodyAddForce()` or to `dBodyAddRelForce()` when I replace the former. I found an old issue ([https://cyberbotics.com/doc/discord/technical-questions-2020?tab-language=c++&tab-os=macos#troy-04242020-01-27-23](https://cyberbotics.com/doc/discord/technical-questions-2020?tab-language=c++&tab-os=macos#troy-04242020-01-27-23)), but was this resolved in any way -- other than by using a Supervisor?
+
+##### Master.L 04/19/2021 07:50:18
+Hi.
+
+I would like to implement a force/torque sensor in webots.
+
+In the webots documentation, I found a force sensor that came with a 3-axis force value, but couldn't find a sensor that could get the torque value.
+
+How can I get the torque value?
+
+##### Olivier Michel [Cyberbotics] 04/19/2021 07:53:14
+This is currently not implemented. I believe the way to go is to implement a new type of touch sensor that would be called "force-6d" and would return both the force and torque.
+
+##### B0Bhead 04/19/2021 07:55:10
+Is there currently a SLAM version that runs on the RoboMaker Pro Kit?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/19/2021 07:58:17
+Did you check that the body you are using is valid and correctly initialized?
+
+Here are a couple of Webots sample projects using the `dBodyAddRelForce` function that are working correctly:
+
+[https://www.cyberbotics.com/doc/guide/blimp#blimp\_lis-wbt](https://www.cyberbotics.com/doc/guide/blimp#blimp_lis-wbt)
+
+[https://www.cyberbotics.com/doc/guide/samples-howto#physics-wbt](https://www.cyberbotics.com/doc/guide/samples-howto#physics-wbt)
+
+##### Master.L 04/19/2021 08:17:30
+Thanks `@Olivier Michel` !
+
+I'll ask you one more question!
+
+There was a way to implement a new type of sensor that returns both force and torque called "force-6d", but I don't know what to do.
+
+Can you give me some advice?
+
+##### Olivier Michel [Cyberbotics] 04/19/2021 09:19:44
+It should be implemented in C++ into this file: [https://github.com/cyberbotics/webots/blob/develop/src/webots/nodes/WbTouchSensor.cpp](https://github.com/cyberbotics/webots/blob/develop/src/webots/nodes/WbTouchSensor.cpp) and possibly other files, properly documented and tested.
+
+##### Yi Zhou 04/19/2021 09:30:07
+Hello everyone, does anyone know if there are some example about control robot grasp object in webots?
+
+##### DDaniel [Cyberbotics] 04/19/2021 09:33:48
+`@Yi Zhou` Hi, you can find one on `file > open sample world > robots > k-team > khepera3_gripper.wbt`
+
+##### Yi Zhou 04/19/2021 09:34:11
+Thank you so much!
+
+##### alireza1992 04/19/2021 09:48:35
+Thanks for your reply,
+
+I am working on a reinforcement learning project in which I need to reset a humanoid robot position and gesture randomly at the start of each episode. Is there any way to set the joint positions before simulation started?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/19/2021 09:59:53
+Usually for reinforcement learning, you use a Supervisor controller to set the world and robot and the Supervisor API has a reset function to prepare the world to the next episode.
+
+Depending on your needs, you can dynamically add the robot from the Supervisor controller so that it is already inserted in the world with the desired pose, or use the Supervisor API to change just the joints position.
+
+Note that the Supervisor API also has options to restart the robot controller in case it is needed after setting it to the desired position.
+
+##### alireza1992 04/19/2021 10:25:47
+Thank you;
+
+But "reset" takes a lot of time, I want a faster process like defining fields for position of links and use from "node.getField()", but I have some problem with it
+> **Attachment**: [RobotisOp3.proto](https://cdn.discordapp.com/attachments/565154703139405824/833649575390478336/RobotisOp3.proto)
+
+##### Troy 04/19/2021 13:15:14
+Hi guys, is there anyway to get a distance feedback in webots controller? I want to detect the distance between my robot and a solid, and get real time feedback, how can i do it?
+
+
+And the solid will be random subject on the ground
+
+##### Olivier Michel [Cyberbotics] 04/19/2021 13:20:53
+Use a distance sensor.
+
+##### Troy 04/19/2021 13:23:19
+can i get lidar feedback in webots? not using ros?
+
+##### Olivier Michel [Cyberbotics] 04/19/2021 13:27:45
+Yes.
+
+##### Srivastav\_Udit 04/19/2021 13:43:15
+Are there any default properties for a solid in Webots? (for example, Young's Modulus etc.)
+
+
+I'm trying to figure out what the properties of a solid are if the physics is enabled. What material would it represent? Plastic, metal, etc.
+
+##### satyar 04/19/2021 16:25:13
+Hi guys ,
+
+Which version of Webots work completely with M1 processor MacBook !? Or dose webots work with m1 Mac !?
+
+##### Saud 04/19/2021 18:36:49
+Hello, I have collected lidar points by attaching LIDAR on DJI. exported points into a csv file. Now i want to represent it in 3D in maybe matlab. But it wants a PLY file. Can anyone give any suggestions on what i should do?
+
+##### Simon Steinmann [Moderator] 04/19/2021 21:05:55
+I think it should work through rosetta 2, like any other x86 program
+
+
+Webots is a rigid body simulator, internal material stresses and deformations are not calculated. Bodies are rigid and only their kinematics and interaction is simulated.
+
+
+you can convert / save the data as .ply files. [http://paulbourke.net/dataformats/ply/](http://paulbourke.net/dataformats/ply/) this might give you some insight in the format. Not that different from .obj files. What language are you using for your python controller?
+
+
+You can also read the csv file in matlab and assign it manually: [https://www.mathworks.com/help/vision/ref/pcplayer.view.html](https://www.mathworks.com/help/vision/ref/pcplayer.view.html)
+
+##### Nick R 04/19/2021 22:04:33
+Can anyone tell me whether there's a quick way to 'killall webots' which will take care of anything hanging on after I close the GUI? I see a process lingering which is supposedly taking up half my GPU memory...
+
+##### Saud 04/19/2021 22:06:42
+right. thank you. i will have a look at this. I am using C++ btw for the controller of the robot
+
+##### Simon Steinmann [Moderator] 04/19/2021 22:08:01
+`@Saud` [https://github.com/ddiakopoulos/tinyply](https://github.com/ddiakopoulos/tinyply) this might help
+
+##### Olivier Michel [Cyberbotics] 04/20/2021 05:33:30
+I assume you are on Linux. Normally, killing Webots with SIGTERM should clean-up all the resources it uses.
+
+##### Tosidis 04/20/2021 08:45:07
+Hello, I just installed the latest nightly build because i was having problems with Supervisor.simulationReset() (webots kept crashing), but I still face the same issue. Are there any workarounds?
+
+##### Asger Printz 04/20/2021 09:16:09
+Hello Webots community. I have a problem with the control of the UR3 model. Whenever I give it a positive velocity it doesn't allow me to go into a negative angular position. I have changed it by converting it to base notes and removed the "boundingObject Group" how most of the links and joints and I have added touch sensors to them. Maybe that has messed something up? I have tried to mess around with minStop and maxStop of the hinge joint parameters, but nothing seems to help.
+
+##### Emiliano Borghi 04/20/2021 15:30:25
+Is it possible to have multiple ros controllers in simulation?
+
+##### Olivier Michel [Cyberbotics] 04/20/2021 15:30:43
+Yes.
+
+##### Emiliano Borghi 04/20/2021 15:31:56
+I tried setting  different --name as argument but one of the controller crashes without any explanation.
+
+
+No worries, I was able to make it work. I chime in too early.
+
+I'll post my results soon!
+
+##### Nick R 04/20/2021 17:14:39
+Just curious, is this for multi-robot simulation controlled externally from ROS? I'm interested in doing the same if so
+
+##### alejanpa17 04/20/2021 22:01:59
+Hello, I was trying to match the objects detected by the camera recognition and the measure distance by the point cloud of the lidar. Is there anyway you can make than sensor fusion/calibration in webots?
+
+##### tomala 04/21/2021 00:06:33
+Hi! I have problem with applying lua to proto. Even though lua output says red, if and elseif conditions are skipped. I was following lua documentation and everything seems ok, but I might be wrong
+%figure
+![if_not_working.PNG](https://cdn.discordapp.com/attachments/565154703139405824/834218518718316654/if_not_working.PNG)
+%end
+
+##### Olivier Michel [Cyberbotics] 04/21/2021 06:17:23
+Did you try to declare the color and number variables non-local (e.g., remove the `local` keyword)?
+
+##### DDaniel [Cyberbotics] 04/21/2021 06:25:19
+`@tomala` also, you don't need to create full nodes for all three variants if you plan on using just one, can do something like this
+
+```
+Shape {
+  appearance PBRAppearance {
+    %{ if color == "red" then }%
+      baseColor 0 0 0
+    %{ elseif color == "blue" then }%
+      baseColor 1 1 1
+    %{ else }%
+      baseColor 0.5 0.5 0.5
+    %{ end }%
+      transparency 0
+      roughness 1 
+      ...
+  }
+  geometry Mesh {
+   ...
+  }
+}
+```
+
+##### Yi Zhou 04/21/2021 06:26:59
+Hello guys, does anyone know how to use ikpy in webots? I found a example, but I cannot get all my link follow the example
+
+##### Dorteel 04/21/2021 07:36:56
+which robot are you using it with? It worked for us with the UR3
+
+##### Yi Zhou 04/21/2021 07:37:31
+franka panda robot
+
+##### Tosidis 04/21/2021 10:36:43
+Any updates for supervisor.simulationReset() (python) ? It still crashes webots, even with nightly build
+
+##### Stefania Pedrazzi [Cyberbotics] 04/21/2021 11:05:45
+Did you already provide an example where the crash is reproducible? Are you using Webots R2021a rev 1 or R2021b?
+
+##### Tosidis 04/21/2021 11:48:18
+webots\_2021a (stable) and webots\_2021a-rev1, happens in both. I am gonna create a very simple example (i suppose it will do the same) , so its minimal and easy to reproduce
+
+##### Stefania Pedrazzi [Cyberbotics] 04/21/2021 11:49:35
+Yes, having an simple example we will be able to inspect the issue. Because I tested and in my project it is working just fine, the simulation is reset and Webots doesn't crash.
+
+##### Tosidis 04/21/2021 11:49:58
+which version?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/21/2021 11:50:33
+I tested both on the master (R2021a rev1) and develop (R2021b) branches.
+
+##### Tosidis 04/21/2021 11:51:14
+doing it now and i will post the code
+
+##### alejanpa17 04/21/2021 11:58:58
+why am I getting these fake recognition?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/834397800916582420/unknown.png)
+%end
+
+##### Stefania Pedrazzi [Cyberbotics] 04/21/2021 12:01:30
+We fixed some issues with the camera recognition functionality recently.
+
+I would suggest you to try the latest nightly build of Webots R2021a rev1 and check if this issue is still reproducible:
+
+[https://github.com/cyberbotics/webots/releases/tag/nightly\_19\_4\_2021](https://github.com/cyberbotics/webots/releases/tag/nightly_19_4_2021)
+
+##### Tosidis 04/21/2021 12:32:48
+Working on the mavic2 controller (translated to python)
+
+
+
+robot = Supervisor()
+
+root = robot.getRoot()
+
+children = root.getField('children')
+
+
+
+while robot.step(timestep) != -1:
+
+    if robot.getTime() > 10:
+
+        robot.simulationReset()
+
+        human\_model = 'human.wbo'
+
+        children.importMFNode(-1, human\_model)
+
+
+if i dont import the node after each reset it works fine, but if I import the object it crashes (after a couple of resets)
+
+version: R2021a rev1
+
+Another thing happening, is that the drone won't get to the initial state after a couple of resets either (2 of the 4 motors stop moving)
+
+##### younes 04/21/2021 12:40:09
+hi guys i am using webots2021a and Matlab2018, i am trying to command an epuck2 using webot-matlab , while creating the world in webot , i'm getting this error :
+
+
+remote control initialisation failed
+
+[matlab] Error: Cannot load the "C:/Webots/projects/robots/gctronic/e-puck/plugins/remote\_controls/e-puck\_bluetooth/e-puck\_bluetooth.dll" remote control library.
+
+##### Stefania Pedrazzi [Cyberbotics] 04/21/2021 12:51:49
+A simple workaround to the crash that works for me is to change the import index for example from `-1` to `2` or any other index value that is valid after reset.
+
+I will inspect why the `-1` is not correctly translated to valid index.
+
+##### tomala 04/21/2021 13:11:42
+It did work! Thank you very much! `@DDaniel` thank you too. I have been working long hours recently so I hadn't thought of simplifying code. Thank you all!
+
+##### Yi Zhou 04/21/2021 13:15:35
+Hello guys, does anyone know how to fix the robot position? I import a robot proto file, but when I run, the robot arm will fall down
+
+##### Olivier Michel [Cyberbotics] 04/21/2021 13:21:16
+Simple: remove the Physics node from the base Robot.
+
+##### Yi Zhou 04/21/2021 13:23:06
+Thank you, could you tell me how to remove? from webots? or from robot proto file?
+
+##### Olivier Michel [Cyberbotics] 04/21/2021 13:23:32
+From proto file.
+
+##### Yi Zhou 04/21/2021 13:37:28
+Thank you so much! Do you know how I can get the robot by python code?
+
+##### alejanpa17 04/21/2021 14:50:26
+Solved thanks ^^
+
+##### Maurice Faraj 04/21/2021 21:08:01
+Hello everyone hope all is fine I’m trying to combine a robot with. An robotic hand every part of this robot work prefectly alone but when I merge the 2 robot only the robotic hand work any help know how to solve this problem please
+
+##### Stefania Pedrazzi [Cyberbotics] 04/22/2021 06:18:22
+I would suggest you to start by following this tutorial: [https://www.cyberbotics.com/doc/guide/tutorial-4-more-about-controllers](https://www.cyberbotics.com/doc/guide/tutorial-4-more-about-controllers)
+
+
+You could use a sensor, for example the Compass, to measure the orientation of the robot or a PositionSensor to measure how much the the motor turned
+
+[https://www.cyberbotics.com/doc/reference/compass](https://www.cyberbotics.com/doc/reference/compass)
+
+[https://www.cyberbotics.com/doc/reference/positionsensor](https://www.cyberbotics.com/doc/reference/positionsensor)
+
+##### JSK 04/22/2021 07:58:41
+Hello there. Any one know the working of compas in webots?
+
+
+i want to know how does the values of -1 to 1 in compas deals with angle?
+
+
+i mean if the compas value is 0.89 then what is it in degrees? is it a cosine relation?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/22/2021 08:06:27
+The Compass device returns the vector direction pointing from the Compass center to the world north.
+
+In the documentation you can find a sample code to compute the bearing angle based on this vector:
+
+[https://www.cyberbotics.com/doc/reference/compass#compass-functions](https://www.cyberbotics.com/doc/reference/compass#compass-functions)
+
+##### JSK 04/22/2021 08:35:17
+Thanks Stefania..!! it worked
+
+##### Haladin 04/22/2021 08:41:37
+Hi.  I am getting an empty page when I click on the documentation links such as [https://www.cyberbotics.com/doc/reference/positionsensor](https://www.cyberbotics.com/doc/reference/positionsensor).  Is anyone else getting this?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/22/2021 08:44:09
+Yes, the documentation is currently down.
+
+
+Alternatively you can open the offline documentation from the Webots > Help > Offline Documentation > Reference Manual
+
+##### Haladin 04/22/2021 08:45:44
+Thanks Stefania.  I will check out the offline documentation.
+
+##### Stefania Pedrazzi [Cyberbotics] 04/22/2021 08:45:53
+or open the documentation from GitHub: [https://github.com/cyberbotics/webots/blob/released/docs/reference/positionsensor.md](https://github.com/cyberbotics/webots/blob/released/docs/reference/positionsensor.md)
+
+##### Dorteel 04/22/2021 11:41:48
+Hi there! I'm trying to replace robot.setVelocity(velocity) with robot.setPosition(currentPosition + velocity*timestep/1000), but getting different rates, setting it with position is about 3x slower. Is there a quick fix to this?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/834755869735387186/unknown.png)
+%end
+
+##### DDaniel [Cyberbotics] 04/22/2021 11:48:01
+`@Dorteel` if you set a position that isn't infinity, it switches from velocity control to position control as described in this table: [https://cyberbotics.com/doc/reference/motor#force-and-torque-control](https://cyberbotics.com/doc/reference/motor#force-and-torque-control), the functions have different effects depending on which type of control you are doing
+
+##### Dorteel 04/22/2021 12:10:56
+Thanks  `@DDaniel`  I'll have a look at the table!
+
+##### AndreiSPb 04/22/2021 14:38:30
+Hello! Can someone explain how should I treat 2nd string for moments of inertia in physics of Solid? What Input should I make? I dont really get why the matrix is not 3x3... I can get values of 3x3 matrix from CAD.
+
+##### Maël Wildi [Cyberbotics] 04/22/2021 14:42:34
+The first vector is the diagonal [I11, I22, I33] of the matrix and the second one is for [I12, I13, I23] ([https://cyberbotics.com/doc/reference/physics](https://cyberbotics.com/doc/reference/physics))
+
+##### AndreiSPb 04/22/2021 14:50:25
+Well yeah I read that in docs and it seems not absolutely correct. Matrix can be not symmetrical with [I12, I13, I23] not equal to [I21, I31, I32]. Or am I missing something?
+
+##### Maël Wildi [Cyberbotics] 04/22/2021 14:55:13
+In the case of matrices of inertia I think they are the same because these terms are the products of inertia with respect to a plane, for instance I12 is for the XY plane = YX plane.
+
+##### AndreiSPb 04/22/2021 19:03:14
+Thank you for your answers!
+
+In that case, what coordinate system is used in webots to define this matrix, how does it change during the movements and should I provide any coordinate transform to ensure the correctness of the matrix?
+
+##### Simon Steinmann [Moderator] 04/22/2021 20:18:01
+`@AndreiSPb` The inertia matrix is 3x3, but since the lower left corner is symetrical to the upper right corner, it is common to express with the diagonal, plus the upper right corner, which is precisely how it is done in Webots. Hope that helps
+%figure
+![slide_8.png](https://cdn.discordapp.com/attachments/565154703139405824/834885780269826068/slide_8.png)
+%end
+
+##### AndreiSPb 04/22/2021 20:47:44
+Thank you!
+
+What I was struggling with is that CAD gives Principal moments and axis in model frame:
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/834893258286432266/unknown.png)
+%end
+
+
+So I had to make some calculations
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/834893553552851014/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 04/22/2021 21:10:10
+what CAD program are you using?
+
+##### AndreiSPb 04/22/2021 21:21:08
+that was spaceclaim
+
+##### Simon Steinmann [Moderator] 04/22/2021 21:44:25
+`@AndreiSPb` [https://forum.ansys.com/discussion/13650/mass-concentreted-moment-of-inertia](https://forum.ansys.com/discussion/13650/mass-concentreted-moment-of-inertia) this might help
+
+##### Welsh\_dragon64 04/22/2021 23:32:52
+i uploaded a video of the robotisOp2 trying to walk as it picks up an item.
+> **Attachment**: [pick\_and\_walk\_fail.mp4](https://cdn.discordapp.com/attachments/565154703139405824/834934816914276372/pick_and_walk_fail.mp4)
+
+
+`@Simon Steinmann` `@Bitbots_Jasper`  i would appreciate any help
+
+##### Simon Steinmann [Moderator] 04/22/2021 23:36:06
+well for one you are setting positions that are outside of the range of motion for the robot
+
+
+does the robot work without picking up the box first?
+
+##### Welsh\_dragon64 04/23/2021 00:20:48
+no it doesnt work
+
+
+its falls down with or without picking up the box
+
+##### Simon Steinmann [Moderator] 04/23/2021 00:35:05
+well you have to get your walking motion in order then
+
+
+try to avoid all those errors coming up
+
+
+stay within the motor limits
+
+##### thonk enthusiast 04/23/2021 05:22:22
+Hello,
+
+I was trying to use robotbenchmark tonight (not sure if that falls under webots support) but it seems like your session/simulation server's certificates have expired.
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/835022772128055316/unknown.png)
+%end
+
+##### JSK 04/23/2021 06:13:08
+Hello there. I have mess with the coordinates of the world and shifted it to ENU but the direction of gravity has changed to left, so whenever I start the simulation it drops to the left. I wanna say that it  does not fall on the ground rather it falls on left
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/835035545167069214/unknown.png)
+%end
+
+
+It should have to fall on square mainhole but it is not
+
+
+kindly help me to change the gravity. i want to make north on y-axis, east on x-axis, and up on z-axis
+
+##### Olivier Michel [Cyberbotics] 04/23/2021 06:43:00
+Thanks for reporting this. It is now fixed. Our crontab script for the certificate renewal was not called properly.
+
+##### Dorteel 04/23/2021 14:31:19
+Hi! Does anyone has any suggestions how to get an image processed with opencv onto a display? I tried a stackoverflow solution from 2020 february ([https://stackoverflow.com/questions/58286019/webots-displaying-processed-numpy-image-opencv-python](https://stackoverflow.com/questions/58286019/webots-displaying-processed-numpy-image-opencv-python)) But that doesn't seem to work anymore (bytes object has no attribute 'tolist'). Also tried a sample code provided by `@Olivier Michel` ([https://github.com/cyberbotics/webots/pull/1033](https://github.com/cyberbotics/webots/pull/1033)) but that doesn't run either, even if I replace the deprecated function names with the newer ones. Does anyone have any idea how to solve this?
+
+##### Bitbots\_Jasper [Moderator] 04/23/2021 14:40:08
+python or c++?
+
+##### Dorteel 04/23/2021 14:40:55
+It's python
+
+##### Bitbots\_Jasper [Moderator] 04/23/2021 14:42:57
+```python
+img_raw = self.camera.getImageArray()
+img = np.array(img_raw, dtype=np.uint8)
+img = np.swapaxes(img, 0, 1)
+cv2.imshow("window", img)
+cv2.waitKey(0)
+```
+
+
+something like this worked for us
+
+##### Dorteel 04/23/2021 14:44:45
+Thanks, that also works for me, but I need to display it on a display within the simulator, which doesn't seem to work
+
+##### Bitbots\_Jasper [Moderator] 04/23/2021 14:47:39
+sorry I misunderstood you question then, I dont have any experience with the webots display unfortunately
+
+##### Dorteel 04/23/2021 14:49:19
+This is the closest I got to it without error, but when I try to increase the resolution of the image simply nothing appears
+%figure
+![error.png](https://cdn.discordapp.com/attachments/565154703139405824/835165446240075786/error.png)
+%end
+
+
+No problem, thanks for trying to help!
+
+##### Joanna 04/23/2021 18:29:35
+Hello everybody,
+
+I tried to run extern controller (following this tutorial [https://cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-os=linux&tab-language=c++](https://cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-os=linux&tab-language=c++)) from ros2 component in cpp to contol the ur5 simulation ([https://github.com/cyberbotics/webots\_ros2/wiki/Example-Universal-Robots](https://github.com/cyberbotics/webots_ros2/wiki/Example-Universal-Robots)). The controller in simulation is already extern and set to true. But I have this error in webots console. 
+
+(WARNING: Failed to attach extern robot controller: no available "<extern>" robot controller found). Any help?
+
+##### Alejandro Pescathore 04/23/2021 21:28:07
+Hello everyone!! i'm modeling a robot arm in webots using HingeJoints and rotational motors as devices, how can do move all the joints of the robot at the same time? when i use the motor set position funcion only can move one by one joint
+
+##### DDaniel [Cyberbotics] 04/23/2021 21:36:39
+`@Alejandro Pescathore` you gave all rotational motors the same name? If so then yes, only one will move. The possibility of controlling multiple motors at once is being worked on at the moment, but for now you'll have to give each their own unique name, and in the controller get the corresponding `WbDeviceTag` and give the position command to each
+
+##### dA$H 04/24/2021 19:19:59
+hello.
+
+how can i add a camera in webot world.
+
+no in robot node
+
+
+i want add camera here
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/835596573093920778/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 04/24/2021 19:23:40
+A camera has to be a child of a robot
+
+
+so add a robot node, and then a camera to its children node
+
+##### dA$H 04/24/2021 19:24:54
+I did this but I could not get the camera on the controller
+
+##### Simon Steinmann [Moderator] 04/24/2021 19:26:07
+Is that controller launched by the robot node containing the camera?
+
+
+And is the camera called "robot"?
+
+##### dA$H 04/24/2021 19:28:04
+
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/835597984262520893/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 04/24/2021 19:29:38
+you have to use the name, not the DEF
+
+
+[https://www.cyberbotics.com/doc/reference/robot?tab-language=python#wb\_robot\_get\_device](https://www.cyberbotics.com/doc/reference/robot?tab-language=python#wb_robot_get_device)
+
+
+and this only works if it's the same robot
+
+
+are you trying to get the camera from a different robot?
+
+##### dA$H 04/24/2021 19:30:19
+yes
+
+##### Simon Steinmann [Moderator] 04/24/2021 19:30:55
+it might be easier to add the camera to those robots, with a transform from the base (which is static I assume)
+
+
+then you dont have to fiddle with extra controllers
+
+
+A device is not the same as a node, and a controller only has access to the devices of the robot that started the controller
+
+##### aslisevil 04/24/2021 19:38:23
+Hello, I am currently making my Nao robot hold a box as exhibited in the photo. But my problem is that when I make it rotate with supervisor rotation function, it drops the box. Is there a way of fixing this problem. Your answers would be much appreciated.
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/835600581388402688/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 04/24/2021 19:38:54
+how exactly do you rotate it?
+
+##### aslisevil 04/24/2021 19:40:14
+With setSFRotation function.
+
+
+It drops the box while rotating with this function.
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/835602230484271125/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 04/24/2021 19:58:06
+of course it does, you forgoe the physics simulation by simply changing the state
+
+
+if you dont want it to drop, you have to move the box accordingly
+
+
+use motors and joints to simulate with proper physics
+
+
+As an ugly fix, you could perhaps try moving in very small increments and a lower timestep, but no guarantee that it works.
+
+##### aslisevil 04/24/2021 20:09:08
+okey thank you so much.
+
+##### main 04/24/2021 20:28:52
+When hinge joints unexpectedly turn by themselves is setting the static friction higher to prevent this good practice?
+
+##### Dinossauro.Bebado 04/24/2021 20:53:31
+hey guys, i am trying to import a robot file from solidworks to webots.Right now
+
+
+its only import the solid
+
+
+there is a easier way to solve this issue ?
+
+##### Simon Steinmann [Moderator] 04/24/2021 20:54:33
+try to export as an urdf file and import the urdf in webots
+
+##### Dinossauro.Bebado 04/24/2021 20:55:40
+will try, tks for the fast response
+
+##### Yi Zhou 04/25/2021 07:31:56
+Hello guys, does anyone know the reason that positionSensor value is nan?
+
+##### DDaniel [Cyberbotics] 04/25/2021 11:14:24
+`@Yi Zhou` hard to say, how do you get the position value? Can you show a snippet of the code?
+
+##### tabousoud 04/25/2021 13:02:48
+Hey everyone, noob question. I'm trying to build a robot from imported mesh geometry and can't figure out how to import a mesh as a bounding obj. When I import the mesh directly (from url) as a bounding object and try to assign physics, I get a warning that "boundingObj"  is  not defined and I can't assign mass or inertia. However, it *seems* to work if I first import the mesh using file -> Import 3D Model then create a DEF for the mesh shape to use in the robot. Is this the way it's supposed to work or am I missing something?
+
+##### Simon Steinmann [Moderator] 04/25/2021 15:20:18
+`@gus` [https://www.hmc.edu/lair/ARW/ARW-Lecture01-Odometry.pdf](https://www.hmc.edu/lair/ARW/ARW-Lecture01-Odometry.pdf) slide #23 has the formula
+
+
+After some algebra, you are left with this formula:
+
+`delta_motor_pos = theta_turn * axle_length / wheel_radius`
+
+
+theta\_turn would be the turn angle in radians
+
+
+delta\_motor\_pos is the difference in angle for the left and right wheel.
+
+
+so you could turn one wheel + delta\_motor\_pos/2 and the other - delta\_motor\_pos/2
+
+##### Sérgio 04/25/2021 19:33:12
+Hi
+
+##### main 04/26/2021 02:03:39
+When using scaling on a robot, is the mass also scaled with this? e.g if my robot goes from 1 down to 0.5 scale, will my entered mass go from 10kg to 5kg in theory (If 10kg is entered in the physics node) Or will the mass still be 10kg, just the robot will be smaller?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 06:06:38
+Which  Device method are you using to load the image into the display?Because from the screenshot it seems that the format is wrong (for example 3 channels instead of 4 channels).
+
+If you are using `wb_display_image_new`, you should make sure that the format that you pass to the Display API corresponds to the format of your image (e.g., RGB, ARGB, BGRA, etc.).
+
+If you are using a Webots version older than R2021a, I would also suggest you to upgrade because we fixed issues with the Display image format.
+
+
+This is probably a bug. I will inspect this.
+
+However it is not recommended to use complex mesh geometries as boundingObjects because it will very likely cause instabilities in the physics computation. Instead, it is suggested to approximate the mesh using simple geometries (sphere, box, cylinder, capsule).
+
+
+Yes, after scaling the mass is updated but not linearly as you would expect. When you scale a robot, its bounding objects are scaled as well. If all the Physics nodes of the robot define the density value (and not the mass value), then the actual mass (and resulting inertia matrix) of the robot should be scaled appropriately as well. However, if one of the Physics nodes of the robot defines a mass value explicitly, then, this mass will remain unscaled. For these reasons it is not recommended to scale robots because the physical behavior could no longer correspond to the originally unscaled robot.
+
+##### ChristmasLights 04/26/2021 08:21:26
+Hey everyone, is there anyone with the experience of using webots controller to control a web simulation? I have several motion files that I can run on the robot while using desktop application. But not sure about how can i manage to use this controller to control a web simulated robot.
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 09:45:02
+It depends on which kind of web simulation are you using. If you refer to [Web Simulation]([https://www.cyberbotics.com/doc/guide/web-simulation](https://www.cyberbotics.com/doc/guide/web-simulation)) described in the User Guide, then a Webots instance and the controller is executed locally on a machine and the simulation updates are sent to the client browser.
+
+##### ChristmasLights 04/26/2021 09:46:51
+Yes, this is the one I am referring to. I am trying to use an external controller (written in Python) to run some motion files on a web simulation.
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 09:48:39
+Once you start the Webots instance, and given that it is external, the controller, then the simulation should be streamed automatically. Note that in any case the controller is run locally on your machine/server and not on the web.
+
+##### ChristmasLights 04/26/2021 09:51:50
+Should I make any changes to my controller that works locally? I've followed this link for the local one: [https://www.cyberbotics.com/doc/guide/controller-programming](https://www.cyberbotics.com/doc/guide/controller-programming)
+
+##### tabousoud 04/26/2021 09:52:19
+Thank you for the follow up and advice!
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 09:54:19
+No because the controller will in any case run locally.
+
+
+`@ChristmasLights` I think that it is not clear what you want to achieve. Do you want to stream your simulation + controller on the web or do you want to modify the controller from the web simulation?
+
+##### ChristmasLights 04/26/2021 09:59:26
+I want to use an external controller on a web simulation (no need to modify it), have backend written in django. What I'm trying to achieve is, trigger some motion files depending on the state (assuming there are multiple states with multiple motion files are attached to). Like if situation 1 happens, my external controller should run the specific motion file on the simulation.
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 10:01:47
+Ok, so I don't see where is the issue. Once you can run it locally, it can also be streamed on the web.
+
+##### ChristmasLights 04/26/2021 10:39:41
+When I try to run the local controller, it gives the following error: Webots doesn't seems to be ready yet: (retrying in 1 second). But its up and running and i can see the robot on localhost.
+
+##### Yi Zhou 04/26/2021 10:43:52
+Hello guys, I try to use getRangeImage to get the depth image of kinect, but the value is None, kinect works but no image data get, do anyone know the reason?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 11:08:49
+The external controller should run on the same computer as the Webots instance. Here are the instructions to use external controllers:
+
+[https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers)
+
+##### yash 04/26/2021 13:22:47
+Hello ! Is the robot translation field updated at every time step .?
+
+##### DDaniel [Cyberbotics] 04/26/2021 13:24:43
+`@yash` Hi, if it changes yes.
+
+##### yash 04/26/2021 13:26:15
+Okay , thanks 👍
+
+
+The time step at which the loop -
+
+while robot.step(timestep)!=-1 is updated is as per the basic time step specified in the world info right .?
+
+##### DDaniel [Cyberbotics] 04/26/2021 13:41:14
+`@yash` don't know if I understand your question right, but the value you provide as argument (`timestep`) is the duration in milliseconds that will be simulated before the function is called again. Which ideally should be a multiple of `basicTimeStep` in worldInfo. So you can simulate the world very accurately, but sense/control at lower frequency.
+
+##### yash 04/26/2021 13:52:35
+> `@yash` don't know if I understand your question right, but the value you provide as argument (`timestep`) is the duration in milliseconds that will be simulated before the function is called again. Which ideally should be a multiple of `basicTimeStep` in worldInfo. So you can simulate the world very accurately, but sense/control at lower frequency.
+
+`@DDaniel`  oh okay , I have understood a bit . Will try and implement. Thanks 👍
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 14:52:17
+Did you enable the "kinect range" device of the Kinect PROTO node?
+
+You can find here a sample C controller using the Kinect range image. The workflow is the same in each programming languages:
+
+[https://www.cyberbotics.com/doc/guide/pioneer-3dx#pioneer3dx\_with\_kinect-wbt](https://www.cyberbotics.com/doc/guide/pioneer-3dx#pioneer3dx_with_kinect-wbt)
+
+##### Yi Zhou 04/26/2021 14:53:17
+Yes, I enable the camera
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 14:53:56
+It is not enough to enable the camera device `kinect color`. You also have to enable the range finder device `kinect range`.
+
+##### Yi Zhou 04/26/2021 14:55:26
+Sure, I enable this, I can see image from webots, but I cannot get it
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 14:56:20
+What code do you use to get the range finder data?
+
+
+And the range finder device
+
+##### Yi Zhou 04/26/2021 14:58:49
+img\_array = self.kinect\_range.getRangeImage()    self.kinect\_range = self.getDevice("kinect range")
+
+##### Stefania Pedrazzi [Cyberbotics] 04/26/2021 15:02:25
+Here is a sample Python controller that works just fine in printing the Kinect range finder image:
+
+```
+from controller import Robot
+
+robot = Robot()
+timestep = int(robot.getBasicTimeStep())
+kinect_range = robot.getDevice("kinect range")
+kinect_range.enable(timestep)
+
+while robot.step(timestep) != -1:
+    print(kinect_range.getRangeImage())
+```
+
+##### Yi Zhou 04/26/2021 15:03:55
+Thanks. I'll try😀
+
+##### Fareed 04/26/2021 17:06:15
+Hi there! I'm a student from New Rochelle High School in the Advanced Robotics class. While using WeBots we ran into several glitches which left me and my classmates stumped. Such examples are as followed: The robot itself glitching through the floor, the robot flinging itself while holding the ring, some portion of the robot being left behind while moving up or down on the Z-axis, and the robot falling through the floor even though physics are enabled. Some of these issues were resolved after shutting down and reopening WeBots but later persisted. If you have a fix to these problems please let me know.
+
+
+Heres a picture of the part remaining afloat yet when we move it it will move back to its original positioning
+%figure
+![Screenshot_2021-04-26_130719.png](https://cdn.discordapp.com/attachments/565154703139405824/836287863640817704/Screenshot_2021-04-26_130719.png)
+%end
+
+##### ChristmasLights 04/26/2021 20:39:25
+For now, I am running the web server locally (on the same computer with the controller), but still getting the mentioned error. When I use the controller with the desktop app, there is no problem. I am using the web simulation with the docker, settings are mentioned as in the link. Maybe there is something I am missing with external controller. Is there any setting that I should change in the dockerfile in order to use my external controller on the web simulation? As long as I know, the webots is using the default nao controller instead of the external.
+
+##### fero taraba 04/26/2021 21:33:15
+Hello, my HTML export does not contain labels created via "set\_label" method. Should it be there or is it currently not supported?
+
+##### Simon Steinmann [Moderator] 04/26/2021 22:55:08
+`@Fareed` I suggest you fix the warnings that Webots shows you.
+
+##### Yi Zhou 04/27/2021 06:52:21
+Hi, the camera can be enabled, but both color image and depth image cannot show, is it possible because of the kinect camera?
+
+##### Johan2021 04/27/2021 09:18:45
+Hi all, I would have to detect a collision/distance threshold between a dynamic body and any other body in the world, and subsequently align these 2 bodies - very much like the connector snap functionality (which I would not be using). For the collision I would implement an IR sensor. However, I am not sure how to align these 2 bodies/retrieve their orientation - since it is not known a priori which body the other body should align with. Would anyone know more about this?
+
+##### tabousoud 04/27/2021 10:12:43
+Hi all, is there a way to construct other simple shapes in Webots beyond the basic primitives? For example, truncated cones (drafted cylinder) or prism-type shapes? Thanks!
+
+##### DDaniel [Cyberbotics] 04/27/2021 10:25:18
+`@tabousoud` Hi, not directly but you can create them with other software and import them: [https://cyberbotics.com/doc/reference/mesh](https://cyberbotics.com/doc/reference/mesh)
+
+##### tabousoud 04/27/2021 10:33:21
+`@DDaniel` Hi Daniel, thanks for the feedback. I want to use these shapes for bounding object geometry and it seems that the recommendation is to avoid imported mesh geometry for that, so I was trying to use standard shapes in Webots. Does that same caveat also apply for simple meshes?
+
+##### DDaniel [Cyberbotics] 04/27/2021 10:44:59
+Yes, generally it is suggested to avoid very complex shapes (typically, using the mesh of the piece itself, with potentially hundreds or thousands of faces is overkill) for boundingObjects as it makes the collision detection computationally very intensive and at times also less reliable, but if none of the basic shapes (or a combination of them) fits the bill for your application you can still use something else. As for the primitive shapes, keep in mind you can group more of them together
+
+##### tabousoud 04/27/2021 10:46:41
+`@DDaniel` Got it, many thanks!
+
+##### Dorteel 04/27/2021 12:16:40
+Thanks! I managed to get it work, but it's a pretty ugly solution:
+
+
+
+`       cameraData = camera.getImage()
+
+        image = ... bunch of processing with openCV
+
+        # Displaying the camera image directly
+
+        #ir = display\_score.imageNew(cameraData, Display.BGRA, camera.getWidth(), camera.getHeight())
+
+        # Displaying the processed image
+
+        cv2.imwrite('tmp.jpg', image)
+
+        ir = display\_score.imageLoad('tmp.jpg')
+
+        display\_score.imagePaste(ir, 0, 0, False)
+
+        display\_score.imageDelete(ir)`
+
+
+
+The commented line displays the right image directly from the camera, but I couldn't get to display the processed image with the `imageNew` function
+
+##### Venkat 04/27/2021 12:52:25
+Hello All,
+
+
+Hello All, I am looking to integrate a LIDAR sensor from SICK, that is not already available in the model database of webots. I am looking for the information regarding using the laser scanners that arent available within webots yet. If anyone have information, kindly help !!!
+
+##### Darko Lukić [Cyberbotics] 04/27/2021 12:55:40
+You can always use the generic Lidar node:
+
+[https://cyberbotics.com/doc/reference/lidar](https://cyberbotics.com/doc/reference/lidar)
+
+and parameterize it so it has the same characteristics as your Lidar.
+
+##### Hamed 04/27/2021 13:27:22
+Hello, I want to make a matlab controller, but it doesn't work and it could not start matlab.
+
+Matlab is run correctly with the command window
+
+
+
+%figure
+![IMG-20210427-WA0003.jpg](https://cdn.discordapp.com/attachments/565154703139405824/836594553770213396/IMG-20210427-WA0003.jpg)
+%end
+
+##### Darko Lukić [Cyberbotics] 04/27/2021 13:38:34
+You are probably affected by this bug:
+
+[https://github.com/cyberbotics/webots/issues/2608](https://github.com/cyberbotics/webots/issues/2608)
+
+
+
+which is fixed in (R2021a rev1):
+
+[https://github.com/cyberbotics/webots/pull/2624](https://github.com/cyberbotics/webots/pull/2624)
+
+
+
+Unfortunately, our Windows CI doesn't work at the moment and we don't R2021a rev1 nightly build:
+
+[https://github.com/cyberbotics/webots/releases](https://github.com/cyberbotics/webots/releases)
+
+
+
+Until the nightly builds are back you can install MATLAB in a `matlab` folder.
+
+##### James Le Poidevin 04/27/2021 13:41:49
+Hello, I saw on a ROS forum that webots is debating using URDF files instead of proto files ([https://discourse.ros.org/t/urdf-with-webots/19665](https://discourse.ros.org/t/urdf-with-webots/19665)).  Do you have any idea how you are going to proceed for indexedFaces seeing that webots doesn't not keep a reference of the original mesh file(stl,dae ...)  once imported. I ask the question because i'm currently try to convert a robot containing mainly meshs and i would like to create a urdf for this robot.
+
+##### Darko Lukić [Cyberbotics] 04/27/2021 13:43:04
+In Webots, you can include meshes or reference them. See the Mesh node:
+
+[https://cyberbotics.com/doc/reference/mesh](https://cyberbotics.com/doc/reference/mesh)
+
+##### James Le Poidevin 04/27/2021 13:46:57
+OK thank you.
+
+
+But they still are exported in the urdf even as a mesh ?
+
+##### Darko Lukić [Cyberbotics] 04/27/2021 14:26:25
+The URDF export is limited, it replaces visual meshes by bounding objects:
+
+[https://cyberbotics.com/doc/reference/robot#wb\_robot\_get\_urdf](https://cyberbotics.com/doc/reference/robot#wb_robot_get_urdf) (check the note)
+
+
+
+Regarding the Discourse post, we concluded that we want to allow URDF importation (the other way around).
+
+##### James Le Poidevin 04/27/2021 14:27:45
+Ok I see, Thank you.
+
+##### Simon Steinmann [Moderator] 04/27/2021 19:56:44
+`@James Le Poidevin` I've written a tool that extracts the meshes from proto files. So using the webots -> urdf export, and a bit of manual adjusting, you can get a full urdf file with all visual meshes included
+
+
+[https://github.com/cyberbotics/webots/blob/master/scripts/proto\_splitter/proto2mesh.py](https://github.com/cyberbotics/webots/blob/master/scripts/proto_splitter/proto2mesh.py)
+
+##### Affonso 04/27/2021 20:10:39
+Do Webots have a native delay function on the controller with C?
+
+##### Simon Steinmann [Moderator] 04/27/2021 20:11:51
+You can use a normal C delay function?!
+
+
+Webots controllers only continue the simulation when you explicitly call the robot step function
+
+##### Affonso 04/27/2021 20:13:00
+We are using this
+
+
+void delay(int time, int atual)
+
+{
+
+    while (wb\_robot\_step(TIME\_STEP) != -1) {
+
+      if (wb\_robot\_get\_time() > time + atual){
+
+        break;
+
+       }
+
+  }
+
+}
+
+
+Is there an error?
+
+##### Simon Steinmann [Moderator] 04/27/2021 20:13:40
+what do you want to achieve?
+
+##### Affonso 04/27/2021 20:15:10
+My robot needs make a reverse curve when the infra sensor detects the line
+
+##### Simon Steinmann [Moderator] 04/27/2021 20:16:19
+so you want a function that simply executes the current commands for a certain amount of time?
+
+##### Affonso 04/27/2021 20:16:52
+exactly
+
+
+Now we are calling a function that curves and interrupts the code using delay
+
+##### Simon Steinmann [Moderator] 04/27/2021 20:18:03
+if (wb\_robot\_get\_time() < t\_simulate){
+
+        continue;
+
+
+you could put that at the start of your loop
+
+
+and when you want the main loop to skip any logic, you set the t\_simulate to the current sim time + the duration
+
+
+as soon as wb\_robot\_get\_time() is bigger than that t\_sim, it will execute the rest of your loop
+
+
+also, time is double, not int
+
+##### Affonso 04/27/2021 20:21:53
+Ok, but i need use this logic of delay more times in the code that's why I create the function above
+
+##### Simon Steinmann [Moderator] 04/27/2021 20:22:20
+void delay(double duration)
+
+{
+
+    double time\_end = wb\_robot\_get\_time() + duration;
+
+    while (wb\_robot\_step(TIME\_STEP) != -1) {
+
+      if (wb\_robot\_get\_time() > time\_end ){
+
+        break;
+
+       }
+
+  }
+
+}
+
+##### Affonso 04/27/2021 20:22:29
+You think that will works?
+
+##### Simon Steinmann [Moderator] 04/27/2021 20:22:33
+not a c programmer, but perhaps like this?
+
+##### Affonso 04/27/2021 20:22:45
+yeah
+
+
+thanks
+
+##### Simon Steinmann [Moderator] 04/27/2021 20:23:08
+you're welcome 🙂
+
+
+make sure to use the documentation [https://www.cyberbotics.com/doc/reference/robot?tab-language=c#wb\_robot\_get\_time](https://www.cyberbotics.com/doc/reference/robot?tab-language=c#wb_robot_get_time)
+
+
+it has all variable types and functions explained
+
+##### main 04/27/2021 21:35:51
+`@Stefania Pedrazzi` Thanks, so say if i was to make a leg 30kg and scale it to 0.5, it will remain at 30kg (just in a smaller bounding box area?)
+
+##### Simon Steinmann [Moderator] 04/27/2021 21:38:59
+`@main` it depends on whether you define the weight through mass or density
+
+
+if you define the mass as 30kg, it will remain the same
+
+##### tabousoud 04/27/2021 21:55:56
+Hi All, 
+
+Quick question: For a camera node, which axis aligns with the camera's line of vision? I looked in the docs but can't seem to find it.
+
+##### Ragemor 04/27/2021 23:07:56
+ı have different colored objects in my simulation. and i want to move my robots to different colored objects. how can i perform that? basicly a leader follower concept with camera recognition. I try to use objects[].colors[] but i cant made what i want. my english is not pretty good. anyone can help me about that?
+
+
+this is my simulation. reds first and greens behind them. this is working for a while but if green object robots see another colored robot it stopped moving.
+%figure
+![webbb.jpg](https://cdn.discordapp.com/attachments/565154703139405824/836740552145764412/webbb.jpg)
+%end
+
+
+and this is my code [https://discord.com/channels/565154702715518986/565155651395780609/836732423982415883](https://discord.com/channels/565154702715518986/565155651395780609/836732423982415883)
+
+##### nslinco 04/28/2021 02:04:51
+Hello all! I'm currently working with the Neuronics IprHd6ms180 and the gripper only opens partially. I'm using a python controller and the following line to alter the motor position: "motors[len(motors)-1].setPosition(1.22171)". Does anyone have experience with a similar problem?
+
+
+Altering the value passed to setPosition affects the correct motor, but it only opens a fraction of the amount it should
+
+
+Nvm
+
+##### Joanna 04/28/2021 06:03:16
+`@Darko Lukić` Hello everybody,
+
+I tried to run extern controller (following this tutorial [https://cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-os=linux&tab-language=c++](https://cyberbotics.com/doc/guide/running-extern-robot-controllers?tab-os=linux&tab-language=c++)) from ros2 component in cpp to contol the ur5 simulation ([https://github.com/cyberbotics/webots\_ros2/wiki/Example-Universal-Robots](https://github.com/cyberbotics/webots_ros2/wiki/Example-Universal-Robots)). The controller in simulation is already extern and set to true. But I have this error in webots console. 
+
+(WARNING: Failed to attach extern robot controller: no available "<extern>" robot controller found). Any help?
+
+##### fero taraba 04/28/2021 15:46:37
+Hello, my HTML export does not contain labels created via "set\_label" method. Should it be there or is it currently not supported?
+
+##### Benjamin Délèze [Cyberbotics] 04/28/2021 15:57:42
+Hello, sorry labels are currently not supported in HTML exports
+
+##### Dorteel 04/28/2021 19:07:11
+Hi there! Is it possible to change the mass of the object through supervisor? I have troubles getting to the Physics node of an object in the scene tree without using a specific DEF tag on the Physics node
+
+##### Dizz 04/29/2021 02:32:53
+would anyone happen to know how to adjust the robots rotation in code? currently programming in python.
+
+##### Simon Steinmann [Moderator] 04/29/2021 02:33:31
+using a supervisor controller
+
+
+[https://cyberbotics.com/doc/reference/supervisor?tab-language=python](https://cyberbotics.com/doc/reference/supervisor?tab-language=python)
+
+
+from controller import Supervisor
+
+
+
+robot = Supervisor()
+
+robotNode = robot.getSelf()
+
+robotNode.setOrientation()
+
+
+check the documentation, that is from what I remember, might be wrong
+
+##### Dizz 04/29/2021 02:36:02
+Thank you for your help!
+
+##### Simon Steinmann [Moderator] 04/29/2021 02:36:16
+oh and you have to make the robot a supervisor. Set it to true in the scene tree
+
+##### bingdong 04/29/2021 06:57:02
+Hi, can Python multiprocessing be run in the controller script?
+
+##### SeanLuTW 04/29/2021 09:23:54
+Hi, I'm writing a script to run and record the simulation. My controller add several PROTOs into my world during simulator running and the cursor will highlight the added object. So in my video, the object's coordinate (three axes with RGB) will be recorded. How can I avoid this?
+
+##### Stefania Pedrazzi [Cyberbotics] 04/29/2021 09:33:58
+One option is to hide the handles to move the object (the three axes with RGB and arrows) from the "View" > "Scene Interactions" > "Disable Object Move". Note that handles are only disabled if the node is selected from the 3D scene and not from the scene tree.
+
+##### jasonc1025 04/29/2021 11:41:06
+Thx `@Stefania Pedrazzi`  for helping me with my attempted "Web Simulation: Quick Start: 'Simulation starting' " frozen status.   (I've move my question-thread over to Webots, to be topic-consistent.)  ; )  Unfortunately, I'm not that good w/ PHP for Website Hosting.  
+
+
+
+Just curious re: my 'Quick Start: Simulation starting...' frozen status, how important do my ports need to be opened? (1999 and 2000 are opened, yet my Comcast-xFinity is having issues opening 443, 2001+ as I read somewhere as being needed.) Btw, Is there a 'LocalHost' approach to see if it can work w/in my own LAN? If this could help, a 'localhost:2000/monitor' has been attached. I would be happy to post my session & simulation output.log, if needed.  Thx  for anyone's kind support.  : ) (Thx Stefania for the earlier reply: [https://discord.com/channels/595546443498913822/595550130019631105/837270555132166164](https://discord.com/channels/595546443498913822/595550130019631105/837270555132166164))
+%figure
+![Screenshot_from_2021-04-29_02-59-22.png](https://cdn.discordapp.com/attachments/565154703139405824/837292407228858438/Screenshot_from_2021-04-29_02-59-22.png)
+%end
+
+##### Stefania Pedrazzi [Cyberbotics] 04/29/2021 11:51:23
+Ports 1999, 2000 are used by the web simulation server, ports 2001+ are used by the Webots instances. So you have to make sure that at least ports to 1999 to 2005 are open. Note that this range of port is configurable as described in documentation.
+
+Port 443 is required to use HTTPS so it will probably be open by default.
+
+
+All what is described in the documentation runs on localhost.
+
+If you want to access from another computer in the same network, then you should use the IP address.
+
+##### jasonc1025 04/29/2021 11:54:42
+`@Olivier Michel` and related Colleagues, as program manager... my supervisors have been very impressed with Webots and we would be honored to be annual subscribers if we can get Web Simulation working, as we're looking for an open-source Robotics Sim platform to develop EdTech curriculum with our partner NASA ISS.  Yet our server experience is more node.js and python (flask-based), vs. PHP & Java.  We're based in Silicon Valley, CA USA ([https://questforspace.com/](https://questforspace.com/)), so feel free to verify us as needed.  ; )
+
+
+`@Olivier Michel` , `@Stefania Pedrazzi`, et al,  re: Web Simulation, due to our limited server skill-sets, e.g. running Docker would be cool, yet we need just simple copy & paste lines to 'mindlessly' create and run the Docker image.  Hope this makes sense.  ; )
+
+
+Thx `@Stefania Pedrazzi`, I'll see what I can do to get those ports opened.  : )
+
+##### Stefania Pedrazzi [Cyberbotics] 04/29/2021 12:00:21
+You can find here some instructions to run the simulation server locally on a Docker container:
+
+[https://github.com/cyberbotics/webots/wiki/Docker#run-streaming-server-in-docker-container](https://github.com/cyberbotics/webots/wiki/Docker#run-streaming-server-in-docker-container)
+
+Note that to use it in production and make it available online you need additional steps.
+
+##### jasonc1025 04/29/2021 12:03:11
+Wow, thx `@Stefania Pedrazzi`, that's way cool.  My staff and I will 'hack away' at the helpful Github Docker recipe.  ; )
+
+##### Stefania Pedrazzi [Cyberbotics] 04/29/2021 12:04:14
+In any case, yes with paid support we will help you setting up your web simulation server.
+
+You can ask for an offer at sales@cyberbotics.com.
+
+##### jasonc1025 04/29/2021 12:08:03
+Thx for such timely and helpful responses.   Great, I can relay this helpful info back to my supervisors, to see what we can do for a hopeful long-term partnership.  : )
+
+##### Venkat 04/29/2021 15:43:40
+`@Darko Lukić` Thank you. I was able to do so. With a 270 degree scanning angle for the lidar, I am able to visualize the "Lidar Ray Path" exactly the way being defined. But I am unable to see the "Lidar Point cloud" as expected. The point cloud visualization displays light around few areas, but not for the whole area (270 degrees). I tried slowing the simulation by reducing the basicTimeStep, but still the display remains the same.
+
+##### havilesa 04/29/2021 16:33:15
+Hi everyone, I am new to this forum, my robot do not seem to respond to setPositition request. I'm using Python and sojourner. Any help is appreciated: """usodecamarasojourner controller."""
+
+
+
+
+
+back\_left\_bogie = 0
+
+front\_left\_bogie = 1
+
+front\_left\_arm = 2
+
+back\_left\_arm = 3
+
+front\_left\_wheel = 4
+
+middle\_left\_wheel= 5
+
+back\_left\_wheel = 6 
+
+back\_right\_bogie = 7
+
+front\_right\_bogie = 8 
+
+front\_right\_arm = 9
+
+back\_right\_arm = 10
+
+front\_right\_wheel = 11
+
+middle\_right\_wheel = 12
+
+back\_right\_wheel = 13
+
+
+
+part\_name = ['BackLeftBogie','FrontLeftBogie',
+
+'FrontLeftArm','BackLeftArm', 'FrontLeftWheel','MiddleLeftWheel',
+
+'BackLeftWheel','BackRightBogie', 'FrontRightBogie',
+
+'FrontRightArm','BackRightArm', 'FrontRightWheel', 'MiddleRightWheel',
+
+'BackRightWheel']
+
+
+
+joints = []
+
+for i in range(len(part\_name)):
+
+  joints.append(robot.getDevice(part\_name[i]))
+
+  joints[i].setPosition(float('inf'))
+
+  joints[i].setVelocity(0.0)
+
+  
+
+VELOCITY = 0.6  
+
+def move\_6\_wheels(v): 
+
+  joints[middle\_right\_wheel].setAvailableTorque( 2.0)
+
+  joints[middle\_left\_wheel].setAvailableTorque( 2.0)
+
+
+
+  joints[front\_left\_wheel].setVelocity( v * VELOCITY)
+
+  joints[middle\_left\_wheel].setVelocity( v * VELOCITY)
+
+  joints[back\_left\_wheel].setVelocity( v * VELOCITY)
+
+  joints[front\_right\_wheel].setVelocity( v * VELOCITY)
+
+  joints[middle\_right\_wheel].setVelocity( v * VELOCITY)
+
+  joints[back\_right\_wheel].setVelocity( v * VELOCITY)
+
+
+
+def turn\_wheels\_right(): 
+
+  joints[front\_left\_arm].setPosition(0.4)
+
+  joints[front\_right\_arm].setPosition(0.227)
+
+  joints[back\_right\_arm].setPosition(-0.227)
+
+  joints[back\_left\_arm].setPosition(-0.4)
+
+
+
+
+
+def turn\_wheels\_left(): 
+
+  joints[front\_left\_arm].setPosition(-0.227)
+
+  joints[front\_right\_arm].setPosition(-0.4)
+
+  joints[back\_right\_arm].setPosition(0.4)
+
+  joints[back\_left\_arm].setPosition(0.227)
+
+##### Skev 04/29/2021 19:11:34
+Hello, my base nodes list when I click on "add a node" doesn't seem to be complete. Is there something wrong with my version or the cameras, lightsensors... are somewhere else ?
+
+##### DDaniel [Cyberbotics] 04/29/2021 19:15:07
+`@Skev` hi, only the compatible nodes you can put in the spot you're currently selecting will show up. Add a Robot node first and then select the children field before clicking the (+) button
+
+
+`@havilesa` hi, how do you do it? Can you show a snippet of the relevant code?
+
+##### Skev 04/29/2021 19:19:19
+Oh thank you very much !
+
+##### devPRS 04/29/2021 20:30:25
+Hello everyone, I have recently implemented radars in my webots world. I noticed however that I do not get multiple detections for a large building, instead I just get one single hit. I have used radars quite a bit in the real world and the simulated data was not quite what I expected.
+
+
+Is there anything I can do about this?
+
+##### DDaniel [Cyberbotics] 04/29/2021 21:45:27
+`@havilesa` By doing this 
+
+```
+joints[i].setPosition(float('inf'))
+joints[i].setVelocity(0.0)
+```
+
+you're setting the motors for Velocity control, but afterwards with this `joints[front_left_arm].setPosition(-0.227)` you're switching them to Position control and in Position control what you provided using the setVelocity (0) specifies the maximal velocity, so they won't move. Take a look at this table [https://cyberbotics.com/doc/reference/motor#motor-control-summary](https://cyberbotics.com/doc/reference/motor#motor-control-summary)
+
+##### Darth Jon 04/30/2021 01:10:34
+Hi there, I have a question I couldn't an answer anywhere still: Does webots support machining simulation, like milling or cutting by a robotic end effector?
+
+##### Simon Steinmann [Moderator] 04/30/2021 01:12:37
+`@Darth Jon` No, Solids are "indestructible". You could probably find a complicated way to make it work, but it does not support such a feature.
+
+##### Darth Jon 04/30/2021 01:13:00
+Tyvm Simon!
+
+##### Simon Steinmann [Moderator] 04/30/2021 01:13:24
+May I ask what exactly it is you want to accomplish?
+
+##### Darth Jon 04/30/2021 01:14:35
+I'm deciding which platform I'm going to use in my PhD, I'm comparing the features and limitations of each
+
+##### Simon Steinmann [Moderator] 04/30/2021 01:15:03
+What are your requirements? What exactly do you want to simulate?
+
+##### Darth Jon 04/30/2021 01:17:06
+I'll develop the digital twin of an automation laboratory of university and develop a CPS on top of it and simulating all the factory processes may be interesting from a research point of view
+
+
+I'm in the preliminary stages so may need it or not
+
+
+not sure still
+
+
+but once I start, there's no way back kinda
+
+
+wont migrate all work after months of development
+
+##### Simon Steinmann [Moderator] 04/30/2021 01:19:12
+You wont find a robotic simulator who can actually simulate machining.
+
+
+like FEM and CFM can't be done properly in real time in a rigid body physics engine
+
+
+The robot simulators such as Gazebo, Webots, PyBullet, Mujoco etc. are rigid body simulators
+
+
+you can simulate all the movement, but not the actual cutting process
+
+##### Darth Jon 04/30/2021 01:25:10
+It probably doesn't use FEM but I found one that allows mesh manipulation in real time, so the robots can simulate cut and milling but it has another limitations like very small robot library
+
+##### Simon Steinmann [Moderator] 04/30/2021 01:25:23
+which one?
+
+##### Darth Jon 04/30/2021 01:26:02
+Coppeliasim (new name for V-REP)
+
+##### Simon Steinmann [Moderator] 04/30/2021 01:26:54
+it's proprietary. I'd stick with open source and free if I were you
+
+
+also has lots of other drawbacks
+
+##### Darth Jon 04/30/2021 01:28:03
+yeah, it can be used for PhD cause it has an educational free license but yeah it has weakness too that's why I'm studying the case
+
+##### Simon Steinmann [Moderator] 04/30/2021 01:28:26
+I did an academic paper on robotic simulators, pm me if you like. We shouldnt spam the channel here
+
+##### Darth Jon 04/30/2021 01:28:45
+right
+
+##### Darko Lukić [Cyberbotics] 04/30/2021 06:54:46
+If a LiDAR measurement is outside the provided range then the measurement is considered invalid and thus, it is not displayed
+
+##### L'etranger 04/30/2021 11:59:04
+Hey everyone. I would appreciate some assistance. I'm working with the built-in "iRobot's Create" world but I've run into an issue. 
+
+
+
+Within the controller for the robot (create\_avoid\_obstacles.c), a turn() function is specified that takes an angle in Radians as input. 
+
+
+
+I've messed around with the function, giving it specific instead of random values, like 90 ° (M\_PI / 2) but I notice that it's extremely inaccurate and imprecise.
+
+
+
+For example, if I give 180°, it only turns by about 140°. If I give 90°, it only turns by about 60. Can anyone help me with this?
+
+##### Beginner26798 04/30/2021 14:21:25
+Hi guys im attaching a ure hand to an irobot vacum cleaner but when the irobot move and the hand rotate , the hand detached from the robot how can i fix this problem
+
+##### Markita 04/30/2021 14:58:46
+Hi everyone! Does anybody know how can I change the contact properties so that they are "glued" together? I just can't figure it out
+
+##### sa33 04/30/2021 16:36:39
+Hi guys, I am working on a robot attached with 2 solid frames getting rotated independently. outer frame will rotate along one axis and the inner frame is connected to outer with a motor and rotates in another axis. so the inner has to rotate along its own axis with outer frame. I have anchored the frames same as the endpoint translation. outer is working fine but inner frame is not rotating properly. Inner frame's anchoring is not working properly and its anchor position is changing while rotation.  Can anyone help me to solve this issue?
+
+##### Beginner26798 04/30/2021 20:02:58
+Anyone??!!
+
+##### Simon Steinmann [Moderator] 04/30/2021 21:35:45
+`@Beginner26798` can you post a screenshot of the problem?
+
+
+There is no adahesion. You can increase the friction by a lot, so they wont move, but it will still require some force to press the two objects together. If you want them to be actually stuck together, you either have to link them with a transform node, or use connector nodes
+
+
+[https://cyberbotics.com/doc/reference/connector?tab-language=python](https://cyberbotics.com/doc/reference/connector?tab-language=python)
+
+##### Nick R 04/30/2021 22:23:30
+Can anyone explain why the Velodyne HDL-32 sensors don't have concentric rings where they hit the floor, but star-like patterns - is this intentional? The VLP-16 (superimposed in white) has circular rings as I would expect. [https://imgur.com/a/zcl5RCT](https://imgur.com/a/zcl5RCT)
+
+##### Simon Steinmann [Moderator] 04/30/2021 22:23:40
+Your problem is hard to visualize. Can you share a screenshot or quick video?
+
+
+It seems like it has 6 sensors aranged in a circle pointing outward
+
+
+if you overlay their waves, that would result in the pattern you see
+
+
+hmm no, that does not seem to be it
+
+##### Nick R 04/30/2021 22:29:39
+Based on real data ([https://velodynelidar.com/products/hdl-32e/](https://velodynelidar.com/products/hdl-32e/)) something looks quite off
+
+##### Simon Steinmann [Moderator] 04/30/2021 22:29:47
+ahh, it is rotating. Try lowering the timestep and see if the pattern changes
+
+##### Nick R 04/30/2021 22:31:24
+Thanks, still confused about how to lower the timestep. As with my tests before, this is running as an external controller... launched with the ROS2 interface
+
+##### Simon Steinmann [Moderator] 04/30/2021 22:31:40
+in world info, you set the timestep lower
+
+
+looking at the HDL-32 proto file, you can see the properties:
+
+`tiltAngle -0.19896287
+
+  horizontalResolution 4500  # 360 / 0.08
+
+  fieldOfView 1.570795       # 6.28318 / 4
+
+  verticalFieldOfView 0.468
+
+  numberOfLayers 64
+
+  minRange 0.8
+
+  maxRange 120
+
+  spherical TRUE
+
+  type "rotating"
+
+  noise 0.000167 # 0.02 / 120
+
+  defaultFrequency 5
+
+  minFrequency 5
+
+  maxFrequency 15`
+
+
+so it rotates with 5 hz
+
+
+at 32ms timestep, your simulation runs at about 30 hz
+
+
+so one rotation only has about 6 positions that get simulated
+
+
+hence the star pattern
+
+
+Does that make sense?
+
+##### Nick R 04/30/2021 22:34:19
+Yes it does, thank you 🙂 If I set the WorldInfo timestep lower then they approach circular rings. But of course the RTF takes a hit
+
+##### Simon Steinmann [Moderator] 04/30/2021 22:34:23
+If you were to lower the timestep to 16ms, one rotation of the lidar would have 12 positions and so on
+
+
+yes, that is the issue
+
+
+you could fake it and make a surround lidar with 360° FOV
+
+##### Nick R 04/30/2021 22:41:40
+Does this amount to using the basic Lidar and setting type to "fixed" ? Any way to override the rotation of the HDL-32 or I have to go back to using the basic LIDAR if I want to achieve this?
+
+##### Simon Steinmann [Moderator] 04/30/2021 22:42:50
+A basic lidar I assume. You can also duplicate the proto file and adjust it
+
+
+changed it to fixed and 360°
+
+
+try this
+> **Attachment**: [VelodyneHDL-32E\_360.proto](https://cdn.discordapp.com/attachments/565154703139405824/837821899840552991/VelodyneHDL-32E_360.proto)
+
+
+the file name and the proto name (line:8 in the file) have to be identical, otherwise Webots does not open it
+
+## May
+
+##### Steven37 05/01/2021 11:10:33
+I have a robot like in the video and when it moves it will recognize the objects it has passed and read the color of that object. However, as you can see in the camera image, the colors of these objects will be read again and again. So is there a way for me to get the camera to only recognize each object once and which object has already read its color then won't read it again? Thank you so much!
+> **Attachment**: [3YProject\_SagaRobot\_ask\_recognise\_1\_object.mp4](https://cdn.discordapp.com/attachments/565154703139405824/838009497606815744/3YProject_SagaRobot_ask_recognise_1_object.mp4)
+
+##### dA$H 05/01/2021 12:54:12
+Does anyone know why my controller stops?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/838035582629576704/unknown.png)
+%end
+
+
+Prints two link.names and then stops
+
+
+I'm trying to implement inverse kinematic on ure10
+
+
+According to a example in webot.
+
+inverse\_kinematic.wbt
+
+##### Dorteel 05/01/2021 15:10:50
+The error message says "timeStep not defined", correcting "timeStep" to "timestep" with lower s should solve the issue
+
+##### mileny 05/01/2021 17:17:47
+Hi everyone, is it possible to create a sticky wheel on the webots?
+
+##### Mohannad Kassar 05/01/2021 17:24:26
+Hello, I just finished a 3D model using solid-works, I export the VRML file (.wrl), how can I import it to webots to program it ?
+
+##### Markita 05/01/2021 17:44:34
+Thank you `@Simon Steinmann`  !!
+
+
+I think my question was pretty much the same, check the answer just above, maybe it helps you
+
+##### mileny 05/01/2021 18:03:08
+I will try that, thank you!
+
+##### dA$H 05/01/2021 18:07:45
+thanks man.
+
+
+Does anyone know the cause of this error?
+
+Robot: URE10
+
+Inverse kinematic
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/838124628006010900/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 05/01/2021 18:48:49
+arrays start with 0. So an array with size 8 goes from 0-7
+
+##### dA$H 05/01/2021 18:50:37
+Where is more than 7?
+
+
+len(motors) = 6
+
+
+line 166: ikResults = armChain.inverse\_kinematics([x, y, z], max\_iter=IKPY\_MAX\_ITERATIONS, initial\_position=initial\_position)
+
+##### Gustavo Cruz 05/01/2021 19:59:17
+Helo! I am trying to create a web simulation service, but I have a problem. I start the session and simulation servers normally, but when I try to start a new simulation by the client an error appears in the command prompt of the servers and the client is in the state of starting simulation. Does anyone know how to solve this problem? Thank you very much!
+%figure
+![Erro2.PNG](https://cdn.discordapp.com/attachments/565154703139405824/838142556395143188/Erro2.PNG)
+%end
+
+##### Maurice Faraj 05/01/2021 20:17:01
+Hello everyone hope all is fine I’m facing a problem in my project that my ure10 robotic arm pass through solides  and the floor can anyone help me please to fix it and thank you every one
+
+##### Bitbots\_Jasper [Moderator] 05/01/2021 20:32:44
+Your solids probably need a bounding object
+
+##### Maurice Faraj 05/01/2021 20:44:20
+Ok thank you
+
+##### dA$H 05/01/2021 20:53:16
+Does anyone know why the robot does not go exactly to the ball?
+> **Attachment**: [empty\_2.mp4](https://cdn.discordapp.com/attachments/565154703139405824/838156143490236476/empty_2.mp4)
+
+
+I wrote the controller according to a example in Webot (irb inverse\_kinematic)
+
+##### Simon Steinmann [Moderator] 05/01/2021 21:44:59
+self collision probably. Also, ikpy is not very good. Slow and unstable. I'd recommend ikfast
+
+##### dA$H 05/01/2021 21:46:35
+Is there an example of ikfast in webot?
+
+##### Simon Steinmann [Moderator] 05/01/2021 21:47:17
+you can compile it yourself
+
+
+[https://github.com/cyberbotics/pyikfast](https://github.com/cyberbotics/pyikfast)
+
+
+are you using the ur10e?
+
+##### dA$H 05/01/2021 21:48:00
+yes
+
+##### Simon Steinmann [Moderator] 05/01/2021 21:52:30
+I don't have the solver on this machine
+
+
+hold on
+
+
+what os are you on?
+
+##### dA$H 05/01/2021 21:54:23
+windows 10
+
+##### Simon Steinmann [Moderator] 05/01/2021 21:54:58
+ur10e needs lapack installed
+
+
+I tried doing so without success on win10
+
+
+Try to install this with "pip install ."
+> **Attachment**: [pyikfast\_ur10e.zip](https://cdn.discordapp.com/attachments/565154703139405824/838171882162880512/pyikfast_ur10e.zip)
+
+
+but it will most likely fail. You need the lapack library. Maybe you manage to get it to compile
+
+
+let me know if you do
+
+##### dA$H 05/01/2021 22:01:49
+Gave an error
+
+
+Why ikpy works well with irb but has problems with ur10e?
+
+##### Simon Steinmann [Moderator] 05/01/2021 22:04:28
+ur10e is more complex and requires the linear algebra library "lapack"
+
+
+on Linux I can tell you how to solve it. WIndows I was not able to do it. However it may have been due to an outdated version. Just recently updated to version 20H2
+
+
+[https://www.google.com/search?client=firefox-b-d&q=lapack+windows+10](https://www.google.com/search?client=firefox-b-d&q=lapack+windows+10)
+
+##### tabousoud 05/02/2021 13:55:28
+Hello everyone, I'm trying to model a gripper similar to this one in the pic and can't figure out how to use `SolidReference` to close the loop. 
+
+
+
+Using the right  linkage as an example, I first attempted:
+
+body -> joint j1 -> endpoint L1 -> j2 -> L2 -> ... -> j5 -> endpoint = SolidReference(body)
+
+but this didn't seem to work. 
+
+I tried a different approach with L3 as the SolidReference node closing the inner (L4) and outer links (L1, L2)  where L3 is an endpoint for j3 and a SolidReference endpoint for j4.
+
+
+
+Can someone please advise the way to define this linkage? Thanks!
+%figure
+![gripper_linkage.png](https://cdn.discordapp.com/attachments/565154703139405824/838413387477286912/gripper_linkage.png)
+%end
+
+##### DDaniel [Cyberbotics] 05/02/2021 13:56:33
+`@tabousoud` search for the khepera3 gripper sample, it's very similar and uses solid reference
+
+##### tabousoud 05/02/2021 13:58:09
+Thanks `@DDaniel` , I'll take a look at it
+
+##### DDaniel [Cyberbotics] 05/02/2021 13:59:53
+also don't forget to enable physics in all intermediary endpoints otherwise it won't work
+
+##### tabousoud 05/02/2021 14:01:04
+Got it, thanks again!
+
+##### DDaniel [Cyberbotics] 05/02/2021 14:11:30
+`@tabousoud` or you can check this one instead, it's basically like the khepera one but has much less stuff so might be easier to understand
+> **Attachment**: [gripper.zip](https://cdn.discordapp.com/attachments/565154703139405824/838417421290831902/gripper.zip)
+
+##### tabousoud 05/02/2021 14:22:36
+Yes, this looks more straightforward. Many thanks!
+
+##### Simon Steinmann [Moderator] 05/02/2021 19:28:36
+[https://github.com/cyberbotics/community-projects/tree/master/devices/robotiq/protos](https://github.com/cyberbotics/community-projects/tree/master/devices/robotiq/protos) `@tabousoud` try this one I did
+
+##### tabousoud 05/02/2021 20:03:38
+Thanks for sharing! Yes, I actually downloaded both the `Robotiq2f.proto` and `Robotiq85Gripper.proto` to see if I could use those. I noticed that those models used rotational motors for every joint, so was trying to see if I could build a model with a single actuator motor and utilize the linkages to model the grip. So far, it's not going very well...
+> **Attachment**: [stacking\_env\_DEV01.mp4](https://cdn.discordapp.com/attachments/565154703139405824/838506037626667048/stacking_env_DEV01.mp4)
+
+##### Simon Steinmann [Moderator] 05/02/2021 20:13:07
+I think it is easier to "fake" it. I have done so sucessfully in the past. Also had a controller for it, but can't find it
+
+
+But please post, if you manage to do it successfully
+
+##### tabousoud 05/02/2021 20:18:00
+For sure. If I get it to work I'll share what I did. Thanks!
+
+##### Simon Steinmann [Moderator] 05/02/2021 20:27:35
+`    def set\_robotiq\_2f\_gripper\_pos(self, gripperPos):
+
+        pos = self.gripper\_minPos[0] + gripperPos * (self.gripper\_maxPos[0]-self.gripper\_minPos[0])
+
+        self.gripper\_motors[0].setPosition(pos)     
+
+        self.gripper\_motors[1].setPosition(-pos)
+
+        self.gripper\_motors[2].setPosition(pos)
+
+        self.gripper\_motors[3].setPosition(pos)
+
+        self.gripper\_motors[4].setPosition(-pos)
+
+        self.gripper\_motors[5].setPosition(pos)`
+
+
+I found the function. This controls the gripper nicely doing it the "fake" way
+
+
+I'm sure you can initialize the class variables yourself, they should be self explanatory
+
+##### tabousoud 05/02/2021 20:32:10
+Perfect, this is very helpful `@Simon Steinmann` . Thanks again!
+
+##### Stefania Pedrazzi [Cyberbotics] 05/03/2021 06:07:56
+The simulation server needs to create an isolated folder in `/tmp/webots/instances` where to store the projects file requested by the client each time a client connects and asks to start a simulation.
+
+You should first make sure that this folder can be created and accessed by `simulation_server.sh` script.
+
+##### Milacuk 05/03/2021 06:49:03
+hello,maybe somebody can help me with this problem,i am using makefile which is included into webots
+%figure
+![2021-05-03_09.45.16.png](https://cdn.discordapp.com/attachments/565154703139405824/838668463022276668/2021-05-03_09.45.16.png)
+%end
+
+##### Stefania Pedrazzi [Cyberbotics] 05/03/2021 06:53:18
+Here there is some confusion. The robot controller file `distance.c` should contain a C code to control the robot. But your file contains a world definition that should be saved in a `.wbt` file and cannot be compiled.
+
+I would strongly suggest you to read the tutorials to understand how Webots works:
+
+[https://www.cyberbotics.com/doc/guide/tutorials](https://www.cyberbotics.com/doc/guide/tutorials)
+
+##### Johan2021 05/03/2021 10:46:41
+Hi everyone, I am modeling a robot that is locked to a surface (alternating between its 2 feet) when in motion. To lock the feet, I exert a force onto the foot body perpendicular to the bottom surface of the foot, but this yields some weird behavior (going into a rigid body) during simulation -- anyone from Webots who could help me on this?
+> **Attachment**: [force\_approach\_bad.mp4](https://cdn.discordapp.com/attachments/565154703139405824/838728264637218887/force_approach_bad.mp4)
+
+##### Stormtrooper 05/03/2021 12:51:54
+Hello everyone, i have a quick question...how can i tell how often my robot is printing data onto the console? im aware TIME\_STEP is used to get data from a sensor after that specified period of time, but is it also the time taken for the software to go through the main's while loop once?
+
+##### Gustavo Cruz 05/03/2021 12:52:37
+The simulation server is creating the folder in /tmp /webots /instances, but it is not creating any files in it when I try to start a simulation. I have already tried to change some permissions on the folder, but the problem continues.
+%figure
+![Instances.PNG](https://cdn.discordapp.com/attachments/565154703139405824/838759957679308830/Instances.PNG)
+%end
+
+##### Stefania Pedrazzi [Cyberbotics] 05/03/2021 13:38:17
+Did you check in the logs (default path: `$WEBOTS_HOME/resources/web/server/log/simulation/` and `$WEBOTS_HOME/resources/web/server/log/session/`) if other errors are printed?
+
+If not, I would suggest you to debug the `simulation_server.py` script and in particular the `setup_project` function to better understand why the project files are not copied.
+
+##### Yannnick3 05/03/2021 19:33:55
+Hello everyone ! I'm implementing a VIO module in Webots using ROS. The module has a camera, an accelerometer and a gyroscope. I enable them using the corresponding ROS services. Once activated, each sensor publishes its values on its topic (example: /Module/camera/image for the camera). My problem is the following: I can enable them with any sampling period, the different sensors always publish their value on the topics with a period corresponding to the basicTimeStep of the Webots world. For example, for my camera to publish images at a frequency of 40hz, I enable it with a period of 25ms. Despite this, the camera topic receives an image every 5ms, which is the period of my Webots world. Is there a way to obtain the correct publishing frequency on the topics? Thanks in advance ! 🙂
+
+##### Gustavo Cruz 05/03/2021 20:06:13
+I checked the simulation server logs and found that the problem was with the setup\_project\_from\_github function.
+
+The function was checking for the presence of the word "tag" or "branch" in the project link on github, but it was not checking the word "blob".
+
+Thanks for helping me.
+%figure
+![TrechoProblema.PNG](https://cdn.discordapp.com/attachments/565154703139405824/838869079141384312/TrechoProblema.PNG)
+%end
+
+
+Unfortunately, even correcting the problem, the simulation is not yet started and the client keeps displaying the message "Starting simulation ...".
+
+
+
+No error is shown and this is the siling server log at the moment:
+%figure
+![NovoLog.PNG](https://cdn.discordapp.com/attachments/565154703139405824/838869287291846656/NovoLog.PNG)
+%end
+
+##### Boichu 05/04/2021 00:00:23
+Hello, I have a problem, I created a test 6-wheeled robot, and wanted to check if the engines are powerful enough for different types of terrains, I've added contact properties and changed Coulomb friction for all of the different surfaces, but the speed of the robots on each of the surface is same, what did i do wrong? 😦
+> **Attachment**: [problem.mp4](https://cdn.discordapp.com/attachments/565154703139405824/838928008391426068/problem.mp4)
+
+##### Simon Steinmann [Moderator] 05/04/2021 01:37:13
+`@Boichu` That means that there is most likely no slippage. Set the friction to 0 for one of them as a sanity check
+
+
+wait.. I think I misunderstood your question. Why would they move at different speeds in your opinion?
+
+##### Boichu 05/04/2021 01:48:44
+Shouldn't there be some resistance to motion on different friction surfaces? I might be wrong though please don't judge too hard.
+
+I did check on 0, no movement, so it's fine
+
+##### Simon Steinmann [Moderator] 05/04/2021 01:49:33
+You have wheels, as long as they dont slip, there is almost no resistance
+
+
+You would be right if you were to drag a block across those surfaces, but you are rolling them
+
+
+There is rolling friction, but i'm not sure it is simulated here, and it very small compared to other sources of friction or drag
+
+
+Just think of rolling a rubber toy wheel across sandpaper. Rolls without any issues right? Now try to drag it across without spinning. Almost impossible
+
+##### Boichu 05/04/2021 02:02:59
+I guess you are right, was thinking about slipping like car on ice, or slowing down on sand, but i'm not sure if it should appear here, thank you for your help
+
+##### Simon Steinmann [Moderator] 05/04/2021 02:05:47
+the slipping on ice can be simulated. Sand is more tricky, as it is not a solid surface
+
+##### Boichu 05/04/2021 02:09:59
+I will try tommorow to create a ramp 😄 I think it can be created from box + rotation right? since i didn't see triangle shape or anything like that
+
+##### Darko Lukić [Cyberbotics] 05/04/2021 06:44:47
+The period should be a multiple of the basic timestep:
+
+[https://github.com/cyberbotics/webots/blob/dde08ba5aa324cf2d9d8efdfc53f0363d00cf47e/projects/default/controllers/ros/RosSensor.cpp#L85](https://github.com/cyberbotics/webots/blob/dde08ba5aa324cf2d9d8efdfc53f0363d00cf47e/projects/default/controllers/ros/RosSensor.cpp#L85)
+
+##### Eduardo Tavares 05/04/2021 07:47:09
+Hi guys, I'm a newbie and wanted to develop a DH table simulation of a simple puma 560 style robot can you help me?
+
+##### Yannnick3 05/04/2021 08:11:59
+Thanks for your answer. In my case the sampling period is 25ms, while the basic timestep is 5ms. But the sensors still sample values every 5ms (topic frequency is 200hz instead of 40hz). The get\_sampling\_time service returns the correct sampling period though. Am I missing something here ?
+
+##### Darko Lukić [Cyberbotics] 05/04/2021 08:19:39
+It seems we are not increasing the `mStep` here:
+
+[https://github.com/cyberbotics/webots/blob/73fe51ccc30a82fede130c67a8d983eec96589a1/projects/default/controllers/ros/Ros.cpp#L491-L492](https://github.com/cyberbotics/webots/blob/73fe51ccc30a82fede130c67a8d983eec96589a1/projects/default/controllers/ros/Ros.cpp#L491-L492)
+
+
+
+Is it possible for you to debug it?
+
+[https://github.com/cyberbotics/webots/wiki/Linux-installation](https://github.com/cyberbotics/webots/wiki/Linux-installation)
+
+##### Yannnick3 05/04/2021 11:54:17
+Yes that's the source of the problem ! I added the mStep incrementation. I also needed to replace mStepSize by mRobot->getBasicTimeStep() in the following line, because mStepSize is always equal to 1 and not to the actual duration of a step: [https://github.com/cyberbotics/webots/blob/73fe51ccc30a82fede130c67a8d983eec96589a1/projects/default/controllers/ros/Ros.cpp#L483](https://github.com/cyberbotics/webots/blob/73fe51ccc30a82fede130c67a8d983eec96589a1/projects/default/controllers/ros/Ros.cpp#L483)
+
+
+
+Thanks a lot for your help, it works perfectly now !
+
+##### Nexos 05/04/2021 12:25:34
+Hello! Is it possible to retrieve the global coordinates (wrt the origin of the world) of an object detected through a robot's Camera? I have used the CameraRecognitionObject.get\_position() function and then followed the instructions on the documentation (calculating p' = R * p + T) but the result is way off.
+
+##### ~E 05/04/2021 13:14:46
+Does anyone know of a good, in-depth place to learn about PID controllers? I want to be able to design on from scratch in matlab
+
+##### Simon Steinmann [Moderator] 05/04/2021 18:45:09
+[https://www.youtube.com/watch?v=wkfEZmsQqiA](https://www.youtube.com/watch?v=wkfEZmsQqiA)
+
+##### Beginner26798 05/04/2021 21:59:44
+Good evening what application can we use to do a 3D model and import it to webots
+
+##### tabousoud 05/04/2021 22:07:00
+Webots supports a lot of 3D formats, here is a list of what it can import. There are many CAD and modeling programs that can export these file formats.
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/839261861785763910/unknown.png)
+%end
+
+##### Deleted User 05/05/2021 04:56:58
+Hello, does anybody knows how to change the icon size of Webots UI?
+
+##### Stefania Pedrazzi [Cyberbotics] 05/05/2021 06:08:43
+Next step to debug is try to run the exact same instruction to start Webots from a terminal and check if the simulation is started.
+
+##### Darko Lukić [Cyberbotics] 05/05/2021 06:32:05
+It's great you found a solution. Can you share the implementation in a GitHub pull request?
+
+##### Olivier Michel [Cyberbotics] 05/05/2021 07:41:25
+I assume you are on a retina display, right? Then, setting an environment variable like `QT_ENABLE_HIGHDPI_SCALING=1` should help. See [https://github.com/cyberbotics/webots/pull/2631](https://github.com/cyberbotics/webots/pull/2631). Otherwise, you may try to edit `WEBOTS_HOME/resources/stylesheet.*.qss` with a text editor and see whether you can change icon sizes in there.
+
+##### Max\_K 05/05/2021 12:56:22
+Hello, does anybody know if artags or apriltag are available in webots?
+
+##### tabousoud 05/05/2021 13:03:09
+Hello everyone! I'm trying to figure out how to implement a robot extension slot within a PROTO. 
+
+
+
+From what I've seen looking at the existing protos and some of the examples, the way to do this is to add the `MFFloat` field instantiated with an empty array and reference this at the associated node (e.g. endpoint -> solid -> transform -> `children IS extensionSlot`).  I modeled a manipulator and gripper, and used this approach to specify an expansion slot on the manipulator robot. The associated protos for both are in the same project directory and all devices (motors, sensors, etc.) on the robot and gripper have unique names. When using the models, I can add the gripper to the slot as expected. However, I get a "device not found" error when running the controller and referencing a device from the gripper (e.g. `robot.getDevice("left_finger_actuator")`). 
+
+
+
+This doesn't seem to be an issue when working with existing robots and devices in Webots. My guess is I need to add a path to the child proto but have no clue where/how to do this. Any pointers? Thanks!
+
+##### Darko Lukić [Cyberbotics] 05/05/2021 13:12:38
+The name of your motor (inside the PROTO) is `left_finger_actuator`?
+
+##### tabousoud 05/05/2021 13:15:08
+Yes, that is the name in the PROTO (in this example, at least).
+
+##### Darko Lukić [Cyberbotics] 05/05/2021 13:19:40
+If you `(Right click on the PROTO) > Convert to Base Node` you should be able to see a generated robot structure inside the scene tree. Try to run `robot.getDevice("left_finger_actuator")` then. If that fails, try to find the `left_finger_actuator` node in the scene tree.
+
+##### tabousoud 05/05/2021 13:23:27
+Cool, I'll give that a shot. Just to clarify: Is it the child (i.e. gripper) PROTO that I should convert?
+
+##### Gustavo Cruz 05/05/2021 13:40:41
+I executed the instruction on a terminal. The Webots program started but then closed quickly. And then a message appeared at the terminal. I think the problem is because he is trying to open the file that is in the path '/tmp/webots/instances/140192500708640/worlds/empty.wbt' but the right path is' / tmp / webots / instances / 140192500708640 / WebotsWorld / worlds /empty.wbt '
+%figure
+![OpenFile.PNG](https://cdn.discordapp.com/attachments/565154703139405824/839496830605066300/OpenFile.PNG)
+%end
+
+##### tabousoud 05/05/2021 14:26:11
+`@Darko Lukić` Thanks, I have it working now. The problem is that I tried to convert the Robot node I made for the gripper into a Solid node by manually editing its PROTO and removing some fields. I noticed when using `Convert to Base Node` that it still shows up as a `Robot` node. I reversed the process by converting the Robot node into a solid (from the scene tree) first and then adding back the actuators - which get lost when converting Robot to Solid - manually in the PROTO. This fixed the issue.
+
+##### milacuk 05/05/2021 14:31:01
+hello friends,can somebody explain me why i could't buid and simulate  a project
+%figure
+![2021-05-05_15.21.04.png](https://cdn.discordapp.com/attachments/565154703139405824/839509497348620318/2021-05-05_15.21.04.png)
+%end
+
+##### DDaniel [Cyberbotics] 05/05/2021 14:38:15
+`@milacuk` Hi, what error do you get?
+
+##### Yannnick3 05/05/2021 14:45:43
+Yes of course ! I made the pull request just now.
+
+##### milacuk 05/05/2021 14:49:32
+Actually ,i cant build it
+%figure
+![2021-05-05_17.48.29.png](https://cdn.discordapp.com/attachments/565154703139405824/839514158197637130/2021-05-05_17.48.29.png)
+%end
+
+##### DDaniel [Cyberbotics] 05/05/2021 14:51:02
+`@milacuk` you're using a python controller, you don't need to build it, only to save it
+
+##### milacuk 05/05/2021 14:55:59
+ok, but when i run the simulation nothing happens
+
+##### DDaniel [Cyberbotics] 05/05/2021 14:57:26
+because you're not giving any instructions to the robot, the controller you're showing is an empty loop
+
+
+`@milacuk` replace it with this and it will do stuff: [https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers?tab-language=python#the-controller-code](https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers?tab-language=python#the-controller-code)
+
+##### milacuk 05/05/2021 15:01:00
+ok, i will try tnx a lot
+
+##### Gustavo Cruz 05/05/2021 17:32:24
+I executed the instruction in the terminal and the simulation started in Webots, but in the browser it still continues "Starting simulation..."
+%figure
+![Open.PNG](https://cdn.discordapp.com/attachments/565154703139405824/839555143850524693/Open.PNG)
+%end
+
+##### main 05/05/2021 17:56:42
+Is the max torque on webots the Stall Torque?
+
+##### Mohannad Kassar 05/05/2021 19:10:49
+Hello Every one, please any one who tried to import a VRML file to webots and worked reply to me.
+
+
+I builded a model using solidwork and exported the VRML file and when importing it it gives many erros of this type: ERROR: 'C:/Users/ASUS/Desktop/finall/bag holder.wrl':2:1: error: Skipped unknown 'Separator' node or PROTO.
+
+
+and I tried to import only one part of the simulation, for the fact this error may be from the complexity of the model, and even this part didn't work and gave the same error
+
+
+any solution ?
+
+##### Simon Steinmann [Moderator] 05/05/2021 22:24:15
+`@Mohannad Kassar` As the error says, the file has Separator nodes, which do not exist in Webots.
+
+
+`@main` It is the maximum torque the motor can utilize. It is not dependent on rotational speed
+
+##### Stefania Pedrazzi [Cyberbotics] 05/06/2021 06:04:55
+About the browser, if you start the simulation manually then, you should pay attention because on the browser the use simulation server port may not match.
+
+But if the simulation starts from a terminal then it should also start directly from the script (if you are using the exact same instructions). You should debug what is the difference and why the simulation server doesn't work.
+
+##### Majanao 05/06/2021 10:31:49
+Hi everyone, I'm trying to control the motors of a Robotique2F gripper attached to a Kinova Gen3 through a tool slot with 'getDevice('xxx')'. It finds all the motors of the Gen3 but none of the gripper. Can you tell me what I'm doing wrong?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/839811690233462824/unknown.png)
+%end
+
+##### Stefania Pedrazzi [Cyberbotics] 05/06/2021 10:47:14
+Note that each `Robot` node is an independent system with each own robot controller and can only access its own devices. So you cannot access devices from a descendant robot from the parent robot controller.
+
+in practice, if the `Robotiq2f` PROTO is of type `Robot`, then you should add a dedicated controller in the `Robotiq2f.controller` field to control its devices.
+
+Alternatively, you should replace the `Robot` node with a `Solid` node in the `Robotiq2f` PROTO definition
+
+##### bingdong 05/06/2021 10:55:43
+Hi, how can I add an LCD screen on my robot in simulation?
+
+##### DDaniel [Cyberbotics] 05/06/2021 11:01:53
+`@bingdong` hi, you can add a display: [https://cyberbotics.com/doc/reference/display](https://cyberbotics.com/doc/reference/display)
+
+##### Gustavo Cruz 05/06/2021 12:30:35
+I did some tests here and found that the problem is in that part of the image code. The simulation server is never receiving the "open" message from the webots. The condition "if line.startswith ('open')" is never true and is always in the loop.
+%figure
+![Open.PNG](https://cdn.discordapp.com/attachments/565154703139405824/839841575865155624/Open.PNG)
+%end
+
+##### Stefania Pedrazzi [Cyberbotics] 05/06/2021 12:32:05
+Which Webots version are you using?
+
+I just tested on R2021a and everything works correctly.
+
+
+You should probably also make sure that the Webots version you are using is the same as the session and simulation server.
+
+##### Gustavo Cruz 05/06/2021 12:41:26
+I am using a version R2021a-x86-64.
+
+##### Stefania Pedrazzi [Cyberbotics] 05/06/2021 12:45:51
+Note that the "open" message is only sent if Webots is started with the streaming `monitorActivity` option.
+
+
+The original `simulation_server.py` code already enables this option by default.
+
+##### Gustavo Cruz 05/06/2021 13:00:39
+Webots are being started with the streaming monitorActivity option here.
+
+I think I will try to reinstall Webots or install on another version of Ubuntu.
+
+
+
+Thanks for helping me. I'm sorry for the inconvenience.
+
+##### Seedow 05/06/2021 13:06:27
+Hi! I'm using Webots R2021a revision 1 Nightly 19/3/2021 and Matlab R2020a. If I want to run a controller in extern mode, at first time it works well, but after I stop it or it crashes, after the second start (after resetting the simulation) Matlab crashes completely. Has anyone run into this issue? Should I upgrade my Matlab to a newer version?
+
+##### Majanao 05/06/2021 14:13:41
+Thanks a lot `@Stefania Pedrazzi`! I set it to Solid and it work just fine.
+
+##### bingdong 05/06/2021 14:21:39
+@<@787796043987025941> Thanks a lot!
+
+##### alejanpa17 05/06/2021 16:11:30
+Hello everyone, Im trying to get the absolute position of an object given the relative position from the camera recognition any clue of the formulas i have to apply?
+
+##### bingdong 05/06/2021 16:12:09
+<@787796043987025941> I actually wanted to have the display as a 2D texture on a shape inside of an overlay. The functions described worked for the overlay but I'm not sure how to use them for texture.  
+
+Display>children>Shape>Appearance>baseColorMap>ImageTexture>url 
+
+Is there a display function for making changes to the url or will I have to use Supervisor?
+
+##### Simon Steinmann [Moderator] 05/06/2021 18:52:00
+`@alejanpa17` [https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb\_supervisor\_node\_get\_position](https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_position) take a look at the python example
+
+
+If you are working in python, I can give you a easy to implement module
+
+##### alejanpa17 05/06/2021 18:56:18
+Awesome, i get the idea thank you!
+
+##### jasonsteakham4 05/06/2021 22:22:23
+hey, could anyone detail how to go about saving a camera image through python? I can't seem to make sense of the code in the doccumentation
+
+##### Simon Steinmann [Moderator] 05/06/2021 22:54:15
+`@jasonsteakham4` you want to save it as an image file?
+
+
+if you use opencv (cv2), then you can use this: [https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/](https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/)
+
+##### jasonsteakham4 05/06/2021 22:55:29
+Yes ideally
+
+##### Simon Steinmann [Moderator] 05/06/2021 22:55:31
+otherwise look for general python documentation.
+
+##### jasonsteakham4 05/06/2021 22:55:39
+Thanks!
+
+##### ~E 05/08/2021 00:37:56
+
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/840387007431966740/unknown.png)
+%end
+
+
+does anyone know how to fix these weird wireframe things?
+
+##### DDaniel [Cyberbotics] 05/08/2021 00:39:01
+`@~E` Hi, View > Plain rendering
+
+##### chika 05/08/2021 08:46:31
+Hi. I am using webots 2021 and I'm trying to get the color of a color patch on ground using webots camera node. I program with C++.
+
+I came across 2 problems. 
+
+1. When I reload the world and simulate for the first time, it take some time for the camera to start capturing (about 2 seconds) and by that time the color patch is already passed. But when I reset the world (without reloading) and simulate again, camera start capturing right from the beginning (just the way I want it to). 
+
+How can I solve this issue?
+
+2. When the camera gets disabled through code after serving it's purpose, the camera keep disabled even in next simulations (even after I reload the world the camera is still disabled). Why?
+
+##### aslisevil 05/08/2021 12:07:09
+hello, I have a question. I use the supervisor rotate function in my simulation. But when I do rotation, my robot starts to walk with a curve instead of walking in a straight line. And sometimes it starts shifting out of nowhere after rotation. Do you know why this might be happening?
+
+##### Beginner26798 05/08/2021 12:36:53
+Hi guys ... i need please anything that helps me to make a robotic arm i don't want to use the samples in webots
+
+##### Donny\_234 05/08/2021 14:48:56
+Hello I am a beginner in Webots. I wanted to ask whether it is possible to control the motion of a robotic arm using hand gestures as live input from the computer's webcam?
+
+##### pnaraltnsk 05/08/2021 17:45:27
+Hello, is there any way of changing the angular velocity magnitude of nao robot?
+
+##### Simon Steinmann [Moderator] 05/08/2021 23:03:21
+It is possible, but sounds very complicated. You would need some form of computervision algorithms recognizing and translating the video input into movement commands. That is not included in Webots
+
+
+Dont use the supervisor for controlling a robot. It "cheats" or "teleports", which screws up the physics. You should only control your robot with motor commands
+
+
+A custom arm or an existing one? For existing ones you can convert urdf into Webot's proto format
+
+
+otherwise I suggest you add an existing arm to your webots world, right-click > convert to base nodes
+
+
+then take a look at the structure and create your own arm accordingly
+
+##### main 05/09/2021 03:46:11
+Any appropriate way to add delays in your script?
+
+
+(to have a delay between code continuously executing)
+
+##### Simon Steinmann [Moderator] 05/09/2021 03:49:08
+`@main` just add waiting loops or pauses. You can either use simulation time or computer time
+
+##### main 05/09/2021 03:49:31
+As in the python sleep function?
+
+##### Simon Steinmann [Moderator] 05/09/2021 03:49:42
+yes
+
+
+or you do a check on what simulation time it is
+
+
+and only execute your code when enough sim time has elapsed
+
+##### main 05/09/2021 03:51:03
+The sleep function would be better for the scenario, however I always have trouble defining it?
+
+##### Simon Steinmann [Moderator] 05/09/2021 03:51:47
+what exactly do you want to accomplish?
+
+##### main 05/09/2021 03:53:27
+Ive got distance sensors on my offroad truck , and im trying to make it so the distance isnt being repeatedly checked
+
+
+so theres a bit of timing in between distance sensor measurments
+
+##### Simon Steinmann [Moderator] 05/09/2021 03:54:31
+enable the sensor with a different frequency then
+
+
+(should be a multiple of basicTimeStep
+
+##### main 05/09/2021 03:55:00
+Thats where ive been going wrong with the multiple of time step, thanks
+
+
+Its in milliseconds right? so 2048 is around 2s
+
+##### Simon Steinmann [Moderator] 05/09/2021 03:57:14
+yes
+
+##### SeanLuTW 05/09/2021 17:25:13
+I made some customized revised of `UR5e.proto` and `Kinect.proto` and put them in the `protos` in my project directory. When I try to import them, I found that only `UR5e (Robot)` under `PROTO nodes (Current Project)`  and couldn't find Kinect. Does anyone know why?
+
+##### aslisevil 05/09/2021 18:25:49
+hello, I was wondering if it's possible to disable distance sensor for one specific object only.
+
+##### mmoralesp 05/09/2021 19:33:34
+Hello Everyone!,  I am working on a project for my university on ROS and Webots, I am trying to control two epuck in the same Webots environment with ROS but I am not able to make them work, as if I can do it with only one epuck. I would like to know if anyone has tried to do this and if you could help me thanks.
+
+##### Simon Steinmann [Moderator] 05/09/2021 20:39:26
+`@mmoralesp` you need one controller per robot, but they can be "dumb" controllers, simply subscribing and publishing topics. All your logic can be done from the same script / node
+
+
+The name of the proto file and the name of the proto node inside the file have to be exactly the same.  Post the file and I can take a look
+
+##### SeanLuTW 05/10/2021 00:54:51
+If I named the file which doesn't match with the name of the PROTO node, the console will show `'FILE_TO_PROTO': error: PROTO identifier does not match filename`. But if I fixed it, it still not shown.
+
+##### Simon Steinmann [Moderator] 05/10/2021 00:55:15
+post the file here, i'll take a look
+
+
+it is in the protos folder of your project?
+
+##### SeanLuTW 05/10/2021 00:55:38
+Here's my PROTO
+> **Attachment**: [Kinect.proto](https://cdn.discordapp.com/attachments/565154703139405824/841116239266971689/Kinect.proto)
+
+
+Yes, I put them into the protos subdirectory
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/841118431172624424/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 05/10/2021 01:04:37
+not showing up for me either, i'm investigating
+
+
+`@SeanLuTW` figured it out. It only shows up when you add it as a child node of a robot
+
+
+or a handslot etc of a robot
+
+
+only if "devices" show up under Webots Projects, can your device show up as well
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/841120213969010688/unknown.png)
+%end
+
+
+It contains sensors, any device needs a robot as a parent
+
+##### SeanLuTW 05/10/2021 01:13:25
+Yes, it show up when I add it as a child of a robot
+
+
+Thanks! I forgot it is a `Solid` instead of a `Robot`
+
+##### Simon Steinmann [Moderator] 05/10/2021 01:15:03
+if you want to simply place a kinect "in the room" you have to add a base Robot node and add it as a child
+
+
+it does not need any other solids or shapes
+
+##### Luiz Felipe 05/10/2021 09:38:39
+Hello, is it possible to stream a simulation to the browser in 'run' mode? (Running as fast as possible but also able to see the graphics) It seems I can only run in real time or fast mode without graphics during training.
+
+##### h.sciascia 05/10/2021 09:54:17
+Hello everyone, 
+
+Is that possible to do a check collision with a Physics Plugin if the robot and environment are not moving ?
+
+
+I can only detect collision when colliding, not when my robot and environment are already in collision
+
+##### Stefania Pedrazzi [Cyberbotics] 05/10/2021 10:50:25
+Which version of Webots are you using? Are you using X3D or MJPEG streaming?
+
+I just checked and the run mode with the X3D streaming works correctly on Webots R2021a after enabling the `webots.showRun = true;` option in the streaming viewer.
+
+##### Luiz Felipe 05/10/2021 10:52:01
+Oh... I am testing with Webots 2020b and MJPEG mode `@Stefania Pedrazzi`... Does it work only with the R2021a and X3D mode?
+
+##### Stefania Pedrazzi [Cyberbotics] 05/10/2021 10:54:12
+It works on R2020b too, but with the MJPEG mode you need to enable the graphics rendering in Webots.
+
+If you disabled them in Webots, then the MJPEG streaming cannot work.
+
+
+To speed up the physics computations, objects are "disabled" if they do not move or don't have new collisions. These "idle" objects are represented in Webots by changing the color of the bounding object from white to blue.
+
+One thing you could try in your physics plugin is to check if the body is enabled using the function `bool dBodyIsEnabled(dBodyID)` and if not try to enabled it manually using  `void dBodeEnable(dBodyID)` and check again if you can detect the collisions.
+
+You can find additional information in the ODE physics engine manual:
+
+[http://ode.org/wiki/index.php?title=Manual#Collision\_handling](http://ode.org/wiki/index.php?title=Manual#Collision_handling)
+
+##### Luiz Felipe 05/10/2021 11:07:00
+Locally I can run the three modes (real-time, run, and fast) in 2020b. Yups... it seems the 3 types are supported by the webots class... when I run the 'real-time' mode with MJPEG it works fine with graphics in the stream... If I run the 'run' or 'fast' mode the simulation run as fast as possible but both of them without graphics in the stream...
+
+
+If i get the graphics in 'real-time' it means the graphics rendering in Webots is enabled right?
+
+##### Stefania Pedrazzi [Cyberbotics] 05/10/2021 11:09:16
+Yes. The MJPEG won't work when running with the FAST mode, but should work running the simulation in RUN mode.
+
+If it doesn't, then I would suggest you to upgrade to the latest Webots R2021a.
+
+##### Luiz Felipe 05/10/2021 11:10:30
+Okkz! I will test again... because the websocket call changes to R2021a right?
+
+##### Stefania Pedrazzi [Cyberbotics] 05/10/2021 11:16:00
+In R2021a, the "run" and "fast" mode have been changed in Webots: only the "fast" remains and the graphics rendering has been added as separate option. In the streaming communication nothing changed.
+
+The main reason to upgrade is that we won't be able to fix bugs, if any, in the old Webots R2020b release.
+
+##### Luiz Felipe 05/10/2021 11:19:42
+ok!
+
+##### h.sciascia 05/10/2021 11:33:17
+Ok thanks i will try that
+
+##### Iris230 05/10/2021 13:19:22
+guys I'm wondering how can I use the vehicle libraries in pycharm?
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 13:19:56
+[https://cyberbotics.com/doc/guide/using-your-ide#pycharm](https://cyberbotics.com/doc/guide/using-your-ide#pycharm)
+
+##### Iris230 05/10/2021 13:23:36
+thank you, I've seen this😂 but  what exactly value of path should I type?
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 13:25:32
+Check this:
+
+[https://cyberbotics.com/doc/guide/running-extern-robot-controllers#environment-variables](https://cyberbotics.com/doc/guide/running-extern-robot-controllers#environment-variables)
+
+##### Iris230 05/10/2021 13:28:18
+but there is no vehicle libraries🥲
+
+
+
+%figure
+![IMG_20210510_212543.jpg](https://cdn.discordapp.com/attachments/565154703139405824/841305700470882354/IMG_20210510_212543.jpg)
+%end
+
+
+here is the error🥲
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 13:31:10
+That means that your `LD_LIBRARY_PATH` is not properly configured. What do you get when you do `echo $LD_LIBRARY_PATH`?
+
+
+Oh, my bad, you are in Windows
+
+##### Iris230 05/10/2021 13:34:01
+yes,I'm in windows😂
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 13:34:08
+What is your PATH?
+
+##### Iris230 05/10/2021 13:35:45
+sorry give me a second
+
+
+
+%figure
+![IMG_20210510_213810.jpg](https://cdn.discordapp.com/attachments/565154703139405824/841308208903356446/IMG_20210510_213810.jpg)
+%end
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 13:40:37
+Can you check whether those directories exist?
+
+##### Iris230 05/10/2021 13:42:30
+they do exist, cause I just copied and add them
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 13:48:40
+Can you run the controller from a CLI using these instructions?
+
+[https://cyberbotics.com/doc/guide/running-extern-robot-controllers#environment-variables](https://cyberbotics.com/doc/guide/running-extern-robot-controllers#environment-variables)
+
+##### Iris230 05/10/2021 13:56:30
+it seems like there is no instruction about running the controller from a  CLI?
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 13:57:48
+You should be able to run `python3 /path/to/your_controller.py` once all environment variables are set
+
+##### Iris230 05/10/2021 14:12:25
+nothing happened… it still can't control my car
+
+
+
+%figure
+![IMG_20210510_221258.jpg](https://cdn.discordapp.com/attachments/565154703139405824/841316923597258802/IMG_20210510_221258.jpg)
+%end
+
+
+I couldn't see anything🥲
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 14:19:06
+You use Python from Anaconda :/
+
+[https://cyberbotics.com/doc/guide/using-python#use-an-alternative-python-version](https://cyberbotics.com/doc/guide/using-python#use-an-alternative-python-version)
+
+##### Iris230 05/10/2021 14:23:57
+oh thank you very much
+
+##### Luiz Felipe 05/11/2021 00:54:21
+Just as a feedback `@Stefania Pedrazzi` , with the R2021a it works fine... Thank you!
+
+##### h.sciascia 05/11/2021 06:35:05
+Hello everyone, 
+
+I am doing a simulation with a personalized physics plugin.
+
+
+
+My code is generating a lot of random configuration of a 6 dof arm robot and realize them. 
+
+For each configuration I setPosition to the motors, and then erase the previous configuration with a new random one. 
+
+
+
+But my simulation is freezing about 5-6 secs after i launch the process.
+
+
+
+Have you any idea for the resolution of my problem ? 
+
+Because even if I reset the physics plugin and erase all of the components of my environment to only keep the robot arm the simulation freeze...
+
+
+
+Thanks in advance 😉
+
+##### Darko Lukić [Cyberbotics] 05/11/2021 06:45:15
+The Physics plugin is usually a critical part, you may have a blocking code there. Is it possible for you to test without the plugin?
+
+##### yash 05/11/2021 14:20:55
+Hi ! I want to know the radius of the wheels of iRobot’s create that’s available in WEBOTS.
+
+
+
+I couldn’t find it ... please help me if there’s any way to find out.
+
+##### harrymcc 05/11/2021 15:00:22
+wb\_motor\_set\_position(left\_motor, 1);
+
+ wb\_motor\_set\_position(right\_motor, 1); i have been going through the tutorials and this code according to it makes the robot come to a stop after 1 rotation of the wheel but it just keep going. Any clue why it does this. Even tried a straight copy and paste of the tutorial code and still nothing
+
+##### Majanao 05/11/2021 16:58:15
+Hi, is someone able to use the Blender import function. I always get the same error even with different Blender models.... WARNING: Invalid data, please verify mesh file (bone weights, normals, ...): BLEND: Expected at least one object with no parent
+
+##### KajalGada 05/12/2021 00:08:25
+From my understanding, any set position or set velocity command once given will continue to be in that state and not a one off.
+
+
+
+If you want it stop after a rotation, you can add an if condition to check current position of wheel and once reached to 1, stop it.
+
+##### Simon Steinmann [Moderator] 05/12/2021 02:02:36
+`@harrymcc` `@KajalGada` wb\_motor\_set\_position(right\_motor, 1) gives the motor the command to reach the position 1. Once it reaches that position, it stops and holds it. The value is in radian (2*pi = 6.28...) is one rotation. So if your current motor position is 0 and you turn to 1, the robot will only roll a bit. However, if your current position is -100, it will roll quite a bit.
+
+
+`@Majanao` what type of file did you try to import? Perhaps try to export it as an .obj file and import that
+
+
+It sounds like you want to export a scene or special structure.
+
+##### Darko Lukić [Cyberbotics] 05/12/2021 08:15:16
+Hello `@cahyadiryan30`, I had remove your post as it contained images that make hard for users to debug your simulation. Please post the code to services like Gist ([https://gist.github.com/](https://gist.github.com/)) or use a proper tag ([https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-)).
+
+##### KajalGada 05/12/2021 14:29:14
+That makes sense.
+
+##### harrymcc 05/12/2021 14:42:45
+okay thanks for help turns out my bot must have been well in the minuses and just wasn't stopping
+
+##### Max\_K 05/12/2021 16:17:18
+Hello, i am trying to use a camera in Webots for the detection of apriltags in ros2 foxy. I tried with the 'Webcam for Robotino3' and the custom camera, but the /camera\_info topic in ros2 is empty, there is only one message at start. 
+
+ Do i have to fill the camera\_info msgs myself or do i miss something?
+
+##### Darko Lukić [Cyberbotics] 05/12/2021 16:18:27
+Hello, the CameraInfo topic is latched, so you should verify QoS of your subscriber
+
+##### Max\_K 05/12/2021 16:29:01
+Okay, so its not possible to echo the camera\_info via cmd without QoS settings? I also do not see the image in rviz2 when subscribing to the /image\_raw, are the QoS setting also reason for that?
+
+##### Darko Lukić [Cyberbotics] 05/12/2021 16:49:27
+You can use echo, but:
+
+[https://answers.ros.org/question/371521/ros2-foxy-qos-durability-transient\_local-rclpy-to-echo-robot\_description/](https://answers.ros.org/question/371521/ros2-foxy-qos-durability-transient_local-rclpy-to-echo-robot_description/)
+
+
+
+For image in RViz2 yes, it may be the reason, but you can change QoS in RViz2.
+
+##### Max\_K 05/12/2021 17:00:42
+ok thanks! i m just getting one msgs when echo to the CameraInfo topic with QoS settings, but that helps.
+
+##### Alejandro Pescathore 05/12/2021 22:18:53
+Hello there! 
+
+Is it possible to record a simulation with audio?  And if it is possible, how can I do it?
+
+##### Simon Steinmann [Moderator] 05/12/2021 23:02:36
+Do you have audio in the simulation?
+
+##### Alejandro Pescathore 05/12/2021 23:03:26
+Yes, i ise the speakers
+
+##### Simon Steinmann [Moderator] 05/12/2021 23:04:13
+I dont have experience with it, but if it is not implemented, that would be a good feature request
+
+##### pewpewpew 05/13/2021 02:54:31
+Are the left and right sensor values getting printed to the console in decimeters? Thanks in advance.
+%figure
+![Screenshot_1447.png](https://cdn.discordapp.com/attachments/565154703139405824/842233318715686932/Screenshot_1447.png)
+%end
+
+##### Simon Steinmann [Moderator] 05/13/2021 03:12:15
+radians. They are motors, so it's angles in radians
+
+##### pewpewpew 05/13/2021 04:37:47
+it says that these sensors "allow the robot to know the distance traveled so far",  how would I convert two meters to radians?
+
+##### DDaniel [Cyberbotics] 05/13/2021 08:40:52
+For a full rotation of the motor (2pi radians)  the robot will advance roughly by a distance equal to the circumference of the wheel
+
+##### pewpewpew 05/13/2021 08:57:19
+thanks! I eventually figured that out, now I'm just trying to get the robot to follow the square path correctly
+
+##### bingdong 05/13/2021 09:12:10
+Hi, not sure how the motor.setPosition() function works. I initialised the rotational motor in scene tree and python script, then called motor.setPosition(PositionValue) in the main loop. From what I understand, the controller should calculate velocity according to set PID values to reach position. But the motor doesn't seem to be rotating.
+
+##### DDaniel [Cyberbotics] 05/13/2021 09:15:09
+`@bingdong` did you set motor.setVelocity(0) somewhere by any chance? In position control this command specifies the maximal velocity, if you did it won't move.
+
+##### bingdong 05/13/2021 09:17:10
+Ah okay. Thought it would change the setVelocity() value while running. Got it, thanks!
+
+##### DDaniel [Cyberbotics] 05/13/2021 09:18:53
+`@bingdong` no, only in velocity control it would do that, in position control it specifies the maximal velocity. Keep in mind that the motor API functions have different meanings depending on which type of control you're making (position control, velocity control, torque control). It's summarised in this table: [https://cyberbotics.com/doc/reference/motor#motor-control-summary](https://cyberbotics.com/doc/reference/motor#motor-control-summary)
+
+##### bingdong 05/13/2021 09:27:12
+Will go through it. Thank you.
+
+##### raerae 05/13/2021 09:42:06
+Hi guys, I'm new here. I just want to ask, is there a possible method to export Solidworks model to Webots that will include its original appearance?
+
+##### alejanpa17 05/13/2021 18:40:10
+Hi, im getting this error while compiling the racing\_wheel controller. Any clue whats happening?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/842471300152950804/unknown.png)
+%end
+
+##### Suke 05/13/2021 20:02:28
+We are trying to figure out if we can implement a conveyor with teeth shown in the attached figure with the track node. We tried to use group that includes both track and box (teeth) in the bounding geometry. Is it possible or do we need to implement this as slider joints to mimic this behavior?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/842492011101683722/unknown.png)
+%end
+
+
+Go to "File>Save as" and select VRML (.wrl). Click option and select version "VRML 97". Still You may loose some apperance, but this is the best way so far for me.
+
+##### Supernova 05/13/2021 20:37:46
+Hey, can anyone tell me why do I have a message: "Connect to SUMO... This operation may take a few seconds." that well, never dissapears? My vehicle never connects to sumo and the simulation just stops the moment it starts, for some reason.
+
+##### Simon Steinmann [Moderator] 05/13/2021 22:39:52
+Can you give more information? What did you run, where did the error show?
+
+##### Supernova 05/14/2021 05:57:48
+Im running my own autonomus vehicle controller. Its tesla with a compass, gps, lidar and seven distance controllers. But most of the code is commented - i only wanted to test a tiny function i prepared for distance sensors, so the only think the car does is going forward and checking if anything is too close, and this happends. Its not even an error, just an information - nothing else gets printed out. So im just trying to ask If its my fault and i messed up the code, or is it just some form of a bug...?
+
+##### Darko Lukić [Cyberbotics] 05/14/2021 06:30:46
+You probably have a `SumoInterface` PROTO somewhere in your world. Deleting it should fix the error:
+
+[https://cyberbotics.com/doc/automobile/sumo-interface](https://cyberbotics.com/doc/automobile/sumo-interface)
+
+
+It seems you are missing the Qt library in your PATH
+
+##### Dorteel 05/14/2021 11:49:08
+Hi everyone! Can anybody give me an advice on how to align connectors? I'm trying to grasp, and lock when there is a presence of a connector, but the can just teleports to the side after locking. The connector in the robot is in the middle of the tool center point, and the connector in the can is in the middle as well. There is a distance tolerance of 0.02. Any help is greatly appreciated, have ran out of ideas...
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/842730251021058088/unknown.png)
+%end
+
+##### alejanpa17 05/14/2021 16:31:13
+isn't that supposed to be included in webots when installing it? I didnt touch anything in that path
+
+##### antehc 05/14/2021 20:10:23
+Hi guys, I'm new here. I just want to ask, is there a way to have some fire or explotion effect in webots?
+
+##### Simon Steinmann [Moderator] 05/14/2021 20:51:44
+`@alejanpa17` [https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#environment-variables](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#environment-variables) you have to set environmental variables
+
+
+`@Dorteel` can you share a project so we can take a closer look?
+
+
+Fire or explosions are not included. Perhaps you could try a point light, which you change the properties of with a script
+
+##### mmoralesp 05/14/2021 21:35:20
+Ok, but how i set in the launch file the controller or where i set this? Thanks!!
+
+##### Simon Steinmann [Moderator] 05/14/2021 21:39:08
+`@mmoralesp` just select the ros controller for each robot. It should automatically create topics and action servers / services to control the robot
+
+
+all controllers get started automatically when the simulation starts
+
+##### mmoralesp 05/14/2021 21:40:57
+but the controller is external so where i set that
+
+##### Simon Steinmann [Moderator] 05/14/2021 21:41:17
+in webots
+
+
+you can still start your external controller
+
+##### mmoralesp 05/14/2021 21:45:01
+I launch the world from the terminal with the ros command and then the ros controller to set the velocity
+
+
+so i dont know how to launch this from webots
+
+##### Simon Steinmann [Moderator] 05/14/2021 21:45:51
+what command? Is it your own world?
+
+##### mmoralesp 05/14/2021 21:47:11
+ros2 launch webots\_ros2\_epuck robot\_launch.py (Robot\_launch.py is where is configured the world, executable...)
+
+##### Simon Steinmann [Moderator] 05/14/2021 21:48:50
+ohh you're using ros2. You did not mention that
+
+##### mmoralesp 05/14/2021 21:49:01
+sorry mate
+
+
+yes im using ros2
+
+##### Simon Steinmann [Moderator] 05/14/2021 21:49:10
+not very experienced with ros2
+
+##### mmoralesp 05/14/2021 21:49:44
+if i can do this with ros, i dont mind to change
+
+
+but i like to use the publish and subscription
+
+##### alejanpa17 05/15/2021 11:49:25
+Environmental variables were good. I fixed doing this: [https://github.com/cyberbotics/webots/issues/2717](https://github.com/cyberbotics/webots/issues/2717) I have the version nightly\_13\_5\_2021
+
+##### dA$H 05/15/2021 14:33:05
+hi.
+
+can we use "input()" in  webot's console?
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/843133895607975936/unknown.png)
+%end
+
+##### alejanpa17 05/15/2021 17:59:11
+Hi, im trying to calibrate the engineFunctionCoefficients of a car node but I have no clue on how to do it, the rest of the configuration is on the image. I tried other values but the rpm never go higher than 900 and I dont know why
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/843185763084271656/unknown.png)
+%end
+
+##### abhicv 05/16/2021 04:51:52
+Hi, how to visualize things like fluid being sprayed by a robotic arm on objects?
+
+##### [BU] Heinrich Mellmann 05/16/2021 10:00:39
+Hi everybody, I have a problem with using the `Pen`. it works perfectly on a floor with a single texture tile, but stop working as soon as there are more texture tiles. To reproduce the issue:
+
+
+
+1. open `projects/samples/devices/worlds/pen.wbt`
+
+2. start => pen works
+
+3. change `RectangleArena->floorSize->x = 2` 
+
+4. start => pen is double
+
+5. change `RectangleArena->floorSize->y = 2`
+
+4. start => pen doesn't work
+
+
+
+`@DDaniel` I adjusted the test scenario: you have to change the `floorSize` to make sure there are several tiles. As long as there is only one tile everything works fine, but there seems to be a problem as soon as the floor consists of several tiles. Alternatively you can set `floorTileSize->x=0.5`, `floorTileSize->y=0.5`
+
+##### Beginner26798 05/16/2021 10:18:58
+Hi guys ... i'm using a regular wheel not a differential one so i need another sentence to get the encoder can you help please and give me another sentence than this in the photo below
+
+
+
+%figure
+![20210516_131647.jpg](https://cdn.discordapp.com/attachments/565154703139405824/843432378797260820/20210516_131647.jpg)
+%end
+
+##### DDaniel [Cyberbotics] 05/16/2021 10:54:26
+`@[BU] Heinrich Mellmann` I can't reproduce the bug on 2021a, what version are you using?
+
+
+`@Beginner26798` As explained here [https://www.cyberbotics.com/doc/reference/differentialwheels#differentialwheels](https://www.cyberbotics.com/doc/reference/differentialwheels#differentialwheels), you can replace the differential wheel with a hingejoint + rotational motor + position sensor. You need to use Motor API [https://www.cyberbotics.com/doc/reference/motor](https://www.cyberbotics.com/doc/reference/motor) and Position Sensor API [https://www.cyberbotics.com/doc/reference/positionsensor](https://www.cyberbotics.com/doc/reference/positionsensor) to interact with them
+
+
+`@dA$H` Hi, haven't checked but depending on what you need to do there might be better ways to do it. If you want to control a robot using the keyboard you can use the Keyboard API [https://www.cyberbotics.com/doc/reference/keyboard](https://www.cyberbotics.com/doc/reference/keyboard), which is available by default for Robot nodes (useful for 1 stroke inputs typically, like steering). If you have multiple robots that all have the same controller but want them to behave differently you can do using using controller arguments [https://cyberbotics.com/doc/guide/controller-programming#using-controller-arguments](https://cyberbotics.com/doc/guide/controller-programming#using-controller-arguments). Lastly, you can use a supervisor to send out unique commands to each robot using emitters/receivers.
+
+##### [BU] Heinrich Mellmann 05/16/2021 11:34:28
+Thanks for the fast reply! I'm using the same version. You are right, I mistyped a variable name in my test case: for the bug to appear you have to change `floorSize` to make sure your floor texture has more than one tile. I also adjusted the test case description above.
+
+##### DDaniel [Cyberbotics] 05/16/2021 12:16:54
+`@[BU] Heinrich Mellmann` I see, I can reproduce it as well. It's due to the fact that the `RectangleArena` PROTO doesn't handle the mapping by itself when changes occur, so when you change the `floorSize` you also need to change the `floorTileSize` accordingly as reported here: [https://github.com/cyberbotics/webots/issues/1529#issuecomment-615062207](https://github.com/cyberbotics/webots/issues/1529#issuecomment-615062207), but I do agree that it can be misleading
+
+##### Beginner26798 05/16/2021 12:23:29
+I have used the position sensors it is giving me this error
+
+
+
+%figure
+![20210516_152222.jpg](https://cdn.discordapp.com/attachments/565154703139405824/843463786090594334/20210516_152222.jpg)
+%end
+
+
+<@787796043987025941>
+
+##### DDaniel [Cyberbotics] 05/16/2021 12:27:05
+`@Beginner26798` you only need to pass `ps0`, `WbDeviceTag` is the type. I suggest you do this tutorial before: [https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers](https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers)
+
+##### Beginner26798 05/16/2021 14:33:04
+I used this code to initialize the position sensors but it is giving me the same error can you please tell me what the specific code that i should add ... and thanks for helping <@787796043987025941>
+%figure
+![Screenshot_20210516-173046_Chrome.jpg](https://cdn.discordapp.com/attachments/565154703139405824/843496279316889611/Screenshot_20210516-173046_Chrome.jpg)
+%end
+
+
+
+%figure
+![20210516_173313.jpg](https://cdn.discordapp.com/attachments/565154703139405824/843496357373280276/20210516_173313.jpg)
+%end
+
+
+What's wrong with this
+%figure
+![20210516_173918.jpg](https://cdn.discordapp.com/attachments/565154703139405824/843498094838284338/20210516_173918.jpg)
+%end
+
+##### DDaniel [Cyberbotics] 05/16/2021 15:18:06
+`@Beginner26798` like I said you need to drop the `WbDeviceTag` and just call `wb_position_sensor_get_value(ps0)` as shown in the tutorial. Also, is `ps0` a global variable? Otherwise your function `compute_odometry` won't know what that is.
+
+##### Daemongear 05/16/2021 17:21:43
+Hey there. I'm trying to connect ROS with WeBots. I already have an Rviz launch file, the urdfs, protos, worlds setup, but I can't figure out how exactly I can connect RViz to the motor sensor feedbacks.
+
+
+I figured that there should be a way to pass them to the joint\_state\_publisher, but I'm not sure how
+
+
+as far as I have found, I still need to write a node to connect the two, where I simply take the results from the respective topics (whose names change each time) and plug them into their joint\_state.name and .position, then publish the results
+
+##### Simon Steinmann [Moderator] 05/16/2021 20:50:55
+your robot's controller has to get the sensor values and publish them
+
+##### Beginner26798 05/16/2021 21:28:46
+Any i dea on what can cause these errors ??
+%figure
+![20210517_002742.jpg](https://cdn.discordapp.com/attachments/565154703139405824/843600892355805204/20210517_002742.jpg)
+%end
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:31:44
+which errors are you referring to? The lower half are only warnings
+
+
+and it's hard to say without seeing your code
+
+
+can you upload your controller file here?
+
+##### Beginner26798 05/16/2021 21:39:19
+
+> **Attachment**: [final\_one.c](https://cdn.discordapp.com/attachments/565154703139405824/843603549739810856/final_one.c)
+
+
+`@Simon Steinmann` this is the file
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:39:44
+`@Daemongear` are you using ROS or ROS2? If using ROS, did you use the default ROS controller
+
+##### Beginner26798 05/16/2021 21:40:29
+I'm trying to make a obstacle avoider robot with color recognition
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:40:31
+you get the errors when building?
+
+##### Beginner26798 05/16/2021 21:40:39
+Yes
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:40:52
+and can you post the whole output, without any old console messages
+
+##### Beginner26798 05/16/2021 21:44:11
+
+%figure
+![20210517_004335.jpg](https://cdn.discordapp.com/attachments/565154703139405824/843604772379951124/20210517_004335.jpg)
+%end
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:44:28
+Okay, so first of all, you have wrong variable types. Check the reference manual: [https://www.cyberbotics.com/doc/reference/positionsensor#wb\_position\_sensor\_get\_value](https://www.cyberbotics.com/doc/reference/positionsensor#wb_position_sensor_get_value)
+
+get\_value is double, not int
+
+
+`@Beginner26798` I suggest you orient yourself on an example controller such as this one
+> **Attachment**: [e-puck.c](https://cdn.discordapp.com/attachments/565154703139405824/843605350808027146/e-puck.c)
+
+
+change and expand it
+
+
+understand its functionality
+
+##### DDaniel [Cyberbotics] 05/16/2021 21:47:01
+```
+static double compute_odometry() 
+
+{
+    WbDeviceTag ps[2];
+    char ps_names[2][10] = { "ps0", "ps1"};
+
+       for (i = 0; i < 2; i++) {
+        ps[i] = wb_robot_get_device(ps_names[i]);
+        wb_distance_sensor_enable(ps[i], TIME_STEP);
+}
+
+    int l =  wb_position_sensor_get_value('ps0');
+    
+    int  r =  wb_position_sensor_get_value('ps1');
+    
+    
+    // distance covered by left wheel in meter
+    double dl = l / ENCODER_RESOLUTION * WHEEL_RADIUS;
+    
+    // distance covered by right wheel in meter
+    double dr = r / ENCODER_RESOLUTION * WHEEL_RADIUS;
+    
+    // delta orientation
+    double da = (dr - dl) / AXLE_LENGTH;
+
+    X = X + (((dr + dl) / 2) * cos(da));
+    Y = Y + (((dr + dl) / 2) * sin(da)); 
+    
+    // printf("X: %3.3f m | Y: %3.3f m | D: %3.3f\n", X, Y, da);
+
+    // printf("estimated change of orientation: %g rad.\n", da);
+    
+    return da;
+}
+```
+
+the brackets `{}` here make no sense, and you can't access the array `ps`, using `'ps0'`, but instead using `ps[0]`. Like I said before already, most of what you want to do is in the tutorial-4
+
+##### Beginner26798 05/16/2021 21:47:46
+I'm using this one actually and my robot is just going forward
+
+
+Ok I'll see what I'll get sorry for bothering I'm new to webots
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:48:37
+Tutorials are your friend :). Try to do them first and understand them
+
+##### DDaniel [Cyberbotics] 05/16/2021 21:48:50
+if you're not comfortable with c, you can use other languages like python or matlab
+
+##### Beginner26798 05/16/2021 21:49:39
+The issue that I'm low on time and I'm using webots to simulate my university project that's why I'm not taking my time in reading tutorials
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:50:14
+Is c as a programming language demanded by the professor?
+
+
+You'll save lots of time using Python. Much quicker and easier to learn than c.
+
+##### Beginner26798 05/16/2021 21:51:19
+No but i started with it and i don't have the time to restart using another language
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:51:41
+believe me, you'll be faster with python
+
+##### Beginner26798 05/16/2021 21:52:31
+Actually i tried python first but i didn't now how to run it
+
+
+Know*
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:52:39
+no compiling, easier syntax
+
+##### Beginner26798 05/16/2021 21:54:24
+Is it possible that you can help me to do the code personally?
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:54:44
+pm me
+
+##### Daemongear 05/16/2021 21:55:52
+hey `@Simon Steinmann` sorry for the delay, I didn't notice the ping. I'm using ROS, and currently I'm using the standard ROS controller, as provided in the tutorials. I've advanced a bit in my search, and if I'm not mistaken, I should be able to remap the same controller that I have for RViz to the webots data. (I am also using an auto generated package from a Fusion360-urdf exporter, which provides launch files for RViz, including a basic controller and such.)
+
+##### Simon Steinmann [Moderator] 05/16/2021 21:58:11
+`@Daemongear` when the simulation is running, do a` rostopic list` and see what is published. If i'm not mistaken, the standard ROS controller should automatically publish all sensors. You just have to select the appropiate topic in Rviiz
+
+##### Daemongear 05/16/2021 23:08:36
+yeah, but is rename enough to connect them to RViz if I model it right in  the launch file?
+
+##### Simon Steinmann [Moderator] 05/16/2021 23:43:54
+verify first that everything gets published
+
+
+then just open rviz, make all the changes and save the config
+
+##### Daemongear 05/17/2021 00:36:12
+did that just fine, played around with the webots controller as well, I can get movement and feedback from the terminal via the rosservices
+
+
+I do have to enable all the motor sensors first, then I can see them in the rostopic list, as expected
+
+
+I have a launch file for RViz, with config and the proper project, but the launch file that I have declares a static joint\_state\_publisher source, or rather as I understand it, declares one but leaves it unconnected
+
+
+so sorry to be responding so late, i have been in a meeting up until now
+
+##### Simon Steinmann [Moderator] 05/17/2021 00:38:03
+just launch rviz. once it is open, add all the visualization you want. Then save the config
+
+##### Daemongear 05/17/2021 00:38:12
+did that too
+
+##### Simon Steinmann [Moderator] 05/17/2021 00:38:22
+what is the issue then?
+
+##### Daemongear 05/17/2021 00:38:32
+having what I do in webots translate to rviz 🙂
+
+##### Simon Steinmann [Moderator] 05/17/2021 00:38:46
+what exactly do you want to visualiize?
+
+##### Daemongear 05/17/2021 00:39:11
+the robot's internal movements (relative to itself, not an environment)
+
+##### Simon Steinmann [Moderator] 05/17/2021 00:39:25
+so just the joints moving?
+
+##### Daemongear 05/17/2021 00:39:29
+the joints being replicated, yeah
+
+
+Hello, so as Simon (many thanks btw) asked, I'm rephrasing my question, maybe someone can help with advice. I want to publish the WeBots joints to the ROS joint\_state\_publisher. I am using the standard, tutorial ROS controller
+
+so far the only options I've found were A) rewrite parts of the standard controller (which is heavily distributed of course) to get the joints directly published to the right topic or B) write my own node (much simpler) to subscribe to the default topics after enabling the motor sensors, and publish them to the joint\_state\_publisher. this would of course induce some delay.
+
+Any other ideas?
+
+##### harrymcc 05/17/2021 11:41:49
+in a tutorial i have seen the code robot.getTime() but would be an equivalent in c?
+
+##### Stefania Pedrazzi [Cyberbotics] 05/17/2021 11:43:49
+Yes, the C function is `wb_robot_get_time()`. All the API functions are documented in the Reference Manual:
+
+[https://www.cyberbotics.com/doc/reference/robot#wb\_robot\_get\_time](https://www.cyberbotics.com/doc/reference/robot#wb_robot_get_time)
+
+##### harrymcc 05/17/2021 11:45:04
+sorry, i dont know how i missed that. thank you
+
+##### h.sciascia 05/17/2021 14:46:50
+Hello everyone ! 
+
+I have two robots with the same architecture and node names. 
+
+For exemple, I have two RotationalMotor called "motor 0", two "motor 1", two "motor 2" etc
+
+
+
+I would like to create two list which refers to the id of my two robots motors architecture and be sure that I do not get the same motor
+
+
+
+I would like to do something like this :
+
+
+
+`Robot1 = supervisor.getFromDef("Robot1")
+
+Robot2 = supervisor.getFromDef("Robot2")
+
+
+
+for link in armChain1.links:
+
+    if 'moteur ' in link.name:
+
+        motor = Robot1.getDevice(link.name)
+
+        motors1.append(motor)
+
+for link in armChain2.links:
+
+    if 'motor ' in link.name:
+
+        motor = Robot2.getDevice(link.name)
+
+        motors2.append(motor)`
+
+
+
+In the documentation we can use getDevice for the robot but i get the error : "AttributeError: 'Node' object has no attribute 'getDevice'"
+
+Thank in advance !
+
+##### Stefania Pedrazzi [Cyberbotics] 05/17/2021 15:14:59
+First, from a controller you can only access devices in the current robot and not devices from other robots.
+
+Then, the `getDevice` is a method of the `Robot` object but your `Robot1` retrieved using the Supervisor API has the `Node` type.
+
+So you should rather call `supervisor.getDevice` to retrieve the devices defined in the Robot node associated with the current controller.
+
+##### h.sciascia 05/17/2021 15:17:27
+Ok so I cannot use one controller for two same robots okok
+
+Thanks
+
+##### Stefania Pedrazzi [Cyberbotics] 05/17/2021 15:18:32
+You can use the same controller for multiple robots, but multiple instances of the same controller will be started
+
+##### h.sciascia 05/17/2021 15:20:06
+ok I will do two controller then if I cannot use something like Node.getDevice("#")
+
+Thx
+
+##### Stefania Pedrazzi [Cyberbotics] 05/17/2021 15:23:27
+You don't need the Supervisor API to identify the robot, you could for example set a unique name or set some value in the `Robot.customData` field or use the Supervisor simply to get the DEF name of the `supervisor.getSelf().getDef()` node but without using the returned node for getting the devices.
+
+##### h.sciascia 05/17/2021 15:24:19
+Oh okok I will try that ! Great
+
+##### jmarsik 05/17/2021 16:22:01
+Hello guys, is there any way to have a distance sensor that interacts with Solids (not their bounding boxes) and does not take into account the color (like the infra-red type)?
+
+##### Simon Steinmann [Moderator] 05/17/2021 20:08:11
+`@jmarsik` [https://www.cyberbotics.com/doc/reference/distancesensor#distancesensor-types](https://www.cyberbotics.com/doc/reference/distancesensor#distancesensor-types)
+
+
+I believe they all use the shape, not bounding box, as they are visual sensors and use GPU
+
+
+but i'm not 100% sure
+
+##### harrymcc 05/17/2021 20:26:15
+WARNING: Forward: The process crashed some time after starting successfully.
+
+WARNING: 'Forward' controller crashed. Is this crash likely to do dodgy C code. Just in the console it didnt come up any issues
+
+##### DDaniel [Cyberbotics] 05/17/2021 20:29:34
+`@jmarsik` Laser/sonar and generic interact with `boundingObject`, infra-red with the solid itself. But since you can make the `boundingObject` as arbitrarily complex as you need it to be, the distinction shouldn't matter much. Can you explain more why you need it to interact with the solid instead of `boundingObject`? As for colored surfaces, only the infra-red is affected by it.
+
+
+`@harrymcc` remembered to put `wb_robot_init();` and `wb_robot_cleanup();` ?
+
+##### harrymcc 05/17/2021 20:39:05
+yeah all thats in.  These lines seem to cause the issue   (not in order of code                                                                                                      
+
+ 
+``` int linear_velocity = wheel_radius * MAX_SPEED; 
+  int duration_side = length_side/linear_velocity;                  if (current_time > start_time + duration_side) {
+ left_speed = 0;
+ right_speed = 0;
+ } 
+```
+
+##### DDaniel [Cyberbotics] 05/17/2021 20:44:32
+hard to say from that, can you post the file?
+
+
+`@harrymcc` `duration_side` isn't defined
+
+
+or rather, `linear_velocity`, at least in the full code
+
+##### harrymcc 05/17/2021 20:53:02
+yeah tbh  i have really confused my self messing about. That what i sent wasnt the code that would compile and crash. Sorry for messing you about
+
+
+is it okay if i upload it again. Got to same point i was on about
+
+##### DDaniel [Cyberbotics] 05/17/2021 21:11:15
+sure
+
+##### harrymcc 05/17/2021 21:12:09
+thank you
+> **Attachment**: [Forward.c](https://cdn.discordapp.com/attachments/565154703139405824/843959101787996170/Forward.c)
+
+##### DDaniel [Cyberbotics] 05/17/2021 21:25:59
+`@harrymcc` `wheel_radius` should be a double, if you set it as int it assigns it zero, not 0.025. Hence, also `linear_velocity` becomes zero and `duration_side` is infinity. Similarly, `wb_robot_get_time()` also returns a double, not a int. You should recheck all the types of your variables
+
+##### harrymcc 05/17/2021 21:28:32
+Okay thanks for the help I'll take a look. Got it going now youre a life saver. Need to go back to c basics. Doing 1st year electrical engineering so i have only known C for last few months on and off
+
+##### SeanLuTW 05/18/2021 02:53:27
+I have a `MFFloat` field with 6 values, how can I access the 0th index in my PROTO?
+
+##### Olivier Michel [Cyberbotics] 05/18/2021 06:17:52
+You should use `wb_supervisor_node_get_proto_field` to get a handler to your field and then `wb_supervisor_field_get_mf_float` with `index=0` on it.
+
+##### SeanLuTW 05/18/2021 06:21:44
+I want to use these values in my PROTO instead of controller.
+
+
+I found some examples here. ([https://github.com/cyberbotics/webots/tree/master/tests/protos/protos](https://github.com/cyberbotics/webots/tree/master/tests/protos/protos))
+
+##### Olivier Michel [Cyberbotics] 05/18/2021 06:24:16
+I see. You should then be able to access it as a Lua array. Note however that the first index in a Lua array is 1, not 0.
+
+##### SeanLuTW 05/18/2021 06:26:02
+Yes, the problem solved! But I wonder which language is PROTO file used, VRML or Lua?
+
+##### Olivier Michel [Cyberbotics] 05/18/2021 06:27:23
+It's the PROTO format (inspired from VRML97) to which you can apply Lua templating.
+
+##### TheGiant 05/18/2021 07:29:01
+Hello everyone,
+
+I'm working with hydraulic actuators, which are commanded using a velocity. Their are really strong, hence their is two behavior : 1) when a velocity is requested, it's reached almost immediately (their is a internal regulation in it, which is very good, and I don't want to simulate it). I've tweaked the P[ID] value to get something nice, and also change the max force to something very large, which is what the actuator could do. If the requested velocity is positive (resp negative), then whatever the load the actuator will not output a negative (resp positive) speed. At worst it will not move.
+
+2) When the velocity requested is 0, then the actuator will never move, (independently of the load), because the circuit in which the oil flow is closed.
+
+For the moment, I'm using a linear motor, which seems to work fine, but not for a speed of 0 (the actuator retract because of the gravity and the load), which is actually logical.
+
+Do you have any thought on that ?
+
+I thought about using connector to "lock" the actuator when speed == 0, but its not pretty.
+
+I thought also about adding a "lock" option to "transform" the motor in mechanical link when speed == 0.
+
+##### Olivier Michel [Cyberbotics] 05/18/2021 07:33:24
+Why not switching to position control instead of velocity control when velocity is 0?
+
+##### TheGiant 05/18/2021 07:36:21
+Yes, but I don't know which position should be used, and I'm not huge fan of adding a position sensor just for that (which don't exist in reality). Additionally, it will continue to cost time, because the solver will continue to regulate if some perturbation push it out of position, is it ?
+
+##### Olivier Michel [Cyberbotics] 05/18/2021 07:39:13
+Yes...
+
+##### jmarsik 05/18/2021 08:46:16
+That's right, but complex bounding objects really slow down physics computation and also make it unstable sometimes. Or at least that's my experience. But I will try it because it seems like the only option right now. Maybe another is to create a pull request and try to add a property like `red color sensitivity` that would tune this sensitivity by a factor (0..1) for infra-red sensors? But I am not confident if I have enough experience to do that.
+
+##### TheGiant 05/18/2021 08:48:52
+`@Olivier Michel` fyi, devil strike again : I'm been stuck on "Finalizing node" (oscillating weirdly between 19% and 99%) when creating (and so opening) a new project directory...Add to reboot my PC.
+
+
+Is their any logs produced during file opening ?
+
+
+And here we go again, but this time, stuck on "Opening world file" at 99%. SIGKILL send, htop confirm webots shutdown, but back in gui the windows is still here, screen frozen, with mouse cursor moving but messed up... 
+
+I'm using a webots version built with "debug", but I don't expect to be the issue...
+
+##### Olivier Michel [Cyberbotics] 05/18/2021 09:09:21
+Did you try to debug it with gdb?
+
+##### TheGiant 05/18/2021 09:25:15
+I'm not, actually, that would be interesting.
+
+
+I'm currently rebuilding it on master with "release" makefile, and see if it change anything, I wil give gdb a try next
+
+
+Well, that didnt go according to the plan :/ Master + release => same issue (actually, I don't even see the "loading world" popup)
+
+Rebuild with "debug", on the branch makefile-improvement (to get -ggdb flags) did nothing more... gdb doesn't seems to catch anything. (but I can see m gdb output, cause screen freeze...)
+
+I think I will reinstall ubuntu, and give it another try. Also I continu to also blame my pc on that one, I've got very strange stuff in the past 
+
+At least it's consistant : run webots from command line with a fresh empty world, cause it to crash each time
+
+##### jmarsik 05/18/2021 12:24:36
+Ok, I tried to implement it and submitted a PR 🙂 [https://github.com/cyberbotics/webots/pull/3077](https://github.com/cyberbotics/webots/pull/3077)
+
+##### ShuffleWire 05/19/2021 08:24:20
+I've made progress ! 🙂 Trying to reinstall Ubuntu doesn't change the issue (however, now I could say that python3-dev and python-is-python3 are mandatory to build Webots (and docs) on a fresh Ubuntu install)
+
+I've added info to the bug, it's nicely reproducible,  and I found the faulty line. Updated to related issue [https://github.com/cyberbotics/webots/issues/3065](https://github.com/cyberbotics/webots/issues/3065) . Hope it might help...
+
+##### Olivier Michel [Cyberbotics] 05/19/2021 13:09:57
+Unfortunately, since we cannot reproduce this bug on our machines, you will have to continue to investigate on yours.
+
+##### h.sciascia 05/19/2021 14:32:35
+Hello everyone ! 
+
+I  have a problem when I try to use PyQt5 with webots
+
+The application seems to do not find PyQt 
+
+
+
+If I uninstall PyQt everthing is ok
+
+
+
+Do you have any clue ?
+
+##### ftsell 05/20/2021 20:42:18
+Hey folks,
+
+
+
+I currently have the problem that webots starts lagging like crazy after resetting a world.
+
+- Everything runs completely fine and smooth before the reset
+
+- I don't have any controllers running
+
+- I use this world: [https://github.com/bit-bots/wolfgang\_robot/blob/master/wolfgang\_webots\_sim/worlds/1\_bot.wbt](https://github.com/bit-bots/wolfgang_robot/blob/master/wolfgang_webots_sim/worlds/1_bot.wbt) (you can set the controllers to void)
+
+- I was able to debug that our custom robot proto: [https://github.com/bit-bots/wolfgang\_robot/blob/master/wolfgang\_webots\_sim/protos/Wolfgang.proto](https://github.com/bit-bots/wolfgang_robot/blob/master/wolfgang_webots_sim/protos/Wolfgang.proto) seems to somehow be causing the problem because the simulation survives a reset when the robot is not in it.
+
+- I am using `Webots version: R2021b Nightly Build 11/5/2021 1585fa928cccee28dbab882d925361a21369e727`
+
+
+
+If anyone has any idea on how to debug this further I'd be happy to! Although imho it seems to be at least partially a webots internal problem since the problem only occurs after resetting the simulation.
+
+##### mmoralesp 05/20/2021 21:45:03
+Hi everyone, Im using the epuck robot to simulate an enviroment and i want to obtain the position on the enviroment via ROS or other way, does anybody know how to do this? Thanks
+
+##### Simon Steinmann [Moderator] 05/20/2021 21:45:47
+`@mmoralesp` use supervisor functionality or gps sensor
+
+
+I downloaded your entire webots\_sim folder and there is many errors.
+
+
+probably because i'm not on develop
+
+##### Gowtham Sridhar 05/21/2021 08:52:18
+I am using webots in ubuntu I am facing this error. I have added circle floor but its not rendering. were sample files are rendering excellently.
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/845222461141155850/unknown.png)
+%end
+
+##### DDaniel [Cyberbotics] 05/21/2021 08:56:14
+`@Gowtham Sridhar` Hi, it's because there's no light source on your world. Add the `Background` node, or `TexturedBackgroundLight` & `TexturedBackground` nodes for example, or something analogous to it
+
+##### Gowtham Sridhar 05/21/2021 08:58:00
+yeah thanks it works.
+
+##### Maurice Faraj 05/21/2021 10:44:04
+Hello everyone I’m facing a problem while I’m enabling the camera in my robots can anyone help me please
+
+
+
+%figure
+![image0.jpg](https://cdn.discordapp.com/attachments/565154703139405824/845251260944744508/image0.jpg)
+%end
+%figure
+![image1.jpg](https://cdn.discordapp.com/attachments/565154703139405824/845251261347004416/image1.jpg)
+%end
+
+##### gian 05/21/2021 14:58:53
+hey guys, im having a problem to align the wheels in my proto. they are running, but with a little pull to the right (the side that is misaligned)! does someone know how to make them with the same alignment on both sides, please?
+
+##### DDaniel [Cyberbotics] 05/21/2021 19:22:57
+Can you post the relevant part of the proto? Hard to say without
+
+##### ftsell 05/21/2021 19:26:25
+your controller is not valid python syntax. that's why it exits with an error exit code (1 in this case) and throws indentation errors.
+
+
+
+If you want to have functions which don't have any implementation yet you can use the `pass` keyword like the following:
+
+```
+class MyClass:
+    def my_function(self):
+        pass
+```
+
+##### gian 05/21/2021 22:04:23
+
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/845421798257328158/unknown.png)
+%end
+
+##### スカイツー 05/22/2021 06:25:11
+Hello everyone, Have you completely solved the camera lens distortion problem?
+
+
+
+It seems that mainly radial distortions (radialCoefficients) have not been resolved.
+
+
+
+[https://github.com/cyberbotics/webots/pull/2961](https://github.com/cyberbotics/webots/pull/2961)
+
+##### Skev 05/22/2021 23:01:43
+Hello, is it possible to move an object in the scene (like a can) that is not directly connected to a robot, programmatically, from the robot controller ? (for a project using object detection)
+
+##### Simon Steinmann [Moderator] 05/22/2021 23:02:24
+yes, using the supervisor functionality
+
+
+[https://cyberbotics.com/doc/reference/supervisor?tab-language=python](https://cyberbotics.com/doc/reference/supervisor?tab-language=python)
+
+
+the robot needs to be set to supervisor = True in the scene tree for it to work
+
+##### Skev 05/22/2021 23:03:12
+ok thanks I'm going to try that
+
+
+Yes it works thank you
+
+##### Seedow 05/23/2021 22:29:52
+Hi!
+
+Is there a way to programmatically build a world? Preferably from MATLAB
+
+##### DDaniel [Cyberbotics] 05/23/2021 22:31:00
+<@288787843042770945> Hi, you can use a supervisor to spawn the objects of the world yes
+
+##### Seedow 05/23/2021 22:34:27
+Thanks for your reply. Is it possible to do that without running the whole program? I wanted to generate a world file that could be later used for simulation.
+
+##### Max\_K 05/24/2021 13:33:33
+Does anyone have an idea why i get just one camera\_info message on the rostopic when starting webots? I m trying to use apriltags in webots with ros2. I m using robotino3 and his webcam. In the header the stamp is also missing. I know its a latched topic but i don't know how to use it.
+
+header:
+
+  stamp:
+
+    sec: 0
+
+    nanosec: 0
+
+  frame\_id: ''
+
+height: 480
+
+width: 640
+
+distortion\_model: plumb\_bob
+
+d:
+
+##### harrymcc 05/24/2021 14:13:35
+double current_time = wb_robot_get_time(); is there anyway i can reset this current_time to 0 with code? 
+``` if ( current_time > start_time + time + duration_side){
+ left_speed = MAX_SPEED;
+ right_speed = 0;
+ }
+ if ( current_time > start_time + time * 2){
+  left_speed = MAX_SPEED;
+ right\_speed = MAX\_SPEED;
+``` currently im * with each turn but i want to find a way to turn it into a function that can be repeated instead of timesing
+
+##### DDaniel [Cyberbotics] 05/24/2021 14:23:57
+Not without resetting the entire simulation. What you can do instead is to track the number of timesteps that have elapsed (at every call of `wb_robot_step`) instead of relying on simulation time
+
+##### harrymcc 05/24/2021 14:28:27
+okay thanks, so would basically change the current\_time to what ever i declare wb\_robot\_step as
+
+##### DDaniel [Cyberbotics] 05/24/2021 14:38:55
+Depends what you're making, there's multiple options. You can keep a counter that you increase at every call of `wb_robot_step` (in the infinite loop for example) and change the program flow based on the counter value, or you call `wb_robot_step` by providing as argument the duration it has to similate, like `wb_robot_step(XX)` which will simulate the next XX ms.
+
+##### harrymcc 05/24/2021 14:39:43
+its just a simple 1 metre square
+
+
+```double current_time = wb_robot_step(432);
+ left_speed = MAX_SPEED;
+ right_speed = MAX_SPEED;
+ 
+ if (current_time > start_time + duration_side){
+ left_speed = MAX_SPEED;
+ right_speed = 0;}
+ if (current_time > start_time + duration_side + turn_time  ){
+  left_speed = MAX_SPEED;
+ right\_speed = MAX\_SPEED;
+``` so something like that?
+
+##### DDaniel [Cyberbotics] 05/24/2021 14:49:02
+No, like 
+
+```
+action A
+
+wb_robot_step(duration_action_A)
+
+action B
+
+wb_robot_step(duration_action_B)
+```
+
+##### harrymcc 05/24/2021 15:31:33
+```  while (wb_robot_step(TIME_STEP) != -1) {
+    left_speed = MAX_SPEED;
+ right_speed = MAX_SPEED;
+ wb_robot_step(5000);
+ left_speed = MAX_SPEED;
+ right_speed = 0;
+  wb\_robot\_step(10000);
+``` think i have got hang of it nearly however one last question if you dont mind so after 15 second in spins on the spot but it doesnt do the first action. Am i meant to separate these further
+
+##### DDaniel [Cyberbotics] 05/24/2021 15:35:02
+Why did you keep the infinite while loop? Doesn't make much sense to mix the two.
+
+##### Ilya Ryakin 05/24/2021 15:35:17
+Hello!
+
+##### harrymcc 05/24/2021 15:37:07
+tbf im not sure im just doing some messing about because i have never really used the robot\_step and forgot aha
+
+##### DDaniel [Cyberbotics] 05/24/2021 15:38:23
+Or  you want to have it run around the square multiple times? If so then sure you can have a `while(1)` around  the sequence
+
+##### harrymcc 05/24/2021 15:40:20
+no sorry it literally needs to go around once. What i mean is so when i added 1 timestep it did after 5 seconds i added the second set of instruction which was 10 seconds but instead of doing it in order it added the 5 seconds and 10 seconds together and only did the last step which has confused me abit
+
+##### DDaniel [Cyberbotics] 05/24/2021 16:02:50
+Sorry I didn't understand much, but it could be due to the while loop messing things up. From what I understood you want to do, all you really need is something like:
+
+```
+while(1){ // or just do 4x times
+
+action_go_straight
+
+wb_robot_step(how_long_go_straight)
+
+action_turn_on_itself
+
+wb_robot_step(how_long_turn)
+}
+```
+
+##### harrymcc 05/24/2021 16:04:12
+Right that looks alot better actually. I just couldn't get my head around it at all. Thank you for the help anyways I  appreciate it alot
+
+##### insaanimanav 05/25/2021 06:38:11
+hi , so I had a .wbo file which was an object made by another team member of mine
+
+
+how do I import this object into my enviroment and use it ?
+
+##### Darko Lukić [Cyberbotics] 05/25/2021 07:38:38
+You can use the `wb_supervisor_field_import_mf/sf_node` Supervisor functions:
+
+[https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_field\_import\_mf\_node](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_field_import_mf_node)
+
+or simply copy/paste the content of the .wbo file into your world (.wbt) file.
+
+##### insaanimanav 05/25/2021 09:03:22
+also I had another small question , I am trying to use the distance sensor in my robot
+
+
+but whenever I try see the value of the distance sensor by using `print(ds.value())`
+
+
+I get nan
+
+
+how else do I see the current value being read by the sensor ?
+
+
+This is my entire controller code that I am using for a robot which just has one child , distance sensor 
+```from controller import Robot
+from controller import LED
+import time 
+
+robot = Robot()
+
+ds = robot.getDevice("distance sensor")
+ds.enable(64)
+print((ds.getValue()))
+```
+
+##### Darko Lukić [Cyberbotics] 05/25/2021 09:10:25
+You are missing the `step()`:
+
+```py
+from controller import Robot
+
+robot = Robot()
+
+ds = robot.getDevice("distance sensor")
+ds.enable(64)
+robot.step(64)
+print(ds.getValue())
+```
+
+##### insaanimanav 05/25/2021 09:10:58
+shit yes
+
+
+thanks
+
+
+saved the day
+
+##### h.sciascia 05/25/2021 11:37:22
+Hello ! Does anyone use a personalised physics plugin ? 
+
+I would like to get the position of my contact point with something like this : dWebotsConsolePrintf("%f, %f, %f", &contact[i].geom.pos[0], &contact[i].geom.pos[1], &contact[i].geom.pos[2]);
+
+But it return only 0.000000, 0.000000, 0.00000 ...
+
+
+
+If you know how can I get those position between a robot and the environnement it would be perfect !
+
+
+
+Have a nice day 😉
+
+##### Tahir [Moderator] 05/25/2021 13:08:03
+Hello I am trying to simulate a tracked robot, imported from Blender
+%figure
+![robot.png](https://cdn.discordapp.com/attachments/565154703139405824/846736374548004884/robot.png)
+%end
+
+
+Everything so far seems OK but I am stuck on how ti create joints in Webots?
+
+
+Track of the robots looks like this:
+%figure
+![track.png](https://cdn.discordapp.com/attachments/565154703139405824/846736631075700796/track.png)
+%end
+
+
+The motor(in below figure) powering the robot on each side is connected to the yellow parts in the above figure.
+%figure
+![motor_selected.png](https://cdn.discordapp.com/attachments/565154703139405824/846736877301006336/motor_selected.png)
+%end
+
+
+This motor rotates, which is coupled to the yellow part of the above figure. The assembly of the robot rotates(in the figure below) which rotates the tracks(second figure from above)
+
+
+There are two adjustments wheels to tighten the tracks as desired. They rotate normally with the tracks.
+%figure
+![support_wheels.png](https://cdn.discordapp.com/attachments/565154703139405824/846737540723900456/support_wheels.png)
+%end
+
+
+I am not able to convert this mechanism to Webots anyone who can comment on how to create joints so that the tracks with all other assmebly and adjustments wheels rotates?
+
+
+Thank you so much in advance for any suggestions
+
+##### DDaniel [Cyberbotics] 05/25/2021 17:13:46
+`@Tahir` Hi, have you looked into the sample world `track.wbt`? You will need to use the `Track` and `TrackWheel` nodes. [https://cyberbotics.com/doc/reference/track](https://cyberbotics.com/doc/reference/track)
+
+##### Blindera 05/26/2021 00:51:15
+Hello i have this issue idk how can i solve.. i'm using linux nightly build version and im new about linux too
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/846913339787313172/unknown.png)
+%end
+
+##### Simon Steinmann [Moderator] 05/26/2021 02:12:51
+you are trying to change a default controller
+
+
+just hit "OK", and it will create a copy of the controller in another location
+
+##### Blindera 05/26/2021 02:17:24
+But if i create a copy i cant simulate anymore.. these controller was created for my robo team and my teamates build The project like this and o cant do at The same way
+
+##### Simon Steinmann [Moderator] 05/26/2021 02:18:17
+just copy the project to your documents and open the world there
+
+##### Blindera 05/26/2021 02:18:54
+I Will try thank u
+
+##### James Le Poidevin 05/26/2021 07:39:30
+Hello, I am trying to simulate large terrain (multiple Km) using precise elevation grids and i was wondering if it's possible to load 'chunks' of the elevation grid(like in minecraft) around a robot to help the simulation?
+
+##### oroulet [Premier Service] 05/26/2021 13:44:38
+box\_node.getPosition() returning (nan, nan, nan) in nightly, does that say anything to anyone? same code return the position in stable release
+
+
+same with getOrientation()
+
+
+is that a nightly bug or an API change?
+
+##### Stefania Pedrazzi [Cyberbotics] 05/26/2021 14:11:40
+What is the `box_node` a node visible in the scene tree, a PROTO internal node or a base node?
+
+
+Which nighlty are you testing? R2021b or R2021a-rev1?
+
+
+We fixed an issue in R2021b with the `getPosition` function. It would be good if you could provide an example where this function is not working as you expect.
+
+##### Darko Lukić [Cyberbotics] 05/26/2021 14:36:27
+We added `wb_supervisor_node_get_pose`:
+
+[https://github.com/cyberbotics/webots/pull/2932](https://github.com/cyberbotics/webots/pull/2932)
+
+but we the `wb_supervisor_node_get_position` should still work.
+
+
+You mean levels, something like this?
+
+[https://ignitionrobotics.org/api/gazebo/2.10/levels.html](https://ignitionrobotics.org/api/gazebo/2.10/levels.html)
+
+##### James Le Poidevin 05/26/2021 14:39:18
+Yes i can't see the images but it sounds like that
+
+
+Is it already in webots ?
+
+##### bingdong 05/26/2021 16:14:16
+Hi! For the LED node that is non-gradual (gradual parameter is False and multiple colours can be assumed by the Light node), can the intensity be modified from the controller? Documentation specifies it can be done for a monochromatic LED, but nothing is mentioned in case of multicolor LED.
+
+##### Darko Lukić [Cyberbotics] 05/26/2021 16:28:44
+Unfortunately not, but you can use Supervisor to delete and elements in the scene
+
+##### Matt Estrada 05/26/2021 16:58:43
+Hello! I am interested in aquatic simulation of an amphibious robot we are developing in the Biorobotics Lab at EPFL. We have implemented this in the past via `Fluid Nodes` and `Immersion Properties` . 
+
+
+
+We are curious about a more complex interaction than  a single direction of fluid flow-- perhaps to implement flow along a "river" that might curve and simulate "flow" of this fluid in different directions, which could lead to some interesting motion planning problems. 
+
+
+
+I notice `streamVelocity` as part of a [Fluid]([https://cyberbotics.com/doc/reference/fluid](https://cyberbotics.com/doc/reference/fluid)) node seems to implement a single direction of flow. Do you know if anyone has tried to vary this streamVelocity, or any node's property, while the simulation was running? If so, this might allow us imitate a water flow that changes with respect to the robot's position in the map. 
+
+
+
+Not sure if I'm missing a higher level API for changing node properties in general that I might be able to use to attain this desired effect...
+
+##### robert.hobbs 05/26/2021 18:12:56
+Matt,  I was just reviewing the discord channel before asking the same question.  I need to model an AFV in a stream and it would be beneficail to include at least varying water velocities if not turbulent flows. I will follow your thread with interest and let you know if I find an answer beforehand.  Thanks
+
+##### mclzc 05/26/2021 19:03:03
+Hi, I was hearing this interview
+
+[https://www.theconstructsim.com/webots-robot-simulator-ros-olivier-michel/](https://www.theconstructsim.com/webots-robot-simulator-ros-olivier-michel/)
+
+
+
+and at minute 9:30 Oliver talks about preconfigured sensors. Is there an available list of these pre-configured sensors? I'd like to know of there are rgbd cameras configured like the Intel Realsense ones.
+
+##### pnaraltnsk 05/26/2021 19:29:49
+Hi, I am using Nao robot’s distance sensor and I want to disable the sensor for a specific object. Is that possible? Do you have any suggestions of how to do it?
+
+##### mclzc 05/26/2021 21:21:20
+Where could I find more information on how to translate Gazebo URDF to PROTO files? 
+
+
+
+I know and have used the `xacro2proto` script (which underneath uses `urdf2webots`),  but I don't really know what did it do and to what extent did it work. I see the Gazebo robot that I'm using being rendered in Webots... but I'm completely clueless of if it's a complete and successful translation into the PROTO format. The first question that comes to my mind is, "are the sensors correctly defined in the PROTO file now?"
+
+
+
+In this Github question ([https://github.com/cyberbotics/urdf2webots/issues/112](https://github.com/cyberbotics/urdf2webots/issues/112)) I have found the first piece of information that I have not seen around in the Webots tutorials that I've come across: `Why not introduce a <webots> xml tag instead of parsing the <gazebo> tags?`. Now I know that the script is indeed gazebo-tags aware and will look into the code, but would be nice to know what is it capable of.
+
+##### Olivier Michel [Cyberbotics] 05/27/2021 05:50:36
+Here the list of pre-configured sensors in Webots: [https://cyberbotics.com/doc/guide/sensors#commercially-available-sensors](https://cyberbotics.com/doc/guide/sensors#commercially-available-sensors). You can use a Kinect if you need a RGBD camera, or implement a Intel Realsense from basic sensors:  RGB camera + range finder camera: [https://cyberbotics.com/doc/reference/camera](https://cyberbotics.com/doc/reference/camera) + [https://cyberbotics.com/doc/reference/rangefinder](https://cyberbotics.com/doc/reference/rangefinder).
+
+
+You can use the supervisor API to change any field of any node (including the `streamVelocity` field). See this example to change a field from a supervisor: [https://cyberbotics.com/doc/guide/supervisor-programming#setting-the-position-of-robots](https://cyberbotics.com/doc/guide/supervisor-programming#setting-the-position-of-robots)
+
+
+Turn that object into a Transform (instead of a Solid)?
+
+
+The best way is probably to study the source code the `urdf2webots` script, study the content of the URDF and PROTO files to determine how successful the conversion was. This `urdf2webots` script is constantly evolving and improving, but still has some limitations for some specific cases, you are welcome to contribute to improve it if you spot any problem.
+
+##### bingdong 05/27/2021 06:22:30
+Hi! For the LED node that is non-gradual (gradual parameter is False and multiple colours can be assumed by the Light node), can the intensity be modified from the controller? Documentation specifies it can be done for a monochromatic LED, but nothing is mentioned in case of multicolor LED.
+
+##### Olivier Michel [Cyberbotics] 05/27/2021 06:24:11
+Yes, simply setting a RGB color with less intensity (lighter or darker) should work.
+
+##### bingdong 05/27/2021 06:25:37
+But these changes would be to colour and not the intensity parameter?
+
+##### Olivier Michel [Cyberbotics] 05/27/2021 06:25:53
+Yes.
+
+##### bingdong 05/27/2021 06:26:06
+Alright, thanks!
+
+##### oroulet [Premier Service] 05/27/2021 07:00:32
+using 2021b
+
+the node is an instanciated proto.
+
+getting the relative position works fine with box\_node.getField("translation").getSFVec3f()
+
+`
+
+getPose() works also (What is getPose btw, the same as getPosition AND getOrientation()?)
+
+
+box\_node.getPosition()
+
+[nan, nan, nan]
+
+(Pdb) box\_node.getPose()
+
+[1.0, 0.0, 0.0, 1.455, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, -1.5, 0.0, 0.0, 0.0, 1.0]
+
+##### Stefania Pedrazzi [Cyberbotics] 05/27/2021 07:02:22
+Ok, could you please open an issue on the Webots GItHub posting your PROTO node? This way we will be able to inspect the issue
+
+[https://github.com/cyberbotics/webots/issues/new?assignees=&labels=&template=bug\_report.md](https://github.com/cyberbotics/webots/issues/new?assignees=&labels=&template=bug_report.md)
+
+##### oroulet [Premier Service] 05/27/2021 07:04:26
+I will try but as usual our model is big so we need to simplify it before sending
+
+
+`@Stefania Pedrazzi` what is node.getPose() also the global position? I cannot find it in documentation
+
+##### Stefania Pedrazzi [Cyberbotics] 05/27/2021 07:06:14
+Yes, it is the global world position and orientation of the node. Here is the R2021b documentation:
+
+[https://www.cyberbotics.com/doc/reference/supervisor?version=develop#wb\_supervisor\_node\_get\_pose](https://www.cyberbotics.com/doc/reference/supervisor?version=develop#wb_supervisor_node_get_pose)
+
+##### oroulet [Premier Service] 05/27/2021 07:06:51
+ah OK this is a new one. Good
+
+##### Greemfy 05/27/2021 09:33:00
+Hi guys👋  I hope you can help me with my (probably far too easy to solve) question. I´m using python and got my Lidar sensor working. Right now I calculate the coordinates of every point with the values of getRangeImage and the angular position of the lidar. It´s painfull 😂  To my suprise there is the easy solution getting the coordinates from LidarPoint.*. But I can´t figure out how to access those values. In the WB doc theres something written about @property. Never worked with that. If I want to get one coordinate of a point it says "<property object at 0x000002990325B9A0>". Thank you so much!
+
+##### Darko Lukić [Cyberbotics] 05/27/2021 11:27:12
+Can share the part of the code in which you are accessing the point data?
+
+##### James Le Poidevin 05/27/2021 13:23:19
+OK i thought i would have to try that. Do you think it would be possible to use one elevation grid or will i have to use multiple one that i load one by one ?
+
+##### Darko Lukić [Cyberbotics] 05/27/2021 13:57:03
+It would probably be easier to have multiple elevation grids
+
+##### mclzc 05/27/2021 14:53:12
+Thanks for your answers `@Olivier Michel`
+
+##### Jhon mathew 05/27/2021 16:50:57
+hello, I have used camera recognition in webots using python. I did everything according to the resources but I have 2 major issue. 1. values is updating only 0  
+
+2.  It says the index exceeds the list....
+
+
+
+
+
+
+
+I need some basic pre-build code in *Python*  atleast to get id using camera recognition... Other things I can manage with that reference.
+
+##### Matt Estrada 05/27/2021 19:00:17
+Thank you for the very quick and helpful response! That should accomplish what I am looking for!
+
+##### AmorFati 05/27/2021 19:53:30
+I have an environment where i need to recognize an object (Wooden Box) and reach that location. I am using E-Puck for my project. I got how to recognize the object which is inbuilt. Not sure what logic should i follow once i detect it.
+
+##### Simon Steinmann [Moderator] 05/27/2021 23:07:16
+`@AmorFati` [https://cyberbotics.com/doc/reference/camera?tab-language=python#camera](https://cyberbotics.com/doc/reference/camera?tab-language=python#camera)
+
+
+you can enable recognition
+
+##### Jhon mathew 05/28/2021 02:13:25
+please someone give basic code in python..  I need to get information about recognised object.
+
+##### Simon Steinmann [Moderator] 05/28/2021 02:14:16
+recognitionObjects = camera.getRecognitionObjects()
+
+    if len(recognitionObjects) > 0:
+
+        recognitionPosition = recognitionObjects[0].get\_position()
+
+        recognitionSize = recognitionObjects[0].get\_size()
+
+
+` camera.getRecognitionObjects()` returns a list, so when there is no recognized objects, the list is empty
+
+
+objects need their recognition color field defined in order to be detected
+
+##### Jhon mathew 05/28/2021 03:07:57
+thank you. ill try that now
+
+
+Object is detecting by the camera. I have done some minor mistake.. thank you
+
+##### AmorFati 05/28/2021 04:31:44
+Thanks Simon, but I think Epuch does not has Recognition node. Because when i do camera.hasRecognition(), it gives false. Can you guide me how to add one.
+
+##### Simon Steinmann [Moderator] 05/28/2021 04:32:19
+you have to enable recognition mode
+
+
+use the api documentation
+
+
+camera = robot.getDevice('camera')
+
+camera.enable(timeStep)
+
+camera.recognitionEnable(timeStep)
+
+
+something like that
+
+##### AmorFati 05/28/2021 05:03:46
+Yeah i tried that but its giving me below error: Error: wb\_camera\_recognition\_enable() called on a Camera without Recognition node.
+
+
+I tried this
+
+
+camera = robot.getDevice("camera")
+
+    camera.enable(time\_step)
+
+    camera.recognitionEnable(time\_step)
+
+
+where robot is EPuck robot
+
+##### Simon Steinmann [Moderator] 05/28/2021 05:22:53
+you might have to check the camera node, or maybe add a recognition color to the bot and or the camera
+
+##### Cyber Police Officer 05/28/2021 10:19:58
+I've tried to search the documentation, but didn't find any information about this. Is it possible, using the propeller node, to make a propeller have a different thrust coefficient depending on the rotation direction? 
+
+
+
+I know i can workaround using two propellers, facing in opposite directions, having each the correct thrust coefficient, but was wondering if there were a cleaner way.
+
+
+
+Thank you
+
+##### Beginner26798 05/28/2021 13:06:47
+Hi.. is there any helpful tutorials to help me if i want to make a robot that follows the recognised object
+
+
+Python language
+
+
+??
+
+##### Darko Lukić [Cyberbotics] 05/28/2021 14:51:46
+If you set a negative velocity it doesn't invert the thrust?
+
+
+[https://github.com/lukicdarkoo/webots-example-visual-tracking](https://github.com/lukicdarkoo/webots-example-visual-tracking)
+
+##### Beginner26798 05/28/2021 15:10:00
+Thank you
+
+
+What's the solution of this
+%figure
+![20210528_181021.jpg](https://cdn.discordapp.com/attachments/565154703139405824/847854388370079752/20210528_181021.jpg)
+%end
+
+##### Cyber Police Officer 05/28/2021 15:20:26
+It does. But some propellers have different thrust coefficients depending on the thrust direction
+
+##### Beginner26798 05/28/2021 17:00:52
+`@Darko Lukić` ?
+
+##### AmorFati 05/28/2021 18:18:22
+Can anyone tell how to add recognition colors to the WoodenBox in webots
+
+##### Simon Steinmann [Moderator] 05/28/2021 21:36:47
+`@AmorFati` you have to convert it to Base Nodes (right click). Then you can add the colors
+
+##### AmorFati 05/28/2021 21:37:14
+Thanks simon. I will try that.
+
+
+And one more thing I have got the object recognized. And I am not able to understand what is the difference between position and position\_on\_image in the API?
+
+##### Simon Steinmann [Moderator] 05/28/2021 21:39:07
+read the text under the commands. It explains it
+
+
+are you working on the vacuum project as well?
+
+##### AmorFati 05/28/2021 21:39:44
+Yeah i read it but not able to understand what it says exactly. I am getting x and y values in that
+
+
+No I am working on my own college Project
+
+##### Simon Steinmann [Moderator] 05/28/2021 21:40:17
+> The position\_on\_image and size\_on\_image can be used to determine the bounding box of the object in the camera image, the units are pixels
+
+##### AmorFati 05/28/2021 21:40:57
+Does it give the center of the bounding box of the recognised object?
+
+##### Simon Steinmann [Moderator] 05/28/2021 21:41:06
+I would assume so
+
+##### AmorFati 05/28/2021 21:41:11
+Okay
+
+
+and what does just Position gives ?
+
+##### Simon Steinmann [Moderator] 05/28/2021 21:41:41
+it gives the relative position of the recognized object to the camera
+
+
+as a sidenote: get\_size() has a bug in the current release, where it returns a integer instead of a float. So you will get the size rounded to the next full meter. Install the the latest nightly build if that is the case for you
+
+##### AmorFati 05/28/2021 21:44:22
+Thanks Simon. This was super helpful
+
+##### notjfarhan 05/29/2021 04:05:05
+```webots/projects/default/controllers/ros/ros: error while loading shared libraries: libroscpp.so: cannot open shared object file: No such file or directory
+
+WARNING: 'ros' controller exited with status: 127.
+```
+
+All I did was create a world , get a robot in and attach the generic 'ros' controller. Is there anything else I have to do ?
+
+
+hello ?
+
+##### insaanimanav 05/29/2021 08:39:29
+How do I create sensors of my own ?
+
+
+For example I want to create a simple sensor that reads some value of a node in the world , I couldn't find anything in the docs for that
+
+##### Bitbots\_Jasper [Moderator] 05/29/2021 08:47:45
+If you have ROS installed try running webots from a terminal where ROS is sourced
+
+
+What exactly are you trying to read? If you want to know some information about some object in your simulation have a look at the supervisor API. That might already fulfill your requirements
+
+##### bingdong 05/29/2021 08:51:41
+`@Beginner26798` You'll have to install the cv2 library to your system. If you have pip installed, open command prompt on windows and type: pip install opencv-python
+
+ [https://stackoverflow.com/questions/19876079/cannot-find-module-cv2-when-using-opencv](https://stackoverflow.com/questions/19876079/cannot-find-module-cv2-when-using-opencv)
+
+##### insaanimanav 05/29/2021 08:55:45
+Also one small question how can I add a custom property to something ?
+
+
+For example I want to have solid which has the custom property of let's say Ph
+
+
+Maybe humidity too
+
+##### notjfarhan 05/29/2021 09:40:29
+Thanks I got it.
+
+##### R K gupta 05/29/2021 15:24:12
+Does there is any way to add some extra sensors like temperature and PH sensors in webots to analyse the environment around it !like how  do  we get temperature of a particular thing  like environment in  webots ?
+
+##### SHAHRRUCK 05/30/2021 05:18:01
+Is there any way to create water pump in webots for irrigation purposes ??
+
+##### viorel\_gheorghe 05/30/2021 21:36:19
+Hi guys!
+
+
+Maybe is an already answer question, but I have not found the proper response 🙂
+
+
+Is there a way to save the sensor data from a robot (position, gyro, accelerometer) and plot them in excel?
+
+##### Simon Steinmann [Moderator] 05/31/2021 01:11:46
+`@viorel_gheorghe` you should google that for the programming language that you use. This is not Webots specific
+
+##### viorel\_gheorghe 05/31/2021 05:05:44
+`@Simon Steinmann`, I'm using Python. I thought there is an in-built feature of the controller since it can print the evolution on the sensors  if selected
+
+
+But we learn and learn 🙂
+
+##### hanm 05/31/2021 10:28:46
+hi, I have met some problem about webots, a create a env which have a ur10e robot and a conveyor belt. I set the ur10e  as a supervisor and I want the ur10e controller can enable a kinect which is a child in the conveyor belt, but I failed to enable it.
+
+
+my code is :
+
+
+ur10erobot = Supervisor()
+
+
+
+\# Get the time step of the current world.
+
+timestep = int(ur10erobot.getBasicTimeStep())
+
+
+
+conveyor\_belt = ur10erobot.getFromDef("CONVEYOR\_BELT")
+
+assert(conveyor\_belt != None)
+
+conveyor\_kinectcolor = conveyor\_belt.getDevice("kinect color")
+
+conveyor\_kinectcolor.enable(int(1000/24))
+
+
+the error report is :
+
+
+conveyor\_kinectcolor = conveyor\_belt.getDevice("kinect color")
+
+  File "/usr/local/webots/lib/controller/python27/controller.py", line 1756, in <lambda>
+
+    \_\_getattr\_\_ = lambda self, name: \_swig\_getattr(self, Node, name)
+
+  File "/usr/local/webots/lib/controller/python27/controller.py", line 96, in \_swig\_getattr
+
+    raise AttributeError("'%s' object has no attribute '%s'" % (class\_type.\_\_name\_\_, name))
+
+AttributeError: 'Node' object has no attribute 'getDevice'
+
+##### Stefania Pedrazzi [Cyberbotics] 05/31/2021 10:46:11
+It is not possible to control device of another robot, i.e. in your case you cannot controller the conveyor belt devices from the ur10e controller if they are two distinct robots.
+
+Many different solutions exists depending of the specific use case.
+
+One option could to use the Emitter/Receiver mechanism to send a message from the ur10e controller to the conveyor belt controller notifying that the Kinect should be enabled.
+
+##### hanm 05/31/2021 10:55:03
+thanks, by the way, I want to know how can  I set two robot 's controller as `extern`  and control it by two progress?
+
+##### Stefania Pedrazzi [Cyberbotics] 05/31/2021 10:55:58
+here is the documentation:
+
+[https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#single-simulation-and-multiple-extern-robot-controllers](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#single-simulation-and-multiple-extern-robot-controllers)
+
+##### hanm 05/31/2021 10:57:30
+thanks~
+
+##### mmoralesp 05/31/2021 17:40:44
+Does anybody know how to output in ros2 the odometry info?
+
+##### R K gupta 05/31/2021 18:28:48
+Does any one have any idea how we add some extra sensors like temperature and PH sensors in webots to analyse the environment around it !like a farm environment in  webots ?
+
+##### SHAHRRUCK 05/31/2021 20:33:17
+How to display/play videos in webots ??
+
+
+I am trying Motion class in webots
+
+
+But I am getting Unexpected end of file as error, How Should I solve this
+
+
+`from controller import Supervisor`motion = `Motion("C:/Users/Shahrruck/Downloads/water2.mp4")
+
+ video = Motion.play(motion)`
+
+## June
+
+##### Simon Steinmann [Moderator] 06/01/2021 01:38:22
+Adding "true" extra sensors is difficult, but may be achieved with physics plugins [https://cyberbotics.com/doc/reference/physics-plugin](https://cyberbotics.com/doc/reference/physics-plugin) . You can also try using existing sensors. Camera with object recognition comes to mind. You could store information such as PH and Temp in the recognition color values (RGB, so you have 3 values) [https://cyberbotics.com/doc/reference/camera?tab-language=python#camera-recognition-object](https://cyberbotics.com/doc/reference/camera?tab-language=python#camera-recognition-object)
+
+##### hanm 06/01/2021 03:06:41
+hi, I meet a problem when I get camera image in python
+
+
+the code is :
+
+
+
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/849121847232299008/unknown.png)
+%end
+
+
+but the image  in 23 line is None
+
+##### Simon Steinmann [Moderator] 06/01/2021 03:08:22
+you have to execute a step before. You can't get an image before you simulated the first step
+
+##### hanm 06/01/2021 03:09:43
+it work! thanks 🙂
+
+##### mclzc 06/01/2021 03:10:38
+Hi, are you planning to support the parsing of SDF tags, for example <gps>?
+
+##### Darko Lukić [Cyberbotics] 06/01/2021 07:23:41
+We plan only to parse what is specified by URDF and for the missing components we plan to introduce a `<webots />` tag:
+
+[https://github.com/cyberbotics/urdf2webots/issues/112](https://github.com/cyberbotics/urdf2webots/issues/112)
+
+##### viorel\_gheorghe 06/01/2021 07:31:50
+`@Darko Lukić` If I have a parallel robot, and I need the position and orintatio  of the moving platform (yellow one). I must use an IMU, or there is some other things that I can do
+
+
+parallel robot
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565154703139405824/849188543557140490/unknown.png)
+%end
+
+##### Darko Lukić [Cyberbotics] 06/01/2021 07:33:17
+You can use `wb_supervisor_node_get_position` and `wb_supervisor_node_get_orientation`:
+
+[https://cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_position](https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_position)
+
+##### viorel\_gheorghe 06/01/2021 07:33:59
+sexy! it's just a RTFM thing!
+
+
+thank you, it seems that the supervisor is the way! 👍
+
+##### Ayk 06/01/2021 11:35:23
+Hey there,
+
+I'm working with webots and Nao and trying to get it to move for x distance. 
+
+What do you think is the best approach to do this (im new to webots).
+
+Just using the motion file and doing the forward motion for a certain time (dependend on my distance)? Or is there a better approach ?
+
+##### Simon Steinmann [Moderator] 06/01/2021 22:18:16
+`@Ayk` you can turn the wheels an exact angle. Together with its radius, you can calculate the distance.
+
+##### Kirlin 06/02/2021 02:35:13
+Hi everyone, can you help me with a question ?
+
+I have a custom controller linked with ros, that use as "extern", and I'm trying to make a Supervisor, so it will be more simple to reset the position of the robot when it falls, but I've read all the documentation and tried a lot of things, but I had no progress.
+
+Do you guys have any suggestion ?
+
+##### Simon Steinmann [Moderator] 06/02/2021 02:35:51
+The robot has to be a supervisor (checkbox in the scene tree)
+
+
+`from controller import Supervisor` instead of Robot
+
+##### Kirlin 06/02/2021 02:36:52
+yep, I've done that
+
+
+but I capture the robot node like self.natasha = Robot()
+
+
+and then I operate self.natasha with all the functions
+
+
+when I import Supervisor
+
+
+how can I capture the Robot node ?
+
+##### Simon Steinmann [Moderator] 06/02/2021 02:37:57
+self.natasha = Supervisor()
+
+
+it has all the Robot functionality
+
+##### Kirlin 06/02/2021 02:39:10
+wow
+
+
+I have tried so many things
+
+
+I was trying self.supervisor = Supervisor and then self.natasha = supervisor.getFromDef('Natasha') or getSelf()
+
+
+so now I can just operate self.natasha with the Robot functions and the Supervisor functions ?
+
+
+thank you so much
+
+##### Simon Steinmann [Moderator] 06/02/2021 02:40:44
+you have to do that if you want a handle to the robot node, for doing supervisor manipulations
+
+
+you're welcome :)=
+
+##### Kirlin 06/02/2021 02:42:15
+like set translation or rotation ?
+
+##### Simon Steinmann [Moderator] 06/02/2021 02:43:45
+yes
+
+##### mclzc 06/02/2021 03:06:20
+Hi, Do you have a way of outputting `sensor_msgs/msg/PointCloud2` from a `RangeFinder`? I see that the `range_finder_device.py` file creates a publisher for `sensor_msgs/Image`.
+
+##### Darko Lukić [Cyberbotics] 06/02/2021 07:25:52
+No, only the Lidar publishes `sensor_msgs/msg/PointCloud2`. Can you contribute `sensor_msgs/msg/PointCloud2` for the range finder? Although I am not sure whether it is better to implement the point cloud generation in the Webots core. Please open the issue about that so we can discuss.
+
+##### AloneLeader 06/02/2021 14:18:47
+Hey, i just was looking for a tutorial and end up with this channel. I need to create a robotic simulation for my term project. Is there anyone who like to help a newbie?
 

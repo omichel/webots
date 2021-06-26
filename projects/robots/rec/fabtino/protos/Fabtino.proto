@@ -1,0 +1,369 @@
+#VRML_SIM R2021b utf8
+# license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+# license url: https://cyberbotics.com/webots_assets_license
+# documentation url: https://www.cyberbotics.com/doc/guide/fabtino
+# Designed by Robotics Equipment Corporation (REC) GmbH, Fabtino is a four-wheeled (mecanum) robot.
+
+PROTO Fabtino [
+  field  SFVec3f     translation     0 0 0.0613          # Is `Transform.translation`.
+  field  SFRotation  rotation        0 0 1 0             # Is `Transform.rotation`.
+  field  SFString    name            "Fabtino"           # Is `Robot.name`.
+  field  SFString    controller      "keyboard_control"  # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                  # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""                  # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE               # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                # Is `Robot.synchronization`.
+  field  MFNode      frontLidarSlot  []                  # Extends the robot with a front lidar sensor.
+  field  MFNode      backLidarSlot   []                  # Extends the robot with a back lidar sensor.
+  field  MFNode      bodySlot        []                  # Extends the robot with new nodes (such as the Robotino3Platform for example).
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    name IS name
+    children [
+      Group {
+        children [
+          Shape {
+            appearance DEF LIGHT_GRAY PBRAppearance {
+              baseColor 0.78 0.78 0.78
+              metalness 0.3
+              roughness 0.1
+            }
+            geometry Mesh {
+              url [
+                "meshes/base_central.dae"
+              ]
+            }
+          }
+          Shape {
+            appearance DEF DARK_GRAY PBRAppearance {
+              baseColor 0.43 0.43 0.43
+              metalness 0.3
+              roughness 0.1
+            }
+            geometry Mesh {
+              url [
+                "meshes/base.dae"
+              ]
+            }
+          }
+        ]
+      }
+      DEF HJ_FR HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0 1 0
+          anchor 0.285061 -0.235818 0.035257
+        }
+        device [
+          RotationalMotor {
+            name "front_right_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "front_right_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.285061 -0.235818 0.035257
+          children [
+            DEF WHEEL_FR Group {
+              children [
+                Shape {
+                  appearance DEF WHEEL_APPEARANCE PBRAppearance {
+                    baseColor 0.49 0.49 0.49
+                    roughness 0.3
+                    metalness 0.2
+                  }
+                  geometry DEF WHEEL_RIGHT Mesh {
+                    url [
+                      "meshes/wheel1.dae"
+                    ]
+                  }
+                }
+                Shape {
+                  appearance DEF ROLLERS_APPEARANCE PBRAppearance {
+                    baseColor 0.24 0.24 0.24
+                    roughness 0.9
+                    metalness 0
+                  }
+                  geometry DEF ROLLERS_RIGHT Mesh {
+                    url [
+                      "meshes/rollers1.dae"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_fr"
+          contactMaterial "InteriorWheelMat"
+          boundingObject Transform {
+            translation 0 -0.0172 0
+            children [
+              DEF BO_WHEEL Cylinder {
+                height 0.07
+                radius 0.1
+              }
+            ]
+          }
+          physics DEF PHYSICS_WHEEL Physics {
+          }
+        }
+      }
+      DEF HJ_BR HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0 1 0
+          anchor -0.284897 -0.238057 0.03513
+        }
+        device [
+          RotationalMotor {
+            name "back_right_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "back_right_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.284897 -0.238057 0.03513
+          children [
+            DEF WHEEL_BR Group {
+              children [
+                Shape {
+                  appearance USE WHEEL_APPEARANCE
+                  geometry DEF WHEEL_LEFT Mesh {
+                    url [
+                      "meshes/wheel2.dae"
+                    ]
+                  }
+                }
+                Shape {
+                  appearance USE ROLLERS_APPEARANCE
+                  geometry DEF ROLLERS_LEFT Mesh {
+                    url [
+                      "meshes/rollers2.dae"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_br"
+          contactMaterial "ExteriorWheelMat"
+          boundingObject Transform {
+            translation 0 -0.015 0
+            children [
+              USE BO_WHEEL
+            ]
+          }
+          physics USE PHYSICS_WHEEL
+        }
+      }
+      DEF HJ_FL HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0 1 0
+          anchor 0.284897 0.238057 0.03513
+        }
+        device [
+          RotationalMotor {
+            name "front_left_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "front_left_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.284897 0.238057 0.03513
+          children [
+            DEF WHEEL_FL Transform {
+              rotation 0 0 1 3.141592653589793
+              children [
+                Shape {
+                  appearance USE ROLLERS_APPEARANCE
+                  geometry USE ROLLERS_LEFT
+                }
+                Shape {
+                  appearance USE WHEEL_APPEARANCE
+                  geometry USE WHEEL_LEFT
+                }
+              ]
+            }
+          ]
+          name "wheel_fl"
+          contactMaterial "ExteriorWheelMat"
+          boundingObject Transform {
+            translation 0 0.015 0
+            children [
+              USE BO_WHEEL
+            ]
+          }
+          physics USE PHYSICS_WHEEL
+        }
+      }
+      DEF HJ_BL HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0 1 0
+          anchor -0.285061 0.235818 0.035257
+        }
+        device [
+          RotationalMotor {
+            name "back_left_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "back_left_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.285061 0.235818 0.035257
+          children [
+            DEF WHEEL_BL Transform {
+              rotation 0 0 1 3.141592653589793
+              children [
+                Shape {
+                  appearance USE WHEEL_APPEARANCE
+                  geometry USE WHEEL_RIGHT
+                }
+                Shape {
+                  appearance USE ROLLERS_APPEARANCE
+                  geometry USE ROLLERS_RIGHT
+                }
+              ]
+            }
+          ]
+          name "wheel_bl"
+          contactMaterial "InteriorWheelMat"
+          boundingObject Transform {
+            translation 0 0.0172 0
+            children [
+              USE BO_WHEEL
+            ]
+          }
+          physics USE PHYSICS_WHEEL
+        }
+      }
+      DEF IMU Transform {
+        children [
+          Accelerometer {
+            name "accelerometer"
+            lookupTable [
+              -100 -100 -0.002
+              100 100 0.002
+            ]
+          }
+          Gyro {
+            name "gyro"
+            lookupTable [
+              -100 -100 -0.002
+              100 100 0.002
+            ]
+          }
+          Compass {
+            name "compass"
+            lookupTable [
+              -1 -1 -0.2
+              1 1 0.2
+            ]
+          }
+        ]
+      }
+      Transform {
+        translation 0 0 0.145
+        children IS bodySlot
+      }
+      Transform {
+        translation 0.365 0 0.161
+        rotation -0.5774 0.5774 0.5774 -2.0944
+        children IS frontLidarSlot
+      }
+      Transform {
+        translation -0.365 0 0.161
+        rotation 0.5774 0.5774 0.5774 2.0944
+        children IS backLidarSlot
+      }
+    ]
+    boundingObject Group {
+      children [
+        DEF FRAME_CENTER Transform {
+          translation 0 0 -0.0115
+          children [
+            Box {
+              size 0.726 0.63 0.031
+            }
+          ]
+        }
+        DEF FRAME_SIDES Transform {
+          translation 0 0 -0.0115
+          children [
+            Box {
+              size 0.87 0.486 0.031
+            }
+          ]
+        }
+        DEF FRAME_CORNER_FL Transform {
+          translation 0.363 0.243 -0.0115
+          rotation 1 0 0 1.5707996938995747
+          children [
+            DEF FRAME_CORNER_CYLINDER Cylinder {
+              height 0.031
+              radius 0.072
+            }
+          ]
+        }
+        DEF FRAME_CORNER_FR Transform {
+          translation -0.363 0.243 -0.0115
+          rotation 1 0 0 1.5707996938995747
+          children [
+            USE FRAME_CORNER_CYLINDER
+          ]
+        }
+        DEF FRAME_CORNER_BL Transform {
+          translation 0.363 -0.243 -0.0115
+          rotation 1 0 0 1.5707996938995747
+          children [
+            USE FRAME_CORNER_CYLINDER
+          ]
+        }
+        DEF FRAME_CORNER_BR Transform {
+          translation -0.363 -0.243 -0.0115
+          rotation 1 0 0 1.5707996938995747
+          children [
+            USE FRAME_CORNER_CYLINDER
+          ]
+        }
+        Transform {
+          translation 0 0 0.062
+          children [
+            Box {
+              size 0.343 0.603 0.167
+            }
+          ]
+        }
+        Transform {
+          translation 0 0 0.062
+          children [
+            Box {
+              size 0.843 0.423 0.167
+            }
+          ]
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 30
+    }
+  }
+}

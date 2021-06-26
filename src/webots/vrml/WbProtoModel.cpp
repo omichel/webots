@@ -508,7 +508,9 @@ QStringList WbProtoModel::documentationBookAndPage(bool isRobot, bool skipProtoT
   if (isRobot) {
     // check for robot doc
     const QString &name = mName.toLower();
-    if (QFile::exists(WbStandardPaths::localDocPath() + "guide/" + name + ".md")) {
+
+    const QString page("guide/" + name + ".md");
+    if (checkIfDocumentationPageExist(page)) {
       bookAndPage << "guide" << name;
       return bookAndPage;
     }
@@ -519,7 +521,8 @@ QStringList WbProtoModel::documentationBookAndPage(bool isRobot, bool skipProtoT
     QString name = dir.dirName().replace('_', '-');
     while (!dir.isRoot()) {
       if (dir == objectsDir) {
-        if (QFile::exists(WbStandardPaths::localDocPath() + "guide/object-" + name + ".md")) {
+        const QString page("guide/object-" + name + ".md");
+        if (checkIfDocumentationPageExist(page)) {
           bookAndPage << "guide"
                       << "object-" + name;
           return bookAndPage;
@@ -537,7 +540,8 @@ QStringList WbProtoModel::documentationBookAndPage(bool isRobot, bool skipProtoT
       const QStringList &splittedPath = documentationUrl.split("doc/");
       if (splittedPath.size() == 2) {
         const QString file(splittedPath[1].split('#')[0]);
-        if (QFile::exists(WbStandardPaths::localDocPath() + file + ".md")) {
+        const QString page(file + ".md");
+        if (checkIfDocumentationPageExist(page)) {
           bookAndPage = file.split('/');
           if (splittedPath[1].contains('#'))
             bookAndPage[1] += '#' + splittedPath[1].split('#')[1];
@@ -548,4 +552,24 @@ QStringList WbProtoModel::documentationBookAndPage(bool isRobot, bool skipProtoT
   }
 
   return bookAndPage;  // return empty
+}
+
+bool WbProtoModel::checkIfDocumentationPageExist(const QString &page) const {
+  bool exist = false;
+  QFile file(WbStandardPaths::webotsHomePath() + "docs/list.txt");
+  if (!file.open(QIODevice::ReadOnly))
+    return false;
+  QTextStream in(&file);
+  QString line = in.readLine();
+  while (!line.isNull()) {
+    if (line.contains(page, Qt::CaseSensitive)) {
+      exist = true;
+      break;
+    }
+    line = in.readLine();
+  }
+
+  file.close();
+
+  return exist;
 }

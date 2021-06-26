@@ -1,0 +1,185 @@
+[
+    {
+        "description" : "Moving robots so they are not penalized on SET",
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-4.0, 1.0, 0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-4.0, 1.2, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 11.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [-4.0, 0.5, 0.08]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [11.0, 15.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "force" : [0, 15.0, 0]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "force" : [0, -15.0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [12.0, 16.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Pushing within team in penalty area -> No penalty (1)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Pushing within team in penalty area -> No penalty (2)",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Setting up variation b",
+        "timing" : {
+            "time" : 18.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2.6, 1.0, 0.3]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-2.0, 1.0, 0.24]
+            },
+            {
+                "target" : "BALL",
+                "position" : [-1.5, 1.0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "b. moving R1 -> R2",
+        "timing" : {
+            "time" : [18.001, 19.8],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0.3, 0.0, 0.2]
+            }
+        ]
+    },
+    {
+        "description" : "b. testing result",
+        "timing" : {
+            "time" : [20.0, 25.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Collision within team -> No penalty (1)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Collision within team -> No penalty (2)",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Setting up variation c",
+        "timing" : {
+            "time" : 26.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-1.8, 1.0, 0.3]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-1.2, 1.0, 0.3]
+            },
+            {
+                "target" : "BALL",
+                "position" : [3.5, 1.0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "c. moving R1 and R2 toward each other",
+        "timing" : {
+            "time" : [26.001, 28.5],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0.1, 0.0, 0.2]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "velocity" : [-0.1, 0.0, 0.2]
+            }
+        ]
+    },
+    {
+        "description" : "c. testing result",
+        "timing" : {
+            "time" : [29.0, 34.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Collision within team -> No penalty (3)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Collision within team -> No penalty (4)",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    }
+]

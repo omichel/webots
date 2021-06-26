@@ -17,7 +17,7 @@ end
 function M.ispointinpolygon(x, y, polygon)
   local wbcore = require('wbcore')
   local n = wbcore.tablelength(polygon)
-  if n < 3 then 
+  if n < 3 then
     return false
   end
   local inside = false
@@ -42,7 +42,7 @@ function M.ispointinpolygon(x, y, polygon)
     p1x = p2x
     p1y = p2y
   end
-  return inside  
+  return inside
 end
 
 -- return the closest points in the array

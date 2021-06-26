@@ -21,7 +21,13 @@
 
 #include <wren/frame_buffer.h>
 
+#ifdef __EMSCRIPTEN__
+#include <GL/gl.h>
+#include <GLES3/gl3.h>
+#include <emscripten.h>
+#else
 #include <glad/glad.h>
+#endif
 
 #include <algorithm>
 #include <numeric>
@@ -44,6 +50,15 @@ namespace wren {
 
     mOutputDrawBuffers.push_back(DrawBuffer(false, mOutputTextures.size()));
     mOutputTextures.push_back(texture);
+  }
+
+  void FrameBuffer::appendOutputTextureDisable(TextureRtt *texture) {
+    assert(mOutputDrawBuffers.size() <= static_cast<size_t>(glstate::maxFrameBufferDrawBuffers()));
+
+    mOutputDrawBuffers.push_back(DrawBuffer(false, mOutputTextures.size()));
+    mOutputTextures.push_back(texture);
+
+    mOutputDrawBuffers[mOutputDrawBuffers.size() - 1].mIsEnabled = false;
   }
 
   void FrameBuffer::appendOutputRenderBuffer(WrTextureInternalFormat format) {
@@ -173,8 +188,14 @@ namespace wren {
 
     const Texture::GlFormatParams &params = drawBufferFormat(index);
     const int rowIndex = flipY ? (mHeight - 1 - y) : y;
-    glGetBufferSubData(GL_PIXEL_PACK_BUFFER, params.mPixelSize * (rowIndex * mWidth + x), params.mPixelSize, data);
 
+#ifdef __EMSCRIPTEN__
+    int offset = params.mPixelSize * (rowIndex * mWidth + x);
+    EM_ASM_({ Module.ctx.getBufferSubData(Module.ctx.PIXEL_PACK_BUFFER, $2, HEAPU8.subarray($0, $0 + $1)); }, data,
+            params.mPixelSize, offset);
+#else
+    glGetBufferSubData(GL_PIXEL_PACK_BUFFER, params.mPixelSize * (rowIndex * mWidth + x), params.mPixelSize, data);
+#endif
     glstate::bindPixelPackBuffer(currentPixelPackBuffer);
   }
 
@@ -184,7 +205,12 @@ namespace wren {
     const unsigned int currentReadFrameBuffer = glstate::boundReadFrameBuffer();
 
     glstate::bindReadFrameBuffer(mGlName);
+
+#ifdef __EMSCRIPTEN__
+    glReadPixels(x, (flipY ? mHeight - 1 - y : y), 1, 1, GL_RGBA, GL_FLOAT, data);
+#else
     glReadPixels(x, (flipY ? mHeight - 1 - y : y), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, data);
+#endif
     if (config::requiresDepthBufferDistortion()) {
       GLfloat *fData = (GLfloat *)data;
       fData[0] = fData[0] * fData[0];
@@ -239,6 +265,10 @@ namespace wren {
       return mOutputTextures[mOutputDrawBuffers[index].mStorageIndex]->glFormatParams();
   }
 
+  void FrameBuffer::swapTexture(TextureRtt *texture) {
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture->glName(), 0);
+  }
+
   void FrameBuffer::prepareGl() {
     assert(!mGlName);
     assert(mWidth && mHeight);
@@ -266,7 +296,8 @@ namespace wren {
         } else
           assert(texture->width() == mWidth && texture->height() == mHeight);
 
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, texture->glName(), 0);
+        if (mOutputDrawBuffers[i].mIsEnabled)
+          glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, texture->glName(), 0);
       }
     }
 
@@ -330,6 +361,11 @@ void wr_frame_buffer_delete(WrFrameBuffer *frame_buffer) {
 
 void wr_frame_buffer_append_output_texture(WrFrameBuffer *frame_buffer, WrTextureRtt *texture) {
   reinterpret_cast<wren::FrameBuffer *>(frame_buffer)->appendOutputTexture(reinterpret_cast<wren::TextureRtt *>(texture));
+}
+
+void wr_frame_buffer_append_output_texture_disable(WrFrameBuffer *frame_buffer, WrTextureRtt *texture) {
+  reinterpret_cast<wren::FrameBuffer *>(frame_buffer)
+    ->appendOutputTextureDisable(reinterpret_cast<wren::TextureRtt *>(texture));
 }
 
 void wr_frame_buffer_set_depth_texture(WrFrameBuffer *frame_buffer, WrTextureRtt *texture) {

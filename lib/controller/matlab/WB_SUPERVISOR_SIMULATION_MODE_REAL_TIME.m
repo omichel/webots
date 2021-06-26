@@ -1,2 +1,0 @@
-function value = WB_SUPERVISOR_SIMULATION_MODE_REAL_TIME
-value = 1;

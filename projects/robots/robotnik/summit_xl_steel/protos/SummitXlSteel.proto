@@ -1,0 +1,499 @@
+#VRML_SIM R2021b utf8
+# license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+# license url: https://cyberbotics.com/webots_assets_license
+# documentation url: https://www.cyberbotics.com/doc/guide/summit-xl-steel
+# Designed by Robotnik, Summit-XL Steel is a four-wheeled (mecanum) robot used for logistics and indoor transport.
+# It is well-suited for industries, as its design enables it to carry a payload of up to 250 kg.
+
+PROTO SummitXlSteel [
+  field  SFVec3f     translation     0 0 0.118           # Is `Transform.translation`.
+  field  SFRotation  rotation        0 0 1 0             # Is `Transform.rotation`.
+  field  SFString    name            "Summit-XL Steel"   # Is `Robot.name`.
+  field  SFString    controller      "keyboard_control"  # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                  # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""                  # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE               # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                # Is `Robot.synchronization`.
+  field  MFNode      frontLidarSlot  []                  # Extends the robot with a front lidar sensor.
+  field  MFNode      backLidarSlot   []                  # Extends the robot with a back lidar sensor.
+  field  MFNode      bodySlot        []                  # Extends the robot with new nodes (such as the Robotino3Platform for example).
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    name IS name
+    children [
+      Shape {
+        appearance PBRAppearance {
+          baseColor 0 0 0
+          transparency 0
+          roughness 0.5
+          metalness 0.2
+          emissiveColor 0 0 0
+        }
+        geometry Mesh {
+          url [
+            "meshes/summit_xls_chassis.dae"
+          ]
+        }
+      }
+      Solid {
+        translation 0 0 0.39062
+        children [
+          Shape {
+            appearance DEF DARKGREY PBRAppearance {
+              baseColor 0.5 0.5 0.5
+              transparency 0
+              roughness 0
+              metalness 0.9
+              emissiveColor 0 0 0
+            }
+            geometry Mesh {
+              url [
+                "meshes/summit_xls_chapas_inox_tapas.stl"
+              ]
+            }
+          }
+        ]
+        name "base_chapa"
+      }
+      Solid {
+        translation 0.359 0 0.30062
+        children [
+          Shape {
+            appearance USE DARKGREY
+            geometry Mesh {
+              url [
+                "meshes/summit_xls_chapas_inox_tapas_front.stl"
+              ]
+            }
+          }
+        ]
+        name "base_chapa_front"
+      }
+      Solid {
+        translation 0 0.28931 0.29062
+        children [
+          DEF LOGO Shape {
+            appearance USE DARKGREY
+            geometry Mesh {
+              url [
+                "meshes/robotnik_logo_chasis.stl"
+              ]
+            }
+          }
+        ]
+        name "base_logo_left"
+      }
+      Solid {
+        translation 0 -0.28931 0.29062
+        rotation 0 0 1 3.141593
+        children [
+          USE LOGO
+        ]
+        name "base_logo_right"
+      }
+      Solid {
+        translation 0.345 0 0
+        rotation 0 0 -1 1.570796
+        children [
+          USE LOGO
+        ]
+        name "base_logo_front"
+      }
+      Solid {
+        translation -0.345 0 0
+        rotation 0 0 1 1.570796
+        children [
+          USE LOGO
+        ]
+        name "base_logo_rear"
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          position 0
+          axis 0 1 0
+          anchor 0.2225 -0.2045 0
+        }
+        device [
+          RotationalMotor {
+            name "front_right_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "front_right_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.22249917736358657 -0.20449996661010172 0.0031858493220075766
+          rotation 1 0 0 1.5708
+          children [
+            DEF INTERIOR_WHEEL Group{
+              children [
+                Shape {
+                  appearance DEF WHEEL_APPEARANCE PBRAppearance {
+                    baseColor 0.381347 0.381347 0.381347
+                    transparency 0
+                    roughness 0
+                    metalness 0.4
+                    emissiveColor 0.202 0.202 0.202
+                  }
+                  geometry Mesh {
+                    url [
+                      "meshes/omni_wheel_rims_int.dae"
+                    ]
+                  }
+                }
+                Shape {
+                  appearance DEF ROLLERS_APPEARANCE PBRAppearance {
+                    baseColor 0.081320 0.081320 0.081320
+                    transparency 0
+                    roughness 0.8
+                    metalness 0
+                    emissiveColor 0 0 0
+                  }
+                  geometry Mesh {
+                    url [
+                      "meshes/omni_wheel_rollers_int.dae"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+          contactMaterial "InteriorWheelMat"
+          name "front_right_wheel_link"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height 0.087
+                radius 0.123
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 6.5
+            centerOfMass [
+              0 0 0
+            ]
+            inertiaMatrix [
+              0.0303095 0.05241925 0.0303095
+              0 0 0
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          position 0
+          axis 0 1 0
+          anchor 0.2225 0.2045 0
+        }
+        device [
+          RotationalMotor {
+            name "front_left_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "front_left_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.2224991777388674 0.20450003337390876 0.0031841200540263536
+          rotation 1 0 0 1.5708
+          children [
+            DEF EXTERIOR_WHEEL Group{
+              children [
+                Shape {
+                  appearance USE WHEEL_APPEARANCE
+                  geometry Mesh {
+                    url [
+                      "meshes/omni_wheel_rims_ext.dae"
+                    ]
+                  }
+                }
+                Shape {
+                  appearance USE ROLLERS_APPEARANCE
+                  geometry Mesh {
+                    url [
+                      "meshes/omni_wheel_rollers_ext.dae"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+          contactMaterial "ExteriorWheelMat"
+          name "front_left_wheel_link"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height 0.087
+                radius 0.123
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 6.5
+            centerOfMass [
+              0 0 0
+            ]
+            inertiaMatrix [
+              0.0303095 0.05241925 0.0303095
+              0 0 0
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          position 0
+          axis 0 1 0
+          anchor -0.2225 0.2045 0
+        }
+        device [
+          RotationalMotor {
+            name "back_left_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "back_left_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.22250081187571416 0.2045000329443426 0.003137893294215752
+          rotation 1 0 0 1.5708
+          children [
+            USE INTERIOR_WHEEL
+          ]
+          contactMaterial "InteriorWheelMat"
+          name "back_left_wheel_link"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height 0.087
+                radius 0.123
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 6.5
+            centerOfMass [
+              0 0 0
+            ]
+            inertiaMatrix [
+              0.0303095 0.05241925 0.0303095
+              0 0 0
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          position 0
+          axis 0 1 0
+          anchor -0.2225 -0.2045 0
+        }
+        device [
+          RotationalMotor {
+            name "back_right_wheel_joint"
+            maxVelocity 100
+            maxTorque 100
+          }
+          PositionSensor {
+            name "back_right_wheel_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.2225008122870762 -0.20449996703966933 0.0031396225621880152
+          rotation 1 0 0 1.5708
+          children [
+            USE EXTERIOR_WHEEL
+          ]
+          contactMaterial "ExteriorWheelMat"
+          name "back_right_wheel_link"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height 0.087
+                radius 0.123
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 6.5
+            centerOfMass [
+              0 0 0
+            ]
+            inertiaMatrix [
+              0.0303095 0.05241925 0.0303095
+              0 0 0
+            ]
+          }
+        }
+      }
+      Solid {
+        translation 0.35 0 0.09
+        name "base_docking_contact"
+      }
+      DEF IMU Transform {
+        translation 0.127 -0.129 0.212
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.5 0.5 0.5
+              roughness 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.001 0.001 0.001
+            }
+          }
+          Accelerometer {
+            name "accelerometer"
+          }
+          Gyro {
+            name "gyro"
+          }
+          Compass {
+            name "compass"
+          }
+        ]
+      }
+      DEF RGBD Solid {
+        translation 0.3585 0 0.29062
+        children [
+          Solid {
+            translation 0.007 0 0
+            children [
+              Shape {
+                appearance Plastic {
+                  colorOverride 0.3 0.3 0.3
+                }
+                geometry Mesh {
+                  url [
+                    "meshes/orbbec_astra.dae"
+                  ]
+                }
+              }
+              Shape {
+                appearance Plastic {
+                  colorOverride 0 0 0
+                }
+                geometry Mesh {
+                  url [
+                    "meshes/orbbec_astra_cover.dae"
+                  ]
+                }
+              }
+            ]
+            name "front_rgbd_camera_link"
+            boundingObject Transform {
+              translation -0.02 0 0.015
+              children [
+                Box {
+                  size 0.04 0.165 0.03
+                }
+              ]
+            }
+          }
+          Camera {
+            translation 0 0 0.015
+            rotation -0.5774 0.5774 0.5774 -2.0944
+            name "rgb_camera"
+            fieldOfView 1.0472
+            width 1280
+            height 720
+          }
+          RangeFinder {
+            translation 0 0 0.015
+            rotation -0.5774 0.5774 0.5774 -2.0944
+            name "depth_camera"
+            fieldOfView 1.0472
+            minRange 0.6
+            maxRange 8
+            width 640
+            height 480
+          }
+        ]
+      }
+      GPS {
+        translation -0.365 -0.167 0.302
+        name "gps"
+      }
+      Transform{
+        translation 0 0 0.39062
+        children IS bodySlot
+      }
+      Transform {
+        translation 0.2865 -0.20894 0.193
+        rotation -0.8629 -0.3574 0.3574 1.7178
+        #rotation 0.9239 -0.3827 0 3.14159 # For FLU-oriented lidars.
+        children IS frontLidarSlot
+      }
+      Transform {
+        translation -0.2865 0.20894 0.193
+        rotation 0.2811 -0.6786 0.6786 -2.5936
+        #rotation 0.3827 0.9239 0 3.14159 # For FLU-oriented lidars.
+        children IS backLidarSlot
+      }
+
+    ]
+    boundingObject Group {
+      children [
+        Transform {
+         translation 0 0 0.3
+          children [
+            Box {
+              size 0.719 0.57861 0.18
+            }
+          ]
+        }
+        Transform {
+         translation 0 0 0.176
+          children [
+            Box {
+              size 0.524 0.27 0.06495
+            }
+          ]
+        }
+        Transform {
+          translation 0 0 0.046225
+          children [
+            Box {
+              size 0.69 0.27 0.1945
+            }
+          ]
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 125
+      centerOfMass [
+        0 0 0
+      ]
+      inertiaMatrix [
+        1.391 6.853 6.125
+        0.004 0 0
+      ]
+    }
+  }
+}

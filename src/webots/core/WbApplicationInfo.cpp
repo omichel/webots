@@ -14,7 +14,11 @@
 
 #include "WbApplicationInfo.hpp"
 #include "WbLog.hpp"
+#include "WbStandardPaths.hpp"
 #include "WbVersion.hpp"
+
+#include <QtCore/QFile>
+#include <QtCore/QTextStream>
 
 #include <stdio.h>
 #include <time.h>
@@ -31,6 +35,24 @@ const WbVersion &WbApplicationInfo::version() {
     firstCall = false;
   }
   return webotsVersion;
+}
+
+const QString &WbApplicationInfo::branch() {
+  static QString branchName;
+  static bool firstCall = true;
+
+  if (firstCall) {
+    QFile file(WbStandardPaths::webotsHomePath() + "resources/branch.txt");
+    if (file.open(QIODevice::ReadOnly)) {
+      QTextStream in(&file);
+      const QString line = in.readLine();
+      if (!line.isNull())
+        branchName = line;
+
+      file.close();
+    }
+  }
+  return branchName;
 }
 
 unsigned int WbApplicationInfo::releaseDate() {

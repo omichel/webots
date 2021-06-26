@@ -1692,7 +1692,7 @@ Restore initial state of the simulation. (%1+Shift+T)</source>
         <translation>Aggiungi</translation>
     </message>
     <message>
-        <source>Insert the identity matrix 
+        <source>Insert the identity matrix
  [ 1 1 1, 0 0 0]</source>
         <translation>Inserisci la matrice identità
  [ 1 1 1, 0 0 0]</translation>
@@ -3699,10 +3699,6 @@ The following file formats are supported:
         <translation>Apri il libro online di Webots per automobili.</translation>
     </message>
     <message>
-        <source>&amp;Offline documentation</source>
-        <translation>&amp;Documentazione offline</translation>
-    </message>
-    <message>
         <source>Open the Webots user guide in the documentation tool.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4380,7 +4376,7 @@ The following file formats are supported:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This DEF string is already used by subsequent USE and DEF nodes. Applying this change will modify all the USE nodes referring to previous node with same DEF name and USE nodes referring to the selected node. 
+        <source>This DEF string is already used by subsequent USE and DEF nodes. Applying this change will modify all the USE nodes referring to previous node with same DEF name and USE nodes referring to the selected node.
 Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>

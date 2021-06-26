@@ -1,96 +1,96 @@
 {
-  "robotID": "n10",
   "devices": [
     {
-      "minPosition": -3.14159265359,
+      "anchor": "0 -0.131 0.425",
+      "axis": "0 1 0",
       "maxPosition": 3.14159265359,
-      "transformID": "n191",
-      "type": "RotationalMotor",
+      "minPosition": -3.14159265359,
       "name": "elbow_joint",
-      "axis": "0 1 0",
       "position": 0,
-      "anchor": "0 -0.131 0.425"
+      "transformID": "n164",
+      "type": "RotationalMotor"
     },
     {
-      "minPosition": -6.28318530718,
+      "anchor": "0 0.138 0",
+      "axis": "0 1 0",
       "maxPosition": 6.28318530718,
-      "transformID": "n140",
-      "type": "RotationalMotor",
+      "minPosition": -6.28318530718,
       "name": "shoulder_lift_joint",
-      "axis": "0 1 0",
       "position": 0,
-      "anchor": "0 0.138 0"
+      "transformID": "n125",
+      "type": "RotationalMotor"
     },
     {
-      "minPosition": -6.28318530718,
+      "anchor": "0 0 0.163",
+      "axis": "0 0 1",
       "maxPosition": 6.28318530718,
-      "transformID": "n116",
-      "type": "RotationalMotor",
+      "minPosition": -6.28318530718,
       "name": "shoulder_pan_joint",
-      "axis": "0 0 1",
       "position": 0,
-      "anchor": "0 0 0.163"
+      "transformID": "n106",
+      "type": "RotationalMotor"
     },
     {
-      "minPosition": -6.28318530718,
+      "anchor": "0 0 0.392",
+      "axis": "0 1 0",
       "maxPosition": 6.28318530718,
-      "transformID": "n231",
-      "type": "RotationalMotor",
+      "minPosition": -6.28318530718,
       "name": "wrist_1_joint",
-      "axis": "0 1 0",
       "position": 0,
-      "anchor": "0 0 0.392"
+      "transformID": "n195",
+      "type": "RotationalMotor"
     },
     {
-      "minPosition": -6.28318530718,
-      "maxPosition": 6.28318530718,
-      "transformID": "n255",
-      "type": "RotationalMotor",
-      "name": "wrist_2_joint",
+      "anchor": "0 0.127 0",
       "axis": "0 0 1",
-      "position": 0,
-      "anchor": "0 0.127 0"
-    },
-    {
-      "minPosition": -6.28318530718,
       "maxPosition": 6.28318530718,
-      "transformID": "n279",
-      "type": "RotationalMotor",
-      "name": "wrist_3_joint",
-      "axis": "0 1 0",
+      "minPosition": -6.28318530718,
+      "name": "wrist_2_joint",
       "position": 0,
-      "anchor": "0 0 0.1"
+      "transformID": "n214",
+      "type": "RotationalMotor"
     },
     {
-      "type": "PositionSensor",
-      "transformID": "n191",
-      "name": "elbow_joint_sensor"
+      "anchor": "0 0 0.1",
+      "axis": "0 1 0",
+      "maxPosition": 6.28318530718,
+      "minPosition": -6.28318530718,
+      "name": "wrist_3_joint",
+      "position": 0,
+      "transformID": "n233",
+      "type": "RotationalMotor"
     },
     {
-      "type": "PositionSensor",
-      "transformID": "n140",
-      "name": "shoulder_lift_joint_sensor"
+      "name": "elbow_joint_sensor",
+      "transformID": "n164",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
-      "transformID": "n116",
-      "name": "shoulder_pan_joint_sensor"
+      "name": "shoulder_lift_joint_sensor",
+      "transformID": "n125",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
-      "transformID": "n231",
-      "name": "wrist_1_joint_sensor"
+      "name": "shoulder_pan_joint_sensor",
+      "transformID": "n106",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
-      "transformID": "n255",
-      "name": "wrist_2_joint_sensor"
+      "name": "wrist_1_joint_sensor",
+      "transformID": "n195",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
-      "transformID": "n279",
-      "name": "wrist_3_joint_sensor"
+      "name": "wrist_2_joint_sensor",
+      "transformID": "n214",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "wrist_3_joint_sensor",
+      "transformID": "n233",
+      "type": "PositionSensor"
     }
   ],
-  "name": "ure"
+  "name": "ure",
+  "robotID": "n10"
 }

@@ -45,6 +45,9 @@ PYTHON_PATH_SETUP := $(shell mkdir -p $(WEBOTS_CONTROLLER_LIB_PATH)/python$(PYTH
 ifeq ($(OSTYPE),windows)
 PYTHON_HOME    := $(subst \ ,$(space),$(dir $(subst $(space),\ ,$(shell which python 2> /dev/null))))
 C_FLAGS         = -c -O -Wall -Wno-maybe-uninitialized
+ifeq ($(PYTHON_SHORT_VERSION),39)
+C_FLAGS          += -Wno-deprecated-declarations
+endif
 LD_FLAGS        = -shared
 LIBS            = -L"$(PYTHON_HOME)libs" -lpython$(PYTHON_SHORT_VERSION) -L$(WEBOTS_CONTROLLER_LIB_PATH) -lController -lCppController
 LIBOUT          = $(addprefix $(WEBOTS_CONTROLLER_LIB_PATH)/python$(PYTHON_SHORT_VERSION)/_,$(INTERFACE:.i=.pyd))
@@ -69,6 +72,9 @@ ifeq ($(PYTHON_SHORT_VERSION),38)
 C_FLAGS          += -Wno-deprecated-declarations
 endif
 endif
+ifeq ($(PYTHON_SHORT_VERSION),39)
+C_FLAGS          += -Wno-deprecated-declarations
+endif
 ifeq ($(findstring llvm-g++,$(shell ls -lF $(shell which c++ 2> /dev/null))),)
 C_FLAGS        += -Wno-self-assign
 endif
@@ -82,7 +88,10 @@ endif
 
 ifeq ($(OSTYPE),linux)
 C_FLAGS         = -c -Wall -fPIC -Wno-unused-but-set-variable -Wno-maybe-uninitialized
-LD_FLAGS        = -shared
+ifeq ($(PYTHON_SHORT_VERSION),39)
+C_FLAGS          += -Wno-deprecated-declarations
+endif
+LD_FLAGS        = -shared -Wl,-rpath,'$$ORIGIN'/../
 LIBS            = -L$(WEBOTS_CONTROLLER_LIB_PATH) -lController -lCppController
 LIBOUT          = $(addprefix $(WEBOTS_CONTROLLER_LIB_PATH)/python$(PYTHON_SHORT_VERSION)/_,$(INTERFACE:.i=.so))
 PYTHON_INCLUDES = -I"/usr/include/python$(PYTHON_VERSION)"
@@ -97,6 +106,9 @@ TARGET          = $(PYOUT) $(LIBOUT)
 ifeq (, $(shell which $(PYTHON_COMMAND) 2> /dev/null))
 release debug profile:
 	@echo -e "# \033[0;33m$(PYTHON_COMMAND) not installed, skipping Python API\033[0m"
+else ifeq (, $(shell which $(PYTHON_COMMAND)-config 2> /dev/null))
+release debug profile:
+	@echo -e "# \033[0;33m$(PYTHON_COMMAND)-dev not installed, skipping Python API\033[0m"
 else ifeq ($(SWIG_EXISTS),)
 release debug profile:
 	@echo -e "# \033[0;33mSWIG not installed, skipping Python API\033[0m"

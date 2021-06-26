@@ -30,6 +30,7 @@ The default is that all three axes are enabled (TRUE).
 
 - `resolution`: This field allows to define the resolution of the sensor, the resolution is the smallest change that it is able to measure.
 Setting this field to -1 (default) means that the sensor has an 'infinite' resolution (it can measure any infinitesimal change).
+The raw measurement is first interpolated according to the lookup table and subsequently sampled with respect to the specified resolution, if one is defined.
 This field accepts any value in the interval (0.0, inf).
 
 ### Gyro Functions

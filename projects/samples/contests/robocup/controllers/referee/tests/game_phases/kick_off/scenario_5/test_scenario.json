@@ -1,0 +1,94 @@
+[
+    {
+        "description" : "placing robots for kick-off",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-1.0,0,0.24],
+                "orientation" : [0,0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, robot not penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: valid pos for B2",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Robot moves to the ball",
+        "timing" : {
+            "time" : 12.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-0.20,0,0.24],
+                "orientation" : [0,0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Robot touches the ball",
+        "timing" : {
+            "time" : 13.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-60,0,0]
+            }
+        ]
+    },
+    {
+        "description" : "Ball goes straight to the goal",
+        "timing" : {
+            "time" : 14.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [120,-20,30]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Red did not score a goal",
+                "target" : "RED",
+                "score" : 0
+            },
+            {
+                "name" : "Blue did score a goal",
+                "target" : "BLUE",
+                "score" : 1
+            }
+        ]
+    }
+]

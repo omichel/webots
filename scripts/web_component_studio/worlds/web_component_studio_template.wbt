@@ -1,5 +1,6 @@
 #VRML_SIM R2021b utf8
 WorldInfo {
+  coordinateSystem "NUE"	
 }
 DEF VIEWPOINT Viewpoint {
   orientation %VIEWPOINT_ORIENTATION%

@@ -169,4 +169,4 @@ For example, if you want to be able to use the distance sensor of the real robot
 
 A complete sample (communicating with the e-puck robot using bluetooth) can be found in this directory:
 
-`WEBOTS_HOME/projects/robots/e-puck/plugins/remote_controls/e-puck_bluetooth`
+`WEBOTS_HOME/projects/robots/gctronic/e-puck/plugins/remote_controls/e-puck_bluetooth`

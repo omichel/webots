@@ -128,7 +128,6 @@ private:
   WbSharedMemory *mSegmentationShm;
   bool mHasSegmentationSharedMemoryChanged;
   bool mSegmentationImageChanged;
-  bool mSegmentationImageReady;
   // URL downloader
   WbDownloader *mDownloader;
 

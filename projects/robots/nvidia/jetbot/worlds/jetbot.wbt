@@ -1,0 +1,269 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "JetBot basic motion performed using a C controller."
+  ]
+  title "JetBot Basic Motion"
+  contactProperties [
+    ContactProperties {
+      material1 "jetbot rear wheel"
+      coulombFriction [
+        0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.8354587994377837 -0.3317611784738595 -0.43811313025246507 1.472666643359735
+  position 0.13078341062684223 -0.2980874126798468 0.754485847485187
+}
+TexturedBackground {
+  texture "empty_office"
+}
+CeilingLight {
+  translation 0 0 2.4
+  rotation 1 0 0 1.5707996938995747
+  pointLightRadius 0.1
+  castShadows FALSE
+}
+SpotLight {
+  attenuation 0 0 1
+  beamWidth 0.7
+  cutOffAngle 0.9
+  direction 0 -1 0
+  intensity 0.8
+  location 0.45 1.6 0
+  radius 4
+  castShadows TRUE
+}
+Floor {
+  rotation 1 0 0 1.5707996938995747
+  size 5.2 4
+  tileSize 1 1
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "textures/square_block_parquetry.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+}
+DEF CEILING Solid {
+  translation 0 0 2.4
+  rotation 1 0 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance Roughcast {
+      }
+      geometry Plane {
+        size 5.2 4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "ceiling"
+}
+DEF DOOR_WALL Solid {
+  translation -2.6 -0.786 1.2
+  rotation 0 0 1 -1.5708
+  children [
+    Shape {
+      appearance DEF WALL_APPEARANCE Roughcast {
+        colorOverride 0.720668 0.883192 0.940002
+        textureTransform TextureTransform {
+          scale 5 4
+        }
+      }
+      geometry DEF DOOR_WALL_SHAPE Plane {
+        size 2.43 2.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "wall"
+  boundingObject USE DOOR_WALL_SHAPE
+}
+DEF DOOR_WALL Solid {
+  translation -2.6 1.714 1.2
+  rotation 0 0 1 -1.5708
+  children [
+    Shape {
+      appearance USE WALL_APPEARANCE
+      geometry DEF DOOR_WALL_SHAPE Plane {
+        size 0.58 2.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "wall(5)"
+  boundingObject USE DOOR_WALL_SHAPE
+}
+Door {
+  translation -2.59397 0.927 0.023
+  rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.09439
+  size 1 2.38 0.001
+  canBeOpen FALSE
+  doorThickness 0.02
+  frameSize 0.05 0.05 0.04
+  wallAppearance USE WALL_APPEARANCE
+  doorHandle DoorLever {
+    hasStaticParent TRUE
+  }
+  castShadows FALSE
+}
+DEF BACK_WALL Solid {
+  translation 2.6 0 1.2
+  rotation 0 0 1 1.5708
+  children [
+    DEF WALL Shape {
+      appearance USE WALL_APPEARANCE
+      geometry Plane {
+        size 4 2.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "wall(1)"
+  boundingObject USE WALL
+}
+DEF WINDOW_WALL Solid {
+  translation 1.6 -2 1.2
+  children [
+    DEF WALL Shape {
+      appearance USE WALL_APPEARANCE
+      geometry Plane {
+        size 2.008 2.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "wall(2)"
+  boundingObject USE WALL
+}
+DEF WINDOW_WALL Solid {
+  translation -2.185 -2 1.2
+  children [
+    DEF WALL Shape {
+      appearance USE WALL_APPEARANCE
+      geometry Plane {
+        size 0.82 2.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "wall(3)"
+  boundingObject USE WALL
+}
+DEF BLACKBOARD_WALL Solid {
+  translation 0 2 1.2
+  rotation 0 0 1 3.14159
+  children [
+    DEF WALL Shape {
+      appearance USE WALL_APPEARANCE
+      geometry Plane {
+        size 5.2 2.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "wall(4)"
+  boundingObject USE WALL
+}
+Window {
+  translation -1.18 -2.005 0
+  rotation 1 0 0 1.5707996938995747
+  size 1.2 2.4 0.01
+  windowSillSize 0.1 0.04
+  wallAppearance USE WALL_APPEARANCE
+  castShadows FALSE
+}
+Window {
+  translation 0.02 -2.005 0
+  rotation 1 0 0 1.5707996938995747
+  name "window(1)"
+  size 1.2 2.4 0.01
+  windowSillSize 0.1 0.04
+  wallAppearance USE WALL_APPEARANCE
+  castShadows FALSE
+}
+Cabinet {
+  translation 2.59145 1.34553 2.77953e-07
+  rotation 0.5773509358554486 -0.5773489358556709 -0.5773509358554486 2.094395307179586
+  columnsWidths [
+    0.7, 0.34, 0.17
+  ]
+}
+Cabinet {
+  translation 2.59145 0.17553 -2.56223e-06
+  rotation -0.5773509358554485 0.5773489358556708 0.5773509358554485 -2.094395307179586
+  name "cabinet(1)"
+  rowsHeights [
+    1.44
+  ]
+  columnsWidths [
+    0.5, 0.5
+  ]
+  layout [
+    "RightSidedDoor (1, 1, 1, 1, 1.5)"
+    "LeftSidedDoor (2, 1,1,1, 1.5)"
+  ]
+}
+Book {
+  translation 2.20088 1.8117 0.5
+  rotation -1 0 0 -5.307179586466759e-06
+}
+Screwdriver {
+  translation 2.20088 1.4517 0.5
+  rotation 0.8628559982596194 0.35740699927911007 -0.35740699927911007 -1.7177753071795863
+}
+Blackboard {
+  translation -0.117255 1.98728 1.25
+  rotation 1 0 0 1.57079
+  castShadows FALSE
+}
+Clock {
+  translation -2.57596 -0.897365 1.96
+  rotation 0.5773506025225371 0.5773496025232256 0.5773506025225371 2.0944
+}
+PottedTree {
+  translation 2.03144 -1.2296 0
+  rotation 1 0 0 1.5707996938995747
+}
+Desk {
+  translation -1.71246 -0.75833 -3.64153e-14
+  rotation 2.134600848835888e-07 0.7071052811843439 0.7071082811855368 3.14159
+}
+WoodenChair {
+  translation -1.76157 -1.41101 6.48371e-14
+  rotation -0.09269200858898095 0.70406206523945 0.7040630652395428 -2.9567353071795863
+}
+WoodenChair {
+  translation -0.851899 -1.43187 1.77636e-15
+  rotation -0.37796500919399895 0.6546530159244348 0.6546540159244592 -2.4188553071795864
+  name "wooden chair(1)"
+}
+Laptop {
+  translation -1.52489 -0.762533 0.72
+  rotation 0.18615701608601462 0.6947450600336179 0.6947480600338772 2.77349
+  controller ""
+}
+Table {
+  translation 0.411788 0.19985 1.24345e-14
+  rotation -0.5773509358554485 0.5773489358556708 0.5773509358554485 -2.094395307179586
+  size 1.8 0.61 1
+  feetSize 0.05 0.4
+  feetPadding 0.1
+}
+DEF JETBOT JetBot {
+  translation 0.4 0 0.61
+  rotation 0 0 1 -1.5707953071795862
+  supervisor TRUE
+  cameraSlot JetBotRaspberryPiCamera {
+    translation 0 0.042 0.0488
+    rotation -0.1628450388833288 -0.1628450388833288 0.9731202323568112 -1.5980453071795866
+    width 224
+    height 224
+  }
+}

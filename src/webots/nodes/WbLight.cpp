@@ -235,27 +235,4 @@ void WbLight::exportNodeFields(WbVrmlWriter &writer) const {
   findField("intensity", true)->write(writer);
   findField("ambientIntensity", true)->write(writer);
   findField("castShadows", true)->write(writer);
-  if (writer.isX3d() && castShadows()) {
-    QMap<QString, QString> x3dExportParameters = WbWorld::instance()->perspective()->x3dExportParameters();
-    if (x3dExportParameters.contains("shadowMapSize"))
-      writer << " shadowMapSize=\'" << x3dExportParameters.value("shadowMapSize") << "\'";
-    else
-      writer << " shadowMapSize=\'" << defaultX3dShadowsParameter("shadowMapSize") << "\'";
-    if (x3dExportParameters.contains("shadowRadius") && !x3dExportParameters.value("shadowRadius").isEmpty())
-      writer << " shadowRadius=\'" << x3dExportParameters.value("shadowRadius") << "\'";
-    if (x3dExportParameters.contains("shadowBias") && !x3dExportParameters.value("shadowBias").isEmpty())
-      writer << " shadowBias=\'" << x3dExportParameters.value("shadowBias") << "\'";
-  }
-}
-
-QString WbLight::defaultX3dShadowsParameter(const QString &parameterName) {
-  if (parameterName == "shadowMapSize")
-    return "2048";
-  else if (parameterName == "shadowFilterSize")
-    return "0";
-  else if (parameterName == "shadowsCascades")
-    return "0";
-  else if (parameterName == "shadowIntensity")
-    return "0.5";
-  return QString();
 }

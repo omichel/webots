@@ -1,86 +1,86 @@
 {
-  "name": "puma",
-  "robotID": "n10",
   "devices": [
     {
       "anchor": "0 0.669 0",
-      "maxPosition": 2.792,
-      "type": "RotationalMotor",
       "axis": "0 1 0",
+      "maxPosition": 2.792,
       "minPosition": -2.792,
-      "transformID": "n32",
+      "name": "joint1",
       "position": 0,
-      "name": "joint1"
+      "transformID": "n32",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 -0.1622",
-      "maxPosition": 0.7854,
-      "type": "RotationalMotor",
       "axis": "0 0 -1",
+      "maxPosition": 0.7854,
       "minPosition": -3.9269,
-      "transformID": "n49",
+      "name": "joint2",
       "position": 0,
-      "name": "joint2"
+      "transformID": "n49",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.42 0 0.086",
-      "maxPosition": 3.9269,
-      "type": "RotationalMotor",
       "axis": "0 0 -1",
+      "maxPosition": 3.9269,
       "minPosition": -0.7854,
-      "transformID": "n75",
+      "name": "joint3",
       "position": 0,
-      "name": "joint3"
+      "transformID": "n75",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "-0.02 0.353 -0.074",
-      "maxPosition": 2.967,
-      "type": "RotationalMotor",
       "axis": "0 1 0",
+      "maxPosition": 2.967,
       "minPosition": -1.9198,
-      "transformID": "n79",
+      "name": "joint4",
       "position": 0,
-      "name": "joint4"
+      "transformID": "n79",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0.079 0",
-      "maxPosition": 1.7453,
-      "type": "RotationalMotor",
       "axis": "0 0 -1",
+      "maxPosition": 1.7453,
       "minPosition": -1.7453,
-      "transformID": "n83",
+      "name": "joint5",
       "position": 0,
-      "name": "joint5"
+      "transformID": "n83",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 -0.08 0",
-      "maxPosition": 4.6425,
-      "type": "RotationalMotor",
       "axis": "0 1 0",
+      "maxPosition": 4.6425,
       "minPosition": -4.6425,
+      "name": "joint6",
+      "position": 0,
       "transformID": "n91",
-      "position": 0,
-      "name": "joint6"
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "maxPosition": 0.01,
-      "type": "LinearMotor",
       "axis": "1 0 0",
+      "maxPosition": 0.01,
       "minPosition": -0.004,
-      "transformID": "n124",
+      "name": "joint_GripperL",
       "position": 0,
-      "name": "joint_GripperL"
+      "transformID": "n124",
+      "type": "LinearMotor"
     },
     {
       "anchor": "0 0 0",
-      "maxPosition": 0.01,
-      "type": "LinearMotor",
       "axis": "-1 0 0",
+      "maxPosition": 0.01,
       "minPosition": -0.004,
-      "transformID": "n109",
+      "name": "joint_GripperR",
       "position": 0,
-      "name": "joint_GripperR"
+      "transformID": "n109",
+      "type": "LinearMotor"
     }
-  ]
+  ],
+  "name": "puma",
+  "robotID": "n10"
 }

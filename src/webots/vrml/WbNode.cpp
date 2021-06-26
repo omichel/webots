@@ -84,7 +84,8 @@ const QStringList WbNode::cHiddenParameterNames = QStringList() << "translation"
                                                                 << "linearVelocity"
                                                                 << "angularVelocity"
                                                                 << "position"
-                                                                << "position2";
+                                                                << "position2"
+                                                                << "position3";
 
 void WbNode::setInstantiateMode(bool mode) {
   gInstantiateMode = mode;
@@ -551,9 +552,12 @@ int WbNode::numFields() const {
 }
 
 WbField *WbNode::field(int index, bool internal) const {
+  if (index < 0)
+    return NULL;
   if (internal)
-    return mFields[index];
-  return fieldsOrParameters().at(index);
+    return index < mFields.size() ? mFields.at(index) : NULL;
+  const QVector<WbField *> &fields = fieldsOrParameters();
+  return index < fields.size() ? fields.at(index) : NULL;
 }
 
 WbField *WbNode::findField(const QString &fieldName, bool internal) const {
@@ -2217,14 +2221,15 @@ QString WbNode::getUrdfPrefix() const {
 }
 
 /*
+#include <QtCore/QDebug>
 void WbNode::printDebugNodeStructure(int level) {
   QString indent;
   for (int i = 0; i < level; ++i)
     indent += "  ";
 
   QString line;
-  line.sprintf("%sNode %s %p parameterNode %p", indent.toStdString().c_str(), usefulName().toStdString().c_str(), this,
-               protoParameterNode());
+  line.sprintf("%sNode %s %p id %d parameterNode %p", indent.toStdString().c_str(), usefulName().toStdString().c_str(), this,
+               uniqueId(), protoParameterNode());
   qDebug() << line;
   printDebugNodeFields(level, true);
   printDebugNodeFields(level, false);

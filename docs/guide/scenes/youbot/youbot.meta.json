@@ -1,169 +1,169 @@
 {
   "devices": [
     {
-      "type": "RotationalMotor",
       "anchor": "0 0 0.077",
-      "minPosition": -2.9496,
+      "axis": "0 0 1",
       "maxPosition": 2.9496,
-      "transformID": "n41",
+      "minPosition": -2.9496,
       "name": "arm1",
       "position": 0,
-      "axis": "0 0 1"
+      "transformID": "n41",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0.033 0 0.07",
-      "minPosition": -1.13446,
+      "axis": "0 -1 0",
       "maxPosition": 1.5708,
-      "transformID": "n61",
+      "minPosition": -1.13446,
       "name": "arm2",
       "position": 0,
-      "axis": "0 -1 0"
+      "transformID": "n61",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0 0 0.155",
-      "minPosition": -2.63545,
+      "axis": "0 -1 0",
       "maxPosition": 2.54818,
-      "transformID": "n79",
+      "minPosition": -2.63545,
       "name": "arm3",
       "position": 0,
-      "axis": "0 -1 0"
+      "transformID": "n79",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0 0 0.135",
-      "minPosition": -1.78024,
+      "axis": "0 -1 0",
       "maxPosition": 1.78024,
-      "transformID": "n103",
+      "minPosition": -1.78024,
       "name": "arm4",
       "position": 0,
-      "axis": "0 -1 0"
+      "transformID": "n103",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0 0 0.081",
-      "minPosition": -2.92343,
+      "axis": "0 0 1",
       "maxPosition": 2.92343,
-      "transformID": "n119",
+      "minPosition": -2.92343,
       "name": "arm5",
       "position": 0,
-      "axis": "0 0 1"
+      "transformID": "n119",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0.228 -0.158 -0.055",
-      "minPosition": 0,
+      "axis": "0 1 0",
       "maxPosition": 0,
-      "transformID": "n179",
+      "minPosition": 0,
       "name": "wheel1",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n179",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "0.228 0.158 -0.055",
-      "minPosition": 0,
+      "axis": "0 1 0",
       "maxPosition": 0,
-      "transformID": "n220",
+      "minPosition": 0,
       "name": "wheel2",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n220",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "-0.228 -0.158 -0.055",
-      "minPosition": 0,
+      "axis": "0 1 0",
       "maxPosition": 0,
-      "transformID": "n261",
+      "minPosition": 0,
       "name": "wheel3",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n261",
+      "type": "RotationalMotor"
     },
     {
-      "type": "RotationalMotor",
       "anchor": "-0.228 0.158 -0.055",
-      "minPosition": 0,
+      "axis": "0 1 0",
       "maxPosition": 0,
-      "transformID": "n302",
+      "minPosition": 0,
       "name": "wheel4",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n302",
+      "type": "RotationalMotor"
     },
     {
-      "type": "LinearMotor",
       "anchor": "0 0 0",
-      "minPosition": 0,
+      "axis": "0 1 0",
       "maxPosition": 0.025,
-      "transformID": "n128",
+      "minPosition": 0,
       "name": "finger1",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n128",
+      "type": "LinearMotor"
     },
     {
-      "type": "LinearMotor",
       "anchor": "0 0 0",
-      "minPosition": 0,
+      "axis": "0 -1 0",
       "maxPosition": 0.025,
-      "transformID": "n143",
+      "minPosition": 0,
       "name": "finger2",
       "position": 0,
-      "axis": "0 -1 0"
+      "transformID": "n143",
+      "type": "LinearMotor"
     },
     {
       "name": "arm1sensor",
-      "type": "PositionSensor",
-      "transformID": "n41"
+      "transformID": "n41",
+      "type": "PositionSensor"
     },
     {
       "name": "arm2sensor",
-      "type": "PositionSensor",
-      "transformID": "n61"
+      "transformID": "n61",
+      "type": "PositionSensor"
     },
     {
       "name": "arm3sensor",
-      "type": "PositionSensor",
-      "transformID": "n79"
+      "transformID": "n79",
+      "type": "PositionSensor"
     },
     {
       "name": "arm4sensor",
-      "type": "PositionSensor",
-      "transformID": "n103"
+      "transformID": "n103",
+      "type": "PositionSensor"
     },
     {
       "name": "arm5sensor",
-      "type": "PositionSensor",
-      "transformID": "n119"
+      "transformID": "n119",
+      "type": "PositionSensor"
     },
     {
       "name": "finger1sensor",
-      "type": "PositionSensor",
-      "transformID": "n128"
+      "transformID": "n128",
+      "type": "PositionSensor"
     },
     {
       "name": "finger2sensor",
-      "type": "PositionSensor",
-      "transformID": "n143"
+      "transformID": "n143",
+      "type": "PositionSensor"
     },
     {
       "name": "wheel1sensor",
-      "type": "PositionSensor",
-      "transformID": "n179"
+      "transformID": "n179",
+      "type": "PositionSensor"
     },
     {
       "name": "wheel2sensor",
-      "type": "PositionSensor",
-      "transformID": "n220"
+      "transformID": "n220",
+      "type": "PositionSensor"
     },
     {
       "name": "wheel3sensor",
-      "type": "PositionSensor",
-      "transformID": "n261"
+      "transformID": "n261",
+      "type": "PositionSensor"
     },
     {
       "name": "wheel4sensor",
-      "type": "PositionSensor",
-      "transformID": "n302"
+      "transformID": "n302",
+      "type": "PositionSensor"
     }
   ],
   "name": "youbot",

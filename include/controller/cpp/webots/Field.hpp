@@ -51,9 +51,13 @@ namespace webots {
       MF_NODE
     } Type;
 
+    std::string getName() const;
     Type getType() const;
     std::string getTypeName() const;
     int getCount() const;
+
+    void enableSFTracking(int samplingPeriod);
+    void disableSFTracking();
 
     bool getSFBool() const;
     int getSFInt32() const;

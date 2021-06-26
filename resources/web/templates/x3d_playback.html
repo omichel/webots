@@ -4,36 +4,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>%title%</title>
-    <link type="text/css" href="https://www.cyberbotics.com/jquery-ui/1.11.4/jquery-ui.min.css" rel="stylesheet"/>
-    <link type="text/css" href="https://www.cyberbotics.com/wwi/R2021b/wwi.css" rel="stylesheet"/>
     <style>
       html, body {
         padding:0;
         height: 100%;
       }
-      #view3d {
-        height: calc(100% - 250px);
-        width: 100%;
-      }
     </style>
-    <script src="https://www.cyberbotics.com/jquery/1.11.3/jquery.min.js" ></script>
-    <script src="https://www.cyberbotics.com/jquery-ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://www.cyberbotics.com/jquery-dialogextend/2.0.4/jquery.dialogextend.min.js"></script>
-    <script src="https://www.cyberbotics.com/ace/1.2.0/ace.js"></script>
-    <script src="https://www.cyberbotics.com/wwi/R2021b/webots.min.js"></script>
-    <script>
-      function init() {
-          var view = new webots.View(document.getElementById("view3d"));
-          view.open("%x3dFilename%");%setAnimation%
-      }
-      window.addEventListener("load", init, false);
-      if (location.protocol == "file:" && (!!window.chrome && !!window.chrome.webstore))
-        alert("Webots HTML5 Models and Animations cannot be loaded locally on Google Chrome, as Chrome does not support cross-origin requests using the file:// protocol.");
-    </script>
+    <script type="module" src="https://cyberbotics.com/wwi/R2021b/WebotsAnimation.js"></script>
   </head>
   <body>
-    <h1>%title%</h1>
-    <div id="view3d"></div>
-    <p>%description%</p>
+    <h1 style="height:5%">%title%</h1>
+    <webots-animation style="height:80%; display:block;"></webots-animation>
+    <p style="height:5%">If the animation is not loading correctly, please refer to the <a style='color: #5DADE2;' target:'_blank' href='https://cyberbotics.com/doc/guide/web-scene#remarks-on-the-used-technologies-and-their-limitations'>User Guide</a>
+      it could be that your browser prevents local files CORS requests.</p>
+    <p style="height:5%">%description%</p>
   </body>
 </html>

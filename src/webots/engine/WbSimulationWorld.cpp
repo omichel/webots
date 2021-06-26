@@ -72,6 +72,10 @@ WbSimulationWorld::WbSimulationWorld(WbProtoList *protos, WbTokenizer *tokenizer
 
   mSleepRealTime = basicTimeStep();
 
+  WbPerformanceLog *log = WbPerformanceLog::instance();
+  if (log)
+    log->setTimeStep(basicTimeStep());
+
   WbSimulationState::instance()->resetTime();
   // Reset random seed to ensure reproducible simulations.
   updateRandomSeed();
@@ -119,6 +123,9 @@ WbSimulationWorld::WbSimulationWorld(WbProtoList *protos, WbTokenizer *tokenizer
   WbRadio::createAndSetupPluginObjects();
 
   WbSoundEngine::setWorld(this);
+
+  if (log)
+    log->stopMeasure(WbPerformanceLog::LOADING);
 
   connect(mTimer, &QTimer::timeout, this, &WbSimulationWorld::triggerStepFromTimer);
   const WbSimulationState *const s = WbSimulationState::instance();
@@ -287,12 +294,16 @@ void WbSimulationWorld::restartStepTimer() {
 }
 
 void WbSimulationWorld::modeChanged() {
+  WbPerformanceLog *log = WbPerformanceLog::instance();
+
   const WbSimulationState::Mode mode = WbSimulationState::instance()->mode();
   switch (mode) {
     case WbSimulationState::PAUSE:
       mTimer->stop();
       WbSoundEngine::setPause(true);
       WbSoundEngine::setMute(WbPreferences::instance()->value("Sound/mute").toBool());
+      if (log)
+        log->stopMeasure(WbPerformanceLog::SPEED_FACTOR);
       break;
     case WbSimulationState::STEP:
       WbSoundEngine::setMute(WbPreferences::instance()->value("Sound/mute").toBool());

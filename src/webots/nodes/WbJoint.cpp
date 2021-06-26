@@ -121,12 +121,15 @@ void WbJoint::save(const QString &id) {
 }
 
 void WbJoint::setPosition(double position, int index) {
-  assert(index == 1);
+  if (index != 1)
+    return;
+
   mPosition = position;
   mOdePositionOffset = position;
   WbJointParameters *const p = parameters();
   if (p)
     p->setPosition(mPosition);
+
   WbMotor *const m = motor();
   if (m)
     m->setTargetPosition(position);
@@ -339,7 +342,7 @@ void WbJoint::writeExport(WbVrmlWriter &writer) const {
     writer.indent();
     writer << QString("<child link=\"%1\"/>\n").arg(solidEndPoint()->urdfName());
     writer.indent();
-    writer << QString("<axis xyz=\"%1\"/>\n").arg(rotationAxis.toString(WbPrecision::FLOAT_MAX));
+    writer << QString("<axis xyz=\"%1\"/>\n").arg(rotationAxis.toString(WbPrecision::FLOAT_ROUND_6));
     writer.indent();
 
     if (m) {
@@ -354,8 +357,8 @@ void WbJoint::writeExport(WbVrmlWriter &writer) const {
       writer.indent();
     }
     writer << QString("<origin xyz=\"%1\" rpy=\"%2\"/>\n")
-                .arg(translation.toString(WbPrecision::FLOAT_MAX))
-                .arg(rotationEuler.toString(WbPrecision::FLOAT_MAX));
+                .arg(translation.toString(WbPrecision::FLOAT_ROUND_6))
+                .arg(rotationEuler.toString(WbPrecision::FLOAT_ROUND_6));
     writer.decreaseIndent();
 
     writer.indent();

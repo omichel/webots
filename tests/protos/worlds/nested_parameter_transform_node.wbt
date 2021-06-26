@@ -1,0 +1,35 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+}
+TestSuiteSupervisor {
+}
+Robot {
+  children [
+    TestSuiteEmitter {
+    }
+  ]
+  controller "nested_parameter_transform_node"
+  supervisor TRUE
+}
+DEF PARENT NestedParameterTransformNode {
+  translation 1 0 0
+}
+Group {
+  children [
+    SolidWithExtensionSlot {
+      translation 0.2 0.5 0
+      extensionSlot [
+        TemplateSlotContainer {
+          translation 0.25 0 0.03
+          children [
+            DEF PARAMETER ProceduralSolidWithPhysics {
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

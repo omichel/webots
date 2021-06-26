@@ -1429,7 +1429,6 @@ static void create_distributions(int m) {
 #ifdef _WIN32
   add_msys64_files();
 #endif
-  add_files("files_doc.txt");
   add_files("files_projects.txt");
   create_file("Webots", m);
 }

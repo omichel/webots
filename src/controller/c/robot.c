@@ -23,6 +23,7 @@
 // (4) initialization of the remote scene if any (textures, download)
 
 #include <locale.h>  // LC_NUMERIC
+#include <signal.h>  // signal
 #include <stdarg.h>
 #include <stdio.h>   // snprintf
 #include <stdlib.h>  // exit
@@ -110,6 +111,7 @@ static WbRobot robot;
 static WbMutexRef robot_step_mutex;
 static double simulation_time = 0.0;
 static unsigned int current_step_duration = 0;
+static bool should_abort_simulation_waiting = false;
 
 // Static functions
 static void init_robot_window_library() {
@@ -119,6 +121,12 @@ static void init_robot_window_library() {
   robot_window_init(robot.window_filename);
   if (!robot_window_is_initialized())
     fprintf(stderr, "Error: Cannot load the \"%s\" robot window library.\n", robot.window_filename);
+}
+
+static void quit_controller(int signal_number) {
+  should_abort_simulation_waiting = true;
+  signal(signal_number, SIG_DFL);
+  raise(signal_number);
 }
 
 static void init_remote_control_library() {
@@ -401,13 +409,9 @@ void robot_read_answer(WbDevice *d, WbRequest *r) {
     return;
 
   switch (message) {
-    case C_ROBOT_TIME: {
-      const double previous_time = simulation_time;
+    case C_ROBOT_TIME:
       simulation_time = request_read_double(r);
-      if (previous_time > simulation_time)
-        robot_reset_devices();
       break;
-    }
     case C_CONFIGURE:
       robot_configure(r);
       break;
@@ -470,15 +474,6 @@ void robot_read_answer(WbDevice *d, WbRequest *r) {
     default:
       r->pointer--;  // unread the char from the request
       break;
-  }
-}
-
-void robot_reset_devices() {
-  int tag;
-  for (tag = 0; tag < robot.n_device; tag++) {
-    WbDevice *d = robot.device[tag];
-    if (d->reset)
-      d->reset(d);
   }
 }
 
@@ -977,6 +972,13 @@ int wb_robot_init() {  // API initialization
   // one uint8 giving the number of devices n
   // n \0-terminated strings giving the names of the devices 0 .. n-1
 
+  signal(SIGINT, quit_controller);  // this signal is working on Windows when Ctrl+C from cmd.exe.
+#ifndef _WIN32
+  signal(SIGTERM, quit_controller);
+  signal(SIGQUIT, quit_controller);
+  signal(SIGHUP, quit_controller);
+#endif
+
   robot.configure = 0;
   robot.real_robot_cleanup = NULL;
   robot.is_supervisor = false;
@@ -1006,14 +1008,14 @@ int wb_robot_init() {  // API initialization
   } else {
     pipe = NULL;
     int trial = 0;
-    while (trial < 10) {
+    while (!should_abort_simulation_waiting) {
       trial++;
       const char *WEBOTS_TMP_PATH = wbu_system_webots_tmp_path(true);
       char retry[256];
       snprintf(retry, sizeof(retry), "Retrying in %d second%s.", trial, trial > 1 ? "s" : "");
       if (!WEBOTS_TMP_PATH) {
-        fprintf(stderr, "Webots doesn't seems to be ready yet. %s\n", retry);
-        sleep(trial);
+        fprintf(stderr, "Webots doesn't seems to be ready yet: (retry count %d)\n", trial);
+        sleep(1);
       } else {
         char buffer[1024];
         snprintf(buffer, sizeof(buffer), "%s/WEBOTS_SERVER", WEBOTS_TMP_PATH);
@@ -1031,12 +1033,10 @@ int wb_robot_init() {  // API initialization
           }
           fclose(fd);
         } else
-          fprintf(stderr, "Cannot open file: %s. %s\n", buffer, retry);
-        sleep(trial);
+          fprintf(stderr, "Cannot open file: %s (retry count %d)\n", buffer, trial);
+        sleep(1);
       }
     }
-    if (trial == 10)
-      fprintf(stderr, "Impossible to communicate with Webots: aborting.\n");
   }
   if (!success) {
     if (!pipe)
@@ -1055,7 +1055,6 @@ int wb_robot_init() {  // API initialization
   robot.device[0]->read_answer = robot_read_answer;
   robot.device[0]->write_request = robot_write_request;
   robot.device[0]->cleanup = NULL;
-  robot.device[0]->reset = NULL;
   robot_init_was_done = true;
   robot_step_mutex = wb_robot_mutex_new();
   robot.device[0]->toggle_remote = robot_toggle_remote;

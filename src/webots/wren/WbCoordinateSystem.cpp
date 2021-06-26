@@ -85,7 +85,7 @@ WbCoordinateSystem::WbCoordinateSystem(WbWrenRenderingContext *context) {
     wr_renderable_set_material(renderable, mAxesMaterial[i], NULL);
     wr_renderable_set_drawing_order(renderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_2);
     wr_renderable_set_drawing_mode(renderable, WR_RENDERABLE_DRAWING_MODE_LINES);
-    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
     wr_renderable_set_scene_culling(renderable, false);
     wr_renderable_set_in_view_space(renderable, true);
     wr_renderable_set_z_sorted_rendering(renderable, true);
@@ -118,7 +118,7 @@ WbCoordinateSystem::WbCoordinateSystem(WbWrenRenderingContext *context) {
     wr_renderable_set_mesh(renderable, WR_MESH(mLabelsMesh));
     wr_renderable_set_material(renderable, mLabelsMaterial[i], NULL);
     wr_renderable_set_drawing_order(renderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_2);
-    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
     wr_renderable_set_scene_culling(renderable, false);
     wr_renderable_set_in_view_space(renderable, true);
     wr_renderable_set_z_sorted_rendering(renderable, true);

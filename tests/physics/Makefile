@@ -13,5 +13,5 @@
 # limitations under the License.
 
 release debug profile clean:
-	+@make -s -C controllers $@
-	+@make -s -C plugins/physics $@
+	+@make -s -C controllers $(MAKECMDGOALS)
+	+@make -s -C plugins/physics $(MAKECMDGOALS)

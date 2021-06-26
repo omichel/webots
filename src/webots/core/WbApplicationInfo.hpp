@@ -15,10 +15,13 @@
 #ifndef WB_APPLICATION_INFO_HPP
 #define WB_APPLICATION_INFO_HPP
 
+#include <QtCore/QString>
+
 class WbVersion;
 
 namespace WbApplicationInfo {
   const WbVersion &version();
+  const QString &branch();
   unsigned int releaseDate();  // returns the UNIX time stamp of the compilation date
 }  // namespace WbApplicationInfo
 

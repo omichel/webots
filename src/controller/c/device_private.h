@@ -33,7 +33,6 @@ struct _WbDevice {
   void *pdata;
   void (*read_answer)(WbDevice *, WbRequest *);
   void (*write_request)(WbDevice *, WbRequest *);
-  void (*reset)(WbDevice *);
   void (*cleanup)(WbDevice *);
   void (*toggle_remote)(WbDevice *, WbRequest *);
 };

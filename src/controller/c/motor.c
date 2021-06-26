@@ -48,6 +48,7 @@ typedef struct {
   double previous_control_p;
   double previous_control_i;
   double previous_control_d;
+  double multiplier;
   bool configured;
   WbJointType type;
   int requested_device_type;
@@ -73,6 +74,7 @@ static Motor *motor_create() {
   motor->max_position = 0.0;
   motor->max_velocity = 10.0;
   motor->max_force = 10.0;
+  motor->multiplier = 1.0;
   motor->type = WB_ROTATIONAL;
   // To support user changes during remote control
   motor->previous_velocity = 10.0;
@@ -174,6 +176,8 @@ static void motor_read_answer(WbDevice *d, WbRequest *r) {
       m->control_i = m->previous_control_i;
       m->control_d = m->previous_control_d;
       m->position = request_read_double(r);
+      m->velocity = request_read_double(r);
+      m->multiplier = request_read_double(r);
       m->configured = true;
       break;
     case C_MOTOR_FEEDBACK:
@@ -531,6 +535,20 @@ double wb_motor_get_available_torque(WbDeviceTag tag) {
 
   fprintf(stderr, "Error: %s(): invalid device tag.\n", __FUNCTION__);
   return NAN;
+}
+
+double wb_motor_get_multiplier(WbDeviceTag tag) {
+  double multiplier;
+  robot_mutex_lock_step();
+  Motor *m = motor_get_struct(tag);
+  if (m)
+    multiplier = m->multiplier;
+  else {
+    fprintf(stderr, "Error: %s(): invalid device tag.\n", __FUNCTION__);
+    multiplier = NAN;
+  }
+  robot_mutex_unlock_step();
+  return multiplier;
 }
 
 double wb_motor_get_max_torque(WbDeviceTag tag) {

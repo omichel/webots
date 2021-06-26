@@ -19,6 +19,7 @@
 #include "WbBackground.hpp"
 #include "WbBallJoint.hpp"
 #include "WbBallJointParameters.hpp"
+#include "WbBillboard.hpp"
 #include "WbBox.hpp"
 #include "WbBrake.hpp"
 #include "WbCamera.hpp"
@@ -119,6 +120,8 @@ WbNode *WbConcreteNodeFactory::createNode(const QString &modelName, WbTokenizer 
     return new WbBallJoint(tokenizer);
   if (modelName == "BallJointParameters")
     return new WbBallJointParameters(tokenizer);
+  if (modelName == "Billboard")
+    return new WbBillboard(tokenizer);
   if (modelName == "Box")
     return new WbBox(tokenizer);
   if (modelName == "Brake")
@@ -307,6 +310,8 @@ WbNode *WbConcreteNodeFactory::createCopy(const WbNode &original) {
     return new WbBallJoint(original);
   if (modelName == "BallJointParameters")
     return new WbBallJointParameters(original);
+  if (modelName == "Billboard")
+    return new WbBillboard(original);
   if (modelName == "Box")
     return new WbBox(original);
   if (modelName == "Brake")

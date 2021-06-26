@@ -36,6 +36,8 @@
 
 #include <webots_ros/node_add_force_or_torque.h>
 #include <webots_ros/node_add_force_with_offset.h>
+#include <webots_ros/node_disable_pose_tracking.h>
+#include <webots_ros/node_enable_pose_tracking.h>
 #include <webots_ros/node_get_center_of_mass.h>
 #include <webots_ros/node_get_contact_point.h>
 #include <webots_ros/node_get_contact_point_node.h>
@@ -60,6 +62,8 @@
 #include <webots_ros/node_set_velocity.h>
 #include <webots_ros/node_set_visibility.h>
 
+#include <webots_ros/field_disable_sf_tracking.h>
+#include <webots_ros/field_enable_sf_tracking.h>
 #include <webots_ros/field_get_bool.h>
 #include <webots_ros/field_get_color.h>
 #include <webots_ros/field_get_count.h>
@@ -167,6 +171,10 @@ public:
   bool nodeLoadStateCallback(webots_ros::node_set_string::Request &req, webots_ros::node_set_string::Response &res);
   bool nodeRestartControllerCallback(webots_ros::node_reset_functions::Request &req,
                                      webots_ros::node_reset_functions::Response &res);
+  bool nodeEnablePoseTrackingCallback(webots_ros::node_enable_pose_tracking::Request &req,
+                                      webots_ros::node_enable_pose_tracking::Response &res);
+  bool nodeDisablePoseTrackingCallback(webots_ros::node_disable_pose_tracking::Request &req,
+                                       webots_ros::node_disable_pose_tracking::Response &res);
 
   bool fieldGetTypeCallback(webots_ros::field_get_type::Request &req, webots_ros::field_get_type::Response &res);
   bool fieldGetTypeNameCallback(webots_ros::field_get_type_name::Request &req, webots_ros::field_get_type_name::Response &res);
@@ -201,6 +209,10 @@ public:
   bool fieldImportNodeFromStringCallback(webots_ros::field_import_node_from_string::Request &req,
                                          webots_ros::field_import_node_from_string::Response &res);
   bool fieldRemoveNodeCallback(webots_ros::field_remove_node::Request &req, webots_ros::field_remove_node::Response &res);
+  bool fieldEnableSFTrackingCallback(webots_ros::field_enable_sf_tracking::Request &req,
+                                     webots_ros::field_enable_sf_tracking::Response &res);
+  bool fieldDisableSFTrackingCallback(webots_ros::field_disable_sf_tracking::Request &req,
+                                      webots_ros::field_disable_sf_tracking::Response &res);
 
 private:
   Supervisor *mSupervisor;
@@ -261,6 +273,8 @@ private:
   ros::ServiceServer mNodeRestartControllerServer;
   ros::ServiceServer mNodeSaveStateServer;
   ros::ServiceServer mNodeLoadStateServer;
+  ros::ServiceServer mNodeEnablePoseTrackingServer;
+  ros::ServiceServer mNodeDisablePoseTrackingServer;
 
   ros::ServiceServer mFieldGetTypeServer;
   ros::ServiceServer mFieldGetTypeNameServer;
@@ -294,6 +308,8 @@ private:
   ros::ServiceServer mFieldImportNodeServer;
   ros::ServiceServer mFieldImportNodeFromStringServer;
   ros::ServiceServer mFieldRemoveNodeServer;
+  ros::ServiceServer mFieldEnableSFTrackingServer;
+  ros::ServiceServer mFieldDisableSFTrackingServer;
 };
 
 #endif  // ROS_SUPERVISOR_HPP

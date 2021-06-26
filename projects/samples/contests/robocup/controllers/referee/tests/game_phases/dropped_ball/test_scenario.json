@@ -1,0 +1,224 @@
+[
+    {
+        "description" : "placing robots for kick-off",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.4,0,0.24],
+                "orientation" : [0,0,1,3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [1.2,2,0.24],
+                "orientation" : [0,0,1,3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_3",
+                "position" : [0.2,-2,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-1.2,0,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-0.2,2,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 2.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [30,0,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 12.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-30,0,0]
+            }
+        ]
+    },
+    {
+        "description" : "moving ball away from all the other robots",
+        "timing" : {
+            "time" : 13.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [-4,-2.5,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [13,131],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "No drop ball called for 2 minutes after last touch",
+                "state" : "PLAYING"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 138,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Drop ball called 2 minutes after last touch",
+                "state" : "READY",
+                "kick_off_team" : 128,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Moving robots before dropped_ball SET",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.25,2,0.24],
+                "orientation" : [0,0,1,3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [0.3,0,0.24],
+                "orientation" : [0,0,1,3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_3",
+                "position" : [-0.25,-2,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-0.7,0,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-0.2,1,0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Checking penalties at SET",
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Properly positioned player is not penalized (1)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Player fully inside center circle at SET is penalized",
+                "target" : "BLUE_PLAYER_2",
+                "penalty" : 34
+            },
+            {
+                "name" : "Player inside opponent field at SET is penalized",
+                "target" : "BLUE_PLAYER_3",
+                "penalty" : 34
+            },
+            {
+                "name" : "Player partially inside center circle at SET is penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 34
+            },
+            {
+                "name" : "Properly positioned player is not penalized (2)",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "State goes automatically from SET to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.4,0,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-0.4,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 10,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Both teams can enter the center circle once PLAYING (1)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Both teams can enter the center circle once PLAYING (2)",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    }
+]

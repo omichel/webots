@@ -1,0 +1,389 @@
+[
+    {
+        "description" : "Placing robots inside their own field",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, robots not penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: Red 1 is not penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: Blue 1 is not penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 2.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [50, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [4.57, -2, 0.08],
+                "force" : [5, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 12.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Goal kick is awarded to blue team",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8,
+                "secondary_phase" : 0,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 13,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 0
+        },
+        "tests" : [
+            {
+                "name" : "Automatic transition: phase 0 -> 1",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8,
+                "secondary_phase" : 1,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [2,10],
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1
+        },
+        "tests" : [
+            {
+                "name" : "Ball is respawned at the proper location",
+                "target" : "BALL",
+                "position" : [0, -3, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "RED 1 moves near the ball and touches it",
+        "timing" : {
+            "time" : 12,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [0,-3.2,0.24],
+                "orientation" : [0,0,1,1.57]
+            },
+            {
+                "target" : "BALL",
+                "force" : [0,-10, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 14,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1
+        },
+        "tests" : [
+            {
+                "name" : "Goal kick is retaken",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8,
+                "secondary_phase" : 0,
+                "critical" : true
+            },
+            {
+                "name" : "Player who touched the ball once receives a warning",
+                "target" : "RED_PLAYER_1",
+                "warnings" : 1,
+                "yellow_cards" : 0,
+                "red_cards" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "1st retake: Automatic transition: phase 0 -> 1",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8,
+                "secondary_phase" : 1,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [2,5],
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1,
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "1st retake: ball properly respawned",
+                "target" : "BALL",
+                "position" : [0, -3, 0.08]
+            },
+            {
+                "name" : "1st retake: robot is moved 50cm away from the ball",
+                "target" : "RED_PLAYER_1",
+                "position" : [0,-3.475,0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Moving robot to ball again because it has been moved away",
+        "timing" : {
+            "time" : 6,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1,
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [0,-3.2,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1,
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [0,-10, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 12,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1,
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Goal kick is retaken a second time",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8,
+                "secondary_phase" : 0,
+                "critical" : true
+            },
+            {
+                "name" : "Player who touched the ball twice receives a yellow card",
+                "target" : "RED_PLAYER_1",
+                "warnings" : 0,
+                "yellow_cards" : 1,
+                "red_cards" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 13,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 0,
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "2nd retake: Automatic transition: phase 0 -> 1",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8,
+                "secondary_phase" : 1,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [2,14],
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1,
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "2nd retake: ball properly respawned",
+                "target" : "BALL",
+                "position" : [0, -3, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "RED 1 moves away, BLUE 1 moves nearby",
+        "timing" : {
+            "time" : 12,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1,
+            "state_count" : 3
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0,-3.2,0.24],
+                "orientation" : [0,0,1,1.57]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [0,-2.0,0.24],
+                "orientation" : [0,0,1,-1.57]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 3,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: Red 1 is not penalized at Execute goal kick",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: Blue 1 is not penalized at Execute goal kick",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ],
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [0,-20,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [0,-2.5,0.24],
+                "orientation" : [0, 0, 1, 1.57]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 10,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Opponent can move near the ball once it has been kicked (>5cm)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Player performing goal kick is not penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    }
+]

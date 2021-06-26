@@ -211,25 +211,26 @@ WbSolid *WbBaseNode::topSolid() const {
   return mTopSolid;
 }
 
-WbBaseNode *WbBaseNode::getSingleFinalizedProtoInstance() {
-  if (!isProtoParameterNode())
-    return NULL;
-
-  WbBaseNode *finalizedInstance = NULL;
-  QVector<WbNode *> nodeInstances = protoParameterNodeInstances();
-  foreach (WbNode *node, nodeInstances) {
-    WbBaseNode *baseNode = dynamic_cast<WbBaseNode *>(node);
-    if (baseNode && baseNode->isPostFinalizedCalled()) {
-      // cppcheck-suppress knownConditionTrueFalse
-      if (finalizedInstance)
-        // multiple finilized instances found
+WbBaseNode *WbBaseNode::getFirstFinalizedProtoInstance() const {
+  QList<const WbNode *> nodes;  // stack containing other instances of the proto parameter node
+                                // to be used in case of deeply nested PROTOs where the first one could not be finalized
+  const WbBaseNode *baseNode = this;
+  while (baseNode && !baseNode->isPostFinalizedCalled() && baseNode->isProtoParameterNode()) {
+    // if node is a proto parameter node we need to find the corresponding proto parameter node instance
+    // if the parameter is used multiple times all the instances are inspected in depth-first search (using the "nodes" list)
+    const QVector<WbNode *> nodeInstances = baseNode->protoParameterNodeInstances();
+    if (nodeInstances.isEmpty()) {
+      if (nodes.isEmpty())
         return NULL;
-
-      finalizedInstance = baseNode;
+      baseNode = static_cast<const WbBaseNode *>(nodes.takeFirst());
+      continue;
     }
+    baseNode = static_cast<const WbBaseNode *>(nodeInstances.at(0));
+    for (int i = nodeInstances.size() - 1; i >= 1; --i)
+      nodes.append(nodeInstances.at(i));
   }
 
-  return finalizedInstance;
+  return baseNode && baseNode->isPostFinalizedCalled() ? const_cast<WbBaseNode *>(baseNode) : NULL;
 }
 
 bool WbBaseNode::isInvisibleNode() const {
@@ -257,10 +258,8 @@ bool WbBaseNode::exportNodeHeader(WbVrmlWriter &writer) const {
 
   if (isUseNode() && defNode()) {  // export referred DEF node id
     const WbNode *def = defNode();
-    while (def && def->isProtoParameterNode()) {
-      const QVector<WbNode *> nodeInstances = def->protoParameterNodeInstances();
-      def = nodeInstances.isEmpty() ? NULL : nodeInstances.at(0);
-    }
+    if (def && def->isProtoParameterNode())
+      def = static_cast<const WbBaseNode *>(def)->getFirstFinalizedProtoInstance();
     assert(def != NULL);
     writer << " USE=\'n" + QString::number(def->uniqueId()) + "\'></" + x3dName() + ">";
     return true;
@@ -300,8 +299,8 @@ void WbBaseNode::exportURDFJoint(WbVrmlWriter &writer) const {
     writer << QString("<child link=\"%1\"/>\n").arg(urdfName());
     writer.indent();
     writer << QString("<origin xyz=\"%1\" rpy=\"%2\"/>\n")
-                .arg(translation.toString(WbPrecision::FLOAT_MAX))
-                .arg(rotationEuler.toString(WbPrecision::FLOAT_MAX));
+                .arg(translation.toString(WbPrecision::FLOAT_ROUND_6))
+                .arg(rotationEuler.toString(WbPrecision::FLOAT_ROUND_6));
     writer.decreaseIndent();
 
     writer.indent();

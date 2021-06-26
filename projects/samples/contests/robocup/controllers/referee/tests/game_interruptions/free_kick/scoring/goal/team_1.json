@@ -1,0 +1,43 @@
+{
+  "name": "Funny Dingos",
+  "players": {
+    "1": {
+      "proto": "RobocupRobot",
+      "halfTimeStartingPose": {
+        "translation": [-3.5, -3.06, 0.24],
+        "rotation": [0, 0, 1, 1.57]
+      },
+      "reentryStartingPose": {
+        "translation": [-3.5, -3.11, 0.24],
+        "rotation": [0, 0, 1, 1.57]
+      },
+      "shootoutStartingPose": {
+        "translation": [2, 0, 0.24],
+        "rotation": [0, 0, 1, 1.57]
+      },
+      "goalKeeperStartingPose": {
+        "translation": [-4.47, 0, 0.24],
+        "rotation": [0, 0, 1, 0]
+      }
+    },
+    "2": {
+      "proto": "RobocupRobot",
+      "halfTimeStartingPose": {
+        "translation": [-3.5, 3.06, 0.24],
+        "rotation": [0, 0, 1, -1.57]
+      },
+      "reentryStartingPose": {
+        "translation": [-3.5, -3.11, 0.24],
+        "rotation": [0, 0, 1, 1.57]
+      },
+      "shootoutStartingPose": {
+        "translation": [2, 0, 0.24],
+        "rotation": [0, 0, 1, 1.57]
+      },
+      "goalKeeperStartingPose": {
+        "translation": [-4.47, 0, 0.24],
+        "rotation": [0, 0, 1, 0]
+      }
+    }
+  }
+}

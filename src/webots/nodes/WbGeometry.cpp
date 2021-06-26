@@ -44,7 +44,7 @@
 // Constant used to scale down the line scale property
 const float WbGeometry::LINE_SCALE_FACTOR = 250.0f;
 
-const int gMaxIndexNumberToCastShadows = (2 << 14) - 1;  // 2^15 - 1 (16-bit resolution)
+const int gMaxIndexNumberToCastShadows = (1 << 16) - 1;  // 2^16 - 1 (16-bit resolution)
 
 int WbGeometry::maxIndexNumberToCastShadows() {
   return gMaxIndexNumberToCastShadows;
@@ -214,7 +214,7 @@ void WbGeometry::applyVisibilityFlagToWren(bool selected) {
 
   if (isInBoundingObject()) {
     if (selected) {
-      wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+      wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
       wr_node_set_visible(WR_NODE(mWrenScaleTransform), true);
     } else if (WbWrenRenderingContext::instance()->isOptionalRenderingEnabled(
                  WbWrenRenderingContext::VF_ALL_BOUNDING_OBJECTS)) {
@@ -222,6 +222,9 @@ void WbGeometry::applyVisibilityFlagToWren(bool selected) {
       wr_node_set_visible(WR_NODE(mWrenScaleTransform), true);
     } else if (wr_node_get_parent(WR_NODE(mWrenScaleTransform)))
       wr_node_set_visible(WR_NODE(mWrenScaleTransform), false);
+  } else if (WbNodeUtilities::isDescendantOfBillboard(this)) {
+    wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
+    wr_node_set_visible(WR_NODE(mWrenScaleTransform), true);
   } else {
     wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VM_REGULAR);
     wr_node_set_visible(WR_NODE(mWrenScaleTransform), true);
@@ -490,7 +493,7 @@ void WbGeometry::computeCastShadows(bool enabled) {
   if (!mWrenRenderable)
     return;
 
-  if (isInBoundingObject()) {
+  if (isInBoundingObject() || WbNodeUtilities::isDescendantOfBillboard(this)) {
     wr_renderable_set_cast_shadows(mWrenRenderable, false);
     wr_renderable_set_receive_shadows(mWrenRenderable, false);
   } else
@@ -559,7 +562,7 @@ bool WbGeometry::isAValidBoundingObject(bool checkOde, bool warning) const {
 
 int WbGeometry::triangleCount() const {
   if (areWrenObjectsInitialized() && this->wrenMesh())
-    return wr_static_mesh_get_triangle_count(this->wrenMesh());
+    return wr_static_mesh_get_index_count(this->wrenMesh()) / 3;
   else
     return 0;
 }

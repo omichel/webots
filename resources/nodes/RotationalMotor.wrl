@@ -9,6 +9,7 @@ RotationalMotor {
   field SFFloat    minPosition     0             # ignored if maxPosition = minPosition (rad)
   field SFFloat    maxPosition     0             # ignored if maxPosition = minPosition (rad)
   field SFFloat    maxTorque      10             # max torque (N*m)
+  field SFFloat    multiplier      1             # multiplicative factor applied to position, velocity and torque commands 
   field SFString   sound "sounds/rotational_motor.wav"  # wave file of the motor sound
   field MFNode     muscles []                    # graphical representation of artificial muscles
 }

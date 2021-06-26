@@ -13,4 +13,4 @@
 # limitations under the License.
 
 release debug profile clean:
-	+@make -s -C controllers $@
+	+@make -s -C controllers $(MAKECMDGOALS)

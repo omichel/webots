@@ -1,0 +1,41 @@
+{
+  "type": "NORMAL",
+  "class": "KID",
+  "side_left": "blue",
+  "kickoff": "red",
+  "supervisor": "test_supervisor",
+  "minimum_real_time_factor" : 0,
+  "host": "127.0.0.1",
+  "red": {
+    "id": 15,
+    "config": "tests/game_phases/kick_off/scenario_5/team_1.json",
+    "hosts": [
+      "192.168.123.21",
+      "192.168.123.22",
+      "192.168.123.23",
+      "192.168.123.24"
+    ],
+    "ports": [
+      10001,
+      10002,
+      10003,
+      10004
+    ]
+  },
+  "blue": {
+    "id": 3,
+    "config": "tests/game_phases/kick_off/scenario_5/team_2.json",
+    "hosts": [
+      "192.168.123.41",
+      "192.168.123.42",
+      "192.168.123.43",
+      "192.168.123.44"
+    ],
+    "ports": [
+      10021,
+      10022,
+      10023,
+      10024
+    ]
+  }
+}

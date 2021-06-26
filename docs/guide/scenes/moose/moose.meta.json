@@ -1,86 +1,86 @@
 {
-  "robotID": "n11",
   "devices": [
     {
-      "transformID": "n163",
+      "anchor": "0 0 0",
       "axis": "0 -1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "left motor 1",
-      "anchor": "0 0 0",
       "position": 0,
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "minPosition": 0
+      "transformID": "n163",
+      "type": "RotationalMotor"
     },
     {
-      "transformID": "n191",
+      "anchor": "0 0 0",
       "axis": "0 -1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "left motor 2",
-      "anchor": "0 0 0",
       "position": 0,
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "minPosition": 0
+      "transformID": "n191",
+      "type": "RotationalMotor"
     },
     {
-      "transformID": "n219",
+      "anchor": "0 0 0",
       "axis": "0 -1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "left motor 3",
-      "anchor": "0 0 0",
       "position": 0,
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "minPosition": 0
+      "transformID": "n219",
+      "type": "RotationalMotor"
     },
     {
-      "transformID": "n247",
+      "anchor": "0 0 0",
       "axis": "0 -1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "left motor 4",
-      "anchor": "0 0 0",
       "position": 0,
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "minPosition": 0
+      "transformID": "n247",
+      "type": "RotationalMotor"
     },
     {
-      "transformID": "n51",
+      "anchor": "0 0 0",
       "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "right motor 1",
-      "anchor": "0 0 0",
       "position": 0,
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "minPosition": 0
+      "transformID": "n51",
+      "type": "RotationalMotor"
     },
     {
-      "transformID": "n79",
+      "anchor": "0 0 0",
       "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "right motor 2",
-      "anchor": "0 0 0",
       "position": 0,
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "minPosition": 0
+      "transformID": "n79",
+      "type": "RotationalMotor"
     },
     {
-      "transformID": "n107",
+      "anchor": "0 0 0",
       "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "right motor 3",
-      "anchor": "0 0 0",
       "position": 0,
-      "type": "RotationalMotor",
-      "maxPosition": 0,
-      "minPosition": 0
+      "transformID": "n107",
+      "type": "RotationalMotor"
     },
     {
-      "transformID": "n135",
-      "axis": "0 1 0",
-      "name": "right motor 4",
       "anchor": "0 0 0",
-      "position": 0,
-      "type": "RotationalMotor",
+      "axis": "0 1 0",
       "maxPosition": 0,
-      "minPosition": 0
+      "minPosition": 0,
+      "name": "right motor 4",
+      "position": 0,
+      "transformID": "n135",
+      "type": "RotationalMotor"
     }
   ],
-  "name": "moose"
+  "name": "moose",
+  "robotID": "n11"
 }

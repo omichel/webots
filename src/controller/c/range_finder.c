@@ -120,7 +120,6 @@ static void range_finder_toggle_remote(WbDevice *d, WbRequest *r) {
 void wb_range_finder_init(WbDevice *d) {
   d->read_answer = wb_range_finder_read_answer;
   d->write_request = wb_range_finder_write_request;
-  d->reset = wb_abstract_camera_reset;
   d->cleanup = wb_range_finder_cleanup;
   d->pdata = NULL;
   d->toggle_remote = range_finder_toggle_remote;
@@ -227,24 +226,23 @@ double wb_range_finder_get_max_range(WbDeviceTag tag) {
 }
 
 const float *wb_range_finder_get_range_image(WbDeviceTag tag) {
+  robot_mutex_lock_step();
   AbstractCamera *ac = range_finder_get_abstract_camera_struct(tag);
+
   if (!ac) {
     fprintf(stderr, "Error: %s(): invalid device tag.\n", __FUNCTION__);
+    robot_mutex_unlock_step();
     return NULL;
   }
 
-  if (wb_robot_get_mode() == WB_MODE_REMOTE_CONTROL)
+  if (wb_robot_get_mode() == WB_MODE_REMOTE_CONTROL) {
+    robot_mutex_unlock_step();
     return (const float *)(void *)ac->image->data;
-
-  robot_mutex_lock_step();
-  bool success = image_request(ac->image, __FUNCTION__);
-  robot_mutex_unlock_step();
-
-  if (!ac->image->data || !success)
-    return NULL;
+  }
 
   if (ac->sampling_period <= 0)
     fprintf(stderr, "Error: %s() called for a disabled device! Please use: wb_range_finder_enable().\n", __FUNCTION__);
+  robot_mutex_unlock_step();
 
   return (const float *)(void *)ac->image->data;
 }
@@ -274,7 +272,7 @@ int wb_range_finder_save_image(WbDeviceTag tag, const char *filename, int qualit
   }
 
   // make sure image is up to date before saving it
-  if (!ac->image->data || !image_request(ac->image, __FUNCTION__)) {
+  if (!ac->image->data) {
     robot_mutex_unlock_step();
     return -1;
   }

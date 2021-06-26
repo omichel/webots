@@ -329,11 +329,11 @@ void WbSliderJoint::writeExport(WbVrmlWriter &writer) const {
     writer.indent();
     writer << QString("<child link=\"%1\"/>\n").arg(solidEndPoint()->urdfName());
     writer.indent();
-    writer << QString("<axis xyz=\"%1\"/>\n").arg(rotationAxis.toString(WbPrecision::FLOAT_MAX));
+    writer << QString("<axis xyz=\"%1\"/>\n").arg(rotationAxis.toString(WbPrecision::FLOAT_ROUND_6));
     writer.indent();
     writer << QString("<origin xyz=\"%1\" rpy=\"%2\"/>\n")
-                .arg(translation.toString(WbPrecision::FLOAT_MAX))
-                .arg(rotationEuler.toString(WbPrecision::FLOAT_MAX));
+                .arg(translation.toString(WbPrecision::FLOAT_ROUND_6))
+                .arg(rotationEuler.toString(WbPrecision::FLOAT_ROUND_6));
     writer.indent();
     const WbMotor *m = motor();
     if (m) {

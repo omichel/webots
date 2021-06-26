@@ -5,8 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Streaming viewer</title>
-    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' />
-    <link type="text/css" rel="stylesheet" href='../wwi/wwi.css' />
     <link type="text/css" rel="stylesheet" href='style.css' />
   </head>
 
@@ -20,30 +18,11 @@
           <option value="x3d">X3D</option>
           <option value="mjpeg">MJPEG</option>
         </select> broadcast: <input id="broadcast" type="checkbox" />
-        <input id="ConnectButton" type="button" value="Connect" onclick="connect()" />
+        <input id="ConnectButton" type="button" value="Connect" />
       </p>
-
-      <details>
-        <summary>URL formats</summary>
-        <ul>
-          <li>
-            Load world from GitHub (requires session server, <a href="https://cyberbotics.com/doc/guide/web-simulation#start-simulation-data-download-experimental" target="_blank">more</a>):<br />
-            <small>ws://localhost:1999/session?url=webots://github.com/cyberbotics/webots/branch/develop/projects/languages/python/worlds/example.wbt</small>
-          </li>
-          <li>
-            Connect to already running Webots instance:<br />
-            <small>ws://localhost:1234</small>
-          </li>
-        </ul>
-      </details>
     </header>
-    <div id="playerDiv"></div>
-    <script src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script>
-    <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' integrity='sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=' crossorigin='anonymous'></script>
-    <script src='https://cyberbotics.com/jquery-dialogextend/2.0.4/jquery.dialogextend.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=MML_HTMLorMML"></script>
-    <script src='../wwi/webots.min.js'></script>
+    <webots-streaming style="height:calc(100% - 120px);padding:20px;"></webots-streaming>
+    <script type="module" src="https://cyberbotics.com/wwi/R2021b/WebotsStreaming.js"></script>
     <script src="setup_viewer.js"></script>
   </body>
 

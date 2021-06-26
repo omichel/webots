@@ -1,7 +1,6 @@
 parser/worlds/derived_proto_using_same_parameter_name.wbt "only if it is linked directly, like 'slot IS slot'."
 parser/worlds/double_quote_in_lua_string_field.wbt "Lua output: \"string to test\""
 parser/worlds/empty_value.wbt "Expected floating point value, found 'direction'."
-parser/worlds/hidden_parameter_single.wbt "hidden_parameter_single' controller exited successfully."
 parser/worlds/hinge_2_joint_axes.wbt "Hinge axes are aligned: using x and z axes instead."
 parser/worlds/invalid_template_regenerator_field.wbt "Cannot insert HingeJoint node in 'slot' field of Transform node that doesn't have a Solid ancestor. Skipped node in PROTO parameter 'slot'."
 parser/worlds/joints_motor_min_max_position.wbt "joints_motor_min_max_position' controller exited successfully."

@@ -56,6 +56,7 @@ graph LR
   Device -.-> SolidDevice(Solid Device)
 
   Group[[Group](group.md)] --> Transform[[Transform](transform.md)]
+  Group --> Billboard[[Billboard](billboard.md)]
     Transform --> Solid[[Solid](solid.md)]
       Solid --> SolidDevice
         SolidDevice --> Accelerometer[[Accelerometer](accelerometer.md)]

@@ -239,38 +239,38 @@ const WbContactProperties *WbSimulationCluster::fillSurfaceParameters(const WbSo
     }
   }
 
-  WbVector3 localFdirS1, localFdirS2;
+  WbVector3 globalFdirS1, globalFdirS2;
   if ((frictionSize > 1) || (fdsSize > 1)) {  // asymetric contact
     // Compute first friction direction
     WbVector3 contactNormal(contact->geom.normal[0], contact->geom.normal[1], contact->geom.normal[2]);
     if (inversed) {  // respect the order: material1 -> material2
-      localFdirS1 = wg2->matrix().extracted3x3Matrix() * wg2->computeFrictionDirection(contactNormal);
-      localFdirS2 = wg1->matrix().extracted3x3Matrix() * wg1->computeFrictionDirection(contactNormal);
+      globalFdirS1 = wg2->matrix().extracted3x3Matrix() * wg2->computeFrictionDirection(contactNormal);
+      globalFdirS2 = wg1->matrix().extracted3x3Matrix() * wg1->computeFrictionDirection(contactNormal);
     } else {
-      localFdirS1 = wg1->matrix().extracted3x3Matrix() * wg1->computeFrictionDirection(contactNormal);
-      localFdirS2 = wg2->matrix().extracted3x3Matrix() * wg2->computeFrictionDirection(contactNormal);
+      globalFdirS1 = wg1->matrix().extracted3x3Matrix() * wg1->computeFrictionDirection(contactNormal);
+      globalFdirS2 = wg2->matrix().extracted3x3Matrix() * wg2->computeFrictionDirection(contactNormal);
     }
 
     // check if both geometries support asymmetric friction
-    if (localFdirS1.isNull() || localFdirS2.isNull()) {
+    if (globalFdirS1.isNull() || globalFdirS2.isNull()) {
       contact->surface.mode = (bounce != 0.0 ? dContactBounce : 0) | dContactApprox1 | dContactSoftCFM | dContactSoftERP;
       frictionSize = 1;
       fdsSize = 1;
     } else {
       // Apply friction direction rotation if set
       if (!frictionRotation.isNull()) {
-        localFdirS1 =
-          WbRotation(contactNormal[0], contactNormal[1], contactNormal[2], -frictionRotation[0]).toMatrix3() * localFdirS1;
-        localFdirS2 =
-          WbRotation(contactNormal[0], contactNormal[1], contactNormal[2], -frictionRotation[1]).toMatrix3() * localFdirS2;
+        globalFdirS1 =
+          WbRotation(contactNormal[0], contactNormal[1], contactNormal[2], -frictionRotation[0]).toMatrix3() * globalFdirS1;
+        globalFdirS2 =
+          WbRotation(contactNormal[0], contactNormal[1], contactNormal[2], -frictionRotation[1]).toMatrix3() * globalFdirS2;
       }
 
       // Apply friction direction to the contact joint parameters
       contact->surface.mode =
         dContactFDir1 | (bounce != 0.0 ? dContactBounce : 0) | dContactApprox1 | dContactSoftCFM | dContactSoftERP;
-      contact->fdir1[0] = localFdirS1[0];
-      contact->fdir1[1] = localFdirS1[1];
-      contact->fdir1[2] = localFdirS1[2];
+      contact->fdir1[0] = globalFdirS1[0];
+      contact->fdir1[1] = globalFdirS1[1];
+      contact->fdir1[2] = globalFdirS1[2];
     }
   } else  // fully symetric contact (slip and friction)
     contact->surface.mode = (bounce != 0.0 ? dContactBounce : 0) | dContactApprox1 | dContactSoftCFM | dContactSoftERP;
@@ -279,8 +279,8 @@ const WbContactProperties *WbSimulationCluster::fillSurfaceParameters(const WbSo
   if (frictionSize <= 1)  // symetric friction
     contact->surface.mu = mu[0];
   else {  // asymetric friction
-    // compute mu1 and mu2 (length of localFdirS1 and localFdirS2 is assumed to be 1)
-    double vectorAngle = localFdirS1.angle(localFdirS2);
+    // compute mu1 and mu2 (length of globalFdirS1 and globalFdirS2 is assumed to be 1)
+    double vectorAngle = globalFdirS1.angle(globalFdirS2);
     double ratio1 = fabs(cos(vectorAngle));
     double ratio2 = fabs(sin(vectorAngle));
     double mu1, mu2;
@@ -307,8 +307,8 @@ const WbContactProperties *WbSimulationCluster::fillSurfaceParameters(const WbSo
     contact->surface.slip2 = fds[0];
     contact->surface.mode = contact->surface.mode | (fds[0] != 0.0 ? dContactSlip1 | dContactSlip2 : 0);
   } else {  // asymetric slip
-    // compute slip1 and slip2 (length of localFdirS1 and localFdirS2 is assumed to be 1)
-    double vectorAngle = localFdirS1.angle(localFdirS2);
+    // compute slip1 and slip2 (length of globalFdirS1 and globalFdirS2 is assumed to be 1)
+    double vectorAngle = globalFdirS1.angle(globalFdirS2);
     double ratio1 = fabs(cos(vectorAngle));
     double ratio2 = fabs(sin(vectorAngle));
     double slip1 = 0, slip2 = 0;

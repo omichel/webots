@@ -16,7 +16,7 @@
 /* Description:  Swig interface which maps the OO C++ files into a python module called "controller"   */
 /*******************************************************************************************************/
 
-%module controller
+%module(threads=1) controller
 
 %begin %{
 #define SWIG_PYTHON_2_UNICODE

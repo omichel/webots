@@ -19,6 +19,7 @@
 #include "WbBallJoint.hpp"
 #include "WbBallJointParameters.hpp"
 #include "WbBasicJoint.hpp"
+#include "WbBillboard.hpp"
 #include "WbBoundingSphere.hpp"
 #include "WbBrake.hpp"
 #include "WbDevice.hpp"
@@ -189,7 +190,7 @@ namespace {
       const bool isInsertingTopLevel = node->isWorldRoot();
 
       // A robot cannot be a bounding object
-      if (!boundingObjectCase && WbNodeUtilities::isRobotTypeName(nodeName))
+      if (!boundingObjectCase && WbNodeUtilities::isRobotTypeName(nodeName) && !WbNodeUtilities::isDescendantOfBillboard(node))
         return true;
 
       // top level nodes
@@ -233,6 +234,8 @@ namespace {
           return true;
         if (nodeName == "Transform")
           return true;
+        if (nodeName == "Billboard")
+          return true;
         if (nodeName == "Shape")
           return true;
         if (nodeName == "PointLight")
@@ -243,8 +246,11 @@ namespace {
         errorMessage = QObject::tr("%1 node cannot be inserted at the top level of the node hierarchy.").arg(nodeName);
         return false;
       }
-      if (nodeName == "Slot")
+      if (nodeName == "Slot") {
+        if (WbNodeUtilities::isDescendantOfBillboard(node))
+          return false;
         return true;
+      }
     }
 
     static QStringList *fields = NULL;
@@ -445,6 +451,11 @@ namespace {
           return true;
         if (nodeName == "Shape")
           return true;
+
+        if (WbNodeUtilities::isDescendantOfBillboard(node))
+          // only Group, Transform and Shape allowed
+          return false;
+
         if (nodeName == "Solid")
           return true;
 
@@ -659,7 +670,21 @@ WbMatter *WbNodeUtilities::findUppermostMatter(WbNode *node) {
 }
 
 WbSolid *WbNodeUtilities::findTopSolid(const WbNode *node) {
-  return dynamic_cast<WbSolid *>(const_cast<WbNode *>(findTopNode(node)));
+  if (node == NULL)
+    return NULL;
+
+  const WbNode *n = node;
+  const WbNode *parent = n->parentNode();
+  WbSolid *topSolid = NULL;
+  while (parent) {
+    WbSolid *currentSolid = dynamic_cast<WbSolid *>(const_cast<WbNode *>(n));
+    if (currentSolid)
+      topSolid = currentSolid;
+
+    n = parent;
+    parent = n->parentNode();
+  }
+  return topSolid;
 }
 
 WbTransform *WbNodeUtilities::findUpperTransform(const WbNode *node) {
@@ -847,6 +872,36 @@ bool WbNodeUtilities::isFieldDescendant(const WbNode *node, const QString &field
   return false;
 }
 
+bool WbNodeUtilities::isDescendantOfBillboard(const WbNode *node) {
+  if (node == NULL)
+    return false;
+
+  const WbBaseNode *initialNode = dynamic_cast<const WbBaseNode *>(node);
+
+  if (!initialNode)
+    return false;
+
+  if (initialNode->nodeType() == WB_NODE_BILLBOARD)
+    return true;
+
+  WbNode *n = node->parentNode();
+  WbField *field = node->parentField(true);
+  while (n && !n->isWorldRoot() && field) {
+    WbBaseNode *baseNode = dynamic_cast<WbBaseNode *>(field->parentNode());
+
+    if (!baseNode)
+      return false;
+
+    if (baseNode->nodeType() == WB_NODE_BILLBOARD)
+      return true;
+
+    field = n->parentField(true);
+    n = n->parentNode();
+  }
+
+  return false;
+}
+
 WbNode::NodeUse WbNodeUtilities::checkNodeUse(const WbNode *n) {
   WbNode::NodeUse nodeUse = WbNode::UNKNOWN_USE;
   if (n->isDefNode()) {
@@ -1021,7 +1076,7 @@ WbMatter *WbNodeUtilities::findUpperVisibleMatter(WbNode *node) {
     WbMatter *matter = dynamic_cast<WbMatter *>(n);
     if (matter) {
       if (matter->isProtoParameterNode()) {
-        WbBaseNode *finalizedInstance = matter->getSingleFinalizedProtoInstance();
+        WbBaseNode *finalizedInstance = matter->getFirstFinalizedProtoInstance();
         if (finalizedInstance)
           visibleMatter = dynamic_cast<WbMatter *>(finalizedInstance);
       } else
@@ -1106,6 +1161,10 @@ WbAbstractTransform *WbNodeUtilities::abstractTransformCast(WbBaseNode *node) {
 bool WbNodeUtilities::isNodeOrAncestorLocked(WbNode *node) {
   WbNode *n = node;
   while (n && !n->isWorldRoot()) {
+    WbBaseNode *baseNode = dynamic_cast<WbBaseNode *>(n);
+    if (baseNode && baseNode->nodeType() == WB_NODE_BILLBOARD)
+      return true;
+
     WbMatter *matter = dynamic_cast<WbMatter *>(n);
     if (matter && matter->isLocked())
       return true;
@@ -1589,6 +1648,13 @@ bool WbNodeUtilities::isAValidUseableNode(const WbNode *node, QString *warning) 
   if (solid) {
     if (warning)
       *warning = QObject::tr("Solid nodes cannot be USEd.");
+    return false;
+  }
+
+  const WbBillboard *const billboard = dynamic_cast<WbBillboard *>(n);
+  if (billboard) {
+    if (warning)
+      *warning = QObject::tr("Billboard nodes cannot be USEd.");
     return false;
   }
 

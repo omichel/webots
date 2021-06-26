@@ -1,0 +1,268 @@
+[
+    {
+        "description" : "Moving robots so they are not penalized on SET",
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-1.4, 1.0, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.0, 1.2, 0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Part A. Moving robots for theoretical impact at [-2.0,1.0]",
+        "timing" : {
+            "time" : 11.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [-4.2, 1.0, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-1.4, 1.0, 0.3]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-2.0, 1.2, 0.3]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [11.001, 13.5],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [-0.15, 0, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [0, -0.05, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [13.0, 20.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Low speed collision -> Normal state",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "Low speed collision -> No penalty (1)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Low speed collision -> No penalty (2)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Part B. Moving robots for theoretical impact at [-1.0,2.0]",
+        "timing" : {
+            "time" : 21.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1.5, 2.0, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2.6, 1.0, 0.3]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.0, 1.0, 0.3]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [21.001, 24.8],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0.4, 0, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [-0.25, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [23.0, 30.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "High speed collision at similar speed -> Normal state",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "High speed collision at similar speed -> No penalty (1)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "High speed collision at similar speed -> No penalty (2)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Part C. Moving robots for theoretical impact at [0.0,0.0]",
+        "timing" : {
+            "time" : 31.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [2.5, 1.0, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [0.0, 2.0, 0.3]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [1.0, 0.0, 0.3]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [31.001, 34.7],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0, -0.5, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [-0.25, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [38.0, 40.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "High speed collision far from ball -> Normal state",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "High speed collision at different speed -> penalty on faster (1)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 31
+            },
+            {
+                "name" : "High speed collision at different speed -> no penalty on slower (1)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Part D. Moving robots for theoretical impact at [1.0,1.0], a long time is waited to make sure robots are not penalized anymore even if one of them fall meanwhile",
+        "timing" : {
+            "time" : 91.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [3.5, 1.0, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.2, 1.0, 0.3]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.2, 1.0, 0.3]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [91.001, 94.5],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [-0.05, 0.0, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [-0.3, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [98.0, 100.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "High speed collision far from ball -> Normal state",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "High speed collision at different speed -> No penalty on slower (2)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "High speed collision at different speed -> Penalty on faster (2)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 31
+            }
+        ]
+    }
+]

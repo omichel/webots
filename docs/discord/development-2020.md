@@ -284,7 +284,7 @@ Some issue I ran into when using urdf2webots:
 
 I'm eager help on those issues
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/21/2020 09:35:46
+##### Olivier Michel [Cyberbotics] 02/21/2020 09:35:46
 Regarding point 2 (large meshes), we are considering implementing support for meshes in Webots in different formats (DAE, OBJ, STL) by introducing a new node called Mesh that would replace the IndexedFaceSet node by referring to a mesh file (DAE, OBJ, STL, etc.) instead of listing a large number of coordinates and coordinate indices. I will open an issue about it to explain our design ideas. You are very welcome to contribute by proposing an implementation.
 
 
@@ -293,7 +293,7 @@ See [https://github.com/cyberbotics/webots/issues/1396](https://github.com/cyber
 ##### Axel M 02/21/2020 09:51:54
 Thats great, in the meantime I was considering modifying urdf2webots in order to generate PROTO files containing only the IndexedFaceSet of the parsed mesh (that's what i've done manually on my model). In the light of the above issue, does that seems still relevant to you ?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/21/2020 10:07:30
+##### Olivier Michel [Cyberbotics] 02/21/2020 10:07:30
 Yes, that's a very good idea as well.
 
 ##### rbhuva 02/24/2020 15:14:28
@@ -304,7 +304,7 @@ To carry out these experiments, I will consider the intensity of the sources, nu
 
 can any one help me to achieve this...
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/24/2020 15:21:47
+##### Olivier Michel [Cyberbotics] 02/24/2020 15:21:47
 Yes, Cyberbotics can provide you with paid support if needed. You can ask for an offer at sales@cyberbotics.com. Otherwise if you have some quick question, we may answer you here.
 
 ##### rbhuva 02/24/2020 16:48:16
@@ -337,7 +337,7 @@ The e-puck sensor model already have light sensors so using this robot model sho
 ##### cnaz 02/25/2020 08:36:14
 I have a project to link a algorithm of rei forcément learning and Webots. My programming learning is python. But the problem is I don't know where to do it. Is someone want to realize the project with me or help, I'll be grateful. Thx you guys (my operating system is Ubuntu 18)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/25/2020 08:44:52
+##### Olivier Michel [Cyberbotics] 02/25/2020 08:44:52
 Hi `@cnaz`, I would recommend you to start with simple Python controllers (see for example Webots/projects/languages/python/worlds/), define a task to be learnt by the robot and use reinforcement learning techniques in your Python controller.
 
 
@@ -539,7 +539,7 @@ wow.. Thank you I couldn't find that even after hours of search. You saved a lot
 ##### David Mansolino [Cyberbotics] 03/25/2020 12:39:30
 You're welcome 😉
 
-##### luhang 03/27/2020 01:40:47
+##### Mistral 03/27/2020 01:40:47
 Can we program and control the NAO robot in webots now?
 
 
@@ -548,7 +548,7 @@ I didn't find APIs
 ##### David Mansolino [Cyberbotics] 03/27/2020 06:21:02
 Hi yes of course, in Webots you can use the regular Webots API to control the simulated robot, you will find some example controllers here: [https://github.com/cyberbotics/webots/tree/master/projects/robots/softbank/nao/controllers](https://github.com/cyberbotics/webots/tree/master/projects/robots/softbank/nao/controllers)
 
-##### luhang 03/27/2020 07:47:41
+##### Mistral 03/27/2020 07:47:41
 Thanks!😁
 
 ##### David Mansolino [Cyberbotics] 03/27/2020 07:49:44
@@ -687,7 +687,7 @@ One question while developing.. what is the convention webot's using for the mat
 
 is it Euler Angles, Rotation Matrix, or Tait–Bryan angles?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/26/2020 14:43:52
+##### Olivier Michel [Cyberbotics] 04/26/2020 14:43:52
 It's a rotation matrix (as in OpenGL).
 
 
@@ -843,7 +843,7 @@ How should I set the parameters if I need specific angle.
 
 Or is their any simple way to convert normal vector direction to euler angles
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/29/2020 22:31:07
+##### Simon Steinmann [Moderator] 04/29/2020 22:31:07
 [https://www.andre-gaschler.com/rotationconverter/](https://www.andre-gaschler.com/rotationconverter/)
 
 ## May
@@ -856,7 +856,7 @@ Is there an quickly way to get the attribute instead of  predefined values as fo
 
 `@Jesusmd` which language are you using?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:02:55
+##### Simon Steinmann [Moderator] 05/13/2020 16:02:55
 <@&568329906048598039> Btw, I'm currently working on a python program, that publishes the PoseStamped of one or more nodes into a rostopic. It also allows to publish the Pose relative to a specific node.
 
 
@@ -865,7 +865,7 @@ Still a bit crude with little error correction, but it works 🙂
 
 Btw, is there a way to get the quaternion orientation directly from webots? That would make things much simpler
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 16:08:03
+##### Olivier Michel [Cyberbotics] 05/13/2020 16:08:03
 No, you have to get it as an axis-angle representation, but that's super easy to translate into quaternion.
 
 
@@ -875,10 +875,10 @@ def axis_angle_to_quaternion(axis, theta):
     return numpy.append([numpy.cos(theta/2)], numpy.sin(theta/2) * axis)
 ```
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:09:36
+##### Simon Steinmann [Moderator] 05/13/2020 16:09:36
 how do we get axis angles? I have the 3x3 matrix
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 16:10:25
+##### Olivier Michel [Cyberbotics] 05/13/2020 16:10:25
 [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_field\_get\_sf\_rotation](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_field_get_sf_rotation)
 
 
@@ -887,16 +887,16 @@ how do we get axis angles? I have the 3x3 matrix
 
 If you need absolute rotation (in axis-angle notation), use:  [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_orientation](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_orientation)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:12:12
+##### Simon Steinmann [Moderator] 05/13/2020 16:12:12
 but that returns the 3x3 matrix
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 16:12:56
+##### Olivier Michel [Cyberbotics] 05/13/2020 16:12:56
 Yes, you are right. Sorry, my bad.
 
 
 OK, so you need to convert this 3x3 rotation matrix to a quaternion then.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:14:33
+##### Simon Steinmann [Moderator] 05/13/2020 16:14:33
 The thing is, I want it to be able to run in the native webots environment, so no extra packages. I got it to work using their code:
 
 
@@ -911,25 +911,25 @@ specifically this:
 
 Problem is, the link to their liscense is broken 😅
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 16:15:26
+##### Olivier Michel [Cyberbotics] 05/13/2020 16:15:26
 Oops...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:16:25
+##### Simon Steinmann [Moderator] 05/13/2020 16:16:25
 how big of a deal would it be to add the 'tf' package to the webots ROS environment?
 
 
 it is almost a must if working with ROS and robots
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 16:18:13
+##### Olivier Michel [Cyberbotics] 05/13/2020 16:18:13
 If you use Webots with ROS, you need to install ROS, and you should get 'tf' for free, isn't it?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:19:08
+##### Simon Steinmann [Moderator] 05/13/2020 16:19:08
 yes, but it requires runtime.ini edits. Would be nice if people can have it run as an example out of the box
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 16:20:18
+##### Olivier Michel [Cyberbotics] 05/13/2020 16:20:18
 Yes, if you have an idea to achieve this... Now you know how to open a pull request 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:20:54
+##### Simon Steinmann [Moderator] 05/13/2020 16:20:54
 oh lordy 😅
 
 
@@ -940,7 +940,7 @@ Hey, could you tell me how to multi-select things in scene-tree?
 
 I can't find a way to. I imported a VRML97 model into Webots, the model was quite large, and it's difficult to select, cut and paste each 'transform' object into a robot node's children attribute.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 16:44:11
+##### Olivier Michel [Cyberbotics] 05/13/2020 16:44:11
 Unfortunately, this is not possible.
 
 ##### Sanket Khadse 05/13/2020 16:45:26
@@ -948,13 +948,13 @@ Oh, thank you for letting me know!
 
 Keep it as a suggestion for the next update. 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 16:47:12
+##### Simon Steinmann [Moderator] 05/13/2020 16:47:12
 Perhaps add a 'Group' base node, put all your nodes in, and copy paste that
 
 ##### Sanket Khadse 05/13/2020 17:11:36
 `@Simon Steinmann` that is what my problem is about. The nodes I have to copy paste one by one are in "hundreds".
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 18:04:16
+##### Simon Steinmann [Moderator] 05/13/2020 18:04:16
 `@Sanket Khadse`  perhaps direct .proto file edit can help
 
 ##### David Mansolino [Cyberbotics] 05/14/2020 05:34:23
@@ -969,7 +969,7 @@ Regarding your example of getting relative position between two nodes, that can 
 
 The integration with ROS is super easy too with [http://wiki.ros.org/eigen\_conversions](http://wiki.ros.org/eigen_conversions) 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/14/2020 12:48:46
+##### Simon Steinmann [Moderator] 05/14/2020 12:48:46
 > `@Simon Steinmann` Although working with ROS, we decided to split the simulation projects with minimal dependencies over ROS other than communication. For 3D Math in Cpp, we're using Eigen, and in python either numpy or numpy + transformations.py (which is standalone of tf)
 
 `@PymZoR` 
@@ -1011,13 +1011,13 @@ I did a good install because I tried the "Human" file and it worked correctly
 
 Thanks in advance
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/22/2020 06:48:43
+##### Olivier Michel [Cyberbotics] 05/22/2020 06:48:43
 Please open an issue on [https://github.com/cyberbotics/urdf2webots/issues/new](https://github.com/cyberbotics/urdf2webots/issues/new) and upload your URDF file as a ZIP file.
 
 ##### Sanket Khadse 05/22/2020 13:18:06
 Hey, I was trying to simulate a world on a HTTP web page. But I couldn't link the controller to the world. I can only move the viewpoint. How should I link the controllers to that file? So that the robots in my simulation should work.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/22/2020 14:27:44
+##### Olivier Michel [Cyberbotics] 05/22/2020 14:27:44
 If your robots move in Webots, they should also move in the web view. Don't they?
 
 ##### Sanket Khadse 05/22/2020 15:28:54
@@ -1026,7 +1026,7 @@ If your robots move in Webots, they should also move in the web view. Don't they
 ![Screenshot_from_2020-05-22_20-57-46.png](https://cdn.discordapp.com/attachments/565155651395780609/713413087914491904/Screenshot_from_2020-05-22_20-57-46.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/22/2020 15:31:32
+##### Olivier Michel [Cyberbotics] 05/22/2020 15:31:32
 That's because you exported to HTML but you are not streaming the simulation.
 
 
@@ -1038,7 +1038,7 @@ Please refer to the user guide: [https://cyberbotics.com/doc/guide/web-interface
 ##### Sanket Khadse 05/22/2020 15:37:09
 Yes, I have already read it. I need to simulate my world on a web browser using HTML file. I mean anyone with the file can open the simulation on the web. Server streaming or already recorded animation isn't the case.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/22/2020 15:41:18
+##### Olivier Michel [Cyberbotics] 05/22/2020 15:41:18
 Exporting a to HTML will simply export a static scene (no motion), so you probably want to either export an animation or stream a live simulation?
 
 ##### Sanket Khadse 05/22/2020 15:45:40
@@ -1046,7 +1046,7 @@ So could you tell me how can I make this static scene to moving? (by using my co
 
 No, as I said, its none of these two cases.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/22/2020 15:46:11
+##### Olivier Michel [Cyberbotics] 05/22/2020 15:46:11
 This is not possible.
 
 ##### Sanket Khadse 05/22/2020 15:50:50
@@ -1056,13 +1056,13 @@ This is not possible.
 
 Go for " Challenge Rules - 1 ".
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/22/2020 16:00:06
+##### Olivier Michel [Cyberbotics] 05/22/2020 16:00:06
 Are you a competitor or an organizer/developer of this contest?
 
 ##### Sanket Khadse 05/22/2020 16:01:57
 I am a competitor, sir.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/22/2020 16:02:54
+##### Olivier Michel [Cyberbotics] 05/22/2020 16:02:54
 OK, then you should probably run Webots in the cloud and stream your simulation to the web.
 
 ##### Sanket Khadse 05/22/2020 16:03:44
@@ -1424,7 +1424,7 @@ Hi everyone,
 
 I want to place E-puck randomly inside arena every time I start or reload the simulation, I need that to test some behaviour. So, i wander how can I find the help about using random numbers and 2D coordinates in webots simulator?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 06/22/2020 15:38:09
+##### Olivier Michel [Cyberbotics] 06/22/2020 15:38:09
 You can simply write a supervisor controller that will move the robot to a random position at the beginning of the simulation.
 
 ##### webotspro9999 06/22/2020 22:02:26
@@ -1544,7 +1544,7 @@ I set the WEBOTS\_HOME to the root of the source code folder (where I ran the ./
 
 Is it possible to use just python3 with webots?  Could not build the python2 language binding due to my libpython2 missing symbols, and since ROS2 is all python3, figured I would not need it.  But finding python2 dependenceis in webots\_ros2 package
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/05/2020 09:34:48
+##### Simon Steinmann [Moderator] 07/05/2020 09:34:48
 `@henry10210` just select extern as the controller and run your controller outside in your own environment
 
 ##### starstuff\_0903 07/05/2020 10:26:14
@@ -1578,7 +1578,7 @@ nevermind, I just  figured out that it is VRML97. my bad XD
 
 `@starstuff_0903` can you tell us more, what does represent your image? The height of the terrain ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/06/2020 14:32:47
+##### Simon Steinmann [Moderator] 07/06/2020 14:32:47
 `@David Mansolino` hi david, could you take a quick look at this issue? If I know how to solve it, I can write up a short tutorial
 
 
@@ -1587,7 +1587,7 @@ nevermind, I just  figured out that it is VRML97. my bad XD
 ##### David Mansolino [Cyberbotics] 07/06/2020 15:35:44
 Yes, sure I will answer it tomorrow morning
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/06/2020 17:30:54
+##### Simon Steinmann [Moderator] 07/06/2020 17:30:54
 `@David Mansolino` I seem to have figured it out. This shows joint 1 and 3 being changed in percent of their valid range. Looks correct now. Do you want me to make a PR with the new, 'correct' robotiq gripper?
 > **Attachment**: [3f\_gripper.mp4](https://cdn.discordapp.com/attachments/565155651395780609/729751244406521887/3f_gripper.mp4)
 
@@ -1642,13 +1642,13 @@ The duck is moved by with a Supervisor, here is the controller of the Supervisor
 
 `@Simon Steinmann` yes sure if you have any correction to bring to the model any PR is highly appreciated!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/08/2020 15:55:06
+##### Simon Steinmann [Moderator] 07/08/2020 15:55:06
 I had a weird issue with urdf2webots. I converted the kinova gen3 6dof arm and everything worked. However when implementing it with moveit, I noticed that several hingeJoints were rotating in the wrong direction. I had to switch the axis manually to negative (or positve) to change direction.  It might have something to do with the urdf using the z-axis and the proto using the y-axis for the joint.
 
 ##### David Mansolino [Cyberbotics] 07/09/2020 05:33:58
 Hi, just to make sur I understood correctly, the joint axes were correct, but the direction wrong right? Is the error similar to [https://github.com/cyberbotics/urdf2webots/issues/42](https://github.com/cyberbotics/urdf2webots/issues/42) ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/09/2020 08:43:40
+##### Simon Steinmann [Moderator] 07/09/2020 08:43:40
 Yes, that's exactly the same issue. For some joints the direction of rotation is flipped. I fixed it manually, by flipping the rotational axis (0 1 0 --> 0 -1 0)
 
 
@@ -1670,7 +1670,7 @@ Btw, successfully created a working GEN3 kinova arm. Even got IK through moveIt 
 
 `@Simon Steinmann` Very nice! No news yet (several of us are in holidays this week, so we will wait next week to discuss about this), but I will for sure let you know, it would be nice to include your model 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/09/2020 09:44:14
+##### Simon Steinmann [Moderator] 07/09/2020 09:44:14
 I might make a kinova\_webots git. A bunch of the launch files have to be altered in order for the IK to work. Plus it needs a custom ROS controller for webots.
 
 
@@ -1688,25 +1688,25 @@ Should I just get the latest nightly build of the master branch?
 ##### David Mansolino [Cyberbotics] 07/14/2020 14:16:37
 We usually do 2 version per year, first version a, then aroudn the middle of the year we create version b, then in between these version if needed we create patch release (e.g. a-revision1, a-revision2, etc.). If you need the patch, I would stick to the version b nightly, we will soon release an official version of R2020b when this is the case, I woudl stick to this official and stable R2020b.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/14/2020 14:17:20
+##### Simon Steinmann [Moderator] 07/14/2020 14:17:20
 version b is the develop branch?
 
 ##### David Mansolino [Cyberbotics] 07/14/2020 14:17:25
 yes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/14/2020 14:18:33
+##### Simon Steinmann [Moderator] 07/14/2020 14:18:33
 do nightly build files stay up indefinetely?
 
 ##### David Mansolino [Cyberbotics] 07/14/2020 14:18:49
 no, we keep only the one of the last 3 days.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/14/2020 14:19:05
+##### Simon Steinmann [Moderator] 07/14/2020 14:19:05
 hmm
 
 ##### David Mansolino [Cyberbotics] 07/14/2020 14:19:20
 But once we will release the official stable version of R2020b, this one will stay up indefinetely.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/14/2020 14:19:30
+##### Simon Steinmann [Moderator] 07/14/2020 14:19:30
 is there a ETA?
 
 
@@ -1715,7 +1715,7 @@ collegues are setting up their systems and environments, we need to be able to i
 ##### David Mansolino [Cyberbotics] 07/14/2020 14:21:22
 ok, in that case, only the official stable versions will be kept (e.g. latest R2020a-rev1).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/14/2020 14:21:39
+##### Simon Steinmann [Moderator] 07/14/2020 14:21:39
 that one doesnt have the simulation reset fix included yet right?
 
 ##### David Mansolino [Cyberbotics] 07/14/2020 14:22:25
@@ -1724,7 +1724,7 @@ Unfortunately not.
 
 But we expect to release the official version of R2020b in ~3 weeks from now.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/14/2020 14:23:02
+##### Simon Steinmann [Moderator] 07/14/2020 14:23:02
 hmm, perhaps we have to copy and save the setup file ourselves then
 
 
@@ -1742,13 +1742,13 @@ I would recommend you to make a post in ROS Discourse because it will help the R
 
 Thanks for merging it BTW!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 07/23/2020 05:33:41
+##### Olivier Michel [Cyberbotics] 07/23/2020 05:33:41
 You are welcome. We plan to release Webots R2020b (including this feature) in the next couple of days. We will make sure we announce it (including this ROS-friendly feature and a few others) on ROS Discourse.
 
 ##### JSON Derulo 07/23/2020 08:54:46
 Hi, does WeBots have to the ability to be integrated with by planners?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 07/23/2020 08:57:02
+##### Darko Lukić [Cyberbotics] 07/23/2020 08:57:02
 `@JSON Derulo` Yes, you can check this example: [https://www.youtube.com/watch?v=gO0EXKv8x70](https://www.youtube.com/watch?v=gO0EXKv8x70)
 
 
@@ -1767,7 +1767,7 @@ Hello everyone!
 
 I have an e-puck robot in Webots simulations, and I wanted to detect when it hits a wall. How can I solve this?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/27/2020 16:30:05
+##### Simon Steinmann [Moderator] 07/27/2020 16:30:05
 read out the appropiate sensor
 
 ##### Lukulus 07/29/2020 10:33:21
@@ -1835,7 +1835,7 @@ You're welcome
 
 ## August
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/04/2020 15:17:17
+##### Simon Steinmann [Moderator] 08/04/2020 15:17:17
 Found a strange behavior. Running EXACTLY the same simulation, I get several of these errors:
 
 WARNING: The current physics step could not be computed correctly. Your world may be too complex. If this problem persists, try simplifying your bounding object(s), reducing the number of joints, or reducing WorldInfo.basicTimeStep.
@@ -1851,13 +1851,13 @@ Reducing the time step also reduces the complexity of the computations. Other su
 
 [https://www.cyberbotics.com/doc/guide/modeling#my-robotsimulation-explodes-what-should-i-do](https://www.cyberbotics.com/doc/guide/modeling#my-robotsimulation-explodes-what-should-i-do)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/04/2020 15:47:22
+##### Simon Steinmann [Moderator] 08/04/2020 15:47:22
 the issue is, that I get these errors at timestep 1, which is much smaller than let's say 8, where everythign runs fine
 
 ##### Stefania Pedrazzi [Cyberbotics] 08/04/2020 15:54:36
 it depends on the simulation and the collisions between the objects at the computation time. Maybe in your case increasing the time step makes skipping some problematic contact or object's intersection.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/04/2020 15:56:09
+##### Simon Steinmann [Moderator] 08/04/2020 15:56:09
 a simple stacking task
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/740236647781630022/unknown.png)
@@ -1872,19 +1872,19 @@ at something like 4 or 8 timestep, the simulation outcome is also exactly the sa
 ##### Stefania Pedrazzi [Cyberbotics] 08/04/2020 15:58:04
 it's a simple task, but it is complex from the physical computation
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/04/2020 15:59:52
+##### Simon Steinmann [Moderator] 08/04/2020 15:59:52
 is there a way to get more detailed info? where exactle the issue is?
 
 ##### Stefania Pedrazzi [Cyberbotics] 08/04/2020 16:01:05
 unfortunately not, ODE doesn't give any details. But you can find it by simplifying your simulation until the problem disappears.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/04/2020 16:04:35
+##### Simon Steinmann [Moderator] 08/04/2020 16:04:35
 I just dont understand how decreasing the timestep can cause issues. That's how you're supposed to get rid of these issues
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/04/2020 16:05:46
+##### Olivier Michel [Cyberbotics] 08/04/2020 16:05:46
 In general yes, but your case seems tricky...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/04/2020 16:16:42
+##### Simon Steinmann [Moderator] 08/04/2020 16:16:42
 Suuuper weird issue. So I run the exact same task several times with increasing timesteps (4, 8, 16, 32). If everything is set correctly, it takes 43 seconds. I use the supervisor to reset the simulation after each run, and set the timestep before each run. Now here is the strange part. If the timestep is 4 or smaller, the time for each run is the same. However, if reset the controller and manually put the timestep to 32 BEFORE i start my script, it uses 32ms increments for the simulation time, even if the steps are actually smaller. This results in times of like 5min, 2,5 min 1,2 min and then finally 43 seconds when actually using 32 timestep again.
 
 
@@ -1915,7 +1915,7 @@ there is something like GetNode(Node*)
 
 ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/05/2020 15:58:21
+##### Simon Steinmann [Moderator] 08/05/2020 15:58:21
 [https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb\_supervisor\_node\_get\_orientation](https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_orientation)
 
 
@@ -1924,7 +1924,7 @@ there is. The controller has to be a supervisor though
 ##### Buzzer 08/05/2020 15:58:49
 Ow nice, thanks
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/05/2020 16:00:36
+##### Simon Steinmann [Moderator] 08/05/2020 16:00:36
 there is a python example I wrote, on how to get the position of an object relative to another. That might come in handy
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/740600155841101904/unknown.png)
@@ -1936,13 +1936,13 @@ because the function will only return values relative to the world
 ##### Buzzer 08/05/2020 16:03:09
 thanks `@Simon Steinmann`, I will follow this
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/06/2020 11:19:38
+##### Simon Steinmann [Moderator] 08/06/2020 11:19:38
 Since I have done quite a few urdf2webots conversions lately, I might as well create a tutorial for it, as the process can be complicated if one has not much experience. Is there any robotic arm that people want to see added to the community projects?
 
 ##### Marko G 08/06/2020 11:23:39
 Hey! I'm just in the middle of trying to wrap my head around urf2webots and a tutorial would be of great help to me! The arms I would like to use are KUKA LBR iiwa and Kinova Jaco and I belive that they would be a good addition as they are quite popular. BTW right now reading older messages as I see that you've had similar problems 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/06/2020 11:24:34
+##### Simon Steinmann [Moderator] 08/06/2020 11:24:34
 Yesterday I fixed a huge issue in the converter. The joints should not be wonky anymore, so make sure you pull the newest version of urdf2webots
 
 
@@ -1953,7 +1953,7 @@ OK, thanks a lot 😄 You've just saved me countless hours hahah :)
 
 I found a github repo with the kuka arm which I'm trying to get to work
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/06/2020 11:26:00
+##### Simon Steinmann [Moderator] 08/06/2020 11:26:00
 link?
 
 ##### Marko G 08/06/2020 11:26:05
@@ -1964,7 +1964,7 @@ just a sec
 
 The repo has other arms as well, all in separate folders
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/06/2020 12:09:16
+##### Simon Steinmann [Moderator] 08/06/2020 12:09:16
 `@David Mansolino` is the new fixed version of urdff2webots already available on pip install? because I get this error:
 
 importer.py: error: no such option: --multi-file
@@ -1975,7 +1975,7 @@ Not yet.
 
 I will create it right now 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/06/2020 12:09:58
+##### Simon Steinmann [Moderator] 08/06/2020 12:09:58
 hehe good
 
 
@@ -1990,7 +1990,7 @@ I just launched the process, now Github Action will create and upload the pip pa
 
 It's now live (it reflects the current state of master): [https://pypi.org/project/urdf2webots/#history](https://pypi.org/project/urdf2webots/#history)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/06/2020 13:43:39
+##### Simon Steinmann [Moderator] 08/06/2020 13:43:39
 It worked, but needed to specify no-cache. For anyone else who wants to use the new and fixed version of urdf2webots, install it like this:
 
 pip install --no-cache-dir --upgrade urdf2webots
@@ -2008,28 +2008,28 @@ is there already an issue related to this? My suggestion would be to add a funct
 
 robot.setBasicTimeStep
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/07/2020 13:34:10
+##### Olivier Michel [Cyberbotics] 08/07/2020 13:34:10
 Yes, this is a known issue.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/07/2020 13:34:36
+##### Simon Steinmann [Moderator] 08/07/2020 13:34:36
 or add it to the supervisor and have 
 
 robot.getBasicTimeStep()
 
 grab the value directly from the world instance
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/07/2020 13:34:39
+##### Olivier Michel [Cyberbotics] 08/07/2020 13:34:39
 It's pretty rare to dynamically change the time step of a simulation. Why do your need to do that?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/07/2020 13:35:21
+##### Simon Steinmann [Moderator] 08/07/2020 13:35:21
 benchmark runs at different timesteps. I worked around it, by not using 
 
 robot.getBasicTimeStep()  for steps, but the manually set interval
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/07/2020 13:35:55
+##### Olivier Michel [Cyberbotics] 08/07/2020 13:35:55
 A solution could be to read the "basicTimeStep" field of the WorldInfo node from a supervisor process.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/07/2020 13:36:18
+##### Simon Steinmann [Moderator] 08/07/2020 13:36:18
 that would be great
 
 
@@ -2041,25 +2041,25 @@ because setting it is a bit clonky
 
 want me to open request?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/07/2020 13:37:27
+##### Olivier Michel [Cyberbotics] 08/07/2020 13:37:27
 No, I believe we won't implement it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/07/2020 13:37:52
+##### Simon Steinmann [Moderator] 08/07/2020 13:37:52
 ohh I know what you mean
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/07/2020 13:37:57
+##### Olivier Michel [Cyberbotics] 08/07/2020 13:37:57
 Because this is a rare use case and a workaround exists using a supervisor.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/07/2020 13:45:50
+##### Simon Steinmann [Moderator] 08/07/2020 13:45:50
 I could add this example code to the robot.getBasicTimeStep documentation. In case someone else runs into that issue
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/741291016308523018/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/07/2020 13:47:32
+##### Olivier Michel [Cyberbotics] 08/07/2020 13:47:32
 Yes, that would be great.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/12/2020 13:40:49
+##### Simon Steinmann [Moderator] 08/12/2020 13:40:49
 When I include images in a tutorial, where do I put them? I'm currently creating a 'tutorial.md' for urdf2webots. My plan is to have it in the base directory and link it in the README.md.
 
 
@@ -2071,34 +2071,34 @@ Yes, a 'docs' folder with an 'images' folder inside look good.
 
 Like it is currently the case for the 'webots' repository: [https://github.com/cyberbotics/webots/tree/master/docs](https://github.com/cyberbotics/webots/tree/master/docs)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/12/2020 13:46:01
+##### Simon Steinmann [Moderator] 08/12/2020 13:46:01
 sounds good
 
 
 PR is ready for review [https://github.com/cyberbotics/urdf2webots/pull/68](https://github.com/cyberbotics/urdf2webots/pull/68)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/12/2020 15:43:19
+##### Olivier Michel [Cyberbotics] 08/12/2020 15:43:19
 Reviewed.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/12/2020 16:07:54
+##### Simon Steinmann [Moderator] 08/12/2020 16:07:54
 can't commit the last one
 
 
 outdated?!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/12/2020 16:16:35
+##### Olivier Michel [Cyberbotics] 08/12/2020 16:16:35
 Probably...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/12/2020 16:17:16
+##### Simon Steinmann [Moderator] 08/12/2020 16:17:16
 i'll do it manually
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/12/2020 16:17:30
+##### Olivier Michel [Cyberbotics] 08/12/2020 16:17:30
 OK, thank you.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/12/2020 16:21:17
+##### Simon Steinmann [Moderator] 08/12/2020 16:21:17
 okay done. Accepted all changes except 2 minor ones
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/12/2020 16:58:51
+##### Olivier Michel [Cyberbotics] 08/12/2020 16:58:51
 Thanks. I will check it tomorrow.
 
 ##### MarioAndres7 08/12/2020 23:14:33
@@ -2109,7 +2109,7 @@ coordinates
 ##### David Mansolino [Cyberbotics] 08/13/2020 05:17:10
 Hi `@MarioAndres7`, welcome? Do you mean mobile robot?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 06:55:32
+##### Simon Steinmann [Moderator] 08/13/2020 06:55:32
 converting the kuka repo atm. Getting these errors:
 
 WARNING: KukaLbrIiwa14R820 (PROTO) > HingeJoint > Solid > HingeJoint > Solid > HingeJoint > Solid > HingeJoint > Solid > HingeJoint > Solid > HingeJoint > Solid > HingeJoint > Solid > Solid: Undefined inertia matrix: using the identity matrix. Please specify 'boundingObject' or 'inertiaMatrix' values.
@@ -2130,25 +2130,25 @@ Question is, how should empty links be handled properly? And can we automate thi
 ##### David Mansolino [Cyberbotics] 08/13/2020 06:58:39
 We should probably improve the importer to handle this exception and avoid exporting the physis in this case.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 06:59:14
+##### Simon Steinmann [Moderator] 08/13/2020 06:59:14
 I agree. giving them mass, doesnt seem logical
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 06:59:43
 Please open an issue on the urdf2webots repo about this.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 07:00:02
+##### Simon Steinmann [Moderator] 08/13/2020 07:00:02
 will do
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 07:00:07
 thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 07:05:30
+##### Simon Steinmann [Moderator] 08/13/2020 07:05:30
 done, opened issue
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 07:06:45
 perfect, thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 07:25:26
+##### Simon Steinmann [Moderator] 08/13/2020 07:25:26
 DEF link\_4\_0 IndexedFaceSet: Cannot create IndexedFaceSet because: "'coordIndex' is empty.".
 > **Attachment**: [link\_4\_0Mesh.proto](https://cdn.discordapp.com/attachments/565155651395780609/743369609666625587/link_4_0Mesh.proto)
 
@@ -2161,7 +2161,7 @@ To me it works fine, without any error in the console
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/743370782125719562/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 07:30:26
+##### Simon Steinmann [Moderator] 08/13/2020 07:30:26
 uploading to community, one sec
 
 
@@ -2176,7 +2176,7 @@ I can load the link itself as well, but for some reason, it doesnt work loading 
 ##### David Mansolino [Cyberbotics] 08/13/2020 07:39:11
 ok, that's strange, will have a look as soon as I have the time to.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 07:42:29
+##### Simon Steinmann [Moderator] 08/13/2020 07:42:29
 removing and adding the hidden tag again seemed to have fixed the issue
 
 
@@ -2185,7 +2185,7 @@ removing and adding the hidden tag again seemed to have fixed the issue
 ##### David Mansolino [Cyberbotics] 08/13/2020 07:43:14
 That's strange, I will try thsi too if I can reproduce the problem
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 08:14:03
+##### Simon Steinmann [Moderator] 08/13/2020 08:14:03
 another strange issue. This is the kr5 robot, loaded from the community projects folder
 %figure
 ![Screenshot_from_2020-08-13_10-09-47.png](https://cdn.discordapp.com/attachments/565155651395780609/743381846217457694/Screenshot_from_2020-08-13_10-09-47.png)
@@ -2200,7 +2200,7 @@ simply copy pasting the meshes folder into my current project's protos folder, f
 ##### David Mansolino [Cyberbotics] 08/13/2020 08:48:53
 I am currently reviewing your PR and checking this.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 08:49:28
+##### Simon Steinmann [Moderator] 08/13/2020 08:49:28
 There is also a issue with the standard maxTorque  of 100 being too low
 
 
@@ -2209,13 +2209,13 @@ on the kr5 I changed it to maxTorque 1000, and it fixes it (not pushed yet)
 ##### David Mansolino [Cyberbotics] 08/13/2020 08:49:52
 the maxtorque is not defined in the urdf ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 08:49:57
+##### Simon Steinmann [Moderator] 08/13/2020 08:49:57
 no it is not
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 08:50:12
 ok, and do you know what is the default maxtorque in URDF ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 08:50:22
+##### Simon Steinmann [Moderator] 08/13/2020 08:50:22
 nope
 
 
@@ -2224,13 +2224,13 @@ not defined
 ##### David Mansolino [Cyberbotics] 08/13/2020 08:50:49
 ok, maybe if we find it, we can export to the standard urdf maxtorque if not specified in the urdf file.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 08:51:17
+##### Simon Steinmann [Moderator] 08/13/2020 08:51:17
 what do you mean?
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 08:54:08
 In the urdf2webtos, if the maxtorque is not specified in th eurdf file, we just do not specify it in the PROTO file, Webots will then use the fedault value  which is quite small and probably doesn't correspond to the URDF default value. Instead, if the maxtorque is not defined in the URDF file, we can still export the maxTorque to a higher value (ideally corresponding to the URDF default maxTorque).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 08:54:45
+##### Simon Steinmann [Moderator] 08/13/2020 08:54:45
 ahhh I understand
 
 
@@ -2244,7 +2244,7 @@ I mean, Gazebo handles it that way
 
 `@Simon Steinmann` for me it works fine from the commuity project without any changes too. Maybe you need to close and re-open Webots? It is possible that if you made some changes to the 'extern project' files they are updated only next time you restart Webots.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 08:59:31
+##### Simon Steinmann [Moderator] 08/13/2020 08:59:31
 restarting webots didnt fix the issue weirdly enough
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 08:59:57
@@ -2255,19 +2255,19 @@ restarting webots didnt fix the issue weirdly enough
 
 Ohhh I can reprocude the issue with the `lrb_iiwa` but not with the `kr5` is it the same for you?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:01:23
+##### Simon Steinmann [Moderator] 08/13/2020 09:01:23
 hold on
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:02:47
 Ok, I think I found the reason. The problem is that both robot are defining the same PROTO names, and therefore in the case of the `lrb_iiwa` some meshes of the `kr5` are used.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:03:06
+##### Simon Steinmann [Moderator] 08/13/2020 09:03:06
 yes, same
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:03:12
 We should probably improve the name of the sub-PROTO to include as prefix the name of the robot.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:03:56
+##### Simon Steinmann [Moderator] 08/13/2020 09:03:56
 ohhhh, it doesnt start searching at the location of the proto file, but at the base level
 
 
@@ -2279,7 +2279,7 @@ fix should be easy enough
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:04:54
 Yes, that shouldn't be too dificult to include this prefix
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:05:56
+##### Simon Steinmann [Moderator] 08/13/2020 09:05:56
 but perhaps it would be better to (or in addition), to change the mesh-lookup algorithm. So it starts in the same directory as the main proto file
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:09:05
@@ -2289,13 +2289,13 @@ It should be sufficient to prepend the name of the robot to the `name` variable 
 
 Would you give a try? Or I can do this if you want.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:09:34
+##### Simon Steinmann [Moderator] 08/13/2020 09:09:34
 already at it 😄
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:09:47
 Perfect, thank  you 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:29:45
+##### Simon Steinmann [Moderator] 08/13/2020 09:29:45
 [https://github.com/cyberbotics/urdf2webots/pull/70](https://github.com/cyberbotics/urdf2webots/pull/70)
 
 
@@ -2304,7 +2304,7 @@ implemented and tested. works 🙂
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:33:28
 That looks all good, I will try and update the test.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:36:21
+##### Simon Steinmann [Moderator] 08/13/2020 09:36:21
 I can add the torque fix while we are at it.
 
 
@@ -2313,7 +2313,7 @@ already tested it. change 1 indet + change 2 lines
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:36:50
 (I was going to do it ^^, but if you can do it while I am testing it's cool
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 09:39:21
+##### Simon Steinmann [Moderator] 08/13/2020 09:39:21
 added it
 
 
@@ -2322,13 +2322,13 @@ now we just have to remove the physics nodes from epmty liks
 ##### David Mansolino [Cyberbotics] 08/13/2020 09:39:37
 Perfect, I will check it just after lunch
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 10:09:27
+##### Simon Steinmann [Moderator] 08/13/2020 10:09:27
 implemented the physics node thing too. Not sure it is the cleanest solution, but at least it only needs 4 lines of extra code
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 11:06:55
 I just finished, if you're fine with the changes feel free to merge it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 11:25:35
+##### Simon Steinmann [Moderator] 08/13/2020 11:25:35
 max torque implementation doesnt work for me
 
 
@@ -2337,7 +2337,7 @@ the torque limits are still 0.0, not 10000
 ##### David Mansolino [Cyberbotics] 08/13/2020 11:29:32
 oups, will try
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 11:30:43
+##### Simon Steinmann [Moderator] 08/13/2020 11:30:43
 line 825 in parserURDF needs a condition I think
 
 
@@ -2369,13 +2369,13 @@ No manual edits needed after converting
 
 `@Simon Steinmann` 🎉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 12:13:46
+##### Simon Steinmann [Moderator] 08/13/2020 12:13:46
 well at least for robot arms 🙂
 
 ##### David Mansolino [Cyberbotics] 08/13/2020 12:14:29
 That's already a good start
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 12:26:03
+##### Simon Steinmann [Moderator] 08/13/2020 12:26:03
 done
 
 
@@ -2386,7 +2386,7 @@ converted and added bunch of KUKA arms:
 ##### David Mansolino [Cyberbotics] 08/13/2020 14:02:09
 Can you also update the one of [https://github.com/cyberbotics/community-projects/pull/9](https://github.com/cyberbotics/community-projects/pull/9) ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/13/2020 15:45:04
+##### Simon Steinmann [Moderator] 08/13/2020 15:45:04
 Oh I didn't see that one still being open. I replaced all files. pull/9 can be discarded
 
 
@@ -2401,7 +2401,7 @@ Oh yes indeed, we should open the 'name' field too.
 
 Just opened an issue about this: [https://github.com/cyberbotics/urdf2webots/issues/72](https://github.com/cyberbotics/urdf2webots/issues/72)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/17/2020 17:25:40
+##### Simon Steinmann [Moderator] 08/17/2020 17:25:40
 I created a universal IK controller. only parameters that need to be changed are the urdf filename and which axis points out of the toolSlot. Works really well
 
 
@@ -2416,7 +2416,7 @@ I wonder if the link-setup information could be extracted straight from the prot
 
 `@Simon Steinmann` where did you upload the controller?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/17/2020 19:36:55
+##### Simon Steinmann [Moderator] 08/17/2020 19:36:55
 `@Albens Gladius` have not uploaded it yet
 
 
@@ -2430,7 +2430,7 @@ That looks very cool, I have been trying to do the same using IKPY last week ([h
 
 `@Simon Steinmann` what about using the new `wb_robot_get_urdf` function?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 07:33:02
+##### Simon Steinmann [Moderator] 08/18/2020 07:33:02
 😮 that exists? That would be awesome, I'll check it out later when I have time
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 07:34:51
@@ -2439,13 +2439,13 @@ Yes, that's new in R2020b 😉
 
 (and improved in the nightly)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 07:49:13
+##### Simon Steinmann [Moderator] 08/18/2020 07:49:13
 the version I have uses the sensor names for the joints. has this been fixed in the new nightlies?
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 07:50:52
 No, it uses indeed the sensor as names, but you should be able to easily switch from one to the other (removing the 'sensor' postfix).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 07:51:22
+##### Simon Steinmann [Moderator] 08/18/2020 07:51:22
 particular reason it does this?
 
 
@@ -2457,19 +2457,19 @@ No, it was either the motor or sensor name, we decided sensor name.
 
 Sure, here it is: [https://github.com/cyberbotics/webots/blob/master/projects/robots/abb/irb/controllers/inverse\_kinematics/inverse\_kinematics.py](https://github.com/cyberbotics/webots/blob/master/projects/robots/abb/irb/controllers/inverse_kinematics/inverse_kinematics.py)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 07:52:41
+##### Simon Steinmann [Moderator] 08/18/2020 07:52:41
 converting urdf2webots uses joint names as motor names, that's why I'd assume the other way around would do the same
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 07:53:02
 Makes sense indeed.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 07:53:16
+##### Simon Steinmann [Moderator] 08/18/2020 07:53:16
 if you were to convert it back, the motors would be called 'joint\_sensor' and the sensors 'joint\_sensor\_sensor'
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 07:54:21
 indeed good point, I should admit that the name of the joint was chosen without particularly thinking about this, it need indeed a bit more thinking about this.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 07:56:31
+##### Simon Steinmann [Moderator] 08/18/2020 07:56:31
 glad to be of service 😄
 
 
@@ -2483,7 +2483,7 @@ Doing all this linear algebra manually is a big obstacle for many people. Took m
 ##### David Mansolino [Cyberbotics] 08/18/2020 08:11:04
 It is indeed useful, but we somehow have to keep the number of API functions low (as to keep the quality level high it requires maintenance time) so we have to be careful when adding function to get information that can already be extracted from other API functions.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 08:13:33
+##### Simon Steinmann [Moderator] 08/18/2020 08:13:33
 true I guess, still would be usefull. I might update the documentation and link to a implementation. Or we update the irb inverse kinematics world with this function, showing a general implementation on how to get relative positions and orientationis
 
 
@@ -2498,7 +2498,7 @@ is there a easy way to get translation and orientation of a specific solid in a 
 
 I especially need the rotation matrix, urdf only has rpy
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:09:24
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:09:24
 Yes, you should be able to do this from a supervisor controller.
 
 
@@ -2507,55 +2507,55 @@ See [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_
 
 And [https://www.cyberbotics.com/doc/reference/supervisor#wb\_supervisor\_node\_get\_position](https://www.cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_get_position)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:10:25
+##### Simon Steinmann [Moderator] 08/18/2020 10:10:25
 but  the solid needs to have a defined DEF right?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:10:30
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:10:30
 Yes.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:10:35
+##### Simon Steinmann [Moderator] 08/18/2020 10:10:35
 damn
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:11:05
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:11:05
 If an upper parent has a DEF name, this may be workable though.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:11:23
+##### Simon Steinmann [Moderator] 08/18/2020 10:11:23
 I would have to go through the whole tree right?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:11:29
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:11:29
 Yes.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:11:32
+##### Simon Steinmann [Moderator] 08/18/2020 10:11:32
 problem is, I need it for the last solid 😄
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:11:54
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:11:54
 A fairly simple loop should do the job.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:12:08
+##### Simon Steinmann [Moderator] 08/18/2020 10:12:08
 trying to make a universal-IK controller for you guys
 
 
 could you help me with that loop?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:12:41
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:12:41
 Which programming language are you using?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:12:47
+##### Simon Steinmann [Moderator] 08/18/2020 10:12:47
 python
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:13:06
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:13:06
 OK, let me have a look.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:16:30
+##### Simon Steinmann [Moderator] 08/18/2020 10:16:30
 thank you
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:18:38
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:18:38
 How will your recognize the node you want to get the orientation/position? By its name, any other field?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:19:02
+##### Simon Steinmann [Moderator] 08/18/2020 10:19:02
 i guess name
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:19:08
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:19:08
 OK.
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:19:30
@@ -2563,7 +2563,7 @@ OK.
 
 `@Simon Steinmann` can't you convert the rpy into matrix? (in python e.g. `transforms3d` allows to do this: [https://matthew-brett.github.io/transforms3d/reference/transforms3d.euler.html#terms-used-in-function-names](https://matthew-brett.github.io/transforms3d/reference/transforms3d.euler.html#terms-used-in-function-names))
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:19:51
+##### Simon Steinmann [Moderator] 08/18/2020 10:19:51
 we might have to update all official robotic arms with the new urdf2webots convention
 
 
@@ -2581,10 +2581,10 @@ the structure of the proto is not like the official urdf. mainly the tool link i
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:33:30
 We can indeed add the tool link, but we should be carreful to not break compatibility (e.g. changing motor/sensor names) when updating it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:34:57
+##### Simon Steinmann [Moderator] 08/18/2020 10:34:57
 those are correct. the issue will be the tool slot. with the webots model, the y-axis points out, with the urdff model, the x-axis points out. But we can adjust that to be the same, like the old webots model
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 10:35:29
+##### Olivier Michel [Cyberbotics] 08/18/2020 10:35:29
 ```python
 function getNode(node, name):
     nameField = node.getField('name'):
@@ -2608,7 +2608,7 @@ node = getNode(root, 'my_searched_name')
 
 Something like this should do the job (not tested).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:37:03
+##### Simon Steinmann [Moderator] 08/18/2020 10:37:03
 thx I will test it
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:38:01
@@ -2616,7 +2616,7 @@ I think there is an issue:
 
 n = getSFNode(child, name)  = > n = getNode(child, name)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:44:32
+##### Simon Steinmann [Moderator] 08/18/2020 10:44:32
 root = proto.getProtoFromDef('MY\_ROBOT\_ROOT') 
 
 this is not a valid function
@@ -2630,7 +2630,7 @@ is the getProto a new develop-branch function?
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:45:39
 no, it is in R2020b
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:46:00
+##### Simon Steinmann [Moderator] 08/18/2020 10:46:00
 oh, running a
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:46:08
@@ -2638,13 +2638,13 @@ But the code is probably wrong:
 
 => root = supervisor.getProtoFromDef('MY\_ROBOT\_ROOT')
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:52:47
+##### Simon Steinmann [Moderator] 08/18/2020 10:52:47
 would have to install 2020b, With the tar install, I just have to extract and change environment variable right?
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:53:05
 Yes exactly
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:54:40
+##### Simon Steinmann [Moderator] 08/18/2020 10:54:40
 for ubuntu 18.04 and up I take 
 
 webots-R2020b-rev1-x86-64.tar.bz2 
@@ -2657,7 +2657,7 @@ For ubuntu 18.04 you can take the webots-R2020b-rev1-x86-64\_ubuntu-16.04.tar.bz
 
 For up you can take webots-R2020b-rev1-x86-64.tar.bz2
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:55:45
+##### Simon Steinmann [Moderator] 08/18/2020 10:55:45
 can or should? :p
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:55:50
@@ -2666,28 +2666,28 @@ That's indeed not clearly said
 
 *should 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 10:56:00
+##### Simon Steinmann [Moderator] 08/18/2020 10:56:00
 okay, thx ^
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 10:56:23
 You're welcome
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 12:28:27
+##### Simon Steinmann [Moderator] 08/18/2020 12:28:27
 is there a quick way to set max and min position of a motor from code? or to ignore limits
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 12:29:15
 No, you can only get the min and max, but the robot is not able to change them (except using the Supervisor API).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 12:29:47
+##### Simon Steinmann [Moderator] 08/18/2020 12:29:47
 node from device is not implemented in the main build yyet right?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 12:30:40
+##### Olivier Michel [Cyberbotics] 08/18/2020 12:30:40
 I believe it is implemented in the nightly build of R2021a.
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 12:30:45
 Only on the develop branch
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 12:31:05
+##### Simon Steinmann [Moderator] 08/18/2020 12:31:05
 oh man, ikpy uses >= for limits, webots uses just >
 
 
@@ -2746,7 +2746,7 @@ is there a way to get the motor name, given the sensorname?
 ##### David Mansolino [Cyberbotics] 08/18/2020 13:20:11
 Yes: [https://cyberbotics.com/doc/reference/motor#wb\_motor\_get\_position\_sensor](https://cyberbotics.com/doc/reference/motor#wb_motor_get_position_sensor)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:20:54
+##### Simon Steinmann [Moderator] 08/18/2020 13:20:54
 [https://tenor.com/view/yay-market-yellow-man-gif-6195464](https://tenor.com/view/yay-market-yellow-man-gif-6195464)
 
 
@@ -2755,22 +2755,22 @@ omg it works!!!
 ##### David Mansolino [Cyberbotics] 08/18/2020 13:30:32
 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:31:04
+##### Simon Steinmann [Moderator] 08/18/2020 13:31:04
 added a fix for singularities, and generating the active link mask is now independant of the naming scheme
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:31:59
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:31:59
 I just fixed a couple of errors in my code snippet (it should be slightly more correct now).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:32:42
+##### Simon Steinmann [Moderator] 08/18/2020 13:32:42
 is it compatible with 2020a? I'm not running it, but would be nice for other people to be able to use it
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:33:01
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:33:01
 No. It requires R2020b.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:33:14
+##### Simon Steinmann [Moderator] 08/18/2020 13:33:14
 can you paste it again?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:33:52
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:33:52
 ```python
 def getNode(node, name):
     nameField = node.getField('name')
@@ -2791,22 +2791,22 @@ root = proto.getFromProtoDef('MY_ROBOT_ROOT')
 node = getNode(root, 'my_searched_name')
 ```
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:38:29
+##### Simon Steinmann [Moderator] 08/18/2020 13:38:29
 what is MY\_ROBOT\_ROOT?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:40:02
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:40:02
 It's the DEF node inside your proto definition.
 
 
 The one that contains the node you are looking for.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:43:32
+##### Simon Steinmann [Moderator] 08/18/2020 13:43:32
 oh so the DEF of the robot with the supervisor controller?
 
 
 would that not be the same as MY\_PROTO\_ROBOT?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:45:57
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:45:57
 No, it's not the same. In your world file, you will have:
 
 
@@ -2822,7 +2822,7 @@ And in your `MyRobot.proto` file:
 PROTO MyRobot [ ... ] { DEF MY_ROBOT_ROOT Robot { ... } }
 ```
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:48:50
+##### Simon Steinmann [Moderator] 08/18/2020 13:48:50
 there is no DEF in most proto files
 
 
@@ -2831,25 +2831,25 @@ there is no DEF in most proto files
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/745278094939783168/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:49:48
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:49:48
 You should add one. Or use one if any at a lower level.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:53:11
+##### Simon Steinmann [Moderator] 08/18/2020 13:53:11
 trying to make it work for general and existing protos
 
 
 the screenshot above is your model 😉
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:54:19
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:54:19
 I know. Then we probably need another API function to get the root proto node even if it has no DEF...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 13:55:14
+##### Simon Steinmann [Moderator] 08/18/2020 13:55:14
 requireing no argument would be good, as we arleady specify which node.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 13:57:28
+##### Olivier Michel [Cyberbotics] 08/18/2020 13:57:28
 Yes, something like `wb_supervisor_node_get_from_proto_root`.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:00:12
+##### Simon Steinmann [Moderator] 08/18/2020 14:00:12
 exactly 🙂
 
 
@@ -2867,20 +2867,20 @@ exactly 🙂
 
 problem fixed :p still makes me smile
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:01:40
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:01:40
 It's maybe less dangerous to do:
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:03:49
+##### Simon Steinmann [Moderator] 08/18/2020 14:03:49
 hmm, so my IK controller now works flawlessly with all the robots (at least kuka) in the community projects. Is it possible to add a controller on a higher abstraction level and not a per-world basis?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:03:54
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:03:54
 ```python
         new_lower = armChain.links[i].bounds[0] - 0.0000001 if armChain.links[i].bounds[0] > 0 else armChain.links[i].bounds[0] + 0.0000001
         new_upper = armChain.links[i].bounds[1] - 0.0000001 if armChain.links[i].bounds[1] > 0 else armChain.links[i].bounds[1] + 0.0000001
         armChain.links[i].bounds = (new_lower, new_upper)
 ```
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:04:30
+##### Simon Steinmann [Moderator] 08/18/2020 14:04:30
 i'm not dividing, so there should be no issues?!
 
 
@@ -2889,16 +2889,16 @@ ohhhhh
 
 because of 0
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:04:50
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:04:50
 Yes, I would recommend you to add such a controller in a folder named "generic\_inverse\_kinematic" or the like.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:04:50
+##### Simon Steinmann [Moderator] 08/18/2020 14:04:50
 yeah
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:05:20
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:05:20
 Yes, there might be rounding problems with small values.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:05:27
+##### Simon Steinmann [Moderator] 08/18/2020 14:05:27
 where would that folder be? I added the whole comm.proj. git to extra paths
 
 
@@ -2910,25 +2910,25 @@ new\_lower = armChain.links[i].bounds[0] + 0.0000001
 
 this should be enough, since lower is always smaller than upper
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:07:55
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:07:55
 Probably we should create a `controllers` folder at the level and put it in there.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:08:13
+##### Simon Steinmann [Moderator] 08/18/2020 14:08:13
 that would be good
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:08:31
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:08:31
 Like [https://github.com/cyberbotics/community-projects/tree/master/controllers/generic\_inverse\_kinematic/](https://github.com/cyberbotics/community-projects/tree/master/controllers/generic_inverse_kinematic/)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:08:46
+##### Simon Steinmann [Moderator] 08/18/2020 14:08:46
 404
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:08:54
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:08:54
 Sure, you need to create it.
 
 
 Feel free to open a PR to do so.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:11:58
+##### Simon Steinmann [Moderator] 08/18/2020 14:11:58
 does not find the controller
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 14:13:38
@@ -2936,25 +2936,25 @@ does not find the controller
 
 `@Olivier Michel` this does not respect the Webots project hierarchy
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:14:10
+##### Simon Steinmann [Moderator] 08/18/2020 14:14:10
 wait, it doesnt find anything in the extra path now
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 14:14:16
 You should rather put it in somethig like 'default/controllers/generic\_inverse\_kinematic'
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:15:14
+##### Simon Steinmann [Moderator] 08/18/2020 14:15:14
 that was it
 
 
 putting controller in the base directory, removes everything
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:15:37
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:15:37
 OK, in that case, I would prefer something like `generic/controllers/inverse_kinematic`
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 14:16:27
 That's fine too, I was suggesting 'default' to be like in Webots ([https://github.com/cyberbotics/webots/tree/master/projects](https://github.com/cyberbotics/webots/tree/master/projects)), but it is not mandatory to be exactly the same.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:16:58
+##### Simon Steinmann [Moderator] 08/18/2020 14:16:58
 I like consistency
 
 
@@ -2963,38 +2963,38 @@ but up to you guys
 ##### David Mansolino [Cyberbotics] 08/18/2020 14:17:18
 And as we already have a n'inverse\_kinematic' controller in Webots looks safer to avoid duplicating it.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:17:59
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:17:59
 OK, so let's go for the solution proposed by `@David Mansolino`.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:19:43
+##### Simon Steinmann [Moderator] 08/18/2020 14:19:43
 perhaps that target sphere can be generated by the controller. that would make the implementation even simpler
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:20:29
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:20:29
 Yes, that could be a nice demo.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:20:50
+##### Simon Steinmann [Moderator] 08/18/2020 14:20:50
 i can't upload to github through the webpage 😦
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:21:01
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:21:01
 (it may be optional, triggered by a controllerArg)
 
 
 You need to create a new branch
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:21:55
+##### Simon Steinmann [Moderator] 08/18/2020 14:21:55
 usually I can upload and crerate a new branch from those files
 
 
 you guys do it 😉
 > **Attachment**: [default.zip](https://cdn.discordapp.com/attachments/565155651395780609/745286472424489010/default.zip)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:22:43
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:22:43
 Did you checked out locally the community-projects repo?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:23:10
+##### Simon Steinmann [Moderator] 08/18/2020 14:23:10
 I dont wanna pull, because I have many working changes, guess I could clone again for upload
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:24:13
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:24:13
 I see. So from GitHub web page, you should be able to create a branch and upload your controller files on this branch (creating the folder structure at the same time).
 
 
@@ -3009,7 +3009,7 @@ I see. So from GitHub web page, you should be able to create a branch and upload
 
 4. Upload your two python files.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:26:11
+##### Simon Steinmann [Moderator] 08/18/2020 14:26:11
 still something wrong
 
 
@@ -3018,7 +3018,7 @@ doesnt let me
 
 Something went really wrong, and we can’t process that file.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:26:21
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:26:21
 Yes, I see.
 
 
@@ -3030,49 +3030,49 @@ Click "Add file" / "Create new files".
 
 Enter "default/controllers/generic\_inverse\_kinematics/dummy.txt"
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:28:06
+##### Simon Steinmann [Moderator] 08/18/2020 14:28:06
 that seems to work
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 14:28:18
+##### Olivier Michel [Cyberbotics] 08/18/2020 14:28:18
 Then, you will be able to upload your files and delete the dummy.txt file.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 14:28:55
+##### Simon Steinmann [Moderator] 08/18/2020 14:28:55
 [https://github.com/cyberbotics/community-projects/pull/12](https://github.com/cyberbotics/community-projects/pull/12)
 
 
 how do I revert commits?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 15:26:02
+##### Olivier Michel [Cyberbotics] 08/18/2020 15:26:02
 Simply commit the previous version of the file.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 15:42:15
+##### Simon Steinmann [Moderator] 08/18/2020 15:42:15
 finally done 😄
 
 
 how would I spawn that target sphere?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 15:44:20
+##### Olivier Michel [Cyberbotics] 08/18/2020 15:44:20
 Probably with `importSFNodeFromString`: [https://www.cyberbotics.com/doc/reference/supervisor?tab-language=python#wb\_supervisor\_field\_import\_sf\_node\_from\_string](https://www.cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_sf_node_from_string)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 15:46:14
+##### Simon Steinmann [Moderator] 08/18/2020 15:46:14
 as a string I can just use the world file part of the node then?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 15:46:37
+##### Olivier Michel [Cyberbotics] 08/18/2020 15:46:37
 Yes.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 15:46:44
+##### Simon Steinmann [Moderator] 08/18/2020 15:46:44
 gonna try 🙂
 
 
 how can I get the number of children? I wanna insert the target node on the bottom
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 15:58:13
+##### Olivier Michel [Cyberbotics] 08/18/2020 15:58:13
 Get the root node, its children field and get the number of items (see my code sample)
 
 
 `children.getCount()`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 15:59:13
+##### Simon Steinmann [Moderator] 08/18/2020 15:59:13
 just saw, thx 🙂
 
 
@@ -3081,13 +3081,13 @@ okay works beautifully
 
 can I link textures relative to the controller? or would it be easier to copy the files into the world folder?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 16:06:54
+##### Olivier Michel [Cyberbotics] 08/18/2020 16:06:54
 It's better to copy them in the worlds folder under a textures subfolder.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 16:07:39
+##### Simon Steinmann [Moderator] 08/18/2020 16:07:39
 how can I get the path to the world?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 16:09:38
+##### Olivier Michel [Cyberbotics] 08/18/2020 16:09:38
 There must be a project path environment variable... Let me search...
 
 
@@ -3096,19 +3096,19 @@ Can you try to getenv and print WEBOTS\_PROJECT environment variable? Then appen
 
 No, that won't work...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 16:13:36
+##### Simon Steinmann [Moderator] 08/18/2020 16:13:36
 it's not a system variable
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 16:14:29
+##### Olivier Michel [Cyberbotics] 08/18/2020 16:14:29
 Otherwise, you can assume it's `../../worlds/` relative to your controller.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 16:14:49
+##### Simon Steinmann [Moderator] 08/18/2020 16:14:49
 well, using it for the generic controller 😉
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/18/2020 16:17:17
+##### Olivier Michel [Cyberbotics] 08/18/2020 16:17:17
 Unfortunately, I don't see any better way to do this...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 16:17:36
+##### Simon Steinmann [Moderator] 08/18/2020 16:17:36
 shucks
 
 
@@ -3137,7 +3137,7 @@ btw, figured out the world path problem
 
 `@Olivier Michel` `@Simon Steinmann`  we have an API function for this: Robot.getWorldPath()
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 19:26:29
+##### Simon Steinmann [Moderator] 08/18/2020 19:26:29
 what I used 😉
 
 
@@ -3148,7 +3148,7 @@ that returns the worldpath including the filename though, that's why I needed th
 
 `@Simon Steinmann` just saw it (I was reading messages from top to bottom)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 19:28:29
+##### Simon Steinmann [Moderator] 08/18/2020 19:28:29
 it works super well now. you just have to assignt the controller and do nothing else. If there is no target node, it adds it for you. Even tells you to enable supervisor, if not done so already
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 19:29:52
@@ -3160,7 +3160,7 @@ it works super well now. you just have to assignt the controller and do nothing 
 worldPath = os.path.dirname(supervisor.getWorldPath())
 ```
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 19:30:08
+##### Simon Steinmann [Moderator] 08/18/2020 19:30:08
 that's cleaner
 
 ##### David Mansolino [Cyberbotics] 08/18/2020 19:30:11
@@ -3168,7 +3168,7 @@ that's cleaner
 
 `@Simon Steinmann` looks very nice 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/18/2020 19:35:45
+##### Simon Steinmann [Moderator] 08/18/2020 19:35:45
 but we will have to check and recompile several official robot arms, as they dont include the last link, when converting to urdf. Good idea anyways, using multi-file, so viewing and editing PROTO-source is less laggy
 
 
@@ -3181,7 +3181,7 @@ but we will have to check and recompile several official robot arms, as they don
 ##### alxy 08/20/2020 18:09:14
 Did you check if it works if the bounds are not set?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/20/2020 18:09:30
+##### Simon Steinmann [Moderator] 08/20/2020 18:09:30
 the bounds get exported
 
 
@@ -3194,7 +3194,7 @@ added a bit of code that improves the singularity handling
 ##### alxy 08/20/2020 18:11:08
 Ok, so I will now merge my PR, however I guess it doesnt really matter....
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/20/2020 18:11:46
+##### Simon Steinmann [Moderator] 08/20/2020 18:11:46
 you can attach grippers without falling down?
 
 ##### alxy 08/20/2020 18:11:56
@@ -3203,7 +3203,7 @@ yes?
 
 you can check my world in my repo, my gripper works...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/20/2020 18:45:22
+##### Simon Steinmann [Moderator] 08/20/2020 18:45:22
 figured it out and fixed it
 
 
@@ -3212,7 +3212,7 @@ you can check out my model in the PR above. I'd recommend using it, as it is sup
 ##### alxy 08/20/2020 19:38:05
 yeah, will see if I can do that tomorrow. I also plan to export my gripper to a proto file again
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 10:54:52
+##### Simon Steinmann [Moderator] 08/21/2020 10:54:52
 `@David Mansolino` Could you tell me why [https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/writeProto.py#L462](https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/writeProto.py#L462) this condition is needed? I created a batch-convertion, automatically converting a whole nested directory of urdf files (with options defined in .json configs). And for some reason, this line stops SOME, but not all Mesh protos to be created. I spent 5 hours yesterday trying to figure that out.  Setting this line to 
 
 if True: 
@@ -3222,7 +3222,7 @@ fixes this issue. My question is, why is it needed?
 ##### David Mansolino [Cyberbotics] 08/21/2020 11:40:50
 This is part of the automatic DEF-USE mechanism to avoid defining twice the same mesh, if you set the condition to True, then it will an any case export the mesh and disable DEF-USE mechanism
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 11:43:39
+##### Simon Steinmann [Moderator] 08/21/2020 11:43:39
 Once we are through with the current PR (just updated it), I'll upload the batch conversion. Perhaps you can then take a look. The issue is super weird
 
 
@@ -3231,7 +3231,7 @@ the issue came up, when I rant the batch conversion inside a class. removed the 
 ##### alxy 08/21/2020 12:48:55
 What do you guys think? Is it somehow possible to interface the original firmware ( [https://github.com/wlkata/WLkata-Mirobot-Firmware](https://github.com/wlkata/WLkata-Mirobot-Firmware) ) for the microcontroller of the real robot with webots? I have no idea if this is could even somehow be possible, but I imagine much more realistic movements and trajectories of the robot, as it uses the original algorithms to calculate motor positons...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 12:50:05
+##### Simon Steinmann [Moderator] 08/21/2020 12:50:05
 of course it's possible, but not easy. Feel free to do it 😉
 
 
@@ -3249,19 +3249,19 @@ the steps would be to first kind of build the program and see how to map input a
 
 On a first glance it appears these guys who coded the firmware in C are wizards 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 12:55:35
+##### Simon Steinmann [Moderator] 08/21/2020 12:55:35
 `@David Mansolino` do you have the urdf files and meshes of the robots you created?
 
 ##### David Mansolino [Cyberbotics] 08/21/2020 12:55:50
 Which ones?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 12:56:02
+##### Simon Steinmann [Moderator] 08/21/2020 12:56:02
 as many as possible 😉
 
 ##### David Mansolino [Cyberbotics] 08/21/2020 12:56:37
 Unfortunately, most (almost all) of the robots are designed from scratch without using the URDF files 😕
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 12:56:45
+##### Simon Steinmann [Moderator] 08/21/2020 12:56:45
 ohh okay
 
 
@@ -3273,7 +3273,7 @@ making improvements to the convertion tools, allows to reconvert and update all 
 ##### David Mansolino [Cyberbotics] 08/21/2020 12:58:06
 That sounds very nice 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 12:58:11
+##### Simon Steinmann [Moderator] 08/21/2020 12:58:11
 The difference with mutli-file for the user-experrience is HUGE
 
 ##### David Mansolino [Cyberbotics] 08/21/2020 12:58:28
@@ -3281,7 +3281,7 @@ The difference with mutli-file for the user-experrience is HUGE
 
 `@Simon Steinmann` yes indeed, it much simpler for the maintenance too!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 12:58:31
+##### Simon Steinmann [Moderator] 08/21/2020 12:58:31
 editing a 5MB proto file is just so horrible
 
 
@@ -3294,7 +3294,7 @@ Cool, remains just to update:
 
   - [https://github.com/cyberbotics/urdf2webots/blob/Simon-Steinmann-nameFixes%26more/docs/tutorial.md](https://github.com/cyberbotics/urdf2webots/blob/Simon-Steinmann-nameFixes%26more/docs/tutorial.md)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:03:46
+##### Simon Steinmann [Moderator] 08/21/2020 13:03:46
 😅  oh yeah right
 
 
@@ -3306,7 +3306,7 @@ Just a small typo.
 ##### alxy 08/21/2020 13:44:49
 Ok, after googling around it appears more or less impossible for me 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:45:17
+##### Simon Steinmann [Moderator] 08/21/2020 13:45:17
 i'm sure the real robot has position control right?
 
 
@@ -3318,13 +3318,13 @@ where you run into differences is when using IK. Most real robots also have cart
 ##### alxy 08/21/2020 13:46:42
 position control as in your provide coordinates and it moves?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:46:54
+##### Simon Steinmann [Moderator] 08/21/2020 13:46:54
 position control is joint angles
 
 ##### alxy 08/21/2020 13:47:13
 ah, yeah you can do that, obviously that is something we dont use at all 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:47:15
+##### Simon Steinmann [Moderator] 08/21/2020 13:47:15
 cartesian control is xyz for the tool
 
 
@@ -3336,7 +3336,7 @@ and control the robot by adressing the joint angles directly
 ##### alxy 08/21/2020 13:48:15
 that sounds good
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:50:31
+##### Simon Steinmann [Moderator] 08/21/2020 13:50:31
 where did you get the mirobot vel limits?
 
 
@@ -3351,13 +3351,13 @@ I linked the document in the PR
 
 but I have to say the docuemtnation is not entirely correct, I have already found some quite major errors
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:53:10
+##### Simon Steinmann [Moderator] 08/21/2020 13:53:10
 like what?
 
 ##### alxy 08/21/2020 13:53:15
 They certainly do have torque limits, but they are not specified
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:53:34
+##### Simon Steinmann [Moderator] 08/21/2020 13:53:34
 yeah ofc they have. they are NOT 200Nm, that would be very impressive 😄
 
 ##### alxy 08/21/2020 13:53:49
@@ -3372,31 +3372,31 @@ or not documented
 
 or entirely different from what is documented
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 13:57:37
+##### Simon Steinmann [Moderator] 08/21/2020 13:57:37
 well i'm gonna add the velocities to the .urdf, so they get converted automatically
 
 ##### alxy 08/21/2020 13:57:52
 Nice, thanks!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 14:00:28
+##### Simon Steinmann [Moderator] 08/21/2020 14:00:28
 works, gets converted automatically now 🙂
 
 ##### alxy 08/21/2020 14:01:05
 you have taken the converter to a whole new level! 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 14:01:43
+##### Simon Steinmann [Moderator] 08/21/2020 14:01:43
 really have over the past month. It was the reason I didnt switch a year earlier. Getting your own robot into the simulator is so important
 
 ##### alxy 08/21/2020 14:02:17
 what did you use earlier?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 14:02:22
+##### Simon Steinmann [Moderator] 08/21/2020 14:02:22
 Gazebo
 
 ##### alxy 08/21/2020 14:02:48
 Ok, for me its my first experience with a robot simulation tool, or robotics in general 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 14:04:02
+##### Simon Steinmann [Moderator] 08/21/2020 14:04:02
 you picked a good one. For me the main advantages of Webots are:
 
 - excellent and detailed documentation
@@ -3408,7 +3408,7 @@ you picked a good one. For me the main advantages of Webots are:
 ##### alxy 08/21/2020 14:04:32
 yeah, the support is really impresive
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/21/2020 14:04:54
+##### Simon Steinmann [Moderator] 08/21/2020 14:04:54
 pllus it's easy to get changes implemented if you make them 😄
 
 
@@ -3451,13 +3451,13 @@ I'd also suggest to use your own fork for the PRs, otherwise the main repo gets 
 
 `@Simon Steinmann` Sorry to bug you again, but I have found the original gripper for Mirobot in github as step (stp) file: [https://github.com/CBerauer/Mirobot-CAD-Files/tree/master/Gripper](https://github.com/CBerauer/Mirobot-CAD-Files/tree/master/Gripper) I just installed a viewer and it indeed looks good, however I am now struggling how to convert that to webots? Is it possible?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 15:57:10
+##### Simon Steinmann [Moderator] 08/22/2020 15:57:10
 you gonna have to convert it to .obj, stl or .dae for proto conversion. Or check the import in webots itself. it supports a bunch of formats
 
 ##### alxy 08/22/2020 16:03:56
 Mh, exported to stl and was able to successfully import, but nothing shows up. It created a bunch of new elements under a solid node though, but I dont see the gripper
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:06:05
+##### Simon Steinmann [Moderator] 08/22/2020 16:06:05
 having a urdf file or something that dictates the structure would be good
 
 ##### alxy 08/22/2020 16:07:15
@@ -3466,7 +3466,7 @@ yeah, I have just realized it really only contains the 3d mockup, no joints defi
 
 So I cannot really use it, sadly 😦
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:08:40
+##### Simon Steinmann [Moderator] 08/22/2020 16:08:40
 what is the name of that gripper?
 
 
@@ -3475,7 +3475,7 @@ you could try to manually assemble them
 ##### alxy 08/22/2020 16:09:56
 I dont think it has a dedicated name?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:10:23
+##### Simon Steinmann [Moderator] 08/22/2020 16:10:23
 except the one you linked, I find no mirobot package containing a gripper
 
 ##### alxy 08/22/2020 16:10:25
@@ -3487,19 +3487,19 @@ yeah, they did not release the urdf for the gripper, just for the arm itself
 
 Not sure where that guy got the 3d model from, maybe he has assembled it on his own
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:12:19
+##### Simon Steinmann [Moderator] 08/22/2020 16:12:19
 well, having the parts, it should not be too complicated assembing it
 
 ##### alxy 08/22/2020 16:12:55
 given I have no experience with any cad/3d software, I can imagine it is very hard 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:13:26
+##### Simon Steinmann [Moderator] 08/22/2020 16:13:26
 no, in webots, or with urdf.
 
 ##### alxy 08/22/2020 16:14:31
 yeah that might be possible, but not if it gets created as a signle IndexedFaceSet, the parts are not separate nodes in webots
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:15:40
+##### Simon Steinmann [Moderator] 08/22/2020 16:15:40
 that would not be ideal :p
 
 
@@ -3511,7 +3511,7 @@ I checked out the other file (catpart) in inventor, that looks more promising
 
 do you know which formats preserve the structure?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:17:10
+##### Simon Steinmann [Moderator] 08/22/2020 16:17:10
 collada (.dae) does. But i'm not an expert in this
 
 
@@ -3520,7 +3520,7 @@ collada (.dae) does. But i'm not an expert in this
 ##### alxy 08/22/2020 16:19:36
 of course that is not available as an export option 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:20:20
+##### Simon Steinmann [Moderator] 08/22/2020 16:20:20
 A new Mesh node was added to support the inclusion of a large variety of external 3D mesh files: 3D Studio mesh, Blender, Biovision Hierarchy, Collada, Filmbox, STL, Wavefront, X3D. It is also possible to import such files as Webots primitives.
 
 ##### alxy 08/22/2020 16:21:09
@@ -3538,7 +3538,7 @@ lol, scales dont seem to match:
 
 can you find my mirobot 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:25:13
+##### Simon Steinmann [Moderator] 08/22/2020 16:25:13
 nope :p
 
 
@@ -3556,7 +3556,7 @@ yeah, its in that black whole facing the front. You can see it
 
 but the problem persists with the obj, it is just one single node in webots then
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:29:18
+##### Simon Steinmann [Moderator] 08/22/2020 16:29:18
 what program did you load the file into?
 
 ##### alxy 08/22/2020 16:30:08
@@ -3568,7 +3568,7 @@ and I can see the hierarchy of different parts there
 
 so it is somehow encoded in the file
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:30:43
+##### Simon Steinmann [Moderator] 08/22/2020 16:30:43
 can you export individual parts?
 
 ##### alxy 08/22/2020 16:30:49
@@ -3580,13 +3580,13 @@ can you export individual parts?
 
 No idea, as said I have no prior experience with CAD programs. The interface looks rather complicated to me
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:32:43
+##### Simon Steinmann [Moderator] 08/22/2020 16:32:43
 great opportunity to learn 😉
 
 ##### alxy 08/22/2020 16:33:20
 Its a bit far from what I wanted to achieve originally 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:33:35
+##### Simon Steinmann [Moderator] 08/22/2020 16:33:35
 can never hurt
 
 ##### alxy 08/22/2020 16:34:02
@@ -3595,13 +3595,13 @@ probably not, if just time permits to do all the things... 😄
 
 the easier thing is to first try all the other available cad programs and see if they can export to other formats (I will try blender now)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:36:36
+##### Simon Steinmann [Moderator] 08/22/2020 16:36:36
 fusion 360 might be a good optioni
 
 ##### alxy 08/22/2020 16:44:45
 [https://github.com/rjvallett/URDF-Converter](https://github.com/rjvallett/URDF-Converter) that looks promising, but hasnt been updated in a while and lacks any documentation
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 16:45:56
+##### Simon Steinmann [Moderator] 08/22/2020 16:45:56
 try it 🙂
 
 
@@ -3627,7 +3627,7 @@ it is a sigle IndexedFacedSet for me
 
 `@Simon Steinmann`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 17:16:03
+##### Simon Steinmann [Moderator] 08/22/2020 17:16:03
 seperate parts
 
 
@@ -3636,13 +3636,13 @@ I'm adding jonits and motors atm
 ##### alxy 08/22/2020 17:16:21
 wow, thanks 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 17:16:48
+##### Simon Steinmann [Moderator] 08/22/2020 17:16:48
 never done it that way, learning opportunity 😉
 
 ##### alxy 08/22/2020 17:17:48
 I really dont know why the manufacturer does not provide the files for the gripper. It is basically useless to do simulations without the gripper I assume
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 17:18:02
+##### Simon Steinmann [Moderator] 08/22/2020 17:18:02
 [https://tenor.com/view/elmo-shrug-gif-5094560](https://tenor.com/view/elmo-shrug-gif-5094560)
 
 
@@ -3651,13 +3651,13 @@ if you're curious, we could zoom and I show you what i'm doing
 ##### alxy 08/22/2020 17:18:36
 sure, are you from germany btw?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 17:18:41
+##### Simon Steinmann [Moderator] 08/22/2020 17:18:41
 jep
 
 ##### alxy 08/22/2020 17:19:10
 ok, so let me install zoom then
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/22/2020 19:10:02
+##### Simon Steinmann [Moderator] 08/22/2020 19:10:02
 preliminary proto for the gripper. names for meshes are still bonked, and of course motors have no limits
 > **Attachment**: [MirobotGripper.proto](https://cdn.discordapp.com/attachments/565155651395780609/746808418400206853/MirobotGripper.proto)
 
@@ -3674,7 +3674,7 @@ Ok, yeah, sure. Will test it now 🙂
 
 The Mirobot.proto is the current one from the community project?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 08:04:58
+##### Simon Steinmann [Moderator] 08/23/2020 08:04:58
 either that or a newly converted, but with correct values
 
 
@@ -3686,7 +3686,7 @@ Nice, works very well 🙂
 
 but it really contains a lot of motors 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 08:10:03
+##### Simon Steinmann [Moderator] 08/23/2020 08:10:03
 uses 3 virtual motors per gripper side, instead of 1
 
 
@@ -3698,7 +3698,7 @@ yeah, thats indeed vbery easy to use like that. I had thought ahout a rather com
 
 I am very curious how good it matches the real bot in the end. It looks really close now
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 08:25:07
+##### Simon Steinmann [Moderator] 08/23/2020 08:25:07
 you gonna have to adjust the torques perhaps
 
 
@@ -3710,7 +3710,7 @@ perhaps use torque feedback
 ##### alxy 08/23/2020 08:27:29
 ok, will see, I needed to do that for the old gripper as well to properly grab the wooden boxes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 08:28:04
+##### Simon Steinmann [Moderator] 08/23/2020 08:28:04
 I have a script somewhere to do that. I can check later, when I'm on linux
 
 
@@ -3719,7 +3719,7 @@ basically I use high torque on the motors, but with torque feedback, and they in
 ##### alxy 08/23/2020 08:29:26
 why dont you set it too some lower, more realistic torque?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 08:29:28
+##### Simon Steinmann [Moderator] 08/23/2020 08:29:28
 then they all stop
 
 
@@ -3740,19 +3740,19 @@ if you do, let me know 😉
 ##### alxy 08/23/2020 08:33:59
 Im not entirely sure if I understand the problem, but I will see what happens. I am going to integrate the new gripper with my IP based controller first and then go on to see if I can grab something 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 08:35:10
+##### Simon Steinmann [Moderator] 08/23/2020 08:35:10
 good luck. Let me know if you have any changes or improvements for the model. We should probably add it to community projects
 
 ##### alxy 08/23/2020 08:36:48
 yeah, I can do it if you want me to, but as its your work, you should probably do it 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 08:57:32
+##### Simon Steinmann [Moderator] 08/23/2020 08:57:32
 well, let me know if you have any improvements or feedback, so I can improve the model and then upload it
 
 ##### alxy 08/23/2020 09:01:59
 I think the wrist motor is not necessary and not in the real robot as well, as the last joint of the arm has the same axis and can thus be used to achieve the same functionality. Maybe be usedfull if used with another arm though
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 09:28:17
+##### Simon Steinmann [Moderator] 08/23/2020 09:28:17
 I think you're right
 
 
@@ -3764,7 +3764,7 @@ you can try to do it yourself. Otherwise I'll do it later
 ##### alxy 08/23/2020 09:29:33
 its not an issue, I just dont initialize or use this motor
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 09:29:37
+##### Simon Steinmann [Moderator] 08/23/2020 09:29:37
 little tip. You can convert it to basenodes, adjust it, then save the world. If you open the world file, you have the .proto definition in there
 
 
@@ -3782,7 +3782,7 @@ right\_1 is the actual motor which is actuated in the real robot?
 
 mh, simply adding Physics nodes to all solides makes it look a bit weird 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 10:28:10
+##### Simon Steinmann [Moderator] 08/23/2020 10:28:10
 I already did that
 
 
@@ -3795,7 +3795,7 @@ torque feedback almost done
 ##### alxy 08/23/2020 12:11:52
 Ok, I think I understand the code, but getTorqueFeedback() appears to always return nan? Why is that?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 12:12:24
+##### Simon Steinmann [Moderator] 08/23/2020 12:12:24
 
 > **Attachment**: [MirobotGripper\_controller.py](https://cdn.discordapp.com/attachments/565155651395780609/747065705785983046/MirobotGripper_controller.py)
 
@@ -3817,7 +3817,7 @@ thanks a lot!
 
 I just think about rewriting the controller so that the gripperPosTorqueLimited does not call supervisor.step(), will see if I can get it working...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 12:17:51
+##### Simon Steinmann [Moderator] 08/23/2020 12:17:51
 that is intentional
 
 
@@ -3829,7 +3829,7 @@ I was thinking about a watcher pattern, that just monitors the torque at each st
 
 I do something similar for the joint angles to determine if the robot is busy or idle
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 12:20:19
+##### Simon Steinmann [Moderator] 08/23/2020 12:20:19
 you will have to call it every time though. the current implementation, you only have to call once
 
 
@@ -3842,13 +3842,13 @@ this one
 ##### alxy 08/23/2020 13:34:47
 will see tomorrow how I can integrate it with my code. I was jsut a bnit concerned about having blocking calls inside the main controller loop, as I have other things which have to continuously work inside the loop, like the tcp/ip server
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 13:35:34
+##### Simon Steinmann [Moderator] 08/23/2020 13:35:34
 I added a function at the bottom, that only moves it incrementally, and you call the timestep in your main loop
 
 ##### alxy 08/23/2020 14:37:00
 Minor issue, if the gripper only needs to move a very tiny bit, itnervals might be zero, hwich leads to an error (division by zero). I'll make sure to check if intervals > 0 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 14:38:01
+##### Simon Steinmann [Moderator] 08/23/2020 14:38:01
 they should not be, as i'm using math.ceil(), which always rounds up
 
 
@@ -3857,7 +3857,7 @@ perhaps there needs to be an abs() in there.
 ##### alxy 08/23/2020 14:38:35
 then probably pos\_end exactly matched pos\_start
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 14:38:52
+##### Simon Steinmann [Moderator] 08/23/2020 14:38:52
 unlikely but possible
 
 ##### alxy 08/23/2020 14:38:56
@@ -3869,13 +3869,13 @@ in your test code the sin always gives a different value for each time step
 
 but if intervals > 0: really fixes the problem, so everything alright
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 14:42:01
+##### Simon Steinmann [Moderator] 08/23/2020 14:42:01
 rahter add a min(1, ...)
 
 ##### alxy 08/23/2020 14:42:37
 do you mean max()  ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 14:42:46
+##### Simon Steinmann [Moderator] 08/23/2020 14:42:46
 oh yeah
 
 ##### alxy 08/23/2020 14:43:40
@@ -3883,7 +3883,7 @@ I have by the way now done it the following way. Added a target\_pos attribute t
 
         self.gripperMoveIncrement(self.target\_pos, 2)``
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/23/2020 14:45:23
+##### Simon Steinmann [Moderator] 08/23/2020 14:45:23
 works too
 
 ##### alxy 08/23/2020 14:47:31
@@ -3955,7 +3955,7 @@ lol, I now tried to figure out why the gripper isnt working in the greater setup
 
 interestingly, it does not throw an error when compared to a number
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 16:36:55
+##### Simon Steinmann [Moderator] 08/24/2020 16:36:55
 doh
 
 ##### alxy 08/24/2020 16:42:50
@@ -3967,19 +3967,19 @@ Yeah, adding it an everything works as expected. I was really starting to become
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/747497736135376906/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 16:49:32
+##### Simon Steinmann [Moderator] 08/24/2020 16:49:32
 what model are you using?
 
 ##### alxy 08/24/2020 16:50:01
 The second one from yesterday, I just made the changes to the Solid proto node as well (adding the physics nodes)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 16:50:10
+##### Simon Steinmann [Moderator] 08/24/2020 16:50:10
 i added physics nodes
 
 ##### alxy 08/24/2020 16:50:10
 As they were only present in the Robot proto
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 16:50:32
+##### Simon Steinmann [Moderator] 08/24/2020 16:50:32
 did you convert it to base nodes?
 
 ##### alxy 08/24/2020 16:51:06
@@ -3991,7 +3991,7 @@ nope, I copied the children attribute of the robot node directly to the other pr
 
 ver weird that the preview is my own portrait
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 16:55:07
+##### Simon Steinmann [Moderator] 08/24/2020 16:55:07
 
 > **Attachment**: [MirobotGripper.zip](https://cdn.discordapp.com/attachments/565155651395780609/747499242016473188/MirobotGripper.zip)
 
@@ -4007,7 +4007,7 @@ Thanks! I will check this version out
 
 mh, same issue. It contains the same file I was using, just with one additional max position set
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 16:59:53
+##### Simon Steinmann [Moderator] 08/24/2020 16:59:53
 send me your project as a zip
 
 ##### alxy 08/24/2020 17:01:03
@@ -4022,7 +4022,7 @@ mirobot\_gripper\_original is my world, I need to definetly clean up the projext
 
 I can create a more minimal example if you want
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 17:03:31
+##### Simon Steinmann [Moderator] 08/24/2020 17:03:31
 
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/747501356654526505/unknown.png)
@@ -4031,13 +4031,13 @@ I can create a more minimal example if you want
 ##### alxy 08/24/2020 17:03:53
 as said, just use void controller
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 17:04:42
+##### Simon Steinmann [Moderator] 08/24/2020 17:04:42
 looks fine to me
 
 ##### alxy 08/24/2020 17:05:27
 so if you move joint1 (which rotates the base) the gripper moves along with the arm?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 17:05:40
+##### Simon Steinmann [Moderator] 08/24/2020 17:05:40
 ohh I see
 
 
@@ -4046,7 +4046,7 @@ it does, but turning wrist of gripper screws it
 ##### alxy 08/24/2020 17:06:07
 I think its the wrist joint somehow not connected to the rest of the gripper
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 17:06:42
+##### Simon Steinmann [Moderator] 08/24/2020 17:06:42
 lol
 
 
@@ -4062,7 +4062,7 @@ So you needed to change the Mirobot?
 
 Not the gripper?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 17:26:13
+##### Simon Steinmann [Moderator] 08/24/2020 17:26:13
 wups
 
 
@@ -4081,7 +4081,7 @@ Yeah I have the same issue, way too many files with the same or similar names �
 
 uh yeah, very nice, a big thanks again! Definetly worth at least one beer, if we ever meet in person 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 17:31:18
+##### Simon Steinmann [Moderator] 08/24/2020 17:31:18
 heh, I'll hold you to it 😉
 
 
@@ -4093,7 +4093,7 @@ I eventually want to use it for my job, as we have the mirobot there, but its re
 
 Looks very promising now
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/24/2020 18:07:07
+##### Simon Steinmann [Moderator] 08/24/2020 18:07:07
 take a look at this
 > **Attachment**: [Mirobot\_noAttachment.zip](https://cdn.discordapp.com/attachments/565155651395780609/747517360113451048/Mirobot_noAttachment.zip)
 
@@ -4109,7 +4109,7 @@ Wish you a nice evening !
 ##### David Mansolino [Cyberbotics] 08/25/2020 05:14:42
 `@Dave` you're welcome, have a nice day too.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/25/2020 12:56:20
+##### Simon Steinmann [Moderator] 08/25/2020 12:56:20
 Is there a reason that the inertia matrix from a urdf file does not get used in the converter? I've noticed that no .proto model has those values. Instead it get's calculated from the boundingObject, which, in almost all cases, is a box.
 
 
@@ -4124,13 +4124,13 @@ It seems th einertia get parsed here: [https://github.com/cyberbotics/urdf2webot
 
 But then there is a problem when exporting the Physics: [https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/writeProto.py#L158](https://github.com/cyberbotics/urdf2webots/blob/master/urdf2webots/writeProto.py#L158)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/25/2020 13:07:08
+##### Simon Steinmann [Moderator] 08/25/2020 13:07:08
 exactly, that's the area I found
 
 ##### David Mansolino [Cyberbotics] 08/25/2020 13:07:19
 It seems there is a misunderstanding there betwen center of mass and inertia
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/25/2020 13:08:07
+##### Simon Steinmann [Moderator] 08/25/2020 13:08:07
 inertia is never actually added
 
 ##### David Mansolino [Cyberbotics] 08/25/2020 13:08:07
@@ -4139,7 +4139,7 @@ This seems indeed to be a bug (not sure if it was always like this or if a wrong
 
 Yes and it is used to check if center of mass should be set (which is wrong).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/25/2020 13:08:35
+##### Simon Steinmann [Moderator] 08/25/2020 13:08:35
 I found it due to the error message, when the inertia had 'rpy'
 
 
@@ -4151,47 +4151,47 @@ I might make a PR later if I have some time
 ##### David Mansolino [Cyberbotics] 08/25/2020 13:13:31
 Ok, thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/25/2020 16:08:56
+##### Simon Steinmann [Moderator] 08/25/2020 16:08:56
 `@David Mansolino` I implemented the fix, you can try it out with this urdf file. [https://github.com/cyberbotics/urdf2webots/pull/76](https://github.com/cyberbotics/urdf2webots/pull/76)
 > **Attachment**: [UR10e\_urdf.zip](https://cdn.discordapp.com/attachments/565155651395780609/747850006773366814/UR10e_urdf.zip)
 
 ##### David Mansolino [Cyberbotics] 08/26/2020 05:24:39
 Perfect, I will try it, thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/26/2020 12:04:18
+##### Simon Steinmann [Moderator] 08/26/2020 12:04:18
 Hey, I want your opinion. If no mass or inertia is specified, wouldn't it be better to use a density calculation instead of assuming a mass of 1 kg? Especially for very small or very large objects, this seems like a much better approach
 
 ##### David Mansolino [Cyberbotics] 08/26/2020 12:20:32
 That sounds good indeed.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/26/2020 12:21:18
+##### Olivier Michel [Cyberbotics] 08/26/2020 12:21:18
 Sure, by default Webots assumes a density of 1000 kg/m^3 for objects (based on the volume of the bounding object). This is default value of the Physics node.
 
 
 Maybe you can re-use this default value?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/26/2020 12:25:19
+##### Simon Steinmann [Moderator] 08/26/2020 12:25:19
 Okay so this gets into specific cases, where urdf-links have collision values, but no inertia tag. We dont want empty links (which are common) to get a physics node
 
 
 So if collision exists, and mass == None, we add an empty physics node, which should calculate the mass of the bounding object with a default density of 1000 right?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/26/2020 12:26:36
+##### Olivier Michel [Cyberbotics] 08/26/2020 12:26:36
 Yep.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/26/2020 12:27:01
+##### Simon Steinmann [Moderator] 08/26/2020 12:27:01
 and the center of Mass gets automatically taken from the bounding box, or does it have to be specified?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/26/2020 12:28:23
+##### Olivier Michel [Cyberbotics] 08/26/2020 12:28:23
 No, if left empty, the center of mass will be automatically computed from the bounding object.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/26/2020 12:28:33
+##### Simon Steinmann [Moderator] 08/26/2020 12:28:33
 ok great
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/26/2020 12:29:00
+##### Olivier Michel [Cyberbotics] 08/26/2020 12:29:00
 This is documented here: [https://cyberbotics.com/doc/reference/physics](https://cyberbotics.com/doc/reference/physics)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/26/2020 12:29:19
+##### Simon Steinmann [Moderator] 08/26/2020 12:29:19
 yeah read that yesterda, just double checking 🙂
 
 
@@ -4211,16 +4211,16 @@ Perfect, accepted!
 
 Once merged it would be nice to update [https://github.com/cyberbotics/urdf2webots/pull/74](https://github.com/cyberbotics/urdf2webots/pull/74) with master as this branch is getting a bit out of sync.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/27/2020 14:49:53
+##### Simon Steinmann [Moderator] 08/27/2020 14:49:53
 will do
 
 
 `@Olivier Michel`  quick question: how to do you transform rotation matrices into axis angles in webots? Does it by any chance use the same math\_util function as urdf2webots? Because I found it to be faulty yesterday in certain circumstances
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/27/2020 17:03:14
+##### Olivier Michel [Cyberbotics] 08/27/2020 17:03:14
 No, it's not a Python, but a C++ method doing this. So, it's likely not the same. But I will check your fix against our C++ method. Did you already publish it somewhere?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/27/2020 17:04:45
+##### Simon Steinmann [Moderator] 08/27/2020 17:04:45
 line 110 is the old one, line 120 my implementation
 > **Attachment**: [math\_utils.py](https://cdn.discordapp.com/attachments/565155651395780609/748588831690981507/math_utils.py)
 
@@ -4237,10 +4237,10 @@ axis angle should be:
 
 { [ 0, 0.7071068, 0.7071068 ], 3.1415927 }
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/27/2020 17:20:11
+##### Olivier Michel [Cyberbotics] 08/27/2020 17:20:11
 Thanks. I'll check it tomorrow.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/27/2020 17:20:32
+##### Simon Steinmann [Moderator] 08/27/2020 17:20:32
 no problem 🙂
 
 
@@ -4254,16 +4254,16 @@ can be Webots launched with the ExtraProjectPath set as a variable?
 
 `@Simon Steinmann` no, but since this is saved in the settings file, you might edit this file from within a script (on Linux, this file is located at `$HOME/.config/Cyberbotics`).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/27/2020 18:24:28
+##### Simon Steinmann [Moderator] 08/27/2020 18:24:28
 ah good to know. FYI, just pushed the batch-conversion if you're bored. and seperately pushed the sources to community-projects
 
 ##### David Mansolino [Cyberbotics] 08/27/2020 18:33:49
 Perfect, I will have a look tomorrow (it is already late here 😉).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/27/2020 18:34:23
+##### Simon Steinmann [Moderator] 08/27/2020 18:34:23
 I'm currently in Germany, so yeah I know ;), hence the 'if you're bored'
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/28/2020 07:14:55
+##### Olivier Michel [Cyberbotics] 08/28/2020 07:14:55
 `@Simon Steinmann`: so we have something quite different from your implementation (in webots/src/webots/maths/WbRotation.cpp):
 
 ```C++
@@ -4326,13 +4326,13 @@ According to [https://www.andre-gaschler.com/rotationconverter](https://www.andr
 
 `@Simon Steinmann` I don't see your PR on community-projects.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 09:08:45
+##### Simon Steinmann [Moderator] 08/28/2020 09:08:45
 That is exactly how I stumbled across this issue. It is the rotation to rotate a cylinder that is defined with the z-axis as it's height, so it points into the y-axis direction.  It most likely is rarely an issue, as webots uses rotation matrices I'd assume
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/28/2020 09:09:06
+##### Olivier Michel [Cyberbotics] 08/28/2020 09:09:06
 Thanks `@Simon Steinmann`: we could fix a bug in our C++ matrix3 to axis-angle thanks to you! See [https://github.com/cyberbotics/webots/pull/2155](https://github.com/cyberbotics/webots/pull/2155)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 09:09:11
+##### Simon Steinmann [Moderator] 08/28/2020 09:09:11
 However, when converting the axis angles back to rotation matrix, it is different to the original one
 
 
@@ -4344,28 +4344,28 @@ should I make a PR for the urdf2webots?
 
 the math\_utils.py
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/28/2020 09:12:46
+##### Olivier Michel [Cyberbotics] 08/28/2020 09:12:46
 Yes, please.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 10:07:13
+##### Simon Steinmann [Moderator] 08/28/2020 10:07:13
 Is there an automated tool to make code pep8 compliant?
 
 ##### David Mansolino [Cyberbotics] 08/28/2020 10:07:51
 Probably, but I am personnally not using it, but I am using a linter just to display where my code is not pep8 compliant
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 10:08:28
+##### Simon Steinmann [Moderator] 08/28/2020 10:08:28
 linter?
 
 ##### David Mansolino [Cyberbotics] 08/28/2020 10:09:39
 Here are the instructions if you use atom editor (probably similar linter exists for other editors): [https://github.com/cyberbotics/webots/wiki/Python-Coding-Style#cs100-use-pep8](https://github.com/cyberbotics/webots/wiki/Python-Coding-Style#cs100-use-pep8)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 10:10:07
+##### Simon Steinmann [Moderator] 08/28/2020 10:10:07
 thx, I'll have a look
 
 ##### David Mansolino [Cyberbotics] 08/28/2020 10:10:14
 A linter just hightlights issue in your code while you are writting
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 11:33:19
+##### Simon Steinmann [Moderator] 08/28/2020 11:33:19
 How do I resolve merge conflicts. I just wanna take the master, and change to files and push that to my  branch. I pulled the master, checked out my branch and did 'git merge master'. But that creates conflicts
 
 
@@ -4378,7 +4378,7 @@ managed to do it with some extra steps. The batch conversion should no be 'clean
 
 `@Simon Steinmann` [https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 13:09:25
+##### Simon Steinmann [Moderator] 08/28/2020 13:09:25
 The automatic-conversion pull request failes the check with this error:
 
 [https://travis-ci.com/github/cyberbotics/urdf2webots/jobs/378767198](https://travis-ci.com/github/cyberbotics/urdf2webots/jobs/378767198)
@@ -4405,7 +4405,7 @@ Maybe can we speak about this part here?
 ##### alxy 08/28/2020 13:25:55
 `@Simon Steinmann` Regarding git workflow, I do sync with the remote (pull), create new feature branch from remote/master, do changes, commit, push
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 13:40:40
+##### Simon Steinmann [Moderator] 08/28/2020 13:40:40
 `@alxy` the issue was, that the master changed, since I did that
 
 ##### alxy 08/28/2020 13:57:28
@@ -4414,7 +4414,7 @@ Maybe can we speak about this part here?
 
 It's shockingly true
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/28/2020 15:46:08
+##### Simon Steinmann [Moderator] 08/28/2020 15:46:08
 Any idea how I could only get the urdf of the robot arm, without including things  attached in the toolSlot field?
 
 
@@ -4437,7 +4437,7 @@ I'd say you need an optional aprameter in your ik\_module to pass a list of join
 
 You can then just create the entire chain from the urdf from the supervisor, and later remove the joints that dont actually belong to the arm by comparing to that passed list of names
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/29/2020 13:55:03
+##### Simon Steinmann [Moderator] 08/29/2020 13:55:03
 The issue is, that some inlcude a end link, and some don't
 
 ##### alxy 08/29/2020 14:09:48
@@ -4449,13 +4449,13 @@ else, use the ones specified
 
 I mean there might even be robots where an arm is mounted on top of some kind of platform with wheel, to move around, so that would introduce even more motors
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/30/2020 18:39:31
+##### Simon Steinmann [Moderator] 08/30/2020 18:39:31
 Do you guys have a benchmark to test collision detection performance?
 
 ##### David Mansolino [Cyberbotics] 08/31/2020 05:59:12
 Hi `@Simon Steinmann`, not really (or at least not maintained). However, you might fidn in our CI some tests checking that the behavior of the physics and the collisions is the expected one: [https://github.com/cyberbotics/webots/tree/master/tests/physics/worlds](https://github.com/cyberbotics/webots/tree/master/tests/physics/worlds)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 10:38:19
+##### Simon Steinmann [Moderator] 08/31/2020 10:38:19
 Thank you
 
 
@@ -4464,13 +4464,13 @@ Is there any work on adding more native support for motion planning? Something l
 ##### David Mansolino [Cyberbotics] 08/31/2020 10:40:27
 I am currently investigating the use of IKFast for a private project (the current result doesn't look very promising), if I have something nice I will let you know.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 10:40:45
+##### Simon Steinmann [Moderator] 08/31/2020 10:40:45
 I was looking into that 1-2 weeks ago
 
 ##### David Mansolino [Cyberbotics] 08/31/2020 10:40:58
 OMPL is indeed the next alternative I will try if I can't have nice result with IKFast
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 10:41:14
+##### Simon Steinmann [Moderator] 08/31/2020 10:41:14
 I managed to compile it with docker, but not getting it to run with a wrapper
 
 
@@ -4479,7 +4479,7 @@ how far are you with IKFast?
 ##### David Mansolino [Cyberbotics] 08/31/2020 10:42:23
 Currently it fails generating the solution for my model after hours of computation (I am still not 100% sure the problem is on my model definition or just that IKFast is not able to find a solution for this kind of robot).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 10:42:59
+##### Simon Steinmann [Moderator] 08/31/2020 10:42:59
 I had that issue too... gosh I dont remember what I did to fix it
 
 
@@ -4499,7 +4499,7 @@ rounding the decimal places. That did the trick
 ##### David Mansolino [Cyberbotics] 08/31/2020 10:46:54
 Thank you, unfortunately, I am following this exact same tutorial and already did the rounding trick, but it doesn't seem to fix the problem (but my arm is not 'conventional' as it contains a slider joint, I suspect this is causing issues to the solver).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 10:49:14
+##### Simon Steinmann [Moderator] 08/31/2020 10:49:14
 that might be. Never used IK with sliding joints. Is it supposed to be supported?
 
 
@@ -4510,7 +4510,7 @@ what error are you getting? I got "maximum recursion depth reached"
 
 `@Simon Steinmann` from a theoretical point a view, slider should be simpler to solve than rotational joints, but since they are less commun I suspect they are less supported, but IKFast doesn't complains about it, it just fails with something like 'Could not resolve the system' (don't remember exactly the error message, I will in any case retry later this week).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 10:53:09
+##### Simon Steinmann [Moderator] 08/31/2020 10:53:09
 let me know if you make any progress. Especially implementing and using the compiled file would be very interesting. There is a python wrapper library, but I failed to understand how to add my own model to it
 
 
@@ -4526,19 +4526,19 @@ I used it in the past with the already included irb planner, and successfully co
 
 `@Simon Steinmann` Yes sure, currently we are preparing the release if Webots R2020b-rev1, I am quite busy with this, but right after the release I will continue on this topic.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 12:22:41
+##### Simon Steinmann [Moderator] 08/31/2020 12:22:41
 I got ikpy rotation to work with my latest iteration of the generic IK controller. I cannot make a good judgement about accuracy, however, the speed difference is HUGE. ikpy you cannot run at high frequency. IKFast is very fast
 
 ##### David Mansolino [Cyberbotics] 08/31/2020 12:23:11
 Yes that's indeed what I read that IKFast is much more efficient.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 12:23:57
+##### Simon Steinmann [Moderator] 08/31/2020 12:23:57
 it is a analytical instead of numerical solver. The big drawback is, that every robot and task needs to be compiled
 
 ##### David Mansolino [Cyberbotics] 08/31/2020 12:24:39
 Yes, for making something generic this is indeed a huge drawback!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 12:26:24
+##### Simon Steinmann [Moderator] 08/31/2020 12:26:24
 [https://github.com/sebastianstarke/BioIK](https://github.com/sebastianstarke/BioIK) this looks interesting as well... it just seems so difficult to find a proper ik solution, that can be implemented without moveit
 
 
@@ -4550,13 +4550,13 @@ Yes I saw indeed that there are many many alternative to implement IK.
 
 Unfortunately, I would like to avoid using ROS/ROS2 in my project. But for sure integrating MoveIt2 is on the roadmap (once it is out of beta).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 12:35:14
+##### Simon Steinmann [Moderator] 08/31/2020 12:35:14
 what are some alternatives?
 
 ##### David Mansolino [Cyberbotics] 08/31/2020 12:37:14
 IKPY, IKFAST, TheComet/ik, OMPL, KDL, etc.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 12:41:02
+##### Simon Steinmann [Moderator] 08/31/2020 12:41:02
 Comet is new to me, gonna check it out
 
 ##### David Mansolino [Cyberbotics] 08/31/2020 12:41:56
@@ -4564,7 +4564,7 @@ Comet is new to me, gonna check it out
 
 `@Simon Steinmann` not sure about the maturity of this one, I haven't tested it yet.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 12:41:57
+##### Simon Steinmann [Moderator] 08/31/2020 12:41:57
 but it's not just the solvers, the implementation has to be doable too. There ikpy is 'simple', even if the documentation is very confusing and misleading at times
 
 
@@ -4573,7 +4573,7 @@ it uses the Fabrik solver, reading up on it right now 🙂
 ##### David Mansolino [Cyberbotics] 08/31/2020 12:42:18
 Yes, in the ease of use, ikpy is clearly the best
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 12:42:32
+##### Simon Steinmann [Moderator] 08/31/2020 12:42:32
 comet seems to be similar to ikpy, but for C
 
 
@@ -4589,25 +4589,25 @@ From my paper-reading spree yesterday, I concluded that there are several differ
 
 If you have some reading or implementations or documentations on your side you can point me too, I'd be appreciative
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/31/2020 13:14:11
+##### Olivier Michel [Cyberbotics] 08/31/2020 13:14:11
 I am afraid there is little documentation about it. However, it was performed during a master project if I remember well, so there might be a master thesis about it...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 13:15:42
+##### Simon Steinmann [Moderator] 08/31/2020 13:15:42
 you wouldnt happen to have it? or the name of the author?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 08/31/2020 13:16:26
+##### Olivier Michel [Cyberbotics] 08/31/2020 13:16:26
 Basically, the idea behind parallelization was simply to create islands of objects which are mechanically isolated from each other (no contact, no joint). And to run these islands in parallel. However these islands have to be dynamically updated as the simulation evolves and object may move from one island to another.
 
 
 I will send you the report privately.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 13:17:02
+##### Simon Steinmann [Moderator] 08/31/2020 13:17:02
 okay, thank you 🙂
 
 ##### alxy 08/31/2020 13:42:31
 Wouldnt have thought inverse kinematics is such a hard problem
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 15:05:29
+##### Simon Steinmann [Moderator] 08/31/2020 15:05:29
 I GOT IKFAST RUNNING ON THE UR10E!!!!!
 
 
@@ -4616,7 +4616,7 @@ when computing an ik-solution every 10 timesteps, ikpy runs at 0.9-1.2 realtime 
 ##### David Mansolino [Cyberbotics] 08/31/2020 15:09:56
 Oh cool!!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 15:11:47
+##### Simon Steinmann [Moderator] 08/31/2020 15:11:47
 once things are compiled, the implementation is actually way easier than ikpy
 
 
@@ -4628,19 +4628,19 @@ okay, ikfast isn't even the bottleneck anymore. now it runs at 185x . The only t
 ##### David Mansolino [Cyberbotics] 08/31/2020 15:20:37
 Yes indeed at this speed the Webots step is probably the bootlneck
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 15:23:11
+##### Simon Steinmann [Moderator] 08/31/2020 15:23:11
 Any request for a robotic arm, to do next? Gotta create a workflow that can be reproduced
 
 ##### alxy 08/31/2020 15:24:45
 is it using a c++ controller then or does it work from python as well?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 15:25:06
+##### Simon Steinmann [Moderator] 08/31/2020 15:25:06
 I got it to work through python
 
 ##### alxy 08/31/2020 15:25:14
 nice work
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 15:26:09
+##### Simon Steinmann [Moderator] 08/31/2020 15:26:09
 this is all it takes to implement it
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/750013567855493251/unknown.png)
@@ -4652,7 +4652,7 @@ There might be some work to be done, which solution to pick (it returns all poss
 ##### alxy 08/31/2020 15:27:43
 not bad, and it handels orientation and position correctly and fast?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 08/31/2020 15:27:51
+##### Simon Steinmann [Moderator] 08/31/2020 15:27:51
 yes
 
 ## September
@@ -4678,7 +4678,7 @@ or have a general one, that picks the correct file when available. And perhaps u
 ##### David Mansolino [Cyberbotics] 09/01/2020 14:34:41
 Very nice, I think personnally that having it for one of the ur robot along with a small README file explaining how you did generate it (so that users can reproduce this for other robots) would be very nice and usefull!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/01/2020 14:36:33
+##### Simon Steinmann [Moderator] 09/01/2020 14:36:33
 The process of generating these files is not easy though. I think providing it for the already supported ones would be great
 
 
@@ -4700,7 +4700,7 @@ sorry, want do anything more today :p
 
 *wont
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/01/2020 18:59:24
+##### Simon Steinmann [Moderator] 09/01/2020 18:59:24
 okay, tomorrow perhaps 🙂
 
 
@@ -4721,7 +4721,7 @@ Is there a good example for controlling your robot via keyboard?
 ##### David Mansolino [Cyberbotics] 09/02/2020 14:28:33
 You can check for example this one: [https://cyberbotics.com/doc/guide/samples-demos#moon-wbt](https://cyberbotics.com/doc/guide/samples-demos#moon-wbt)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/02/2020 14:50:13
+##### Simon Steinmann [Moderator] 09/02/2020 14:50:13
 How much work would it be, to add visual export to the urdf-export?
 
 
@@ -4733,19 +4733,19 @@ A visual trimesh could be converted to a convex collision mesh. There is easy to
 ##### David Mansolino [Cyberbotics] 09/02/2020 14:58:59
 Exporting the full visual part of the model to URDF is complex in the sense that it requires exporting the IndexedFaceSet as separated stl or collada files, but of course this is feasible.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/02/2020 15:00:15
+##### Simon Steinmann [Moderator] 09/02/2020 15:00:15
 that's kinda what I thought. urdf files usually link to mesh files anyways
 
 ##### David Mansolino [Cyberbotics] 09/02/2020 15:00:35
 Exactly.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/02/2020 15:44:46
+##### Simon Steinmann [Moderator] 09/02/2020 15:44:46
 Can you link me to the urdf-exporter code?
 
 ##### David Mansolino [Cyberbotics] 09/02/2020 15:45:58
 This is unfortunately deep inside the core of Webots, but let me find you a pointer
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/02/2020 15:46:05
+##### Simon Steinmann [Moderator] 09/02/2020 15:46:05
 thx
 
 ##### David Mansolino [Cyberbotics] 09/02/2020 15:48:18
@@ -4753,19 +4753,19 @@ Here is how the current visual is exported using the definition of the bounding 
 
 I would recommend starting by this part.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/02/2020 15:51:17
+##### Simon Steinmann [Moderator] 09/02/2020 15:51:17
 thx, i'll have a look
 
 ##### David Mansolino [Cyberbotics] 09/02/2020 15:51:59
 You're welcome
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/02/2020 19:26:46
+##### Simon Steinmann [Moderator] 09/02/2020 19:26:46
 is it possible to export a .wrl with just the selected object in it?
 
 ##### David Mansolino [Cyberbotics] 09/03/2020 05:46:22
 This is unfortunately not possible, but if you are interested, this should be quite simple to implement.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 11:39:23
+##### Simon Steinmann [Moderator] 09/03/2020 11:39:23
 can you point me to that portion of code?
 
 ##### David Mansolino [Cyberbotics] 09/03/2020 11:41:11
@@ -4776,7 +4776,7 @@ Actually, I just found that this is possible 😂
 
 You have to right click on the node either in the scene-tree either in the 3D view, then change the extension of the filename to save to '.wrl', and that's it 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 11:57:36
+##### Simon Steinmann [Moderator] 09/03/2020 11:57:36
 haha that actually works 😄
 
 
@@ -4790,7 +4790,7 @@ here is the export method:
 
 `@David Mansolino` is improving it to add the wrl extension support: [https://github.com/cyberbotics/webots/pull/2201](https://github.com/cyberbotics/webots/pull/2201)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 13:59:41
+##### Simon Steinmann [Moderator] 09/03/2020 13:59:41
 oh boy, at some point I really need to get into c++ properly
 
 
@@ -4812,7 +4812,7 @@ or do you guys know of any way to convert a .wrl file into a ORDERED structure o
 
 `@Simon Steinmann` I am surprised that blender does not support structure. It may not support joints indeed, but it should at least supper hierarchy.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 14:17:04
+##### Simon Steinmann [Moderator] 09/03/2020 14:17:04
 I have like 0 blender experience, but this looks like it's all on the same level. Perhaps one of you can point me in the right direction?
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/751083346427379762/unknown.png)
@@ -4821,7 +4821,7 @@ I have like 0 blender experience, but this looks like it's all on the same level
 ##### David Mansolino [Cyberbotics] 09/03/2020 14:17:23
 Indeed, it's all at the same level
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 14:17:32
+##### Simon Steinmann [Moderator] 09/03/2020 14:17:32
 basically I want to export the meshes in groups, corresponding to individual solids
 
 
@@ -4830,25 +4830,25 @@ or merge them, doesnt matter
 ##### David Mansolino [Cyberbotics] 09/03/2020 14:17:50
 let me check if the problem is at the webots export level or not
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 14:23:29
+##### Simon Steinmann [Moderator] 09/03/2020 14:23:29
 CAD Exchange reads the structure fine, but it's only a 30day trial period 😦
 
 ##### David Mansolino [Cyberbotics] 09/03/2020 14:26:38
 I think you can use the 'limited' version for unlimited time
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 14:26:53
+##### Simon Steinmann [Moderator] 09/03/2020 14:26:53
 really?
 
 ##### David Mansolino [Cyberbotics] 09/03/2020 14:26:55
 I am using it for a few months at least
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 14:26:58
+##### Simon Steinmann [Moderator] 09/03/2020 14:26:58
 I love that software
 
 ##### David Mansolino [Cyberbotics] 09/03/2020 14:27:15
 I am speaking about the online version: [https://cloud.cadexchanger.com/app/files/my](https://cloud.cadexchanger.com/app/files/my)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 14:34:46
+##### Simon Steinmann [Moderator] 09/03/2020 14:34:46
 oh, i installed one
 
 
@@ -4860,7 +4860,7 @@ hmm the online version seems to also convert the whole thing, cant export indivi
 ##### David Mansolino [Cyberbotics] 09/03/2020 14:44:16
 Argh, that's a shame that the behavior is not the same in the native and online version 😦
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/03/2020 23:03:22
+##### Simon Steinmann [Moderator] 09/03/2020 23:03:22
 I managed to write a script, that extracts the trimeshes from a webots-export .wrl file, merges all meshes for a Solid together and creates a visual .dae file, and a convexHull   .stl file for collision. I checked with the ur10e, and the converted files are pretty much identical to the ones from Universal Robots
 
 
@@ -4878,7 +4878,7 @@ You guys should really include a dropdown option when selecting 'Export' in webo
 ##### David Mansolino [Cyberbotics] 09/04/2020 09:52:20
 This is what I did yesterday, will be able in the next version of Webots: [https://github.com/cyberbotics/webots/pull/2201](https://github.com/cyberbotics/webots/pull/2201)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/04/2020 09:52:35
+##### Simon Steinmann [Moderator] 09/04/2020 09:52:35
 awesome !
 
 
@@ -4893,7 +4893,7 @@ just opening the world should be all you have to do. You can move the target sph
 ##### David Mansolino [Cyberbotics] 09/04/2020 10:16:47
 Works perfectly out of the box for me (and it is indeed way way faster than ikpy), but only on linux and with python 3.7 (which seems to make sense since it contains a pre-compiled library).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/04/2020 10:18:30
+##### Simon Steinmann [Moderator] 09/04/2020 10:18:30
 these compiled libraries dont take long. like 20s on my system. They basically add a python wrapper to the ikfast-solver, which takes 10min -1h for every robot
 
 
@@ -4902,7 +4902,7 @@ but that solver only has to be done once
 ##### David Mansolino [Cyberbotics] 09/04/2020 10:19:09
 looks good
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/04/2020 10:20:27
+##### Simon Steinmann [Moderator] 09/04/2020 10:20:27
 okay, i'll try to automate the workflow a bit more. Sadly it requires a fairly large docker image I made (2.4 GB or so).  As it requires a very specific ubuntu, ROS and moveIt configuration
 
 
@@ -4917,7 +4917,7 @@ Is there interest in this?
 ##### David Mansolino [Cyberbotics] 09/04/2020 10:24:42
 Not sure to understand what it is exaclty used for?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/04/2020 10:25:08
+##### Simon Steinmann [Moderator] 09/04/2020 10:25:08
 collision detection
 
 
@@ -4935,7 +4935,7 @@ while still immensly decreasing the complexity and number of vertices
 ##### David Mansolino [Cyberbotics] 09/04/2020 10:27:59
 Ok, makes sense indeed, in that case that is indeed probably usefull!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/04/2020 10:29:45
+##### Simon Steinmann [Moderator] 09/04/2020 10:29:45
 since ODE supports nested collision spaces, this could be a nice way of having multiple levels of collision detail. Which could improve the accuracy of complexer part collisions. I already did some work on that, also with automated box and cylinder bounding box generation
 
 
@@ -4950,7 +4950,7 @@ Found a mistake in the urdf exporter. It takes the endpoint Solid translation fo
 ##### David Mansolino [Cyberbotics] 09/07/2020 05:56:16
 That's interesting, I will check if I can reproduce this.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 09:56:02
+##### Simon Steinmann [Moderator] 09/07/2020 09:56:02
 After lots of work I managed to write a script, that 1. Converts a proto file into xml format, 2. Turns this xml proto into an urdf, extracting meshes for each link.
 
 
@@ -4964,7 +4964,7 @@ anchor - anchor (previous joint) + translation (previous endpoint)
 ##### David Mansolino [Cyberbotics] 09/07/2020 10:24:05
 Ok thank you, I will try
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 10:30:24
+##### Simon Steinmann [Moderator] 09/07/2020 10:30:24
 This has been created with the webots model exported as proto (Export -> change .wbo to .proto) and then using my tools to convert it to urdf with extracted visual and collisions
 > **Attachment**: [P-Rob3\_ik.mp4](https://cdn.discordapp.com/attachments/565155651395780609/752475856311550012/P-Rob3_ik.mp4)
 
@@ -4974,13 +4974,13 @@ and compiling an ikfast solver of course, which I have automated a lot too
 ##### David Mansolino [Cyberbotics] 09/07/2020 10:32:22
 That looks really really stable!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 10:32:24
+##### Simon Steinmann [Moderator] 09/07/2020 10:32:24
 The code and documentation is not pretty yet, but I'll share soon. Some tests from you guys would be good to validate
 
 ##### David Mansolino [Cyberbotics] 09/07/2020 10:32:48
 Yes sure (I might even use it for a personnal project 😉 )
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 10:32:49
+##### Simon Steinmann [Moderator] 09/07/2020 10:32:49
 yeah, IKFast is amazing. it's really fast. it calculates in microseconds
 
 
@@ -4993,7 +4993,7 @@ once this project is properly running, I'll try to implement OMPL ([https://ompl
 
 `@Simon Steinmann` I can indeed reproduce the issue, we will open an issue and try to fix this soon.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 13:12:34
+##### Simon Steinmann [Moderator] 09/07/2020 13:12:34
 Alright, can someone test my conversion tool + ikfast generator?
 
 [https://github.com/Simon-Steinmann/webots\_ikfast\_generator](https://github.com/Simon-Steinmann/webots_ikfast_generator)
@@ -5009,7 +5009,7 @@ Okay, awesome!! I just compiled the solution for the Puma560, and it literally t
 ##### David Mansolino [Cyberbotics] 09/07/2020 13:28:54
 Sure, as soon as I have finished fixing the bug with urdf joint I will test it, I assume the setup.sh should be run on linux?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 13:29:04
+##### Simon Steinmann [Moderator] 09/07/2020 13:29:04
 yes
 
 
@@ -5037,7 +5037,7 @@ or is it safe to assume, that these wont change due to backwards compatibility?
 ##### David Mansolino [Cyberbotics] 09/07/2020 13:44:31
 You mean the default value of the fields of the basic nodes?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 13:44:32
+##### Simon Steinmann [Moderator] 09/07/2020 13:44:32
 some of the older official models are quite wonky in their setup and often dont have parameters, when they are default.
 
 
@@ -5052,7 +5052,7 @@ that caused quite some headache last night 😄
 ##### David Mansolino [Cyberbotics] 09/07/2020 13:45:26
 Sure, if not specified in the world/PROTO, the default value used are the one defined in the node definition: [https://github.com/cyberbotics/webots/tree/master/resources/nodes](https://github.com/cyberbotics/webots/tree/master/resources/nodes)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 13:45:34
+##### Simon Steinmann [Moderator] 09/07/2020 13:45:34
 instead of putting tons of exceptions in the urdf creator, I rather do a pass over the proto2xml converter and add default values
 
 
@@ -5064,7 +5064,7 @@ so I dont have to dynamically link them
 ##### David Mansolino [Cyberbotics] 09/07/2020 13:46:22
 We try not to change them as this will break compatibility, so it is extremely rare that we change one of them.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 13:46:53
+##### Simon Steinmann [Moderator] 09/07/2020 13:46:53
 okay good. then I'll bake those values into the script. only concerns a few nodes anyways
 
 
@@ -5079,13 +5079,13 @@ because some models use them for positioning shapes... makes it much more compli
 ##### David Mansolino [Cyberbotics] 09/07/2020 14:07:27
 Basically all the descandant of 'Group' can do this: [https://cyberbotics.com/doc/reference/node-chart](https://cyberbotics.com/doc/reference/node-chart)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 14:08:06
+##### Simon Steinmann [Moderator] 09/07/2020 14:08:06
 okay, for robot links, only those 3 are important though
 
 ##### David Mansolino [Cyberbotics] 09/07/2020 14:08:12
 yes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 14:09:06
+##### Simon Steinmann [Moderator] 09/07/2020 14:09:06
 do you think it makes more sense to turn groups and transforms into links, or to take their translation and rotation into account and changing the origin of the meshes
 
 
@@ -5094,7 +5094,7 @@ the former is easier, but the latter produces much cleaner urdf files
 ##### David Mansolino [Cyberbotics] 09/07/2020 14:11:45
 The second one is indeed cleaner (in my opinion its always good to go for the cleaner as at the end it will make you save time on the long term)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/07/2020 14:13:13
+##### Simon Steinmann [Moderator] 09/07/2020 14:13:13
 yeah, should be possible. this, and converting primitive geometry as well are still on my to-do list. So far it only converts trimeshes, and turns those into a convex and simplified collision mesh. But some models have boxes etc. for their visuals. And those are inside of Transform nodes
 
 
@@ -5111,7 +5111,7 @@ You should probably first start by understanding how it works.
 
 Note that Webots has an experimental 'skin' node that allows to simulation (just for rendering) deformable meshes, you can find an example of this in the 'projects/samples/rendering/worlds/animated\_skin.wbt' simulation ([https://www.cyberbotics.com/doc/guide/samples-rendering#animated\_skin-wbt](https://www.cyberbotics.com/doc/guide/samples-rendering#animated_skin-wbt)).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/09/2020 09:04:35
+##### Simon Steinmann [Moderator] 09/09/2020 09:04:35
 thx for the links, I'll check them out
 
 
@@ -5126,7 +5126,7 @@ Our physics engine uses double precision so the values should be able to be extr
 
 Maybe it is the python converter that is somehow rounding the value
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/09/2020 09:07:26
+##### Simon Steinmann [Moderator] 09/09/2020 09:07:26
 the problem is the conversion, writing the proto
 
 
@@ -5143,7 +5143,7 @@ a quick check and integration would be great, I need to implement this in my bat
 ##### David Mansolino [Cyberbotics] 09/09/2020 12:06:57
 Cheking it right now 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/09/2020 14:23:25
+##### Simon Steinmann [Moderator] 09/09/2020 14:23:25
 alright, added the init-pos feature
 
 
@@ -5162,7 +5162,7 @@ now we are already 2 commits ahead again
 ##### David Mansolino [Cyberbotics] 09/09/2020 14:51:35
 Very nice, will have a look when I have the time
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/09/2020 14:52:03
+##### Simon Steinmann [Moderator] 09/09/2020 14:52:03
 finding some small bugs, in 15min it should be good
 
 
@@ -5174,7 +5174,7 @@ Did you guys already create a script that turns a old proto into a multifile pro
 ##### David Mansolino [Cyberbotics] 09/10/2020 12:09:03
 Not yet no.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 12:09:17
+##### Simon Steinmann [Moderator] 09/10/2020 12:09:17
 I'll have a crack at it
 
 
@@ -5183,7 +5183,7 @@ how does USE and DEF work with multifile?
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:12:04
 You can't USE DEF are local to the file
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:12:31
+##### Simon Steinmann [Moderator] 09/10/2020 14:12:31
 urgh, well that makes it much uglier
 
 
@@ -5192,13 +5192,13 @@ proto inclusion only works on nodes like Shape? Including a geometry node does n
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:42:55
 No, any PROTO can include any other PROTO as long as it respect the hierarchy rules.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:44:23
+##### Simon Steinmann [Moderator] 09/10/2020 14:44:23
 it throws an error..
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:44:32
 Which one?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:44:44
+##### Simon Steinmann [Moderator] 09/10/2020 14:44:44
 ERROR: '/home/simon/Downloads/my\_first\_simulation/ikFast\_test/textile\_manipulation\_training/protos/UR10e.proto':36:21: error: Skipped unknown 'UR10e\_0Mesh' field in Shape node.
 
 ERROR: '/home/simon/Downloads/my\_first\_simulation/ikFast\_test/textile\_manipulation\_training/protos/UR10e.proto':36:33: error: Expected field name or '}', found '{'.
@@ -5209,7 +5209,7 @@ ERROR: '/home/simon/Downloads/my\_first\_simulation/ikFast\_test/textile\_manipu
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:45:17
 your are missing the 'geometry' keyword before 'UR10e\_0Mesh'.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:45:40
+##### Simon Steinmann [Moderator] 09/10/2020 14:45:40
 okay, and I remove it in the mesh file then right?
 
 
@@ -5227,26 +5227,26 @@ vs
 
 👍🏻
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:50:39
+##### Simon Steinmann [Moderator] 09/10/2020 14:50:39
 alright, I created the script. It extracts all the indexfaceset geometries.
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:50:56
 Very cool!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:51:08
+##### Simon Steinmann [Moderator] 09/10/2020 14:51:08
 you can just run it, a file select window opens
 > **Attachment**: [proto2multi.py](https://cdn.discordapp.com/attachments/565155651395780609/753628633867747459/proto2multi.py)
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:51:18
 If you want, we have a script folder here where it could fit: [https://github.com/cyberbotics/webots/tree/master/scripts](https://github.com/cyberbotics/webots/tree/master/scripts)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:51:47
+##### Simon Steinmann [Moderator] 09/10/2020 14:51:47
 sure
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:52:05
 Looks good!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:52:07
+##### Simon Steinmann [Moderator] 09/10/2020 14:52:07
 maybe I should add an option to crawl through a folder structure and convert every proto
 
 
@@ -5255,7 +5255,7 @@ replacing it
 ##### David Mansolino [Cyberbotics] 09/10/2020 14:52:39
 That would be nice yes. But if you prefeer this could be added in a second step
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 14:52:55
+##### Simon Steinmann [Moderator] 09/10/2020 14:52:55
 my batch converter already does it, can reuse the code
 
 
@@ -5274,19 +5274,19 @@ and I have no experience compiling on Mac or windows.
 ##### David Mansolino [Cyberbotics] 09/10/2020 15:54:40
 If I have time I will have a look and try to handle the mac and Windows part but this is unfortunately probably not going to be this week, as I am still very busy with this URDF exportation bug: [https://github.com/cyberbotics/webots/issues/2212](https://github.com/cyberbotics/webots/issues/2212)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 15:55:28
+##### Simon Steinmann [Moderator] 09/10/2020 15:55:28
 oh I fixed that issue in my own converter 😄
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 15:56:54
 I know 😉 Bu I am trying to fix it directly in the core of Webots, and this is surprisingly complex, I fixed the 'P-Rob3' case, but then it broke another robot 🙄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 15:57:23
+##### Simon Steinmann [Moderator] 09/10/2020 15:57:23
 did you try the thing with enpoint-anchor discrepency I told you?
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 15:58:23
 Yes, that's what I did and it fixed the P-Rob case nicely, and all the joint-link are now correct in all the cases, but in some specific case the position of some visual/collision nodes are broken
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 15:59:07
+##### Simon Steinmann [Moderator] 09/10/2020 15:59:07
 most likely those inside an extra transform node
 
 
@@ -5295,7 +5295,7 @@ are you setting an additional origin in the urdf for those?
 ##### David Mansolino [Cyberbotics] 09/10/2020 16:00:09
 exactly, the problem seems when the joint anchor does not matches the Solid origin + the bounding object uses an extra transform layer.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:00:35
+##### Simon Steinmann [Moderator] 09/10/2020 16:00:35
 show me to the code good sir
 
 
@@ -5321,7 +5321,7 @@ and here is the result:
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/753646494862802995/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:02:18
+##### Simon Steinmann [Moderator] 09/10/2020 16:02:18
 you dropped something 😄
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 16:02:26
@@ -5335,7 +5335,7 @@ Clearly
 
 Is it working fine with both the tiago and p-rob3 robots?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:03:52
+##### Simon Steinmann [Moderator] 09/10/2020 16:03:52
 let me try
 
 
@@ -5358,7 +5358,7 @@ roslaunch urdf_tutorial display.launch model:=./tiago.urdf
 
 You can even move joints with sliders
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:38:00
+##### Simon Steinmann [Moderator] 09/10/2020 16:38:00
 man that file is evil
 
 
@@ -5367,31 +5367,31 @@ full of duplicate names and stuff 😛
 ##### David Mansolino [Cyberbotics] 09/10/2020 16:38:17
 Which one ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:38:23
+##### Simon Steinmann [Moderator] 09/10/2020 16:38:23
 Tiago
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 16:38:44
 ah yes indeed, this is why it's my test case, it is a very complex robot!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:46:56
+##### Simon Steinmann [Moderator] 09/10/2020 16:46:56
 oh boy, my script is definitely not yet up to the task :p
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 16:47:23
 I am kind of re-assured that I am not the only one having issues with this crazy robot 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:50:45
+##### Simon Steinmann [Moderator] 09/10/2020 16:50:45
 ohhhh sliderjoints may be an issue for me
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 16:51:49
 There is indeed a few of them in this robot, they indeed need to be handled, but they are more easy to handle than hingeJoints
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 16:52:09
+##### Simon Steinmann [Moderator] 09/10/2020 16:52:09
 my script turns them into fixed ones atm
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 16:52:34
 Better than nothing 😉
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 17:06:25
+##### Simon Steinmann [Moderator] 09/10/2020 17:06:25
 this is too much for me atm, but you have to add an <origin> node to the visual (and probably collision) part in the urdf
 
 
@@ -5412,13 +5412,13 @@ end result should look something like this
 ##### David Mansolino [Cyberbotics] 09/10/2020 17:10:31
 Yes, I have something like this, it is almost working, just have a final issue with the gripper now!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/10/2020 17:11:31
+##### Simon Steinmann [Moderator] 09/10/2020 17:11:31
 do you by any chance have pybullet experience?
 
 ##### David Mansolino [Cyberbotics] 09/10/2020 17:12:35
 Unfortunately no.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/11/2020 18:22:44
+##### Simon Steinmann [Moderator] 09/11/2020 18:22:44
 I think I found a way to install ikfast solvers with pip. And it should be possible to have them natively in c++ too. With that I'd need some help though.
 
 ##### JMRMEDEV 09/12/2020 05:05:17
@@ -5427,7 +5427,7 @@ Hi guys! I'm working in a project to program an external controller to the UR5e.
 
 Can anyone help with an existing example or documentation about this matter?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 11:12:41
+##### Simon Steinmann [Moderator] 09/12/2020 11:12:41
 `@JMRMEDEV` can you elaborate on what exactly you are trying to do?
 
 
@@ -5442,7 +5442,7 @@ what programming language are you using? Do you need inverse kinematics?
 
 I already tried the external controller for the NAO and take a look to the code. And I see there are several includes without an explicit reference to NAO itself, but the Webots API.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:23:37
+##### Simon Steinmann [Moderator] 09/12/2020 15:23:37
 I'm a python guy, so I can't help you much, but follwoing this: [https://www.cyberbotics.com/doc/guide/installation-procedure#extern-controllers](https://www.cyberbotics.com/doc/guide/installation-procedure#extern-controllers) should lead you to success
 
 
@@ -5459,7 +5459,7 @@ Like a puthon guy....
 
 Have you programmed an external controller?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:26:05
+##### Simon Steinmann [Moderator] 09/12/2020 15:26:05
 yes, constantly use them, but only python, and only on linux
 
 
@@ -5474,7 +5474,7 @@ that is the key
 ##### JMRMEDEV 09/12/2020 15:26:47
 I get that. I don't actually know python programming, but I guess you have to use something like includes, using or any other references, right?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:27:10
+##### Simon Steinmann [Moderator] 09/12/2020 15:27:10
 yep, "import <package\_name>"
 
 ##### JMRMEDEV 09/12/2020 15:27:13
@@ -5486,7 +5486,7 @@ So my actual question is related with which dependencies should I use.
 
 That I'm not sure if there are specific ones for each robots or are like "universal".
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:28:19
+##### Simon Steinmann [Moderator] 09/12/2020 15:28:19
 \#include <webots/robot.h>
 
 
@@ -5497,7 +5497,7 @@ and if you are using a supervisor robot, then probably
 ##### JMRMEDEV 09/12/2020 15:29:06
 Okay. So they are indeed universal, right?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:29:13
+##### Simon Steinmann [Moderator] 09/12/2020 15:29:13
 yes
 
 ##### JMRMEDEV 09/12/2020 15:29:19
@@ -5536,7 +5536,7 @@ For example, in the NAO controller, I see these includes:
 
 \#include <webots/utils/motion.h>
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:29:40
+##### Simon Steinmann [Moderator] 09/12/2020 15:29:40
 [https://cyberbotics.com/doc/reference/robot](https://cyberbotics.com/doc/reference/robot) this is your friend
 
 ##### JMRMEDEV 09/12/2020 15:29:48
@@ -5551,7 +5551,7 @@ But well, I guess you already clarified my doubt.
 
 Thank you.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:31:34
+##### Simon Steinmann [Moderator] 09/12/2020 15:31:34
 in python you just import the robot. everything else should be pretty much a descendent of that
 
 
@@ -5560,7 +5560,7 @@ in python you just import the robot. everything else should be pretty much a des
 ##### JMRMEDEV 09/12/2020 15:32:07
 Thank you once more.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/12/2020 15:50:09
+##### Simon Steinmann [Moderator] 09/12/2020 15:50:09
 np 🙂
 
 
@@ -5590,10 +5590,10 @@ also, the current toolSlot implementations in webots, create an issue when extra
 
 also the default rotation should be adjusted, so that things are oriented correctly by default (robot spawning upright, not on its side)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/14/2020 12:53:44
+##### Olivier Michel [Cyberbotics] 09/14/2020 12:53:44
 I agree with your proposal regarding orientation of the toolSlot. It would be good to open an issue about it and list which protos have a toolSlot orientation different from z-axis out. This will allow us to evaluate the amount of work to fix this.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 12:54:04
+##### Simon Steinmann [Moderator] 09/14/2020 12:54:04
 this is, what my 'ideal' robot arm model looks like. It's basically an automated conversion, but I took your custom  boudning objects
 > **Attachment**: [UR10e.zip](https://cdn.discordapp.com/attachments/565155651395780609/755048724740178001/UR10e.zip)
 
@@ -5606,16 +5606,16 @@ also, I think my kuka conversions are pretty much good enough for official inclu
 
 same with gen3 kinova
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/14/2020 13:19:44
+##### Olivier Michel [Cyberbotics] 09/14/2020 13:19:44
 In that case, feel free to open a PR to add these models to the main distribution of Webots. In addition to what you mention, we would also require some documentation pages and a working demo world.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:30:28
+##### Simon Steinmann [Moderator] 09/14/2020 13:30:28
 what is your opinion on python wrapper for the ik\_solvers. If they are compiled for windows, linux and mac, they should all work right? Considering the amazing performance, it would be very cool, if that could be included
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:32:12
 Yes, but ideally we should not commit compiled binaries on Github, but rather provide the sources + compilation procedure.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:34:47
+##### Simon Steinmann [Moderator] 09/14/2020 13:34:47
 For all those robotic arms, I would like to include these ik-controllers. Would it be possible to include the files and then prompt the user to compile, and that being exectued from within webots?
 
 
@@ -5624,31 +5624,31 @@ on linux, pip does everything automatically, but I dont know how it is on other 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:40:41
 Not sure, the best would be to try, if you want you can open the PR and make sure it works well for linux and we will try for other OS.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:43:21
+##### Simon Steinmann [Moderator] 09/14/2020 13:43:21
 Say we kept the solvers in cpp, could it be possible to use the plugin functionality somehow?
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:45:23
 I am not sure to understand what you mean by plugin exactly?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:45:39
+##### Simon Steinmann [Moderator] 09/14/2020 13:45:39
 physics plugin
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:45:58
 You want to integrate the ik solver in the physics plugin?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:46:14
+##### Simon Steinmann [Moderator] 09/14/2020 13:46:14
 maybe something could be adjusted to create a plugin, that does the ik
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:47:07
 The physics plugin is probably not the best way to go, a simple first step would maybe to create a dynamical library that you can load from any controller.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:48:32
+##### Simon Steinmann [Moderator] 09/14/2020 13:48:32
 you mean like creating a new functionality for the robot node for example?
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:49:23
 yes, somethign like what is done with the driver library that extends the robot API for 4wheeled vehicle: [https://github.com/cyberbotics/webots/tree/master/projects/default/libraries/vehicle](https://github.com/cyberbotics/webots/tree/master/projects/default/libraries/vehicle)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:49:52
+##### Simon Steinmann [Moderator] 09/14/2020 13:49:52
 uh that looks promising
 
 
@@ -5657,13 +5657,13 @@ how does it work, being able to communicate with c, cpp, java and python?
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:51:11
 The library is written in C, and then we use wrappers from the other languages to call the c one.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:51:34
+##### Simon Steinmann [Moderator] 09/14/2020 13:51:34
 but arent these precompiled?
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:51:47
 Once distributed, but not on Github
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:51:55
+##### Simon Steinmann [Moderator] 09/14/2020 13:51:55
 > Yes, but ideally we should not commit compiled binaries on Github, but rather provide the sources + compilation procedure.
 
 `@David Mansolino`  cough cough
@@ -5677,7 +5677,7 @@ i mean on github of course. but for the version 'normal' people download, stuff 
 ##### David Mansolino [Cyberbotics] 09/14/2020 13:54:15
 Yes sure
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 13:54:26
+##### Simon Steinmann [Moderator] 09/14/2020 13:54:26
 sorry, to be annoying, just wanna understand how the stuff works, so I can implement my projects better
 
 
@@ -5692,13 +5692,13 @@ I'm guessing this has to do with automatic world coordinate calculations
 ##### David Mansolino [Cyberbotics] 09/14/2020 14:48:27
 Which nightly are you using? R2020b-rev2 or R2021a ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 14:48:48
+##### Simon Steinmann [Moderator] 09/14/2020 14:48:48
 b-rev2
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 14:49:54
 And before you where using the official release right?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 14:51:24
+##### Simon Steinmann [Moderator] 09/14/2020 14:51:24
 the latest nightly
 
 
@@ -5710,19 +5710,19 @@ webots-R2020b-rev2-x86-64\_ubuntu-16.04.tar.bz2
 ##### David Mansolino [Cyberbotics] 09/14/2020 14:52:18
 ok and now, which date ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 14:53:16
+##### Simon Steinmann [Moderator] 09/14/2020 14:53:16
 11-9-2020
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 14:53:47
 Ok, but then compared to which version the behavior changed?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 14:54:26
+##### Simon Steinmann [Moderator] 09/14/2020 14:54:26
 I have the old webots folder, where can I check the version/date?
 
 ##### David Mansolino [Cyberbotics] 09/14/2020 14:55:13
 can you try 'webots --version' ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 14:55:34
+##### Simon Steinmann [Moderator] 09/14/2020 14:55:34
 the webots file has the modified date of:
 
 Mo 03 Aug 2020 23∶58∶00 CEST
@@ -5730,7 +5730,7 @@ Mo 03 Aug 2020 23∶58∶00 CEST
 ##### David Mansolino [Cyberbotics] 09/14/2020 14:56:46
 Oh ok, then probably you were using revision 1 ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 14:56:58
+##### Simon Steinmann [Moderator] 09/14/2020 14:56:58
 2021a nightly build 3/8/2020
 
 
@@ -5739,10 +5739,10 @@ oh was using 2021
 
 which version is the one I should use for testing and latest features?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/14/2020 15:01:21
+##### Olivier Michel [Cyberbotics] 09/14/2020 15:01:21
 For the latest features, you should use R2021a nightly.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/14/2020 15:02:40
+##### Simon Steinmann [Moderator] 09/14/2020 15:02:40
 alright, downloading
 
 
@@ -5751,25 +5751,25 @@ question, how important are those modeled screws you guys have on the universal 
 ##### David Mansolino [Cyberbotics] 09/15/2020 05:12:18
 They are not particularly important, just to make the robot look slightly nicer.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/15/2020 14:23:18
+##### Simon Steinmann [Moderator] 09/15/2020 14:23:18
 `@David Mansolino` I reworked the multi-file script. Should adress everything now. Read the instructions (they changed). [https://github.com/cyberbotics/webots/pull/2226](https://github.com/cyberbotics/webots/pull/2226)
 
 ##### David Mansolino [Cyberbotics] 09/15/2020 14:37:38
 Perfect, I will retry it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/15/2020 17:43:22
+##### Simon Steinmann [Moderator] 09/15/2020 17:43:22
 is it possible to have a exposed field in a proto hidden? So it can be addressed with a supervisor, but does not show up in the scene tree?
 
 ##### David Mansolino [Cyberbotics] 09/15/2020 18:23:11
 Yes it is, we are using this mechanism for example for the kinematic vehicles to rotate the wheels, the angular velocity is an open field which is hidden because the user don't care about it, but the supervisor is getting it and changing its vaue: [https://github.com/cyberbotics/webots/blob/master/projects/vehicles/protos/bmw/BmwX5Simple.proto#L21](https://github.com/cyberbotics/webots/blob/master/projects/vehicles/protos/bmw/BmwX5Simple.proto#L21)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/15/2020 18:29:15
+##### Simon Steinmann [Moderator] 09/15/2020 18:29:15
 awesome! thank you, exactly what I was looking for
 
 ##### David Mansolino [Cyberbotics] 09/15/2020 18:49:26
 You're welcome
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/15/2020 23:08:23
+##### Simon Steinmann [Moderator] 09/15/2020 23:08:23
 Automated convex collision mesh creation. Visual .dae to collision .obj  
 
 Less vertices than the usual .stl files and much more accurate and closer to the model. Based on v-hacd ([https://github.com/kmammou/v-hacd](https://github.com/kmammou/v-hacd))
@@ -5791,7 +5791,7 @@ I also managed to get automatically aligned minimal bounding boxes and cylinders
 ##### David Mansolino [Cyberbotics] 09/16/2020 05:09:03
 That looks really good, looking forward to test this.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/16/2020 14:16:16
+##### Simon Steinmann [Moderator] 09/16/2020 14:16:16
 you can test this. --input=<.urdf file>
 > **Attachment**: [urdf\_v\_hacd\_collision.zip](https://cdn.discordapp.com/attachments/565155651395780609/755794188418940998/urdf_v_hacd_collision.zip)
 
@@ -5809,7 +5809,7 @@ wups, this was nut updated
 ##### David Mansolino [Cyberbotics] 09/16/2020 14:30:09
 Can you please create a PR with this on the urdf2webots repo (we don't have the time to test thi right now)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/16/2020 14:30:44
+##### Simon Steinmann [Moderator] 09/16/2020 14:30:44
 it requires pybullet and trimesh though ( the mesh optimization)
 
 
@@ -5827,22 +5827,22 @@ it's just a single script, but it has dependencies, namely pybullet. Which can b
 ##### David Mansolino [Cyberbotics] 09/17/2020 05:52:38
 Let's start with the obj improvements first, as it seems already a new feature in itself.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/17/2020 12:35:41
+##### Simon Steinmann [Moderator] 09/17/2020 12:35:41
 both PRs should be cleaned up and working
 
 ##### David Mansolino [Cyberbotics] 09/17/2020 12:36:05
 Just approved the first one, I am testing the second one
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/17/2020 12:37:12
+##### Simon Steinmann [Moderator] 09/17/2020 12:37:12
 🥳
 
 
 hmmm export as urdf does not work, when trying to export the gripper in the toolslot of a robot. only the whole robot can be exported
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 09/17/2020 12:46:04
+##### Darko Lukić [Cyberbotics] 09/17/2020 12:46:04
 `@Simon Steinmann` You mean `get_urdf()`?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/17/2020 12:46:26
+##### Simon Steinmann [Moderator] 09/17/2020 12:46:26
 right-click -> export -> change extension to .urdf
 
 
@@ -5856,13 +5856,13 @@ since it is a Solid
 
 `@Simon Steinmann` yes
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 09/17/2020 12:48:46
+##### Darko Lukić [Cyberbotics] 09/17/2020 12:48:46
 You can create Robot node, add the solid inside, and then export it as URDF
 
 ##### David Mansolino [Cyberbotics] 09/17/2020 12:48:50
 You should get a warning if it is not a solid
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/17/2020 12:49:23
+##### Simon Steinmann [Moderator] 09/17/2020 12:49:23
 oh, terminal was hidden :p
 
 
@@ -5871,7 +5871,7 @@ would be nice if it were to work with other types too, but it's not the end of t
 ##### David Mansolino [Cyberbotics] 09/17/2020 12:50:31
 I am not 100% familiar with urdf, but not sure it supports something else than robot?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/17/2020 12:50:56
+##### Simon Steinmann [Moderator] 09/17/2020 12:50:56
 [https://tenor.com/view/elmo-shrug-gif-5094560](https://tenor.com/view/elmo-shrug-gif-5094560)
 
 
@@ -5880,7 +5880,7 @@ devices are usual defined as robotst in urdf, but in webots they need to be soli
 ##### David Mansolino [Cyberbotics] 09/17/2020 12:51:19
 Since URDF stands for 'Unified **Robot** Description Format', I would expect it to be for robot only.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/17/2020 12:51:41
+##### Simon Steinmann [Moderator] 09/17/2020 12:51:41
 would be nice if one could export a gripper directly
 
 ##### David Mansolino [Cyberbotics] 09/17/2020 12:51:53
@@ -5888,7 +5888,7 @@ would be nice if one could export a gripper directly
 
 `@Simon Steinmann` yes you're right, in that case you should probably use the workaround `@Darko Lukić` proposed
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/17/2020 12:52:09
+##### Simon Steinmann [Moderator] 09/17/2020 12:52:09
 or export only part of a robot
 
 
@@ -5983,13 +5983,13 @@ I'll take a look. Thank you so much!
 ##### David Mansolino [Cyberbotics] 09/18/2020 06:24:27
 You're welcome
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/18/2020 11:39:31
+##### Simon Steinmann [Moderator] 09/18/2020 11:39:31
 [https://github.com/cyberbotics/webots/pull/2226](https://github.com/cyberbotics/webots/pull/2226) should be finally done now 🙂
 
 ##### David Mansolino [Cyberbotics] 09/18/2020 12:13:56
 I will have a look in a moment 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/20/2020 18:27:58
+##### Simon Steinmann [Moderator] 09/20/2020 18:27:58
 I noticed something: when having a world with <extern> controller and setting the mode to 'run', the process uses 100% of its thread. Even though the simulation is not running. Whichever loop is running in the background, waiting for an extern controller to connect, should have a limited frequency
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 06:59:21
@@ -6110,7 +6110,7 @@ Thank you for the update!
 ##### XZbot 09/21/2020 12:30:23
 No prob. Thank you for the help!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 21:37:47
+##### Simon Steinmann [Moderator] 09/21/2020 21:37:47
 Reinforcement learning with Webots
 > **Attachment**: [simplescreenrecorder-2020-09-21\_23.31.34.mp4](https://cdn.discordapp.com/attachments/565155651395780609/757717239729225798/simplescreenrecorder-2020-09-21_23.31.34.mp4)
 
@@ -6130,7 +6130,7 @@ this was about after 20 minutes of training
 ##### Veverest 09/22/2020 06:46:39
 Do you have a github repo for this? I'm sure a lot of us would love to take a look
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 08:00:05
+##### Simon Steinmann [Moderator] 09/22/2020 08:00:05
 Not yet, but I'm working on a clean workflow and implementation. Based on stable-baselines and rl-baselines-zoo
 
 
@@ -6142,10 +6142,10 @@ Not yet, but I'm working on a clean workflow and implementation. Based on stable
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/757943039766429776/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 12:36:38
+##### Olivier Michel [Cyberbotics] 09/22/2020 12:36:38
 I believe it's Webots PID.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 12:37:22
+##### Simon Steinmann [Moderator] 09/22/2020 12:37:22
 I'll try. I hope it is, because getting the PID of the webot-bin will be much more complicated
 
 
@@ -6160,61 +6160,61 @@ it's not structured and clean enough for a repo, but will come soon. It uses my 
 
 yesterday I have played around with valgrind, Massif and all that, but I'm just starting to scratch the surface. Perhaps you can help with that.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:08:49
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:08:49
 I am not sure what can we make to reduce the heap used by Webots...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:08:55
+##### Simon Steinmann [Moderator] 09/22/2020 16:08:55
 Ideally, it would be great, if webots could be started in a mode without gui, and only the bare minimums loaded
 
 
 from my understanding, memory heap is not necessarily all used. just allocated
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:09:56
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:09:56
 I believe the GUI doesn't consume that much of heap... Did you try opening a very simple world file (no textures,  a simple cube object). Does it make a significant heap reduction?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:10:37
+##### Simon Steinmann [Moderator] 09/22/2020 16:10:37
 no matter what I load, the memory usage is at min. 1.1GB
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:10:49
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:10:49
 If not used, it shouldn't be a problem as it will go the swap...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:10:54
+##### Simon Steinmann [Moderator] 09/22/2020 16:10:54
 which is quite a bit, when wanting to have multiple instances loaded
 
 
 ohhhhh wait... the now compiled version only uses 550MB
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:12:21
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:12:21
 Did you compile with debug symbols (make debug) or without (make release)?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:12:40
+##### Simon Steinmann [Moderator] 09/22/2020 16:12:40
 debug
 
 
 nope, nvm, back at 1,1GB
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:13:23
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:13:23
 release should produce a more optimized executable (in terms of speed and memory footprint)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:13:38
+##### Simon Steinmann [Moderator] 09/22/2020 16:13:38
 let me try
 
 
 could you merge that fix to develop branch real quick?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:14:09
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:14:09
 I first need to merge it to master and then merge master into develop.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:14:24
+##### Simon Steinmann [Moderator] 09/22/2020 16:14:24
 I'll change it by hand until then
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:14:30
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:14:30
 And I need a review of my colleagues for each stage.
 
 
 If you approve the PR at [https://github.com/cyberbotics/webots/pull/2260](https://github.com/cyberbotics/webots/pull/2260), it may speed-up a little bit the process.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:16:37
+##### Simon Steinmann [Moderator] 09/22/2020 16:16:37
 done
 
 
@@ -6223,13 +6223,13 @@ recompiling developer branch with those 2 lines changed. will test that as well
 
 is there any good way to see, what exactly takes up the memory space? I tried Massif, but I couldnt make sense of the information
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:21:39
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:21:39
 I don't know...
 
 
 Note that you have to recompile Webots, e.g., from `cd webots/src/webots ; make -j 8 release`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:22:22
+##### Simon Steinmann [Moderator] 09/22/2020 16:22:22
 just did
 
 
@@ -6241,10 +6241,10 @@ but the pid fix works 🙂
 
 are you familiar with pybullet?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/22/2020 16:24:43
+##### Olivier Michel [Cyberbotics] 09/22/2020 16:24:43
 No.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/22/2020 16:25:40
+##### Simon Steinmann [Moderator] 09/22/2020 16:25:40
 it can import and load directly from python. for the Simulation benchmark, we are doing, it takes like 150MB. Doesn't have a full fletched gui, but for RL it is very convenient
 
 
@@ -6263,7 +6263,7 @@ there must be ways to drastically decrease the memory footprint of webots, when 
 valgrind --log-file=valgrind.out --smc-check=all bin/webots-bin
 ```
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 07:55:33
+##### Simon Steinmann [Moderator] 09/23/2020 07:55:33
 Can you try if running valgrind tool=massif works for you?
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/23/2020 07:57:23
@@ -6271,19 +6271,19 @@ This works fine as well
 
 `valgrind --tool=massif --log-file=valgrind.out --smc-check=all bin/webots-bin`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 07:57:39
+##### Simon Steinmann [Moderator] 09/23/2020 07:57:39
 Is webots actually launching?
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/23/2020 07:57:48
 yes
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 07:58:06
+##### Simon Steinmann [Moderator] 09/23/2020 07:58:06
 You you post the output file of massif?
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/23/2020 07:59:03
 Sorry but I have a meeting now, I will do it later
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 10:20:08
+##### Simon Steinmann [Moderator] 09/23/2020 10:20:08
 that would be great. Perhaps you can run this too?
 
 `valgrind --tool=massif --depth=5  --alloc-fn=g_malloc --alloc-fn=g_realloc --alloc-fn=g_try_malloc  --alloc-fn=g_malloc0 --alloc-fn=g_mem_chunk_alloc --smc-check=all bin/webots-bin `
@@ -6293,7 +6293,7 @@ Sorry but I have lot of work and unfortunately I cannot debug it for you.
 
 If valgrind doesn't work on your machine it could be that the environment is not properly set or that you have a different version of valgrind.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 10:29:37
+##### Simon Steinmann [Moderator] 09/23/2020 10:29:37
 would be nice to just have the output file, should be fairly small and not take long. The one you ran earlier is fine too
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/23/2020 11:00:11
@@ -6307,7 +6307,7 @@ would be nice to just have the output file, should be fairly small and not take 
 
 Here are the massif log files
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 11:00:27
+##### Simon Steinmann [Moderator] 09/23/2020 11:00:27
 thx 🙂
 
 
@@ -6319,7 +6319,7 @@ and which version of valgrind are you running? I really want to find out, where 
 ##### Stefania Pedrazzi [Cyberbotics] 09/23/2020 11:27:36
 valgrind version is `valgrind-3.16.1`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 11:28:15
+##### Simon Steinmann [Moderator] 09/23/2020 11:28:15
 thx
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/23/2020 11:31:01
@@ -6327,7 +6327,7 @@ thx
 
 `@Simon Steinmann` currently it is 1.2 GB
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/23/2020 11:31:34
+##### Simon Steinmann [Moderator] 09/23/2020 11:31:34
 that is about the same as mine. I dont quite understand why massif only sees up to 280MB
 
 
@@ -6354,7 +6354,7 @@ these timings might seem short, but when having to perform 50 of those superviso
 
 Is there a way, to get all the data at once? Or any other fast method? I would really like to avoid to turning every little object into a robot with a gps sensor (the timing of which I have not measured).
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/25/2020 08:12:31
+##### Olivier Michel [Cyberbotics] 09/25/2020 08:12:31
 The problem with these calls is that they require sending a request to Webots and waiting for the answer, which takes long.
 
 
@@ -6363,7 +6363,7 @@ To speed-up things, we could implement the same mechanism as with sensors where 
 
 In practice, that would require to add some API functions like `node.enablePosition(ms)` where ms would be the refresh rate of positions expressed in milliseconds (like in `PositionSensor.enable(ms)`).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/25/2020 09:25:26
+##### Simon Steinmann [Moderator] 09/25/2020 09:25:26
 that would be great
 
 
@@ -6375,13 +6375,13 @@ would it be feasible to define a list of fields to and get all values at once?
 
 But your suggestion alone would already be huge. Can I help with the implementation?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/25/2020 09:28:36
+##### Olivier Michel [Cyberbotics] 09/25/2020 09:28:36
 Sure, you are very welcome.
 
 
 Basically, I would suggest that you open an issue, exposing the problem and proposing a resolution (i.e., based on what I suggested or if you have a better idea, please propose it). Your resolution should include a detailed description of what API functions would need to be implemented and how we would document them. Then, once we agree on the design, we will help to get started with the implementation if needed.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/25/2020 09:31:46
+##### Simon Steinmann [Moderator] 09/25/2020 09:31:46
 sounds good. I will think about it and make a proposal
 
 
@@ -6393,49 +6393,49 @@ I created a feature request, with a proposal on how the API could look like
 
 I have a question regarding the integraded PID controllers, especially for the rotational motors (position control). The default values are 10, 0, 0. But it behaves incredibly stable, with basically no zero state error, even though Ki = 0. How can this be? Is there some secret sauce behind the scenes? Is there some higher frequency calculations, or is it tied to the timestep? Because a typical timestep of 32 or 16 ms, would only mean about 30-60hz, which is very slow for a PID controller.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 11:05:30
+##### Olivier Michel [Cyberbotics] 09/29/2020 11:05:30
 Note that the PID controls the velocity, not the position of the motor which may explain why it is so stable. The position is controlled internally by ODE from the velocity and force and the magic probably is there, inside ODE.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 11:05:56
+##### Simon Steinmann [Moderator] 09/29/2020 11:05:56
 ohhhh
 
 
 so the whole PID controller is inside of ODE?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 11:07:49
+##### Olivier Michel [Cyberbotics] 09/29/2020 11:07:49
 Yes for controlling the position from the velocity.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 11:07:49
+##### Simon Steinmann [Moderator] 09/29/2020 11:07:49
 Or is  the translation from position control to velocity controll done by webots?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 11:08:28
+##### Olivier Michel [Cyberbotics] 09/29/2020 11:08:28
 No, everything is computed inside ODE and I am no sure which tricks they use to make it super stable.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 11:08:49
+##### Simon Steinmann [Moderator] 09/29/2020 11:08:49
 my brain hurts... So when chaning the PID for a motor node, we change the ODE PID values
 
 
 but they do not correspond to the mode we are in (position, velocity, torque)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 11:09:31
+##### Olivier Michel [Cyberbotics] 09/29/2020 11:09:31
 No: you change the PID used to control the velocity only.
 
 
 Not the position.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 11:09:54
+##### Simon Steinmann [Moderator] 09/29/2020 11:09:54
 Could you point me to the ODE documentation of the function you are using?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 11:10:49
+##### Olivier Michel [Cyberbotics] 09/29/2020 11:10:49
 See [https://cyberbotics.com/doc/reference/motor#position-control](https://cyberbotics.com/doc/reference/motor#position-control) for the PID controlling velocity in Webots.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 11:11:05
+##### Simon Steinmann [Moderator] 09/29/2020 11:11:05
 thank you 🙂
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 11:18:43
+##### Olivier Michel [Cyberbotics] 09/29/2020 11:18:43
 Motors in ODE can be controlled either in velocity or in force (resp. torque). See [https://ode.org/ode-latest-userguide.html](https://ode.org/ode-latest-userguide.html). Controlling them in velocity makes the PID control much more stable than controlling then in force.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 11:27:16
+##### Simon Steinmann [Moderator] 09/29/2020 11:27:16
 thank you for the information. We are trying to get the motor control consisten across different simulations. This certainly helped
 
 
@@ -6447,16 +6447,16 @@ I'm on Ubuntu 18.04. Do you have experience with this?
 
 this is a HUGE performance difference
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 13:40:05
+##### Olivier Michel [Cyberbotics] 09/29/2020 13:40:05
 6 cores with hyperthreading means 12 virtual cores, which correspond to 8% of CPU power.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 13:40:44
+##### Simon Steinmann [Moderator] 09/29/2020 13:40:44
 On Windows (as far as I remember), the two treads per core can be scaled. the performance per thread is not halfed
 
 
 per core*
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 13:40:56
+##### Olivier Michel [Cyberbotics] 09/29/2020 13:40:56
 Webots runs on a single virtual core unless your simulation can be split into mechanically isolated islands and you enable multi-threading.
 
 
@@ -6465,13 +6465,13 @@ The controllers run on different cores, so if they are CPU intensive it will sca
 
 The is no fundamental difference between Linux and Windows with respect to thread distribution.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 13:43:18
+##### Simon Steinmann [Moderator] 09/29/2020 13:43:18
 having smt enabled should usually not cause such drastic differences. A single thread should still be able to use (almost) a full core, shouldn't it?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 13:56:15
+##### Olivier Michel [Cyberbotics] 09/29/2020 13:56:15
 Yes, if you use the fast mode.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 13:58:02
+##### Simon Steinmann [Moderator] 09/29/2020 13:58:02
 hmm it might just be, that the cpu utilization is not reported correctly. Do you know of any tool, that can show you the actual cpu usage of physical cores? Even with smt enabled?
 
 
@@ -6486,7 +6486,7 @@ Webots can't be run without a x-server?
 
 we are trying to put everything in a dockercontainer, and it's creating problems
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 14:17:41
+##### Olivier Michel [Cyberbotics] 09/29/2020 14:17:41
 No, it needs an X server.
 
 
@@ -6495,19 +6495,19 @@ But it's easy to have it in a docker container, even including hardware accelera
 
 See [https://github.com/cyberbotics/webots/wiki/Docker](https://github.com/cyberbotics/webots/wiki/Docker)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 14:19:09
+##### Simon Steinmann [Moderator] 09/29/2020 14:19:09
 thank you 😮
 
 
 🙂
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/29/2020 14:19:46
+##### Olivier Michel [Cyberbotics] 09/29/2020 14:19:46
 See also [https://github.com/cyberbotics/webots-docker](https://github.com/cyberbotics/webots-docker)
 
 
 And [https://hub.docker.com/r/cyberbotics/webots](https://hub.docker.com/r/cyberbotics/webots)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/29/2020 14:23:36
+##### Simon Steinmann [Moderator] 09/29/2020 14:23:36
 thx
 
 
@@ -6519,37 +6519,37 @@ Quck question for general understanding, is the following correct?:
 
 2. webots/src/webots/nodes  -- this is the core functionality for any api (the functionality of nodes api in the documentation gets defined here)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/30/2020 10:27:17
+##### Olivier Michel [Cyberbotics] 09/30/2020 10:27:17
 1. contains the Webots API (e.g., function that you can call from your controller program)
 
 
 2. is part of the source code of webots.exe binary that implements nodes in Webots and also communicates with the libController for exchanging messages through a communication pipe.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/30/2020 10:28:16
+##### Simon Steinmann [Moderator] 09/30/2020 10:28:16
 Do you have some sort of flow chart, visualizing, how webots works? 😅
 
 
 what exactly is the libController. I wanna understand how the basic structure works, and what the components are
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/30/2020 10:29:13
+##### Olivier Michel [Cyberbotics] 09/30/2020 10:29:13
 Unfortunately, we don't have any chart.
 
 
 libController is a shared library (DLL on Windows, .so file on Linux) that is linked with a controller program to allow the controller (which is a self-standing executable) to communicate with Webots.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/30/2020 10:31:05
+##### Simon Steinmann [Moderator] 09/30/2020 10:31:05
 okay, so src/webots is the core functionality. src/Controller  is the controller, communicating with src/webots?
 
 
 So, in order to create a new functionality, I have to start with the src/webots/nodes part to create the underlying functionality. Then I have to create the api interface in src/Controller/api
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/30/2020 10:37:29
+##### Olivier Michel [Cyberbotics] 09/30/2020 10:37:29
 Yes. You can start by either end (libController or Webots). At some point they will need to communicate with each other.
 
 
 I would however recommend you to start on the libController side to implement the API function you need (and which will do nothing at the beginning).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/30/2020 10:39:09
+##### Simon Steinmann [Moderator] 09/30/2020 10:39:09
 hmm okay
 
 
@@ -6558,10 +6558,10 @@ am I correct in assuming, thath this here, is the data stream of sensors? And th
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/760813340834136064/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 09/30/2020 10:42:38
+##### Olivier Michel [Cyberbotics] 09/30/2020 10:42:38
 Yes, exactly, you will see that the WbSupervisor class has the same methods into which you will have to add your new message and handle it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/30/2020 10:42:52
+##### Simon Steinmann [Moderator] 09/30/2020 10:42:52
 oh boi... I will try 😄
 
 ## October
@@ -6590,10 +6590,10 @@ Option f requires an argument
 Error: type -h for help
 ```
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/01/2020 10:14:10
+##### Olivier Michel [Cyberbotics] 10/01/2020 10:14:10
 xvfb is needed in any case.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:16:26
+##### Simon Steinmann [Moderator] 10/01/2020 10:16:26
 but there should be no gpu usage, if no visual based sensors are included right?
 
 
@@ -6608,7 +6608,7 @@ in that case
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:28:42
 usually this Qt error is due to some issues in the path environment variables
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:28:55
+##### Simon Steinmann [Moderator] 10/01/2020 10:28:55
 on my system, I get exactly the same error, when trying to launch bin/webots-bin directly, instead of using the launcher
 
 
@@ -6617,7 +6617,7 @@ might be related
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:29:34
 Yes, this is because you need to set the LD\_LIBRARY\_PATH and include `<WEBOTS_HOME>/lib/webots`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:29:43
+##### Simon Steinmann [Moderator] 10/01/2020 10:29:43
 it is set
 
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:30:16
@@ -6625,7 +6625,7 @@ it is set
 
 `@Simon Steinmann` The launcher automatically sets the LD\_LIBRARY\_PATH
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:30:21
+##### Simon Steinmann [Moderator] 10/01/2020 10:30:21
 
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/761173153388429322/unknown.png)
@@ -6637,7 +6637,7 @@ To debug this issue, it could be useful to set the `QT_DEBUG_PLUGINS` variable b
 
 this usually gives more details about why the plugin cannot be loaded
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:34:36
+##### Simon Steinmann [Moderator] 10/01/2020 10:34:36
 error with debug
 > **Attachment**: [message.txt](https://cdn.discordapp.com/attachments/565155651395780609/761174222495809566/message.txt)
 
@@ -6647,7 +6647,7 @@ sorry, first one had html formatting
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:38:27
 do you have other versions of Qt installed on the system?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:39:18
+##### Simon Steinmann [Moderator] 10/01/2020 10:39:18
 I tried solving this error many times, sometimes successfully. But I think either ROS or something else might install it as a dependency
 
 
@@ -6656,7 +6656,7 @@ the thing is, it works when using the launcher
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:39:58
 When setting manually the LD\_LIBRARY\_PATH do you prepend or append the webots lib folder?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:40:17
+##### Simon Steinmann [Moderator] 10/01/2020 10:40:17
 right now It is the only one
 
 
@@ -6668,7 +6668,7 @@ right now It is the only one
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:41:35
 You should also add ``/home/simon/webots/lib/webots``
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:41:49
+##### Simon Steinmann [Moderator] 10/01/2020 10:41:49
 let me try
 
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:42:55
@@ -6676,7 +6676,7 @@ The `lib/controller` is needed for external controllers.
 
 To run webots core GUI you need the `lib/webots` folder in the path
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:42:59
+##### Simon Steinmann [Moderator] 10/01/2020 10:42:59
 that does it
 
 
@@ -6685,7 +6685,7 @@ but it can't be run without gui right?
 ##### Stefania Pedrazzi [Cyberbotics] 10/01/2020 10:44:18
 no, the GUI is part of the Webots core application
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/01/2020 10:44:39
+##### Simon Steinmann [Moderator] 10/01/2020 10:44:39
 okay, but thx, this helped. gonna test if it works in docker too
 
 ##### Justin Fisher 10/02/2020 14:08:37
@@ -6695,7 +6695,7 @@ Currently Webots seems to restrict each controller to reading only those sensors
 
 (Simon and I were talking about this as another potential solution to the challenge of giving controllers quicker access to certain information, taking advantage of how pre-enabled sensors buffer information for quick controller assess, whereas supervisor field.getX operations are comparatively slow because they require slow messages to be piped back and forth between the API and Webots.  If supervisors could read every sensor, that would be pretty much equivalent to letting them "subscribe" to have quick access to whatever information those sensors detect.)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 14:13:05
+##### Olivier Michel [Cyberbotics] 10/02/2020 14:13:05
 It is basically a design choice for robots: a robot should not be able to access the devices of another robot, which makes sense with respect to real robots. Now, since supervisors are a special kind of robot, we didn't yet implemented the possibility for a supervisor to access the sensor of another robot, but I see no objection to this. It just has to be implemented. Also, since a simulation often contains several robots which have the same sensor names, the supervisors should access devices in a different way, e.g., passing the robot name and the device name as the device name only wouldn't suffice. So, that means some API changes...
 
 ##### Justin Fisher 10/02/2020 14:21:45
@@ -6705,7 +6705,7 @@ After the simulation runs for a timestep, I think it iterates over the various s
 
 (If Simon goes ahead with the plan to make some "subscribed" fields also pipe out their values to make them quickly accessible, that should probably happen at about the same time as this iteration.  Or if we were to give supervisors the ability to read other sensors, we'd probably have to ensure that those other sensors were included in this iteration.)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 14:25:13
+##### Olivier Michel [Cyberbotics] 10/02/2020 14:25:13
 It's basically here: [https://github.com/cyberbotics/webots/blob/master/src/webots/control/WbController.cpp#L917](https://github.com/cyberbotics/webots/blob/master/src/webots/control/WbController.cpp#L917)
 
 
@@ -6714,7 +6714,7 @@ This method will collect the answer for each sensor (line 941) and send the buff
 ##### Justin Fisher 10/02/2020 14:34:41
 Thanks.  One issue we'd considered is whether it would make sense to have sensor devices that aren't descended from robots, e.g., a GPS device attached to a freely moving object in the world whose position a supervisor wants to be able to track quickly.  It looks like this code assumes that each sensor will be in a robot, and wouldn't end up collecting answers from sensors that aren't in robots?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 14:38:25
+##### Olivier Michel [Cyberbotics] 10/02/2020 14:38:25
 Yes. Another approach would be to have a supervisor node that includes the whole scene it wants to control, including child robots. That would allow for a cleaner access to robot devices...
 
 ##### Justin Fisher 10/02/2020 14:41:15
@@ -6723,19 +6723,19 @@ It hadn't occurred to me that we might want one robot to contain another, but si
 
 Does Webots already allow for nested robots?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 14:42:15
+##### Olivier Michel [Cyberbotics] 10/02/2020 14:42:15
 I believe we worked on that a while ago, let me check the current status.
 
 ##### Justin Fisher 10/02/2020 14:43:23
 (I could easily imagine wanting to set up a rolling platform with an arm attached, where the platform was one robot with a controller, the arm was descended from it, but was also a separate robot with its own controller)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 14:45:51
+##### Olivier Michel [Cyberbotics] 10/02/2020 14:45:51
 Yes, it is indeed possible.
 
 ##### Justin Fisher 10/02/2020 14:46:37
 Then it might already be possible for a supervisor to read another robot's sensors, so long as it includes that other robot as a descendant?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 14:47:08
+##### Olivier Michel [Cyberbotics] 10/02/2020 14:47:08
 I am not sure about it, but it would certainly be the easiest to implement.
 
 ##### Justin Fisher 10/02/2020 14:51:24
@@ -6745,25 +6745,25 @@ That was my thinking too, which is why I'd suggested this as an alternative to S
 
 And maybe that'll just be as simple as making the supervisor contain everything else.  We'll try it and see!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 14:57:36
+##### Olivier Michel [Cyberbotics] 10/02/2020 14:57:36
 This currently doesn't work. Although a Robot can have another Robot as a child, the parent Robot cannot access the devices of the child Robot. They are just mechanically linked to each other, but not logically linked. However, it would possible to implement it.
 
 ##### Justin Fisher 10/02/2020 15:04:45
 I guess if it requires a change in implementation, I'd probably suggest that the change should be that every supervisor gets the potential to read every sensor, regardless of where it is in the scene tree (rather than a more limited change, e.g., to allow supervisors to read sensors within descendant robots).  I'd probably also let supervisors send commands to arbitrary devices.  Sure this could conflict with what those devices' own controllers command, but since we're already trusting supervisors with the power to delete these devices at will, it doesn't seem to be any worse to trust them not to send bad commands to them.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 15:05:30
+##### Olivier Michel [Cyberbotics] 10/02/2020 15:05:30
 I agree.
 
 ##### Justin Fisher 10/02/2020 15:07:14
 So it seems like the biggest change this would require would be in the getDevice command the supervisor uses?  It would need to be allowed to search more broadly to find devices, and maybe also should accept restrictions on where it'll search (e.g., within a particular robot, if there are two clone robots whose devices have the same names).
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 15:07:55
+##### Olivier Michel [Cyberbotics] 10/02/2020 15:07:55
 Yes, ideally, it should be "robot\_name.device\_name" or so.
 
 ##### Justin Fisher 10/02/2020 15:12:07
 It's odd that Webots does have this functionality with DEF-names, and getNodeFromDef but not with device names and getDevice.  Is there a good reason for why these seem to duplicate a lot of each others' functionality?    If I were doing it from scratch, I'd probably do away with device names, and just make getDevice look up DEF-names, allowing for pathing just like getNodeFromDef does.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 15:16:53
+##### Olivier Michel [Cyberbotics] 10/02/2020 15:16:53
 Yes, that's a good remark.
 
 ##### Justin Fisher 10/02/2020 15:27:20
@@ -6772,7 +6772,7 @@ Ok, I'll mention to Simon this an alternative way he might try to go to get the 
 
 Thanks!
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/02/2020 15:35:34
+##### Olivier Michel [Cyberbotics] 10/02/2020 15:35:34
 🤔 I am not sure that will be easier to implement... As it will require to rework some fundamental part inside Webots (like currently a device has a single owner, and this won't be the case any more, and this will induce many changes to fix conflicts here and there...). So this would be actually much more complicated to implement than a subscription-based system...
 
 ##### Justin Fisher 10/02/2020 15:36:17
@@ -6812,7 +6812,7 @@ Hello, what you are looking for is called the Supervisor API: [https://www.cyber
 ##### Lukulus 10/12/2020 10:51:54
 Is there a way to get the bounding box of a node in the supervisor, for calculate the distance between two nodes?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/12/2020 10:56:25
+##### Olivier Michel [Cyberbotics] 10/12/2020 10:56:25
 Yes, this is possible from the Supervisor API. You should retrieve the `boundingObject` field of the node you want to inspect.
 
 ##### Lukulus 10/12/2020 11:02:24
@@ -6843,7 +6843,7 @@ If you're most interested in whether the objects are *colliding*, you may find i
 ##### Götz 10/19/2020 10:36:38
 Hi there, hope this is the right place for this question, let me know if not. I just started to look into Webots and it seems to be what we're looking for: a great simulator that could replace our raspi-based robots in a robot hackathon event we have to convert to virtual now. Sigh. So my question: Our hackathon was based on robots students would control via RESTful API calls. I gave the tcpip controller a test and then tried Python with Flask as a controller to implement a REST interface. But as Flask is not returning (because it's listening itself) the process is killed. Is there a way to implement a RESTful controller API on a higher level directly in Webots I'm overlooking? Or would I have to implement it on a socket-devel base ("low-level" like tcpip controller example) and then interface it with a REST service running "outside" of Webots?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/19/2020 10:41:19
+##### Olivier Michel [Cyberbotics] 10/19/2020 10:41:19
 Hi `@Götz`, yes this is possible and should be very easy to implement as a Python controller. However, your controller should remain responsive and call the Robot.step() function regularly. This is configurable with most Python HTTP servers, like in tornado for example. I don't have any experience with Flask, but I doubt it wouldn't be possible. Alternatively, you may run the REST server in a separate thread of your Python controller.
 
 ##### Götz 10/19/2020 11:07:41
@@ -6858,7 +6858,7 @@ the programm stops when pdb.set\_trace() is called
 
 but I cannot type to the terminal
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/20/2020 16:17:11
+##### Olivier Michel [Cyberbotics] 10/20/2020 16:17:11
 I usually rely on the print() function to debug my Python controllers. However, it may be possible to use pdb if you start the Python controller yourself with pdb. In that case, you should use an extern Python controller instead of a regular Webots Python controller.
 
 
@@ -6894,7 +6894,7 @@ But the robot is not doing anything like it's not picked up by robot.step()
 
 Sigh.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/20/2020 17:47:10
+##### Olivier Michel [Cyberbotics] 10/20/2020 17:47:10
 Can you write some print() statement in the robotstep() function to assess it actually is called?
 
 ##### Götz 10/20/2020 17:53:32
@@ -6954,7 +6954,7 @@ x forward, y up, z side to side?
 
 ok will double check
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/29/2020 14:56:04
+##### Simon Steinmann [Moderator] 10/29/2020 14:56:04
 Question: How many iterations does webots use for ODE collision detection? Where are the default ODE parameters, which cannot be changed by the api, defined?
 
 ##### David Mansolino [Cyberbotics] 10/29/2020 15:04:32
@@ -6963,19 +6963,19 @@ Here is where the ODE step function is called:[https://github.com/cyberbotics/we
 
 And here is where ODE is initialize: [https://github.com/cyberbotics/webots/blob/d019ad4906e44a34a94fbea4e110d71af7172c07/src/webots/ode/WbOdeContext.cpp](https://github.com/cyberbotics/webots/blob/d019ad4906e44a34a94fbea4e110d71af7172c07/src/webots/ode/WbOdeContext.cpp)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/29/2020 18:11:22
+##### Simon Steinmann [Moderator] 10/29/2020 18:11:22
 Webots uses "world step" not "quick step" right?
 
 ##### David Mansolino [Cyberbotics] 10/29/2020 18:12:43
 Exactly
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/29/2020 18:13:11
+##### Simon Steinmann [Moderator] 10/29/2020 18:13:11
 This cannot be changed? (besides changing source code?)
 
 ##### David Mansolino [Cyberbotics] 10/29/2020 18:13:44
 No, this is currently not open.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/29/2020 18:15:36
+##### Simon Steinmann [Moderator] 10/29/2020 18:15:36
 okay thank you 🙂
 
 
@@ -6986,7 +6986,7 @@ Feel free to open a feature request 😉
 
 [https://github.com/cyberbotics/webots/issues/new?template=feature\_request.md](https://github.com/cyberbotics/webots/issues/new?template=feature_request.md)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/29/2020 18:18:53
+##### Simon Steinmann [Moderator] 10/29/2020 18:18:53
 will do ^^
 
 
@@ -6998,25 +6998,25 @@ am I correct in assuming, that these are the default values for min\_depth and m
 ##### David Mansolino [Cyberbotics] 10/29/2020 20:31:06
 Yes you are.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 15:58:31
+##### Simon Steinmann [Moderator] 10/30/2020 15:58:31
 I noticed something curious, 2020b runs over twice as fast as 2021a. Any ideas as to why this might be?
 
 ##### David Mansolino [Cyberbotics] 10/30/2020 16:01:32
 Did you compiled them from sources?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 16:03:23
+##### Simon Steinmann [Moderator] 10/30/2020 16:03:23
 2021a I did, 2020b is tarball I'm pretty sure
 
 ##### David Mansolino [Cyberbotics] 10/30/2020 16:04:01
 Ok, did you by any chance compiled 2021a in debug mode?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 16:04:27
+##### Simon Steinmann [Moderator] 10/30/2020 16:04:27
 should be in release. Can i check that after the fact?
 
 ##### David Mansolino [Cyberbotics] 10/30/2020 16:05:05
 the simplest is to try to recompile in release, if it is doing nothing it means it was already in release
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 16:08:02
+##### Simon Steinmann [Moderator] 10/30/2020 16:08:02
 jup, was in release
 
 
@@ -7025,7 +7025,7 @@ jup, it's just 2-3 times slower
 ##### David Mansolino [Cyberbotics] 10/30/2020 16:11:07
 Can you reproduce this on every simulations (let's say of the guided tour), or only on specific ones?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 16:14:50
+##### Simon Steinmann [Moderator] 10/30/2020 16:14:50
 I'll investigate more later
 
 
@@ -7046,19 +7046,19 @@ that I can gather from our benchmark
 
 some internal physics calculation may have changed
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/30/2020 16:45:21
+##### Olivier Michel [Cyberbotics] 10/30/2020 16:45:21
 From the changelog at [https://github.com/cyberbotics/webots/blob/develop/docs/reference/changelog-r2021.md](https://github.com/cyberbotics/webots/blob/develop/docs/reference/changelog-r2021.md), I cannot see what could be the cause of this performance drop... 🤔
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 16:49:42
+##### Simon Steinmann [Moderator] 10/30/2020 16:49:42
 perhaps you can do the test yourself, open the ure.wbt world on 2020b and 20201a
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/30/2020 17:00:00
+##### Olivier Michel [Cyberbotics] 10/30/2020 17:00:00
 OK, I just tested it and for me there is no significant difference between 2020b revision 1 (release) and the current develop branch (R2021a).
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 17:00:20
+##### Simon Steinmann [Moderator] 10/30/2020 17:00:20
 on linux?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/30/2020 17:00:30
+##### Olivier Michel [Cyberbotics] 10/30/2020 17:00:30
 Instead of using the version you compiled yourself for R2021a, can you try one of the nightly builds?
 
 
@@ -7067,25 +7067,25 @@ No, I am on Windows.
 
 I can check on Linux as well...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 17:01:59
+##### Simon Steinmann [Moderator] 10/30/2020 17:01:59
 downloading the tar
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/30/2020 17:07:58
+##### Olivier Michel [Cyberbotics] 10/30/2020 17:07:58
 Are you on Ubuntu 20.04?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 17:08:10
+##### Simon Steinmann [Moderator] 10/30/2020 17:08:10
 18.04
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/30/2020 17:08:23
+##### Olivier Michel [Cyberbotics] 10/30/2020 17:08:23
 OK, same for me.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 17:13:52
+##### Simon Steinmann [Moderator] 10/30/2020 17:13:52
 the tar version runs faster again
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/30/2020 17:22:13
+##### Olivier Michel [Cyberbotics] 10/30/2020 17:22:13
 Good news. This means the problem may come from the way you compiled Webots... Can you try to type "make cleanse" at the top level and "make release" again to recompile the whole thing in optimization mode?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 17:27:16
+##### Simon Steinmann [Moderator] 10/30/2020 17:27:16
 I'm currently doing everything fresh, clean pull etc.
 
 
@@ -7094,10 +7094,10 @@ I accidentally built the master branch. good news, that one works perfectly
 
 okay, compiled the develop branch. works now too 🙂
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 10/30/2020 21:22:25
+##### Olivier Michel [Cyberbotics] 10/30/2020 21:22:25
 It could be that you compiled some part in debug mode (either Webots, ODE, Wren or libController)...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 10/30/2020 21:22:59
+##### Simon Steinmann [Moderator] 10/30/2020 21:22:59
 that's my guess too. I did compile it at some point in debug mode
 
 ## November
@@ -7174,7 +7174,7 @@ and this is matrix as pulled off the device using the supervisor
 0.870783 -0.115281 0.477962
 ```
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/02/2020 14:31:53
+##### Darko Lukić [Cyberbotics] 11/02/2020 14:31:53
 Hello `@DrVoodoo` , I think you are very close, I think it should be:
 
 ```
@@ -7215,7 +7215,7 @@ while robot.step(timestep) != -1:
 
 thanks
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/02/2020 14:59:13
+##### Darko Lukić [Cyberbotics] 11/02/2020 14:59:13
 I found a rotation for which the Python example doesn't work. Let me fix it
 
 
@@ -7227,7 +7227,7 @@ ok but we cant compare the rotation matrix on the intertial unit with the matrix
 
 but devices like rangefinders look backwards along the z axis
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/02/2020 15:30:20
+##### Darko Lukić [Cyberbotics] 11/02/2020 15:30:20
 Why not rotating the inertial unit to match the rotation of the range finder?
 
 ##### DrVoodoo [Moderator] 11/02/2020 15:30:42
@@ -7242,7 +7242,7 @@ and it does mean that the RollPitchYaw would actually be PitchRollYaw (i think)
 
 Thanks `@Darko Lukić` , can't do it now but I'll try just rotating the inertial so it matches the rangefinder and see if that does it
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/02/2020 16:24:45
+##### Darko Lukić [Cyberbotics] 11/02/2020 16:24:45
 > but devices like rangefinders look backwards along the z axis
 
 
@@ -7321,7 +7321,7 @@ read up on what stl actually is, it is simply a file format which saves your geo
 ##### Srivastav\_Udit 11/03/2020 11:09:29
 `@ChristopherD` Thanks! I'll have a look and let you know how it goes!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/03/2020 14:29:19
+##### Simon Steinmann [Moderator] 11/03/2020 14:29:19
 `@DrVoodoo`  For future transformation issues, I find these two things really help:
 
 Transforms3d library
@@ -7366,10 +7366,10 @@ Is there a way to connect two solids at one point? And do you think webots is ap
 
 Thanks in advance.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/13/2020 10:57:39
+##### Olivier Michel [Cyberbotics] 11/13/2020 10:57:39
 I am not aware of such a model implemented in Webots, but I believe you could take inspiration from the Stewart Platform example provided in Webots: [https://cyberbotics.com/doc/guide/samples-demos#stewart\_platform-wbt](https://cyberbotics.com/doc/guide/samples-demos#stewart_platform-wbt) [https://www.youtube.com/watch?v=ddrtiwjKAaY](https://www.youtube.com/watch?v=ddrtiwjKAaY)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:01:55
+##### Simon Steinmann [Moderator] 11/13/2020 11:01:55
 `@Lukulus` it really depends on what you want to simulate. Does it simply have to act and look correct? Or do you actually have to simulate the mechanics and torque/force transmissions? If it just has to behave correctly, you can simplify the functionality by using a slider joint and linear motor. You can add the "scissors" separately, not being connected to the platform, but moving in unison
 
 
@@ -7378,13 +7378,13 @@ I'm not aware of any rigid body simulators that can simulate closed joint loops
 ##### Lukulus 11/13/2020 11:05:20
 if it act and looks like a scissor lift would be sufficient
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:05:46
+##### Simon Steinmann [Moderator] 11/13/2020 11:05:46
 Then I think this will be your best approach
 
 ##### Lukulus 11/13/2020 11:06:00
 ok, thank you:)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:06:17
+##### Simon Steinmann [Moderator] 11/13/2020 11:06:17
 let us know if you have further questions about how to do it 🙂
 
 
@@ -7409,16 +7409,16 @@ Do you have a idea how to simulate this?
 
 so while the scissor go up, the scissor must slide togehter
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:21:00
+##### Simon Steinmann [Moderator] 11/13/2020 11:21:00
 can you share a screenshot?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/13/2020 11:25:37
+##### Olivier Michel [Cyberbotics] 11/13/2020 11:25:37
 `@Simon Steinmann`: the wizard you describe is neither implemented nor in the works.
 
 
 If you want to contribute it, we would be happy to review such a PR.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:27:16
+##### Simon Steinmann [Moderator] 11/13/2020 11:27:16
 I could only feasably do something like that in python. More akin to the urdf2webots tool
 
 
@@ -7436,19 +7436,19 @@ this is how i want it to simulate
 
 slide 2 moves the platform
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:30:20
+##### Simon Steinmann [Moderator] 11/13/2020 11:30:20
 only 1 "scissor" ?
 
 ##### Lukulus 11/13/2020 11:30:37
 to make it easy for the beginning
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:32:10
+##### Simon Steinmann [Moderator] 11/13/2020 11:32:10
 the easiest would be to ignore the middle fixed point, an turn the other two fixed points into hinge joints with rotational motors, that turn the scissor-blade with the correct rate compared to the vertical slide joint
 
 ##### Lukulus 11/13/2020 11:33:05
 nice, this shound work 🙂 thank you
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 11:33:19
+##### Simon Steinmann [Moderator] 11/13/2020 11:33:19
 with simple trigonometry it should be easy to have the angles correlate to the vertical distance
 
 ##### Lukulus 11/13/2020 13:16:56
@@ -7457,7 +7457,7 @@ Is it Posible to add more then one Joint to an endPoint of another joint?
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/776797750574579742/unknown.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 13:17:17
+##### Simon Steinmann [Moderator] 11/13/2020 13:17:17
 yes
 
 ##### Lukulus 11/13/2020 13:17:18
@@ -7466,7 +7466,7 @@ so if I only use one joint there is no problem
 
 but if i add the second the device isn't found
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 13:18:12
+##### Simon Steinmann [Moderator] 11/13/2020 13:18:12
 a joint itself is not a device, the motor and sensor are devices
 
 
@@ -7490,7 +7490,7 @@ this i missed
 
 ty!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 13:20:47
+##### Simon Steinmann [Moderator] 11/13/2020 13:20:47
 You're welcome!
 
 ##### Lukulus 11/13/2020 13:38:19
@@ -7505,7 +7505,7 @@ If I only use one joint here it works perfectly, with two: one of them isn't fou
 
 and the controller is crashed
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 13:40:32
+##### Simon Steinmann [Moderator] 11/13/2020 13:40:32
 hard for me to tell from here
 
 
@@ -7520,13 +7520,13 @@ Das sind die relevanten Stellen.
 
 but if you want I can make a short example project and share
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 13:47:26
+##### Simon Steinmann [Moderator] 11/13/2020 13:47:26
 the worldfile would be enough
 
 ##### Lukulus 11/13/2020 13:59:54
 hmm restarted it, and then it worked🤦‍♂️  Sorry for spamming so much ^^
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/13/2020 14:00:04
+##### Simon Steinmann [Moderator] 11/13/2020 14:00:04
 np, glad you figured it out 🙂
 
 
@@ -7538,7 +7538,7 @@ Hi! If I have two robots in my world how do I differentiate one from the other i
 ##### DrakerDG 11/14/2020 00:09:36
 `@evoo` I'm not sure but I think that in the controller code it can be easily differentiated
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/14/2020 11:39:22
+##### Simon Steinmann [Moderator] 11/14/2020 11:39:22
 `@evoo` Every controller has the "controller" field. You can have 2 of the same robots, with the same controller. It then get's loaded for each robot separately.
 
 
@@ -7550,7 +7550,7 @@ thank u
 ##### davidzjeh 11/15/2020 10:36:42
 Hello, I have a question about how can I control the easiest way the Universal Robots to a specified point in the world?(to catch an object which translation is fix)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/16/2020 08:00:07
+##### Darko Lukić [Cyberbotics] 11/16/2020 08:00:07
 Hello `@davidzjeh` , you can check the example with ABB IRB 4600:
 
 [https://github.com/cyberbotics/webots/blob/master/projects/robots/abb/irb/controllers/inverse\_kinematics/inverse\_kinematics.py](https://github.com/cyberbotics/webots/blob/master/projects/robots/abb/irb/controllers/inverse_kinematics/inverse_kinematics.py)
@@ -7558,7 +7558,7 @@ Hello `@davidzjeh` , you can check the example with ABB IRB 4600:
 ##### davidzjeh 11/16/2020 08:08:39
 ahh thanks, can I implement this in C? cuz i saw that is using the ikpy python module that don't exist in C
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/16/2020 08:46:37
+##### Olivier Michel [Cyberbotics] 11/16/2020 08:46:37
 For C++, you can use ikfast instead of ikpy. `@Simon Steinmann` has implemented it successfully and it's really fast compared to ikpy.
 
 ##### davidzjeh 11/16/2020 09:34:32
@@ -7567,7 +7567,7 @@ in this code detail, how can I define the bounds vector for UR robots? I look th
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/777828948918403112/unknown.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/16/2020 09:40:06
+##### Darko Lukić [Cyberbotics] 11/16/2020 09:40:06
 [https://github.com/cyberbotics/webots/blob/fb5cd3df739e4773aa677d9445eebd2ab849493f/projects/robots/abb/irb/controllers/inverse\_kinematics/inverse\_kinematics.py#L42-L45](https://github.com/cyberbotics/webots/blob/fb5cd3df739e4773aa677d9445eebd2ab849493f/projects/robots/abb/irb/controllers/inverse_kinematics/inverse_kinematics.py#L42-L45)
 
 You should be able to extract those bounds automatically from the model using `wb_robot_get_urdf`
@@ -7586,13 +7586,13 @@ WARNING: 'inverse\_kinematics' controller exited with status: 1.||
 
 I just want to run the example code
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/16/2020 10:18:16
+##### Darko Lukić [Cyberbotics] 11/16/2020 10:18:16
 Which version of Webots do you use?
 
 ##### davidzjeh 11/16/2020 10:20:00
 R2020a rev1
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/16/2020 10:20:48
+##### Darko Lukić [Cyberbotics] 11/16/2020 10:20:48
 `getUrdf()` is introduced in R2020b
 
 [https://cyberbotics.com/doc/blog/Webots-2020-b-release#ros-2--webots](https://cyberbotics.com/doc/blog/Webots-2020-b-release#ros-2--webots)
@@ -7609,12 +7609,12 @@ now start the simulation and the webots closes down all time..
 
 this happened with my project but on the 2020a version it's fine, but i don't know in 2020b version why it's crash all time without any error message..
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/16/2020 12:47:45
+##### Darko Lukić [Cyberbotics] 11/16/2020 12:47:45
 Can you identify a cause of the crash? It happens when you start `/projects/robots/abb/irb/worlds/inverse_kinematics.wbt`?
 
 [https://github.com/cyberbotics/webots/blob/master/projects/robots/abb/irb/worlds/inverse\_kinematics.wbt](https://github.com/cyberbotics/webots/blob/master/projects/robots/abb/irb/worlds/inverse_kinematics.wbt)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/16/2020 13:39:45
+##### Simon Steinmann [Moderator] 11/16/2020 13:39:45
 `@davidzjeh` what operating system are you on?
 
 
@@ -7628,7 +7628,7 @@ I can help you with the ik implementation. I made a very successful and fast imp
 
 it's bad? 😄
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/16/2020 14:03:42
+##### Simon Steinmann [Moderator] 11/16/2020 14:03:42
 I havent tried it :p
 
 
@@ -7646,31 +7646,31 @@ I can then give you the files needed for your robot
 ##### davidzjeh 11/16/2020 14:29:27
 okey, i will try but now need to debug my world to work fine..
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/17/2020 12:19:05
+##### Simon Steinmann [Moderator] 11/17/2020 12:19:05
 [https://github.com/cyberbotics/webots/pull/2460](https://github.com/cyberbotics/webots/pull/2460)
 
 
 PR done for install documentation
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/17/2020 12:45:10
+##### Olivier Michel [Cyberbotics] 11/17/2020 12:45:10
 Approved! Thank you.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/17/2020 12:53:30
+##### Simon Steinmann [Moderator] 11/17/2020 12:53:30
 nice, much easier for newcomers now 🙂
 
 
 Out of curiosity, how much would it take, to separate the webots core from the gui? Perhaps in a server / client setup. I see this as a crucial step for wider spread adoption of Webots, especially in the commercial sector, where HPC computers are used for simulation.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/20/2020 13:34:10
+##### Olivier Michel [Cyberbotics] 11/20/2020 13:34:10
 This is tricky as Webots relies a lot on OpenGL for cameras, range-finders, lidars, etc. So a connection to an X server with OpenGL capability is required. The GUI itself is not an issue as the X server is anyhow mandatory. Webots runs perfectly well in the cloud, on HPC computers and in CI machines as long as a possibly virtual X server is setup (we often use xvfb). We are currently working on providing facilities for deploying Webots simulations in the cloud, including HPC systems. So, this is all coming soon...
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/20/2020 13:37:03
+##### Simon Steinmann [Moderator] 11/20/2020 13:37:03
 That's good to hear. I hope your approach is modular, so only things that are needed can be loaded. For example, when not relying on any visual sensors, it would be great not having to load an X server
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/20/2020 13:46:24
+##### Olivier Michel [Cyberbotics] 11/20/2020 13:46:24
 Yes. However, we are not yet at this point, but that's on the roadmap.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 11/20/2020 13:50:01
+##### Simon Steinmann [Moderator] 11/20/2020 13:50:01
 Awesome! Happy to hear that 🙂
 
 ##### Srivastav\_Udit 11/24/2020 14:14:13
@@ -7682,13 +7682,13 @@ The joints haven't been transferred from Fusion360 to Webots as I am importing i
 
 I am facing this issue even after defining the hinge joint in Webots.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/24/2020 14:18:37
+##### Olivier Michel [Cyberbotics] 11/24/2020 14:18:37
 I would recommend you to start building the joint structure of your robot first in Webots (or with a text editor) and add the 3D parts, one-by-one, in a second step. You should probably follow the Webots tutorials from the user guide to understand how to build the joint structure.
 
 ##### Srivastav\_Udit 11/24/2020 14:25:37
 Could you please direct me to this tutorial?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/24/2020 14:27:37
+##### Olivier Michel [Cyberbotics] 11/24/2020 14:27:37
 [https://cyberbotics.com/doc/guide/tutorials](https://cyberbotics.com/doc/guide/tutorials) from 1 to 7 at least.
 
 ##### Srivastav\_Udit 11/24/2020 14:28:29
@@ -7696,13 +7696,13 @@ Thanks, I'll go through these and get back to you.
 
 ## December
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/01/2020 20:03:00
+##### Simon Steinmann [Moderator] 12/01/2020 20:03:00
 Question: Are you guys aware that the robot window (where one can monitor devices) 1. takes a huge performance hit, and 2. the performance penalty persists, even when closed. The world has to be restarted to fix it.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/02/2020 07:18:12
+##### Olivier Michel [Cyberbotics] 12/02/2020 07:18:12
 Yes for 1. Not sure for 2. Maybe 2 would deserve an issue so that we won't forget to investigate it and try to fix it, as it should fixable.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 10:42:38
+##### Simon Steinmann [Moderator] 12/02/2020 10:42:38
 `@Olivier Michel` Okay, I'll open an issue.
 
 
@@ -7711,25 +7711,25 @@ Would it be feasible to have a user adjustable polling rate in a multiple of tim
 
 Also I suspect the root of the performance is the unbuffered supervisor calls to retrieve fields.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/02/2020 10:46:44
+##### Olivier Michel [Cyberbotics] 12/02/2020 10:46:44
 Sure, you can use any polling rate. It's better that the polling rate (wb\_robot\_step value / wb\_sensor\_enable value) is a multiple of the World.basicTimeStep for performance.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 10:46:55
+##### Simon Steinmann [Moderator] 12/02/2020 10:46:55
 On another note, the "add node" window can be very slow when searching / expanding. This is especially true when having a extra project paths like the community projects. I suspect that a search is done every time. Perhaps this could be once and buffered on world load
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/02/2020 10:47:46
+##### Olivier Michel [Cyberbotics] 12/02/2020 10:47:46
 Yes, it is a known problem. But we have plans to improve this.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 10:47:59
+##### Simon Steinmann [Moderator] 12/02/2020 10:47:59
 okay great. so I dont have to open an issueß
 
 
 ?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/02/2020 10:48:12
+##### Olivier Michel [Cyberbotics] 12/02/2020 10:48:12
 Not for this one.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 10:48:26
+##### Simon Steinmann [Moderator] 12/02/2020 10:48:26
 good 🙂
 
 
@@ -7744,7 +7744,7 @@ about 2MB
 
 It is vastly superior to ikpy, not just in performance, but also quality
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 11:00:20
+##### Darko Lukić [Cyberbotics] 12/02/2020 11:00:20
 `@Simon Steinmann` Users can generate the `ikfast` Python library (including C++ library) simply by navigating to a folder with the exported URDF and executing a single command:
 
 ```bash
@@ -7753,7 +7753,7 @@ docker run -v ${PWD}:/output cyberbotics/pyikfast [base_link] [effector]
 
 (see [https://github.com/cyberbotics/pyikfast](https://github.com/cyberbotics/pyikfast))
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 11:04:20
+##### Simon Steinmann [Moderator] 12/02/2020 11:04:20
 holy crap you implemented it 😮
 
 
@@ -7768,25 +7768,25 @@ My python controller takes these solutions and has algorithms to select the best
 
 I think it would be great to have a very simple working solution for the included robots, with a guide / steps to create it for your own robot
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 11:11:31
+##### Darko Lukić [Cyberbotics] 12/02/2020 11:11:31
 Yes, it returns a few solutions and a user can pick one.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/02/2020 11:13:20
+##### Olivier Michel [Cyberbotics] 12/02/2020 11:13:20
 I don't like the idea of having many robot-specific libraries in the webots/lib/controller/pythonxx folder. But a single nice C++ example of using ikfast with some specific robot could be great if it is sufficiently documented in README.md file so that users can generalize it to other robots.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 11:15:12
+##### Simon Steinmann [Moderator] 12/02/2020 11:15:12
 I'll take a look at you guy's compiled solvers and see if it is compatible with my controller. Perhaps something can be done here
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 11:16:22
+##### Darko Lukić [Cyberbotics] 12/02/2020 11:16:22
 If you can the merge cartesian velocity control and the algorithm that picks the best solution it would be a great contribution
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 11:17:41
+##### Simon Steinmann [Moderator] 12/02/2020 11:17:41
 Yeah, these work truly great (kinda proud of that). I'll try to flush them out and clean them up
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 11:18:01
+##### Darko Lukić [Cyberbotics] 12/02/2020 11:18:01
 Sounds great 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 12:13:35
+##### Simon Steinmann [Moderator] 12/02/2020 12:13:35
 [https://github.com/cyberbotics/webots/issues/2493](https://github.com/cyberbotics/webots/issues/2493) robot window bug
 
 
@@ -7795,10 +7795,10 @@ Sounds great 🙂
 
 These issues I only had with the universal robot arms so far
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 15:39:08
+##### Darko Lukić [Cyberbotics] 12/02/2020 15:39:08
 We tested only with ABB' IRB 4600. How did you solve the issue?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 15:39:59
+##### Simon Steinmann [Moderator] 12/02/2020 15:39:59
 [https://github.com/yijiangh/ikfast\_pybind/tree/master/src/ur5](https://github.com/yijiangh/ikfast_pybind/tree/master/src/ur5)
 
 
@@ -7816,22 +7816,22 @@ although your implementation is much cleaner 😄
 
 I did get it to compile on linux after days of troubleshooting, but not on windows
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 15:43:10
+##### Darko Lukić [Cyberbotics] 12/02/2020 15:43:10
 That looks too specific to UR robots, maybe we should try to find a better solution
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 15:44:44
+##### Simon Steinmann [Moderator] 12/02/2020 15:44:44
 I quite like the ikfast\_pybind repo. That's how I implemented my solvers
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 15:44:51
+##### Darko Lukić [Cyberbotics] 12/02/2020 15:44:51
 I will not have time the following week, but after that I can look at it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 15:44:56
+##### Simon Steinmann [Moderator] 12/02/2020 15:44:56
 and the universals are already added
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 15:51:25
+##### Darko Lukić [Cyberbotics] 12/02/2020 15:51:25
 We can improve `pyikfast`. I checked the other solutions but they lacked generalization and they are overcompilcated for users. `pyikfast` generates a Python library in one command. We have to improve support for the UR robots though
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 15:52:19
+##### Simon Steinmann [Moderator] 12/02/2020 15:52:19
 I think the easiest would be to include the solvers for the existing ones, so just the python wrapper has to be compiled
 
 
@@ -7843,19 +7843,19 @@ maybe we can even put my velocity control and "best solution picker" into the c+
 
 Anyways, in the meantime i'll make an example of my controller with the irb
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 15:55:47
+##### Darko Lukić [Cyberbotics] 12/02/2020 15:55:47
 I would prefer to solve the lapack issue as a user may want to build a robot similar to e.g. UR5
 
 
 That would be better. In that case we can benefit from the velocity control and "best solution picker" in C++ controllers as well
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/02/2020 15:59:23
+##### Simon Steinmann [Moderator] 12/02/2020 15:59:23
 Sounds good. Hit me up when you want to tackle the issues. I can show you what I figured out and exact problems exist
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/02/2020 16:00:05
+##### Darko Lukić [Cyberbotics] 12/02/2020 16:00:05
 Nice, thanks, I will 🙂
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/03/2020 17:16:44
+##### Simon Steinmann [Moderator] 12/03/2020 17:16:44
 `@Darko Lukić` First version using your pyikfast and my controller.
 > **Attachment**: [irb4600\_ikfast\_sample.zip](https://cdn.discordapp.com/attachments/565155651395780609/784105857281425438/irb4600_ikfast_sample.zip)
 
@@ -7873,10 +7873,10 @@ oh and you'll need transforms3d
 
 `pip install transforms3d`
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/03/2020 17:24:03
+##### Darko Lukić [Cyberbotics] 12/03/2020 17:24:03
 Fantastic! Thank you! Let me discuss with `@Olivier Michel` where is the best place to put it. I believe we should include a nice tutorial that follows the example.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/03/2020 17:25:55
+##### Simon Steinmann [Moderator] 12/03/2020 17:25:55
 there is still some work to do and i'd like to move some functionality into the c++ portion. But it certainly works well  🙂
 
 
@@ -7887,7 +7887,7 @@ For example:
 
 `irb4600_40.urdf `turns into` pyikfast_irb4600_40`  modoule
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 13:26:58
+##### Darko Lukić [Cyberbotics] 12/04/2020 13:26:58
 `@Simon Steinmann` You can choose the library extension:
 
 [https://github.com/cyberbotics/pyikfast/blob/1b45a9d4401ec4e63a0a2ca1d15ca20e19da315c/entrypoint.bash#L5](https://github.com/cyberbotics/pyikfast/blob/1b45a9d4401ec4e63a0a2ca1d15ca20e19da315c/entrypoint.bash#L5)
@@ -7902,34 +7902,34 @@ docker run -v ${PWD}:/output cyberbotics/pyikfast base_link solid_12208 _my_robo
 
 and the library gets named `pyikfast_my_robot`.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/04/2020 13:27:09
+##### Simon Steinmann [Moderator] 12/04/2020 13:27:09
 Also I noticed, that the "handslot" is not generated in the urdf. Thus there is a mismatch in orientation between the solver and handslot
 
 
 oh okay, great. It still wants the "robot.urdf" though?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 13:28:35
+##### Darko Lukić [Cyberbotics] 12/04/2020 13:28:35
 Yes, but we can change it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/04/2020 13:28:40
+##### Simon Steinmann [Moderator] 12/04/2020 13:28:40
 I see it in the script
 
 
 should be fine I think, the module name is what matters
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 13:28:59
+##### Darko Lukić [Cyberbotics] 12/04/2020 13:28:59
 Feel free to propose a better approach and we can consider implementing it
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/04/2020 13:29:23
+##### Simon Steinmann [Moderator] 12/04/2020 13:29:23
 more important is to adjust the ikfast.h, as it does not work under windows in its current version
 
 
 a few lines need to be changed
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 13:29:35
+##### Darko Lukić [Cyberbotics] 12/04/2020 13:29:35
 Do you have a device or solid in that slot?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/04/2020 13:29:56
+##### Simon Steinmann [Moderator] 12/04/2020 13:29:56
 no, empty slot. Just the robot extracted
 
 
@@ -7938,13 +7938,13 @@ I also found a lead for the lapack problem. Lapack library has to be manually li
 
 [http://openrave.org/docs/0.8.2/openravepy/ikfast/#using-generated-ik-files](http://openrave.org/docs/0.8.2/openravepy/ikfast/#using-generated-ik-files) here it is explained / mentioned
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 13:32:03
+##### Darko Lukić [Cyberbotics] 12/04/2020 13:32:03
 If there is no solid in the slot it doesn't make sense to extract it? That was our assumption
 
 
 Great, I will take a look
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/04/2020 13:32:47
+##### Simon Steinmann [Moderator] 12/04/2020 13:32:47
 it should be extracted as an empty link, like many urdf files have
 
 
@@ -7953,16 +7953,16 @@ an endeffector transform
 
 I tried adding a Solid in the handslot, however, it does not show up in the urdf. It seems to me, that only "revolute" joints get generated from hingeJoints, but no "fixed" joints from Solids
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 15:26:14
+##### Darko Lukić [Cyberbotics] 12/04/2020 15:26:14
 The fixed joints are generated from solids only if the solids have name configured
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/04/2020 15:41:35
+##### Simon Steinmann [Moderator] 12/04/2020 15:41:35
 hmm aparently not if a transform node is between two solids
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 16:01:29
+##### Darko Lukić [Cyberbotics] 12/04/2020 16:01:29
 It should work even if there are other nodes in between. Could you please submit a bug report?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/04/2020 16:07:20
+##### Simon Steinmann [Moderator] 12/04/2020 16:07:20
 will do
 
 
@@ -7980,7 +7980,7 @@ I saw this picture in the pioneer3's document so how can I attach the lidar like
 ![pioneer3at_avoidance.png](https://cdn.discordapp.com/attachments/565155651395780609/785057048277811200/pioneer3at_avoidance.png)
 %end
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/06/2020 13:39:18
+##### Simon Steinmann [Moderator] 12/06/2020 13:39:18
 `@Steven37` select the extensionSlot, click on the plus on top and select whatever you want to attach
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/785138302314610698/unknown.png)
@@ -7995,7 +7995,7 @@ you can use the "Find" function in the top right of the window to search for "li
 ##### Steven37 12/06/2020 13:50:21
 `@Simon Steinmann` thank you so so much!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/07/2020 11:18:48
+##### Simon Steinmann [Moderator] 12/07/2020 11:18:48
 Hey `@Darko Lukić`, Could you take a look at the PR [https://github.com/cyberbotics/pyikfast/pull/2](https://github.com/cyberbotics/pyikfast/pull/2) I made for pyikfast? Would be helpful to have that merged for the tutorial. Also, I dont have write permission to merge PRs
 
 
@@ -8005,16 +8005,16 @@ Okay this is a bit multilayered:
 
 - I plan to use this PR I made [https://github.com/cyberbotics/webots/pull/2513](https://github.com/cyberbotics/webots/pull/2513) (proto splitter update), to convert the existing arms into multi-proto files. This is long overdue, view proto source on the irb4600 freezes my webots for 2 minutes. In addition, I'll make the "toolSlot" name consistent, and turn it into a Solid node. This way it can get converted into URDF. This is also the same behaviour as the urdf2webots script has (since my PR spree on that repo a few month back)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/07/2020 13:07:37
+##### Darko Lukić [Cyberbotics] 12/07/2020 13:07:37
 `@Simon Steinmann` You can also put a dummy node in  `toolSlot` ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/07/2020 13:15:21
+##### Simon Steinmann [Moderator] 12/07/2020 13:15:21
 do you mean adding a "Transform" as a child by default?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/07/2020 13:16:18
+##### Darko Lukić [Cyberbotics] 12/07/2020 13:16:18
 `Transform` or `Solid` should do the job
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/07/2020 13:23:04
+##### Simon Steinmann [Moderator] 12/07/2020 13:23:04
 I'm also adding names to the Solids
 
 
@@ -8023,7 +8023,7 @@ how do I add a Transform node to children, while still having it be the exposed 
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/785498357619490846/unknown.png)
 %end
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/07/2020 13:37:12
+##### Darko Lukić [Cyberbotics] 12/07/2020 13:37:12
 Sorry, `Transform` will not work. Here is an example:
 
 ```
@@ -8041,7 +8041,7 @@ UR10e {
 }
 ```
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/07/2020 13:37:47
+##### Simon Steinmann [Moderator] 12/07/2020 13:37:47
 I just added a Transform node as the default value of the MFNode field
 
 
@@ -8065,10 +8065,10 @@ done and tested. No errors for me
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/785506389707194408/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/07/2020 14:05:50
+##### Olivier Michel [Cyberbotics] 12/07/2020 14:05:50
 I just added write access to the cyberbotics committers group, so that you should be able to merge it now.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/07/2020 14:06:22
+##### Simon Steinmann [Moderator] 12/07/2020 14:06:22
 works
 
 ##### Wesztman 12/22/2020 16:45:51
@@ -8085,10 +8085,10 @@ I´ve added the following idea to the discussion on Github :)
 
 `@Darko Lukić`
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/22/2020 16:48:27
+##### Darko Lukić [Cyberbotics] 12/22/2020 16:48:27
 Nice, thank you!
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 12/30/2020 16:16:24
+##### Simon Steinmann [Moderator] 12/30/2020 16:16:24
 The import from url of the Mesh node needs some work. For example, it does not seem to import the creaseAngle of a x3d file. Also the geometry looks slightly different to when I import the same file through the webots gui as a solid.
 
 

@@ -1,192 +1,192 @@
 {
-  "name": "khepera4",
   "devices": [
     {
       "anchor": "-0.0527 0.021 0",
-      "type": "RotationalMotor",
-      "position": 0,
+      "axis": "-1 0 0",
       "maxPosition": 0,
-      "name": "left wheel motor",
       "minPosition": 0,
-      "transformID": "n28",
-      "axis": "-1 0 0"
+      "name": "left wheel motor",
+      "position": 0,
+      "transformID": "n18",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.0527 0.021 0",
-      "type": "RotationalMotor",
-      "position": 0,
+      "axis": "-1 0 0",
       "maxPosition": 0,
-      "name": "right wheel motor",
       "minPosition": 0,
-      "transformID": "n42",
-      "axis": "-1 0 0"
+      "name": "right wheel motor",
+      "position": 0,
+      "transformID": "n32",
+      "type": "RotationalMotor"
     },
     {
+      "ledColors": [],
       "ledGradual": true,
-      "type": "LED",
       "ledPBRAppearanceIDs": [
-        "n136"
+        "n126"
       ],
       "name": "front left led",
-      "ledColors": [],
-      "transformID": "n134"
+      "transformID": "n124",
+      "type": "LED"
     },
     {
+      "ledColors": [],
       "ledGradual": true,
-      "type": "LED",
       "ledPBRAppearanceIDs": [
-        "n140"
+        "n130"
       ],
       "name": "front right led",
-      "ledColors": [],
-      "transformID": "n138"
+      "transformID": "n128",
+      "type": "LED"
     },
     {
+      "ledColors": [],
       "ledGradual": true,
-      "type": "LED",
       "ledPBRAppearanceIDs": [
-        "n144"
+        "n134"
       ],
       "name": "rear led",
-      "ledColors": [],
-      "transformID": "n142"
+      "transformID": "n132",
+      "type": "LED"
     },
     {
-      "transformOffset": "0 0.029 0",
-      "type": "Accelerometer",
       "name": "accelerometer",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "0 0.029 0",
+      "type": "Accelerometer"
     },
     {
-      "transformOffset": "0 0.0275 -0.06",
-      "type": "Camera",
       "name": "camera",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "0 0.0275 -0.06",
+      "type": "Camera"
     },
     {
-      "transformOffset": "0 0.029 0",
-      "type": "Emitter",
       "name": "emitter",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "0 0.029 0",
+      "type": "Emitter"
     },
     {
-      "type": "DistanceSensor",
       "name": "front infrared sensor",
-      "transformID": "n163"
+      "transformID": "n153",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "front left infrared sensor",
-      "transformID": "n159"
+      "transformID": "n149",
+      "type": "DistanceSensor"
     },
     {
-      "transformOffset": "-0.05 0.045 -0.05",
-      "type": "DistanceSensor",
       "name": "front left ultrasonic sensor",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "-0.05 0.045 -0.05",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "front right infrared sensor",
-      "transformID": "n167"
+      "transformID": "n157",
+      "type": "DistanceSensor"
     },
     {
-      "transformOffset": "0.05 0.045 -0.05",
-      "type": "DistanceSensor",
       "name": "front right ultrasonic sensor",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "0.05 0.045 -0.05",
+      "type": "DistanceSensor"
     },
     {
-      "transformOffset": "0 0.045 -0.07",
-      "type": "DistanceSensor",
       "name": "front ultrasonic sensor",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "0 0.045 -0.07",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "ground front left infrared sensor",
-      "transformID": "n187"
+      "transformID": "n177",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "ground front right infrared sensor",
-      "transformID": "n191"
+      "transformID": "n181",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "ground left infrared sensor",
-      "transformID": "n183"
+      "transformID": "n173",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "ground right infrared sensor",
-      "transformID": "n195"
+      "transformID": "n185",
+      "type": "DistanceSensor"
     },
     {
-      "transformOffset": "0 0.029 0",
-      "type": "Gyro",
       "name": "gyro",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "0 0.029 0",
+      "type": "Gyro"
     },
     {
-      "type": "DistanceSensor",
       "name": "left infrared sensor",
-      "transformID": "n155"
+      "transformID": "n145",
+      "type": "DistanceSensor"
     },
     {
-      "transformOffset": "-0.07 0.045 0",
-      "type": "DistanceSensor",
       "name": "left ultrasonic sensor",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "-0.07 0.045 0",
+      "type": "DistanceSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "left wheel sensor",
-      "transformID": "n28"
+      "transformID": "n18",
+      "type": "PositionSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "rear infrared sensor",
-      "transformID": "n179"
+      "transformID": "n169",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "rear left infrared sensor",
-      "transformID": "n151"
+      "transformID": "n141",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
       "name": "rear right infrared sensor",
-      "transformID": "n175"
+      "transformID": "n165",
+      "type": "DistanceSensor"
     },
     {
-      "transformOffset": "0 0.029 0",
-      "type": "Receiver",
       "name": "receiver",
-      "transformID": "n22"
-    },
-    {
-      "type": "DistanceSensor",
-      "name": "right infrared sensor",
-      "transformID": "n171"
-    },
-    {
-      "transformOffset": "0.07 0.045 0",
-      "type": "DistanceSensor",
-      "name": "right ultrasonic sensor",
-      "transformID": "n22"
-    },
-    {
-      "type": "PositionSensor",
-      "name": "right wheel sensor",
-      "transformID": "n42"
-    },
-    {
+      "transformID": "n12",
       "transformOffset": "0 0.029 0",
-      "type": "Speaker",
+      "type": "Receiver"
+    },
+    {
+      "name": "right infrared sensor",
+      "transformID": "n161",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "right ultrasonic sensor",
+      "transformID": "n12",
+      "transformOffset": "0.07 0.045 0",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "right wheel sensor",
+      "transformID": "n32",
+      "type": "PositionSensor"
+    },
+    {
       "name": "speaker",
-      "transformID": "n22"
+      "transformID": "n12",
+      "transformOffset": "0 0.029 0",
+      "type": "Speaker"
     }
   ],
-  "robotID": "n22"
+  "name": "khepera4",
+  "robotID": "n12"
 }

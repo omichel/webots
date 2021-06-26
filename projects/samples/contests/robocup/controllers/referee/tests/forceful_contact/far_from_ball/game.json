@@ -1,0 +1,43 @@
+{
+  "type": "NORMAL",
+  "class": "KID",
+  "side_left": "red",
+  "kickoff": "blue",
+  "supervisor": "test_supervisor",
+  "host": "192.168.1.133",
+  "minimum_real_time_factor": 0,
+  "red": {
+    "id": 5,
+    "config": "tests/forceful_contact/far_from_ball/team_1.json",
+    "hosts": [
+      "127.0.0.1",
+      "192.168.123.21",
+      "192.168.123.22",
+      "192.168.123.23",
+      "192.168.123.24"
+    ],
+    "ports": [
+      10001,
+      10002,
+      10003,
+      10004
+    ]
+  },
+  "blue": {
+    "id": 3,
+    "config": "tests/forceful_contact/far_from_ball/team_2.json",
+    "hosts": [
+      "127.0.0.1",
+      "192.168.123.41",
+      "192.168.123.42",
+      "192.168.123.43",
+      "192.168.123.44"
+    ],
+    "ports": [
+      10021,
+      10022,
+      10023,
+      10024
+    ]
+  }
+}

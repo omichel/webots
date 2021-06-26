@@ -302,9 +302,6 @@ static void handleMessage(WbRequest *r, WbDeviceTag tag, WbNodeType type) {
               case C_CAMERA_SET_FOCAL:
                 CALL_INTERFACE_FUNCTION(wbr_camera_set_focal_distance, tag, request_read_double(r));
                 break;
-              case C_CAMERA_GET_IMAGE:
-                wb_abstract_camera_update_timestamp(robot_get_device_with_node(tag, WB_NODE_CAMERA, true));
-                break;
               default:
                 REQUEST_ASSERT(0, tag, type, c);
             }

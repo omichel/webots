@@ -20,13 +20,8 @@ TexturedBackgroundLight {
   texture "noon_cloudy_countryside"
   luminosity 0.5
 }
-RobotstadiumSoccerField {
-  rotation 1 0 0 1.5707963267948966
-  frame1Color 0.9 0.8 0.2
-  frame2Color 0.2 0.4 0.8
-}
 DEF BALL Ball {
-  translation 0 0.0325 0.03
+  translation 0 0 0.03
   rotation 1 0 0 1.5707963267948966
 }
 DEF ROBOTISOP2 RobotisOp2 {
@@ -35,4 +30,8 @@ DEF ROBOTISOP2 RobotisOp2 {
   controller "soccer"
   jersey RobotisJersey {
   }
+}
+RobocupSoccerField {
+  size "kid"
+  turfPhysics FALSE
 }

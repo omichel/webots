@@ -1,0 +1,47 @@
+#VRML_SIM R2021b utf8
+
+PROTO RobotWithHinge2Joint [
+  field SFVec3f translation 0 0 0
+]
+{
+  Robot {
+    translation IS translation
+    children [
+      Emitter {
+        name "emitter"
+        channel 1
+      }
+      Hinge2Joint {
+        jointParameters DEF JOINT_PARAMETER_1 HingeJointParameters {
+          axis 1 0 0
+        }
+        jointParameters2 DEF JOINT_PARAMETER_2 JointParameters {
+          axis 0 1 0
+        }
+        device [
+          PositionSensor {
+            name "sensor1"
+          }
+        ]
+        device2 [
+          PositionSensor {
+            name "sensor2"
+          }
+        ]
+        endPoint Solid {
+          name "Hinge2Joint Solid"
+          children [
+            Shape {
+              geometry Box {
+                size 0.1 0.1 0.1
+              }
+            }
+          ]
+        }
+      }
+    ]
+    controller "generic_sensor"
+    controllerArgs "2"
+    name "Hinge2Joint"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Agile Lynxes",
+  "players": {
+    "1": {
+      "proto": "RobocupRobot",
+      "halfTimeStartingPose": {
+        "translation": [-4.7, -2.06, 0.34],
+        "rotation": [0, 0, 1, 0]
+      },
+      "reentryStartingPose": {
+        "translation": [-3, -3.11, 0.34],
+        "rotation": [0, 0, 1, 1.57]
+      },
+      "shootoutStartingPose": {
+        "translation": [2, 0, 0.24],
+        "rotation": [-0.57735, -0.57735, -0.57735, -2.0944]
+      },
+      "goalKeeperStartingPose": {
+        "translation": [-4.47, 0, 0.24],
+        "rotation": [0, 0, 1, 0]
+      }
+    }
+  }
+}

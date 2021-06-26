@@ -22,7 +22,7 @@ Using the nodes described [below](#generic-actuator-list) and their correspondin
 
 ### Commercially Available Actuators
 
-Please [contact us](https://www.cyberbotics.com/contact) if you would like to see your favorite actuator here.
+Please [contact us](https://cyberbotics.com/#contact) if you would like to see your favorite actuator here.
 
 #### Gripper
 

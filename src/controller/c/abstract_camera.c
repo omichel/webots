@@ -62,20 +62,6 @@ void wb_abstract_camera_write_request(WbDevice *d, WbRequest *r) {
     request_write_uint16(r, c->sampling_period);
     c->enable = false;  // done
   }
-  if (c->image->requested) {
-    request_write_uchar(r, C_CAMERA_GET_IMAGE);
-    c->image->requested = false;
-  }
-}
-
-void wb_abstract_camera_reset(WbDevice *d) {
-  AbstractCamera *c = d->pdata;
-  c->image->update_time = 0.0;
-}
-
-void wb_abstract_camera_update_timestamp(WbDevice *d) {
-  AbstractCamera *c = d->pdata;
-  c->image->update_time = wb_robot_get_time();
 }
 
 bool wb_abstract_camera_handle_command(WbDevice *d, WbRequest *r, unsigned char command) {
@@ -87,10 +73,6 @@ bool wb_abstract_camera_handle_command(WbDevice *d, WbRequest *r, unsigned char 
       // Cleanup the previous shared memory if any.
       image_cleanup_shm(c->image);
       image_setup_shm(c->image, r);
-      break;
-
-    case C_CAMERA_GET_IMAGE:
-      c->image->update_time = wb_robot_get_time();
       break;
 
     default:

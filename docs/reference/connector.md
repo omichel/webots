@@ -91,11 +91,11 @@ The distance is measured between the origins of the coordinate systems of the co
 - `axisTolerance`: the maximum angle [in radians] between the *z*-axes of two connectors at which they may successfully lock.
 Two [Connector](#connector) nodes can lock when their *z*-axes are parallel (within tolerance), but pointed in opposite directions.
 
-- `rotationTolerance`: the tolerated angle difference with respect to each of the allowed docking rotations (see [this figure](#example-of-rotational-alignment)).
+- `rotationTolerance`: the tolerated angle difference with respect to each of the allowed docking rotations (see [this figure](#example-of-rotational-alignment-numberofrotations4-and-rotationaltolerance22-5-deg)).
 
 - `numberOfRotations`: specifies how many different docking rotations are allowed in a full 360 degree rotation around the [Connector](#connector)'s z-axis.
 For example, modular robots' connectors are often 1-, 2- or 4-way dockable depending on mechanical and electrical interfaces.
-As illustrated in [this figure](#example-of-rotational-alignment), if `numberOfRotations` is 4 then there will be 4 different docking positions (one every 90 degrees).
+As illustrated in [this figure](#example-of-rotational-alignment-numberofrotations4-and-rotationaltolerance22-5-deg), if `numberOfRotations` is 4 then there will be 4 different docking positions (one every 90 degrees).
 If you don't wish to check the rotational alignment criterion this field should be set to zero.
 
 %figure "Example of rotational alignment (numberOfRotations=4 and rotationalTolerance=22.5 deg)"

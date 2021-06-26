@@ -51,6 +51,7 @@ public:
   bool getMaxForceCallback(webots_ros::get_float::Request &req, webots_ros::get_float::Response &res);
   bool getAvailableTorqueCallback(webots_ros::get_float::Request &req, webots_ros::get_float::Response &res);
   bool getMaxTorqueCallback(webots_ros::get_float::Request &req, webots_ros::get_float::Response &res);
+  bool getMultiplierCallback(webots_ros::get_float::Request &req, webots_ros::get_float::Response &res);
   bool getTypeCallback(webots_ros::get_int::Request &req, webots_ros::get_int::Response &res);
   bool getBrakeNameCallback(webots_ros::get_string::Request &req, webots_ros::get_string::Response &res);
   bool getPositionSensorNameCallback(webots_ros::get_string::Request &req, webots_ros::get_string::Response &res);
@@ -81,6 +82,7 @@ private:
   ros::ServiceServer mGetMaxForceServer;
   ros::ServiceServer mGetAvailableTorqueServer;
   ros::ServiceServer mGetMaxTorqueServer;
+  ros::ServiceServer mGetMultiplierServer;
   ros::ServiceServer mGetTypeServer;
   ros::ServiceServer mGetBrakeNameServer;
   ros::ServiceServer mGetPositionSensorNameServer;

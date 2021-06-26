@@ -292,6 +292,8 @@ period = wb_lidar_get_sampling_period(tag)
 *enable and disable lidar updates*
 
 The `wb_lidar_enable` function allows the user to enable lidar updates.
+Once the lidar is enabled, it will copy range images from GPU memory to CPU memory at each time step, regardless of `wb_lidar_get_range_image` calls.
+
 The `sampling_period` argument specifies the sampling period of the sensor and is expressed in milliseconds.
 Note that the first measurement will be available only after the first sampling period elapsed.
 

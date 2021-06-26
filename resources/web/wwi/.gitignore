@@ -1,9 +1,4 @@
-/install.token
-/dependencies
-/node_modules
-/package-lock.json
-/webots.min.js
-/webots.lib.js
-/webots.debug.js
-/adapter.js
-janus.nojquery.js
+enum.js
+wrenjs.data
+wrenjs.js
+wrenjs.wasm

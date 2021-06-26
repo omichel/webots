@@ -92,12 +92,12 @@ static void automatic_behavior() {
 }
 
 static void display_helper_message() {
-  printf("Control commands:\n");
-  printf(" Arrows:       Move the robot\n");
-  printf(" Page Up/Down: Rotate the robot\n");
-  printf(" +/-:          (Un)grip\n");
-  printf(" Shift + arrows:   Handle the arm\n");
-  printf(" Space: Reset\n");
+  printf("\n \nControl commands:\n");
+  printf(" Arrows:         Move the robot\n");
+  printf(" Page Up/Down:   Rotate the robot\n");
+  printf(" +/-:            (Un)grip\n");
+  printf(" Shift + arrows: Handle the arm\n");
+  printf(" Space:          Reset\n");
 }
 
 int main(int argc, char **argv) {
@@ -123,28 +123,22 @@ int main(int argc, char **argv) {
     if ((c >= 0) && c != pc) {
       switch (c) {
         case WB_KEYBOARD_UP:
-          printf("Go forwards\n");
-          base_forwards();
+          base_forwards_increment();
           break;
         case WB_KEYBOARD_DOWN:
-          printf("Go backwards\n");
-          base_backwards();
+          base_backwards_increment();
           break;
         case WB_KEYBOARD_LEFT:
-          printf("Strafe left\n");
-          base_strafe_left();
+          base_strafe_left_increment();
           break;
         case WB_KEYBOARD_RIGHT:
-          printf("Strafe right\n");
-          base_strafe_right();
+          base_strafe_right_increment();
           break;
         case WB_KEYBOARD_PAGEUP:
-          printf("Turn left\n");
-          base_turn_left();
+          base_turn_left_increment();
           break;
         case WB_KEYBOARD_PAGEDOWN:
-          printf("Turn right\n");
-          base_turn_right();
+          base_turn_right_increment();
           break;
         case WB_KEYBOARD_END:
         case ' ':

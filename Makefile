@@ -149,11 +149,13 @@ ifneq (, $(shell which python 2> /dev/null))
 else
 	@+echo "#"; echo -e "# \033[0;33mPython not installed, skipping documentation\033[0m";
 endif
-
+	@$(WEBOTS_HOME_PATH)/scripts/get_branch/get_branch.sh
+	@$(shell find $(WEBOTS_HOME_PATH)/docs -name '*.md' | sed 's/.*docs[/]//' > $(WEBOTS_HOME_PATH)/docs/list.txt)
+	
 clean-docs:
 	@+echo "#"; echo "# * documentation *";
 	@rm -fr docs/index.html docs/dependencies
-
+	@-rm -f docs/list.txt 
 install:
 	@+echo "#"; echo "# * installing (snap) *";
 	@+make --silent -C scripts/packaging -f Makefile install

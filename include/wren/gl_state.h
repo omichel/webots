@@ -19,6 +19,8 @@ int wr_gl_state_get_gpu_memory();
 bool wr_gl_state_is_anisotropic_texture_filtering_supported();
 float wr_gl_state_max_texture_anisotropy();
 
+void wr_gl_state_disable_check_error();
+
 #ifdef __cplusplus
 }
 #endif

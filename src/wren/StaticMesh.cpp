@@ -21,7 +21,12 @@
 
 #include <wren/static_mesh.h>
 
+#ifdef __EMSCRIPTEN__
+#include <GL/gl.h>
+#include <GLES3/gl3.h>
+#else
 #include <glad/glad.h>
+#endif
 
 #include <unordered_map>
 #include <vector>
@@ -1938,7 +1943,9 @@ namespace wren {
 
   static void copyFromBuffer(unsigned int target, unsigned int buffer, size_t size, void *dest) {
     glBindBuffer(target, buffer);
+#ifndef __EMSCRIPTEN__
     glGetBufferSubData(target, 0, size, dest);
+#endif
   }
 
   /*
@@ -2068,10 +2075,6 @@ void wr_static_mesh_get_bounding_sphere(WrStaticMesh *mesh, float *sphere) {
 void wr_static_mesh_read_data(WrStaticMesh *mesh, float *coord_data, float *normal_data, float *tex_coord_data,
                               unsigned int *index_data) {
   reinterpret_cast<wren::StaticMesh *>(mesh)->readData(coord_data, normal_data, tex_coord_data, index_data);
-}
-
-int wr_static_mesh_get_triangle_count(WrStaticMesh *mesh) {
-  return reinterpret_cast<wren::StaticMesh *>(mesh)->triangles().size();
 }
 
 int wr_static_mesh_get_vertex_count(WrStaticMesh *mesh) {

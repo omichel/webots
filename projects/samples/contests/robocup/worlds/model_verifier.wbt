@@ -1,0 +1,18 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  gravity 0
+}
+Viewpoint {
+  orientation 0.9 0.2 0.4 1.4
+  position 0.6 -0.6 0.2
+}
+Robot {
+  controller "model_verifier"
+  supervisor TRUE
+}
+TexturedBackground {
+  texture "stadium_dry"
+}
+TexturedBackgroundLight {
+  texture "stadium_dry"
+}

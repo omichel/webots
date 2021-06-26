@@ -4,6 +4,8 @@
 
 # export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"  # Defines the path to Java home.
 
+# source $HOME/emsdk/emsdk_env.sh >/dev/null 2>&1 # Activate PATH and other environment variables needed by Emscripten
+
 #######################################################
 # Edit these WEBOTS environment variables when needed #
 #######################################################

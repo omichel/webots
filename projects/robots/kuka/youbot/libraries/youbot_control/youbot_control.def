@@ -18,6 +18,12 @@ base_turn_left
 base_turn_right
 base_strafe_left
 base_strafe_right
+base_forwards_increment
+base_backwards_increment
+base_turn_left_increment
+base_turn_right_increment
+base_strafe_left_increment
+base_strafe_right_increment
 base_goto_init
 base_goto_set_target
 base_goto_run

@@ -579,7 +579,7 @@ tag = wb_robot_get_device('name')
 
 %tab "ROS"
 
-> Note: this function has no equivalent for ROS.
+> **Note**: this function has no equivalent for ROS.
 Devices are available through their services.
 
 %tab-end

@@ -1,0 +1,81 @@
+{
+  "devices": [
+    {
+      "anchor": "-0.285061 0.235818 0.035257",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "back_left_wheel_joint",
+      "position": 0,
+      "transformID": "n67",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "-0.284897 -0.238057 0.03513",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "back_right_wheel_joint",
+      "position": 0,
+      "transformID": "n37",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "0.284897 0.238057 0.03513",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "front_left_wheel_joint",
+      "position": 0,
+      "transformID": "n52",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "0.285061 -0.235818 0.035257",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "front_right_wheel_joint",
+      "position": 0,
+      "transformID": "n22",
+      "type": "RotationalMotor"
+    },
+    {
+      "name": "accelerometer",
+      "transformID": "n78",
+      "type": "Accelerometer"
+    },
+    {
+      "name": "back_left_wheel_joint_sensor",
+      "transformID": "n67",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "back_right_wheel_joint_sensor",
+      "transformID": "n37",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "compass",
+      "transformID": "n78",
+      "type": "Compass"
+    },
+    {
+      "name": "front_left_wheel_joint_sensor",
+      "transformID": "n52",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "front_right_wheel_joint_sensor",
+      "transformID": "n22",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "gyro",
+      "transformID": "n78",
+      "type": "Gyro"
+    }
+  ],
+  "name": "fabtino",
+  "robotID": "n10"
+}

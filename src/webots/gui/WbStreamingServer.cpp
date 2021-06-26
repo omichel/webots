@@ -280,9 +280,11 @@ void WbStreamingServer::processTextMessage(QString message) {
     if (realTime) {
       printf("real-time\n");
       WbSimulationState::instance()->setMode(WbSimulationState::REALTIME);
+      client->sendTextMessage("real-time");
     } else {
       printf("fast\n");
       WbSimulationState::instance()->setMode(WbSimulationState::FAST);
+      client->sendTextMessage("fast");
     }
     connect(WbSimulationState::instance(), &WbSimulationState::modeChanged, this,
             &WbStreamingServer::propagateSimulationStateChange);

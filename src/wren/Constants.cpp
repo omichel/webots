@@ -16,7 +16,12 @@
 
 #include "Primitive.hpp"
 
-#include <glad.h>
+#ifdef __EMSCRIPTEN__
+#include <GL/gl.h>
+#include <GLES3/gl3.h>
+#else
+#include <glad/glad.h>
+#endif
 
 namespace wren {
   const primitive::Aabb gAabbInf(glm::vec3(-std::numeric_limits<float>::max()), glm::vec3(std::numeric_limits<float>::max()));

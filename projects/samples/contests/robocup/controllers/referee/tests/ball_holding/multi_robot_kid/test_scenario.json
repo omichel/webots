@@ -1,0 +1,213 @@
+[
+    {
+        "description" : "Moving robots before ready to avoid penalties",
+        "timing" : {
+            "time" : 8.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.75,2.06,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [0.75,2.36,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-4.3,-2.06,0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Setting up part a",
+        "timing" : {
+            "time" : 11.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1.0,2.06,0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.3,2.06,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [0.7,2.06,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 13.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Part A ends with direct freekick for BLUE",
+                "secondary_state" : "DIRECT_FREEKICK",
+                "secondary_team_id" : 8,
+                "secondary_phase" : 0,
+                "critical" : true
+            },
+            {
+                "name" : "Part A: robots are not penalized, RED1",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Part A: robots are not penalized, RED2",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "Part A: robots are not penalized, BLUE1",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Setting up part B and ending robot ball_holding: moving robots",
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "secondary_state" : "DIRECT_FREEKICK",
+            "phase" : 0
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.0, -0.3, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [1.0, 0.3, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,10],
+            "clock_type" : "Simulated",
+            "secondary_state" : "DIRECT_FREEKICK",
+            "phase" : 1
+        },
+        "tests" : [
+            {
+                "name" : "Part A: Ball is moved far from robots to advantage of BLUE team in SET phase",
+                "target" : "BALL",
+                "position" : [1.5,2.06,0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Setting up part B: placing ball after freekick ended",
+        "timing" : {
+            "time" : 70.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Part B. Freekick ended",
+                "secondary_state" : "NORMAL"
+            }
+        ],
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1.0, 0.0, 0.08]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [73.0, 80.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Part B does not end up in free kick",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "Part B: robots are not penalized, RED1",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Part B: robots are not penalized, RED2",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "Part B: robots are not penalized, BLUE1",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Setting up part C: placing objects",
+        "timing" : {
+            "time" : 80.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [3.0, -1.0, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [2.7, -1.0, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [4.0, -1.0, 0.24]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-2.5, 2.0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [83.0, 90.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Part C does not end up in free kick",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "Part C: robots are not penalized, RED1",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Part C: robots are not penalized, RED2",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "Part C: robots are not penalized, BLUE1",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    }
+]

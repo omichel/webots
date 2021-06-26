@@ -1,0 +1,82 @@
+[
+    {
+        "timing" : {
+            "time" : 6,
+            "clock_type" : "System",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Referee did not crash and moved to READY",
+                "state" : "READY",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Robots are not penalized for being initialized far from ground",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "RED 1 is not penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "BLUE 1 is not penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Moving robots to invalid location during ready",
+        "timing" : {
+            "time" : 15.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-3,0,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [3,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 48.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "Automatic switch to SET state",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Automatic switch to PLAYING state",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    }
+]

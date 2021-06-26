@@ -35,6 +35,7 @@ declare -a DEVELOPMENT_PACKAGES=(
   "mingw-w64-x86_64-cppcheck" # coding style tests
   "mingw-w64-x86_64-gdb"      # debugging
   "diffutils"                 # cmp and diff utilities
+  "procps"                    # pgrep
 )
 
 if [ "$1" == "--dev" ]; then

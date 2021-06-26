@@ -56,8 +56,6 @@ public:
   static const QList<const WbLight *> &lights() { return cLights; }
   static int numberOfOnLights();
 
-  static QString defaultX3dShadowsParameter(const QString &parameterName);
-
 protected:
   // all constructors are reserved for derived classes only
   WbLight(const WbLight &other);

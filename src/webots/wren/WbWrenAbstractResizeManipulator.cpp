@@ -118,7 +118,7 @@ void WbWrenAbstractResizeManipulator::initializeHandlesEntities(bool resize) {
     wr_material_set_default_program(pickingMaterial, mHandlesPickingShader);
 
     wr_renderable_set_drawing_order(renderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
-    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
     wr_renderable_set_mesh(renderable, WR_MESH(mesh));
     wr_renderable_set_material(renderable, mHandleMaterials[i], NULL);
 
@@ -144,7 +144,7 @@ void WbWrenAbstractResizeManipulator::initializeHandlesEntities(bool resize) {
     wr_renderable_set_mesh(renderable, WR_MESH(mesh));
     wr_renderable_set_drawing_mode(renderable, WR_RENDERABLE_DRAWING_MODE_LINES);
     wr_renderable_set_drawing_order(renderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
-    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+    wr_renderable_set_visibility_flags(renderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
     wr_renderable_set_material(renderable, mAxisMaterials[i], NULL);
 
     WrTransform *transform = wr_transform_new();

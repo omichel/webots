@@ -32,6 +32,7 @@ The default is that all three axes are enabled (TRUE).
 Modifying these fields makes it possible to choose between a single, dual or three-axis accelerometer and to specify which axes will be used.
 
 - `resolution`: This field allows to define the resolution of the sensor, the resolution is the smallest change that it is able to measure.
+The raw measurement is first interpolated according to the lookup table and subsequently sampled with respect to the specified resolution, if one is defined.
 For example, if `resolution` is 0.2 instead of returning 1.767 the sensor will return 1.8.
 Setting this field to -1 (default) means that the sensor has an 'infinite' resolution (it can measure any infinitesimal change).
 This field accepts any value in the interval (0.0, inf).

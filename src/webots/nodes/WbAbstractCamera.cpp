@@ -85,7 +85,6 @@ void WbAbstractCamera::init() {
   mNoise = findSFDouble("noise");
   mLens = findSFNode("lens");
   mImageChanged = false;
-  mImageReady = false;
 }
 
 WbAbstractCamera::WbAbstractCamera(const QString &modelName, WbTokenizer *tokenizer) : WbRenderingDevice(modelName, tokenizer) {
@@ -308,6 +307,12 @@ void WbAbstractCamera::writeConfigure(QDataStream &stream) {
 }
 
 void WbAbstractCamera::writeAnswer(QDataStream &stream) {
+  if (mImageChanged) {
+    copyImageToSharedMemory(mWrenCamera, image());
+    mSensor->resetPendingValue();
+    mImageChanged = false;
+  }
+
   if (mNeedToConfigure)
     addConfigureToStream(stream, true);
 
@@ -321,13 +326,6 @@ void WbAbstractCamera::writeAnswer(QDataStream &stream) {
     } else
       stream << (int)(0);
     mHasSharedMemoryChanged = false;
-  }
-
-  if (mImageReady) {
-    stream << (short unsigned int)tag();
-    stream << (unsigned char)C_CAMERA_GET_IMAGE;
-    mImageReady = false;
-    mSensor->resetPendingValue();
   }
 }
 
@@ -362,19 +360,12 @@ bool WbAbstractCamera::handleCommand(QDataStream &stream, unsigned char command)
       applyMotionBlurToWren();
 
       emit enabled(this, isEnabled());
+      copyImageToSharedMemory(mWrenCamera, image());
 
       if (!hasBeenSetup()) {
         setup();
         mHasSharedMemoryChanged = true;
       }
-
-      break;
-    case C_CAMERA_GET_IMAGE:
-      if (mImageChanged) {
-        copyImageToSharedMemory(mWrenCamera, image());
-        mImageChanged = false;
-      }
-      mImageReady = true;
       break;
     default:
       commandHandled = false;

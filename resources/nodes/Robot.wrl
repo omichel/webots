@@ -1,5 +1,4 @@
 # The Robot node is a generic type of robot.
-# If you would like to build a robot with supervisor capabilities use the Supervisor node instead (Webots PRO license required).
 
 Robot {
   #fields that inherit from the Solid node:

@@ -71,9 +71,12 @@ double Measurement::totalValue() const {
 }
 
 static bool gLogSystemInfo = false;
-static const char *const gInfoLabels[] = {
-  "prePhysics",        "physics",        "postPhysics",     "mainRendering",         "virtualRealityHeadsetRendering",
-  "gpuMemoryTransfer", "trianglesCount", "deviceRendering", "deviceWindowRendering", "controller"};
+static const char *const gInfoLabels[] = {"loading",           "prePhysics",
+                                          "physics",           "postPhysics",
+                                          "mainRendering",     "virtualRealityHeadsetRendering",
+                                          "gpuMemoryTransfer", "trianglesCount",
+                                          "deviceRendering",   "deviceWindowRendering",
+                                          "controller"};
 
 WbPerformanceLog *WbPerformanceLog::cInstance = NULL;
 
@@ -102,6 +105,7 @@ WbPerformanceLog::WbPerformanceLog(const QString &fileName, int stepsCount) :
   mValuesCount(INFO_COUNT, 0),
   mTimers(INFO_COUNT),
   mAverageFPS(0.0),
+  mTimeStep(0),
   mIsLogCompleted(false) {
   mFile = new QFile(mFileName);
   for (int i = 0; i < INFO_COUNT; ++i)
@@ -146,6 +150,7 @@ void WbPerformanceLog::worldClosed(const QString &worldName, const QString &worl
   // reset values
   mIsLogCompleted = false;
   mStepsCount = 0;
+  mTimeStep = 0;
   for (int i = 0; i < INFO_COUNT; ++i) {
     mValues[i] = 0;
     mValuesCount[i] = 0;
@@ -166,15 +171,18 @@ void WbPerformanceLog::writeTotalValues() {
 
   out << "Threads count: " << WbOdeContext::instance()->numberOfThreads() << "\n";
 
+  const double averageSpeed = (double)mValuesCount[SPEED_FACTOR] * mTimeStep * 1e3 / ((double)mValues[SPEED_FACTOR]);
+
   WbPreferences *prefs = WbPreferences::instance();
   out << "Shadows disabled: " << (prefs->value("OpenGL/disableShadows").toBool() ? "true" : "false") << "\n";
   out << "Anti-aliasing disabled: " << (prefs->value("OpenGL/disableAntiAliasing").toBool() ? "true" : "false") << "\n";
+  out << "Average speed factor: " << averageSpeed << "x\n";
 
   QList<QString> devicesKeys = mRenderingDevicesValues.keys();
   QList<QString> controllersKeys = mControllersValues.keys();
 
   QStringList headers;
-  for (int i = 0; i < INFO_COUNT - 3; ++i) {
+  for (int i = 0; i < INFO_COUNT - 4; ++i) {
     QString s = QString("<") + gInfoLabels[i];
     if (i == MAIN_TRIANGLES_COUNT)
       s += ">";
@@ -191,7 +199,7 @@ void WbPerformanceLog::writeTotalValues() {
 
   out << "\n" << QString("AVG").leftJustified(6, ' ') << " " << QString::number(mStepsCount).rightJustified(12, ' ') << " ";
   int i = 0;
-  for (; i < INFO_COUNT - 3; ++i) {
+  for (; i < INFO_COUNT - 4; ++i) {
     double value = 0.0;
     if (i == MAIN_TRIANGLES_COUNT)
       value = ((double)mValues[i]) / ((double)mValuesCount[i]);
@@ -210,7 +218,7 @@ void WbPerformanceLog::writeTotalValues() {
 
   // total
   out << "\n" << QString("TOT").leftJustified(6, ' ') << " " << QString::number(mStepsCount).rightJustified(12, ' ') << " ";
-  for (i = 0; i < INFO_COUNT - 3; ++i) {
+  for (i = 0; i < INFO_COUNT - 4; ++i) {
     double value = 0.0;
     if (i == MAIN_TRIANGLES_COUNT)
       value = mValues[i];
@@ -237,6 +245,14 @@ void WbPerformanceLog::stepChanged() {
     mIsLogCompleted = true;
   else
     mStepsCount++;
+
+  if (mValuesCount[SPEED_FACTOR] == 0 && !mTimers[SPEED_FACTOR]->isValid()) {
+    startMeasure(SPEED_FACTOR);
+    return;
+  }
+
+  stopMeasure(SPEED_FACTOR);
+  startMeasure(SPEED_FACTOR);
 }
 
 void WbPerformanceLog::startMeasure(InfoType type, const QString &object) {

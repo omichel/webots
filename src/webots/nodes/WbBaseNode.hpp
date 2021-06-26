@@ -108,8 +108,8 @@ public:
   virtual void setUniformConstraintForResizeHandles(bool enabled) {}
 
   // only for PROTO instances
-  // return the finalized instance node of a PROTO if only one exists
-  WbBaseNode *getSingleFinalizedProtoInstance();
+  // return the first finalized instance node of a PROTO (multiple finalized instances may exist)
+  WbBaseNode *getFirstFinalizedProtoInstance() const;
 
   QString documentationUrl() const;
 

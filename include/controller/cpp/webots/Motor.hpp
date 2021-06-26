@@ -50,6 +50,7 @@ namespace webots {
     double getMaxForce() const;
     double getAvailableTorque() const;
     double getMaxTorque() const;
+    double getMultiplier() const;
 
     virtual void enableForceFeedback(int samplingPeriod);
     virtual void disableForceFeedback();

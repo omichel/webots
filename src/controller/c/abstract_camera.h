@@ -46,7 +46,6 @@ void wb_abstract_camera_new(WbDevice *d, unsigned int id, int w, int h, double f
 
 void wb_abstract_camera_write_request(WbDevice *d, WbRequest *r);
 bool wb_abstract_camera_handle_command(WbDevice *d, WbRequest *r, unsigned char command);
-void wb_abstract_camera_reset(WbDevice *d);
 
 void abstract_camera_toggle_remote(WbDevice *d, WbRequest *r);
 
@@ -59,6 +58,5 @@ int wb_abstract_camera_get_height(WbDevice *d);
 int wb_abstract_camera_get_width(WbDevice *d);
 double wb_abstract_camera_get_fov(WbDevice *d);
 double wb_abstract_camera_get_near(WbDevice *d);
-void wb_abstract_camera_update_timestamp(WbDevice *d);
 
 #endif  // ABSTRACT_CAMERA_PRIVATE_H

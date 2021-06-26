@@ -63,7 +63,7 @@ void WbHiddenKinematicParameters::createHiddenKinematicParameter(
   } else if (parameterName.startsWith("position")) {
     assert(indices.size() > 1);
     const int jointIndex = indices[1].toInt();
-    const int j = (parameterName.at(8) == QChar('2')) ? 1 : 0;
+    const int j = (parameterName.at(8) == QChar('3')) ? 2 : (parameterName.at(8) == QChar('2')) ? 1 : 0;
     WbVector3 *v = data->positions(jointIndex);
     if (v == NULL)
       v = new WbVector3(NAN, NAN, NAN);

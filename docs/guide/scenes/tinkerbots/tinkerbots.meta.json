@@ -1,5 +1,5 @@
 {
-  "robotID": "n10",
   "devices": [],
-  "name": "tinkerbots"
+  "name": "tinkerbots",
+  "robotID": "n10"
 }

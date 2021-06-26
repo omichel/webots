@@ -67,7 +67,6 @@ public:
   void setRootNode(WbNode *node) { mRootNode = node; }
   WbNode *rootNode() const { return mRootNode; }
 
-  void setX3DFrustumCullingValue(const QString &value) { mFrustumCullingValue = value; }
   QMap<uint64_t, QString> &indexedFaceSetDefMap() { return mIndexedFaceSetDefMap; }
 
 private:
@@ -77,7 +76,6 @@ private:
   QString mFileName;
   VrmlType mVrmlType;
   int mIndent;
-  QString mFrustumCullingValue;
   QMap<uint64_t, QString> mIndexedFaceSetDefMap;
   QHash<QString, QString> mTexturesList;  // this hash represents the list of textures used and their associated filepath
   WbNode *mRootNode;

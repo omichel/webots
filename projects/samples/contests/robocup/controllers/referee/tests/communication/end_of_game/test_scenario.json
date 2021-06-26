@@ -1,0 +1,14 @@
+[
+    {
+        "timing" : {
+            "time" : [1.0, 10.0],
+            "clock_type" : "System"
+        },
+        "tests" : [
+            {
+                "name" : "Keeping server alive 5 seconds for clients to connect",
+                "state" : "INITIAL"
+            }
+        ]
+    }
+]

@@ -1,6 +1,7 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6
+    "sourceType": "module",
+    "ecmaVersion": 8
   },
 
   "env": {

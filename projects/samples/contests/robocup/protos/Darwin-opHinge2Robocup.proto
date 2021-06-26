@@ -10,6 +10,8 @@
 # - gyro
 # - camera
 # - realistic physics
+#
+# The model contains two cameras at the same position but with different resolution
 
 PROTO Darwin-opHinge2Robocup [
   field SFVec3f    translation      0 0 0                      # Is `Transform.translation`.
@@ -25,6 +27,8 @@ PROTO Darwin-opHinge2Robocup [
   field SFColor    plasticColor     0.301961 0.301961 0.301961 # Is `Material.plasticColor`.
   field SFInt32    cameraWidth      160                        # Is `Camera.width`.
   field SFInt32    cameraHeight     120                        # Is `Camera.height`.
+  field SFInt32    camera2Width     1920                       # Is `Camera2.width`.
+  field SFInt32    camera2Height    1080                       # Is `Camera2.height`.
   field SFNode     jersey           NULL                       # Extends the robot with a jersey: typically RobotisJersey.proto.
   field SFInt32    channel          0                          # Defines the channel for the `Emitter` and `Receiver` devices.
   field SFBool     showWindow       FALSE                      # Is `Robot.showWindow`.
@@ -327,6 +331,7 @@ PROTO Darwin-opHinge2Robocup [
                       }
                     ]
                   }
+                  # This second camera is located at the same position than the first one
                   Camera {
                     translation 0 0.0329074 0.0359816
                     rotation 0 -1 0 3.14159
@@ -353,6 +358,16 @@ PROTO Darwin-opHinge2Robocup [
                     fieldOfView 1.0123
                     width IS cameraWidth
                     height IS cameraHeight
+                    zoom Zoom {
+                    }
+                  }
+                  Camera {
+                    translation 0 0.0329074 0.0359816
+                    rotation 0 -1 0 3.14159
+                    name "Camera2"
+                    fieldOfView 1.0123
+                    width IS camera2Width
+                    height IS camera2Height
                     zoom Zoom {
                     }
                   }
@@ -756,7 +771,7 @@ PROTO Darwin-opHinge2Robocup [
               %{ end }%
                   device [
                     RotationalMotor {
-                      name "PelvL"
+                      name "PelvL[hip]"
                       acceleration 55
                       maxVelocity %{= mx28_max_velocity }%
                       minPosition -1
@@ -932,7 +947,7 @@ PROTO Darwin-opHinge2Robocup [
                                       endPoint Solid {
                                         translation 0 -0.093 0
                                         rotation 1 0 0 -1.23
-                                        model "left foot"
+                                        name "footL[foot]"
                                         children [
                                           DEF DAnkleLShape Shape { # Motors
                                             appearance USE MOTOR_APPEARANCE
@@ -1171,7 +1186,7 @@ PROTO Darwin-opHinge2Robocup [
               %{ end }%
                   device [
                     RotationalMotor {
-                      name "PelvR"
+                      name "PelvR[hip]"
                       acceleration 55
                       maxVelocity %{= mx28_max_velocity }%
                       minPosition -1.01
@@ -1347,7 +1362,7 @@ PROTO Darwin-opHinge2Robocup [
                                       endPoint Solid {
                                         translation 0 -0.093 0
                                         rotation -1 0 0 1.22
-                                        model "right foot"
+                                        name "footR[foot]"
                                         children [
                                           DEF DAnkleRShape Shape { # Motors
                                             appearance USE MOTOR_APPEARANCE
@@ -1518,7 +1533,7 @@ PROTO Darwin-opHinge2Robocup [
       %{ end }%
           device [
             RotationalMotor {
-              name "ShoulderL"
+              name "ShoulderL[shoulder]"
               acceleration 55
               maxVelocity %{= mx28_max_velocity }%
               minPosition -3.14
@@ -1587,6 +1602,7 @@ PROTO Darwin-opHinge2Robocup [
                   endPoint Solid {
                     translation 0 -0.016 0
                     rotation 0 0 -1 -0.4254
+                    name "armL[arm]"
                     children [
                       DEF DArmUpperLShape Group {
                         children [
@@ -1648,8 +1664,16 @@ PROTO Darwin-opHinge2Robocup [
                           endPoint Solid {
                             translation 0 -0.06 0.016
                             rotation 1 0 0 -2.0908
-                            model "left hand"
+                            name "handL[arm]"
                             children [
+                              Transform {
+                                translation 0.0075 -0.1295 -0.016
+                                children [
+                                  Solid {
+                                    name "fingerL[hand]"
+                                  }
+                                ]
+                              }
                               DEF LEFT_HAND_SLOT Group {
                                 children IS leftHandSlot
                               }
@@ -1736,7 +1760,7 @@ PROTO Darwin-opHinge2Robocup [
                   }
                 }
             ]
-            name "shoulderL"
+            name "shoulderL[arm]"
             boundingObject Transform {
               translation -0.009 -0.0065 0
               rotation 0 0 1 -0.785398
@@ -1768,7 +1792,7 @@ PROTO Darwin-opHinge2Robocup [
       %{ end }%
           device [
             RotationalMotor {
-              name "ShoulderR"
+              name "ShoulderR[shoulder]"
               acceleration 55
               maxVelocity %{= mx28_max_velocity }%
               minPosition -3.14
@@ -1837,6 +1861,7 @@ PROTO Darwin-opHinge2Robocup [
                   endPoint Solid {
                     translation 0 -0.016 0
                     rotation 0 0 -1 0.4554
+                    name "armR[arm]"
                     children [
                       DEF DArmUpperRShape Group {
                         children [
@@ -1898,8 +1923,16 @@ PROTO Darwin-opHinge2Robocup [
                           endPoint Solid {
                             translation 0 -0.06 0.016
                             rotation -1 0 0 2.0808
-                            model "right hand"
+                            name "handR[arm]"
                             children [
+                              Transform {
+                                translation -0.0075 -0.1295 -0.016
+                                children [
+                                  Solid {
+                                    name "fingerR[hand]"
+                                  }
+                                ]
+                              }
                               DEF RIGHT_HAND_SLOT Group {
                                 children IS rightHandSlot
                               }
@@ -1986,7 +2019,7 @@ PROTO Darwin-opHinge2Robocup [
                   }
                 }
             ]
-            name "shoulderR"
+            name "shoulderR[arm]"
             boundingObject Transform {
               translation 0.009 -0.0065 0
               rotation 0 0 1 0.785398

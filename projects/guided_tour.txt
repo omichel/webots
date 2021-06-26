@@ -20,7 +20,7 @@ projects/robots/clearpath/pr2/worlds/pr2.wbt 38
 projects/robots/irobot/create/worlds/create.wbt 30
 projects/robots/adept/pioneer3/worlds/pioneer3at.wbt 14
 projects/robots/robotis/darwin-op/worlds/soccer.wbt 12
-projects/robots/softbank/nao/worlds/nao_demo.wbt 20
+projects/robots/softbank/nao/worlds/nao_room.wbt 20
 projects/robots/fujitsu/hoap2/worlds/hoap2_walk.wbt 30
 projects/robots/micromagic/mantis/worlds/mantis.wbt 30
 projects/robots/gctronic/e-puck/worlds/e-puck_line_demo.wbt 30

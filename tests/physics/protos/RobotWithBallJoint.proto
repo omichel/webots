@@ -1,0 +1,53 @@
+#VRML_SIM R2021b utf8
+
+PROTO RobotWithBallJoint [
+  field SFVec3f translation 0 0 0
+]
+{
+  Robot {
+    translation IS translation
+    children [
+      Emitter {
+        name "emitter"
+        channel 1
+      }
+      BallJoint {
+        jointParameters DEF JOINT_PARAMETER_1 BallJointParameters {
+        }
+        jointParameters2 DEF JOINT_PARAMETER_2 JointParameters {
+          axis 0 1 0
+        }
+        jointParameters3 DEF JOINT_PARAMETER_3 JointParameters {
+        }
+        device [
+          PositionSensor {
+            name "sensor1"
+          }
+        ]
+        device2 [
+          PositionSensor {
+            name "sensor2"
+          }
+        ]
+        device3 [
+          PositionSensor {
+            name "sensor3"
+          }
+        ]
+        endPoint Solid {
+          name "BallJoint Solid"
+          children [
+            Shape {
+              geometry Box {
+                size 0.1 0.1 0.1
+              }
+            }
+          ]
+        }
+      }
+    ]
+    controller "generic_sensor"
+    controllerArgs "3"
+    name "BallJoint"
+  }
+}

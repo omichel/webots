@@ -19,8 +19,6 @@ release debug profile:
 	@+make -s -C translations $@
 	@echo "#"; echo "# *** projects ***"
 	@+make -s -C projects $@
-	@echo "#"; echo "# *** web/wwi ***"
-	@+make -s -C web/wwi $@
 
 cleanse: clean
 
@@ -28,4 +26,4 @@ clean:
 	@+make -s -C translations $@
 	@+make -s -C projects $@
 	@-rm -rf sumo_exporter/*.pyc
-	@+make -s -C web/wwi $(MAKECMDGOALS)
+	@-rm -f branch.txt

@@ -13,6 +13,7 @@ An example of a web component showing the Aibo ERS7 robot is displayed on the to
 ## Requirements
 
 - Python 3.5 or above.
+- lxml: `pip install lxml`.
 
 ## Usage
 

@@ -1,0 +1,232 @@
+[
+    {
+        "description" : "placing robots for kick-off",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [0.25,0,0.24],
+                "orientation" : [0,0,1,3.14]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [1.2,0,0.24],
+                "orientation" : [0,0,1,3.14]
+            },
+            {
+                "target" : "RED_PLAYER_3",
+                "position" : [0.2,-2,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-1.2,0,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [-0.2,2,0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, no robot penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: valid pos for R1",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: valid pos for R2",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: valid pos for R3",
+                "target" : "RED_PLAYER_3",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: valid pos for B2",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: valid pos for B3",
+                "target" : "BLUE_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Moving robots while ball out of play",
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [0.6,0,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_3",
+                "position" : [-0.2,-2,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-0.6,-0.2,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [0.2,2,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 6.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Player with kick-off is not penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Team with kick-off can enter in center-circle",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "Robots can move to opponent field (2)",
+                "target" : "RED_PLAYER_3",
+                "penalty" : 0
+            },
+            {
+                "name" : "Ball out of play, opponent can't enter -> penalty",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 34
+            },
+            {
+                "name" : "Robots can move to opponent field (2)",
+                "target" : "BLUE_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 12.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [0.2,0.4,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 14.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "More than 10s after playing, opponent can move to central circle",
+                "target" : "BLUE_PLAYER_2",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 16.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [8, -6, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [0.3, -0.5, 0.24]
+            },
+            {
+                "target" : "BALL",
+                "position" : [0.1, -0.5, 0]
+            }
+        ]
+    },
+    {
+        "description" : "Ball now bounces on R2",
+        "timing" : {
+            "time" : 19,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [8, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-120, 0, 40]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 25,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Red scored a goal",
+                "target" : "RED",
+                "score" : 1
+            },
+            {
+                "name" : "Blue did not score a goal",
+                "target" : "BLUE",
+                "score" : 0
+            }
+        ]
+    }
+]

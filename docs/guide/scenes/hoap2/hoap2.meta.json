@@ -1,255 +1,254 @@
 {
-  "name": "hoap2",
   "devices": [
     {
       "anchor": "0 0 0",
-      "name": "body_joint_1",
-      "type": "RotationalMotor",
-      "maxPosition": 1.5708,
-      "position": 0,
       "axis": "-1 0 0",
+      "maxPosition": 1.5708,
+      "minPosition": -0.017453,
+      "name": "body_joint_1",
+      "position": 0,
       "transformID": "n16",
-      "minPosition": -0.017453
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0.09 -0.034",
-      "name": "head_joint_1",
-      "type": "RotationalMotor",
-      "maxPosition": 1.0472,
-      "position": 0,
       "axis": "0 1 0",
+      "maxPosition": 1.0472,
+      "minPosition": -1.0472,
+      "name": "head_joint_1",
+      "position": 0,
       "transformID": "n417",
-      "minPosition": -1.0472
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0.081 0.008",
-      "name": "head_joint_2",
-      "type": "RotationalMotor",
-      "maxPosition": 1.0472,
-      "position": 0,
       "axis": "1 0 0",
+      "maxPosition": 1.0472,
+      "minPosition": -0.2618,
+      "name": "head_joint_2",
+      "position": 0,
       "transformID": "n426",
-      "minPosition": -0.2618
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.0995 0.09 -0.034",
-      "name": "larm_joint_1",
-      "type": "RotationalMotor",
-      "maxPosition": 2.6354,
-      "position": 0,
       "axis": "1 0 0",
+      "maxPosition": 2.6354,
+      "minPosition": -1.5882,
+      "name": "larm_joint_1",
+      "position": 0,
       "transformID": "n193",
-      "minPosition": -1.5882
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "larm_joint_2",
-      "type": "RotationalMotor",
-      "maxPosition": 1.6755,
-      "position": 0,
       "axis": "0 1 0",
+      "maxPosition": 1.6755,
+      "minPosition": -0.0175,
+      "name": "larm_joint_2",
+      "position": 0,
       "transformID": "n206",
-      "minPosition": -0.0175
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "larm_joint_3",
-      "type": "RotationalMotor",
-      "maxPosition": 1.5882,
-      "position": 0,
       "axis": "0 0 1",
+      "maxPosition": 1.5882,
+      "minPosition": -1.5882,
+      "name": "larm_joint_3",
+      "position": 0,
       "transformID": "n221",
-      "minPosition": -1.5882
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0.101",
-      "name": "larm_joint_4",
-      "type": "RotationalMotor",
-      "maxPosition": 0.01745,
-      "position": 0,
       "axis": "1 0 0",
+      "maxPosition": 0.01745,
+      "minPosition": -2.0071,
+      "name": "larm_joint_4",
+      "position": 0,
       "transformID": "n235",
-      "minPosition": -2.0071
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0.1",
-      "name": "larm_joint_5",
-      "type": "RotationalMotor",
-      "maxPosition": 1.0472,
-      "position": 0,
       "axis": "0 0 1",
+      "maxPosition": 1.0472,
+      "minPosition": -1.0472,
+      "name": "larm_joint_5",
+      "position": 0,
       "transformID": "n256",
-      "minPosition": -1.0472
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.039 -0.055 -0.034",
-      "name": "lleg_joint_1",
-      "type": "RotationalMotor",
-      "maxPosition": 1.58825,
-      "position": 0,
       "axis": "0 1 0",
+      "maxPosition": 1.58825,
+      "minPosition": -0.541052,
+      "name": "lleg_joint_1",
+      "position": 0,
       "transformID": "n33",
-      "minPosition": -0.541052
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "lleg_joint_2",
-      "type": "RotationalMotor",
+      "axis": "0 0 1",
       "maxPosition": 0.541052,
+      "minPosition": -0.36652,
+      "name": "lleg_joint_2",
       "position": 0,
-      "axis": "0 0 1",
       "transformID": "n43",
-      "minPosition": -0.36652
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "lleg_joint_3",
-      "type": "RotationalMotor",
+      "axis": "1 0 0",
       "maxPosition": 1.23918,
+      "minPosition": -1.43117,
+      "name": "lleg_joint_3",
       "position": 0,
-      "axis": "1 0 0",
       "transformID": "n38",
-      "minPosition": -1.43117
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 -0.1 0",
-      "name": "lleg_joint_4",
-      "type": "RotationalMotor",
+      "axis": "1 0 0",
       "maxPosition": 2.26893,
+      "minPosition": -0.017453,
+      "name": "lleg_joint_4",
       "position": 0,
-      "axis": "1 0 0",
       "transformID": "n57",
-      "minPosition": -0.017453
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 -0.1 0",
-      "name": "lleg_joint_5",
-      "type": "RotationalMotor",
-      "maxPosition": 1.06465,
-      "position": 0,
       "axis": "1 0 0",
+      "maxPosition": 1.06465,
+      "minPosition": -1.06465,
+      "name": "lleg_joint_5",
+      "position": 0,
       "transformID": "n71",
-      "minPosition": -1.06465
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "lleg_joint_6",
-      "type": "RotationalMotor",
-      "maxPosition": 0.43633,
-      "position": 0,
       "axis": "0 0 1",
+      "maxPosition": 0.43633,
+      "minPosition": -0.43633,
+      "name": "lleg_joint_6",
+      "position": 0,
       "transformID": "n76",
-      "minPosition": -0.43633
+      "type": "RotationalMotor"
     },
     {
       "anchor": "-0.0995 0.09 -0.034",
-      "name": "rarm_joint_1",
-      "type": "RotationalMotor",
-      "maxPosition": 2.6354,
-      "position": 0,
       "axis": "1 0 0",
+      "maxPosition": 2.6354,
+      "minPosition": -1.5882,
+      "name": "rarm_joint_1",
+      "position": 0,
       "transformID": "n303",
-      "minPosition": -1.5882
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "rarm_joint_2",
-      "type": "RotationalMotor",
-      "maxPosition": 0.0175,
-      "position": 0,
       "axis": "0 1 0",
+      "maxPosition": 0.0175,
+      "minPosition": -1.6755,
+      "name": "rarm_joint_2",
+      "position": 0,
       "transformID": "n316",
-      "minPosition": -1.6755
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "rarm_joint_3",
-      "type": "RotationalMotor",
-      "maxPosition": 1.5882,
-      "position": 0,
       "axis": "0 0 1",
+      "maxPosition": 1.5882,
+      "minPosition": -1.5882,
+      "name": "rarm_joint_3",
+      "position": 0,
       "transformID": "n331",
-      "minPosition": -1.5882
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0.101",
-      "name": "rarm_joint_4",
-      "type": "RotationalMotor",
-      "maxPosition": 0.01745,
-      "position": 0,
       "axis": "1 0 0",
+      "maxPosition": 0.01745,
+      "minPosition": -2.0071,
+      "name": "rarm_joint_4",
+      "position": 0,
       "transformID": "n345",
-      "minPosition": -2.0071
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0.1",
-      "name": "rarm_joint_5",
-      "type": "RotationalMotor",
-      "maxPosition": 1.0472,
-      "position": 0,
       "axis": "0 0 1",
+      "maxPosition": 1.0472,
+      "minPosition": -1.0472,
+      "name": "rarm_joint_5",
+      "position": 0,
       "transformID": "n366",
-      "minPosition": -1.0472
+      "type": "RotationalMotor"
     },
     {
       "anchor": "-0.039 -0.055 -0.034",
-      "name": "rleg_joint_1",
-      "type": "RotationalMotor",
-      "maxPosition": 0.541052,
-      "position": 0,
       "axis": "0 1 0",
+      "maxPosition": 0.541052,
+      "minPosition": -1.58825,
+      "name": "rleg_joint_1",
+      "position": 0,
       "transformID": "n112",
-      "minPosition": -1.58825
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "rleg_joint_2",
-      "type": "RotationalMotor",
+      "axis": "0 0 1",
       "maxPosition": 0.36652,
+      "minPosition": -0.541052,
+      "name": "rleg_joint_2",
       "position": 0,
-      "axis": "0 0 1",
       "transformID": "n122",
-      "minPosition": -0.541052
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "rleg_joint_3",
-      "type": "RotationalMotor",
+      "axis": "1 0 0",
       "maxPosition": 1.23918,
+      "minPosition": -1.43117,
+      "name": "rleg_joint_3",
       "position": 0,
-      "axis": "1 0 0",
       "transformID": "n117",
-      "minPosition": -1.43117
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 -0.1 0",
-      "name": "rleg_joint_4",
-      "type": "RotationalMotor",
+      "axis": "1 0 0",
       "maxPosition": 2.26893,
+      "minPosition": -0.017453,
+      "name": "rleg_joint_4",
       "position": 0,
-      "axis": "1 0 0",
       "transformID": "n136",
-      "minPosition": -0.017453
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 -0.1 0",
-      "name": "rleg_joint_5",
-      "type": "RotationalMotor",
-      "maxPosition": 1.06465,
-      "position": 0,
       "axis": "1 0 0",
+      "maxPosition": 1.06465,
+      "minPosition": -1.06465,
+      "name": "rleg_joint_5",
+      "position": 0,
       "transformID": "n150",
-      "minPosition": -1.06465
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "name": "rleg_joint_6",
-      "type": "RotationalMotor",
-      "maxPosition": 0.43633,
-      "position": 0,
       "axis": "0 0 1",
+      "maxPosition": 0.43633,
+      "minPosition": -0.43633,
+      "name": "rleg_joint_6",
+      "position": 0,
       "transformID": "n155",
-      "minPosition": -0.43633
+      "type": "RotationalMotor"
     },
     {
       "name": "body_joint_1_sensor",
@@ -397,5 +396,6 @@
       "type": "PositionSensor"
     }
   ],
+  "name": "hoap2",
   "robotID": "n10"
 }

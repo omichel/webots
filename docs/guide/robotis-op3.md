@@ -49,7 +49,7 @@ RobotisOp3 {
 
 > **File location**: "WEBOTS\_HOME/projects/robots/robotis/darwin-op/protos/RobotisOp3.proto"
 
-#### RobotisOp2 Field Summary
+#### RobotisOp3 Field Summary
 
 - `cameraWidth`: Defines the `width` field of the [Camera](../reference/camera.md).
 
@@ -82,7 +82,7 @@ The simulation model is mounted with the following sensors and actuators:
 #### Motion Manager
 
 The ROBOTIS OP3 can use the MotionManager.
-Please refer to [this documenation](robotis-op2.md#motion-manager).
+Please refer to [this documentation](robotis-op2.md#motion-manager).
 
 ### Samples
 

@@ -13,7 +13,7 @@ elif [[ $UBUNTU_VERSION == "18.04" ]]; then
 elif [[ $UBUNTU_VERSION == "20.04" ]]; then
        export ROS_DISTRO=noetic
 else
-       echo "Unsupported Linux version."
+       echo "Unsupported Linux version: dependencies may not be completely installed. Only the two latest Ubuntu LTS are supported."
 fi
 
 sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -25,4 +25,3 @@ if [[ $1 != "--norecurse" ]]; then
 	script_full_path=$(dirname "$0")
 	$script_full_path/linux_runtime_dependencies.sh
 fi
-

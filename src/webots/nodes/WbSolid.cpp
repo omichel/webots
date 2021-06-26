@@ -104,6 +104,7 @@ void WbSolid::init() {
   mIsPermanentlyKinematic = false;
   mIsKinematic = false;
   mUpdatedInStep = false;
+  mResetPhysicsInStep = false;
   mKinematicWarningPrinted = false;
   mHasDynamicSolidDescendant = false;
 
@@ -409,7 +410,7 @@ bool WbSolid::applyHiddenKinematicParameters(const HiddenKinematicParameters *hk
         previousP->insert(jointIndex, new WbVector3(v));
       }
 
-      for (int j = 0; j < 2; ++j) {
+      for (int j = 0; j < 3; ++j) {
         const double posj = (*p)[j];
         if (!std::isnan(posj))
           joint->setPosition(posj, j + 1);
@@ -675,7 +676,7 @@ void WbSolid::createWrenObjects() {
   wr_renderable_set_receive_shadows(mCenterOfMassRenderable, false);
   wr_renderable_set_material(mCenterOfMassRenderable, mCenterOfMassMaterial, NULL);
   wr_renderable_set_mesh(mCenterOfMassRenderable, WR_MESH(mCenterOfMassMesh));
-  wr_renderable_set_visibility_flags(mCenterOfMassRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mCenterOfMassRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_renderable_set_drawing_mode(mCenterOfMassRenderable, WR_RENDERABLE_DRAWING_MODE_LINES);
   wr_renderable_set_drawing_order(mCenterOfMassRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
 
@@ -701,7 +702,7 @@ void WbSolid::createWrenObjects() {
   wr_renderable_set_receive_shadows(mGlobalCenterOfMassRenderable, false);
   wr_renderable_set_material(mGlobalCenterOfMassRenderable, mGlobalCenterOfMassMaterial, NULL);
   wr_renderable_set_mesh(mGlobalCenterOfMassRenderable, WR_MESH(mGlobalCenterOfMassMesh));
-  wr_renderable_set_visibility_flags(mGlobalCenterOfMassRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mGlobalCenterOfMassRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_renderable_set_drawing_mode(mGlobalCenterOfMassRenderable, WR_RENDERABLE_DRAWING_MODE_LINES);
   wr_renderable_set_drawing_order(mGlobalCenterOfMassRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
 
@@ -729,7 +730,7 @@ void WbSolid::createWrenObjects() {
   wr_renderable_set_material(mCenterOfBuoyancyRenderable, mCenterOfBuoyancyMaterial, NULL);
   wr_renderable_set_drawing_order(mCenterOfBuoyancyRenderable, WR_RENDERABLE_DRAWING_ORDER_AFTER_1);
   wr_renderable_set_drawing_mode(mCenterOfBuoyancyRenderable, WR_RENDERABLE_DRAWING_MODE_LINES);
-  wr_renderable_set_visibility_flags(mCenterOfBuoyancyRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mCenterOfBuoyancyRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   mCenterOfBuoyancyTransform = wr_transform_new();
   wr_node_set_visible(WR_NODE(mCenterOfBuoyancyTransform), false);
   wr_transform_attach_child(mCenterOfBuoyancyTransform, WR_NODE(mCenterOfBuoyancyRenderable));
@@ -1096,7 +1097,7 @@ WbVector3 WbSolid::relativeLinearVelocity(const WbSolid *parentSolid) const {
   } else if (parentSolid != NULL) {  // in case of dynamic solid, the velocity is already absolute
     while (!solid->isTopSolid() && solid != parentSolid)
       solid = solid->upperSolid();
-    l -= solid->solidMerger()->solid()->linearVelocity();
+    l -= solid->isDynamic() ? solid->solidMerger()->solid()->linearVelocity() : solid->linearVelocity();
   }
 
   assert(solid == parentSolid || parentSolid == NULL);
@@ -1119,7 +1120,7 @@ WbVector3 WbSolid::relativeAngularVelocity(const WbSolid *parentSolid) const {
   } else if (parentSolid != NULL) {  // in case of dynamic solid, the velocity is already absolute
     while (!solid->isTopSolid() && solid != parentSolid)
       solid = solid->upperSolid();
-    a -= solid->solidMerger()->solid()->angularVelocity();
+    a -= solid->isDynamic() ? solid->solidMerger()->solid()->angularVelocity() : solid->angularVelocity();
   }
 
   assert(solid == parentSolid || parentSolid == NULL);
@@ -1989,6 +1990,16 @@ void WbSolid::applyPhysicsTransform() {
 void WbSolid::postPhysicsStep() {
   int i = 0;
   dBodyID body = this->body();
+
+  if (mResetPhysicsInStep) {
+    // physics reset from Supervisor: if the solid is also moved from Supervisor in the same step, ODE may overwrite velocities
+    // and forces based on the jerk
+    resetSingleSolidPhysics();
+    if (mSolidMerger)
+      mSolidMerger->setBodyArtificiallyDisabled(false);
+    mResetPhysicsInStep = false;
+  }
+
   if (body && dBodyIsEnabled(body))
     applyPhysicsTransform();
 
@@ -2333,13 +2344,23 @@ void WbSolid::resetSingleSolidPhysics() {
         dJointSetSliderParam(mJoint, dParamFMax, 0.0);
         dJointSetSliderParam(mJoint, dParamVel, 0.0);
         break;
-      default:  // only the two above joint types are currently implemented in Webots
+      case dJointTypeBall:
+        dJointSetBallParam(mJoint, dParamFMax, 0.0);
+        dJointSetBallParam(mJoint, dParamVel, 0.0);
+        dJointSetBallParam(mJoint, dParamFMax2, 0.0);
+        dJointSetBallParam(mJoint, dParamVel2, 0.0);
+        dJointSetBallParam(mJoint, dParamFMax3, 0.0);
+        dJointSetBallParam(mJoint, dParamVel3, 0.0);
+      default:  // only the above joint types are currently implemented in Webots
         break;
     }
   }
 }
 
-void WbSolid::pausePhysics() {
+void WbSolid::pausePhysics(bool resumeAutomatically) {
+  if (resumeAutomatically)
+    mResetPhysicsInStep = true;
+
   if (mSolidMerger)
     mSolidMerger->setBodyArtificiallyDisabled(true);
 
@@ -2941,8 +2962,8 @@ void WbSolid::exportURDFShape(WbVrmlWriter &writer, const QString &geometry, con
         translation = offset;
       }
       writer << QString("<origin xyz=\"%1\" rpy=\"%2\"/>\n")
-                  .arg(translation.toString(WbPrecision::FLOAT_MAX))
-                  .arg(rotation.toMatrix3().toEulerAnglesZYX().toString(WbPrecision::FLOAT_MAX));
+                  .arg(translation.toString(WbPrecision::FLOAT_ROUND_6))
+                  .arg(rotation.toMatrix3().toEulerAnglesZYX().toString(WbPrecision::FLOAT_ROUND_6));
     }
     writer.indent();
     writer << "<geometry>\n";
@@ -3020,7 +3041,7 @@ void WbSolid::exportNodeFields(WbVrmlWriter &writer) const {
   WbMatter::exportNodeFields(writer);
   if (writer.isX3d()) {
     if (!name().isEmpty())
-      writer << " name='" << name() << "'";
+      writer << " name='" << sanitizedName() << "'";
     writer << " solid='true'";
   }
 }
@@ -3041,4 +3062,13 @@ void WbSolid::exportNodeFooter(WbVrmlWriter &writer) const {
   }
 
   WbMatter::exportNodeFooter(writer);
+}
+
+const QString WbSolid::sanitizedName() const {
+  QString name_dirty = name();
+  name_dirty.replace("\'", "&apos;", Qt::CaseInsensitive);
+  name_dirty.replace("\"", "&quot;", Qt::CaseInsensitive);
+  name_dirty.replace(">", "&gt;", Qt::CaseInsensitive);
+  name_dirty.replace("<", "&lt;", Qt::CaseInsensitive);
+  return name_dirty.replace("&", "&amp;", Qt::CaseInsensitive);
 }

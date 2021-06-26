@@ -185,7 +185,7 @@ endif
 # the objects files result from the C or C++ sources
 SOURCES_DIRECTORIES = $(sort $(dir $(C_SOURCES) $(CXX_SOURCES)))
 OBJECTS = $(addprefix $(BUILD_GOAL_DIR)/,$(patsubst %.c,%.o, $(patsubst %.cc,%.o, $(patsubst %.c++,%.o, $(patsubst %.cpp,%.o, $(notdir $(C_SOURCES) $(CXX_SOURCES)))))))
-
+OBJECTS_EMCC = $(addprefix $(BUILD_GOAL_DIR_EMCC)/,$(patsubst %.c,%.o, $(patsubst %.cc,%.o, $(patsubst %.c++,%.o, $(patsubst %.cpp,%.o, $(notdir $(C_SOURCES) $(CXX_SOURCES)))))))
 # automatic flags settings
 ifeq ($(BUILD_TYPE),physics)
  USE_ODE = true
@@ -219,6 +219,7 @@ TARGETS += $(MAIN_TARGET) $(EXTRA_TARGETS)
 SUPPORTED_TARGETS = all release debug profile
 ifeq ($(MAKECMDGOALS),)
  GOAL = release
+ GOAL_EMCC = emcc
 else
  ifdef MAIN_TARGET
   ifeq ($(MAKECMDGOALS),$(MAIN_TARGET))
@@ -241,13 +242,19 @@ endif
 # build directory
 BUILD_DIR = build
 BUILD_GOAL_DIR = $(BUILD_DIR)/$(GOAL)
+BUILD_GOAL_DIR_EMCC = $(BUILD_DIR)/$(GOAL_EMCC)
 ifdef GOAL
  $(shell mkdir $(BUILD_DIR) $(BUILD_GOAL_DIR) 2> /dev/null)
+endif
+
+ifdef GOAL_EMCC
+ $(shell mkdir $(BUILD_DIR) $(BUILD_GOAL_DIR_EMCC) 2> /dev/null)
 endif
 
 # files to remove
 FILES_TO_REMOVE += $(MAIN_TARGET_COPY)
 
+WRENJS_DIR = $(WEBOTS_HOME_PATH)/resources/web/wwi
 ###-----------------------------------------------------------------------------
 ### Compilation flags
 ###-----------------------------------------------------------------------------
@@ -258,7 +265,7 @@ WBCFLAGS += -Wall
 
 # goal dependent flags
 ifeq ($(GOAL),debug)
- WBCFLAGS += -g
+ WBCFLAGS += -ggdb
 endif
 
 ifeq ($(TREAT_WARNINGS_AS_ERRORS),1)
@@ -351,8 +358,8 @@ endif
 ifeq ($(OSTYPE),windows)
  ifdef BUILD_SHARED_LIBRARY
   ifndef USE_CXX
-    ifneq ($(wildcard /C/Program\ Files\ */Microsoft\ Visual\ Studio\ 10.0),)
-      VISUAL_STUDIO_PATH?=/C/Program Files (x86)/Microsoft Visual Studio 10.0
+    ifneq ($(wildcard /C/Program\ Files\ */Microsoft\ Visual\ Studio/2017),)
+      VISUAL_STUDIO_PATH?=/C/Program Files (x86)/Microsoft Visual Studio/2017
     endif
    VS_DEF_NAME = $(NAME).def
   endif
@@ -467,9 +474,9 @@ ifdef VS_DEF_NAME
 	@# if the .def file is existing.
 	@if [ -f $(VS_DEF_NAME) ]; then \
 		if [ -d "$(VISUAL_STUDIO_PATH)" ]; then \
-			PATH="$(VISUAL_STUDIO_PATH)/VC/bin":"$(VISUAL_STUDIO_PATH)/Common7/IDE":"$(PATH)" lib /machine:X86 /def:$(VS_DEF_NAME) /out:out.lib > /dev/null; \
+			PATH="$(VISUAL_STUDIO_PATH)/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64":$PATH lib /machine:X86 /def:$(VS_DEF_NAME) /out:out.lib > /dev/null; \
 			mv out.lib $(MAIN_TARGET_WINDOWS32_LIB); \
-			PATH="$(VISUAL_STUDIO_PATH)/VC/bin":"$(VISUAL_STUDIO_PATH)/Common7/IDE":"$(PATH)" lib /machine:X64 /def:$(VS_DEF_NAME) /out:out.lib > /dev/null; \
+			PATH="$(VISUAL_STUDIO_PATH)/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64":$PATH lib /machine:X64 /def:$(VS_DEF_NAME) /out:out.lib > /dev/null; \
 			mv out.lib $(MAIN_TARGET_WINDOWS64_LIB); \
 			rm -f *.exp; \
 		else \
@@ -482,9 +489,11 @@ endif
 ### Rule to make the executable file from C/C++ objects
 ###-----------------------------------------------------------------------------
 $(BUILD_GOAL_DIR)/$(MAIN_TARGET): $(OBJECTS) $(LINK_DEPENDENCIES)
-	@echo "# linking" $(notdir $@)
+	@echo "# linking" $(OBJECTS) $(notdir $@)
 	$(SILENT)$(LINKER) $(LFLAGS) $@ $(OBJECTS) $(LIBRARIES) $(AR_SUPPRESS_OUTPUT)
-
+ifdef WREN
+	$(SILENT) emcc -O3 -s WASM=1 -s EXIT_RUNTIME=1 -s USE_WEBGL2=1 -s FULL_ES3=1 -s ALLOW_MEMORY_GROWTH=1 --preload-file ../../resources/wren/shaders $(OBJECTS_EMCC) -s EXPORTED_FUNCTIONS='[$(shell cat functions_to_export.txt)]' -s 'EXPORTED_RUNTIME_METHODS=["ccall", "getValue"]' $(LIBRARIES) -o $(WRENJS_DIR)/wrenjs.js
+endif
 endif
 ### End ifdef MAIN_TARGET
 
@@ -530,13 +539,18 @@ $(BUILD_GOAL_DIR)/%.o:%.c++
 	@echo "# compiling" $(notdir $<)
 	$(SILENT)$(CXX) -c $(WBCFLAGS) $(CFLAGS) $(CXXFLAGS) $(INCLUDE) $< -o $@
 
+EMCC_FILE = $(BUILD_GOAL_DIR_EMCC)/$(notdir $@)
 $(BUILD_GOAL_DIR)/%.o:%.cpp
 	@echo "# compiling" $(notdir $<)
 	$(SILENT)$(CXX) -c $(WBCFLAGS) $(CFLAGS) $(CXXFLAGS) $(INCLUDE) $< -o $@
-
+ifdef WREN
+	$(SILENT)emcc -O3 -c $(WBCFLAGS) $(CFLAGS) $(CXXFLAGS) $(INCLUDE) $< -o $(EMCC_FILE)
+endif
 ###-----------------------------------------------------------------------------
 ### How to clean up the directory
 ###-----------------------------------------------------------------------------
 clean:
 	$(SILENT)rm -fr $(FILES_TO_REMOVE) $(BUILD_DIR) > /dev/null 2>&1 || :
 	$(SILENT)rm -d $(EMPTY_DIRECTORIES_TO_REMOVE) > /dev/null 2>&1 || :
+	$(SILENT)rm $(WRENJS_DIR)/wrenjs.js $(WRENJS_DIR)/wrenjs.data $(WRENJS_DIR)/wrenjs.wasm > /dev/null 2>&1 || :
+	$(SILENT)rm -r $(WRENJS_DIR)/images/post_processing > /dev/null 2>&1 || :

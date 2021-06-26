@@ -70,29 +70,35 @@ int main() {
   WbNodeRef gripper = wb_supervisor_node_get_from_def("WRIST");
 
   while (wb_robot_step(TIME_STEP) != -1) {
-    // get current target and gripper position in world coordinates
-    const double *tpos = wb_supervisor_node_get_position(target);
-    const double *gpos = wb_supervisor_node_get_position(gripper);
+    // get current gripper pose in world coordinates
+    const double *gripper_pose = wb_supervisor_node_get_pose(gripper, NULL);
 
-    // get gripper's current 3x3 rotation matrix
-    const double *m3x3 = wb_supervisor_node_get_orientation(gripper);
+    // transformation matrices are composable as is
+    // however, we extract rotation and translation for demonstration purposes
+    double gripper_rotation[9] = {gripper_pose[0], gripper_pose[1], gripper_pose[2], gripper_pose[4], gripper_pose[5],
+                                  gripper_pose[6], gripper_pose[8], gripper_pose[9], gripper_pose[10]};
+    double gripper_translation[3] = {gripper_pose[3], gripper_pose[7], gripper_pose[11]};
+
+    // get current target pose in world coordinates
+    const double *target_pose = wb_supervisor_node_get_pose(target, NULL);
+    double target_translation[3] = {target_pose[3], target_pose[7], target_pose[11]};
 
     // center point of the gripper in local (WRIST) coordinates
     const double center[3] = {0, 0.18, 0};
 
     // change center point from WRIST to world coordinates
-    // cpos = m3x3 * center + gpos
+
     double cpos[3];
-    vec_rotate(cpos, m3x3, center);
-    vec_add(cpos, gpos);
+    vec_rotate(cpos, gripper_rotation, center);
+    vec_add(cpos, gripper_translation);
 
     // compute distance between gripper center and target
-    double dist = vec_dist(tpos, cpos);
+    const double distance = vec_dist(target_translation, cpos);
 
     // display info
-    vec_show(0, "target:  ", tpos);
-    vec_show(1, "gripper: ", gpos);
-    val_show(2, "distance:", dist);
+    vec_show(0, "target:  ", target_translation);
+    vec_show(1, "gripper: ", gripper_translation);
+    val_show(2, "distance:", distance);
   }
 
   wb_robot_cleanup();

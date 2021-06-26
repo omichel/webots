@@ -1,0 +1,428 @@
+#VRML_SIM R2021b utf8
+# license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+# license url: https://cyberbotics.com/webots_assets_license
+# documentation url: https://www.cyberbotics.com/doc/guide/jetbot
+# JetBot open source robot based on NVIDIA Jetson Nano.
+# More info here: https://jetbot.org
+# Some of the meshes are taken from the original robot GitHub repository: https://github.com/NVIDIA-AI-IOT/jetbot
+
+PROTO JetBot [
+  field SFVec3f            translation                  0 0 0                    # Is `Transform.translation`.
+  field SFRotation         rotation                     0 1 0 0                  # Is `Transform.rotation`.
+  field SFString           name                         "JetBot"                 # Is `Solid.name`.
+  field SFString           controller                   "jetbot_basic_motion"    # Is `Robot.controller`.
+  field MFString           controllerArgs               []                       # Is `Robot.controllerArgs`.
+  field SFString           customData                   ""                       # Is `Robot.customData`.
+  field SFBool             supervisor                   FALSE                    # Is `Robot.supervisor`.
+  field SFBool             synchronization              TRUE                     # Is `Robot.synchronization`.
+  field SFBool             chassis                      TRUE                     # Show robot chassis.
+  field SFColor            chassis_color                0.571 0.817 0.479        # Color of the chassis.
+  field SFNode             cameraSlot                   JetBotRaspberryPiCamera {
+                                                          translation 0 0.042 0.0488
+                                                          rotation -0.1628450388833288 -0.1628450388833288 0.9731202323568112 -1.5980453071795866
+                                                        }                        # Extends the robot with a camera on the front.
+  field MFNode             extensionSlot                []                       # Extends the robot with new nodes.
+  field SFString           window                       ""                       # Is `Robot.window`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    children [
+      JetsonNano {
+        translation -0.013 0.002 0.0719
+      }
+      DEF BODY Transform {
+        translation 0 0 0.043
+        rotation 0.5773489358556708 0.5773509358554485 0.5773509358554485 2.0944
+        children [
+          %{ if fields.chassis.value then }%
+          DEF CHASSIS Transform {
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor IS chassis_color
+                  roughness 0.5
+                  metalness 0.2
+                }
+                geometry Mesh {
+                  url [
+                    "meshes/chassis.stl"
+                  ]
+                }
+              }
+            ]
+          }
+          %{ else }%
+           SolidRoundedBox {
+             translation 0 -0.002 -0.015
+             size 0.099 0.0015 0.14
+             borderRadius 0.0005
+             subdivision 9
+             name "chassis lower plate"
+             appearance DEF BLACK_APPEARANCE PBRAppearance {
+               baseColor 0.180392 0.203922 0.211765
+               roughness 0.5
+               metalness 0.2
+             }
+             enableBoundingObject FALSE
+           }
+           SolidRoundedBox {
+             translation 0 0.022 -0.015
+             size 0.099 0.0015 0.14
+             borderRadius 0.0005
+             subdivision 9
+             name "chassis upper plate"
+             appearance USE BLACK_APPEARANCE
+             enableBoundingObject FALSE
+           }
+           Transform {
+             translation -0.044 0.01 -0.08
+             children [
+               DEF SCREW_SHAPE Shape {
+                 appearance BrushedAluminium {
+                 }
+                 geometry Cylinder {
+                   height 0.027
+                   radius 0.003
+                   subdivision 6
+                 }
+               }
+             ]
+           }
+           Transform {
+             translation 0.044 0.01 -0.08
+             children [
+               USE SCREW_SHAPE
+             ]
+           }
+           Transform {
+             translation 0.044 0.01 0.05
+             children [
+               USE SCREW_SHAPE
+             ]
+           }
+           Transform {
+             translation -0.044 0.01 0.05
+             children [
+               USE SCREW_SHAPE
+             ]
+           }
+           Transform {
+             translation 0 0.026 0.043
+             children [
+               Shape {
+                 appearance BrushedAluminium {
+                 }
+                 geometry Box {
+                   size 0.03 0.008 0.01
+                 }
+               }
+             ]
+           }
+          %{ end }%
+          DEF LEFT_MOTOR Transform {
+            translation 0.034 -0.01 0.01
+            children [
+              Shape {
+                appearance DEF YELLOW_APPEARANCE PBRAppearance {
+                  baseColor 0.929412 0.831373 0
+                  roughness 0.5
+                  metalness 0.2
+                }
+                geometry Box {
+                  size 0.013 0.014 0.065
+                }
+              }
+              Transform {
+                translation 0.002 -0.0026 0.0209
+                rotation 0 0 1 -1.5707953071795862
+                children [
+                  Shape {
+                    appearance DEF LIGHT_YELLOW_APPEARANCE PBRAppearance {
+                      baseColor 1 0.968627 0.690196
+                      roughness 0.5
+                      metalness 0.1
+                    }
+                    geometry Cylinder {
+                      height 0.038
+                      radius 0.0019
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+          DEF RIGHT_MOTOR Transform {
+            translation -0.034 -0.01 0.01
+            children [
+              Shape {
+                appearance USE YELLOW_APPEARANCE
+                geometry Box {
+                  size 0.013 0.014 0.065
+                }
+              }
+              Transform {
+                translation -0.002 -0.0026 0.0209
+                rotation 0 0 1 -1.5707953071795862
+                children [
+                  Shape {
+                    appearance DEF LIGHT_GRAY_APPEARANCE PBRAppearance {
+                      baseColor 0.729412 0.741176 0.713725
+                      roughness 0.5
+                      metalness 0.2
+                    }
+                    geometry Cylinder {
+                      height 0.038
+                      radius 0.0019
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+          DEF POWER_BANK Transform {
+            children [
+              Shape {
+                appearance DEF BLACK_APPEARANCE PBRAppearance {
+                  baseColor 0.180392 0.203922 0.211765
+                  roughness 0.5
+                  metalness 0.2
+                }
+                geometry Mesh {
+                  url [
+                    "meshes/power_bank.stl"
+                  ]
+                }
+              }
+            ]
+          }
+          DEF DISPLAY Transform {
+            translation 0.01197 0.0395 -0.0606
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.470588 0.517647 0.792157
+                  roughness 0.5
+                  metalness 0.2
+                }
+                geometry Mesh {
+                  url [
+                    "meshes/display.stl"
+                  ]
+                }
+              }
+              Display {
+                translation -0.0017 0.0009 -0.002
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.2
+                    }
+                    geometry Plane {
+                      size 0.031 0.011
+                    }
+                  }
+                ]
+                width 128
+                height 32
+              }
+            ]
+          }
+          Slot {
+            endPoint Slot {
+              endPoint IS cameraSlot
+            }
+          }
+        ]
+      }
+      DEF REAR_WHEEL Solid {
+        translation -0.051 0 0.025
+        rotation 1 0 0 1.5708003061004252
+        children [
+          Shape {
+            appearance USE BLACK_APPEARANCE
+            geometry Cylinder {
+              height 0.032
+              radius 0.0153
+            }
+          }
+          Transform {
+            translation 0 -0.0123 0
+            children [
+              Shape {
+                appearance USE LIGHT_GRAY_APPEARANCE
+                geometry Sphere {
+                  radius 0.0126
+                }
+              }
+            ]
+          }
+        ]
+        name "rear_wheel"
+        contactMaterial "jetbot rear wheel"
+        boundingObject Group {
+          children [
+            DEF REAR_WHEEL Transform {
+              translation 0 -0.0123 0
+              children [
+                Sphere {
+                  radius 0.0127
+                }
+              ]
+            }
+            Transform {
+              children [
+                Cylinder {
+                  height 0.032
+                  radius 0.0153
+                }
+              ]
+            }
+          ]
+        }
+        physics Physics {
+        }
+      }
+      DEF LEFT_WHEEL_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          position -2.166075283053669e-09
+          axis 0 1 0
+          anchor 0.03 0.05215 0.03
+        }
+        device [
+          RotationalMotor {
+            name "left_wheel_hinge"
+            maxVelocity 50
+            maxTorque 5
+          }
+        ]
+        endPoint DEF LEFT_WHEEL Solid {
+          translation 0.030000006847380994 0.0521500000157608 0.03000053415098986
+          rotation 9.001921986231733e-10 -1.241383373472994e-09 1 1.5707999999726359
+          children [
+            DEF WHEEL_SHAPE Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                roughness 0.5
+                metalness 0.2
+              }
+              geometry Mesh {
+                url [
+                  "meshes/wheel.stl"
+                ]
+              }
+            }
+          ]
+          name "left wheel"
+          contactMaterial "jetbot wheel"
+          boundingObject Transform {
+            translation 0.00401 0 0
+            rotation 0 0 1 1.5708
+            children [
+              Cylinder {
+                height 0.0078
+                radius 0.0299
+              }
+            ]
+          }
+          physics Physics {
+          }
+          translationStep 0.001
+        }
+      }
+      DEF RIGHT_WHEEL_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          position -2.1895041033680007e-09
+          axis 0 1 0
+          anchor 0.03 -0.0595 0.03
+        }
+        device [
+          RotationalMotor {
+            name "right_wheel_hinge"
+            maxVelocity 50
+            maxTorque 5
+          }
+        ]
+        endPoint DEF RIGHT_WHEEL Solid {
+          translation 0.03000000689397781 -0.05949999998422251 0.030000540571122995
+          rotation 9.173892360923732e-10 -1.2499268609165539e-09 1 1.570796319972449
+          children [
+            USE WHEEL_SHAPE
+          ]
+          name "right wheel"
+          contactMaterial "jetbot wheel"
+          boundingObject Transform {
+            translation 0.00401 0 0
+            rotation 0 0 1 1.5708
+            children [
+              Cylinder {
+                height 0.0078
+                radius 0.0299
+              }
+            ]
+          }
+          physics Physics {
+          }
+          translationStep 0.001
+        }
+      }
+      Transform {
+        translation 0 0 0.725
+        children IS extensionSlot
+      }
+    ]
+    name IS name
+    boundingObject Group {
+      children [
+        Transform {
+          translation -0.004 0 0.0565
+          children [
+            Box {
+              size 0.13 0.085 0.023
+            }
+          ]
+        }
+        Transform {
+          translation -0.0129 0.0013 0.0843
+          children [
+            Box {
+              size 0.098 0.08 0.029
+            }
+          ]
+        }
+        Transform {
+          translation -0.0007 -0.034 0.0308
+          children [
+            Box {
+              size 0.135 0.016 0.028
+            }
+          ]
+        }
+        Transform {
+          translation -0.0007 0.034 0.0308
+          children [
+            Box {
+              size 0.135 0.016 0.028
+            }
+          ]
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 0.5641
+      centerOfMass [
+        -0.015 0 0.07
+      ]
+    }
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    window IS window
+  }
+}

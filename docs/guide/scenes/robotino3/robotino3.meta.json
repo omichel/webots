@@ -1,121 +1,121 @@
 {
-  "name": "robotino3",
   "devices": [
     {
-      "name": "wheel0_joint",
-      "transformID": "n633",
-      "type": "RotationalMotor",
-      "position": 0,
+      "anchor": "0 0 0",
       "axis": "0 1 0",
+      "maxPosition": 0,
       "minPosition": 0,
-      "anchor": "-0.0001 0.1825 0.05915",
-      "maxPosition": 0
+      "name": "wheel0_joint",
+      "position": 0,
+      "transformID": "n31",
+      "type": "RotationalMotor"
     },
     {
+      "anchor": "0 0 0",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "wheel1_joint",
-      "transformID": "n660",
-      "type": "RotationalMotor",
       "position": 0,
-      "axis": "-0.61 -0.35 0",
-      "minPosition": 0,
-      "anchor": "-0.231 -0.133 0.059",
-      "maxPosition": 0
+      "transformID": "n60",
+      "type": "RotationalMotor"
     },
     {
-      "name": "wheel2_joint",
-      "transformID": "n687",
-      "type": "RotationalMotor",
-      "position": 0,
-      "axis": "0.86603 -0.5 0",
+      "anchor": "0 0 0",
+      "axis": "0 1 0",
+      "maxPosition": 0,
       "minPosition": 0,
-      "anchor": "0.15678 -0.0907 0.05902",
-      "maxPosition": 0
+      "name": "wheel2_joint",
+      "position": 0,
+      "transformID": "n89",
+      "type": "RotationalMotor"
     },
     {
       "name": "accelerometer",
-      "transformID": "n10",
+      "transformID": "n112",
       "type": "Accelerometer"
     },
     {
       "name": "compass",
-      "transformID": "n10",
+      "transformID": "n112",
       "type": "Compass"
     },
     {
       "name": "gyro",
-      "transformID": "n10",
+      "transformID": "n112",
       "type": "Gyro"
     },
     {
       "name": "inertial unit",
-      "transformID": "n10",
+      "transformID": "n112",
       "type": "InertialUnit"
     },
     {
       "name": "ir1",
-      "transformID": "n31",
+      "transformID": "n122",
       "type": "DistanceSensor"
     },
     {
       "name": "ir2",
-      "transformID": "n61",
+      "transformID": "n152",
       "type": "DistanceSensor"
     },
     {
       "name": "ir3",
-      "transformID": "n91",
+      "transformID": "n182",
       "type": "DistanceSensor"
     },
     {
       "name": "ir4",
-      "transformID": "n121",
+      "transformID": "n212",
       "type": "DistanceSensor"
     },
     {
       "name": "ir5",
-      "transformID": "n151",
+      "transformID": "n242",
       "type": "DistanceSensor"
     },
     {
       "name": "ir6",
-      "transformID": "n181",
+      "transformID": "n272",
       "type": "DistanceSensor"
     },
     {
       "name": "ir7",
-      "transformID": "n211",
+      "transformID": "n302",
       "type": "DistanceSensor"
     },
     {
       "name": "ir8",
-      "transformID": "n241",
+      "transformID": "n332",
       "type": "DistanceSensor"
     },
     {
       "name": "ir9",
-      "transformID": "n271",
+      "transformID": "n362",
       "type": "DistanceSensor"
     },
     {
       "name": "touch sensor",
-      "transformID": "n415",
+      "transformID": "n506",
       "type": "TouchSensor"
     },
     {
       "name": "wheel0_joint_sensor",
-      "transformID": "n633",
+      "transformID": "n31",
       "type": "PositionSensor"
     },
     {
       "name": "wheel1_joint_sensor",
-      "transformID": "n660",
+      "transformID": "n60",
       "type": "PositionSensor"
     },
     {
       "name": "wheel2_joint_sensor",
-      "transformID": "n687",
+      "transformID": "n89",
       "type": "PositionSensor"
     }
   ],
+  "name": "robotino3",
   "robotID": "n10"
 }

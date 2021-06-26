@@ -63,7 +63,19 @@ int main(int argc, char **argv) {
 
   double acceleration = wb_motor_get_acceleration(motor);
   ts_assert_double_equal(acceleration, MAX_ACCELERATION, "The acceleration value of the motor should be %g and not %g",
-                         acceleration, MAX_ACCELERATION);
+                         MAX_ACCELERATION, acceleration);
+
+  const WbDeviceTag uncoupled_motor = wb_robot_get_device_by_index(0);
+  const WbDeviceTag coupled_motor = wb_robot_get_device_by_index(1);
+  const WbDeviceTag coupled_motor2 = wb_robot_get_device_by_index(2);
+  double uncoupled_multiplier = wb_motor_get_multiplier(uncoupled_motor);
+  double coupled_multiplier = wb_motor_get_multiplier(coupled_motor);
+  double coupled_multiplier2 = wb_motor_get_multiplier(coupled_motor2);
+  ts_assert_double_equal(uncoupled_multiplier, 0.2, "The multiplier value of the motor should be %g and not %g", 0.2,
+                         uncoupled_multiplier);
+  ts_assert_double_equal(coupled_multiplier, 5, "The multiplier value of the motor should be 5 and not %g", coupled_multiplier);
+  ts_assert_double_equal(coupled_multiplier2, -5, "The multiplier value of the motor should be -5 and not %g",
+                         coupled_multiplier2);
 
   double torque = wb_motor_get_available_torque(motor);
   double max_torque = wb_motor_get_max_torque(motor);

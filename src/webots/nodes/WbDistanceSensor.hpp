@@ -94,6 +94,7 @@ private:
   WbSFInt *mNumberOfRays;
   WbSFDouble *mGaussianWidth;
   WbSFDouble *mResolution;
+  WbSFDouble *mRedColorSensitivity;
 
   // other fields
   WbLookupTable *mLut;

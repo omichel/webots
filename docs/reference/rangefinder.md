@@ -184,6 +184,8 @@ period = wb_range_finder_get_sampling_period(tag)
 *enable and disable range-finder updates*
 
 The `wb_range_finder_enable` function allows the user to enable range-finder updates.
+Once the range-finder is enabled, it will copy depth images from GPU memory to CPU memory at each time step, regardless of `wb_range_finder_get_range_image` calls.
+
 The `sampling_period` argument specifies the sampling period of the sensor and is expressed in milliseconds.
 Note that the first measurement will be available only after the first sampling period elapsed.
 
@@ -640,7 +642,7 @@ success = wb_range_finder_save_image(tag, 'filename', quality)
 
 *save a range-finder image in PNG, JPEG or HDR format*
 
-The `wb_range_finder_save_image` function allows the user to save a `tag` image which was previously obtained with the `wb_range_finder_get_image` function.
+The `wb_range_finder_save_image` function allows the user to save a `tag` image which was previously obtained with the `wb_range_finder_get_range_image` function.
 The image can be saved in a file using the PNG, JPEG, or HDR format.
 The image format is specified by the `filename` parameter.
 If `filename` is terminated by `.png`, the image format is PNG.

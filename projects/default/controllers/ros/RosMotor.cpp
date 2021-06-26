@@ -39,6 +39,8 @@ RosMotor::RosMotor(Motor *motor, Ros *ros) : RosDevice(motor, ros) {
                                                          &RosMotor::getMaxVelocityCallback);
   mGetAccelerationServer = RosDevice::rosAdvertiseService(ros->name() + '/' + fixedDeviceName + "/get_acceleration",
                                                           &RosMotor::getAccelerationCallback);
+  mGetMultiplierServer =
+    RosDevice::rosAdvertiseService(ros->name() + '/' + fixedDeviceName + "/get_multiplier", &RosMotor::getMultiplierCallback);
   mGetTypeServer =
     RosDevice::rosAdvertiseService(ros->name() + '/' + fixedDeviceName + "/get_type", &RosMotor::getTypeCallback);
   mGetBrakeNameServer =
@@ -85,6 +87,7 @@ RosMotor::~RosMotor() {
   mGetVelocityServer.shutdown();
   mGetMaxVelocityServer.shutdown();
   mGetAccelerationServer.shutdown();
+  mGetMultiplierServer.shutdown();
   mGetTypeServer.shutdown();
   if (mMotor->getType() == Motor::ROTATIONAL) {
     mSetTorqueServer.shutdown();
@@ -205,6 +208,12 @@ bool RosMotor::getAvailableTorqueCallback(webots_ros::get_float::Request &req, w
 bool RosMotor::getMaxTorqueCallback(webots_ros::get_float::Request &req, webots_ros::get_float::Response &res) {
   assert(mMotor);
   res.value = mMotor->getMaxTorque();
+  return true;
+}
+
+bool RosMotor::getMultiplierCallback(webots_ros::get_float::Request &req, webots_ros::get_float::Response &res) {
+  assert(mMotor);
+  res.value = mMotor->getMultiplier();
   return true;
 }
 

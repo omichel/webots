@@ -1,0 +1,172 @@
+[
+    {
+        "description" : "Placing robots inside their own field",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.3, 0, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, robots not penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: Red 1 is not penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: Blue 1 is not penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [50, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [2, 3.7, 0.08],
+                "force" : [0, 10, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 10,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Throw-in is awarded to red team",
+                "secondary_state" : "THROWIN",
+                "secondary_team_id" : 1,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 2,
+            "clock_type" : "Simulated",
+            "secondary_state" : "THROWIN",
+            "phase" : 1
+        },
+        "tests" : [
+            {
+                "name" : "Respawning the ball at the appropriate location",
+                "target" : "BALL",
+                "position" : [2, 3, 0.08]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 4,
+            "clock_type" : "Simulated",
+            "secondary_state" : "THROWIN",
+            "phase" : 1
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.85, 3.15, 0.24],
+                "orientation" : [0, 0, 1, -0.78]
+            }
+        ]
+    },
+    {
+        "description" : "Waiting until it's safe to assume that the robot can kick",
+        "timing" : {
+            "time" : 2,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-15, 15, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 4,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [60, -60, 20]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "GoalKick for blue",
+                "state" : "PLAYING",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8
+            },
+            {
+                "name" : "No goal for team BLUE",
+                "target" : "BLUE",
+                "score" : 0
+            },
+            {
+                "name" : "No goal for team RED",
+                "target" : "RED",
+                "score" : 0
+            }
+        ]
+    }
+]

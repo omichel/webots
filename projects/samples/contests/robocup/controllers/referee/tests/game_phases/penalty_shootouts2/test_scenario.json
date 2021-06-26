@@ -1,0 +1,296 @@
+[
+    {
+        "timing" : {
+            "time" : [0,4.5],
+            "clock_type" : "System",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: in fast mode, expecting 5 seconds of INITIAL time",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5.3,
+            "clock_type" : "System",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: reaching SET state automatically",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 1,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "T1. BLUE kicker is properly positioned",
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.8,0.0,0.24]
+            },
+            {
+                "name" : "T1. RED goalkeeper is properly positioned",
+                "target" : "RED_PLAYER_1",
+                "position" : [4.47,0.2,0.24]
+            },
+            {
+                "name" : "T1. Sanity check: mode is penalty shootout",
+                "secondary_state" : "PENALTYSHOOT",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14],
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "staying 15 seconds in state SET",
+                "state" : "SET"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [4.27,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 12,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "T1: Goalkeeper moves out of line during SET -> penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 34
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "T1: automatic transition: SET -> PLAY",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 7,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.8,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-80, 10, 10]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 15,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "T1: trial automatically ends after a goal",
+                "state" : "SET",
+                "critical" : true
+            },
+            {
+                "name" : "T1: BLUE scored a goal",
+                "target" : "BLUE",
+                "score" : 1
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14],
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: staying 15 seconds in state SET",
+                "state" : "SET"
+            },
+            {
+                "name" : "T2: RED kicker is properly positioned",
+                "target" : "RED_PLAYER_1",
+                "position" : [2.0,-0.2,0.24]
+            },
+            {
+                "name" : "T2:BLUE goalkeeper is properly positioned",
+                "target" : "BLUE_PLAYER_1",
+                "position" : [4.47,0.0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18,
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: transition to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [0,14],
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: Goalkeeper stayed on its goal line during SET -> unpenalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 15,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [4.27,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: GoalKeeper moved before kicker kicked the ball ->  Penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 34
+            }
+        ]
+    },
+    {
+        "description" : "ball is kicked by RED 1",
+        "timing" : {
+            "time" : 22,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-5, 0, 0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to the side of the field",
+        "timing" : {
+            "time" : 22.5,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [4,-3,0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Ball Moves outside",
+        "timing" : {
+            "time" : 23,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [0, -30, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 28,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: Trial automatically ends after the ball left the field",
+                "state" : "SET",
+                "critical" : true
+            },
+            {
+                "name" : "T2: RED did not score a goal",
+                "target" : "RED",
+                "score" : 0
+            }
+        ]
+    }
+]

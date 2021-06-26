@@ -1,0 +1,149 @@
+[
+    {
+        "timing" : {
+            "time" : [0.1, 0.5],
+            "clock_type" : "Simulated",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Staying in INITIAL",
+                "state" : "INITIAL"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty R1",
+                "target" : "RED_PLAYER_1",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty R2",
+                "target" : "RED_PLAYER_2",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty R3",
+                "target" : "RED_PLAYER_3",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty R4",
+                "target" : "RED_PLAYER_4",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty B1",
+                "target" : "BLUE_PLAYER_1",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty B2",
+                "target" : "BLUE_PLAYER_2",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty B3",
+                "target" : "BLUE_PLAYER_3",
+                "penalty": 0
+            }
+        ]
+    },
+    {
+        "description" : "Placing some robots inside the field in some valid and invalid positions",
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [0.4, 0, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-0.4, 0, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [2, 0, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.15, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "description" : "Making Blue 1 fall over the line",
+        "timing" : {
+            "time" : 1.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-0.13, -2, 0.14],
+                "orientation" : [-0.590536, 0.594488, 0.545761, -2.14168]
+            }
+        ]
+    },
+    {
+        "description" : "Some robots should be penalized when the game state switches to `SET` due to different reasons",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Red 1 in the opponent's field after finishing `READY` -> Penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 34
+            },
+            {
+                "name" : "BLUE 2 inside center circle in its own half while not having the kick-off -> Penalized",
+                "target" : "BLUE_PLAYER_2",
+                "penalty" : 34
+            },
+            {
+                "name" : "RED 2 inside center circle in its own half while having the kick-off -> not Penalized",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "RED 3 hasn't moved before the end of `READY` phase -> Penalized",
+                "target" : "RED_PLAYER_3",
+                "penalty" : 34
+            },
+            {
+                "name" : "RED 4 hasn't moved before the end of `READY` phase -> Penalized",
+                "target" : "RED_PLAYER_4",
+                "penalty" : 34
+            },
+            {
+                "name" : "BLUE 3 hasn't moved before the end of `READY` phase -> Penalized",
+                "target" : "BLUE_PLAYER_3",
+                "penalty" : 34
+            },
+            {
+                "name" : "Blue 1 touching opponent's field during `SET` -> Penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 34
+            }
+        ]
+    }
+]

@@ -44,7 +44,7 @@
 /mingw64/bin/libwoff2common.dll
 /mingw64/bin/libwoff2dec.dll
 /mingw64/bin/libxml2-2.dll
-/mingw64/bin/libzzip-0-13.dll
+/mingw64/bin/libzzip.dll
 /mingw64/bin/libopenal-1.dll
 /mingw64/bin/libassimp.dll
 /mingw64/bin/libssl-1_1-x64.dll

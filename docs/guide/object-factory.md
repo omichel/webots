@@ -204,7 +204,7 @@ ConveyorBelt {
 
 A controllable conveyor platform.
 The default controller makes it move at a constant speed for a configurable amount of time.
-The conveyor contains 3 controllable LEDs.
+The conveyor contains 3 controllable LEDs. Another controller gives the possibility to set the speed of the belt using the keyboard.
 
 %figure
 
@@ -1047,4 +1047,3 @@ SmallValve {
 - `controller`: Defines the controller of the valve which is used to limit its rotation.
 
 - `absoluteStop`: Defines the maximum rotational angle in radians. This value is sent to the controller using the controllerArgs field.
-

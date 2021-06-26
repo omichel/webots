@@ -446,7 +446,7 @@ void WbBasicJoint::write(WbVrmlWriter &writer) const {
     WbRotation computedRotation;
     const WbBasicJoint *instance = NULL;
     if (isProtoParameterNode())
-      instance = dynamic_cast<WbBasicJoint *>(protoParameterNodeInstances().at(0));
+      instance = dynamic_cast<WbBasicJoint *>(getFirstFinalizedProtoInstance());
     if (instance == NULL)
       instance = this;
     instance->computeEndPointSolidPositionFromParameters(computedTranslation, computedRotation);

@@ -80,7 +80,7 @@ if __name__ == "__main__":
         content = file.read()
 
     dependencies = []
-    for dependencies_file in ['local_dependencies.txt', 'dependencies.txt']:
+    for dependencies_file in ['dependencies.txt']:
         with open(script_directory + dependencies_file, 'r') as f:
             for line in f:
                 line = line.replace('\n', '')

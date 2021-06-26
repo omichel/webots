@@ -51,6 +51,14 @@ jobs:
         export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
         export PATH=/Library/Frameworks/Python.framework/Versions/3.9/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin/:$PATH
         make distrib -j4
+    - name: Prepare Webots Controller Deployment
+      if: ${{ github.event_name == 'schedule' }}
+      uses: webfactory/ssh-agent@v0.5.2
+      with:
+        ssh-private-key: ${{ secrets.WEBOTS_CONTROLLER_DEPLOY_KEY }}
+    - name: Deploy Webots Controller
+      if: ${{ github.event_name == 'schedule' }}
+      run: scripts/packaging/sync_controller_lib.sh
     - name: Create/Update GitHub release
       if: ${{ (github.event_name == 'push' || github.event_name == 'schedule') }}
       run: |

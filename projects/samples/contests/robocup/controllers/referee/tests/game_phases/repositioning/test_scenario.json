@@ -1,0 +1,256 @@
+[
+    {
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty R1",
+                "target" : "RED_PLAYER_1",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty R2",
+                "target" : "RED_PLAYER_2",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty R3",
+                "target" : "RED_PLAYER_3",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty B1",
+                "target" : "BLUE_PLAYER_1",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty B2",
+                "target" : "BLUE_PLAYER_2",
+                "penalty": 0
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty B3",
+                "target" : "BLUE_PLAYER_3",
+                "penalty": 0
+            }
+        ]
+    },
+    {
+        "description" : "Placing all robots at valid positions",
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-0.2, 0.0, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-0.2, 0.5, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "RED_PLAYER_3",
+                "position" : [-2, 0.5, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.15, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [2.4, 0, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_3",
+                "position" : [0.4, 2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "description" : "Ball is 'kicked' by RED 1",
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-10, 10, 0]
+            }
+        ]
+    },
+    {
+        "description" : "Ball is 'kicked' by RED 2",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0, 0.5, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Ball is 'kicked' by RED 2: apply force",
+        "timing" : {
+            "time" : 4.05,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-10, 0, 0]
+            }
+        ]
+    },
+    {
+        "description" : "Move ball near the goal and move BLUE 2 to prepare what happens after",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [4.5, 0.5, 0.08]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [0.4, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Move ball into the goal",
+        "timing" : {
+            "time" : 5.05,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [10, 0, 0]
+            }
+        ]
+    },
+    {
+        "description" : "Goal is scored",
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "A goal has been scored for RED",
+                "target" : "RED",
+                "score" : 1
+            },
+            {
+                "name" : "State is set to ready and kickoff to BLUE",
+                "state" : "READY",
+                "kick_off_team" : 2,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Robots move after the goal has been scored",
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [2, 0, 0.24]
+            },
+            {
+                "target" : "RED_PLAYER_3",
+                "position" : [-2, 0.8, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_3",
+                "position" : [0.4, 3.4, 0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Making Blue 1 fall over the line",
+        "timing" : {
+            "time" : 1.0,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-0.13, -2, 0.14],
+                "orientation" : [-0.590536, 0.594488, 0.545761, -2.14168]
+            }
+        ]
+    },
+    {
+        "description" : "Checking penalties of robots",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Red 1 in the opponent's field after finishing `READY` -> Penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 34
+            },
+            {
+                "name" : "RED 2 inside center circle in its own half while not having the kick-off -> Penalized",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 34
+            },
+            {
+                "name" : "RED 3 has moved to a valid position -> not penalized",
+                "target" : "RED_PLAYER_3",
+                "penalty" : 0
+            },
+            {
+                "name" : "Blue 1 touching opponent's field during `SET` -> Penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 34
+            },
+            {
+                "name" : "BLUE 2 stayed inside center circle in its own half while having the kick-off -> not Penalized",
+                "target" : "BLUE_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "BLUE 3 has moved out of the field-> Penalized",
+                "target" : "BLUE_PLAYER_3",
+                "penalty" : 34
+            }
+        ]
+    }
+]

@@ -3,287 +3,287 @@
     {
       "anchor": "0 0.0045 -0.02",
       "axis": "0 0 -1",
-      "type": "RotationalMotor",
-      "transformID": "n21",
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "left wheel motor",
       "position": 0,
-      "name": "left wheel motor"
+      "transformID": "n21",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0.0045 0.02",
       "axis": "0 0 -1",
-      "type": "RotationalMotor",
-      "transformID": "n45",
       "maxPosition": 0,
       "minPosition": 0,
+      "name": "right wheel motor",
       "position": 0,
-      "name": "right wheel motor"
+      "transformID": "n45",
+      "type": "RotationalMotor"
     },
     {
-      "type": "LED",
-      "transformID": "n249",
       "ledColors": [
         "0 1 0"
       ],
       "ledGradual": false,
-      "name": "led0",
-      "ledPBRAppearanceIDs": [
-        "n251"
-      ]
-    },
-    {
-      "type": "LED",
-      "transformID": "n253",
-      "ledColors": [
-        "0 1 0"
-      ],
-      "ledGradual": false,
-      "name": "led1",
-      "ledPBRAppearanceIDs": [
-        "n255"
-      ]
-    },
-    {
-      "type": "LED",
-      "transformID": "n257",
-      "ledColors": [
-        "0 1 0"
-      ],
-      "ledGradual": false,
-      "name": "led2",
       "ledPBRAppearanceIDs": [
         "n259"
-      ]
+      ],
+      "name": "led0",
+      "transformID": "n257",
+      "type": "LED"
     },
     {
-      "type": "LED",
-      "transformID": "n261",
       "ledColors": [
         "0 1 0"
       ],
       "ledGradual": false,
-      "name": "led3",
       "ledPBRAppearanceIDs": [
         "n263"
-      ]
+      ],
+      "name": "led1",
+      "transformID": "n261",
+      "type": "LED"
     },
     {
-      "type": "LED",
-      "transformID": "n265",
       "ledColors": [
         "0 1 0"
       ],
       "ledGradual": false,
-      "name": "led4",
       "ledPBRAppearanceIDs": [
         "n267"
-      ]
+      ],
+      "name": "led2",
+      "transformID": "n265",
+      "type": "LED"
     },
     {
-      "type": "LED",
-      "transformID": "n269",
       "ledColors": [
         "0 1 0"
       ],
       "ledGradual": false,
-      "name": "led5",
       "ledPBRAppearanceIDs": [
         "n271"
-      ]
+      ],
+      "name": "led3",
+      "transformID": "n269",
+      "type": "LED"
     },
     {
-      "type": "LED",
-      "transformID": "n273",
       "ledColors": [
         "0 1 0"
       ],
       "ledGradual": false,
-      "name": "led6",
       "ledPBRAppearanceIDs": [
         "n275"
-      ]
+      ],
+      "name": "led4",
+      "transformID": "n273",
+      "type": "LED"
     },
     {
-      "type": "LED",
-      "transformID": "n277",
       "ledColors": [
         "0 1 0"
       ],
       "ledGradual": false,
-      "name": "led7",
       "ledPBRAppearanceIDs": [
         "n279"
-      ]
+      ],
+      "name": "led5",
+      "transformID": "n277",
+      "type": "LED"
     },
     {
-      "type": "LED",
-      "transformID": "n281",
-      "ledColors": [],
-      "ledGradual": true,
-      "name": "ledrgb",
+      "ledColors": [
+        "0 1 0"
+      ],
+      "ledGradual": false,
       "ledPBRAppearanceIDs": [
         "n283"
-      ]
+      ],
+      "name": "led6",
+      "transformID": "n281",
+      "type": "LED"
     },
     {
-      "type": "Accelerometer",
-      "transformID": "n309",
-      "name": "accelerometer"
-    },
-    {
-      "type": "Emitter",
-      "transformID": "n10",
-      "name": "emitter"
-    },
-    {
-      "type": "DistanceSensor",
+      "ledColors": [
+        "0 1 0"
+      ],
+      "ledGradual": false,
+      "ledPBRAppearanceIDs": [
+        "n287"
+      ],
+      "name": "led7",
       "transformID": "n285",
-      "name": "fs0"
+      "type": "LED"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n291",
-      "name": "fs1"
+      "ledColors": [],
+      "ledGradual": true,
+      "ledPBRAppearanceIDs": [
+        "n291"
+      ],
+      "name": "ledrgb",
+      "transformID": "n289",
+      "type": "LED"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n297",
-      "name": "fs2"
+      "name": "accelerometer",
+      "transformID": "n317",
+      "type": "Accelerometer"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n303",
-      "name": "fs3"
+      "name": "emitter",
+      "transformID": "n10",
+      "type": "Emitter"
     },
     {
-      "type": "PositionSensor",
+      "name": "fs0",
+      "transformID": "n293",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "fs1",
+      "transformID": "n299",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "fs2",
+      "transformID": "n305",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "fs3",
+      "transformID": "n311",
+      "type": "DistanceSensor"
+    },
+    {
+      "name": "left wheel sensor",
       "transformID": "n21",
-      "name": "left wheel sensor"
+      "type": "PositionSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls0",
       "transformID": "n10",
       "transformOffset": "0.024 0.0139 0",
-      "name": "ls0"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls1",
       "transformID": "n10",
       "transformOffset": "0.017 0.014 0.017",
-      "name": "ls1"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls2",
       "transformID": "n10",
       "transformOffset": "0 0.014 0.024",
-      "name": "ls2"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls3",
       "transformID": "n10",
       "transformOffset": "-0.017 0.014 0.017",
-      "name": "ls3"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls4",
       "transformID": "n10",
       "transformOffset": "-0.024 0.014 0",
-      "name": "ls4"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls5",
       "transformID": "n10",
       "transformOffset": "-0.017 0.014 -0.017",
-      "name": "ls5"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls6",
       "transformID": "n10",
       "transformOffset": "0 0.014 -0.024",
-      "name": "ls6"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "ls7",
       "transformID": "n10",
       "transformOffset": "0.017 0.014 -0.017",
-      "name": "ls7"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "lsfs0",
       "transformID": "n10",
       "transformOffset": "0.009 0.009 0.022",
-      "name": "lsfs0"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "lsfs1",
       "transformID": "n10",
       "transformOffset": "0.022 0.009 0.009",
-      "name": "lsfs1"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "lsfs2",
       "transformID": "n10",
       "transformOffset": "0.022 0.009 -0.009",
-      "name": "lsfs2"
+      "type": "LightSensor"
     },
     {
-      "type": "LightSensor",
+      "name": "lsfs3",
       "transformID": "n10",
       "transformOffset": "0.009 0.009 -0.022",
-      "name": "lsfs3"
+      "type": "LightSensor"
     },
     {
-      "type": "DistanceSensor",
+      "name": "ps0",
       "transformID": "n170",
-      "name": "ps0"
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n179",
-      "name": "ps1"
+      "name": "ps1",
+      "transformID": "n180",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n188",
-      "name": "ps2"
+      "name": "ps2",
+      "transformID": "n190",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n197",
-      "name": "ps3"
+      "name": "ps3",
+      "transformID": "n200",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n206",
-      "name": "ps4"
+      "name": "ps4",
+      "transformID": "n210",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n215",
-      "name": "ps5"
+      "name": "ps5",
+      "transformID": "n220",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n224",
-      "name": "ps6"
+      "name": "ps6",
+      "transformID": "n230",
+      "type": "DistanceSensor"
     },
     {
-      "type": "DistanceSensor",
-      "transformID": "n233",
-      "name": "ps7"
+      "name": "ps7",
+      "transformID": "n240",
+      "type": "DistanceSensor"
     },
     {
-      "type": "Receiver",
+      "name": "receiver",
       "transformID": "n10",
-      "name": "receiver"
+      "type": "Receiver"
     },
     {
-      "type": "PositionSensor",
+      "name": "right wheel sensor",
       "transformID": "n45",
-      "name": "right wheel sensor"
+      "type": "PositionSensor"
     }
   ],
-  "robotID": "n10",
-  "name": "elisa3"
+  "name": "elisa3",
+  "robotID": "n10"
 }

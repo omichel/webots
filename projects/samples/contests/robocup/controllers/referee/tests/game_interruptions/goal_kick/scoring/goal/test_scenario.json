@@ -1,0 +1,176 @@
+[
+    {
+        "description" : "Placing robots inside their own field",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, robots not penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: Red 1 is not penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "Sanity check: Blue 1 is not penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 2.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 3.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [50, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [4.57, -2, 0.08],
+                "force" : [5, 0, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 10,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Goal kick is awarded to blue team",
+                "secondary_state" : "GOALKICK",
+                "secondary_team_id" : 8,
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 2,
+            "clock_type" : "Simulated",
+            "secondary_state" : "GOALKICK",
+            "phase" : 1
+        },
+        "tests" : [
+            {
+                "name" : "Respawning the ball on the corner of the touch line and goal line on side the ball left the field",
+                "target" : "BALL",
+                "position" : [0, -3, 0.08]
+            }
+        ],
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.18, -3.10, 0.24],
+                "orientation" : [0, 0, 1, 2.6]
+            }
+        ]
+    },
+    {
+        "description" : "Waiting until it's safe to assume that the robot can kick",
+        "timing" : {
+            "time" : 2,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [18, -10, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 3,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-80, 50, 20]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5,
+            "clock_type" : "Simulated",
+            "secondary_state" : "NORMAL",
+            "phase" : 0,
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Kickoff for red",
+                "state" : "READY",
+                "kick_off_team" : 1
+            },
+            {
+                "name" : "Goal is scored for team BLUE",
+                "target" : "BLUE",
+                "score" : 1
+            },
+            {
+                "name" : "No goal for team RED",
+                "target" : "RED",
+                "score" : 0
+            }
+        ]
+    }
+]

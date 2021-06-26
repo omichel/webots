@@ -101,7 +101,7 @@ TARGET        = $(WEBOTS_CONTROLLER_LIB_PATH)/libCppController.dylib
 endif
 
 ifeq ($(OSTYPE),linux)
-LDFLAGS       = -shared
+LDFLAGS       = -shared -Wl,-rpath,'$$ORIGIN'
 SHAREDLIBS    = -L$(WEBOTS_CONTROLLER_LIB_PATH) -lController
 CPPFLAGS      = -c -fpic -Wall
 CPPINCLUDES   = -I$(WEBOTS_HOME_PATH)/include/controller/c -I$(WEBOTS_HOME_PATH)/include/controller/cpp

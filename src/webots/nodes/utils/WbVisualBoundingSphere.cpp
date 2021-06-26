@@ -128,7 +128,7 @@ void WbVisualBoundingSphere::show(const WbBaseNode *node) {
   boundingSphere->computeSphereInGlobalCoordinates(center, radius);
   WbWrenOpenGlContext::makeWrenCurrent();
   createSphere(center, radius);
-  wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VF_SELECTED_OUTLINE);
+  wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
   wr_node_set_visible(WR_NODE(mWrenScaleTransform), true);
   WbWrenOpenGlContext::doneWren();
 }

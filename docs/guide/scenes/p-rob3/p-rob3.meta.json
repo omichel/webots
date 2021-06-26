@@ -1,220 +1,220 @@
 {
-  "robotID": "n148",
   "devices": [
     {
-      "axis": "0 0 1",
       "anchor": "0 0 0.212",
+      "axis": "0 0 1",
       "maxPosition": 2.95903,
       "minPosition": -2.95903,
-      "type": "RotationalMotor",
-      "transformID": "n234",
+      "name": "1",
       "position": 0,
-      "name": "1"
+      "transformID": "n234",
+      "type": "RotationalMotor"
     },
     {
-      "axis": "0 1 0",
       "anchor": "0 0 0.132",
+      "axis": "0 1 0",
       "maxPosition": 1.91148,
       "minPosition": -1.91148,
-      "type": "RotationalMotor",
-      "transformID": "n280",
+      "name": "2",
       "position": 0,
-      "name": "2"
+      "transformID": "n280",
+      "type": "RotationalMotor"
     },
     {
-      "axis": "0 1 0",
       "anchor": "0 0 0.145",
+      "axis": "0 1 0",
       "maxPosition": 1.99927,
       "minPosition": -1.99927,
-      "type": "RotationalMotor",
-      "transformID": "n314",
+      "name": "3",
       "position": 0,
-      "name": "3"
+      "transformID": "n314",
+      "type": "RotationalMotor"
     },
     {
-      "axis": "0 0 1",
       "anchor": "0 0 -0.0055",
+      "axis": "0 0 1",
       "maxPosition": 2.95153,
       "minPosition": -2.95153,
-      "type": "RotationalMotor",
-      "transformID": "n359",
+      "name": "4",
       "position": 0,
-      "name": "4"
+      "transformID": "n359",
+      "type": "RotationalMotor"
     },
     {
-      "axis": "0 1 0",
       "anchor": "0 0 0.1335",
+      "axis": "0 1 0",
       "maxPosition": 1.9977,
       "minPosition": -1.9977,
-      "type": "RotationalMotor",
-      "transformID": "n394",
+      "name": "5",
       "position": 0,
-      "name": "5"
+      "transformID": "n394",
+      "type": "RotationalMotor"
     },
     {
-      "axis": "0 0 1",
       "anchor": "0 0 -0.0055",
+      "axis": "0 0 1",
       "maxPosition": 2.95833,
       "minPosition": -2.95833,
-      "type": "RotationalMotor",
-      "transformID": "n429",
+      "name": "6",
       "position": 0,
-      "name": "6"
+      "transformID": "n429",
+      "type": "RotationalMotor"
     },
     {
+      "anchor": "0 0 0.058",
       "axis": "-1 0 0",
-      "anchor": "0 0 0.058",
       "maxPosition": 1.0472,
       "minPosition": 0,
-      "type": "RotationalMotor",
-      "transformID": "n718",
+      "name": "7",
       "position": 0,
-      "name": "7"
+      "transformID": "n718",
+      "type": "RotationalMotor"
     },
     {
+      "anchor": "0 0 0.058",
       "axis": "1 0 0",
-      "anchor": "0 0 0.058",
       "maxPosition": 1.0472,
       "minPosition": 0,
-      "type": "RotationalMotor",
-      "transformID": "n766",
+      "name": "7 left",
       "position": 0,
-      "name": "7 left"
+      "transformID": "n766",
+      "type": "RotationalMotor"
     },
     {
+      "name": "1 sensor",
       "transformID": "n234",
-      "type": "PositionSensor",
-      "name": "1 sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "2 sensor",
       "transformID": "n280",
-      "type": "PositionSensor",
-      "name": "2 sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "3 sensor",
       "transformID": "n314",
-      "type": "PositionSensor",
-      "name": "3 sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "4 sensor",
       "transformID": "n359",
-      "type": "PositionSensor",
-      "name": "4 sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "5 sensor",
       "transformID": "n394",
-      "type": "PositionSensor",
-      "name": "5 sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "6 sensor",
       "transformID": "n429",
-      "type": "PositionSensor",
-      "name": "6 sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "7 left sensor",
       "transformID": "n766",
-      "type": "PositionSensor",
-      "name": "7 left sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "7 sensor",
       "transformID": "n718",
-      "type": "PositionSensor",
-      "name": "7 sensor"
+      "type": "PositionSensor"
     },
     {
+      "name": "button 0",
       "transformID": "n440",
-      "type": "TouchSensor",
-      "name": "button 0"
+      "type": "TouchSensor"
     },
     {
+      "name": "button 1",
       "transformID": "n448",
-      "type": "TouchSensor",
-      "name": "button 1"
+      "type": "TouchSensor"
     },
     {
+      "name": "button 2",
       "transformID": "n456",
-      "type": "TouchSensor",
-      "name": "button 2"
+      "type": "TouchSensor"
     },
     {
+      "name": "button 3",
       "transformID": "n464",
-      "type": "TouchSensor",
-      "name": "button 3"
+      "type": "TouchSensor"
     },
     {
+      "name": "button 4",
       "transformID": "n472",
-      "type": "TouchSensor",
-      "name": "button 4"
+      "type": "TouchSensor"
     },
     {
+      "name": "button 5",
       "transformID": "n479",
-      "type": "TouchSensor",
-      "name": "button 5"
+      "type": "TouchSensor"
     },
     {
+      "name": "button 6",
       "transformID": "n486",
-      "type": "TouchSensor",
-      "name": "button 6"
+      "type": "TouchSensor"
     },
     {
+      "name": "button 7",
       "transformID": "n493",
-      "type": "TouchSensor",
-      "name": "button 7"
+      "type": "TouchSensor"
     },
     {
+      "name": "gripper middle distance sensor",
       "transformID": "n681",
-      "type": "DistanceSensor",
       "transformOffset": "0 0 0.085",
-      "name": "gripper middle distance sensor"
+      "type": "DistanceSensor"
     },
     {
+      "name": "left finger sensor 0",
       "transformID": "n766",
-      "type": "DistanceSensor",
       "transformOffset": "0.013 0.02 0.118",
-      "name": "left finger sensor 0"
+      "type": "DistanceSensor"
     },
     {
+      "name": "left finger sensor 1",
       "transformID": "n766",
-      "type": "DistanceSensor",
       "transformOffset": "-0.013 0.02 0.118",
-      "name": "left finger sensor 1"
+      "type": "DistanceSensor"
     },
     {
+      "name": "left finger sensor 2",
       "transformID": "n766",
-      "type": "DistanceSensor",
       "transformOffset": "-7.548e-10 0.0214379 0.13449",
-      "name": "left finger sensor 2"
+      "type": "DistanceSensor"
     },
     {
+      "name": "left finger sensor 3",
       "transformID": "n766",
-      "type": "DistanceSensor",
       "transformOffset": "-6.75982e-08 0.0173238 0.0871813",
-      "name": "left finger sensor 3"
+      "type": "DistanceSensor"
     },
     {
+      "name": "right finger sensor 0",
       "transformID": "n718",
-      "type": "DistanceSensor",
       "transformOffset": "0.013 0.02 0.118",
-      "name": "right finger sensor 0"
+      "type": "DistanceSensor"
     },
     {
+      "name": "right finger sensor 1",
       "transformID": "n718",
-      "type": "DistanceSensor",
       "transformOffset": "-0.013 0.02 0.118",
-      "name": "right finger sensor 1"
+      "type": "DistanceSensor"
     },
     {
+      "name": "right finger sensor 2",
       "transformID": "n718",
-      "type": "DistanceSensor",
       "transformOffset": "-7.548e-10 0.0214379 0.13449",
-      "name": "right finger sensor 2"
+      "type": "DistanceSensor"
     },
     {
+      "name": "right finger sensor 3",
       "transformID": "n718",
-      "type": "DistanceSensor",
       "transformOffset": "-6.75982e-08 0.0173238 0.0871813",
-      "name": "right finger sensor 3"
+      "type": "DistanceSensor"
     }
   ],
-  "name": "p-rob3"
+  "name": "p-rob3",
+  "robotID": "n148"
 }

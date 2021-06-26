@@ -29,6 +29,9 @@ release debug profile clean:
 	@echo "# Java controller library ("$@")"
 	@echo "#"
 	@+make -s -C java $@
+	@echo "# Matlab controller library ("$@")"
+	@echo "#"
+	@+make -s -C matlab $@
 ifeq ($(OSTYPE),linux)
 	@echo "#"
 	@echo "# Python 2.7 controller library ("$@")"

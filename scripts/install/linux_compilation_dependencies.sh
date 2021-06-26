@@ -14,7 +14,7 @@ if [[ $UBUNTU_VERSION == "16.04"  || $UBUNTU_VERSION == "18.04" ]]; then
 elif [[ $UBUNTU_VERSION == "20.04" ]]; then
        apt install --yes libzip5 python-pip-whl
 else
-       echo "Unsupported Linux version."
+       echo "Unsupported Linux version: dependencies may not be completely installed. Only the two latest Ubuntu LTS are supported."
 fi
 
 script_full_path=$(dirname "$0")

@@ -1,0 +1,14 @@
+#VRML_SIM R2021b utf8
+
+PROTO RobotSlot [
+  field MFNode slot []
+  field SFNode boundingObject NULL
+  field SFNode physics NULL
+]
+{
+  Robot {
+    children IS slot
+    boundingObject IS boundingObject
+    physics IS physics
+  }
+}

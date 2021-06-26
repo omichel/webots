@@ -1,0 +1,317 @@
+/*Inspired from https://gitlab.com/robocup-sim/JaSMIn/*/
+@import "fonts.css";
+
+body {
+  scroll-behavior: smooth;
+}
+
+#webotsProgress {
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  left: calc(50% - 160px);
+  top: calc(50% - 84px);
+  background-color: white;
+  width:300px;
+  height: 100px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: content-box;
+}
+
+#view3d {
+ display: flex;
+ position: relative
+}
+
+.webots-label {
+  position: absolute;
+  white-space: pre;
+  z-index: 1;
+}
+
+/* Play bar*/
+
+#play-bar {
+  width: 100%;
+  height: 40px;
+  background-color: rgba(255,0,0,0);
+  position: absolute;
+  align-self: flex-end;
+  z-index: 2;
+}
+
+.left-pane {
+  position: absolute;
+  bottom: 0px;
+  left: 1%;
+  height: 40px;
+}
+
+.right-pane {
+  position: absolute;
+  bottom: 0px;
+  height: 40px;
+  right: 1%;
+}
+
+/* Time Indicator */
+
+.current-time, .total-time, .time-divider {
+  display: inline-block;
+  padding: 11px 3px;
+  color: rgba(240, 240, 240, 1);
+  text-shadow: 1px 1px 1px rgb(0,0,0);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.current-time { margin-left: 8px; }
+
+.total-time { margin-right: 8px; }
+
+/* Buttons */
+
+button:first-of-type { margin-right: 6px; }
+
+.player-btn {
+  float: left;
+  height: 38px;
+  width: 38px;
+  box-sizing: border-box;
+  margin: 0 1px;
+  border:none;
+
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid transparent;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url(../images/icons.svg);
+
+  cursor: pointer;
+  outline:none;
+}
+
+.ui-icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(../images/icons.svg);
+  width: 34px;
+  height: 34px;
+}
+
+.icon-play       { background-position:   -2px -2px }
+.icon-pause      { background-position:  -40px -2px }
+.icon-settings   { background-position: -382px -2px }
+.icon-fullscreen { background-position: -420px -2px }
+.icon-partscreen { background-position: -458px -2px }
+
+.icon-play:hover,
+.icon-pause:hover,
+.icon-settings:hover,
+.icon-fullscreen:hover,
+.icon-partscreen:hover {
+  background-position-y: -40px;
+}
+
+/* Tooltips */
+
+.tooltip {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgb(240, 240, 240);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Arial';
+  text-shadow: 0 0 2px black;
+  border-radius: 2px;
+  padding: 5px 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  bottom: 55px;
+}
+
+.player-btn:hover .tooltip {
+  visibility: visible;
+}
+
+.settings-tooltip {
+    right: 30px;
+}
+
+.fullscreen-tooltip {
+  white-space: nowrap;
+  right: 0px;
+}
+
+.play-tooltip {
+  left: 0px;
+}
+
+/* Settings */
+
+.settings-pane {
+  position: absolute;
+  bottom: 55px;
+  right: 1%;
+  border: 1px solid #222;
+  overflow: auto;
+  max-height: 90%;
+  max-width: 50%;
+  background: rgba(0,0,0, 0.7);
+  font-family: 'Arial';
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 0 2px black;
+  color: rgba(240, 240, 240, 1);
+  border-radius: 2px;
+}
+
+ul {
+  padding-left: 0px;
+}
+
+li {
+  display: block;
+  clear: both;
+  padding: 1px 8px 1px 8px;
+  position: relative;
+}
+
+li:hover {
+  background: #222;
+  cursor: pointer;
+}
+
+.spacer {
+  display: inline-block;
+  min-width: 30px;
+}
+
+.setting-text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 6px 30px;
+  font-weight: 450;
+  font-size: 14px;
+  float: right;
+  pointer-events: none;
+}
+
+.arrow-right{
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position: absolute;
+  top: 11px;
+  right: 17px;
+  pointer-events: none;
+}
+
+/* Speed and gtao pane */
+.first-li {
+  border-bottom: 1px solid grey;
+  padding-left: 19px;
+}
+
+.check-speed, .check-gtao{
+  display: inline-block;
+  min-width: 12px;
+  pointer-events: none;
+}
+
+.setting-span {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 6px 5px;
+  pointer-events: none;
+}
+
+.arrow-left{
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  position: absolute;
+  top: 11px;
+  left: 11px;
+}
+
+/* Shadow switch */
+
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 17px;
+  top: 10px;
+  right: 11px;
+  pointer-events: none;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  pointer-events: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 21px;
+  width: 21px;
+  left: -3px;
+  top: -2px;
+  background-color: #ccc;
+  pointer-events: none;
+}
+
+input:checked + .slider {
+  background-color: red;
+  pointer-events: none;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px red;
+  pointer-events: none;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+  background-color: white;
+  pointer-events: none;
+}
+
+.slider.round {
+  border-radius: 17px;
+  pointer-events: none;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  pointer-events: none;
+}

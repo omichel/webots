@@ -4,7 +4,7 @@ LIBS = -lws2_32
 CXX=g++
 else
 TARGET = client
-LIBS =
+LIBS = -lpthread
 endif
 ifeq ($(MAKECMDGOALS),)
 GOAL = release
@@ -18,8 +18,11 @@ LIBS += -lprotobuf
 
 build release debug profile: $(TARGET)
 
-$(TARGET): client.cpp
-	$(CXX) $< build/$(GOAL)/messages.pb.o -o $@ $(LIBS)
+build/$(GOAL)/robot_client.o:
+	$(CXX) robot_client.cpp -c -o $@
+
+$(TARGET): client.cpp build/$(GOAL)/messages.pb.o build/$(GOAL)/robot_client.o
+	$(CXX) $^  -o $@ $(LIBS)
 
 clean:
 	rm -f client.o client client.exe

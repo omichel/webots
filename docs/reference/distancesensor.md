@@ -4,12 +4,13 @@ Derived from [Device](device.md) and [Solid](solid.md).
 
 ```
 DistanceSensor {
-  MFVec3f  lookupTable   [ 0 0 0, 0.1 1000 0 ] # lookup table
-  SFString type          "generic"             # {"generic", "infra-red", "sonar", "laser"}
-  SFInt32  numberOfRays  1                     # [1, inf)
-  SFFloat  aperture      1.5708                # [0, 2*pi]
-  SFFloat  gaussianWidth 1                     # [0, inf)
-  SFFloat  resolution    -1                    # {-1, [0, inf)}
+  MFVec3f  lookupTable              [ 0 0 0, 0.1 1000 0 ] # lookup table
+  SFString type                     "generic"             # {"generic", "infra-red", "sonar", "laser"}
+  SFInt32  numberOfRays             1                     # [1, inf)
+  SFFloat  aperture                 1.5708                # [0, 2*pi]
+  SFFloat  gaussianWidth            1                     # [0, inf)
+  SFFloat  resolution               -1                    # {-1, [0, inf)}
+  SFFloat  redColorSensitivity      1                     # [0, inf)
 }
 ```
 
@@ -27,7 +28,7 @@ The red/green transition on the rays indicates the points of intersection with t
 - `lookupTable`: a table used for specifying the desired response curve and noise of the device (see [below](#lookup-table) for more details).
 
 - `type`: one of "generic" (the default), "infra-red", "sonar" or "laser".
-Sensors of type "infra-red" are sensitive to the objects' colors; light and red (RGB) obstacles have a higher response than dark and non-red obstacles (see below for more details).
+Sensors of type "infra-red" can be sensitive to the objects' colors; light and red (RGB) obstacles have a higher response than dark and non-red obstacles (see below for more details).
 Sensors of type "sonar" and "laser" return the distance to the nearest object while "generic" and "infa-red" computes the average distance of all rays.
 Note however that sensors of type "sonar" will return the sonar range for each ray whose angle of incidence is greater than &pi;/8 radians (see below for more details).
 Sensors of type "laser" can have only one ray and they have the particularity to draw a red spot at the point where this ray hits an obstacle. This red spot is visible on the camera images. If the red spot disappears due to depth fighting, then it could help increasing the `lineScale` value in [WorldInfo](worldinfo.md) node that is used for computing its position offset.
@@ -74,7 +75,15 @@ This field is ignored for the "sonar" and "laser" DistanceSensor types.
 
 - `resolution`: This field allows to define the resolution of the sensor, the resolution is the smallest change that it is able to measure.
 Setting this field to -1 (default) means that the sensor has an 'infinite' resolution (it can measure any infinitesimal change).
+The raw measurement is first interpolated according to the lookup table and subsequently sampled with respect to the specified resolution, if one is defined.
 This field accepts any value in the interval (0.0, inf).
+
+- `redColorSensitivity`: red color sensitivity factor.
+This allows to tune (or even disable) red color sensitivity for infra-red distance sensor type.
+A value of 1 corresponds to the default behavior.
+Values greater that 1 increase the red color sensitivity and values lower than 1 decrease it.
+A value of 0 disables the effect of the red color completely.
+See details [below](#infra-red-sensors).
 
 ### Lookup Table
 
@@ -141,11 +150,12 @@ Two different methods are used for calculating the distance from an object.
 ### Infra-Red Sensors
 
 In the case of an "infra-red" sensor, the value returned by the lookup table is modified by a reflection factor depending on the color, roughness and occlusion properties of the object hit by the sensor ray.
+The `redColorSensitivity` field also applies and can be used to tune this functionality. Value of 0 will completely disable red color sensitivity.
 The reflection factor is computed as follows: *f = 0.2 + 0.8 * red\_level * (1 - 0.5 * roughness) * (1 - 0.5 * occlusion)* where *red\_level* is the level of red color of the object hit by the sensor ray.
 This level is evaluated combining the `diffuseColor` (in case of [Appearance](appearance.md)), `baseColor` (in case of [PBRAppearance](pbrappearance.md)) and `transparency` values of the object, the pixel value of the image texture and the paint color applied on the object with the [Pen](pen.md) device.
 The *roughness* is evaluated (only in case of [PBRAppearance](pbrappearance.md), otherwise roughness is 0) using the `roughness` value and the pixel value of the `roughnessMap` image texture.
 The *occlusion* is evaluated (only in case of [PBRAppearance](pbrappearance.md), otherwise occlusion is 0) using the pixel value of the `occlusionMap` image texture.
-Then, the distance value computed by the simulator is divided by the reflection factor before the lookup table is used to compute the output value.
+Then, the distance value computed by the simulator is multiplied by the `redColorSensitivity` field value and divided by the reflection factor before the lookup table is used to compute the output value.
 
 > **Note**: Unlike other distance sensor rays, "infra-red" rays can detect solid parts of the robot itself.
 It is thus important to ensure that no solid geometries interpose between the sensor and the area to inspect.

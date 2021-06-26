@@ -1,68 +1,68 @@
 {
-  "name": "bb8",
   "devices": [
     {
+      "anchor": "0 0 0",
       "axis": "1 0 0",
+      "maxPosition": 0,
       "minPosition": 0,
-      "anchor": "0 0 0",
-      "position": 0,
-      "type": "RotationalMotor",
       "name": "body pitch motor",
-      "maxPosition": 0,
-      "transformID": "n26"
+      "position": 0,
+      "transformID": "n26",
+      "type": "RotationalMotor"
     },
     {
-      "axis": "0 1 0",
-      "minPosition": 0,
       "anchor": "0 0 0",
-      "position": 0,
-      "type": "RotationalMotor",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
       "name": "body yaw motor",
-      "maxPosition": 0,
-      "transformID": "n22"
+      "position": 0,
+      "transformID": "n22",
+      "type": "RotationalMotor"
     },
     {
-      "axis": "0 1 0",
-      "minPosition": 0,
       "anchor": "0 0 0",
-      "position": 0,
-      "type": "RotationalMotor",
-      "name": "head yaw motor",
+      "axis": "0 1 0",
       "maxPosition": 0,
-      "transformID": "n46"
+      "minPosition": 0,
+      "name": "head yaw motor",
+      "position": 0,
+      "transformID": "n46",
+      "type": "RotationalMotor"
     },
     {
       "name": "body accelerometer",
-      "type": "Accelerometer",
-      "transformID": "n26"
+      "transformID": "n26",
+      "type": "Accelerometer"
     },
     {
       "name": "body gyro",
-      "type": "Gyro",
-      "transformID": "n26"
+      "transformID": "n26",
+      "type": "Gyro"
     },
     {
       "name": "counterweight accelerometer",
+      "transformID": "n10",
       "transformOffset": "0 0.25 0",
-      "type": "Accelerometer",
-      "transformID": "n10"
+      "type": "Accelerometer"
     },
     {
       "name": "counterweight gyro",
+      "transformID": "n10",
       "transformOffset": "0 0.25 0",
-      "type": "Gyro",
-      "transformID": "n10"
+      "type": "Gyro"
     },
     {
       "name": "head accelerometer",
-      "type": "Accelerometer",
-      "transformID": "n46"
+      "transformID": "n46",
+      "type": "Accelerometer"
     },
     {
       "name": "head gyro",
-      "type": "Gyro",
-      "transformID": "n46"
+      "transformID": "n46",
+      "type": "Gyro"
     }
   ],
+  "name": "bb8",
   "robotID": "n10"
 }

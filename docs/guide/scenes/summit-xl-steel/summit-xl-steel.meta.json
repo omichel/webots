@@ -1,0 +1,99 @@
+{
+  "devices": [
+    {
+      "anchor": "-0.2225 0.2045 0",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "back_left_wheel_joint",
+      "position": 0,
+      "transformID": "n73",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "-0.2225 -0.2045 0",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "back_right_wheel_joint",
+      "position": 0,
+      "transformID": "n88",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "0.2225 0.2045 0",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "front_left_wheel_joint",
+      "position": 0,
+      "transformID": "n58",
+      "type": "RotationalMotor"
+    },
+    {
+      "anchor": "0.2225 -0.2045 0",
+      "axis": "0 1 0",
+      "maxPosition": 0,
+      "minPosition": 0,
+      "name": "front_right_wheel_joint",
+      "position": 0,
+      "transformID": "n43",
+      "type": "RotationalMotor"
+    },
+    {
+      "name": "accelerometer",
+      "transformID": "n100",
+      "type": "Accelerometer"
+    },
+    {
+      "name": "back_left_wheel_joint_sensor",
+      "transformID": "n73",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "back_right_wheel_joint_sensor",
+      "transformID": "n88",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "compass",
+      "transformID": "n100",
+      "type": "Compass"
+    },
+    {
+      "name": "depth_camera",
+      "transformID": "n107",
+      "transformOffset": "0 0 0.015",
+      "type": "RangeFinder"
+    },
+    {
+      "name": "front_left_wheel_joint_sensor",
+      "transformID": "n58",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "front_right_wheel_joint_sensor",
+      "transformID": "n43",
+      "type": "PositionSensor"
+    },
+    {
+      "name": "gps",
+      "transformID": "n11",
+      "transformOffset": "-0.365 -0.167 0.302",
+      "type": "GPS"
+    },
+    {
+      "name": "gyro",
+      "transformID": "n100",
+      "type": "Gyro"
+    },
+    {
+      "name": "rgb_camera",
+      "transformID": "n107",
+      "transformOffset": "0 0 0.015",
+      "type": "Camera"
+    }
+  ],
+  "name": "summit-xl-steel",
+  "robotID": "n11"
+}

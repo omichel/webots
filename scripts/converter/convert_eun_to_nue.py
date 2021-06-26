@@ -51,7 +51,14 @@ def convert_to_nue(filename):
                 node['fields'].append({'name': 'coordinateSystem',
                                        'value': 'NUE',
                                        'type': 'SFString'})
-        elif node['name'] not in ['Viewpoint', 'TexturedBackground', 'TexturedBackgroundLight']:
+        elif node['name'] == 'Viewpoint':
+            print('Rotating', node['name'])
+            for field in node['fields']:
+                if field['name'] in ['orientation']:
+                    field['value'] = rotation(field['value'], [0, 1, 0, 0.5 * math.pi])
+                elif field['name'] in ['position']:
+                    field['value'] = [field['value'][2], field['value'][1], str(-float(field['value'][0]))]
+        elif node['name'] not in ['TexturedBackground', 'TexturedBackgroundLight', 'PointLight']:
             print('Rotating', node['name'])
             rotation_found = False
             for field in node['fields']:

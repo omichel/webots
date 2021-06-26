@@ -1,0 +1,31 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "Test world resetting the simulation"
+  ]
+  basicTimeStep 8
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.3011392881427894 -0.8944857953945254 -0.3304698034227591 4.845225060401701
+  position 8.056890161252701 5.15602094221405 0.024334960209242112
+}
+Background {
+  skyColor [
+    0 0 1
+  ]
+}
+Floor {
+  translation 1 0 -4
+  size 3 4
+}
+DEF TEST_SUITE_SUPERVISOR TestSuiteSupervisor {
+}
+Robot {
+  children [
+    TestSuiteEmitter {
+    }
+  ]
+  controller "supervisor_update_after_simulation_reset"
+  supervisor TRUE
+}

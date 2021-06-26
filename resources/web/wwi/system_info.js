@@ -1,6 +1,4 @@
-/* exported SystemInfo */
-
-class SystemInfo {
+export default class SystemInfo {
   static isMacOS() {
     // https://stackoverflow.com/questions/10527983/best-way-to-detect-mac-os-x-or-windows-computers-with-javascript-or-jquery
     return navigator.platform.toUpperCase().indexOf('MAC') >= 0;

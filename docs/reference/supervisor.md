@@ -297,6 +297,7 @@ typedef enum {
   /* 3D rendering */
   WB_NODE_APPEARANCE,
   WB_NODE_BACKGROUND,
+  WB_NODE_BILLBOARD,
   WB_NODE_BOX,
   WB_NODE_CAPSULE,
   WB_NODE_COLOR,
@@ -396,7 +397,7 @@ namespace webots {
     typedef enum {
       NO_NODE,
       // 3D rendering
-      APPEARANCE, BACKGROUND, BOX, CAPSULE, COLOR, CONE, COORDINATE,
+      APPEARANCE, BACKGROUND, BILLBOARD, BOX, CAPSULE, COLOR, CONE, COORDINATE,
       CYLINDER, DIRECTIONAL_LIGHT, ELEVATION_GRID, FOG, GROUP, IMAGE_TEXTURE,
       INDEXED_FACE_SET, INDEXED_LINE_SET, MATERIAL, MESH, MUSCLE, NORMAL, PBR_APPEARANCE,
       PLANE, POINT_LIGHT, POINT_SET, SHAPE, SPHERE, SPOT_LIGHT, TEXTURE_COORDINATE,
@@ -433,7 +434,7 @@ from controller import Node
 class Node:
     NO_NODE,
     # 3D rendering
-    APPEARANCE, BACKGROUND, BOX, CAPSULE, COLOR, CONE, COORDINATE,
+    APPEARANCE, BACKGROUND, BILLBOARD, BOX, CAPSULE, COLOR, CONE, COORDINATE,
     CYLINDER, DIRECTIONAL_LIGHT, ELEVATION_GRID, FOG, GROUP, IMAGE_TEXTURE,
     INDEXED_FACE_SET, INDEXED_LINE_SET, MATERIAL, MESH, MUSCLE, NORMAL, PBR_APPEARANCE,
     PLANE, POINT_LIGHT, POINT_SET, SHAPE, SPHERE, SPOT_LIGHT, TEXTURE_COORDINATE,
@@ -468,7 +469,7 @@ public class Node {
   public final static int
     NO_NODE,
     // 3D rendering
-    APPEARANCE, BACKGROUND, BOX, CAPSULE, COLOR, CONE, COORDINATE,
+    APPEARANCE, BACKGROUND, BILLBOARD, BOX, CAPSULE, COLOR, CONE, COORDINATE,
     CYLINDER, DIRECTIONAL_LIGHT, ELEVATION_GRID, FOG, GROUP, IMAGE_TEXTURE,
     INDEXED_FACE_SET, INDEXED_LINE_SET, MATERIAL, MESH, MUSCLE, NORMAL, PBR_APPEARANCE,
     PLANE, POINT_LIGHT, POINT_SET, SHAPE, SPHERE, SPOT_LIGHT, TEXTURE_COORDINATE,
@@ -500,7 +501,7 @@ public class Node {
 ```MATLAB
 WB_NODE_NO_NODE,
 % 3D rendering
-WB_NODE_APPEARANCE, WB_NODE_BACKGROUND, WB_NODE_BOX, WB_NODE_CAPSULE,
+WB_NODE_APPEARANCE, WB_NODE_BACKGROUND, WB_NODE_BILLBOARD, WB_NODE_BOX, WB_NODE_CAPSULE,
 WB_NODE_COLOR, WB_NODE_CONE, WB_NODE_COORDINATE,
 WB_NODE_CYLINDER, WB_NODE_DIRECTIONAL_LIGHT, WB_NODE_ELEVATION_GRID, WB_NODE_FOG,
 WB_NODE_GROUP, WB_NODE_IMAGE_TEXTURE, WB_NODE_INDEXED_FACE_SET, WB_NODE_INDEXED_LINE_SET,
@@ -759,6 +760,8 @@ If the field is an internal field of a PROTO, the `wb_supervisor_node_get_proto_
 #### `wb_supervisor_node_get_position`
 #### `wb_supervisor_node_get_orientation`
 #### `wb_supervisor_node_get_pose`
+#### `wb_supervisor_node_enable_pose_tracking`
+#### `wb_supervisor_node_disable_pose_tracking`
 
 %tab-component "language"
 
@@ -770,6 +773,8 @@ If the field is an internal field of a PROTO, the `wb_supervisor_node_get_proto_
 const double *wb_supervisor_node_get_position(WbNodeRef node);
 const double *wb_supervisor_node_get_orientation(WbNodeRef node);
 const double *wb_supervisor_node_get_pose(WbNodeRef node, WbNodeRef from_node);
+void wb_supervisor_node_enable_pose_tracking(int sampling_period, WbNodeRef node, WbNodeRef from_node);
+void wb_supervisor_node_disable_pose_tracking(WbNodeRef node, WbNodeRef from_node);
 ```
 
 %tab-end
@@ -784,6 +789,8 @@ namespace webots {
     const double *getPosition() const;
     const double *getOrientation() const;
     const double *getPose(const Node* fromNode = nullptr) const;
+    void enablePoseTracking(int samplingPeriod, const Node *fromNode = nullprt) const;
+    void disablePoseTracking(const Node *fromNode = nullptr) const;
     // ...
   }
 }
@@ -800,6 +807,8 @@ class Node:
     def getPosition(self):
     def getOrientation(self):
     def getPose(self, fromNode=None):
+    def enablePoseTracking(self, samplingPeriod, fromNode=None):
+    def disablePoseTracking(self, fromNode=None):
     # ...
 ```
 
@@ -814,6 +823,8 @@ public class Node {
   public double[] getPosition();
   public double[] getOrientation();
   public double[] getPose(Node fromNode=null);
+  public void enablePoseTracking(int samplingPeriod, fromNode=null);
+  public void disablePoseTracking(fromNode=null);
   // ...
 }
 ```
@@ -827,6 +838,8 @@ position = wb_supervisor_node_get_position(node)
 orientation = wb_supervisor_node_get_orientation(node)
 pose = wb_supervisor_node_get_pose(node)
 pose = wb_supervisor_node_get_pose(node, from_node)
+wb_supervisor_node_enable_pose_tracking(sampling_period, node, from_node)
+wb_supervisor_node_disable_pose_tracking(node, from_node)
 ```
 
 %tab-end
@@ -838,6 +851,8 @@ pose = wb_supervisor_node_get_pose(node, from_node)
 | `/supervisor/node/get_position` | `service` | `webots_ros::node_get_position` | `uint64 node`<br/>`---`<br/>[`geometry_msgs/Point`](http://docs.ros.org/api/geometry_msgs/html/msg/Point.html) position |
 | `/supervisor/node/get_orientation` | `service` | `webots_ros::node_get_orientation` | `uint64 node`<br/>`---`<br/>[`geometry_msgs/Quaternion`](http://docs.ros.org/api/geometry_msgs/html/msg/Quaternion.html) orientation |
 | `/supervisor/node/get_pose` | `service` | `webots_ros::node_get_pose` | `uint64 node`<br/>`uint64 from_node`<br/>`---`<br/>[`geometry_msgs/Pose`](http://docs.ros.org/en/api/geometry_msgs/html/msg/Pose.html) pose |
+| `/supervisor/node/enable_pose_tracking` | `service` | `webots_ros::node_enable_pose_tracking` | `uint64 node`<br/>`uint64 sampling_period`<br/>`uint64 from_node`<br/>`---`<br/>`int8 success` |
+| `/supervisor/node/disable_pose_tracking` | `service` | `webots_ros::node_disable_pose_tracking` | `uint64 node`<br/>`uint64 from_node`<br/>`---`<br/>`int8 success` |
 
 %tab-end
 
@@ -879,8 +894,25 @@ Where *p* is a point whose coordinates are given with respect to the local coord
 The `wb_supervisor_node_get_pose` function returns an array of 16 values.
 The array shall be interpreted as a 4 x 4 [transformation matrix](https://en.wikipedia.org/wiki/Transformation_matrix) that represents an absolute transform of the node.
 The function returns the relative pose of the node with respect to the node specified in `from_node`. If `from_node` is null, it returns the absolute pose of the node in the global coordinate system.
+The resulting matrix looks as following:
 
-The "[WEBOTS\_HOME/projects/robots/neuronics/ipr/worlds/ipr\_cube.wbt]({{ url.github_tree }}/projects/robots/neuronics/ipr/worlds/ipr_cube.wbt)" simulation shows how to use these functions to achieve this.
+```
+[ M[0] = R[0,0]    M[1] = R[0,1]    M[2] = R[0,2]     M[3] = T[0] ]
+[ M[4] = R[1,0]    M[5] = R[1,1]    M[6] = R[1,2]     M[7] = T[1] ]
+[ M[8] = R[2,0]    M[9] = R[2,1]    M[10] = R[2,2]    M[11] = T[2]]
+[ M[12] = 0        M[13] = 0        M[14] = 0         M[15] = 1   ]
+```
+
+Where `M[i]` is the result of the `wb_supervisor_node_get_pose` function at index `i`.
+The matrix is composed of a rotation matrix `R` and a translation vector `T`.
+
+The `wb_supervisor_node_enable_pose_tracking` function forces Webots to stream poses to the controller.
+It improves the performance as the controller by default uses a request-response pattern to get pose data.
+The `sampling_period` argument determines how often the pose data should be sent to the controller.
+
+The `wb_supervisor_node_disable_pose_tracking` function disables pose data tracking.
+
+The "[WEBOTS\_HOME/projects/robots/neuronics/ipr/worlds/ipr\_cube.wbt]({{ url.github_tree }}/projects/robots/neuronics/ipr/worlds/ipr_cube.wbt)" simulation shows how to use these functions to achieve this (see [the controller]({{ url.github_tree }}/projects/robots/neuronics/ipr/controllers/target_coordinates/target_coordinates.c)).
 
 > **Note**: The returned pointers are valid during one time step only as memory will be deallocated at the next time step.
 
@@ -2920,6 +2952,8 @@ Both `wb_supervisor_animation_start_recording` and `wb_supervisor_animation_stop
 #### `wb_supervisor_field_get_type`
 #### `wb_supervisor_field_get_type_name`
 #### `wb_supervisor_field_get_count`
+#### `wb_supervisor_field_enable_sf_tracking`
+#### `wb_supervisor_field_disable_sf_tracking`
 
 %tab-component "language"
 
@@ -2937,6 +2971,8 @@ typedef enum {
 WbFieldType wb_supervisor_field_get_type(WbFieldRef field);
 const char *wb_supervisor_field_get_type_name(WbFieldRef field);
 int wb_supervisor_field_get_count(WbFieldRef field);
+void wb_supervisor_field_enable_sf_tracking(WbFieldRef field, int sampling_period);
+void wb_supervisor_field_disable_sf_tracking(WbFieldRef field);
 ```
 
 %tab-end
@@ -2957,6 +2993,8 @@ namespace webots {
     Type getType() const;
     std::string getTypeName() const;
     int getCount() const;
+    void enableSFTracking(int samplingPeriod);
+    void disableSFTracking();
     // ...
   }
 }
@@ -2977,6 +3015,8 @@ class Field:
     def getType(self):
     def getTypeName(self):
     def getCount(self):
+    def enableSFTracking(self, samplingPeriod):
+    def disableSFTracking(self):
     # ...
 ```
 
@@ -2995,6 +3035,8 @@ public class Field {
   public int getType();
   public String getTypeName();
   public int getCount();
+  public void enableSFTracking(int samplingPeriod);
+  public void disableSFTracking();
   // ...
 }
 ```
@@ -3011,6 +3053,8 @@ WB_ROTATION, WB_MF_COLOR, WB_MF_STRING, WB_MF_NODE
 type = wb_supervisor_field_get_type(field)
 name = wb_supervisor_field_get_type_name(field)
 count = wb_supervisor_field_get_count(field)
+wb_supervisor_field_enable_sf_tracking(field, sampling_period)
+wb_supervisor_field_disable_sf_tracking(field)
 ```
 
 %tab-end
@@ -3022,6 +3066,8 @@ count = wb_supervisor_field_get_count(field)
 | `/supervisor/field/get_type` | `service` | `webots_ros::field_get_type` | `uint64 node`<br/>`---`<br/>`int8 success` |
 | `/supervisor/field/get_type_name` | `service` | `webots_ros::field_get_type_name` | `uint64 field`<br/>`---`<br/>`string name` |
 | `/supervisor/field/get_count` | `service` | `webots_ros::field_get_count` | `uint64 field`<br/>`---`<br/>`int32 count` |
+| `/supervisor/field/enable_sf_tracking` | `service` | `webots_ros::field_enable_sf_tracking` | `uint64 field`<br/>`int32 sampling_period`<br/>`---`<br/>`int8 sampling_period` |
+| `/supervisor/field/disable_sf_tracking` | `service` | `webots_ros::field_disable_sf_tracking` | `uint64 field`<br/>`---`<br/>`int8 success` |
 
 %tab-end
 
@@ -3043,6 +3089,14 @@ If the argument is NULL, the function returns the empty string.
 The `wb_supervisor_field_get_count` function returns the number of items of a multiple field (MF) passed as an argument to this function.
 If a single field (SF) or NULL is passed as an argument to this function, it returns -1.
 Hence, this function can also be used to test if a field is MF (like `WB_MF_INT32`) or SF (like `WB_SF_BOOL`).
+
+The `wb_supervisor_field_enable_sf_tracking` function forces Webots to stream field data to the controller.
+It improves the performance as the controller by default uses a request-response pattern to get data from the field.
+The `sampling_period` argument determines how often the field data should be sent to the controller.
+The function is limited only to single fields.
+
+The `wb_supervisor_field_disable_sf_tracking` function disables field data tracking.
+The function is limited only to single fields.
 
 > **Note** [C++, Java, Python]: In the oriented-object APIs, the SF\_* and MF\_* constants are available as static integers of the `Field` class (for example, Field::SF\_BOOL).
 These integers can be directly compared with the output of the `Field::getType` function.

@@ -255,8 +255,6 @@ void WbRobot::reset(const QString &id) {
   // restore battery level
   if (mBatteryInitialValues[id] > 0)
     mBattery->setItem(CURRENT_ENERGY, mBatteryInitialValues[id]);
-  if (mSupervisorUtilities)
-    mSupervisorUtilities->reset();
   emit wasReset();
 }
 
@@ -566,6 +564,8 @@ void WbRobot::restartController() {
     if (ac)
       ac->resetSharedMemory();  // shared memory automatically deleted at new controller restart
   }
+  if (mSupervisorUtilities)
+    mSupervisorUtilities->reset();
 }
 
 bool WbRobot::isWaitingForUserInputEvent() const {

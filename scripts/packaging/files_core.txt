@@ -4,6 +4,9 @@ bin/qt/lrelease [mac,linux,exe] # allow users to create translations in their ow
 bin/qt/lupdate [mac,linux,exe]
 bin/qt/moc [mac,linux,exe]
 
+docs/
+docs/list.txt
+
 include/
 include/ode/
 include/ode/ode/
@@ -347,15 +350,6 @@ resources/web/streaming_viewer/setup_viewer.js
 resources/web/streaming_viewer/style.css
 resources/web/templates/
 resources/web/templates/x3d_playback.html
-resources/web/wwi/
-resources/web/wwi/request_methods.js
-resources/web/wwi/webots.min.js
-resources/web/wwi/wwi.css
-resources/web/wwi/images/
-resources/web/wwi/images/*.gif
-resources/web/wwi/images/*.png
-resources/web/wwi/images/documentation/
-resources/web/wwi/images/documentation/*.png
 resources/wren/
 resources/wren/meshes/
 resources/wren/meshes/*.obj

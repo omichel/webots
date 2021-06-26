@@ -1,140 +1,140 @@
 {
-  "name": "mavic-2-pro",
   "devices": [
     {
       "anchor": "0.000625212 -0.00530346 -0.0207448",
-      "transformID": "n233",
+      "axis": "0 1 0",
+      "maxPosition": 1.7,
       "minPosition": -0.5,
       "name": "camera pitch",
-      "type": "RotationalMotor",
-      "axis": "0 1 0",
       "position": 0,
-      "maxPosition": 1.7
+      "transformID": "n233",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.00754686 0.0160388 -0.00586401",
-      "transformID": "n243",
+      "axis": "1 0 0",
+      "maxPosition": 0.5,
       "minPosition": -0.5,
       "name": "camera roll",
-      "type": "RotationalMotor",
-      "axis": "1 0 0",
       "position": 0,
-      "maxPosition": 0.5
+      "transformID": "n243",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.0412774 -0.00469654 -0.00405862",
-      "transformID": "n223",
+      "axis": "0 0 1",
+      "maxPosition": 1.7,
       "minPosition": -1.7,
       "name": "camera yaw",
-      "type": "RotationalMotor",
-      "axis": "0 0 1",
       "position": 0,
-      "maxPosition": 1.7
+      "transformID": "n223",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "transformID": "n302",
+      "axis": "0 0 1",
+      "maxPosition": 0,
       "minPosition": 0,
       "name": "front left propeller",
-      "type": "RotationalMotor",
-      "axis": "0 0 1",
       "position": 0,
-      "maxPosition": 0
+      "transformID": "n302",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "transformID": "n177",
+      "axis": "0 0 1",
+      "maxPosition": 0,
       "minPosition": 0,
       "name": "front right propeller",
-      "type": "RotationalMotor",
-      "axis": "0 0 1",
       "position": 0,
-      "maxPosition": 0
+      "transformID": "n177",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "transformID": "n60",
+      "axis": "0 0 1",
+      "maxPosition": 0,
       "minPosition": 0,
       "name": "rear left propeller",
-      "type": "RotationalMotor",
-      "axis": "0 0 1",
       "position": 0,
-      "maxPosition": 0
+      "transformID": "n60",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0 0 0",
-      "transformID": "n116",
+      "axis": "0 0 1",
+      "maxPosition": 0,
       "minPosition": 0,
       "name": "rear right propeller",
-      "type": "RotationalMotor",
-      "axis": "0 0 1",
       "position": 0,
-      "maxPosition": 0
+      "transformID": "n116",
+      "type": "RotationalMotor"
     },
     {
-      "ledGradual": false,
       "ledColors": [
         "1 0 0"
       ],
+      "ledGradual": false,
       "ledPBRAppearanceIDs": [
         "n267"
       ],
       "name": "front left led",
-      "type": "LED",
-      "transformID": "n265"
+      "transformID": "n265",
+      "type": "LED"
     },
     {
-      "ledGradual": false,
       "ledColors": [
         "1 0 0"
       ],
+      "ledGradual": false,
       "ledPBRAppearanceIDs": [
         "n212"
       ],
       "name": "front right led",
-      "type": "LED",
-      "transformID": "n210"
+      "transformID": "n210",
+      "type": "LED"
     },
     {
       "name": "camera",
-      "type": "Camera",
-      "transformID": "n254"
+      "transformID": "n254",
+      "type": "Camera"
     },
     {
       "name": "camera pitch sensor",
-      "type": "PositionSensor",
-      "transformID": "n233"
+      "transformID": "n233",
+      "type": "PositionSensor"
     },
     {
       "name": "camera roll sensor",
-      "type": "PositionSensor",
-      "transformID": "n243"
+      "transformID": "n243",
+      "type": "PositionSensor"
     },
     {
       "name": "camera yaw sensor",
-      "type": "PositionSensor",
-      "transformID": "n223"
+      "transformID": "n223",
+      "type": "PositionSensor"
     },
     {
       "name": "compass",
-      "type": "Compass",
-      "transformID": "n11"
+      "transformID": "n11",
+      "type": "Compass"
     },
     {
       "name": "gps",
-      "type": "GPS",
-      "transformID": "n11"
+      "transformID": "n11",
+      "type": "GPS"
     },
     {
       "name": "gyro",
-      "type": "Gyro",
-      "transformID": "n11"
+      "transformID": "n11",
+      "type": "Gyro"
     },
     {
       "name": "inertial unit",
-      "type": "InertialUnit",
-      "transformID": "n11"
+      "transformID": "n11",
+      "type": "InertialUnit"
     }
   ],
+  "name": "mavic-2-pro",
   "robotID": "n11"
 }

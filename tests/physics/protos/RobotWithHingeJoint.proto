@@ -1,0 +1,39 @@
+#VRML_SIM R2021b utf8
+
+PROTO RobotWithHingeJoint [
+  field SFVec3f translation 0 0 0
+]
+{
+  Robot {
+    translation IS translation
+    children [
+      Emitter {
+        name "emitter"
+        channel 1
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 1 0 0
+        }
+        device [
+          PositionSensor {
+            name "sensor1"
+          }
+        ]
+        endPoint DEF HINGEJOINT_SOLID Solid {
+          name  "HingeJoint Solid"
+          children [
+            Shape {
+              geometry Box {
+                size 0.1 0.1 0.1
+              }
+            }
+          ]
+        }
+      }
+    ]
+    controller "generic_sensor"
+    controllerArgs "1"
+    name "HingeJoint"
+  }
+}

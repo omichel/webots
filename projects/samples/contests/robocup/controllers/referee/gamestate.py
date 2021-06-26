@@ -14,7 +14,12 @@
 
 # Adapted from from https://github.com/RoboCup-Humanoid-TC/GameController/blob/master/protocols/python/gamestate.py
 
-from construct import Array, Byte, Bytes, Const, Enum, Flag, Int16sl, Int16ul, PaddedString, Struct
+from construct import Array, Byte, Bytes, Const, Enum, Flag, Int16sl, Int16ul, Struct
+try:
+    from construct import PaddedString
+except ImportError:
+    # construct < 2.9.39
+    from construct import String as PaddedString
 
 Short = Int16ul
 
@@ -30,8 +35,10 @@ RobotInfo = "robot_info" / Struct(
     # MANUAL                                      15
     "penalty" / Byte,
     "secs_till_unpenalized" / Byte,
+    "number_of_warnings" / Byte,
     "number_of_yellow_cards" / Byte,
-    "number_of_red_cards" / Byte
+    "number_of_red_cards" / Byte,
+    "goalkeeper" / Flag
 )
 
 TeamInfo = "team" / Struct(
@@ -81,8 +88,8 @@ GameState = "gamedata" / Struct(
                              STATE_CORNERKICK=7,
                              STATE_GOALKICK=8,
                              STATE_THROWIN=9,
-                             DROPBALL=128,
-                             UNKNOWN=255),
+                             STATE_DROPBALL=128,
+                             STATE_UNKNOWN=255),
     "secondary_state_info" / Bytes(4),
     "drop_in_team" / Flag,
     "drop_in_time" / Short,

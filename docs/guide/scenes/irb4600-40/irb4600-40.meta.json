@@ -2,95 +2,95 @@
   "devices": [
     {
       "anchor": "0 0 0.159498",
-      "type": "RotationalMotor",
-      "name": "A motor",
-      "transformID": "n22",
+      "axis": "0 0 1",
       "maxPosition": 3.1415,
       "minPosition": -3.1415,
+      "name": "A motor",
       "position": 0,
-      "axis": "0 0 1"
+      "transformID": "n22",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.178445 -0.122498 0.334888",
-      "type": "RotationalMotor",
-      "name": "B motor",
-      "transformID": "n32",
+      "axis": "0 1 0",
       "maxPosition": 2.61799,
       "minPosition": -1.5708,
+      "name": "B motor",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n32",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "-0.003447 -0.0267 1.095594",
-      "type": "RotationalMotor",
-      "name": "C motor",
-      "transformID": "n42",
+      "axis": "0 1 0",
       "maxPosition": 1.309,
       "minPosition": -3.1415,
+      "name": "C motor",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n42",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.340095 0.149198 0.174998",
-      "type": "RotationalMotor",
-      "name": "D motor",
-      "transformID": "n52",
+      "axis": "1 0 0",
       "maxPosition": 6.98132,
       "minPosition": -6.98132,
+      "name": "D motor",
       "position": 0,
-      "axis": "1 0 0"
+      "transformID": "n52",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.929888 0 0",
-      "type": "RotationalMotor",
-      "name": "E motor",
-      "transformID": "n62",
+      "axis": "0 1 0",
       "maxPosition": 2.0944,
       "minPosition": -2.18166,
+      "name": "E motor",
       "position": 0,
-      "axis": "0 1 0"
+      "transformID": "n62",
+      "type": "RotationalMotor"
     },
     {
       "anchor": "0.125 0 0",
-      "type": "RotationalMotor",
-      "name": "F motor",
-      "transformID": "n72",
+      "axis": "1 0 0",
       "maxPosition": 6.98132,
       "minPosition": -6.98132,
+      "name": "F motor",
       "position": 0,
-      "axis": "1 0 0"
+      "transformID": "n72",
+      "type": "RotationalMotor"
     },
     {
-      "type": "PositionSensor",
       "name": "A sensor",
-      "transformID": "n22"
+      "transformID": "n22",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "B sensor",
-      "transformID": "n32"
+      "transformID": "n32",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "C sensor",
-      "transformID": "n42"
+      "transformID": "n42",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "D sensor",
-      "transformID": "n52"
+      "transformID": "n52",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "E sensor",
-      "transformID": "n62"
+      "transformID": "n62",
+      "type": "PositionSensor"
     },
     {
-      "type": "PositionSensor",
       "name": "F sensor",
-      "transformID": "n72"
+      "transformID": "n72",
+      "type": "PositionSensor"
     }
   ],
-  "robotID": "n11",
-  "name": "irb4600-40"
+  "name": "irb4600-40",
+  "robotID": "n11"
 }

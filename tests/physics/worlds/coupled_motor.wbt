@@ -1,0 +1,403 @@
+#VRML_SIM R2021b utf8
+
+WorldInfo {
+  basicTimeStep 16
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0 1 0 0
+  position -0.005144763222920987 0.24437625308874722 2.0569376022594947
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+TexturedBackgroundLight {
+}
+DEF CHECK_COUPLING Robot {
+  children[
+    HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor group a"
+        }
+      ]
+    }
+    HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor group a::subgroup b"
+        }
+      ]
+    }
+    HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor group a::subgroup c"
+        }
+      ]
+    }
+    HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor group b::subgroup b"
+        }
+      ]
+    }
+  ]
+  name "coupling test"
+  controller "coupled_motor"
+  controllerArgs "coupling_test"
+  supervisor TRUE
+}
+DEF CHECK_PARAMETER_LOAD Robot {
+  children [
+    # velocity check
+    DEF MOTOR_C1 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor C::0"
+          maxVelocity 5
+          multiplier 2
+        }
+      ]
+    }
+    DEF MOTOR_C2 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor C::1"
+          maxVelocity 10
+          multiplier 2
+        }
+      ]
+    }
+    DEF MOTOR_C3 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor C::2"
+          maxVelocity 20
+          multiplier 2
+        }
+      ]
+    }
+    # min/max position check
+    DEF MOTOR_D1 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor D::0"
+          minPosition 0
+          maxPosition 0
+          multiplier 2
+        }
+      ]
+    }
+    DEF MOTOR_D2 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor D::1"
+          minPosition -10
+          maxPosition 20
+          multiplier 2
+        }
+      ]
+    }
+    DEF MOTOR_D3 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor D::2"
+          minPosition -20
+          maxPosition 40
+          multiplier 2
+        }
+      ]
+    }
+    DEF MOTOR_E1 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor E::0"
+          minPosition -5
+          maxPosition 10
+          multiplier 2
+        }
+      ]
+    }
+    DEF MOTOR_E2 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor E::1"
+          minPosition -10
+          maxPosition 20
+          multiplier 2
+        }
+      ]
+    }
+    DEF MOTOR_E3 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor E::2"
+          minPosition 0
+          maxPosition 0
+          multiplier 2
+        }
+      ]
+    }
+    # multiplier limits check
+    DEF MOTOR_F1 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor F::0"
+          multiplier 2
+          maxVelocity 10
+          minPosition -2
+          maxPosition 4
+        }
+      ]
+    }
+    DEF MOTOR_F2 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor F::1"
+          multiplier 0.5
+          maxVelocity 10
+          minPosition -2
+          maxPosition 4
+        }
+      ]
+    }
+    DEF MOTOR_F3 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor F::2"
+          multiplier 4
+          maxVelocity 10
+          minPosition -2
+          maxPosition 4
+        }
+      ]
+    }
+    DEF MOTOR_G1 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor G::0"
+          multiplier 2
+          maxVelocity 10
+          minPosition -2
+          maxPosition 4
+        }
+      ]
+    }
+    DEF MOTOR_G2 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor G::1"
+          multiplier -0.5
+          maxVelocity 10
+          minPosition -2
+          maxPosition 4
+        }
+      ]
+    }
+    DEF MOTOR_G3 HingeJoint {
+      device [
+        RotationalMotor {
+          name "motor G::2"
+          multiplier -4
+          maxVelocity 10
+          minPosition -2
+          maxPosition 4
+        }
+      ]
+    }
+    TestSuiteEmitter {
+    }
+  ]
+  name "parameter adjustment at load"
+  controller "coupled_motor"
+  controllerArgs "load_test"
+}
+DEF PHYSICS_TEST Robot {
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+      }
+      device [
+        PositionSensor {
+          name "sensor1"
+        }
+        RotationalMotor {
+          name "motor::1"
+        }
+      ]
+      endPoint Solid {
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0 0
+            }
+            geometry DEF BOX Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+        name "multiplier 2"
+        boundingObject USE BOX
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.1 0
+      }
+      device [
+        PositionSensor {
+          name "sensor2"
+        }
+        RotationalMotor {
+          name "motor::2"
+          maxVelocity 5
+          multiplier 0.5
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.1 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.960784 0.47451 0
+            }
+            geometry DEF BOX Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+        name "multiplier 0.5"
+        boundingObject USE BOX
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.2 0
+      }
+      device [
+        PositionSensor {
+          name "sensor3"
+        }
+        RotationalMotor {
+          name "motor::3"
+          maxVelocity 40
+          multiplier 4
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.2 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.929412 0.831373 0
+            }
+            geometry DEF BOX Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+        name "multiplier 4"
+        boundingObject USE BOX
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.3 0
+      }
+      device [
+        PositionSensor {
+          name "sensor4"
+        }
+        RotationalMotor {
+          name "motor::4"
+          maxVelocity 5
+          multiplier -0.5
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.3 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.203922 0.396078 0.643137
+            }
+            geometry DEF BOX Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+        name "multiplier -0.5"
+        boundingObject USE BOX
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.4 0
+      }
+      device [
+        PositionSensor {
+          name "sensor5"
+        }
+        RotationalMotor {
+          name "motor::5"
+          maxVelocity 40
+          multiplier -4
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.4 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.458824 0.313725 0.482353
+            }
+            geometry DEF BOX Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+        name "multiplier -4"
+        boundingObject USE BOX
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+    }
+    TestSuiteEmitter {
+    }
+  ]
+  name "physics behavior test"
+  controller "coupled_motor"
+  controllerArgs [
+    "physics_test"
+  ]
+  supervisor TRUE
+}
+TestSuiteSupervisor {
+}

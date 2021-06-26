@@ -113,8 +113,9 @@ void WbInertialUnit::addConfigure(QDataStream &stream) {
   mNeedToReconfigure = false;
 }
 
-void WbInertialUnit::writeConfigure(QDataStream &) {
+void WbInertialUnit::writeConfigure(QDataStream &stream) {
   mSensor->connectToRobotSignal(robot());
+  addConfigure(stream);
 }
 
 bool WbInertialUnit::refreshSensorIfNeeded() {

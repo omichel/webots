@@ -1,0 +1,690 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "This simulation enables to move around a MiR100 moving in an industrial environment using the keyboard"
+  ]
+  title "Simulation of Mobile Industrial Robotics' MiR100 robot"
+  contactProperties [
+    ContactProperties {
+      material1 "wheel"
+      softCFM 0.0001
+    }
+    ContactProperties {
+      material1 "slope"
+      coulombFriction [
+        0.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.2529825015912992 -0.5933323750885975 -0.7641704957405332 2.5305942936193144
+  position -9.988898212651872 6.299889739865046 3.18984928189526
+  exposure 1.7
+  follow "Mir100"
+}
+TexturedBackground {
+  texture "factory"
+}
+Mir100 {
+  translation -6.23612 -0.936359 0
+  frontLidarSlot [
+    SickS300 {
+      name "front_lidar"
+    }
+  ]
+  backLidarSlot [
+    SickS300 {
+      name "back_lidar"
+    }
+  ]
+  bodySlot [
+    Robotino3Platform {
+      extension [
+        ConveyorPlatform {
+          rotation 0 1 0 1.5708
+          controller "keyboard_conveyor_platform"
+          speed 0.6
+        }
+      ]
+    }
+  ]
+}
+WallPlug {
+  translation -8.6 -6.499 0.2
+  rotation 0.577348973190431 -0.577350917188132 -0.577350917188132 2.094397046393079
+}
+WallPlug {
+  translation -8.68 -6.499 0.2
+  rotation 0.577348973190431 -0.577350917188132 -0.577350917188132 2.094397046393079
+  name "wall plug(1)"
+}
+ElectricalPlug {
+  translation -8.68 -6.45 0.2
+  rotation 0 0.707106781186548 0.707106781186547 3.141592653589793
+  cablePath [
+    0 0 0
+    0 0.05 0
+    0.1 0.05 0
+    0.2 0.05 0.05
+    0.5 0.05 0.19
+    0.8 0.05 0.19
+    0.818 0.066 0.19
+    0.818 0.071 0.19
+  ]
+  enablePhysics FALSE
+}
+Clock {
+  translation 0 -6.489 1.8
+  rotation 0 0.707106781186548 0.707106781186547 3.141592653589793
+}
+Panel {
+  translation -9.49612 6.47029 0.0051231
+  rotation 1 0 0 1.5707963267948966
+  size 1.6 1.7 0.05
+}
+Panel {
+  translation -7.9 6.47029 0.0051231
+  rotation 1 0 0 1.5707963267948966
+  name "panel_1"
+  size 1.6 1.7 0.05
+}
+Panel {
+  translation -9.47 4.85 0
+  rotation 0.577348737554214 0.577351035005808 0.577351035005808 2.094397399847837
+  name "panel_2"
+  size 1.6 1.7 0.05
+}
+Panel {
+  translation -9.47 3.25 0
+  rotation 0.577348737554214 0.577351035005808 0.577351035005808 2.094397399847837
+  name "panel(3)"
+  size 1.6 1.7 0.05
+}
+Cabinet {
+  translation -9.444 5.665 -4.197e-22
+  rotation 0.577348737554214 0.577351035005808 0.577351035005808 2.094397399847837
+  name "cabinet(5)"
+  rowsHeights [
+    0.24, 0.2, 0.2
+  ]
+  columnsWidths [
+    0.6, 0.4, 0.5
+  ]
+  layout [
+    "RightSidedDoor (1, 1,  1, 3, 1.5)"
+    "LeftSidedDoor (2, 1, 2, 3, 1.5)"
+  ]
+  primaryAppearance GlossyPaint {
+    baseColor 0.729 0.741 0.713
+  }
+  secondaryAppearance GlossyPaint {
+    baseColor 0.1 0.3 0.8
+  }
+}
+Cabinet {
+  translation 2.01309 5.34773 -7.01661e-14
+  rotation 0.577350661639742 -0.577350072964468 -0.577350072964468 2.094394513718122
+  name "cabinet(6)"
+  rowsHeights [
+    0.24, 0.2, 0.2
+  ]
+  columnsWidths [
+    0.8, 0.8
+  ]
+  layout [
+    "Drawer(1, 1, 1, 1 1.5)"
+    "Drawer(1, 2, 1, 1 1.5)"
+    "Drawer(1, 3, 1, 1 1.5)"
+    "Drawer(2, 1, 1, 1 1.5)"
+    "Drawer(2, 2, 1, 1 1.5)"
+    "Drawer(2, 3, 1, 1 1.5)"
+  ]
+  primaryAppearance GlossyPaint {
+    baseColor 0.729 0.741 0.713
+  }
+  secondaryAppearance GlossyPaint {
+    baseColor 0.1 0.3 0.8
+  }
+}
+Cabinet {
+  translation 2.01309 3.68773 -7.01661e-14
+  rotation 0.577350661639742 -0.577350072964468 -0.577350072964468 2.094394513718122
+  name "cabinet(7)"
+  rowsHeights [
+    0.24, 0.2, 0.2
+  ]
+  columnsWidths [
+    0.8, 0.4, 0.4
+  ]
+  layout [
+    "RightSidedDoor (1, 1,  1, 3, 1.5)"
+    "LeftSidedDoor (2, 1, 2, 3, 1.5)"
+  ]
+  primaryAppearance GlossyPaint {
+    baseColor 0.729 0.741 0.713
+  }
+  secondaryAppearance GlossyPaint {
+    baseColor 0.1 0.3 0.8
+  }
+}
+Sink {
+  translation -9.27377 6.09349 0.74
+  rotation 0.577350661639742 -0.577350072964468 -0.577350072964468 2.094394513718122
+}
+Cabinet {
+  translation -9.49 -4.737 0
+  rotation 0.577348737554214 0.577351035005808 0.577351035005808 2.094397399847837
+  name "cabinet(2)"
+  depth 0.7
+  columnsWidths [
+    0.5, 0.25, 0.25
+  ]
+  layout [
+    "RightSidedDoor (1, 1, 1, 5, 1.5)"
+    "LeftSidedDoor (2, 1, 2, 5, 1.5)"
+  ]
+  primaryAppearance GlossyPaint {
+    baseColor 0.729 0.741 0.713
+  }
+  secondaryAppearance GlossyPaint {
+    baseColor 0.1 0.3 0.8
+  }
+}
+Cabinet {
+  translation -9.49 -5.8 0
+  rotation 0.577348737554214 0.577351035005808 0.577351035005808 2.094397399847837
+  name "cabinet(3)"
+  depth 0.7
+  columnsWidths [
+    0.5, 0.25, 0.25
+  ]
+  layout [
+    "RightSidedDoor (1, 1, 1, 5, 1.5)"
+    "LeftSidedDoor (2, 1, 2, 5, 1.5)"
+  ]
+  primaryAppearance GlossyPaint {
+    baseColor 0.729 0.741 0.713
+  }
+  secondaryAppearance GlossyPaint {
+    baseColor 0.1 0.3 0.8
+  }
+}
+Cabinet {
+  translation -9.49 -3.68 0
+  rotation 0.577348737554214 0.577351035005808 0.577351035005808 2.094397399847837
+  name "cabinet(4)"
+  depth 0.7
+  columnsWidths [
+    0.5, 0.25, 0.25
+  ]
+  layout [
+    "RightSidedDoor (1, 1, 1, 5, 1.5)"
+    "LeftSidedDoor (2, 1, 2, 5, 1.5)"
+  ]
+  primaryAppearance GlossyPaint {
+    baseColor 0.729 0.741 0.713
+  }
+  secondaryAppearance GlossyPaint {
+    baseColor 0.1 0.3 0.8
+  }
+}
+ConveyorBelt {
+  translation 6.8438 -4.16057 0
+  rotation 0.577348855372322 -0.577350976096979 -0.577350976096979 2.094397223120449
+  name "conveyor belt(3)"
+  size 2 0.9 0.6
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 6 3.1
+    }
+  }
+  borderHeight 0
+  speed 2
+}
+ConveyorBelt {
+  translation 3.14141 -5.61763 0
+  rotation 9.38185669e-07 0.707106781186236 0.707106781186236 3.141590777218456
+  name "conveyor belt(4)"
+  size 8 0.9 0.8
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 6 3.1
+    }
+  }
+  borderHeight 0
+  speed 2
+}
+PlasticCrate {
+  translation -1.39898 -5.60415 5.41788e-14
+  rotation 1 0 0 1.5707963267948966
+  name "plastic crate(5)"
+  size 1 0.9 1
+}
+PlasticCrate {
+  translation -6.187 -0.987 0.973
+  rotation 1 0 0 1.5707963267948966
+  name "Kasten(2)"
+  size 0.4 0.12 0.23
+  mass 0.92
+}
+SquareManhole {
+  translation 0.560459 -1.782 -0.03
+  rotation 0.577350276739562 -0.577350265414658 -0.577350265414658 2.094395091068291
+}
+Table {
+  translation 3.097723 2.013972 0
+  rotation 1 0 0 1.5707963267948966
+  size 1.8 0.7 0.8
+  feetSize 0.05 0.05
+  trayAppearance PBRAppearance {
+    baseColor 0.926 0.912 0.698
+    roughness 0.8
+    metalness 0
+  }
+  legAppearance BrushedAluminium {
+    colorOverride 0.333 0.341 0.325
+  }
+}
+WoodenChair {
+  translation 2.921084 1.648051 0
+  rotation 0.092691584028185 -0.704062593186979 -0.704062593186979 2.956737685995372
+}
+Monitor {
+  translation 2.520237 2.108887 0.7
+  rotation 0.092691584028185 -0.704062593186979 -0.704062593186979 2.956737685995372
+}
+Keyboard {
+  translation 2.594212 1.8802 0.7
+  rotation 0.092691584028185 -0.704062593186979 -0.704062593186979 2.956737685995372
+}
+DesktopComputer {
+  translation 2.331033 2.125086 0
+  rotation 1.22474503e-07 -0.707106781186542 -0.707106781186542 3.141592408640787
+}
+ComputerMouse {
+  translation 2.94663 1.914183 0.7
+  rotation 0.092691693094096 0.704062586007576 0.704062586007576 2.956737469721717
+  mass 0
+}
+Table {
+  translation -1.419911 -0.81333 0
+  rotation 0.577350276739562 -0.577350265414658 -0.577350265414658 2.094395091068291
+  name "table(1)"
+  size 1.8 0.7 0.8
+  feetSize 0.05 0.05
+  trayAppearance PBRAppearance {
+    baseColor 0.926 0.912 0.698
+    roughness 0.8
+    metalness 0
+  }
+  legAppearance BrushedAluminium {
+    colorOverride 0.333 0.341 0.325
+  }
+}
+OfficeTelephone {
+  translation -1.343811 -0.209288 0.7
+  rotation 0.86285616463668 -0.357406798444348 -0.357406798444348 1.717771568847111
+}
+Wrench {
+  translation -1.23886 -0.5886 0.71
+  rotation 0.377964511313274 0.654653659650551 0.654653659650551 2.418858338744297
+}
+Hammer {
+  translation -1.60381 -0.359288 0.71
+  rotation 1 0 0 1.5707963267948966
+}
+PlatformCart {
+  translation 0.927687 1.793317 0
+  rotation 0.092691584028185 -0.704062593186979 -0.704062593186979 2.956737685995372
+}
+LeverValve {
+  translation -0.73 -0.83 0.502
+  rotation 1 0 0 1.5707963267948966
+}
+Radiator {
+  translation 0.528902 2.341308 0.33
+  rotation 0.577350276739562 -0.577350265414658 -0.577350265414658 2.094395091068291
+  numberOfFins 16
+}
+WoodenPalletStack {
+  translation 2.8 -0.23 0
+  rotation 0.577348855372322 -0.577350976096979 -0.577350976096979 2.094397223120449
+  palletNumber 5
+  palletSize 0.8 0.11 1
+}
+Cabinet {
+  translation -0.4 2.47 0
+  rotation 1 0 0 1.5707963267948966
+  name "cabinet(1)"
+  layout [
+    "RightSidedDoor (1, 1, 1, 5, 1.5)"
+    "LeftSidedDoor (2, 1, 2, 5, 1.5)"
+  ]
+  primaryAppearance GlossyPaint {
+    baseColor 0.729 0.741 0.713
+  }
+  secondaryAppearance GlossyPaint {
+    baseColor 0.1 0.3 0.8
+  }
+}
+CardboardBox {
+  translation -1.21 2.18 0.3
+  rotation 1 0 0 1.5707963267948966
+}
+CardboardBox {
+  translation -1.198389 2.100678 0.75
+  rotation 0.377964511313274 0.654653659650551 0.654653659650551 2.418858338744297
+  name "cardboard box(1)"
+  size 0.4 0.3 0.6
+}
+RectangleArena {
+  rotation 1 0 0 1.5707963267948966
+  floorSize 19 13
+  floorAppearance ThreadMetalPlate {
+  }
+  wallThickness 0.3
+  wallHeight 2.5
+  wallAppearance Roughcast {
+    textureTransform TextureTransform {
+      scale 2 1
+    }
+  }
+}
+Transform {
+  translation 1.77 6.5 1.05
+  rotation 1 0 0 1.5707963267948966
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.23 0.3 0.01
+      }
+    }
+  ]
+}
+SolidBox {
+  translation -0.135 -0.0323 0.305
+  rotation 1 0 0 1.5707963267948966
+  size 1.5 0.61 0.4
+  appearance GalvanizedMetal {
+  }
+}
+SolidBox {
+  translation 1.015 -0.0323 0.45
+  rotation 1 0 0 1.5707963267948966
+  name "box(5)"
+  size 0.8 0.91 0.4
+  appearance GalvanizedMetal {
+  }
+}
+SolidBox {
+  translation 0.8 0.329556 0.819996
+  rotation 1 0 0 2.617993326794896
+  name "box(6)"
+  size 0.3 0.5 0.02
+  contactMaterial "slope"
+  appearance GalvanizedMetal {
+  }
+}
+SolidBox {
+  translation 0.96 0.339556 0.837316
+  rotation 0.694746421648147 -0.1861573591797 -0.694746606490694 2.773491823864185
+  name "box(7)"
+  size 0.05 0.5 0.02
+  appearance GalvanizedMetal {
+  }
+}
+SolidBox {
+  translation 0.64 0.339556 0.837316
+  rotation 0.694746421648147 -0.1861573591797 -0.694746606490694 2.773491823864185
+  name "box(8)"
+  size 0.05 0.5 0.02
+  appearance GalvanizedMetal {
+  }
+}
+SolidBox {
+  translation 0.64 0.239196 0.583496
+  rotation 0.654654231301536 0.377963904659711 -0.654653438250637 3.86432712001869
+  name "box(9)"
+  size 0.05 0.5 0.02
+  appearance GalvanizedMetal {
+  }
+}
+SolidBox {
+  translation 0.96 0.239196 0.583496
+  rotation 0.654654231301536 0.377963904659711 -0.654653438250637 3.86432712001869
+  name "box(10)"
+  size 0.05 0.5 0.02
+  appearance GalvanizedMetal {
+  }
+}
+SolidBox {
+  translation 1.77 -0.11 0.375
+  rotation 2.31078888e-07 0.707106781186529 0.707106781186529 3.141592191432018
+  name "box(2)"
+  size 0.2 0.75 0.18
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 0.7 0.7
+    }
+  }
+}
+SolidBox {
+  translation 1.77 -2.28 0.375
+  rotation 2.31078888e-07 0.707106781186529 0.707106781186529 3.141592191432018
+  name "box(4)"
+  size 0.2 0.75 0.18
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 0.7 0.7
+    }
+  }
+}
+SolidBox {
+  translation 1.77 2.43 0.375
+  rotation 2.31078888e-07 0.707106781186529 0.707106781186529 3.141592191432018
+  name "box(3)"
+  size 0.2 0.75 0.18
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 0.7 0.7
+    }
+  }
+}
+FireExtinguisher {
+  translation -0.75771 1.79 0
+  rotation 0.092691584028185 -0.704062593186979 -0.704062593186979 2.956737685995372
+}
+UR3e {
+  translation 1.30296 0.079391 0.91
+  rotation 1 0 0 0
+  controller "ure_can_grasper"
+  controllerArgs [
+    "3"
+  ]
+  selfCollision FALSE
+  toolSlot [
+    Robotiq3fGripper {
+    }
+    DistanceSensor {
+      translation 0 0.1 0
+      rotation 0 0 1 1.570796
+    }
+  ]
+}
+UR5e {
+  translation 0 0 0.61
+  rotation 5.9116741e-08 0 -0.999999999999998 1.570796267678159
+  controller "ure_can_grasper"
+  selfCollision FALSE
+  toolSlot [
+    Robotiq3fGripper {
+    }
+    DistanceSensor {
+      translation 0 0.1 0
+      rotation 0 0 1 1.570796
+    }
+  ]
+}
+UR10e {
+  translation -0.56 -0.1 0.61
+  rotation -1.18233471e-07 0 -0.999999999999993 1.570796445028382
+  controller "ure_can_grasper"
+  selfCollision FALSE
+  toolSlot [
+    Robotiq3fGripper {
+    }
+    DistanceSensor {
+      translation 0 0.1 0
+      rotation 0 0 1 1.570796
+    }
+  ]
+}
+ConveyorBelt {
+  translation 3.18 -1.05 0
+  rotation 2.31078887e-07 0.707106781186529 0.707106781186529 3.141592191432018
+  size 8 0.6 0.7
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 6 3.1
+    }
+  }
+  borderHeight 0
+  speed 0.2
+}
+ConveyorBelt {
+  translation 1.77 2.55 0.75
+  rotation 0.577349891839383 -0.577350457864655 -0.577350457864655 2.094395668418652
+  name "conveyor belt(2)"
+  size 8 0.15 0.15
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 6 3.1
+    }
+  }
+  borderHeight 0
+  speed 0.2
+}
+ConveyorBelt {
+  translation 0 0.69 0
+  rotation 1 0 0 1.5707963267948966
+  name "conveyor belt(1)"
+  size 6 0.25 0.5
+  appearance CorrugatedMetal {
+    textureTransform TextureTransform {
+      scale 6 3.1
+    }
+  }
+  borderHeight 0
+  speed 0
+  timer 90
+}
+PlasticCrate {
+  translation 0.22 0.68 0.25
+  rotation 1 0 0 1.5707963267948966
+  size 0.6 0.4 0.45
+  mass 1
+}
+PlasticCrate {
+  translation -0.41 0.68 0.25
+  rotation 1 0 0 1.5707963267948966
+  name "plastic crate(1)"
+  size 0.6 0.4 0.45
+  mass 1
+}
+PlasticCrate {
+  translation -1.04 0.68 0.26
+  rotation 1 0 0 1.5707963267948966
+  name "plastic crate(2)"
+  size 0.6 0.4 0.45
+  mass 1
+}
+PlasticCrate {
+  translation -1.67 0.68 0.26
+  rotation 1 0 0 1.5707963267948966
+  name "plastic crate(3)"
+  size 0.6 0.4 0.45
+  mass 1
+}
+PlasticCrate {
+  translation 0.84 0.68 0.26
+  rotation 1 0 0 1.5707963267948966
+  name "plastic crate(4)"
+  size 0.6 0.4 0.45
+  mass 1
+}
+Can {
+  translation 1.77 2.67 0.96
+  rotation 1 0 0 1.5707963267948966
+  name "can(14)"
+}
+Can {
+  translation 1.77 3.8 0.96
+  rotation 1 0 0 1.5707963267948966
+  name "can(15)"
+}
+Can {
+  translation 1.77 4.7 0.96
+  rotation 1 0 0 1.5707963267948966
+  name "can(16)"
+}
+Can {
+  translation 1.77 5.6 0.96
+  rotation 1 0 0 1.5707963267948966
+  name "can(17)"
+}
+Can {
+  translation 1.77 6.5 0.96
+  rotation 1 0 0 1.5707963267948966
+  name "can(18)"
+}
+Can {
+  translation 0.7 -0.83 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(13)"
+}
+Can {
+  translation 1.26 -1.285 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(4)"
+}
+Can {
+  translation 2.1 -0.83 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(1)"
+}
+Can {
+  translation 2.49 -1.285 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(5)"
+}
+Can {
+  translation 3.5 -0.83 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(2)"
+}
+Can {
+  translation 3.9 -1.285 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(6)"
+}
+Can {
+  translation 4.9 -0.83 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(3)"
+}
+Can {
+  translation 5.3 -1.285 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(7)"
+}
+Can {
+  translation 6.3 -0.83 0.66
+  rotation 1 0 0 1.5707963267948966
+  name "can(8)"
+}

@@ -391,12 +391,10 @@ void WbBox::recomputeBoundingSphere() const {
 ////////////////////////
 
 WbVector3 WbBox::computeFrictionDirection(const WbVector3 &normal) const {
-  WbVector3 localNormal = matrix().extracted3x3Matrix() * normal;
-  // Find most probable face and return first friction direction
-  if ((fabs(localNormal[0]) > fabs(localNormal[1])) && (fabs(localNormal[0]) > fabs(localNormal[2])))
-    return WbVector3(0, 1, 0);  // right or left face
-  else if ((fabs(localNormal[1]) > fabs(localNormal[0])) && (fabs(localNormal[1]) > fabs(localNormal[2])))
-    return WbVector3(0, 0, 1);  // top or bottom face
+  WbVector3 localNormal = normal * matrix().extracted3x3Matrix();
+  // Find most probable face and return first friction direction in the local coordinate system
+  if ((fabs(localNormal[1]) > fabs(localNormal[0])) && (fabs(localNormal[1]) > fabs(localNormal[2])))
+    return WbVector3(0, 0, 1);
   else
-    return WbVector3(0, 1, 0);  // front or back face
+    return WbVector3(0, 1, 0);
 }

@@ -17,35 +17,42 @@
 """Test that all the required Matlab functions are defined."""
 import unittest
 import os
+import sys
+sys.path.append(os.environ['WEBOTS_HOME'] + "/src/controller/matlab/")
+import mgenerate  # noqa: E402
 
 
 class TestMatlabFunctions(unittest.TestCase):
     """Unit test for checking that all the required Matlab functions are defined."""
 
     def setUp(self):
-        """Get all the required function."""
-        skippedLines = [
-            'wbr',
-            'microphone',
-            'remote_control',
-            'robot',
-            'wb_device_get_type',
-            'wb_node_get_name',
-            'wbu_string',
-            'lookup_table_size',
-            'EXPORTS'
-        ]
-        self.functions = []
-        filename = os.environ['WEBOTS_HOME'] + '/src/controller/c/Controller.def'
-        self.assertTrue(
-            os.path.isfile(filename),
-            msg='Missing "%s" file.' % filename
-        )
-        with open(filename) as file:
-            for line in file:
-                if not any(skippedLine in line for skippedLine in skippedLines):
-                    self.functions.append(line.replace('\n', ''))
+        if sys.version_info[0] >= 3:
+            mgenerate.UPDATE = False
+            mgenerate.main()
+            """Get all the required function."""
+            skippedLines = [
+                'wbr',
+                'microphone',
+                'remote_control',
+                'robot',
+                'wb_device_get_type',
+                'wb_node_get_name',
+                'wbu_string',
+                'lookup_table_size',
+                'EXPORTS'
+            ]
+            self.functions = []
+            filename = os.environ['WEBOTS_HOME'] + '/src/controller/c/Controller.def'
+            self.assertTrue(
+                os.path.isfile(filename),
+                msg='Missing "%s" file.' % filename
+            )
+            with open(filename) as file:
+                for line in file:
+                    if not any(skippedLine in line for skippedLine in skippedLines):
+                        self.functions.append(line.replace('\n', ''))
 
+    @unittest.skipIf(sys.version_info[0] < 3, "not supported by Python 2.7")
     def test_matlab_function_exists(self):
         """Test that the function file exists."""
         for function in self.functions:

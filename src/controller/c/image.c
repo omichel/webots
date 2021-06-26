@@ -35,7 +35,6 @@ Image *image_new() {
   i->shm_size = 0;
   i->data = NULL;
   i->requested = false;
-  i->update_time = 0.0;
   return i;
 }
 
@@ -75,22 +74,4 @@ void image_get_shm(Image *i) {
 #endif
 
   ROBOT_ASSERT(i->data);
-}
-
-bool image_request(Image *i, const char *functionName) {
-  double current_simulation_time = wb_robot_get_time();
-  const double previous_update_time = i->update_time;  // in case of reset, time can go backward
-  if (previous_update_time >= current_simulation_time)
-    return true;
-
-  i->requested = true;
-  wb_robot_flush_unlocked();
-  if (!wb_robot_get_synchronization())
-    // if controller is asynchronous, wb_robot_get_time() could be increased while requesting the image
-    current_simulation_time = wb_robot_get_time();
-  if (i->update_time != current_simulation_time && previous_update_time <= i->update_time && robot_is_quitting() == 0) {
-    fprintf(stderr, "Warning: %s: image could not be retrieved.\n", functionName);
-    return false;
-  }
-  return true;
 }

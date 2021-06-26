@@ -1,0 +1,308 @@
+[
+    {
+        "description" : "Moving robots so they are not penalized on SET",
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-1.4, 1.0, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.0, 1.2, 0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Part A. Moving robots for theoretical impact at [0.0,0.0]",
+        "timing" : {
+            "time" : 11.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0.0, 1.5, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-0.1, -0.4, 0.3],
+                "orientation" : [0,0,1,1.57]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.1, 0.2, 0.3],
+                "orientation" : [0,0,1,-1.57]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [11.001, 15],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0, 0.1, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [0, -0.05, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [13.0, 20.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "A. Low speed collision -> Normal state",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "A. Low speed collision -> No penalty (1)",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "A. Low speed collision -> No penalty (2)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Part B. Moving robots for theoretical impact at [1.0,0.0]",
+        "timing" : {
+            "time" : 21.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [2.5, 0.0, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-0.6, 0, 0.3]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [1.4, 0, 0.3]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [21.001, 25],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0.4, 0, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [-0.1, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [27.0, 30.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "B. Foul more than 1m away from the ball -> Normal state",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "B. Faster player moves to the ball and other robot is closer to the ball -> Penalty",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 31
+            },
+            {
+                "name" : "B. Player moving away is slow -> No penalty",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Part C. Moving robots for theoretical impact at [-1.0,0.0]",
+        "timing" : {
+            "time" : 71.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [-1.0, 1.5, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-1.0, -0.8, 0.3]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-2.0, 0, 0.3]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [71.001, 75.2],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0, 0.15, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [0.25, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [78.0, 80.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "C. Foul more than 1 meter from the ball -> Normal state",
+                "secondary_state" : "NORMAL"
+            },
+            {
+                "name" : "C. Player moving to the ball -> No penalty",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "C. Player moving away too fast -> pushing",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 31
+            }
+        ]
+    },
+    {
+        "description" : "Part D. Moving robots for theoretical impact at [1.0,1.0], with time margin for penalties",
+        "timing" : {
+            "time" : 131.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1.0, 1.8, 0.08]
+            },
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.0, -1.0, 0.3]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.0, 1.0, 0.3]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [131.001, 134.8],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "velocity" : [0, 0.5, 0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "velocity" : [0.25, 0, 0.24]
+            }
+        ]
+    },
+    {
+        "description" : "After collision, move robots slightly apart to avoid risk of mixing with rules",
+        "timing" : {
+            "time" : 136,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.1, 0.75, 0.24],
+                "orientation" : [0, 0, 1, 1.57]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [0.75, 1.1, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [138.0, 140.0],
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "D. Foul less than 1 meter from the ball -> direct freekick",
+                "secondary_state" : "DIRECT_FREEKICK",
+                "secondary_team_id" : 9
+            },
+            {
+                "name" : "D. Player moving to the ball -> No penalty",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "D. Since freekick -> No penalty",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" :  {
+            "time" : 1,
+            "clock_type" : "Simulated",
+            "secondary_state" : "DIRECT_FREEKICK",
+            "phase" : 1
+        },
+        "tests" : [
+            {
+                "name" : "D. Ball is placed at the expected location",
+                "target" : "BALL",
+                "position" : [1.9, 1.0, 0.08],
+                "abs_tol" : 0.1,
+                "comment" : "BLUE 1 and RED 1 each covers two alternative pos"
+            }
+        ]
+    }
+]

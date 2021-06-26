@@ -40,6 +40,22 @@
 body {
   scroll-behavior: auto !important; /* wwi.css.body.scroll-behavior should be encapsulated in class to fix this cleanly. */
 }
+
+#webotsProgress {
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  background-color: white;
+  width: 300px;
+  height: 100px;
+  top: calc(50% - 50px);
+  left: calc(50% - 150px);
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: content-box;
+}
+
 .webots-doc #left {
   top: 0;
   width: 20%;
@@ -562,6 +578,7 @@ body {
 .robot-component .robot-view {
   width: 70%;
   height: 100%;
+  position: relative;
 }
 .robot-component .webots3DView {
   height: 100%;
@@ -572,51 +589,82 @@ body {
 }
 .robot-component .menu {
   transform: translateY(-100%);
-  width: 100%;
+  width: 99%;
 }
 .robot-component .menu-items {
   margin: 0 auto;
-  text-align: center;
+  text-align: right;
   z-index: 1;
 }
-.robot-component .menu button {
-  padding: 0;
-  border-width: 0;
-  outline: 0;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  background-size: cover;
+
+.ui-icon {
+  display: inline-block;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-image: url('https://cyberbotics.com/wwi/R2021b/images/icons.svg');
+  background-color: transparent;
+  border: none;
+  width: 34px;
+  height: 34px;
 }
-.robot-component .menu .reset-button {
-  background-image: url(../css/images/reset.png);
+
+.fullscreen-button { background-position: -420px -2px }
+.exit-fullscreen-button { background-position: -458px -2px }
+.reset-button{ background-position: -496px -2px}
+
+.reset-button:hover,
+.fullscreen-button:hover,
+.exit-fullscreen-button:hover {
+  background-position-y: -40px;
 }
-.robot-component .menu .menu-button {
-  background-image: url(../css/images/menu.png);
+.menu-button {
+  position: absolute;
+  top:calc(50% - 15px);
+  right: 0px;
+  width: 26px;
+  height: 52px;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  background-color: #333;
+  border-color: transparent;
 }
-.robot-component .menu .fullscreen-button {
-  background-image: url(../css/images/fullscreen.png);
+
+.arrow-right{
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position: absolute;
+  top: calc(50% - 5px);
+  right: calc(50% - 5px);
+  pointer-events: none;
 }
-.robot-component .menu .reset-button:hover {
-  background-image: url(../css/images/reset_hover.png);
+
+.arrow-left{
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  position: absolute;
+  top: calc(50% - 5px);
+  right: calc(50% - 10px);
+  pointer-events: none;
 }
-.robot-component .menu .menu-button:hover {
-  background-image: url(../css/images/menu_hover.png);
-}
-.robot-component .menu .fullscreen-button:hover {
-  background-image: url(../css/images/fullscreen_hover.png);
-}
+
 .robot-component .device-component {
   width: 30%;
   overflow: auto;
+  overflow-x: hidden;
   background-color: #333;
-  padding: 10px;
+  padding: 10px 0px 10px 0px;
   border-radius: 0px 3px 3px 0px;
+  position: relative;
 }
 .robot-component .device-category {
-  padding: 10px;
+  padding: 10px 0px 10px 0px;
 }
 .robot-component .device-title {
   color: #fff;
@@ -624,6 +672,8 @@ body {
   font-family: roboto;
   font-size: 14px;
   text-align: center;
+  border-bottom-style: solid;
+  border-bottom-color: white;
 }
 .robot-component .device-name {
   color: white;
@@ -631,11 +681,10 @@ body {
   word-wrap: break-word;
 }
 .robot-component .device {
-  background-color: #666;
   padding: 10px;
 }
 .robot-component .device:hover {
-  background-color: #5a90a2;
+  background-color: grey;
   box-shadow: 0px 5px 10px 5px rgba(0,0,0, 0.25);
   transform: scale(1.02, 1.02);
   -webkit-transform: scale(1.02, 1.02);
@@ -672,12 +721,13 @@ body {
 }
 .robot-component .motor-slider::-webkit-slider-thumb {
   border: none;
-  height: 12px;
-  width: 12px;
-  background: #333;
+  height: 15px;
+  width: 15px;
+  background: red;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -5px;
+  margin-top: -6px;
+  border-radius: 12px;
 }
 .robot-component .motor-slider:focus::-webkit-slider-runnable-track {
   background: #ddd;
@@ -691,11 +741,11 @@ body {
 }
 .robot-component .motor-slider::-moz-range-thumb {
   border: none;
-  height: 12px;
-  width: 12px;
-  background: #333;
+  height: 15px;
+  width: 15px;
+  background: red;
   cursor: pointer;
-  border-radius: 0;
+  border-radius: 12px;
  }
 .robot-component .motor-slider::-ms-track {
   width: 100%;
@@ -716,10 +766,9 @@ body {
 }
 .robot-component .motor-slider::-ms-thumb {
   border: none;
-  height: 12px;
-  width: 12px;
-  background: #333;
+  background: red;
   cursor: pointer;
+  border-radius: 6px;
 }
 .robot-component .motor-slider::-ms-tooltip {
   display: none;

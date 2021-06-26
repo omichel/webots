@@ -46,7 +46,6 @@ void wr_static_mesh_get_bounding_sphere(WrStaticMesh *mesh, float *sphere);
    This function should be avoided in performance sensitive code as it involves heavy memory operations. */
 void wr_static_mesh_read_data(WrStaticMesh *mesh, float *coord_data, float *normal_data, float *tex_coord_data,
                               unsigned int *index_data);
-int wr_static_mesh_get_triangle_count(WrStaticMesh *mesh);
 int wr_static_mesh_get_vertex_count(WrStaticMesh *mesh);
 int wr_static_mesh_get_index_count(WrStaticMesh *mesh);
 

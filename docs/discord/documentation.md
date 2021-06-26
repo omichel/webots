@@ -51,7 +51,7 @@ hi, how can i use or download the khepera 4 presentation in the photo to use it 
 ![unknown.png](https://cdn.discordapp.com/attachments/565155720933146637/594221742008827921/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 07/01/2019 06:29:15
+##### Olivier Michel [Cyberbotics] 07/01/2019 06:29:15
 Hi, you can make a screenshot of this page, you are free to use this for your presentations. Or you can link your presentation directly to this web page.
 
 ##### Luiz Felipe 07/10/2019 11:25:27
@@ -639,7 +639,7 @@ but this one , even though i get no errors, returns None
 
 nvm it's a Motor, getMotor works fine
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 02/11/2020 11:06:26
+##### Olivier Michel [Cyberbotics] 02/11/2020 11:06:26
 Yes, you should use `getMotor` instead.
 
 ##### 🍎小苹果🍎 02/11/2020 15:31:50
@@ -798,7 +798,7 @@ You're welcome
 ##### PymZoR [Premier Service] 04/21/2020 15:59:54
 Hi ! Documentation content seems off since a few minutes
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/21/2020 16:01:39
+##### Olivier Michel [Cyberbotics] 04/21/2020 16:01:39
 Yes, that's right. Thank you for reporting...
 
 
@@ -819,16 +819,16 @@ Meanwhile, you can revert to the doc embedded inside Webots.
 
 From the Help menu.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:03:35
+##### Simon Steinmann [Moderator] 04/30/2020 10:03:35
 Okay so I finally got it working to quickly and easily calculate any position and orientation of a node relative to any other node. This should be added to the supervisor get\_position and get\_orientation documentation
 
 
 [https://pastebin.com/k7kf4Ez5](https://pastebin.com/k7kf4Ez5)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/30/2020 10:07:41
+##### Olivier Michel [Cyberbotics] 04/30/2020 10:07:41
 That is great. Could you create a PR to add this contribution to the doc? [https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md](https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:08:41
+##### Simon Steinmann [Moderator] 04/30/2020 10:08:41
 Okay will do. Feel free to change or edit it btw.
 
 
@@ -837,37 +837,37 @@ in what way should I insert the code? Linked, directly in the description, or in
 
 a 'expandable box' would be great, no idea how to implement that
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/30/2020 10:16:01
+##### Olivier Michel [Cyberbotics] 04/30/2020 10:16:01
 Yes, that seems to be a good idea. Let me search how to do that...
 
 
 Something like the **Reminder** and **Tips** here: [https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#sensors](https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#sensors) ?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:18:40
+##### Simon Steinmann [Moderator] 04/30/2020 10:18:40
 I think I got it 🙂
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/30/2020 10:19:11
+##### Olivier Michel [Cyberbotics] 04/30/2020 10:19:11
 Great. It's the `%spoiler` keyword.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:24:45
+##### Simon Steinmann [Moderator] 04/30/2020 10:24:45
 added it
 
 
 solved it differently
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/30/2020 10:25:15
+##### Olivier Michel [Cyberbotics] 04/30/2020 10:25:15
 OK, looking forward to review it.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:26:13
+##### Simon Steinmann [Moderator] 04/30/2020 10:26:13
 oh btw, it's kinda weird that get\_orientation returns a 1x9 list, instead of 3x3
 
 
 but I guess changing that would break existing code
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/30/2020 10:28:36
+##### Olivier Michel [Cyberbotics] 04/30/2020 10:28:36
 Yes, we may consider changing it on the develop branch.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:33:59
+##### Simon Steinmann [Moderator] 04/30/2020 10:33:59
 perhaps adding a function? Would be the non destructive way
 
 
@@ -879,16 +879,16 @@ perhaps add get\_orientation\_quaternion while you're at it 😉
 
 most commonly used in ROS and any 3D application. would really be helpfull
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/30/2020 10:35:08
+##### Olivier Michel [Cyberbotics] 04/30/2020 10:35:08
 Yes, that seems to be a good idea.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:36:03
+##### Simon Steinmann [Moderator] 04/30/2020 10:36:03
 A frustrated coder is full of good ideas 😄
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/30/2020 10:37:09
+##### Olivier Michel [Cyberbotics] 04/30/2020 10:37:09
 😁 . But feel free to go ahead with these good idea and propose an implementation with a PR. That shouldn't be very difficult.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:39:36
+##### Simon Steinmann [Moderator] 04/30/2020 10:39:36
 where would I propose that?
 
 
@@ -901,13 +901,13 @@ In particular for feature request:
 
 [https://github.com/cyberbotics/webots/issues/new?template=feature\_request.md](https://github.com/cyberbotics/webots/issues/new?template=feature_request.md)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 04/30/2020 10:54:50
+##### Simon Steinmann [Moderator] 04/30/2020 10:54:50
 submitted it
 
 ##### 🍎小苹果🍎 05/01/2020 16:33:48
 hi !  in emitter-receivers how can I calculate aperture?I couldn't understand. from documentation I understand like when it's -1 it sends to 360 degree I want it  send to only 60
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/01/2020 16:53:21
+##### Olivier Michel [Cyberbotics] 05/01/2020 16:53:21
 Then you should set the aperture field value to 1.0472 rad.
 
 
@@ -963,7 +963,7 @@ Hello everyone,My name is Chaytanya Sinha,I am an engineering student experience
 
 I am interested in How-to Guides for Webots and How-to Guides for robotbenchmark projects to contribute
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 06:37:58
+##### Olivier Michel [Cyberbotics] 05/13/2020 06:37:58
 Hi `@Chaytanya`, please send an introductory e-mail to support@cyberbotics.com along with you CV and we will answer you.
 
 ##### Chaytanya 05/13/2020 06:46:52
@@ -1021,13 +1021,13 @@ Do you prefer to do the pull request directly in master or in an other branch ?
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:07:12
 For doc correction you can target master directly
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 15:22:20
+##### Simon Steinmann [Moderator] 05/13/2020 15:22:20
 `@David Mansolino`  I made a commit here [https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md](https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md)
 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:25:07
 Ok perfect, can you then open a pull-request from the branch where you did the commit so that we can review and merge it?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 15:26:19
+##### Simon Steinmann [Moderator] 05/13/2020 15:26:19
 I can't find my commit
 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:26:46
@@ -1038,7 +1038,7 @@ Did you fork the repo?
 
 `@Simon Steinmann` me neither
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 15:27:46
+##### Simon Steinmann [Moderator] 05/13/2020 15:27:46
 great 😩
 
 
@@ -1047,25 +1047,25 @@ I submitted it April 30th, any way to check all activity? perhaps I submited it 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:35:21
 Let me check if I can find a stale branch, by the way what is your Github username?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 15:37:33
+##### Simon Steinmann [Moderator] 05/13/2020 15:37:33
 simon-steinmann
 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:40:17
 Thank you, I will check and let you know
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 15:53:33
+##### Olivier Michel [Cyberbotics] 05/13/2020 15:53:33
 `@Simon Steinmann`: It's here [https://github.com/cyberbotics/webots/compare/master...Simon-Steinmann:patch-1](https://github.com/cyberbotics/webots/compare/master...Simon-Steinmann:patch-1)
 
 
 You have to click the "Create pull request" button.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 05/13/2020 15:55:41
+##### Simon Steinmann [Moderator] 05/13/2020 15:55:41
 `@Olivier Michel`  thank you so much <3. I created a pull request
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 05/13/2020 15:58:07
+##### Olivier Michel [Cyberbotics] 05/13/2020 15:58:07
 Thank you. We will review it soon.
 
-##### prubhtej Singh 05/19/2020 19:10:22
+##### Prubhtej Singh 05/19/2020 19:10:22
 I just had a small query.
 
 
@@ -1074,7 +1074,7 @@ When was documentation last updated ?
 ##### David Mansolino [Cyberbotics] 05/20/2020 04:50:52
 Hi, the documentation is updated directly from our Github repository, you can see all the latest changes here: [https://github.com/cyberbotics/webots/tree/master/docs](https://github.com/cyberbotics/webots/tree/master/docs)
 
-##### prubhtej Singh 05/20/2020 05:31:12
+##### Prubhtej Singh 05/20/2020 05:31:12
 Thanks for the reply. I'll definitely check it out.
 
 ##### David Mansolino [Cyberbotics] 05/20/2020 05:37:11
@@ -1087,7 +1087,7 @@ I have mailed you the details about me and few doubts about the idea I am intere
 
 Could you please check that out and ping me back
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 06/08/2020 06:20:06
+##### Olivier Michel [Cyberbotics] 06/08/2020 06:20:06
 `@NitishGadangi`: Sure I will.
 
 ##### ana.dospinescu 06/16/2020 20:17:02
@@ -1137,7 +1137,7 @@ double right_encoder_value = wb_position_sensor_get_value(right_position_sensor)
 ##### David Mansolino [Cyberbotics] 06/17/2020 09:42:18
 You're welcome
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 07/07/2020 11:41:29
+##### Simon Steinmann [Moderator] 07/07/2020 11:41:29
 `@David Mansolino` I created a PR [https://github.com/cyberbotics/webots/pull/1879](https://github.com/cyberbotics/webots/pull/1879)
 
 ##### David Mansolino [Cyberbotics] 07/07/2020 11:51:08
@@ -1207,7 +1207,7 @@ In any case, to get familiar with the Webots-ros interface, you should probably 
 
 [http://wiki.ros.org/webots\_ros/Tutorials/Sample%20Simulations](http://wiki.ros.org/webots_ros/Tutorials/Sample%20Simulations)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 09:17:21
+##### Simon Steinmann [Moderator] 09/21/2020 09:17:21
 `@Stefania Pedrazzi` I created an issue about the high cpu usage on <extern> waiting
 
 
@@ -1225,7 +1225,7 @@ It is not possible to launch Webots without GUI, but there are options to avoid 
 
 - run the simulation in `fast` mode (`--mode=fast` in starting option) to disable rendering of the main 3D view
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 09:37:08
+##### Simon Steinmann [Moderator] 09/21/2020 09:37:08
 webots has a fairly large memory footprint. 1.1GB with only a very small and simple simulation. Any methods to decrease that?
 
 
@@ -1249,13 +1249,13 @@ By the way I don't think that the heap is shared between different processes.
 
 We regularly run successfully multiple Webots instances on power enough machines.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 09:56:08
+##### Simon Steinmann [Moderator] 09/21/2020 09:56:08
 is there  documentation for multiple instances?
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 09:56:42
 no. What kind of documentation do you need?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 09:57:28
+##### Simon Steinmann [Moderator] 09/21/2020 09:57:28
 I remember reading somewhere, that you have to specify the PID of the webots process you want to connect to
 
 
@@ -1270,7 +1270,7 @@ Are you using ROS or extern controllers?
 
 Otherwise if the simulation quits itself, you don't need to know the PID of the process
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 10:02:16
+##### Simon Steinmann [Moderator] 09/21/2020 10:02:16
 [https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#multiple-concurrent-simulations](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#multiple-concurrent-simulations)
 
 
@@ -1299,7 +1299,7 @@ The starting options I pointed out are the way to start Webots in the minimal wa
 
 To inspect memory you could use `valgrind` [https://github.com/cyberbotics/webots/wiki/Valgrind](https://github.com/cyberbotics/webots/wiki/Valgrind)
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 10:11:00
+##### Simon Steinmann [Moderator] 09/21/2020 10:11:00
 I tried started webots like you suggested:
 
 webots --batch --minimize --mode=fast
@@ -1332,7 +1332,7 @@ Hi! is there an example for closed loop control of a robot in the sample worlds?
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 10:59:36
 `@Simon Steinmann` to compile in debug mode simply type `make debug -jX`.  For R2021a you have to choose the `develop` branch . I will fix the number of cores in the documentation.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:00:17
+##### Simon Steinmann [Moderator] 09/21/2020 11:00:17
 `@Stefania Pedrazzi` thanks! Please add the 'debug' as well in the documentation
 
 
@@ -1341,7 +1341,7 @@ it is 'debug' and not '-debug' or '--debug' ?
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 11:01:14
 yes, it is `make debug`. This a standard Makefile command
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:01:21
+##### Simon Steinmann [Moderator] 09/21/2020 11:01:21
 thx 🙂
 
 
@@ -1360,7 +1360,7 @@ but please include it in the documentation. Not everyone is very familiar with c
 
 `@Simon Steinmann` the wiki page already points out that you can get all the available targets (including for debugging) by running `make help`.
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:12:46
+##### Simon Steinmann [Moderator] 09/21/2020 11:12:46
 😅  reading would help
 
 
@@ -1378,7 +1378,7 @@ it will screw things up if people install it somewhere else
 ##### R\_ 09/21/2020 11:14:08
 Thank you! `@Justin Fisher` `@Stefania Pedrazzi`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:15:20
+##### Simon Steinmann [Moderator] 09/21/2020 11:15:20
 
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155720933146637/757560595988873246/unknown.png)
@@ -1387,7 +1387,7 @@ Thank you! `@Justin Fisher` `@Stefania Pedrazzi`
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 11:15:44
 `@Simon Steinmann` you should properly set the `WEBOTS_HOME` environment variable
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:15:55
+##### Simon Steinmann [Moderator] 09/21/2020 11:15:55
 it is properly set
 
 
@@ -1402,7 +1402,7 @@ Did you adjust the bashrc values to match your environment?
 
 for ros issue you should try to reset the `ROS_DISTRO` variable before compiling Webots
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:26:03
+##### Simon Steinmann [Moderator] 09/21/2020 11:26:03
 I fixed it, for some reason, resources/webots\_ros was modified. I reverted the change and  pulled again
 
 
@@ -1417,7 +1417,7 @@ should I do the 3.12 fix, mentioned in the documentation?
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 11:31:03
 you should first check that the LD\_LIBRARY\_PATH contains `$WEBOTS_HOME/lib/webots`
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:31:44
+##### Simon Steinmann [Moderator] 09/21/2020 11:31:44
 let me check, it seems the old installation is still interfering
 
 
@@ -1431,7 +1431,7 @@ this seems a configuration issue and not a valgrind issue.
 
 do you get the same error if you start webots only with `bin/webots-bin` (without valgrind)?
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 11:53:38
+##### Simon Steinmann [Moderator] 09/21/2020 11:53:38
 that started fine. I'm now redoing everything in /home/webots
 
 
@@ -1448,7 +1448,7 @@ Yes, I didn't change it at the end, because the computation was correct.
 
 `@Simon Steinmann` it is already mentioned in the wiki page
 
-##### Simon Steinmann [ROS 2 Meeting-Moderator] 09/21/2020 13:36:35
+##### Simon Steinmann [Moderator] 09/21/2020 13:36:35
 In the end it doesnt matter much, but a note, that the number is different from your threadcount, could help
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 13:37:27
@@ -1485,13 +1485,13 @@ But usually Webots models doesn't contain power usage information,  so you shoul
 ##### vinwan 11/19/2020 07:28:39
 How can i use python multiprocessing module in webots?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/19/2020 07:58:25
+##### Darko Lukić [Cyberbotics] 11/19/2020 07:58:25
 Hello `@vinwan` , Webots should support the Python multiprocessing module out-of-the-box. Just make sure everything is synced with `step()`
 
 ##### vinwan 11/19/2020 09:18:48
 Hello `@Darko Lukić`  Thank you for replying . I just started using webots and i don't know how to sync everything with step() . Is there any documentation i can read about it ?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 11/19/2020 10:53:34
+##### Darko Lukić [Cyberbotics] 11/19/2020 10:53:34
 `@vinwan` Welcome to Webots!
 
 
@@ -1525,7 +1525,7 @@ I was about to ask for webot time step documentation. Curious question: is there
 
 For your references, how I turn robot based on speed and timing: [https://youtu.be/CDOrTKQAOqs](https://youtu.be/CDOrTKQAOqs)
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 11/23/2020 07:58:05
+##### Olivier Michel [Cyberbotics] 11/23/2020 07:58:05
 `@KajalGada`: there is actually a reason for using a multiple of 32 millisecond for the controller step: it is easy to divide by two several times. And that can be useful. Let's imagine you choose a `WorldInfo.basicTimeStep` of 32 milliseconds and a robot controller step of 32 milliseconds, so that both are in sync, which is optimal performance-wise. But, it turns out that the physics of your simulation is unstable. Then, dividing the `WorldInfo.basicTimeStep`, so that you get 16 should help improving the stability and will not affect the controller program as both will be in sync every two basic time step. If dividing by two is not enough, you can divide by two again and get 8, and continue with 4, 2 and 1. In every case, your controller will be in sync with the simulation physics step, which contributes to make the simulation efficient and stable.
 
 ##### F\_Nadi 11/24/2020 07:31:05
@@ -1537,7 +1537,7 @@ That is smart, thank you for the explaination Olivier 🙂
 ##### j-ub 12/03/2020 13:30:30
 Hi there! I'm trying to control a quadricopter iin webots by using ROS and extern controller from VisualStudio code. I previously made the controller in C and runned it from the webots interface but I'm bit lost about how to face the new requirements (extern controller+ROS). I got how the . launch file is running the .wbt file but i don't know the way the .cpp node is joining with the quadricopter (mavic2pro) in the simulation and providing it of a controller. So.. I have few question i would be glad if someone could guide me a bit through.. 1st.- Is this the only way to work with webots+extern\_controller+ROS?.. It is necessary to use the .cpp file in src folder?, 2nd.- Could the .cpp file be replaced for a .py file so i won't have to C++ programming? and 3rd.- If the answer of 2nd question is a "no".. there is some documentation explaining the complete\_test.cpp file or at least the robot\_information\_parser file? The code looks bit wide and complex for me.. Thank in advance:)
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/03/2020 13:48:12
+##### Darko Lukić [Cyberbotics] 12/03/2020 13:48:12
 Hello `@j-ub` 
 
 >  Is this the only way to work with webots+extern\_controller+ROS
@@ -1559,7 +1559,7 @@ Let me know if this covers 3rd question as well 🙂
 ##### j-ub 12/03/2020 14:10:37
 well.. first of all thank you for your quick answer:) . Maybe I didin't explain myself good enought in the 3rd question xd, It could be changed for the following "Is it some documentation wider than the one that become inside the complete\_test and the robot\_information\_parser file?" But for the moment, I think I'm going to investigate deeper about how to use the ros controller instead the <extern> one and .py files so your answer is good enought for me. Thanks a lot!
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/03/2020 14:38:40
+##### Darko Lukić [Cyberbotics] 12/03/2020 14:38:40
 Maybe these tutorials:
 
 [http://wiki.ros.org/webots](http://wiki.ros.org/webots)
@@ -1586,7 +1586,7 @@ I have already made the tutorials anyway I guess I should dedicate a bit more ti
 
 probably the questions need a wide explanation.. maybe due to my lack of knowledge in this subject.. anyway whatever info or ideas for a better understanding will be gladly taken. thanks again
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/03/2020 15:41:06
+##### Darko Lukić [Cyberbotics] 12/03/2020 15:41:06
 > For example, could you tell me how the nodes ros\_controller.py and ros\_python.py work together
 
 `ros_controller.py` is an example of a ROS node, not relavant to Webots. It just makes the robot do something.
@@ -1616,13 +1616,13 @@ Under-the-hood it looks something like this:
 ##### j-ub 12/03/2020 16:00:51
 Ok, that was very revealing. thanks `@Darko Lukić` for clarifying those many doubts, now I have some work waiting for me 😉
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/03/2020 16:03:23
+##### Darko Lukić [Cyberbotics] 12/03/2020 16:03:23
 Great, let us know if we can help you with something else 🙂
 
 ##### j-ub 12/03/2020 16:05:58
 Sure, I will. Have a nice evening!
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/03/2020 17:18:36
+##### Darko Lukić [Cyberbotics] 12/03/2020 17:18:36
 Thanks, have a nice evening!
 
 ##### j-ub 12/04/2020 14:18:04
@@ -1635,7 +1635,7 @@ The point is when I’m trying to print anything (before the main loop or inside
 
 Thanks in advance
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 12/04/2020 15:31:29
+##### Darko Lukić [Cyberbotics] 12/04/2020 15:31:29
 The external Webots controller doesn't print to Webots console, but to the terminal from which it is launched. Then you should check whether the standard output is redirected to `screen`:
 
 ```
@@ -1653,13 +1653,13 @@ I was trying to make the .launch file openning another .py script that could pri
 ##### Diego Rojas 12/07/2020 19:26:28
 Is it possible to change a robot end effector dynamically during a running simulation? I currently have three end effectors for my robot and I need those three tools to complete a robot repair in simulation. I want to change the robot tool while the simulation is running to demonstrate a complete robotic repair. Currently, I have to restart the simulation and load a new end effector with controller every time I want to switch EE.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/08/2020 06:36:15
+##### Olivier Michel [Cyberbotics] 12/08/2020 06:36:15
 Yes, this is possible using a supervisor to remove the node corresponding to the tool from the tool slot and add a new node corresponding to the new tool in the tool slot. You will however need to use the latest nightly builds of Webots R2021a.
 
 ##### Diego Rojas 12/08/2020 06:43:07
 `@Olivier Michel` Sounds great! This may be a silly question, but is Webots R2021a passing on Ros2 foxy? I have ros2, moveit2, working with the universal packages in webots R2019b. Are the ros2\_universal\_robot packages the same in R2021a?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 12/08/2020 06:46:09
+##### Olivier Michel [Cyberbotics] 12/08/2020 06:46:09
 Yes, exactly the same.
 
 ## 2021
@@ -1673,7 +1673,7 @@ Hi, I am using webots for my graduation project and I am working on the Nao robo
 ##### AdityaDutt 01/12/2021 15:37:04
 are there any debugging tools available in webots? Like step through code, etc.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/12/2021 16:41:00
+##### Olivier Michel [Cyberbotics] 01/12/2021 16:41:00
 Yes, you can use gdb (although it's not fully integrated into Webots).
 
 ##### prophile 01/21/2021 22:58:17
@@ -1706,19 +1706,19 @@ It seems (?) this has fixed itself since. 🎉
 
 No, never mind, the reference is still definitely borked 🙁
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/22/2021 08:29:30
+##### Olivier Michel [Cyberbotics] 01/22/2021 08:29:30
 I cannot reproduce this problem. For me [https://cdn.jsdelivr.net/gh/cyberbotics/webots@released/docs/css/webots-doc.css](https://cdn.jsdelivr.net/gh/cyberbotics/webots@released/docs/css/webots-doc.css) works. Can you try again?
 
 ##### TheOrangeOne 01/22/2021 13:04:34
 Seems to be working on now, perhaps an issue with the CDN
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 01/22/2021 13:41:31
+##### Olivier Michel [Cyberbotics] 01/22/2021 13:41:31
 Probably. Anyhow thank you for reporting it and for your feedback.
 
 ##### ahforoughi 01/26/2021 20:59:48
 Hi guys is there any sample robotic arm in webots that use to train with a actor-critic algorithm!?
 
-##### Darko Lukić [ROS 2 Meeting-Cyberbotics] 01/27/2021 07:48:46
+##### Darko Lukić [Cyberbotics] 01/27/2021 07:48:46
 `@ahforoughi` 
 
 Here is a tutorial about Actor-Critic algorithm and Open AI Gym:
@@ -1821,10 +1821,10 @@ is there something wrong with the documentation page on website?
 ![unknown.png](https://cdn.discordapp.com/attachments/565155720933146637/822921967689662489/unknown.png)
 %end
 
-##### harunkurt00 03/20/2021 20:03:57
+##### baby\_droid\_yoda 03/20/2021 20:03:57
 Yes , same with me this documentation website
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/22/2021 07:26:31
+##### Olivier Michel [Cyberbotics] 03/22/2021 07:26:31
 I believe this is now fixed.
 
 ##### Shyam 03/22/2021 10:37:54
@@ -1836,7 +1836,7 @@ Is anyone else having issues with the docs page?
 ![unknown.png](https://cdn.discordapp.com/attachments/565155720933146637/824308871422017536/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/24/2021 15:50:50
+##### Olivier Michel [Cyberbotics] 03/24/2021 15:50:50
 Can you check again now?
 
 ##### Westin 03/24/2021 15:51:01
@@ -1848,7 +1848,7 @@ There is also an issue in the webots download link. Pressing the drop down butto
 ![unknown.png](https://cdn.discordapp.com/attachments/565155720933146637/824309651982123028/unknown.png)
 %end
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/24/2021 15:53:14
+##### Olivier Michel [Cyberbotics] 03/24/2021 15:53:14
 Strange, I don't get any 404 with the main button...
 
 
@@ -1863,13 +1863,13 @@ Which is your operating system?
 ##### Westin 03/24/2021 15:56:25
 I'm not having the issue now. I tried on Edge and Chrome on Windows 10 and got the same result each time.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/24/2021 15:57:13
+##### Olivier Michel [Cyberbotics] 03/24/2021 15:57:13
 Do you mean the issue disappeared suddenly?
 
 ##### Westin 03/24/2021 15:59:40
 Yes I loaded the page again after a few minutes and it displays properly.
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 03/24/2021 15:59:56
+##### Olivier Michel [Cyberbotics] 03/24/2021 15:59:56
 Strange...
 
 ##### Westin 03/24/2021 16:00:39
@@ -1890,7 +1890,7 @@ This is wrong for the Pioneer 3 DX and AT
 ##### Srivastav\_Udit 04/08/2021 06:46:44
 Is there any particular reason why the sensors orientation on the epuck is the way it is?
 
-##### Olivier Michel [ROS 2 Meeting-Cyberbotics] 04/08/2021 06:47:18
+##### Olivier Michel [Cyberbotics] 04/08/2021 06:47:18
 It corresponds to the orientation on the real robot.
 
 ##### Stefania Pedrazzi [Cyberbotics] 04/08/2021 06:57:14
@@ -1909,4 +1909,145 @@ I just checked the sensors position in the simulation and their response to obje
 
 ##### reinaldobianchi 04/10/2021 20:46:00
 Thanks! Now I finally understand how it works.
+
+##### ShuffleWire 05/05/2021 23:49:55
+In the coding style page [https://github.com/cyberbotics/webots/wiki/CPP-Coding-Style](https://github.com/cyberbotics/webots/wiki/CPP-Coding-Style), the first link in #CS300  [https://github.com/cyberbotics/webots/blob/master/.clang-format](https://github.com/cyberbotics/webots/blob/master/.clang-format) is dead. But I wasn't comfortable to open an issue just for that...
+
+##### Olivier Michel [Cyberbotics] 05/06/2021 05:31:44
+Thank you for reporting this. I just fixed it.
+
+##### mmoralesp 05/07/2021 15:49:25
+Hello Everyone!,  I am working on a project for my university on ROS and Webots, I am trying to control two epuck in the same Webots environment with ROS but I am not able to make them work, as if I can do it with only one epuck. I would like to know if anyone has tried to do this and if you could help me thanks.
+
+##### Darko Lukić [Cyberbotics] 05/10/2021 09:20:53
+It should work with multiple robots without problems. To each robot, the `ros` controller adds an unique prefix to all topics and services. What was the issue?
+
+##### Azhagan 05/12/2021 14:42:49
+hello
+
+
+I am azhagan, and i am new to webots , how can i start with it
+
+##### DDaniel [Cyberbotics] 05/12/2021 15:10:04
+`@Azhagan` Hi, you can start by installing it [https://cyberbotics.com/doc/guide/installing-webots](https://cyberbotics.com/doc/guide/installing-webots), then follow the "getting started" guide to learn how to navigate the interface: [https://cyberbotics.com/doc/guide/getting-started-with-webots](https://cyberbotics.com/doc/guide/getting-started-with-webots), and finally do the tutorials: [https://cyberbotics.com/doc/guide/tutorials](https://cyberbotics.com/doc/guide/tutorials).
+
+##### Azhagan 05/12/2021 15:52:12
+thanks !!
+
+##### Chrimo 05/12/2021 22:04:43
+Hi all, is there any example for using GPS with ros2/webots available ? TIA
+
+##### raerae 05/13/2021 09:47:08
+Hi guys, I'm new here. I just want to ask, is there a possible method to export Solidworks model to Webots that will include its original appearance?
+
+##### Darko Lukić [Cyberbotics] 05/14/2021 06:34:50
+No, but if you include a GPS device in your PROTO you should be getting `NavSatFix` messages. I guess you tried the `webots_ros2` package:
+
+[https://github.com/cyberbotics/webots\_ros2](https://github.com/cyberbotics/webots_ros2)
+
+##### Affonso 05/14/2021 19:36:57
+Hi, I have a doubt about HingeJoints, what parameters I use to set the position of joinParameters?
+
+##### DDaniel [Cyberbotics] 05/14/2021 19:44:23
+`@Affonso` Hi, the current position of the HingeJoint is defined by the field `position` inside the `HingeJointParameters` node. If you intend to manually change with a text editor (changing the world file directly) you need to remember to also change the translation/rotation of the corresponding `endPoint` Solid to keep things consistent. If instead you change it from the interface, it automatically updates the solid as well.
+
+##### mmoralesp 05/14/2021 21:34:11
+Hi, the problem is when I start the launch and then i start the publisher with the velocity, no robot moves, but when there is only one robot it moves.
+
+##### Darko Lukić [Cyberbotics] 05/17/2021 06:42:39
+Can you share more details? Can you list the topics (`rostopic list`)?
+
+##### BlueShrapnel 05/17/2021 06:42:44
+Okay
+
+##### mmoralesp 05/17/2021 21:13:59
+Hi, im using ros2, with only one robot (epuck) it works find, the robot moves on
+
+
+This is the scenario
+%figure
+![Captura_de_pantalla_de_2021-05-17_23-21-31.png](https://cdn.discordapp.com/attachments/565155720933146637/843961774293385216/Captura_de_pantalla_de_2021-05-17_23-21-31.png)
+%end
+
+
+When i launch the vel publisher whit only one robot in the scenario it works well
+
+
+but with two, it doesn't work
+
+##### Darko Lukić [Cyberbotics] 05/18/2021 07:22:34
+You can check this example:
+
+[https://github.com/cyberbotics/webots\_ros2/blob/master/webots\_ros2\_demos/launch/armed\_robots.launch.py](https://github.com/cyberbotics/webots_ros2/blob/master/webots_ros2_demos/launch/armed_robots.launch.py)
+
+
+
+Does your launch file looks similar?
+
+##### TheGiant 05/18/2021 10:35:13
+`@Olivier Michel` about : [https://github.com/cyberbotics/webots/issues/3075](https://github.com/cyberbotics/webots/issues/3075), I do actually enjoy offline doc 🙂 Maybe add a button to get it offline in one go ? And then open it/browse it in a regular browser. Additionally, I love the "Help..." button when right click on an item, which bring immediately to the right doc page 🙂
+
+However, I understand that it's rather heavy, and removing the viewer could be a nice cleanup.
+
+##### mmoralesp 05/18/2021 17:11:22
+Hi, this is my launcher
+%figure
+![unknown.png](https://cdn.discordapp.com/attachments/565155720933146637/844260892518514758/unknown.png)
+%end
+
+
+For set the velocity i have another controller that i launch from another terminal
+
+
+but only works when i had a unique robot
+
+##### Darko Lukić [Cyberbotics] 05/19/2021 07:35:02
+It should be `executable='driver'` for both robots and you should verify whether the robot names (`--webots-robot-name`) match the names in the world file.
+
+##### mmoralesp 05/19/2021 15:27:43
+Hi `@Darko Lukić` , thanks a lot for your help, it works for me and now the robots get the velocity and move
+
+##### medrimonia 05/21/2021 13:00:05
+Hi everyone, I am under the impression that using the function `wb_supervisor_field_import_mf_node_from_string` only support import of PROTO files listed in the `Webots Projects` and not from the PROTO nodes from the `Current Project`. Am I right and is it the expected behavior? I did not found anything related to that in the documentation and that was not very intuitive to me.
+
+##### Maël Wildi [Cyberbotics] 05/21/2021 13:25:02
+Hi `@medrimonia`, it should be possible to import PROTO from your `Current Project` using `wb_supervisor_field_import_mf_node_from_string`. Do you get any error on your side ?
+
+##### medrimonia 05/21/2021 13:29:30
+I systematically got the following error while it was located in the `protos` folder of my active project: `ERROR: Skipped unknown 'XXX' node or PROTO.`  (I tried several different robots for this). Moving the proto inside a project in the `WEBOTS_HOME` solved this.
+
+
+To reduce the risk that my folder structure was inappropriate or something similar I just checked and I was able to see the PROTO file when adding the robot through the GUI (listed in current project)
+
+##### DDaniel [Cyberbotics] 05/21/2021 13:35:44
+Just to be sure, does the name of the file itself match the name inside the proto file?
+
+##### medrimonia 05/21/2021 13:36:14
+My bad... I noticed the tree structure of my project was still invalid... I had the world listed in a directory named `world` and not in a directory named `worlds` changing the name of the directory did fix the issue...
+
+
+(sorry for the invalid comment then, I *thought* I did enough preliminary checks before asking it)
+
+##### Maël Wildi [Cyberbotics] 05/21/2021 13:40:04
+No problem!
+
+##### KC 05/22/2021 17:17:52
+Hi
+
+Can anyone recommend my some good resources on how can I add grippers or something like that to an existing robot in Webots? (Like adding a robotic arm to a Khepera IV robot)
+
+##### DDaniel [Cyberbotics] 05/24/2021 15:51:22
+`@KC` Hi, the `khepera3_gripper` robot available in the sample worlds has a gripper, you can take inspiration from that I suppose
+
+##### Affonso 06/01/2021 17:47:51
+Hey, I'm working on a robot for a competition and we are using Webots to simulate that robot, as it is very important to control the speed of the robot, we want to know how to convert pwm to speed in the simulator
+
+##### Darko Lukić [Cyberbotics] 06/02/2021 07:21:46
+One approach would be to establish a relation between voltage (PWM) and torque of the motor. So, based on the real-world measurements you should get `f(voltage) -> torque`. Then you can simply control a torque of the motor using `wb_motor_set_torque`:
+
+[https://cyberbotics.com/doc/reference/motor?version=develop#wb\_motor\_set\_torque](https://cyberbotics.com/doc/reference/motor?version=develop#wb_motor_set_torque)
+
+
+
+Converting PWM to speed is probably not a good idea since a load on the motor may vary (except the PWM controls a set-point).
 

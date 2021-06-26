@@ -30,7 +30,7 @@ endif
 
 WB_ODE_INCLUDE           = $(QT_CORE_INCLUDE) $(QT_GUI_INCLUDE) $(ODE_INCLUDE) $(WREN_INCLUDE) $(CONTROLLER_INCLUDE) -Iapp -Icore -Imaths -Inodes -Inodes/utils -Ivrml -Iengine
 WB_MATHS_INCLUDE         = $(QT_CORE_INCLUDE)
-WB_CORE_INCLUDE          = $(QT_CORE_INCLUDE) $(QT_NETWORK_INCLUDE) $(QT_GUI_INCLUDE) $(LUA_INCLUDE) -Iexternal/compilation_timestamp
+WB_CORE_INCLUDE          = $(QT_CORE_INCLUDE) $(QT_NETWORK_INCLUDE) $(QT_GUI_INCLUDE) $(QT_QML_INCLUDE) $(LUA_INCLUDE) -Iqml -Iexternal/compilation_timestamp
 WB_UTIL_INCLUDE          = $(QT_CORE_INCLUDE) $(ODE_INCLUDE) -Icore
 WB_WREN_INCLUDE          = $(QT_CORE_INCLUDE) $(QT_GUI_INCLUDE) $(QT_OPENGL_INCLUDE) $(WREN_INCLUDE) $(GLU_INCLUDE) -Icore -Imaths -Ivrml -Iutil
 WB_VRML_INCLUDE          = $(QT_CORE_INCLUDE) -Icore -Imaths -Ivrml
@@ -79,6 +79,7 @@ QT_GUI_INCLUDE     = -isystem $(FRAMEWORKS)/QtGui.framework/Headers
 QT_WIDGETS_INCLUDE = -isystem $(FRAMEWORKS)/QtWidgets.framework/Headers
 QT_OPENGL_INCLUDE  = -isystem $(FRAMEWORKS)/QtOpenGL.framework/Headers
 QT_PRINT_SUPPORT_INCLUDE  = -isystem $(FRAMEWORKS)/QtPrintSupport.framework/Headers
+QT_QML_INCLUDE     = -isystem $(FRAMEWORKS)/QtQml.framework/Headers
 QT_NETWORK_INCLUDE = -isystem $(FRAMEWORKS)/QtNetwork.framework/Headers
 QT_WEB_INCLUDE     = -isystem $(FRAMEWORKS)/QtWebEngineWidgets.framework/Headers -isystem $(FRAMEWORKS)/QtWebChannel.framework/Headers
 QT_WEBSOCKETS_INCLUDE = -isystem $(FRAMEWORKS)/QtWebSockets.framework/Headers
@@ -88,7 +89,7 @@ GLU_INCLUDE        = -I$(WEBOTS_DEPENDENCY_PATH)/glu-9.0.0/include
 ASSIMP_INCLUDE     = -I$(WEBOTS_DEPENDENCY_PATH)/assimp/include
 LD_FLAGS           = -mmacosx-version-min=$(MACOSX_MIN_SDK_VERSION) -L$(WEBOTS_LIB_PATH) -lopenal -lOIS -lcrypto -lpico -llua -lassimp -Xlinker -rpath -Xlinker @loader_path/../..
 MOC                =  $(WEBOTS_PATH)/bin/qt/moc
-LIBS_FRAMEWORKS    = -F$(FRAMEWORKS) -framework OpenGL -framework QtCore -framework QtGui -framework QtPrintSupport -framework QtNetwork -framework QtOpenGL -framework QtWebSockets -framework QtWidgets -framework QtWebChannel -framework QtWebEngine -framework QtWebEngineCore -framework QtWebEngineWidgets  -framework QtXml -framework IOKit -framework CoreFoundation -framework Cocoa
+LIBS_FRAMEWORKS    = -F$(FRAMEWORKS) -framework OpenGL -framework QtCore -framework QtGui -framework QtPrintSupport -framework QtQml -framework QtNetwork -framework QtOpenGL -framework QtWebSockets -framework QtWidgets -framework QtWebChannel -framework QtWebEngine -framework QtWebEngineCore -framework QtWebEngineWidgets  -framework QtXml -framework IOKit -framework CoreFoundation -framework Cocoa
 LIBS              += $(WEBOTS_DEPENDENCY_PATH)/freetype-2.9/objs/.libs/libfreetype.a $(WEBOTS_DEPENDENCY_PATH)/glu-9.0.0/libminiglu.a -bind_at_load $(LIBS_FRAMEWORKS) $(LIB_WREN)
 CFLAGS             = -isysroot $(MACOSX_SDK_PATH) -mmacosx-version-min=$(MACOSX_MIN_SDK_VERSION)
 CXXFLAGS           = -std=c++11 -F$(FRAMEWORKS) -x objective-c++
@@ -113,6 +114,7 @@ QT_CORE_INCLUDE    = -isystem $(WEBOTS_PATH)/include/qt/QtCore
 QT_GUI_INCLUDE     = -isystem $(WEBOTS_PATH)/include/qt/QtGui
 QT_WIDGETS_INCLUDE = -isystem $(WEBOTS_PATH)/include/qt/QtWidgets
 QT_PRINT_SUPPORT_INCLUDE = -isystem $(WEBOTS_PATH)/include/qt/QtPrintSupport
+QT_QML_INCLUDE     = -isystem $(WEBOTS_PATH)/include/qt/QtQml
 QT_OPENGL_INCLUDE  = -isystem $(WEBOTS_PATH)/include/qt/QtOpenGL
 QT_NETWORK_INCLUDE = -isystem $(WEBOTS_PATH)/include/qt/QtNetwork
 QT_WEB_INCLUDE  = -isystem $(WEBOTS_PATH)/include/qt/QtWebEngineCore -isystem $(WEBOTS_PATH)/include/qt/QtWebEngineWidgets -isystem $(WEBOTS_PATH)/include/qt/QtWebChannel
@@ -123,7 +125,7 @@ TARGET             = $(WEBOTS_PATH)/bin/webots-bin
 CFLAGS             = -fPIC
 CXXFLAGS           = -std=c++11
 MOC                = $(WEBOTS_PATH)/bin/qt/moc
-LIBS              += $(WEBOTS_DEPENDENCY_PATH)/lua-5.2.3/src/liblua.a $(LIB_WREN) -Wl,-rpath $(WEBOTS_LIB_PATH) -L$(WEBOTS_LIB_PATH) -lQt5Core -lQt5Network -lQt5Gui -lQt5OpenGL -lQt5WebSockets -lQt5Widgets -lQt5PrintSupport -lQt5WebEngine -lQt5WebEngineCore -lQt5WebEngineWidgets -lQt5Multimedia -lQt5MultimediaWidgets -lQt5Sql -lQt5Sensors -lQt5WebChannel -lQt5Xml -lopenal -lGL -lusb -lGLU -ldl -lOIS -lcrypto -lpico -lfreetype -lassimp -lrt
+LIBS              += $(WEBOTS_DEPENDENCY_PATH)/lua-5.2.3/src/liblua.a $(LIB_WREN) -Wl,-rpath $(WEBOTS_LIB_PATH) -L$(WEBOTS_LIB_PATH) -lQt5Core -lQt5Network -lQt5Gui -lQt5OpenGL -lQt5WebSockets -lQt5Widgets -lQt5PrintSupport -lQt5Qml -lQt5WebEngine -lQt5WebEngineCore -lQt5WebEngineWidgets -lQt5Multimedia -lQt5MultimediaWidgets -lQt5Sql -lQt5Sensors -lQt5WebChannel -lQt5Xml -lopenal -lGL -lusb -lGLU -ldl -lOIS -lcrypto -lpico -lfreetype -lassimp -lrt
 LD_FLAGS           = -rdynamic
 EXTRA_CMD          = cp launcher/webots-linux.sh $(WEBOTS_PATH)/webots && chmod 755 $(WEBOTS_PATH)/webots
 FILES_TO_REMOVE    = $(WEBOTS_PATH)/webots
@@ -132,7 +134,7 @@ ifeq ($(MAKECMDGOALS), profile)
 LIB_ODE = ../ode/libode.a
 LIBS += $(LIB_ODE) -lpthread
 else
-LIBS += -lode
+LIBS += -lode -lpthread
 endif
 
 else ifeq ($(OSTYPE),windows)
@@ -145,6 +147,7 @@ QT_CORE_INCLUDE    = -isystem $(WEBOTS_PATH)/include/qt/QtCore
 QT_GUI_INCLUDE     = -isystem $(WEBOTS_PATH)/include/qt/QtGui -isystem $(WEBOTS_PATH)/include/qt/QtPlatformHeaders
 QT_WIDGETS_INCLUDE = -isystem $(WEBOTS_PATH)/include/qt/QtWidgets
 QT_PRINT_SUPPORT_INCLUDE = -isystem $(WEBOTS_PATH)/include/qt/QtPrintSupport
+QT_QML_INCLUDE     = -isystem $(WEBOTS_PATH)/include/qt/QtQml
 QT_OPENGL_INCLUDE  = -isystem $(WEBOTS_PATH)/include/qt/QtOpenGL
 QT_NETWORK_INCLUDE = -isystem $(WEBOTS_PATH)/include/qt/QtNetwork
 QT_WEB_INCLUDE = -isystem $(WEBOTS_PATH)/include/qt/QtWebKitWidgets -isystem $(WEBOTS_PATH)/include/qt/QtWebKit
@@ -157,7 +160,7 @@ CFLAGS            = -isystem /mingw64/lib/libzip/include
 CXXFLAGS          = -std=c++11 -D_USE_MATH_DEFINES
 MOC               = moc
 MOC_FLAGS        += -D_WIN32
-LIBS             += $(LIB_WREN) -L$(TARGET_PATH) -L/mingw64/bin -L/mingw64/lib -lQt5Core -lQt5Network -lQt5Gui -lQt5OpenGL -lQt5WebSockets -lQt5Widgets -lQt5PrintSupport -lQt5WebKit -lQt5WebKitWidgets -lQt5Xml -lode -lopenal -lcrypto -lopengl32 -liphlpapi -ld3d9 -lgdi32 -lglu32 -lOIS -ldinput8 -ldxguid -lole32 -lsapi -loleaut32 -luuid -lpico -llua52 -lfreetype-6 -lopenvr_api -lassimp
+LIBS             += $(LIB_WREN) -L$(TARGET_PATH) -L/mingw64/bin -L/mingw64/lib -lQt5Core -lQt5Network -lQt5Gui -lQt5OpenGL -lQt5WebSockets -lQt5Widgets -lQt5PrintSupport -lQt5Qml -lQt5WebKit -lQt5WebKitWidgets -lQt5Xml -lode -lopenal -lcrypto -lopengl32 -liphlpapi -ld3d9 -lgdi32 -lglu32 -lOIS -ldinput8 -ldxguid -lole32 -lsapi -loleaut32 -luuid -lpico -llua52 -lfreetype-6 -lopenvr_api -lassimp
 LD_FLAGS          = -Wl,--enable-auto-import
 EXTRA_CMD         = cp launcher/webots-bin.exe.config $(TARGET_PATH)/
 FILES_TO_REMOVE   = $(TARGET_PATH)/webots-bin.exe.config
@@ -188,7 +191,7 @@ WREN_INCLUDE 	  += -Iwren
 INCLUDE            = $(ALL_INCLUDE) $(CONTROLLER_INCLUDE) $(ODE_INCLUDE) $(QT_CORE_INCLUDE) $(QT_GUI_INCLUDE) $(QT_WIDGETS_INCLUDE) $(QT_PRINT_SUPPORT_INCLUDE) $(QT_OPENGL_INCLUDE) $(QT_NETWORK_INCLUDE) $(QT_WEB_INCLUDE) $(LUA_INCLUDE) $(OIS_INCLUDE) $(OPENAL_INCLUDE) $(PICO_INCLUDE) $(WREN_INCLUDE) $(GLU_INCLUDE) $(FREETYPE_INCLUDE) $(STB_INCLUDE) $(ASSIMP_INCLUDE)
 
 ifeq ($(MAKECMDGOALS),debug)
-CFLAGS += -g
+CFLAGS += -ggdb
 endif
 
 ifeq ($(TREAT_WARNINGS_AS_ERRORS),1)
@@ -242,6 +245,7 @@ QT_SOURCES += \
   WbBallJointParameters.cpp \
   WbBaseNode.cpp \
   WbBasicJoint.cpp \
+  WbBillboard.cpp \
   WbBoolEditor.cpp \
   WbBox.cpp \
   WbBrake.cpp \
@@ -268,7 +272,6 @@ QT_SOURCES += \
   WbDisplay.cpp \
   WbDockTitleBar.cpp \
   WbDockWidget.cpp \
-  WbDocumentation.cpp \
   WbDoubleEditor.cpp \
   WbDoubleSpinBox.cpp \
   WbDownloader.cpp \
@@ -299,7 +302,6 @@ QT_SOURCES += \
   WbHingeJoint.cpp \
   WbHingeJointParameters.cpp \
   WbHinge2Joint.cpp \
-  WbHtmlExportDialog.cpp \
   WbImageTexture.cpp \
   WbImportWizard.cpp \
   WbImmersionProperties.cpp \

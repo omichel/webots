@@ -1,0 +1,315 @@
+[
+    {
+        "timing" : {
+            "time" : [0,4.5],
+            "clock_type" : "System",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: in fast mode, expecting 5 seconds of INITIAL time",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5.3,
+            "clock_type" : "System",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: reaching SET state automatically",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 1,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "T1. BLUE kicker is properly positioned",
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.8,0.0,0.24],
+                "penalty" : 0
+            },
+            {
+                "name" : "T1. RED goalkeeper is properly positioned",
+                "target" : "RED_PLAYER_1",
+                "position" : [4.47,0.2,0.24],
+                "penalty" : 0
+            },
+            {
+                "name" : "T1. Sanity check: mode is penalty shootout",
+                "secondary_state" : "PENALTYSHOOT",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14],
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "staying 15 seconds in state SET",
+                "state" : "SET"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "T1: automatic transition: SET -> PLAY",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Blue falls",
+        "timing" : {
+            "time" : 25,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2.2,0,0.24],
+                "orientation" : [0,1,0,1.56]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 40,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [4.27,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 42,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "T1: Goalkeeper moves before ball is touched -> penalized",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 34
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 46,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "T1: kicker who falls for too long -> end of trial",
+                "state" : "SET"
+            },
+            {
+                "name" : "T1: kicker who falls for too long -> no penalty",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14],
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: staying 15 seconds in state SET",
+                "state" : "SET"
+            },
+            {
+                "name" : "T2: RED kicker is properly positioned",
+                "target" : "RED_PLAYER_1",
+                "position" : [2.0,-0.2,0.24]
+            },
+            {
+                "name" : "T2:BLUE goalkeeper is properly positioned",
+                "target" : "BLUE_PLAYER_1",
+                "position" : [4.47,0.0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18,
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: transition to PLAYING",
+                "state" : "PLAYING",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [0,14],
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: Goalkeeper stayed on its goal line during SET -> unpenalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 15,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [4.27,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: GoalKeeper moved before kicker kicked the ball ->  Penalized",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 34
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 25,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [4.27,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 30,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: GoalKeeper 1st illegal entry -> yellow card",
+                "target" : "BLUE_PLAYER_1",
+                "yellow_cards" : 1
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 35,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [4.27,0,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 40,
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: GoalKeeper 2nd illegal entry -> red card",
+                "target" : "BLUE_PLAYER_1",
+                "red_cards" : 1
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 63,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "T2: RED did not score a goal",
+                "target" : "RED",
+                "score" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 1,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 3
+        },
+        "tests" : [
+            {
+                "name" : "T3. BLUE 2 is now kicker and is properly positioned",
+                "target" : "BLUE_PLAYER_2",
+                "position" : [2.5,0.2,0.24]
+            },
+            {
+                "name" : "T3. RED goalkeeper is properly positioned",
+                "target" : "RED_PLAYER_1",
+                "position" : [4.47,0.2,0.24]
+            },
+            {
+                "name" : "T3. Sanity check: mode is penalty shootout",
+                "secondary_state" : "PENALTYSHOOT",
+                "critical" : true
+            }
+        ]
+    }
+]

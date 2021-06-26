@@ -15,6 +15,7 @@ WrFrameBuffer *wr_frame_buffer_new();
 void wr_frame_buffer_delete(WrFrameBuffer *frame_buffer);
 
 void wr_frame_buffer_append_output_texture(WrFrameBuffer *frame_buffer, WrTextureRtt *texture);
+void wr_frame_buffer_append_output_texture_disable(WrFrameBuffer *frame_buffer, WrTextureRtt *texture);
 void wr_frame_buffer_set_depth_texture(WrFrameBuffer *frame_buffer, WrTextureRtt *texture);
 void wr_frame_buffer_enable_depth_buffer(WrFrameBuffer *frame_buffer, bool enable);
 /* OpenGL context must be active when calling this function */

@@ -139,7 +139,7 @@ int main(int argc, char **argv) {
                        doubleArray[0], doubleArray[1], doubleArray[2]);
   doubleArray = wb_supervisor_field_get_mf_color(field, 1);
   ts_assert_vec3_equal(doubleArray[0], doubleArray[1], doubleArray[2], 0.5, 0.4, 0.74,
-                       "Item 1 of \"skyColor\" field of Background node should be [0.4, 0.7 1] not [%f, %f, %f]",
+                       "Item 1 of \"skyColor\" field of Background node should be [0.5, 0.4 0.74] not [%f, %f, %f]",
                        doubleArray[0], doubleArray[1], doubleArray[2]);
   doubleArray = wb_supervisor_field_get_mf_color(field, -1);
   ts_assert_vec3_equal(doubleArray[0], doubleArray[1], doubleArray[2], 0.666667, 1.0, 0,
@@ -347,6 +347,24 @@ int main(int argc, char **argv) {
   field = wb_supervisor_node_get_field(proto, "translation");
   const double *vector3_current = wb_supervisor_field_get_sf_vec3f(field);
   ts_assert_vec3_equal(vector3_current[0], vector3_current[1], vector3_current[2], 0, 0, 0, "Robot not in initial position");
+
+  // supervisor field tracking
+  field = wb_supervisor_node_get_field(box, "translation");
+  ts_assert_pointer_not_null(field, "Translation field is not found");
+  wb_supervisor_field_enable_sf_tracking(field, TIME_STEP);
+
+  for (int i = 0; i < 10; i++) {
+    wb_robot_step(TIME_STEP);
+    vector3_modified = wb_supervisor_field_get_sf_vec3f(field);
+    vector3_expected[0] = 0.123;
+    vector3_expected[1] = 0;
+    vector3_expected[2] = 0.7777;
+    ts_assert_doubles_equal(3, vector3_modified, vector3_expected,
+                            "Field tracking failed, should be [%lf, %lf, %lf] instead of [%lf, %lf, %lf]", vector3_expected[0],
+                            vector3_expected[1], vector3_expected[2], vector3_modified[0], vector3_modified[1],
+                            vector3_modified[2]);
+  }
+  wb_supervisor_field_disable_sf_tracking(field);
 
   // test resetting the translation field of a moving robot
   for (i = 0; i < 10; i++)

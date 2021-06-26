@@ -1,0 +1,105 @@
+[
+    {
+        "description" : "placing robots for kick-off",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-0.20,0,0.24],
+                "orientation" : [0,0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Sanity check, robot not penalized",
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: valid pos for B2",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "description" : "Ball moves outside of center circle ",
+        "timing" : {
+            "time" : 2.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-60,0,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 4.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [1.2,0,0.24]
+            }
+        ]
+    },
+    {
+        "description" : "Ball touches the same player again",
+        "timing" : {
+            "time" : 6.0,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [-30,0,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "force" : [120, 0, 10]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Red did not score a goal",
+                "target" : "RED",
+                "score" : 0
+            },
+            {
+                "name" : "Blue scored a goal",
+                "target" : "BLUE",
+                "score" : 1
+            }
+        ]
+    }
+]

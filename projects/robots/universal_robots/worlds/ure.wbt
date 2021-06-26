@@ -1,7 +1,7 @@
 #VRML_SIM R2021b utf8
 WorldInfo {
   info [
-    "Unviversal Robot UR3e, UR5e and UR10e grasping cans using Robotiq 3F grippers."
+    "Universal Robot UR3e, UR5e and UR10e grasping cans using Robotiq 3F grippers."
   ]
   title "Universal Robot"
   basicTimeStep 8

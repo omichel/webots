@@ -21,7 +21,12 @@
 
 #include <wren/shader_program.h>
 
+#ifdef __EMSCRIPTEN__
+#include <GL/gl.h>
+#include <GLES3/gl3.h>
+#else
 #include <glad/glad.h>
+#endif
 
 #include <algorithm>
 #include <cstdlib>
@@ -92,6 +97,10 @@ namespace wren {
     }
 
     unsigned int shaderGlName = glCreateShader(type);
+
+#ifdef __EMSCRIPTEN__
+    shaderCode.replace(0, 17, "#version 300 es");
+#endif
 
     const char *cString = shaderCode.c_str();
     glShaderSource(shaderGlName, 1, &cString, nullptr);

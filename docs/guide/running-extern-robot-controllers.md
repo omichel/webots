@@ -28,29 +28,29 @@ Generic Webots environment variables needed for all the controller languages:
 %tab-component "os"
 
 %tab "Windows"
-| Environment Variable                        | Typical Value                                                             |
-|---------------------------------------------|---------------------------------------------------------------------------|
-| WEBOTS\_HOME                                | `C:\Program Files\Webots`                                                 |
-| Path (all controllers)                      | add `%WEBOTS_HOME%\lib\controller` and `%WEBOTS_HOME%\msys64\mingw64\bin` |
-| Path (for C++, Python and Java controllers) | add `%WEBOTS_HOME%\msys64\mingw64\bin\cpp`                                |
+| Environment Variable                               | Typical Value                                                             |
+|----------------------------------------------------|---------------------------------------------------------------------------|
+| WEBOTS\_HOME                                       | `C:\Program Files\Webots`                                                 |
+| Path (all controllers except Python >= 3.8)        | add `%WEBOTS_HOME%\lib\controller` and `%WEBOTS_HOME%\msys64\mingw64\bin` |
+| Path (for C++, Python < 3.8, and Java controllers) | add `%WEBOTS_HOME%\msys64\mingw64\bin\cpp`                                |
 
 %tab-end
 
 %tab "Linux"
 
-| Environment Variable     | Typical Value                                    |
-|--------------------------|--------------------------------------------------|
-| WEBOTS\_HOME             | `/usr/local/webots`                              |
-| LD\_LIBRARY\_PATH        | add `${WEBOTS_HOME}/lib/controller`              |
+| Environment Variable                                  | Typical Value                                    |
+|-------------------------------------------------------|--------------------------------------------------|
+| WEBOTS\_HOME                                          | `/usr/local/webots`                              |
+| LD\_LIBRARY\_PATH (not needed for Python controllers) | add `${WEBOTS_HOME}/lib/controller`              |
 
 %tab-end
 
 %tab "macOS"
 
-| Environment Variable     | Typical Value                                    |
-|--------------------------|--------------------------------------------------|
-| WEBOTS\_HOME             | `/Applications/Webots.app`                       |
-| DYLD\_LIBRARY\_PATH      | add `${WEBOTS_HOME}/lib/controller`              |
+| Environment Variable                                    | Typical Value                                    |
+|---------------------------------------------------------|--------------------------------------------------|
+| WEBOTS\_HOME                                            | `/Applications/Webots.app`                       |
+| DYLD\_LIBRARY\_PATH (not needed for Python controllers) | add `${WEBOTS_HOME}/lib/controller`              |
 
 %tab-end
 

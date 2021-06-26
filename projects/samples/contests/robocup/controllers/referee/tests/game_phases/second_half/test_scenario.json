@@ -1,0 +1,342 @@
+[
+    {
+        "timing" : {
+            "time" : 2.0,
+            "clock_type" : "Simulated",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Sanity check: verifying that position at 1st half is valid",
+                "target" : "RED_PLAYER_1",
+                "position" : [-3.5, -3.06, 0.24],
+                "rotation" : [0, 0, 1, -1.57],
+                "critical" : true
+            },
+            {
+                "name" : "1st Half: Ball is placed far from the field",
+                "target" : "BALL",
+                "position" : [100, 100, 0.08]
+            },
+            {
+                "name" : "Sanity check: RED has kick-off",
+                "kick_off_team" : 5
+            }
+        ]
+    },
+    {
+        "description" : "placing robots in their own fields",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [-2, 2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [2, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [2, 2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 1.0,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "1st Half: Ball is placed at center of the field on SET",
+                "target" : "BALL",
+                "position" : [0, 0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 110,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 220,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 330,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 440,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [1,1,0]
+            }
+        ]
+    },
+    {
+        "description" : "Moving ball to avoid Drop ball",
+        "timing" : {
+            "time" : 550,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BALL",
+                "position" : [0,1,0]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 610,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "End of 1st half, state moves to INITIAL automatically",
+                "state" : "INITIAL",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : [1,14.5],
+            "clock_type" : "System",
+            "state" : "INITIAL",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Staying in INITIAL for 15 real-time seconds",
+                "state" : "INITIAL"
+            },
+            {
+                "name" : "2nd Half: Ball is placed far from the field",
+                "target" : "BALL",
+                "position" : [100, 100, 0.08]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 18,
+            "clock_type" : "System",
+            "state" : "INITIAL",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "2nd half: automatic transition to READY",
+                "state" : "READY",
+                "critical" : true
+            },
+            {
+                "name" : "2nd half: BLUE has kick-off",
+                "kick_off_team" : 7
+            }
+        ]
+    },
+    {
+        "description" : "Checking if the AutoRef spawns robots in flipped positions for the second half",
+        "timing" : {
+            "time" : 2.0,
+            "clock_type" : "Simulated",
+            "state" : "INITIAL",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Spawning Red 1 in a flipped pose in comparison to the configuration file",
+                "target" : "RED_PLAYER_1",
+                "position" : [3.5, -3.06, 0.24],
+                "rotation" : [0, 0, 1, 1.57]
+            },
+            {
+                "name" : "Spawning Red 2 in a flipped pose in comparison to the configuration file",
+                "target" : "RED_PLAYER_2",
+                "position" : [3.5, 3.06, 0.24],
+                "rotation" : [0, 0, 1, 4.71]
+            },
+            {
+                "name" : "Spawning Blue 1 in a flipped pose in comparison to the configuration file",
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-3.5, -3.06, 0.24],
+                "rotation" : [0, 0, 1, 1.57]
+            },
+            {
+                "name" : "Spawning Blue 2 in a flipped pose in comparison to the configuration file",
+                "target" : "BLUE_PLAYER_2",
+                "position" : [-3.5, 3.06, 0.24],
+                "rotation" : [0, 0, 1, -1.57]
+            }
+        ]
+    },
+    {
+        "description" : "placing robots in valid and invalid positions to check if AutoRef respects flipped position restrictions",
+        "timing" : {
+            "time" : 5.0,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [2, -2, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            },
+            {
+                "target" : "RED_PLAYER_2",
+                "position" : [0.5, 0, 0.24],
+                "orientation" : [0, 0, 1, 3.14]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-2, -2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            },
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [2, 2, 0.24],
+                "orientation" : [0, 0, 1, 0]
+            }
+        ]
+    },
+    {
+        "description" : "placing robots in valid and invalid positions to check if AutoRef respects flipped position restrictions",
+        "timing" : {
+            "time" : [1.0,44.0],
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "2nd Half: Ball is placed far from the field during all READY phase",
+                "target" : "BALL",
+                "position" : [100, 100, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Checking if state changes to SET",
+        "timing" : {
+            "time" : 47,
+            "clock_type" : "Simulated",
+            "state" : "READY",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "State goes automatically from READY to SET",
+                "state" : "SET",
+                "critical" : true
+            }
+        ]
+    },
+    {
+        "description" : "Check if the AutoRef respects side flipping in the second half regarding to position restrictions",
+        "timing" : {
+            "time" : 4,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "Red 1 in valid position -> No Penalty",
+                "target" : "RED_PLAYER_1",
+                "penalty": 0
+            },
+            {
+                "name" : "Blue 1 in valid position -> No Penalty",
+                "target" : "BLUE_PLAYER_1",
+                "penalty": 0
+            },
+            {
+                "name" : "Red 2 in center circle without kick-off -> Penalty",
+                "target" : "RED_PLAYER_2",
+                "penalty": 34
+            },
+            {
+                "name" : "Blue 2 in the opponent's field -> Penalty",
+                "target" : "BLUE_PLAYER_2",
+                "penalty": 34
+            },
+            {
+                "name" : "2nd Half: Ball is placed at center of the field during start",
+                "target" : "BALL",
+                "position" : [0, 0, 0.08]
+            }
+        ]
+    },
+    {
+        "description" : "Checking if state changes to PLAYING",
+        "timing" : {
+            "time" : 10,
+            "clock_type" : "Simulated",
+            "state" : "SET",
+            "state_count" : 2
+        },
+        "tests" : [
+            {
+                "name" : "State goes automatically from SET to PLAYING",
+                "state" : "PLAYING"
+            }
+        ]
+    }
+]

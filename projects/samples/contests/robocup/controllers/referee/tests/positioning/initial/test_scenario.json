@@ -1,0 +1,265 @@
+[
+    {
+        "timing" : {
+            "time" : [0.1, 0.5],
+            "clock_type" : "Simulated",
+            "state" : "INITIAL"
+        },
+        "tests" : [
+            {
+                "name" : "Staying in INITIAL",
+                "state" : "INITIAL"
+            },
+            {
+                "name" : "Spawning a player inside field (Red 1)",
+                "target" : "RED_PLAYER_1",
+                "position" : [4.0,-2.06,0.24],
+                "rotation" : [0,0,1,1.57]
+            },
+            {
+                "name" : "Spawning a player outside field (Red 2)",
+                "target" : "RED_PLAYER_2",
+                "position" : [4.0,3.02,0.24],
+                "rotation" : [0,0,1,4.71]
+            },
+            {
+                "name" : "Spawning a player on other side (Blue 3)",
+                "target" : "BLUE_PLAYER_3",
+                "position" : [-0.75,-3.06,0.24],
+                "rotation" : [0,0,1,1.57]
+            },
+            {
+                "name" : "Spawning a player on wrong side (Blue 4)",
+                "target" : "BLUE_PLAYER_4",
+                "position" : [-0.05,3.06,0.24],
+                "rotation" : [0,0,1,-1.57]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 10.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "Automatic switch to READY state",
+                "state" : "READY"
+            },
+            {
+                "name" : "halfTimeStartingPose in field -> Penalty",
+                "target" : "RED_PLAYER_1",
+                "penalty": 34
+            },
+            {
+                "name" : "halfTimeStartingPose partially on border line -> Penalty",
+                "target" : "RED_PLAYER_2",
+                "penalty": 34
+            },
+            {
+                "name" : "halfTimeStartingPose partially on goal line -> Penalty",
+                "target" : "BLUE_PLAYER_2",
+                "penalty": 34
+            },
+            {
+                "name" : "halfTimeStartingPose partially on wrong side -> Penalty",
+                "target" : "BLUE_PLAYER_4",
+                "penalty": 34
+            },
+            {
+                "name" : "halfTimeStartingPose valid -> No penalty",
+                "target" : "BLUE_PLAYER_1",
+                "penalty": 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 15.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.75,2.06,0.24]
+            },
+            {
+                "target" : "RED_PLAYER_3",
+                "position" : [0.75,2.36,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_1",
+                "position" : [-4.3,-2.06,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 20.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "Illegal entry -> penalty + yellow card",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 34,
+                "yellow_cards" : 1
+            },
+            {
+                "name" : "Unpenalized robot can move during ready (1)",
+                "target" : "RED_PLAYER_3",
+                "penalty" : 0,
+                "position" : [0.75,2.36,0.24]
+            },
+            {
+                "name" : "Unpenalized robot can move during ready (2)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0,
+                "position" : [-4.3,-2.06,0.24]
+            }
+        ],
+        "actions" : [
+            {
+                "target" : "RED_PLAYER_1",
+                "position" : [1.75,2.06,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 25.0,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "Illegal entry -> 2nd yellow card -> red card",
+                "target" : "RED_PLAYER_1",
+                "penalty" : 34,
+                "yellow_cards" : 0,
+                "red_cards" : 1
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 48,
+            "clock_type" : "Simulated",
+            "state" : "READY"
+        },
+        "tests" : [
+            {
+                "name" : "Automatic switch to set",
+                "state" : "SET"
+            },
+            {
+                "name" : "Robot that did not move during ready -> penalized (1)",
+                "target" : "RED_PLAYER_4",
+                "penalty" : 34
+            },
+            {
+                "name" : "Robot that did not move during ready -> penalized (2)",
+                "target" : "BLUE_PLAYER_3",
+                "penalty" : 34
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 8,
+            "clock_type" : "Simulated",
+            "state" : "SET"
+        },
+        "tests" : [
+            {
+                "name" : "Automatic transition to PLAYING",
+                "state" : "PLAYING"
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 4,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "No robot penalized at PLAYING start (BLUE 1)",
+                "target" : "BLUE_PLAYER_1",
+                "penalty" : 0
+            },
+            {
+                "name" : "No robot penalized at PLAYING start (BLUE 2)",
+                "target" : "BLUE_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "No robot penalized at PLAYING start (BLUE 3)",
+                "target" : "BLUE_PLAYER_3",
+                "penalty" : 0
+            },
+            {
+                "name" : "No robot penalized at PLAYING start (BLUE 4)",
+                "target" : "BLUE_PLAYER_4",
+                "penalty" : 0
+            },
+            {
+                "name" : "No robot penalized at PLAYING start (RED 2)",
+                "target" : "RED_PLAYER_2",
+                "penalty" : 0
+            },
+            {
+                "name" : "No robot penalized at PLAYING start (RED 3)",
+                "target" : "RED_PLAYER_3",
+                "penalty" : 0
+            },
+            {
+                "name" : "No robot penalized at PLAYING start (RED 4)",
+                "target" : "RED_PLAYER_4",
+                "penalty" : 0
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 5,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "actions" : [
+            {
+                "target" : "BLUE_PLAYER_2",
+                "position" : [-4.0,2.06,0.24]
+            },
+            {
+                "target" : "BLUE_PLAYER_3",
+                "position" : [-4.0,-2.06,0.24]
+            }
+        ]
+    },
+    {
+        "timing" : {
+            "time" : 10,
+            "clock_type" : "Simulated",
+            "state" : "PLAYING"
+        },
+        "tests" : [
+            {
+                "name" : "Robot moving after set not penalized (1)",
+                "target" : "BLUE_PLAYER_2",
+                "position" : [-4.0,2.06,0.24],
+                "penalty" : 0
+            },
+            {
+                "name" : "Robot moving after set not penalized (2)",
+                "target" : "BLUE_PLAYER_3",
+                "position" : [-4.0,-2.06,0.24],
+                "penalty" : 0
+            }
+        ]
+    }
+]
