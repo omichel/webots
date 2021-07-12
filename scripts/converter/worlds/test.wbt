@@ -1,0 +1,18 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.8873785733339998 0.1917709620198625 0.41926503039687385 1.4324940394659602
+  position 1.8217249360391012 -1.960003185439523 1.1227546572266005
+}
+Background {
+  skyColor [
+    0.15 0.45 1
+  ]
+}
+WoodenChair0 {
+}
+WoodenChair {
+  translation 1 0 0
+  name "wooden chair(1)"
+}
