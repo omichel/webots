@@ -1295,6 +1295,8 @@ void WbSolid::updatePhysics() {
   setBodiesAndJointsToParents();
   setJointChildrenWithReferencedEndpoint();
 
+  if (mPhysics->value())
+    createOdeMass(true);
   adjustOdeMass();
   applyMassCenterToWren();
   refreshPhysicsRepresentation();
