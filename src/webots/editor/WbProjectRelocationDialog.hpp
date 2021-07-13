@@ -41,7 +41,7 @@ public:
 
   // return the path of a modified external default PROTO project
   // return empty string if no external PROTO project was modified
-  static const QString &relocatedExternalProjectPath() { return mExternalProjectPath; }
+  static const QString &relocatedExternalProtoProjectPath() { return mExternalProtoProjectPath; }
 
 private slots:
   void selectDirectory();
@@ -62,7 +62,8 @@ private:
   bool mIsProtoModified;
   bool mIsCompleteRelocation;
 
-  static QString mExternalProjectPath;
+  // path to the projects folder of the modified PROTO resource located outside the current project path
+  static QString mExternalProtoProjectPath;
 
   // create project relocation dialog
   explicit WbProjectRelocationDialog(WbProject *project, const QString &relativeFilename, const QString &absoluteFilePath,
@@ -75,7 +76,7 @@ private:
   // user's chosen target directory
   const QString &targetPath() const { return mTargetPath; }
   int copyProject();
-  int copyExternalProject();
+  int copyExternalProtoProject();
 
   void setStatus(const QString &text, bool ok = true);
 };

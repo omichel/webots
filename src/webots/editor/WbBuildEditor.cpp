@@ -320,7 +320,7 @@ void WbBuildEditor::make(const QString &target) {
     return;
 
   // update path of modified files from external project
-  const QString &oldProjectPath = WbProjectRelocationDialog::relocatedExternalProjectPath();
+  const QString &oldProjectPath = WbProjectRelocationDialog::relocatedExternalProtoProjectPath();
   if (!oldProjectPath.isEmpty())
     updateProjectPath(oldProjectPath, WbProject::current()->path());
 
