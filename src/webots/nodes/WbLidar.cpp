@@ -14,6 +14,10 @@
 
 #include "WbLidar.hpp"
 
+#include <unistd.h>
+#include <chrono>
+#include <iostream>
+#include "../../controller/c/messages.h"
 #include "WbBoundingSphere.hpp"
 #include "WbFieldChecker.hpp"
 #include "WbPerspective.hpp"
@@ -24,8 +28,6 @@
 #include "WbWrenCamera.hpp"
 #include "WbWrenRenderingContext.hpp"
 #include "WbWrenShaders.hpp"
-
-#include "../../controller/c/messages.h"
 
 #include <QtCore/QDataStream>
 
@@ -38,6 +40,7 @@
 #include <wren/transform.h>
 
 #define POINT_CLOUD_RAY_REPRESENTATION_THRESHOLD 2500
+using namespace std;
 
 void WbLidar::init() {
   mCharType = 'l';
@@ -45,7 +48,6 @@ void WbLidar::init() {
   mCurrentRotatingAngle = 0;
   mPreviousRotatingAngle = 0;
   mCurrentTiltAngle = 0;
-  mTemporaryImage = NULL;
 
   mTiltAngle = findSFDouble("tiltAngle");
   mHorizontalResolution = findSFInt("horizontalResolution");
@@ -92,7 +94,6 @@ WbLidar::WbLidar(const WbNode &other) : WbAbstractCamera(other) {
 }
 
 WbLidar::~WbLidar() {
-  delete mTemporaryImage;
   if (areWrenObjectsInitialized())
     deleteWren();
 }
@@ -152,8 +153,6 @@ void WbLidar::reset(const QString &id) {
   mIsPointCloudEnabled = false;
   mCurrentRotatingAngle = 0;
   mPreviousRotatingAngle = 0;
-  if (mTemporaryImage)
-    memset(mTemporaryImage, 0, actualHorizontalResolution() * height() * sizeof(float));
   hidePointCloud();
 }
 
@@ -178,7 +177,6 @@ void WbLidar::initializeImageSharedMemory() {
     for (int i = 0; i < size; i++)
       im[i] = 0.0f;
   }
-  mTemporaryImage = new float[actualHorizontalResolution() * height()];
 }
 
 QString WbLidar::pixelInfo(int x, int y) const {
@@ -282,6 +280,8 @@ void WbLidar::handleMessage(QDataStream &stream) {
 }
 
 void WbLidar::copyAllLayersToSharedMemory() {
+  static int counter = 0;
+  static int sum = 0;
   if (!hasBeenSetup() || !mImageShm)
     return;
 
@@ -296,7 +296,7 @@ void WbLidar::copyAllLayersToSharedMemory() {
   int widthOffset = 0;
 
   mWrenCamera->enableCopying(true);
-  mWrenCamera->copyContentsToMemory(mTemporaryImage);
+
   // if rotating compute which part of the image should be updated
   if (isRotating()) {
     double deltaAngle = fabs(mCurrentRotatingAngle - mPreviousRotatingAngle);
@@ -313,22 +313,23 @@ void WbLidar::copyAllLayersToSharedMemory() {
     widthOffset = resolution * (tmpAngle / (2.0 * M_PI));
     widthOffset -= w / 2;
   }
+  auto start = chrono::steady_clock::now();
 
   for (int i = 0; i < actualNumberOfLayers(); ++i) {
     if ((maxWidth + widthOffset) <= resolution && (minWidth + widthOffset) >= 0)
-      memcpy(data + i * resolution + minWidth + widthOffset, mTemporaryImage + width() * (int)(i * skip) + minWidth,
-             sizeof(float) * (maxWidth - minWidth));
+      mWrenCamera->copyContentsToMemory(data + i * resolution + minWidth + widthOffset, width() * (int)(i * skip) + minWidth,
+                                        maxWidth - minWidth);
     else {  // we need two split into two because the current image is 'across' the lidar image (avoid overflow)
       if ((maxWidth + widthOffset) > resolution) {
-        memcpy(data + i * resolution + minWidth + widthOffset, mTemporaryImage + width() * (int)(i * skip) + minWidth,
-               sizeof(float) * (resolution - minWidth - widthOffset));
-        memcpy(data + i * resolution, mTemporaryImage + width() * (int)(i * skip) + resolution - widthOffset,
-               sizeof(float) * (maxWidth + widthOffset - resolution));
+        mWrenCamera->copyContentsToMemory(data + i * resolution + minWidth + widthOffset, width() * (int)(i * skip) + minWidth,
+                                          resolution - minWidth - widthOffset);
+        mWrenCamera->copyContentsToMemory(data + i * resolution, width() * (int)(i * skip) + resolution - widthOffset,
+                                          maxWidth + widthOffset - resolution);
       } else {  // (minWidth + widthOffset) < 0
-        memcpy(data + (i + 1) * resolution + minWidth + widthOffset, mTemporaryImage + width() * (int)(i * skip) + minWidth,
-               sizeof(float) * abs(minWidth + widthOffset));
-        memcpy(data + i * resolution, mTemporaryImage + width() * (int)(i * skip) - widthOffset,
-               sizeof(float) * (maxWidth + widthOffset));
+        mWrenCamera->copyContentsToMemory(data + (i + 1) * resolution + minWidth + widthOffset,
+                                          width() * (int)(i * skip) + minWidth, abs(minWidth + widthOffset));
+        mWrenCamera->copyContentsToMemory(data + i * resolution, width() * (int)(i * skip) - widthOffset,
+                                          maxWidth + widthOffset);
       }
     }
   }
@@ -349,6 +350,12 @@ void WbLidar::copyAllLayersToSharedMemory() {
       }
     }
   }
+
+  auto end = chrono::steady_clock::now();
+  counter++;
+  sum += chrono::duration_cast<chrono::microseconds>(end - start).count();
+  cout << "Elapsed time in microseconds: " << chrono::duration_cast<chrono::microseconds>(end - start).count() << " µs"
+       << "avg" << sum / counter << "(" << counter << ")\n";
 }
 
 void WbLidar::updatePointCloud(int minWidth, int maxWidth) {

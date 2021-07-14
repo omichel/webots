@@ -159,22 +159,20 @@ namespace wren {
     glstate::bindReadFrameBuffer(currentReadFrameBuffer);
   }
 
-  void FrameBuffer::copyContents(size_t index, void *data) {
+  void FrameBuffer::copyContents(size_t index, void *data, int offset, int size) {
     assert(index < mOutputDrawBuffers.size());
     assert(mOutputDrawBuffers[index].mGlNamePbo);
+    assert(offset + size <= mWidth * mHeight);
 
     const unsigned int currentPixelPackBuffer = glstate::boundPixelPackBuffer();
     glstate::bindPixelPackBuffer(mOutputDrawBuffers[index].mGlNamePbo);
 
     const Texture::GlFormatParams &params = drawBufferFormat(index);
-    const int rowSizeInBytes = params.mPixelSize * mWidth;
-    const int totalSizeInBytes = rowSizeInBytes * mHeight;
 
-    void *start = glMapBufferRange(GL_PIXEL_PACK_BUFFER, 0, totalSizeInBytes, GL_MAP_READ_BIT);
-    assert(start);
-    memcpy(data, start, totalSizeInBytes);
-
-    glUnmapBuffer(GL_PIXEL_PACK_BUFFER);
+    if (!size)  // we copy all the pixels (offset not considered)
+      glGetBufferSubData(GL_PIXEL_PACK_BUFFER, 0, params.mPixelSize * mWidth * mHeight, data);
+    else  // we copy 'size' pixels starting from 'offset'
+      glGetBufferSubData(GL_PIXEL_PACK_BUFFER, params.mPixelSize * offset, params.mPixelSize * size, data);
 
     glstate::bindPixelPackBuffer(currentPixelPackBuffer);
   }
@@ -400,8 +398,8 @@ void wr_frame_buffer_blit_to_screen(WrFrameBuffer *frame_buffer) {
   reinterpret_cast<wren::FrameBuffer *>(frame_buffer)->blitToScreen();
 }
 
-void wr_frame_buffer_copy_contents(WrFrameBuffer *frame_buffer, int index, void *data) {
-  reinterpret_cast<wren::FrameBuffer *>(frame_buffer)->copyContents(index, data);
+void wr_frame_buffer_copy_contents(WrFrameBuffer *frame_buffer, int index, void *data, int offset, int size) {
+  reinterpret_cast<wren::FrameBuffer *>(frame_buffer)->copyContents(index, data, offset, size);
 }
 
 void wr_frame_buffer_copy_pixel(WrFrameBuffer *frame_buffer, int index, int x, int y, void *data, bool flip_y) {

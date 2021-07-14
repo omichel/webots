@@ -495,17 +495,17 @@ WbRgb WbWrenCamera::copyPixelColourValue(int x, int y) {
   return result;
 }
 
-void WbWrenCamera::copyContentsToMemory(void *data) {
+void WbWrenCamera::copyContentsToMemory(void *data, int offset, int size) {
   if (!mIsCopyingEnabled || !data || mWidth < 1 || mHeight < 1)
     return;
 
   if (!mIsCameraActive[CAMERA_ORIENTATION_FRONT]) {
-    memset(data, 0, mWidth * mHeight * 4);
+    memset(data, 0, (size ? size : mWidth * mHeight) * 4);
     return;
   }
 
   WbWrenOpenGlContext::makeWrenCurrent();
-  wr_frame_buffer_copy_contents(mResultFrameBuffer, 1, data);
+  wr_frame_buffer_copy_contents(mResultFrameBuffer, 1, data, offset, size);
   WbWrenOpenGlContext::doneWren();
 }
 

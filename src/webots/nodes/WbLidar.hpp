@@ -98,7 +98,6 @@ private:
   double mCurrentRotatingAngle;
   double mPreviousRotatingAngle;
   double mCurrentTiltAngle;
-  float *mTemporaryImage;
 
   int mActualNumberOfLayers;
   int mActualHorizontalResolution;
