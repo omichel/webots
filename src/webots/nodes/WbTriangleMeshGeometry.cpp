@@ -115,6 +115,14 @@ void WbTriangleMeshGeometry::createWrenObjects() {
   connect(WbWrenRenderingContext::instance(), &WbWrenRenderingContext::lineScaleChanged, this,
           &WbTriangleMeshGeometry::updateNormalsRepresentation);
 
+  const WbShape *shape = dynamic_cast<const WbShape *>(parentNode());
+  if (shape && shape->isCastShadowsEnabled() && 3 * mTriangleMesh->numberOfTriangles() > maxIndexNumberToCastShadows()) {
+    warn(tr("Too many triangles (%1) in mesh: unable to cast shadows, please reduce "
+            "the number of triangles below %2 or set Shape.castShadows to "
+            "FALSE to disable this warning.")
+           .arg(mTriangleMesh->numberOfTriangles())
+           .arg((int)(maxIndexNumberToCastShadows() / 3)));
+  }
   emit wrenObjectsCreated();
 }
 
