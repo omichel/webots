@@ -67,6 +67,7 @@ void WbGeometry::init() {
   mResizeConstraint = WbWrenAbstractResizeManipulator::NO_CONSTRAINT;
   mBoundingSphere = NULL;
   mPickable = false;
+  mIsTransparent = false;
 }
 
 WbGeometry::WbGeometry(const QString &modelName, WbTokenizer *tokenizer) : WbBaseNode(modelName, tokenizer) {
@@ -222,6 +223,9 @@ void WbGeometry::applyVisibilityFlagToWren(bool selected) {
       wr_node_set_visible(WR_NODE(mWrenScaleTransform), true);
     } else if (wr_node_get_parent(WR_NODE(mWrenScaleTransform)))
       wr_node_set_visible(WR_NODE(mWrenScaleTransform), false);
+  } else if (mIsTransparent) {
+    wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
+    wr_node_set_visible(WR_NODE(mWrenScaleTransform), false);
   } else if (WbNodeUtilities::isDescendantOfBillboard(this)) {
     wr_renderable_set_visibility_flags(mWrenRenderable, WbWrenRenderingContext::VF_INVISIBLE_FROM_CAMERA);
     wr_node_set_visible(WR_NODE(mWrenScaleTransform), true);
@@ -388,6 +392,13 @@ void WbGeometry::setWrenMaterial(WrMaterial *material, bool castShadows) {
   if (mWrenRenderable) {
     wr_renderable_set_material(mWrenRenderable, material, NULL);
     computeCastShadows(castShadows);
+  }
+}
+
+void WbGeometry::setTransparent(bool isTransparent) {
+  if (mIsTransparent != isTransparent) {
+    mIsTransparent = isTransparent;
+    applyVisibilityFlagToWren(isSelected());
   }
 }
 

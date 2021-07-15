@@ -123,6 +123,9 @@ public:
   static int maxIndexNumberToCastShadows();
   int triangleCount() const;
 
+  // visibility
+  void setTransparent(bool isTransparent);
+
 signals:
   void changed();
   void wrenObjectsCreated();
@@ -203,6 +206,7 @@ private:
   WbMatrix3 mOdeOffsetRotation;
 
   bool mPickable;
+  bool mIsTransparent;
 
 private slots:
   virtual void updateBoundingObjectVisibility(int optionalRendering);
