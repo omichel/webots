@@ -38,7 +38,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="1" type="revolute">
+  <joint name="motor 1" type="revolute">
     <parent link="base_link"/>
     <child link="link_1_2"/>
     <axis xyz="0 0 1"/>
@@ -71,7 +71,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="2" type="revolute">
+  <joint name="motor 2" type="revolute">
     <parent link="link_1_2"/>
     <child link="link_2_3"/>
     <axis xyz="0 1 0"/>
@@ -128,7 +128,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="3" type="revolute">
+  <joint name="motor 3" type="revolute">
     <parent link="link_2_3"/>
     <child link="link_3_4"/>
     <axis xyz="0 1 0"/>
@@ -161,7 +161,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="4" type="revolute">
+  <joint name="motor 4" type="revolute">
     <parent link="link_3_4"/>
     <child link="link_4_5"/>
     <axis xyz="0 0 1"/>
@@ -194,7 +194,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="5" type="revolute">
+  <joint name="motor 5" type="revolute">
     <parent link="link_4_5"/>
     <child link="link_5_6"/>
     <axis xyz="0 1 0"/>
@@ -227,7 +227,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="6" type="revolute">
+  <joint name="motor 6" type="revolute">
     <parent link="link_5_6"/>
     <child link="link_6_top"/>
     <axis xyz="0 0 1"/>
@@ -293,7 +293,7 @@
     <child link="gripper middle distance sensor"/>
     <origin xyz="0 0 0.085" rpy="0 -1.57079 0"/>
   </joint>
-  <joint name="7 left" type="revolute">
+  <joint name="motor 7 left" type="revolute">
     <parent link="link_base_tcp180"/>
     <child link="left finger"/>
     <axis xyz="-1 -0.000003 0"/>
@@ -414,7 +414,7 @@
     <child link="left finger sensor 0"/>
     <origin xyz="0.013 0.02 0.118" rpy="0 0 0"/>
   </joint>
-  <joint name="7" type="revolute">
+  <joint name="motor 7" type="revolute">
     <parent link="link_base_tcp180"/>
     <child link="right finger"/>
     <axis xyz="-1 0 0"/>

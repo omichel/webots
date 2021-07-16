@@ -20,6 +20,7 @@ behavior.
 
 from controller import AnsiCodes
 from controller import Robot
+from common import common_print
 
 
 class Enumerate(object):
@@ -95,4 +96,5 @@ class Slave (Robot):
 
 
 controller = Slave()
+common_print('slave')
 controller.run()

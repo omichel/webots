@@ -117,6 +117,15 @@ webots.View = class View {
   }
 
   open(url, mode, texturePathPrefix = '') {
+    const userAgents = navigator.userAgent;
+    let chromeAgent = userAgents.indexOf('Chrome') > -1;
+    let safariAgent = userAgents.indexOf('Safari') > -1;
+
+    // Verify that chrome userAgent is false because safari userAgent is also included in Chrome browser.
+    if (!chromeAgent && safariAgent) {
+      alert('Safari does not have the technical capabilities to display a Webots simulation.\n\nPlease use a compatible browser (Chrome, Firefox, Edge, Opera).');
+      return;
+    }
     this.url = url;
     if (typeof mode === 'undefined')
       mode = 'x3d';

@@ -22,16 +22,26 @@ if [ ! -d /tmp/webots-controller ]; then
     exit 1
 fi
 cd /tmp/webots-controller
-git checkout ${VERSION}
 
-# Prepare the structure
+if [ ! -z $(git branch -a | egrep "/${VERSION}$") ]; then
+    echo "Checkout to the existing branch ${VERSION}"
+    git checkout ${VERSION}
+else
+    echo "Create a new branch ${VERSION}"
+    git checkout -b ${VERSION}
+fi
+
+# Copy headers
+if [ "${OSTYPE}" != "msys" ]; then
+    # don't copy the include files on Windows as they are the same as on other platforms, and they generate a huge diff due to Windows line endings which differ from Linux/macOS.
+    rm -rf include
+    mkdir -p include
+    cp -r ${WEBOTS_HOME}/include/controller/* include
+fi
+
+# Copy dynamic libs
 rm -rf lib/${OSTYPE}
 mkdir -p lib/${OSTYPE}
-rm -rf include
-mkdir -p include
-
-# Copy files
-cp -r ${WEBOTS_HOME}/include/controller/* include
 for filename in $DYNAMIC_LIBS
 do
     echo $filename

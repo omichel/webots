@@ -7,7 +7,7 @@
       "minPosition": 0,
       "name": "middle_left_wheel_joint",
       "position": 0,
-      "transformID": "n319",
+      "transformID": "n320",
       "type": "RotationalMotor"
     },
     {
@@ -17,101 +17,101 @@
       "minPosition": 0,
       "name": "middle_right_wheel_joint",
       "position": 0,
-      "transformID": "n338",
+      "transformID": "n342",
       "type": "RotationalMotor"
     },
     {
       "name": "back_left_caster_joint_sensor",
-      "transformID": "n412",
+      "transformID": "n422",
       "type": "PositionSensor"
     },
     {
       "name": "back_left_wheel_joint_sensor",
-      "transformID": "n419",
+      "transformID": "n429",
       "type": "PositionSensor"
     },
     {
       "name": "back_right_caster_joint_sensor",
-      "transformID": "n440",
+      "transformID": "n452",
       "type": "PositionSensor"
     },
     {
       "name": "back_right_wheel_joint_sensor",
-      "transformID": "n447",
+      "transformID": "n459",
       "type": "PositionSensor"
     },
     {
       "name": "depth_camera",
-      "transformID": "n12",
+      "transformID": "n13",
       "transformOffset": "0.464 0 0.18",
       "type": "RangeFinder"
     },
     {
       "name": "ds0",
-      "transformID": "n59",
+      "transformID": "n60",
       "type": "DistanceSensor"
     },
     {
       "name": "ds1",
-      "transformID": "n118",
+      "transformID": "n119",
       "type": "DistanceSensor"
     },
     {
       "name": "ds2",
-      "transformID": "n177",
+      "transformID": "n178",
       "type": "DistanceSensor"
     },
     {
       "name": "ds3",
-      "transformID": "n236",
+      "transformID": "n237",
       "type": "DistanceSensor"
     },
     {
       "name": "front_left_caster_joint_sensor",
-      "transformID": "n356",
+      "transformID": "n362",
       "type": "PositionSensor"
     },
     {
       "name": "front_left_wheel_joint_sensor",
-      "transformID": "n363",
+      "transformID": "n369",
       "type": "PositionSensor"
     },
     {
       "name": "front_right_caster_joint_sensor",
-      "transformID": "n384",
+      "transformID": "n392",
       "type": "PositionSensor"
     },
     {
       "name": "front_right_wheel_joint_sensor",
-      "transformID": "n391",
+      "transformID": "n399",
       "type": "PositionSensor"
     },
     {
       "name": "imu_data accelerometer",
-      "transformID": "n39",
+      "transformID": "n40",
       "type": "Accelerometer"
     },
     {
       "name": "imu_data compass",
-      "transformID": "n39",
+      "transformID": "n40",
       "type": "Compass"
     },
     {
       "name": "imu_data gyro",
-      "transformID": "n39",
+      "transformID": "n40",
       "type": "Gyro"
     },
     {
       "name": "middle_left_wheel_joint_sensor",
-      "transformID": "n319",
+      "transformID": "n320",
       "type": "PositionSensor"
     },
     {
       "name": "middle_right_wheel_joint_sensor",
-      "transformID": "n338",
+      "transformID": "n342",
       "type": "PositionSensor"
     }
   ],
   "name": "mir100",
-  "robotID": "n12"
+  "robotID": "n13"
 }

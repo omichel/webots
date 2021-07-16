@@ -8,7 +8,7 @@
 #define TIME_STEP 32
 
 int main(int argc, char **argv) {
-  ts_setup(argv[0]);
+  ts_setup(argv[1]);
 
   WbNodeRef template = wb_supervisor_node_get_from_def("TEMPLATE");
   ts_assert_pointer_not_null(template, "Unable to retrieve template node");

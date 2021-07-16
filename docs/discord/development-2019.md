@@ -831,26 +831,26 @@ sorry it doesn't crash now , everything works fine
 ##### Fabien Rohrer [Moderator] 10/17/2019 15:13:45
 I'm happy to read this 😉
 
-##### Hakkinein 10/20/2019 18:45:28
+##### threeal 10/20/2019 18:45:28
 anybody ever try to use webots with ros?
 
 
 and why use webots over gazebo?
 
 ##### SimonDK 10/20/2019 18:53:29
-`@Hakkinein` Going to try Webots with ROS very soon. At least for me I have grown very tired of Gazebo. It always feels unstable, cumbersome to set up and we have to use many hacks to get it to work somewhat ok with Reinforcement Learning algorithms. I hope it will be easier to speed up simulations and build simulations with Webots. Let's see 🙂
+`@threeal` Going to try Webots with ROS very soon. At least for me I have grown very tired of Gazebo. It always feels unstable, cumbersome to set up and we have to use many hacks to get it to work somewhat ok with Reinforcement Learning algorithms. I hope it will be easier to speed up simulations and build simulations with Webots. Let's see 🙂
 
 ##### Flo 10/20/2019 19:09:40
 `@SimonDK`  I build a gym environnement for webots. Its not released yet but let me know. If you need it for your RL I can accelerate the release
 
-##### Hakkinein 10/20/2019 19:11:53
+##### threeal 10/20/2019 19:11:53
 anyway, is it possible to treat webots controller as ros node?
 
 ##### SimonDK 10/21/2019 04:53:16
 `@Flo` sounds very interesting, will PM you
 
 ##### David Mansolino [Cyberbotics] 10/21/2019 06:53:31
-`@Hakkinein`, Webots has several advantages compared to Gazebo, here is a non-exhaustive list:
+`@threeal`, Webots has several advantages compared to Gazebo, here is a non-exhaustive list:
 
   - Cross-platform [windows, linux, mac].
 
@@ -893,7 +893,7 @@ Let us know if you have any precise question
 
 For sur it will 😉 let us know if you have any issues doing so.
 
-##### Hakkinein 10/23/2019 10:31:58
+##### threeal 10/23/2019 10:31:58
 `@David Mansolino` thank you for the answer, but is it possible to create a custom robot in Webots? As my robot is custom made and not based on sample robot provided by the Webots simulator.
 
 
@@ -917,11 +917,11 @@ See details here: [https://cyberbotics.com/doc/guide/using-ros#standard-ros-cont
 
 ## November
 
-##### Hakkinein 11/02/2019 00:48:58
+##### threeal 11/02/2019 00:48:58
 how can i launch python controller in webots?
 
 ##### Stefania Pedrazzi [Cyberbotics] 11/04/2019 07:08:37
-Hi `@Hakkinein`, usually controllers are automatically started by Webots when you run the simulation if the is used by any robot node, i.e. the Robot.controller field is set to your python controller name. Does this not work for you?
+Hi `@threeal`, usually controllers are automatically started by Webots when you run the simulation if the is used by any robot node, i.e. the Robot.controller field is set to your python controller name. Does this not work for you?
 
 ##### pavlos27t 11/04/2019 13:16:17
 Hello Sir, i have a strange problem: i give equal speed on left and right wheel of e-puck robot but it doesn't move linear, i print my velocities to confirm it and they are equal ,so why my robot turns?

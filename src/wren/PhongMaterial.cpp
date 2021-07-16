@@ -45,7 +45,7 @@ namespace wren {
   }
 
   size_t PhongMaterial::sortingId() const {
-    const size_t programId = static_cast<size_t>(mDefaultProgram->glName());
+    const unsigned long long programId = static_cast<unsigned long long>(mDefaultProgram->glName());
 
     size_t textureId = 0;
     if (mTextures[0].first)

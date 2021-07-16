@@ -23,7 +23,8 @@
 
 static WbDeviceTag motors[MOTOR_NUMBER];
 
-static const char *motor_names[MOTOR_NUMBER] = {"1", "2", "3", "4", "5", "6", "7", "7 left"};
+static const char *motor_names[MOTOR_NUMBER] = {"motor 1", "motor 2", "motor 3", "motor 4",
+                                                "motor 5", "motor 6", "motor 7", "motor 7 left"};
 
 static int get_time_step() {
   static int time_step = -1;

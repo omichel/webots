@@ -37,6 +37,8 @@ function menuTabCallback(deviceType) {
   // Plots will be refreshed when the animation is over
   const canvas = new Canvas();
   canvas.clearCanvas();
+  
+  window.scrollTo(0, 0);
 }
 
 function refreshSelectedTab() {
@@ -47,10 +49,12 @@ function refreshLabels() {
   if (!selectedDeviceType || !selectedTabModified)
     return;
   const tabWidgets = window.widgets[selectedDeviceType];
-  Object.keys(tabWidgets).forEach(function(deviceName) {
-    if (typeof tabWidgets[deviceName].refreshLabels === 'function')
-      tabWidgets[deviceName].refreshLabels();
-  });
+  if (tabWidgets) {
+    Object.keys(tabWidgets).forEach(function(deviceName) {
+      if (typeof tabWidgets[deviceName].refreshLabels === 'function')
+        tabWidgets[deviceName].refreshLabels();
+    });
+  }
   selectedTabModified = false;
 }
 
@@ -58,6 +62,8 @@ function refreshContent() {
   if (!selectedDeviceType || !selectedTabModified)
     return;
   const tabWidgets = window.widgets[selectedDeviceType];
+  if (!tabWidgets)
+    return;
   Object.keys(tabWidgets).forEach(function(deviceName) {
     tabWidgets[deviceName].refresh();
   });
@@ -68,6 +74,8 @@ function updateTabCallback() {
   canvas.resizeCanvas();
   if (selectedDeviceType) {
     const tabWidgets = window.widgets[selectedDeviceType];
+    if (!tabWidgets)
+      return;
     Object.keys(tabWidgets).forEach(function(deviceName) {
       const widget = tabWidgets[deviceName];
       if (widget) {
@@ -202,11 +210,12 @@ function addSettingsTab() {
   div += '</div>';
   appendNewElement('Settings-layout', div);
   document.getElementById('refresh-rate-number').addEventListener('input', function(e) {
-    if (isNaN(e.target.value)) {
+    let value = e.target.value;
+    if (!value || value.length === 0 || isNaN(value)) {
       console.log('Robot window refresh rate is not a valid number');
       return;
     }
-    window.robotWindow.send('refresh-rate ' + e.target.value);
+    window.robotWindow.send('refresh-rate ' + value);
   });
 }
 

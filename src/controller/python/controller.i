@@ -83,6 +83,9 @@ using namespace std;
 //  Miscellaneous - controller module's level
 //----------------------------------------------------------------------------------------------
 
+%thread webots::Robot::step(int duration);
+%nothreadblock;
+
 //handling std::string
 %include "std_string.i"
 %include "typemaps.i"
@@ -579,7 +582,7 @@ class AnsiCodes(object):
 
     PyObject *points = PyList_New(size);
     for (int i = 0; i < size; i++) {
-      PyObject *value = SWIG_NewPointerObj(SWIG_as_voidptr(&rawPoints[i]), $descriptor(WbLidarPoint *), 0);
+      PyObject *value = SWIG_NewPointerObj(SWIG_as_voidptr(&rawPoints[i]), $descriptor(WbLidarPoint), 0);
       PyList_SetItem(points, i, value);
     }
     return points;

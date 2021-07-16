@@ -235,8 +235,8 @@ RoadIntersection {
   startRoadsStartLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   startRoadsLine [
     RoadLine {
@@ -333,8 +333,8 @@ RoadIntersection {
   startRoadsStartLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   startRoadsLine [
     RoadLine {

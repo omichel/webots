@@ -2,6 +2,10 @@
 WorldInfo {
   info [
     "Example use of a \"force-3d\" TouchSensor."
+    "The transparent box is a \"force-3d\" TouchSensor and the opaque box inside is a Robot node."
+    "The TouchSensor is the child of the Robot node. This simple setup allows to measure the force on all (six) sides of the TouchSensor."
+    "Rotate the transparent box to see how the measured force vector changes."
+    "More information is available in the controller file."
   ]
   title "Force-3D TouchSensor"
   basicTimeStep 8

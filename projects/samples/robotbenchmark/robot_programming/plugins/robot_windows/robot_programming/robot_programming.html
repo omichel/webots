@@ -11,10 +11,10 @@
         <label class="tab" for="overview">Overview</label>
         <div class="panel">
           <p>This benchmark will teach you how to program a robot and run the simulation.</p>
-          <p>The tab entitled <a class='tablink' onclick='$("#infotabs").tabs({active:1});'>Metrics</a> measures your progress on an
+          <p>The tab entitled <b>Metrics</b> measures your progress on an
             exercise where you have to program a robot to cover a certain distance. It also allows you to record your performance in
             the robotbenchmark database (if you are logged-in).</p>
-          <p>The tab entitled <a class='tablink' onclick='$("#infotabs").tabs({active:2});'>Instructions</a> explains you how to
+          <p>The tab entitled <b>Instructions</b> explains you how to
             open the source code editor to edit the robot controller program, save it and run the simulation with your modified code.
           </p>
         </div>
@@ -27,7 +27,7 @@
           <p>Program the Thymio II robot to move straight forward and stop. The performance value increases as the robot gets closer
            to the target position situated exactly one parquetry square in front of it. It will decrease if the robot continues aways
            from this position.
-           The <a class='tablink' onclick='$("#infotabs").tabs({active:2});'>Instructions</a> tab explains the step-by-step
+           The <b>Instructions</b> tab explains the step-by-step
            procedure to follow.</p>
         </div>
         <input class="radio" id="instructions" name="group" type="radio">
@@ -48,7 +48,7 @@
             <li><b>Run the simulation</b>: press the play button <img src='real_time.png' alt='real-time'> to run the simulation.
             </li>
             <li><b>Observe the result</b>: the robot should move forward. Your performance should be updated in real time on the
-             <a class='tablink' onclick='$("#infotabs").tabs({active:1});'>Metrics</a> tab. After a while, the robot should stop and
+             <b>Metrics</b> tab. After a while, the robot should stop and
              your performance should be recorded (if you are logged in).
              Try to modify the controller program again to achieve a better performance.
             </li>
@@ -82,9 +82,9 @@
           return;
         height = newHeight;
         let panels = document.getElementsByClassName('panel');
-        for (panel of panels) {
+        Array.from(panels).forEach((panel) => {
           panel.style.top = height + 'px';
-        };
+        });
       }
       window.addEventListener('resize', adaptPositionOfText);
       adaptPositionOfText();

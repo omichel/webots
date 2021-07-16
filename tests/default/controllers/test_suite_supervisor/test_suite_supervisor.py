@@ -202,7 +202,7 @@ class TestSuite (Supervisor):
             if not success:
                 self.outputFileManager.write(
                     'FAILURE with ' + self.currentSimulationFilename +
-                    ': Expected message not found\n'
+                    ': Expected message not found \"' + self.expectedString + '\"\n'
                 )
         else:
             success = self.stderrFileManager.isEmpty()

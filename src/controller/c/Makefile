@@ -53,7 +53,7 @@ TARGET      = $(WEBOTS_CONTROLLER_LIB_PATH)/libController.so
 endif
 
 ifeq ($(OSTYPE),windows)
-CFLAGS      = -Wall -mwindows
+CFLAGS      = -Wall -mwindows -frandom-seed=0
 INCLUDE     = -I$(WEBOTS_HOME_PATH)/include/controller/c -I$(WEBOTS_HOME_PATH)/include -I/mingw64/include
 LD_FLAGS    = -shared -mwindows --def Controller.def
 PLATFORM    = win32

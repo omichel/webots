@@ -61,7 +61,7 @@ endif
 
 ifeq ($(OSTYPE),darwin)
 PYTHON_PATH = $(shell $(PYTHON_COMMAND) -u -c "import sys; print(sys.exec_prefix)")
-SKIP_PYTHON_PYMALLOC := 27 38 39
+SKIP_PYTHON_PYMALLOC := 38 39
 ifeq ($(filter $(PYTHON_SHORT_VERSION),$(SKIP_PYTHON_PYMALLOC)),)
 PYTHON_PYMALLOC = m
 endif

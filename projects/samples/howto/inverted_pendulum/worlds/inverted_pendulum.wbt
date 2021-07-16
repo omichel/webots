@@ -23,7 +23,7 @@ Viewpoint {
 TexturedBackground {
 }
 Floor {
-  size 2 10000
+  size 2 1000
   appearance PBRAppearance {
     baseColorMap ImageTexture {
       url [

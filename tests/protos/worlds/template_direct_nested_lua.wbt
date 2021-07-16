@@ -40,7 +40,7 @@ Robot {
   ]
   controller "nested"
   controllerArgs [
-    "template_direct_nested"
+    "template_direct_nested (lua)"
   ]
 }
 TestSuiteSupervisor {

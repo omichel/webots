@@ -11,7 +11,7 @@ Appearance {
 
 ### Description
 
-The [Appearance](#appearance) node specifies the visual properties of a geometric node.
+The [Appearance](#appearance) node (like the [PBRAppearance](pbrappearance.md) node) specifies the visual properties of a geometric node. It should be set inside a [Shape](shape.md) node.
 The value for each of the fields in this node may be NULL.
 However, if the field is non-NULL, it shall contain one node of the appropriate type.
 

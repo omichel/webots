@@ -131,7 +131,7 @@ private:
   void initializeImageSharedMemory() override;
 
   int size() const override {
-    return sizeof(float) * width() * height() + sizeof(WbLidarPoint) * actualHorizontalResolution() * actualNumberOfLayers();
+    return (sizeof(float) + sizeof(WbLidarPoint)) * actualHorizontalResolution() * actualNumberOfLayers();
   }
   double minRange() const override { return mMinRange->value(); }
   bool isRotating() const { return mActualType.startsWith('r', Qt::CaseInsensitive); }

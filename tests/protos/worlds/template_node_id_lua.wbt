@@ -41,6 +41,9 @@ Robot {
   ]
   name "supervisor"
   controller "template_node_id"
+  controllerArgs [
+    "template_node_id (lua)"
+  ]
   supervisor TRUE
 }
 TestSuiteSupervisor {

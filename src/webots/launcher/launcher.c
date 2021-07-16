@@ -113,26 +113,30 @@ int main(int argc, char *argv[]) {
   STARTUPINFOW info = {sizeof(info)};
   PROCESS_INFORMATION process_info;
 
-  if (!CreateProcessW(NULL, command_line, NULL, NULL, TRUE, 0, NULL, NULL, &info, &process_info))
-    fail("CreateProcess", "Cannot launch Webots binary");
+  while (1) {
+    if (!CreateProcessW(NULL, command_line, NULL, NULL, TRUE, 0, NULL, NULL, &info, &process_info))
+      fail("CreateProcess", "Cannot launch Webots binary");
 
-  // webots-bin.exe should be killed whenever its parent (webots.exe or webotsw.exe) terminates.
-  HANDLE job = CreateJobObject(NULL, NULL);
-  JOBOBJECT_EXTENDED_LIMIT_INFORMATION jeli = {0};
-  jeli.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
-  if (!SetInformationJobObject(job, JobObjectExtendedLimitInformation, &jeli, sizeof(jeli)))
-    fail("SetInformationJobObject", 0);
-  if (!AssignProcessToJobObject(job, process_info.hProcess))
-    fail("AssignProcessToJobObject", 0);
+    // webots-bin.exe should be killed whenever its parent (webots.exe or webotsw.exe) terminates.
+    HANDLE job = CreateJobObject(NULL, NULL);
+    JOBOBJECT_EXTENDED_LIMIT_INFORMATION jeli = {0};
+    jeli.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
+    if (!SetInformationJobObject(job, JobObjectExtendedLimitInformation, &jeli, sizeof(jeli)))
+      fail("SetInformationJobObject", 0);
+    if (!AssignProcessToJobObject(job, process_info.hProcess))
+      fail("AssignProcessToJobObject", 0);
 
-  // wait for webots-bin.exe to terminate
-  WaitForSingleObject(process_info.hProcess, INFINITE);  // return zero in case of success
-  DWORD exit_code;
-  if (!GetExitCodeProcess(process_info.hProcess, &exit_code))
-    fail("GetExitCodeProcess", 0);
-  if (!CloseHandle(process_info.hProcess))
-    fail("CloseHandle", 0);
-  if (!CloseHandle(process_info.hThread))
-    fail("CloseHandle", 0);
-  return exit_code;
+    // wait for webots-bin.exe to terminate
+    WaitForSingleObject(process_info.hProcess, INFINITE);  // return zero in case of success
+    DWORD exit_code;
+    if (!GetExitCodeProcess(process_info.hProcess, &exit_code))
+      fail("GetExitCodeProcess", 0);
+    if (!CloseHandle(process_info.hProcess))
+      fail("CloseHandle", 0);
+    if (!CloseHandle(process_info.hThread))
+      fail("CloseHandle", 0);
+    if (exit_code != 3030)  // special return code to restart Webots, see WbGuiApplication.cpp
+      return exit_code;
+  }
+  return 0;
 }

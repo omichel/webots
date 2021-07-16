@@ -940,6 +940,14 @@ void WbWrenCamera::applySphericalPostProcessingEffect() {
                                              WR_SHADER_PROGRAM_UNIFORM_TYPE_INT,
                                              reinterpret_cast<const char *>(&isRangeFinderOrLidar));
 
+  wr_shader_program_set_custom_uniform_value(WbWrenShaders::mergeSphericalShader(), "subCamerasResolutionX",
+                                             WR_SHADER_PROGRAM_UNIFORM_TYPE_INT,
+                                             reinterpret_cast<const char *>(&mSubCamerasResolutionX));
+
+  wr_shader_program_set_custom_uniform_value(WbWrenShaders::mergeSphericalShader(), "subCamerasResolutionY",
+                                             WR_SHADER_PROGRAM_UNIFORM_TYPE_INT,
+                                             reinterpret_cast<const char *>(&mSubCamerasResolutionY));
+
   wr_shader_program_set_custom_uniform_value(WbWrenShaders::mergeSphericalShader(), "minRange",
                                              WR_SHADER_PROGRAM_UNIFORM_TYPE_FLOAT, reinterpret_cast<const char *>(&mMinRange));
 

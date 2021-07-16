@@ -84,8 +84,9 @@ void WbLight::postFinalize() {
 }
 
 WbLight::~WbLight() {
+  cLights.removeOne(this);
+
   if (areWrenObjectsInitialized()) {
-    cLights.removeOne(this);
     applySceneAmbientColorToWren();
     if (!WbWorld::instance()->isCleaning())
       emit WbWrenRenderingContext::instance()->numberOfOnLightsChanged();

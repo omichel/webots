@@ -3,7 +3,6 @@
 #####################################################################################################
 
 # export JAVA_HOME=/C/Program\ Files/Java/jdk1.8.0_192                             # Optionally defines the path to Java home.
-# export PYTHON27_HOME=/C/Python27                                                 # Optionally defines the path to Python 2.7 home.
 # export PYTHON37_HOME=/C/Program\ Files/Python37                                  # Optionally defines the path to Python 3.7 home.
 # export PYTHON38_HOME=/C/Program\ Files/Python38                                  # Optionally defines the path to Python 3.8 home.
 # export PYTHON39_HOME=/C/Program\ Files/Python39                                  # Optionally defines the path to Python 3.9 home.

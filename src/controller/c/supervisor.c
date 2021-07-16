@@ -977,71 +977,73 @@ static void supervisor_read_answer(WbDevice *d, WbRequest *r) {
     } break;
     case C_SUPERVISOR_FIELD_GET_VALUE: {
       const WbFieldType field_type = request_read_int32(r);
-      const int field_node_id = request_read_int32(r);
-      const int field_id = request_read_int32(r);
-      const bool is_field_get_request = sent_field_get_request && sent_field_get_request->field &&
-                                        sent_field_get_request->field->node_unique_id == field_node_id &&
-                                        sent_field_get_request->field->id == field_id;
-
-      WbFieldStruct *f = (is_field_get_request) ? sent_field_get_request->field : find_field_by_id(field_node_id, field_id);
 
       // field_type == 0 if node was deleted
-      if (f && field_type != 0) {
-        switch (f->type) {
-          case WB_SF_BOOL:
-          case WB_MF_BOOL:
-            f->data.sf_bool = request_read_uchar(r) == 1;
-            break;
-          case WB_SF_INT32:
-          case WB_MF_INT32:
-            f->data.sf_int32 = request_read_int32(r);
-            break;
-          case WB_SF_FLOAT:
-          case WB_MF_FLOAT:
-            f->data.sf_float = request_read_double(r);
-            break;
-          case WB_SF_VEC2F:
-          case WB_MF_VEC2F:
-            f->data.sf_vec2f[0] = request_read_double(r);
-            f->data.sf_vec2f[1] = request_read_double(r);
-            break;
-          case WB_SF_VEC3F:
-          case WB_MF_VEC3F:
-          case WB_SF_COLOR:
-          case WB_MF_COLOR:
-            f->data.sf_vec3f[0] = request_read_double(r);
-            f->data.sf_vec3f[1] = request_read_double(r);
-            f->data.sf_vec3f[2] = request_read_double(r);
-            break;
-          case WB_SF_ROTATION:
-          case WB_MF_ROTATION:
-            f->data.sf_rotation[0] = request_read_double(r);
-            f->data.sf_rotation[1] = request_read_double(r);
-            f->data.sf_rotation[2] = request_read_double(r);
-            f->data.sf_rotation[3] = request_read_double(r);
-            break;
-          case WB_SF_STRING:
-          case WB_MF_STRING:
-            free(f->data.sf_string);
-            f->data.sf_string = request_read_string(r);
-            break;
-          case WB_SF_NODE:
-          case WB_MF_NODE:
-            f->data.sf_node_uid = request_read_uint32(r);  // 0 => NULL node
-            if (f->data.sf_node_uid) {
-              const WbNodeType type = request_read_uint32(r);
-              const int tag = request_read_int32(r);
-              const int parent_uid = request_read_uint32(r);
-              const bool is_proto = request_read_uchar(r) == 1;
-              const char *model_name = request_read_string(r);
-              const char *def_name = request_read_string(r);
-              add_node_to_list(f->data.sf_node_uid, type, model_name, def_name, tag, parent_uid, is_proto);
-            }
-            break;
-          default:
-            assert(0);
+      if (field_type != 0) {
+        const int field_node_id = request_read_int32(r);
+        const int field_id = request_read_int32(r);
+        const bool is_field_get_request = sent_field_get_request && sent_field_get_request->field &&
+                                          sent_field_get_request->field->node_unique_id == field_node_id &&
+                                          sent_field_get_request->field->id == field_id;
+
+        WbFieldStruct *f = (is_field_get_request) ? sent_field_get_request->field : find_field_by_id(field_node_id, field_id);
+        if (f) {
+          switch (f->type) {
+            case WB_SF_BOOL:
+            case WB_MF_BOOL:
+              f->data.sf_bool = request_read_uchar(r) == 1;
+              break;
+            case WB_SF_INT32:
+            case WB_MF_INT32:
+              f->data.sf_int32 = request_read_int32(r);
+              break;
+            case WB_SF_FLOAT:
+            case WB_MF_FLOAT:
+              f->data.sf_float = request_read_double(r);
+              break;
+            case WB_SF_VEC2F:
+            case WB_MF_VEC2F:
+              f->data.sf_vec2f[0] = request_read_double(r);
+              f->data.sf_vec2f[1] = request_read_double(r);
+              break;
+            case WB_SF_VEC3F:
+            case WB_MF_VEC3F:
+            case WB_SF_COLOR:
+            case WB_MF_COLOR:
+              f->data.sf_vec3f[0] = request_read_double(r);
+              f->data.sf_vec3f[1] = request_read_double(r);
+              f->data.sf_vec3f[2] = request_read_double(r);
+              break;
+            case WB_SF_ROTATION:
+            case WB_MF_ROTATION:
+              f->data.sf_rotation[0] = request_read_double(r);
+              f->data.sf_rotation[1] = request_read_double(r);
+              f->data.sf_rotation[2] = request_read_double(r);
+              f->data.sf_rotation[3] = request_read_double(r);
+              break;
+            case WB_SF_STRING:
+            case WB_MF_STRING:
+              free(f->data.sf_string);
+              f->data.sf_string = request_read_string(r);
+              break;
+            case WB_SF_NODE:
+            case WB_MF_NODE:
+              f->data.sf_node_uid = request_read_uint32(r);  // 0 => NULL node
+              if (f->data.sf_node_uid) {
+                const WbNodeType type = request_read_uint32(r);
+                const int tag = request_read_int32(r);
+                const int parent_uid = request_read_uint32(r);
+                const bool is_proto = request_read_uchar(r) == 1;
+                const char *model_name = request_read_string(r);
+                const char *def_name = request_read_string(r);
+                add_node_to_list(f->data.sf_node_uid, type, model_name, def_name, tag, parent_uid, is_proto);
+              }
+              break;
+            default:
+              assert(0);
+          }
+          f->last_update = wb_robot_get_time();
         }
-        f->last_update = wb_robot_get_time();
       }
       if (sent_field_get_request) {
         if (sent_field_get_request->is_string)

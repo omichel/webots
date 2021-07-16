@@ -48,9 +48,13 @@ Solid {
   children [
     DEF Candies_Area Floor {
       size 1 2.6
-      texture [
-        "webots://projects/default/worlds/textures/parquetry.jpg"
-      ]
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "webots://projects/default/worlds/textures/parquetry.jpg"
+          ]
+        }
+      }
     }
     Shelves {
       translation -0.36 0 0

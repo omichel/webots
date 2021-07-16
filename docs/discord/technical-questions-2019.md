@@ -2994,7 +2994,7 @@ For information position control for the e-puck in remote-control is not support
 ##### Thelm 05/20/2019 15:00:29
 Okay thank you, i'll try to do without but I would be harder with just velocity control because of the wb\_robot\_step not properly workng with bluetooth
 
-##### Ελευθερία Ψαθά 05/21/2019 13:28:09
+##### elefps 05/21/2019 13:28:09
 which is the default focal length and  principle point of the epucks camera?
 
 ##### Fabien Rohrer [Moderator] 05/21/2019 13:29:39
@@ -11705,7 +11705,7 @@ Hi `@David Mansolino` , thanks for your reply!
 ##### Olivier Michel [Cyberbotics] 08/29/2019 05:49:14
 `@Frodo`: did you try print()? Note you need to call Robot.step() so that your print command is sent to Webots and displayed in the console.
 
-##### Smruti(P) 08/29/2019 14:04:36
+##### SasukeFan 08/29/2019 14:04:36
 hello, how can i convert .txt to .motion that webots can understand?I have a .txt file that contains the angle of each joints.Now i want nao to be in that position specified in that .txt file. For that reason i have to convert it into .motion file. So how should i do that?Can anyone help
 
 ##### Fabien Rohrer [Moderator] 08/29/2019 14:06:13
@@ -11723,19 +11723,19 @@ You should try to forge a similar file.
 
 Basically, the header list the motor names, and each line contain a pose (time,posName,motorPositions*)
 
-##### Smruti(P) 08/29/2019 14:39:34
+##### SasukeFan 08/29/2019 14:39:34
 actually i m getting my data from kinect and using that data i m getting my joints angle (motor positions)using python . Now i have information of angles of left shoulder pitch and roll, left elbow pitch and roll.Now i want it to be in a file that webots can read.so how should i do that?Continuosly i will be getting data from kinect which will be given to webots .So how should i continuosly convert it to motion files?
 
 ##### Fabien Rohrer [Moderator] 08/29/2019 14:42:26
 Using the motion mechanism is certainly overkilled. Why not simply and directly actuating the simulated robot motors? (cf. Motor.setPosition(double pos))
 
-##### Smruti(P) 08/29/2019 14:43:18
+##### SasukeFan 08/29/2019 14:43:18
 sorry i can't get u
 
 ##### Fabien Rohrer [Moderator] 08/29/2019 14:45:51
 The Webots motion file mechanism aims to play back a stored motion in simulation. You would like to map the Kinect and the Webots simulated robot in real-time, right? In this case, it seems more appropriated to not use the Webots motion file mechanism, but rather to directly move the simulated robot actuators.
 
-##### Smruti(P) 08/29/2019 14:48:48
+##### SasukeFan 08/29/2019 14:48:48
 okay thank you
 
 ##### ClLebi 08/29/2019 15:21:59
@@ -15880,7 +15880,7 @@ and the uploading stripe is grey.
 ![grey.png](https://cdn.discordapp.com/attachments/565154703139405824/637563118955790368/grey.png)
 %end
 
-##### Hakkinein 10/27/2019 14:43:50
+##### threeal 10/27/2019 14:43:50
 how to manually compile a controller in Webots using make command?
 
 
@@ -15896,7 +15896,7 @@ well seem i got it with creating dynamic link between webots include folder to m
 thank you guys
 
 ##### Fabien Rohrer [Moderator] 10/28/2019 07:49:03
-`@Hakkinein` you’re welcome 😂
+`@threeal` you’re welcome 😂
 
 ##### David Mansolino [Cyberbotics] 10/28/2019 12:33:03
 `@POTATO_CHIP` which version of the e-puck are you using?
@@ -16032,20 +16032,20 @@ Yes, if it's a direct children (no joint between them) the two solids will kind 
 ##### Gautier 10/28/2019 16:00:19
 Ok, thank you !
 
-##### Hakkinein 10/28/2019 17:30:24
+##### threeal 10/28/2019 17:30:24
 when a world has 2 robots, does it treats each robot as separate node when using ros controllers?
 
 ##### Tahir [Moderator] 10/28/2019 17:34:35
-`@Hakkinein` Yes, different robots are treated sepreately, They will have all the information in different ros services (namespaced by the robots name you specify)
+`@threeal` Yes, different robots are treated sepreately, They will have all the information in different ros services (namespaced by the robots name you specify)
 
-##### Hakkinein 10/28/2019 19:55:27
+##### threeal 10/28/2019 19:55:27
 and how do i know if i subsribe a message from one robot and not the other?
 
 
 and in the e-puck sample, i tried to change the robot name, it changes the topic name of the robot, but the rosnode that control the robot could still able to send a message to webots simulator even if it has different topic name. how could it happens?
 
 ##### Tahir [Moderator] 10/28/2019 20:10:04
-`@Hakkinein`  when you change the robot name and add corresponding arguments in the controller args field then every information changes from rosnodes, topics and list.
+`@threeal`  when you change the robot name and add corresponding arguments in the controller args field then every information changes from rosnodes, topics and list.
 
 
 By changing the robot name the all ros names are appended by robot name
@@ -16131,16 +16131,16 @@ Okay, thank you !
 ![Capture_decran_2019-10-29_a_10.30.02.png](https://cdn.discordapp.com/attachments/565154703139405824/638670917966495744/Capture_decran_2019-10-29_a_10.30.02.png)
 %end
 
-##### Hakkinein 10/29/2019 10:41:08
+##### threeal 10/29/2019 10:41:08
 `@Tahir` where can i view the source code of the E-Puck ros node. i want to create my own node to control robot in webots simulator, but don't know where to start
 
 ##### David Mansolino [Cyberbotics] 10/29/2019 10:42:07
-`@Hakkinein` , you can find the Webots ROS controller here: [https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros](https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros)
+`@threeal` , you can find the Webots ROS controller here: [https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros](https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros)
 
 
 If you want to extend it, here is an example: [https://github.com/cyberbotics/webots/tree/revision/projects/vehicles/controllers/ros\_automobile](https://github.com/cyberbotics/webots/tree/revision/projects/vehicles/controllers/ros_automobile)
 
-##### Hakkinein 10/29/2019 10:45:24
+##### threeal 10/29/2019 10:45:24
 i am sorry, but when i want to create a robot program using ros, should i create the behavior in webots controller or in the ros node?
 
 
@@ -16152,7 +16152,7 @@ The ros controller is just the interface between ros and Webots, you should crea
 
 You can find some example here: [http://wiki.ros.org/webots\_ros/Tutorials/Sample%20Simulations](http://wiki.ros.org/webots_ros/Tutorials/Sample%20Simulations)
 
-##### Hakkinein 10/29/2019 10:49:52
+##### threeal 10/29/2019 10:49:52
 so i just need to attach ros controller to my robot? no need to create my own controller in webots?
 
 ##### David Mansolino [Cyberbotics] 10/29/2019 10:50:24
@@ -17407,7 +17407,7 @@ Ah you've got me there. I would use 1 arm instead. Less computation and less wor
 hello everyone, Please note that I'm a noob to Webots. I got a problem with KUKA youBot. Here's my code. [https://pastebin.com/j3h9Z4Y3](https://pastebin.com/j3h9Z4Y3). I've only called base\_turn\_left() but the bot seems to be going forward, and also turning to the right as shown in the video :/ Can anyone help me figure out what's wrong?
 > **Attachment**: [C\_\_Users\_Chamuth\_Documents\_P\_Bots\_Round2\_Round2\_worlds\_Round2.wbt\_Round2\_-\_Webots\_R2019b\_2019-11-09\_.mp4](https://cdn.discordapp.com/attachments/565154703139405824/642769143602348055/C__Users_Chamuth_Documents_P_Bots_Round2_Round2_worlds_Round2.wbt_Round2_-_Webots_R2019b_2019-11-09_.mp4)
 
-##### Hakkinein 11/09/2019 21:58:39
+##### threeal 11/09/2019 21:58:39
 is there any way to get the value of controlPID in the motor using python?
 
 ##### Hayden Woodger 11/09/2019 21:59:49
@@ -17416,7 +17416,7 @@ is there any way to get the value of controlPID in the motor using python?
 
 Scroll down to motor functions and change the code to python.
 
-##### Hakkinein 11/09/2019 22:28:41
+##### threeal 11/09/2019 22:28:41
 but there is no function to get control pid value, just set
 
 ##### Hayden Woodger 11/09/2019 22:35:05
@@ -17425,13 +17425,13 @@ Sorry you are right, my mistake.
 
 You can get the velocity and position though.
 
-##### Hakkinein 11/10/2019 09:23:16
+##### threeal 11/10/2019 09:23:16
 i have been able to create ros controller in webots using python. when will there be  a support for ros controller using c++? as i think it would be faster using that.
 
 ##### Tahir [Moderator] 11/10/2019 10:41:21
 ROS controller is written in C++. Its upon you how you handle your program on ROS side. From Webots everything is available in the form of Services, now its upon you how you handle it wither in Python or C++.
 
-##### Hakkinein 11/10/2019 10:58:10
+##### threeal 11/10/2019 10:58:10
 i mean the custom ros controller, not the ros controller that been provided by webots
 
 ##### Tahir [Moderator] 11/10/2019 11:18:48
@@ -17464,21 +17464,21 @@ On the official website, [https://www.cyberbotics.com/doc/guide/getting-started-
 For an example you can look at the `projects/samples/demows/worlds/stewart_platform.wbt` example ([https://www.cyberbotics.com/doc/guide/samples-demos#stewart\_platform-wbt](https://www.cyberbotics.com/doc/guide/samples-demos#stewart_platform-wbt))
 
 
-`@Hakkinein`: to get the control PID values you can use the Supevisor API function to read the node field value. There is no Motor API function to retrieve it directly.
+`@threeal`: to get the control PID values you can use the Supevisor API function to read the node field value. There is no Motor API function to retrieve it directly.
 
 
-`@Hakkinein`: What do you mean exactly by "support for ros controller in c++"? You can already implement a ros controller as webots controller in c++ as we did when implementing the default ROS interface procided by Webots.
+`@threeal`: What do you mean exactly by "support for ros controller in c++"? You can already implement a ros controller as webots controller in c++ as we did when implementing the default ROS interface procided by Webots.
 
 
 `@chamandana` please pay attention that the youBot omni wheels only work if the WorldInfo.contactProperties of the world are set correctly. You should open the default `youbot.wbt` world and copy them in your world.
 
-##### Hakkinein 11/11/2019 08:17:20
+##### threeal 11/11/2019 08:17:20
 `@Stefania Pedrazzi` so how is the relation between supervisor and the robot? and does it still written in robot controller?
 
 ##### Stefania Pedrazzi [Cyberbotics] 11/11/2019 08:18:34
 You can enable the Supervisor functionality in a robot controller by setting the `Robot.supervisor` field to TRUE
 
-##### Hakkinein 11/11/2019 08:19:34
+##### threeal 11/11/2019 08:19:34
 `@Stefania Pedrazzi` the webots only provides a sample tutorial for creating ros controller in python, and not in c++, and i dont know how to link the webots library and ros library in catkin make
 
 
@@ -17589,7 +17589,7 @@ yes, I meant image processing.
 
 So, the first thing to determine is that: can you move the robot smoothly when the image processing is not used?
 
-##### Hakkinein 11/11/2019 15:23:15
+##### threeal 11/11/2019 15:23:15
 `@Stefania Pedrazzi` here [https://github.com/cyberbotics/webots/tree/revision/projects/languages/ros/controllers/ros\_python](https://github.com/cyberbotics/webots/tree/revision/projects/languages/ros/controllers/ros_python)
 
 ##### Prasad 11/11/2019 15:23:31
@@ -17605,19 +17605,19 @@ But, in my tests, rover was teleoperated alone
 Sure!
 
 ##### Stefania Pedrazzi [Cyberbotics] 11/11/2019 15:33:53
-`@Hakkinein`: ok, now I better understand what you mean. For C++ there is the complete standard `ros` controller implementation ([https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros](https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros))
+`@threeal`: ok, now I better understand what you mean. For C++ there is the complete standard `ros` controller implementation ([https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros](https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros))
 
 The C++ files corresponding to the `ros_controller.py` file are defined here [https://github.com/cyberbotics/webots/tree/revision/projects/languages/ros/webots\_ros](https://github.com/cyberbotics/webots/tree/revision/projects/languages/ros/webots_ros). It also contains a sample of the CMakeLists.txt file that you could adapt to write your simple ros example in cpp. 
 
 Other instructions for the standard ROS controller in cpp that you could need are described here [https://cyberbotics.com/doc/guide/using-ros#standard-ros-controller](https://cyberbotics.com/doc/guide/using-ros#standard-ros-controller)
 
-##### Hakkinein 11/11/2019 15:49:48
+##### threeal 11/11/2019 15:49:48
 can i use the makefile here ([https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros](https://github.com/cyberbotics/webots/tree/revision/projects/default/controllers/ros)) to build my own controller that support ros in c++?
 
 ##### Stefania Pedrazzi [Cyberbotics] 11/11/2019 15:54:38
 yes, you can reuse it. You should also copy the `include` folder.
 
-##### Hakkinein 11/11/2019 16:14:12
+##### threeal 11/11/2019 16:14:12
 what about the msg and srv? will it able to builds them? and where will it located? and how can i include it to my main ros workspace?
 
 ##### Stefania Pedrazzi [Cyberbotics] 11/11/2019 16:15:27
@@ -17629,7 +17629,7 @@ To include them into the ros workspace you just have to copy the msg and srv fol
 
 Here are some old instructions to setup manually the webots\_ros package (before it was published in ros): [https://cyberbotics.com/doc/guide/tutorial-7-using-ros?version=cyberbotics:R2019a#webots\_ros-package-installation](https://cyberbotics.com/doc/guide/tutorial-7-using-ros?version=cyberbotics:R2019a#webots_ros-package-installation)
 
-##### Hakkinein 11/11/2019 17:04:24
+##### threeal 11/11/2019 17:04:24
 thank you `@Stefania Pedrazzi`
 
 ##### machinekoder 11/12/2019 06:54:44
@@ -18202,25 +18202,25 @@ You should check your network configurations and change them
 ##### Nocturnal Warfare 11/18/2019 19:11:58
 `@Olivier Michel` i just tried using the terrain generator and still nothing seems to be happening. Am I just using it wrong? You just scale the map to what you want to generate then hit generate right?
 
-##### Hakkinein 11/18/2019 20:05:30
+##### threeal 11/18/2019 20:05:30
 does webots support ros 2?
 
 ##### Olivier Michel [Cyberbotics] 11/18/2019 20:28:35
 `@Nocturnal Warfare`: I tried it now and it works for me, but it takes time. Just below the map, you should see a counter increasing until it displays "Ready" and the Webots fill will appear in the text area below.
 
 ##### David Mansolino [Cyberbotics] 11/18/2019 20:36:03
-`@Hakkinein`, yes, we have already an interface with ROS2: [http://wiki.ros.org/webots\_ros2](http://wiki.ros.org/webots_ros2)
+`@threeal`, yes, we have already an interface with ROS2: [http://wiki.ros.org/webots\_ros2](http://wiki.ros.org/webots_ros2)
 
 We are still improving it, you can follow the development and get the latest version here: [https://github.com/cyberbotics/webots\_ros2.git](https://github.com/cyberbotics/webots_ros2.git)
 
-##### Hakkinein 11/18/2019 21:21:42
+##### threeal 11/18/2019 21:21:42
 does the performance better in ros 2 or is it the same?
 
 ##### Nocturnal Warfare 11/18/2019 21:53:58
 `@Olivier Michel` oh I got that working now thanks, but the staticmap.png doesn't work for me, it just says Google maps platform rejected your request
 
 ##### David Mansolino [Cyberbotics] 11/18/2019 22:16:50
-`@Hakkinein` yes we do expect a better integration and performance, however since the interface is still in development we can't give precise measurements for now.
+`@threeal` yes we do expect a better integration and performance, however since the interface is still in development we can't give precise measurements for now.
 
 ##### JoanGerard 11/19/2019 01:43:46
 So when I execute webots manually from the simulator server and I use the stream\_viewer example everything works good. 
@@ -20373,7 +20373,7 @@ Thanks, that helped
 ##### David Mansolino [Cyberbotics] 12/06/2019 14:14:48
 You're welcome
 
-##### Hakkinein 12/06/2019 14:42:20
+##### threeal 12/06/2019 14:42:20
 why i cannot fetch to [https://www.cyberbotics.com/debian/binary-amd64/InRelease](https://www.cyberbotics.com/debian/binary-amd64/InRelease) ?
 
 ##### Olivier Michel [Cyberbotics] 12/06/2019 14:54:08

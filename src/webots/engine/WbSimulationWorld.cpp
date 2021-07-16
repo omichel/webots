@@ -398,7 +398,8 @@ void WbSimulationWorld::reset(bool restartControllers) {
     }
   }
   updateRandomSeed();
-  WbSimulationState::instance()->resumeSimulation();
+  if (WbDownloader::progress() == 100)
+    WbSimulationState::instance()->resumeSimulation();
   if (mPhysicsPlugin)
     mPhysicsPlugin->init();
   storeLastSaveTime();

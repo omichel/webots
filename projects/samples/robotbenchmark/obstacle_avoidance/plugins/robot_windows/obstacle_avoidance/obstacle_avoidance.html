@@ -69,9 +69,9 @@
           return;
         height = newHeight;
         let panels = document.getElementsByClassName('panel');
-        for (panel of panels) {
+        Array.from(panels).forEach((panel) => {
           panel.style.top = height + 'px';
-        };
+        });
       }
       window.addEventListener('resize', adaptPositionOfText);
       adaptPositionOfText();

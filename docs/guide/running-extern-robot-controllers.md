@@ -31,7 +31,8 @@ Generic Webots environment variables needed for all the controller languages:
 | Environment Variable                               | Typical Value                                                             |
 |----------------------------------------------------|---------------------------------------------------------------------------|
 | WEBOTS\_HOME                                       | `C:\Program Files\Webots`                                                 |
-| Path (all controllers except Python >= 3.8)        | add `%WEBOTS_HOME%\lib\controller` and `%WEBOTS_HOME%\msys64\mingw64\bin` |
+| Path (all controllers)                             | add `%WEBOTS_HOME%\lib\controller`                                        |
+| Path (all controllers except Python >= 3.8)        | add `%WEBOTS_HOME%\msys64\mingw64\bin`                                    |
 | Path (for C++, Python < 3.8, and Java controllers) | add `%WEBOTS_HOME%\msys64\mingw64\bin\cpp`                                |
 
 %tab-end
@@ -50,7 +51,7 @@ Generic Webots environment variables needed for all the controller languages:
 | Environment Variable                                    | Typical Value                                    |
 |---------------------------------------------------------|--------------------------------------------------|
 | WEBOTS\_HOME                                            | `/Applications/Webots.app`                       |
-| DYLD\_LIBRARY\_PATH (not needed for Python controllers) | add `${WEBOTS_HOME}/lib/controller`              |
+| DYLD\_LIBRARY\_PATH                                     | add `${WEBOTS_HOME}/lib/controller`              |
 
 %tab-end
 
@@ -76,7 +77,6 @@ No specific setup is needed.
 %tab "Python"
 | Version               | Environment Variable     | Typical Value                                     |
 |--------------         |--------------------------|---------------------------------------------------|
-| Python 2.7            | PYTHONPATH               | add `${WEBOTS_HOME}/lib/controller/python27`      |
 | Python 3.X            | PYTHONPATH               | add `${WEBOTS_HOME}/lib/controller/python3X`      |
 | Python Homebrew 3.X   | PYTHONPATH               | add `${WEBOTS_HOME}/lib/controller/python3X_brew` |
 | all                   | PYTHONIOENCODING         | `UTF-8`                                           |
@@ -118,6 +118,9 @@ Here is an example of what you should enter in the MATLAB console:
 %tab-end
 
 %end
+
+Also, the [runtime.ini](controller-programming.md#environment-variables) file located in the controller folder (if any) is ignored while starting an extern controller.
+Therefore it may be needed to setup manually some extra environment variables which are defined in this file, like for example adding more paths in `PYTHONPATH`.
 
 ## Setup
 

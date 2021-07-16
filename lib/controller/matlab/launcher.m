@@ -88,7 +88,7 @@ try
         'mfilename',protofile, ...
         'alias','libController', ...
         'addheader','accelerometer.h', ...
-        'addHeader','altimeter.h',...
+        'addheader','altimeter.h',...
         'addheader','brake.h', ...
         'addheader','camera.h', ...
         'addheader','compass.h', ...
@@ -158,7 +158,16 @@ try
   WEBOTS_PROJECT = wbu_system_short_path(WEBOTS_PROJECT_UTF8);
 
   cd([WEBOTS_PROJECT '/controllers/' WEBOTS_CONTROLLER_NAME]);
-  eval(WEBOTS_CONTROLLER_NAME);
+
+  % sanitize controller name if needed
+  if ~isvarname(WEBOTS_CONTROLLER_NAME)
+    newname = matlab.lang.makeValidName(WEBOTS_CONTROLLER_NAME);
+    copyfile(append(WEBOTS_CONTROLLER_NAME, '.m'), append(newname, '.m'), 'f');
+    eval(newname);
+    delete(append(newname, '.m')); % delete temporary file
+  else
+    eval(WEBOTS_CONTROLLER_NAME);
+  end
 
 catch ME
   % display error message in Webots console

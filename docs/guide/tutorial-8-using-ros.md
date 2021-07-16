@@ -2,7 +2,7 @@
 
 This tutorial explains how to use the nodes from the `webots_ros` package provided with Webots.
 
-These examples were tested with ROS `noetic`, `melodic` and `kinetic` on Linux.
+These examples were tested with ROS `noetic` and `melodic` on Linux.
 There is no warranty they will work if you use a different platform or an ancient distribution of ROS.
 
 ### Installing ROS and "webots\_ros" Package
@@ -19,7 +19,7 @@ To install the latest version of ROS on Ubuntu use the following commands:
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 sudo apt-get update
-sudo apt-get install ros-noetic-desktop-full # takes time, get a coffee :)
+sudo apt-get install ros-noetic-desktop-full ros-noetic-moveit # takes time, get a coffee :)
 sudo apt-get install python3-rosdep
 sudo rosdep init
 rosdep update
@@ -34,7 +34,7 @@ sudo apt-get install ros-noetic-webots-ros
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 sudo apt-get update
-sudo apt-get install ros-melodic-desktop-full # takes time, get a coffee :)
+sudo apt-get install ros-melodic-desktop-full ros-melodic-moveit # takes time, get a coffee :)
 sudo apt-get install python-rosdep
 sudo rosdep init
 rosdep update
@@ -43,26 +43,11 @@ sudo apt-get install ros-melodic-webots-ros
 
 %tab-end
 
-%tab "kinetic"
-
-```sh
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-sudo apt-get update
-sudo apt-get install ros-kinetic-desktop-full # takes time, get a coffee :)
-sudo apt-get install python-rosdep
-sudo rosdep init
-rosdep update
-sudo apt-get install ros-kinetic-webots-ros
-```
-
-%tab-end
-
 
 %end
 
 For more information or to install it on another platform please read [http://wiki.ros.org/ROS/Installation](http://wiki.ros.org/ROS/Installation).
-Unless you need older version for some other application, you should choose a recent distribution (Noetic Ninjemys, Melodic Morenia or Kinetic Kame).
+Unless you need older version for some other application, you should choose a recent distribution (Noetic Ninjemys or Melodic Morenia).
 
 The last line is to install the [webots\_ros](http://wiki.ros.org/webots\_ros) package.
 
@@ -71,26 +56,41 @@ These tutorials will also help you set up your ROS environment and initialize yo
 The minimum requirement is to follow these instructions (taken from the [ROS tutorial 1.1.1](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment)).
 1. Open a terminal
 2. Check if the ROS environment is properly set-up: `printenv | grep ROS`
-3. If not, source the setup script: `source /opt/ros/melodic/setup.bash`. Check it again to be sure.
+3. If not, source the setup script: `source /opt/ros/noetic/setup.bash`. Check it again to be sure.
 4. Create a `catkin_ws` workspace for ROS:
   1. Create some folders: `mkdir -p ~/catkin_ws/src`
   2. Go back in the main folder: `cd ~/catkin_ws/`
   3. Generate files by compilation: `catkin_make`
   4. Source again the new files: `source devel/setup.bash`
-5. To make sure your workspace is properly set-up by the setup script, make sure `ROS_PACKAGE_PATH` environment variable includes the directory you are in. The `echo $ROS_PACKAGE_PATH` command should return `/home/youruser/catkin_ws/src:/opt/ros/melodic/share`.
+5. To make sure your workspace is properly set-up by the setup script, make sure `ROS_PACKAGE_PATH` environment variable includes the directory you are in. The `echo $ROS_PACKAGE_PATH` command should return `/home/youruser/catkin_ws/src:/opt/ros/noetic/share`.
 6. The last step is to set the [`WEBOTS_HOME`](https://cyberbotics.com/doc/guide/compiling-controllers-in-a-terminal) environment variable: `export WEBOTS_HOME=/usr/local/webots`. If you installed Webots in a different place, adapt the variable. This line can be added to your `.bashrc` file.
 
-** Remember**: Each time you open a terminal, you have to source the environment with this command: `source opt/ros/melodic/setup.bash` or you can add this line in your `.bashrc` file.
+** Remember**: Each time you open a terminal, you have to source the environment with this command: `source /opt/ros/noetic/setup.bash` or you can add this line in your `.bashrc` file.
 
 ### Running the Nodes
 
 You can start any simulation using ROS with the following commands (here the `e_puck_line` one for example):
 
 ```sh
-source /opt/ros/melodic/setup.bash
+source /opt/ros/noetic/setup.bash
 roslaunch webots_ros e_puck_line.launch
 ```
 This launch file will launch Webots (the `WEBOTS_HOME` environment variable should be set) and start the corresponding node.
+
+<details>
+<summary>Webots snap and ROS Noetic notice</summary>
+
+If Webots is installed as a snap package you need to append the `${WEBOTS_HOME}/projects/default/controllers/ros/lib/ros` path to the `LD_LIBRARY_PATH` environment variable:
+
+```sh
+export WEBOTS_HOME=/snap/webots/current/usr/share/webots
+source /opt/ros/noetic/local_setup.bash
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${WEBOTS_HOME}/projects/default/controllers/ros/lib/ros
+```
+  
+This is specific to the Webots snap package and ROS Noetic.
+  
+</details>
 
 The seed of Webots' random number generator is initialized at the beginning of the simulation and not when the ROS nodes connect.
 Webots has to be running for the ROS nodes to connect.

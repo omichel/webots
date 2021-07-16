@@ -7,7 +7,7 @@
 #define TIME_STEP 32
 
 int main(int argc, char **argv) {
-  ts_setup(argv[0]);  // give the controller args
+  ts_setup(argv[1]);  // give the controller args
 
   // let the time for the robot controller to copy the args in customData field
   wb_robot_step(5 * TIME_STEP);

@@ -19,6 +19,9 @@ import re
 from projection import Projection
 
 
+GRASS_TEXTURE = 'https://raw.githubusercontent.com/cyberbotics/webots/R2021b/projects/default/worlds/textures/grass.jpg'
+
+
 def get_world_size(minlat, minlon, maxlat, maxlon):
     """Return the world size in X-Z coordinates."""
     x1, z1 = Projection.project(minlon, minlat)
@@ -65,7 +68,7 @@ def print_header(file, minlat, minlon, maxlat, maxlon, elevation=None):
         file.write("  appearance PBRAppearance {\n")
         file.write("    baseColorMap ImageTexture {\n")
         file.write("      url [\n")
-        file.write("        \"textures/grass.jpg\"\n")
+        file.write(f"        \"{GRASS_TEXTURE}\"\n")
         file.write("      ]\n")
         file.write("    }\n")
         file.write("    roughness 1\n")

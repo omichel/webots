@@ -35,7 +35,7 @@
       "axis": "0 1 0",
       "maxPosition": 0,
       "minPosition": 0,
-      "name": "webots://projects/robots/rec/fabtino/protos/front_right_wheel_joint",
+      "name": "front_right_wheel_joint",
       "position": 0,
       "transformID": "n22",
       "type": "RotationalMotor"
@@ -71,7 +71,7 @@
       "type": "Gyro"
     },
     {
-      "name": "webots://projects/robots/rec/fabtino/protos/front_right_wheel_joint_sensor",
+      "name": "front_right_wheel_joint_sensor",
       "transformID": "n22",
       "type": "PositionSensor"
     }

@@ -24,12 +24,12 @@ int main(int argc, char **argv) {
   for (i = 0; i < 4; ++i) {
     int x1 = width * ((i * 2.0 + 1.0) / 8.0) - 1;
     int x2 = width * ((i * 2.0 + 2.0) / 8.0) - 1;
-    float sub_cameras_junction_depth = wb_range_finder_image_get_depth(image, width, x1, height - 1);
-    float sub_camera_center_depth = wb_range_finder_image_get_depth(image, width, x2, height - 1);
+    float sub_cameras_junction_depth = wb_range_finder_image_get_depth(image, width, x1, height - 10);
+    float sub_camera_center_depth = wb_range_finder_image_get_depth(image, width, x2, height - 10);
     ts_assert_double_in_delta(
-      sub_cameras_junction_depth, sub_camera_center_depth, 0.01,
+      sub_cameras_junction_depth, sub_camera_center_depth, 0.05,
       "Depths at the sub-camera center and sub-cameras junction are not equal (%lf (%d,%d) != %lf (%d,%d)).",
-      sub_cameras_junction_depth, x1, height - 1, sub_camera_center_depth, x2, height - 1);
+      sub_cameras_junction_depth, x1, height - 10, sub_camera_center_depth, x2, height - 10);
   }
 
   ts_send_success();

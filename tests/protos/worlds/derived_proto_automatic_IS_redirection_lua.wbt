@@ -30,7 +30,7 @@ Robot {
   ]
   controller "derived_proto_automatic_IS_redirection"
   controllerArgs [
-    "derived_proto_automatic_IS_redirection"
+    "derived_proto_automatic_IS_redirection (lua)"
   ]
   supervisor TRUE
 }

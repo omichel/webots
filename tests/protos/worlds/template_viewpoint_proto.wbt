@@ -38,6 +38,9 @@ Robot {
     }
   ]
   controller "template_viewpoint_proto"
+  controllerArgs [
+    "template_viewpoint_proto"
+  ]
   supervisor TRUE
 }
 TestSuiteSupervisor {

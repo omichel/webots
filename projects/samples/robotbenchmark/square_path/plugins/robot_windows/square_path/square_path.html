@@ -92,7 +92,7 @@
           </p>
         </div>
         <input class="radio" id="real-robot" name="group" type="radio">
-        <label class="tab" for="real-robot">Real Robot</label>        
+        <label class="tab" for="real-robot">Real Robot</label>
         <div class="panel">
           <p>
             <h2>How to perform the benchmark with a real robot?</h2>
@@ -144,9 +144,9 @@
           return;
         height = newHeight;
         let panels = document.getElementsByClassName('panel');
-        for (panel of panels) {
+        Array.from(panels).forEach((panel) => {
           panel.style.top = height + 'px';
-        };
+        });
       }
       window.addEventListener('resize', adaptPositionOfText);
       adaptPositionOfText();

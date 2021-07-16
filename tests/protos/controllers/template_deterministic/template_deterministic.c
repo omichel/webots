@@ -7,7 +7,7 @@
 #define TIME_STEP 32
 
 int main(int argc, char **argv) {
-  ts_setup(argv[0]);
+  ts_setup(argv[1]);
 
   // get and enable the acc
   WbDeviceTag ds_deterministic1 = wb_robot_get_device("deterministic 1");

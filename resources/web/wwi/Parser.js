@@ -1052,7 +1052,7 @@ export default class Parser {
     if (url.startsWith('webots://')) {
       if (typeof webots.currentView.repository === 'undefined')
         webots.currentView.repository = 'cyberbotics';
-      if (typeof webots.currentView.branch === 'undefined')
+      if (typeof webots.currentView.branch === 'undefined' || webots.currentView.branch === '')
         webots.currentView.branch = 'released'
       url = url.replace('webots://', 'https://raw.githubusercontent.com/' + webots.currentView.repository + '/webots/' + webots.currentView.branch + '/');
     }

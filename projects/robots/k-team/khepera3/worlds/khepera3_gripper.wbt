@@ -35,7 +35,7 @@ RectangleArena {
   floorSize 2 2
 }
 WoodenBox {
-  translation -0.2 0.05 0.683174
+  translation -0.2 0.05 0.4
   rotation 0 1 0 0.5
   size 0.1 0.1 0.1
 }

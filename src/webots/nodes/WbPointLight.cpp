@@ -39,6 +39,8 @@ void WbPointLight::init() {
   mAttenuation = findSFVector3("attenuation");
   mLocation = findSFVector3("location");
   mRadius = findSFDouble("radius");
+
+  mSavedLocation[stateId()] = mLocation->value();
 }
 
 WbPointLight::WbPointLight(WbTokenizer *tokenizer) : WbLight("PointLight", tokenizer) {
@@ -63,6 +65,16 @@ WbPointLight::~WbPointLight() {
     wr_node_delete(WR_NODE(mWrenLight));
     delete mLightRepresentation;
   }
+}
+
+void WbPointLight::reset(const QString &id) {
+  WbLight::reset(id);
+  mLocation->setValue(mSavedLocation[id]);
+}
+
+void WbPointLight::save(const QString &id) {
+  WbLight::save(id);
+  mSavedLocation[id] = mLocation->value();
 }
 
 void WbPointLight::preFinalize() {

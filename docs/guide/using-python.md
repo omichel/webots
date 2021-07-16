@@ -8,9 +8,8 @@ The Python API is currently composed of a set of about 25 classes having about 2
 The classes are either representations of a node of the scene tree (such as Robot, LED, etc.) or utility classes (such as Motion, ImageRef, etc.).
 A complete description of these functions can be found in the reference guide while the instructions about the common way to program a Python controller can be found in [this chapter](programming-fundamentals.md).
 
-The Python API of Webots supports Python versions 2.7, 3.7, 3.8 and 3.9.
-Please note that Python 2.7 is deprecated since January 1st, 2020 and should be avoided.
-On Ubuntu it also supports Python versions 3.5 and 3.6.
+The Python API of Webots supports Python versions 3.7, 3.8 and 3.9.
+On Ubuntu 18.04 it also supports Python version 3.6.
 
 Alternatively to the Webots built-in editor, [PyCharm](https://www.jetbrains.com/pycharm) can be used to edit and launch Python controllers, see the [Using PyCharm with Webots](using-your-ide.md#pycharm) chapter for a step-by-step procedure.
 
@@ -21,7 +20,7 @@ As a consequence, it executes the first `python` binary found in the current `PA
 If you want to use a different version of Python, please install it if needed and configure your environment so that it becomes the default `python` version when called from the command line in a terminal.
 Alternatively, you can change the default Python command from the Webots Preferences in the General tab.
 If you set it for example to `python3.8` instead of `python`, this version of Python will be used by default, if available from the command line.
-It is also possible to set a different version of Python for each robot controller by editing the `[python]` section of the `runtime.ini` file in each robot controller directory and setting the `COMMAND` value to `python3`, `python3.8` or `python2.7`, etc.
+It is also possible to set a different version of Python for each robot controller by editing the `[python]` section of the `runtime.ini` file in each robot controller directory and setting the `COMMAND` value to `python3`, `python3.9` or `python3.8`, etc.
 If specified in the `runtime.ini` file of a controller, this Python command will be executed instead of the default one to launch this controller.
 On Linux and macOS, it is also possible to override this value by setting a standard Python shebang header line in your main python controller file, for example:
 
@@ -34,20 +33,19 @@ However, it is parsed and a warning is displayed in case of mismatch, e.g., if t
 
 #### Linux Installation
 
-Most of the Linux distributions have Python 2.7 and 3.x already installed.
-To check the versions of Python installed on your system, you can type in a terminal: `python --version`, `python3.8 --version`, `python2.7 --version`, `python3 --version`, etc.
+Most of the Linux distributions have Python 3 already installed.
+To check the versions of Python installed on your system, you can type in a terminal: `python --version`, `python3.8 --version`, `python3 --version`, etc.
 
 #### macOS Installation
 
-Python 2.7 installed by default.
 You can install Python 3.7, 3.8 or 3.9 from the [Python web site](https://www.python.org) or using [Homebrew](https://brew.sh).
-To check the versions of Python installed on your system, you can type in a terminal: `python --version`, `python3.8 --version`, `python2.7 --version`, `python3 --version`, etc.
+To check the versions of Python installed on your system, you can type in a terminal: `python --version`, `python3.8 --version`, `python3 --version`, etc.
 
 > **Note**: To use Python 3.x on macOS, it is recommended to set the absolute path to the python3 executable (e.g. `/Library/Frameworks/Python.framework/Versions/3.x/bin/python3`) in the [`Python command` option of the Preferences](preferences.md#general).
 
 #### Windows Installation
 
-You should install the latest version of Python 3.7 (64 bit), 3.8 (64 bit), 3.9 (64 bit) or 2.7 (64 bit) from the official [Python website](https://www.python.org).
+You should install the latest 64-bit version of Python 3.9, 3.8 or 3.7 from the official [Python website](https://www.python.org).
 Then, you have to modify your `PATH` environment variable to add the path to the `python.exe` binary which is located in the main installation folder.
 To check this was done properly, you can open a DOS console (`CMD.EXE`) and type `python --version`.
 If it displays the correct Python version, then, everything is setup properly and you should be able to run the Python example provided with Webots in the `WEBOTS_HOME/projects/languages/python/worlds/example.wbt` world file.
@@ -63,8 +61,8 @@ Using Python *pip*, the *NumPy* package is automatically installed with *opencv-
 Use the `pip` command to install OpenCV:
 
 ```sh
-sudo apt-get install python-pip
-sudo pip install opencv-python
+sudo apt-get install python3-pip
+sudo pip3 install opencv-python
 ```
 
 #### macOS Libraries
@@ -86,7 +84,7 @@ Where `PYTHON_PATH` is the path to the Python installation directory, for exampl
 
 ### Use an Alternative Python Version
 
-As explained above, the Python libraries for Webots are precompiled for the standard versions of Python 2.7, 3.7, 3.8, 3.9 and on Ubuntu for the default Python 3 version provided with the system.
+As explained above, the Python libraries for Webots are precompiled for the standard versions of Python 3.7, 3.8, 3.9 and on Ubuntu for the default Python 3 version provided with the system.
 It is possible however to use another Python version, like Anaconda Python, by recompiling the Webots Python libraries.
 Such a task requires some knowledge in software installation, compilation from sources and Makefile.
 

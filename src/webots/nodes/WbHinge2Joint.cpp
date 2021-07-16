@@ -557,7 +557,6 @@ void WbHinge2Joint::updatePositions(double position, double position2) {
 }
 
 void WbHinge2Joint::updatePosition(double position) {
-  mPosition = position;
   updatePositions(mPosition, mPosition2);
 }
 

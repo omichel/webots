@@ -19,7 +19,7 @@ TestRectangleArenaLua {
   floorAppearance PBRAppearance {
     baseColorMap DEF TEST_NODE ImageTexture {
       url [
-        "textures/asphalt.jpg"
+        "textures/grey.jpg"
       ]
       repeatS FALSE
       repeatT FALSE
@@ -47,7 +47,7 @@ Robot {
   ]
   controller "modify_proto_template_field"
   controllerArgs [
-    "modify_proto_template_field"
+    "modify_proto_template_field (lua)"
   ]
   supervisor TRUE
 }

@@ -46,6 +46,7 @@ PROTO HighwaySign [
           TexturedBoxShape {
             size %<= thickness >% %<= height >% %<= length >%
             textureUrl IS texture
+            textureMapping "default"
             faceColor IS color
             frontFace FALSE
             backFace FALSE

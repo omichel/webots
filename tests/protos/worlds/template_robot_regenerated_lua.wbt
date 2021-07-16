@@ -21,6 +21,9 @@ Robot {
     }
   ]
   controller "template_robot_regenerated"
+  controllerArgs [
+    "template_robot_regenerated (lua)"
+  ]
   supervisor TRUE
 }
 DEF ROBOT TemplateRobotLua {

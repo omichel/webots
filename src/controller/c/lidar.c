@@ -423,8 +423,9 @@ const float *wb_lidar_get_layer_range_image(WbDeviceTag tag, int layer) {
     return NULL;
   }
 
-  if (layer > l->number_of_layers) {
-    fprintf(stderr, "Error: %s() called with a 'layer' argument (%d) bigger than the number of layers of this lidar (%d).\n",
+  if (layer >= l->number_of_layers) {
+    fprintf(stderr,
+            "Error: %s() called with a 'layer' argument (%d) bigger or equal to the number of layers of this lidar (%d).\n",
             __FUNCTION__, layer, l->number_of_layers);
     return NULL;
   } else if (layer < 0) {
@@ -473,8 +474,9 @@ const WbLidarPoint *wb_lidar_get_layer_point_cloud(WbDeviceTag tag, int layer) {
     fprintf(stderr, "Error: %s() called for a disabled device! Please use: wb_lidar_enable().\n", __FUNCTION__);
     return 0;
   }
-  if (layer > l->number_of_layers) {
-    fprintf(stderr, "Error: %s() called with a 'layer' argument (%d) bigger than the number of layers of this lidar (%d).\n",
+  if (layer >= l->number_of_layers) {
+    fprintf(stderr,
+            "Error: %s() called with a 'layer' argument (%d) bigger or equal to the number of layers of this lidar (%d).\n",
             __FUNCTION__, layer, l->number_of_layers);
     return NULL;
   } else if (layer < 0) {

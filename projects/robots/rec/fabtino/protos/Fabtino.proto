@@ -63,12 +63,12 @@ PROTO Fabtino [
         }
         device [
           RotationalMotor {
-            name "webots://projects/robots/rec/fabtino/protos/front_right_wheel_joint"
+            name "front_right_wheel_joint"
             maxVelocity 100
             maxTorque 100
           }
           PositionSensor {
-            name "webots://projects/robots/rec/fabtino/protos/front_right_wheel_joint_sensor"
+            name "front_right_wheel_joint_sensor"
           }
         ]
         endPoint Solid {

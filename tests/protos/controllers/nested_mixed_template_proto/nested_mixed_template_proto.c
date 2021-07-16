@@ -20,7 +20,7 @@ static void check_object_status(WbDeviceTag camera, bool visible, const char *me
 }
 
 int main(int argc, char **argv) {
-  ts_setup(argv[0]);  // give the controller args
+  ts_setup(argv[1]);  // give the controller args
 
   WbDeviceTag cameraX = wb_robot_get_device("cameraX");
   WbDeviceTag cameraY = wb_robot_get_device("cameraY");
@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
 
   wb_robot_step(TIME_STEP);
 
-  if (strcmp(argv[1], "nested_mixed_template_proto") == 0) {
+  if (strncmp(argv[1], "nested_mixed_template_proto", 27) == 0) {
     check_object_status(cameraX, false, "Unexpected cameraX color. The box should not be visible.");
     check_object_status(cameraY, false, "Unexpected cameraY color. The box should not be visible.");
     wb_supervisor_field_set_sf_float(xField, 0.5);

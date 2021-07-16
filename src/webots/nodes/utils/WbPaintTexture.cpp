@@ -245,7 +245,7 @@ void WbPaintTexture::paint(const WbRay &ray, float leadSize, const WbRgb &color,
     for (int tx = ox; tx <= sx; ++tx) {
       if ((tx - x) * (tx - x) <= circleCondition) {
         const float previousDensity = mData[dataIndex + 3];
-        const float oldDensityRatio = previousDensity / (density + previousDensity);
+        const float oldDensityRatio = density + previousDensity < 1e-15 ? 0.0f : previousDensity / (density + previousDensity);
         mData[dataIndex] = oldDensityRatio * mData[dataIndex] + (1.0f - oldDensityRatio) * color.blue();
         mData[dataIndex + 1] = oldDensityRatio * mData[dataIndex + 1] + (1.0f - oldDensityRatio) * color.green();
         mData[dataIndex + 2] = oldDensityRatio * mData[dataIndex + 2] + (1.0f - oldDensityRatio) * color.red();

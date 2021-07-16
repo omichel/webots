@@ -780,10 +780,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 2
@@ -827,10 +827,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -878,10 +878,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -915,7 +915,7 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 0
 }
@@ -949,10 +949,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 2
@@ -1042,10 +1042,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1076,7 +1076,7 @@ Road {
     5.94458
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1104,7 +1104,7 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 0
 }
@@ -1140,7 +1140,7 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 1
   roadBoundingObject TRUE
@@ -1185,10 +1185,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 2
@@ -1222,10 +1222,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1277,10 +1277,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 2
@@ -1311,8 +1311,8 @@ Road {
     4.24193
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 0
 }
@@ -1345,7 +1345,7 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 2
   roadBoundingObject TRUE
@@ -1382,10 +1382,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1418,7 +1418,7 @@ Road {
     4.38599
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1553,7 +1553,7 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 0
 }
@@ -1590,7 +1590,7 @@ Road {
     0.393703
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1624,10 +1624,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1659,10 +1659,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1694,10 +1694,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1762,10 +1762,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 2
@@ -1800,10 +1800,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1865,10 +1865,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -1903,10 +1903,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -2058,7 +2058,7 @@ Road {
     1.1117
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0
@@ -2098,10 +2098,10 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   endLine [
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
   ]
   splineSubdivision 0

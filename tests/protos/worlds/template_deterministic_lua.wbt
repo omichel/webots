@@ -66,6 +66,9 @@ Robot {
     }
   ]
   controller "template_deterministic"
+  controllerArgs [
+    "template_deterministic (lua)"
+  ]
   supervisor TRUE
 }
 TestSuiteSupervisor {

@@ -16,6 +16,7 @@
 
 #include "WbApplication.hpp"
 #include "WbNetwork.hpp"
+#include "WbSimulationState.hpp"
 
 #include <QtCore/QDir>
 #include <QtCore/QTimer>
@@ -45,13 +46,20 @@ WbDownloader::WbDownloader(QObject *parent) :
   mNetworkReply(NULL),
   mFinished(false),
   mOffline(false),
-  mCopy(false) {
+  mCopy(false),
+  mIsBackground(false) {
   gCount++;
 }
 
 WbDownloader::~WbDownloader() {
-  if (mNetworkReply != NULL)
+  if (mNetworkReply != NULL) {
     mNetworkReply->deleteLater();
+    if (gUrlCache.contains(mUrl))
+      gUrlCache.remove(mUrl);
+  }
+
+  if (!mFinished)
+    gCount--;
 }
 
 QIODevice *WbDownloader::device() const {
@@ -59,19 +67,18 @@ QIODevice *WbDownloader::device() const {
 }
 
 void WbDownloader::download(const QUrl &url) {
+  WbSimulationState::instance()->pauseSimulation();
+
   mUrl = url;
 
-  if (gUrlCache.contains(mUrl) &&
+  if (gUrlCache.contains(mUrl) && !mIsBackground &&
       (mUrl.toString().endsWith(".png", Qt::CaseInsensitive) || url.toString().endsWith(".jpg", Qt::CaseInsensitive))) {
     if (!(mOffline == true && mCopy == false)) {
       mCopy = true;
       QNetworkReply *reply = gUrlCache[mUrl];
-      if (reply) {
-        if (reply->isFinished())
-          finished();
-        else
-          connect(reply, &QNetworkReply::finished, this, &WbDownloader::finished, Qt::UniqueConnection);
-      } else
+      if (reply && !reply->isFinished())
+        connect(reply, &QNetworkReply::finished, this, &WbDownloader::finished, Qt::UniqueConnection);
+      else
         finished();
       return;
     }
@@ -90,6 +97,8 @@ void WbDownloader::download(const QUrl &url) {
   mFinished = false;
   if (mOffline)
     request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysCache);
+  else
+    request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
 
   mNetworkReply = WbNetwork::instance()->networkAccessManager()->get(request);
   connect(mNetworkReply, &QNetworkReply::finished, this, &WbDownloader::finished, Qt::UniqueConnection);
@@ -110,19 +119,33 @@ void WbDownloader::finished() {
       download(mUrl);
       return;
     }
+
+    QNetworkCacheMetaData metaData = WbNetwork::instance()->networkAccessManager()->cache()->metaData(mUrl);
+    // We need to replace the expiration date only the first time the asset is downloaded and when it has been refreshed by the
+    // cache. The QNetworkRequest::SourceIsFromCacheAttribute attribute present in the reply is not enough because the image is
+    // still loaded from the cache when the expiration date is just refreshed.
+    // The hack we use to detect if the expiration date of an asset is the one set by webots or is the automatic one works as
+    // follows: The automatic expiration date is an <http-date> and thus is in UTC format. The expiration date set by webots is
+    // in local format. So we just need to check the format of the expiration date to know if it needs to be updated or not.
+    if (metaData.expirationDate().toUTC().toString() == metaData.expirationDate().toString()) {
+      // increase expiration date to one day
+      metaData.setExpirationDate(QDateTime::currentDateTime().addDays(1));
+      WbNetwork::instance()->networkAccessManager()->cache()->updateMetaData(metaData);
+    }
   }
 
   gComplete++;
+  mFinished = true;
+  emit complete();
+
   if (gComplete == gCount) {
     gDownloading = false;
     gDisplayPopUp = false;
     gUrlCache.clear();
     emit WbApplication::instance()->deleteWorldLoadingProgressDialog();
+    WbSimulationState::instance()->resumeSimulation();
   } else if (gDisplayPopUp)
     emit WbApplication::instance()->setWorldLoadingProgress(progress());
-
-  mFinished = true;
-  emit complete();
 }
 
 void WbDownloader::displayPopUp() {

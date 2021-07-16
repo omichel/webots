@@ -117,17 +117,5 @@ PROTO CabinetDrawer [
     ]
     name IS name
     model "cabinet drawer"
-    physics Physics {
-      density -1
-      mass 0.01
-    }
-    boundingObject Transform {
-      translation 0 0 %<= - size.z >%
-      children [
-        Sphere {
-          radius 0.01
-        }
-      ]
-    }
   }
 }

@@ -424,7 +424,7 @@ Can {
   name "can(13)"
 }
 Can {
-  translation 1.09 0.66 1.285
+  translation 1.4 0.66 1.285
   name "can(4)"
 }
 Can {
@@ -448,7 +448,7 @@ Can {
   name "can(3)"
 }
 Can {
-  translation 5.3 0.66 1.285
+  translation 5.4 0.66 1.285
   name "can(7)"
 }
 Can {

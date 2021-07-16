@@ -14,6 +14,7 @@
 
 #include "WbGuidedTour.hpp"
 
+#include "WbApplication.hpp"
 #include "WbConsole.hpp"
 #include "WbMFString.hpp"
 #include "WbSFString.hpp"
@@ -277,7 +278,8 @@ void WbGuidedTour::loadWorld() {
 }
 
 void WbGuidedTour::selectWorld() {
-  if (mTree->selectedItems().size() < 1)
+  // prevent selecting a new world if in the process of canceling the previous one or if invalid
+  if (mTree->selectedItems().size() < 1 || WbApplication::instance()->wasWorldLoadingCanceled())
     return;
   QTreeWidgetItem *item = mTree->selectedItems().at(0);
   mIndex = mWorlds.indexOf(item);

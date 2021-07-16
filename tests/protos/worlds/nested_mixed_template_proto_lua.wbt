@@ -42,7 +42,7 @@ Robot {
   ]
   controller "nested_mixed_template_proto"
   controllerArgs [
-    "nested_mixed_template_proto"
+    "nested_mixed_template_proto (lua)"
   ]
   supervisor TRUE
 }

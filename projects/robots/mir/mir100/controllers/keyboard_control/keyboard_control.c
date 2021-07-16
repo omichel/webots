@@ -30,8 +30,8 @@
 #include <webots/range_finder.h>
 #include <webots/robot.h>
 
-#define WHEEL_RADIUS 0.075
-#define SPEED_MAX 1.4
+#define WHEEL_RADIUS 0.0625
+#define SPEED_MAX 0.95
 #define SPEED_MIN -0.3
 #define ANGULAR_SPEED_MAX 0.3
 #define ANGULAR_SPEED_MIN -0.3

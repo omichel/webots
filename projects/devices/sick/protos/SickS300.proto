@@ -6,7 +6,7 @@
 # specs:
 #  - field of view: 270 [deg]
 #  - range: up to 30 [m] (distance measuring range)
-#  - number of layers: 3
+#  - number of layers: 1
 #  - angular resolution: 0.5°
 #  - resolution: 540
 #  - dimension: 0.102 x 0.152 x 0.106 [m]
@@ -36,6 +36,18 @@ field SFBool     enablePhysics  TRUE         # Defines whether the lidar should 
         geometry Mesh {
           url [
             "webots://projects/devices/sick/protos/meshes/sick_s300_black.dae"
+          ]
+        }
+      }
+      Shape {
+        appearance PBRAppearance {
+          baseColor 0 0 0
+          roughness 0
+          metalness 1
+        }
+        geometry Mesh {
+          url [
+            "webots://projects/devices/sick/protos/meshes/sick_s300_glass.dae"
           ]
         }
       }
@@ -88,10 +100,10 @@ field SFBool     enablePhysics  TRUE         # Defines whether the lidar should 
       mass 1.2
     }
     %< } >%
-    fieldOfView 3.316
+    fieldOfView 4.71238898038
     horizontalResolution IS resolution
-    verticalFieldOfView %<= 3 * (3.316  / fields.resolution.value) >%
-    numberOfLayers 3
+    verticalFieldOfView %<= 4.71238898038 / fields.resolution.value >%
+    numberOfLayers 1
     maxRange 30
     noise IS noise
   }

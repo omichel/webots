@@ -530,7 +530,7 @@ void WbImageTexture::exportNodeFields(WbVrmlWriter &writer) const {
       QString texturePath(WbUrl::computePath(this, "url", mUrl, i));
       if (writer.isWritingToFile()) {
         QString newUrl = WbUrl::exportTexture(this, mUrl, i, writer);
-        dynamic_cast<WbMFString *>(urlFieldCopy.value())->setItem(i, "bonjour");
+        dynamic_cast<WbMFString *>(urlFieldCopy.value())->setItem(i, newUrl);
       }
 
       const QString &url(mUrl->item(i));

@@ -108,12 +108,13 @@ You will need to install *make* and *g++* to compile your own robot controllers.
 Other particular libraries could also be required to recompile some of the distributed binary files.
 The package names could slightly change on different releases and distributions.
 In this case an error message will be printed in the Webots console mentioning the missing dependency.
-Webots also needs the *ffmpeg* and *libfdk-aac1* (from *ubuntu-restricted-extras* for H.264 codec) packages to create MPEG-4 movies.
- The following commands should work for Debian / Ubuntu based distributions:
+Webots also needs the *ffmpeg* and *libavcodec-extra* packages to create MPEG-4 movies.
+Additionally *ubuntu-restricted-extras* could be needed to play the MPEG-4 movies encoded with H.264 codec.
+Execute the following commands to enable the video creation and playback on Debian / Ubuntu based distributions:
 ```sh
 sudo apt-get update
-sudo apt-get install libx264-dev
-sudo apt-get install libfdk-aac1
+sudo apt-get install ffmpeg libavcodec-extra
+sudo apt-get install ubuntu-restricted-extras
 ```
 Using Anaconda could cause errors when recording videos, as the default conda installation of *ffmpeg* does not have *x264* enabled.
 Execute the following command to install *ffmpeg* with *x264* support:

@@ -303,7 +303,7 @@ TimeplotWidget.prototype.drawLine = function(line, color, pointSize, mode) {
   gl.uniform1f(this.canvas.pointSizeUniformLocation, pointSize);
   gl.uniform3fv(this.canvas.colorUniformLocation, color);
   gl.bufferData(gl.ARRAY_BUFFER, line.xy, gl.STREAM_DRAW);
-  gl.drawArrays(mode, 0, line.size);
+  gl.drawArrays(mode, 0, line.xy.length / 2);
 };
 
 TimeplotWidget.prototype.displayHorizontalGrid = function() {

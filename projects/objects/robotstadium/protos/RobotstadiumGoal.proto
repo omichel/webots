@@ -64,7 +64,7 @@ Solid {
     Shape {
       appearance DEF NET_APP PBRAppearance {
         baseColorMap ImageTexture {
-          url "webots://projects/objects/robotstadium/protos/textures/net.png"
+          url "webots://projects/default/worlds/textures/net.png"
           filtering 0
         }
         metalness 0

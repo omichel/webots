@@ -51,6 +51,9 @@ if len(sys.argv) > 1:
 
 testGroups = ['api', 'other_api', 'physics', 'protos', 'parser', 'rendering']
 
+if sys.platform == 'win32':
+    testGroups.remove('parser')  # this one doesn't work on Windows
+
 # global files
 testsFolderPath = os.path.dirname(os.path.abspath(__file__)) + os.sep
 outputFilename = testsFolderPath + 'output.txt'
@@ -313,8 +316,8 @@ for groupName in testGroups:
             for line in f:
                 appendToOutputFile(line)
                 if '(core dumped)' in line:
-                    l = line[0:line.find(' Segmentation fault')]
-                    pid = int(l[l.rfind(' ') + 1:])
+                    seg_fault_line = line[0:line.find(' Segmentation fault')]
+                    pid = int(seg_fault_line[seg_fault_line.rfind(' ') + 1:])
                     core_dump_file = '/tmp/core_webots-bin.' + str(pid)
                     if os.path.exists(core_dump_file):
                         appendToOutputFile(subprocess.check_output([

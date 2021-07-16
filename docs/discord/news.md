@@ -4,7 +4,24 @@ This is an archive of the `news` channel of the [Webots Discord server](https://
 
 ## 2021
 
-##### Olivier Michel [Cyberbotics] 06/02/2021 12:24:01
+##### Olivier Michel [Cyberbotics] 07/14/2021 12:01:41
+Webots used in Robocup Junior Rescue: [https://rescue.rcj.cloud/events/2021/robocup2021/newsimulation/game/final/sd110](https://rescue.rcj.cloud/events/2021/robocup2021/newsimulation/game/final/sd110)
+
+
+Yet another Webots-based robot competition: [https://roboticslab-uc3m.github.io/challenge-iros2021/](https://roboticslab-uc3m.github.io/challenge-iros2021/)
+
+
+Here is the Robocup humanoid final game: [https://www.youtube.com/watch?v=\_9q26QjDluw](https://www.youtube.com/watch?v=_9q26QjDluw)
+
+##### koyal 06/29/2021 06:45:43
+Great work by Webots team to make Webots dockerized.
+
+[https://www.youtube.com/watch?v=kFhOJDfpw3o](https://www.youtube.com/watch?v=kFhOJDfpw3o)
+
+##### Olivier Michel [Cyberbotics] 06/28/2021 08:04:17
+The Robocup 2021 is over. The humanoid league, based on Webots, was a great success with lots of fun and enthusiasm from the participants. Congratulation to the winners and thank you to the organizers and participants for such a wonderful competition. See the best moments in this video: [https://www.youtube.com/watch?v=sYTp1X3nGuE](https://www.youtube.com/watch?v=sYTp1X3nGuE)
+
+
 Cyberbotics started to work on the OPTIMA EU\_H2020/EuroHPC\_JU project together with a consortium of industrial and academic partners including T.S.I, Fraunhofer ITWM, Exapsys, ICCS, M3E, MaxelerTech, FZ Juelich, EnginSoft and Appentra. The project aims at the optimization of industrial applications for heterogeneous HPC systems. More information is available from the project website: [https://optima-hpc.eu](https://optima-hpc.eu)
 
 
@@ -154,7 +171,7 @@ We are happy to announce the first **ROS 2 and Webots Community Meeting** to be 
 
 - Introduction to Webots and ROS 2 support [`@Olivier Michel`, Cyberbotics Ltd, Switzerland, 10 minutes]
 
-- Contributions to the URDF2Webots converter [`@Simon Steinmann`, DLR, Germany, 15 minutes + 5 minutes for questions]
+- Contributions to the URDF2Webots converter [`@Luftwaffel`, DLR, Germany, 15 minutes + 5 minutes for questions]
 
 - Roadmap for Webots and ROS 2 [`@Darko Lukić`, Cyberbotics Ltd., Switzerland, 10 minutes]
 
@@ -184,7 +201,7 @@ Here is a very nice project allowing you to program robots in Webots using Googl
 
 I would like to congratulate `@Soft_illusion` team for their achievement in the Google Season of Docs project. The successful project is described on the official Google page: [https://developers.google.com/season-of-docs/docs/participants](https://developers.google.com/season-of-docs/docs/participants) (search for Webots). A nice report is available here: [https://drive.google.com/file/d/1OWk9Ctxk4baHeFzMGUR6VktcF-maFK9s/view](https://drive.google.com/file/d/1OWk9Ctxk4baHeFzMGUR6VktcF-maFK9s/view). Finally, the playlist is here: [https://www.youtube.com/playlist?list=PLt69C9MnPchlWEV5AEhfT2HajlE2SJ55V](https://www.youtube.com/playlist?list=PLt69C9MnPchlWEV5AEhfT2HajlE2SJ55V). We are planning to apply to Google Summer of Code and to a new Google Season of Docs, so stay tuned.
 
-##### aleena 01/01/2021 07:56:16
+##### Aleena 01/01/2021 07:56:16
 Happy New Year everyone 🎉 🥳
 
 ##### Soft\_illusion 01/01/2021 07:50:51
@@ -376,7 +393,7 @@ Get it from [https://github.com/cyberbotics/webots/releases/tag/R2020b-rev1](htt
 ##### Olivier Michel [Cyberbotics] 08/17/2020 07:53:07
 Here is a new publication comparing Webots to Gazebo and V-REP, performance wise (use of system resources): [https://arxiv.org/abs/2008.04627](https://arxiv.org/abs/2008.04627).
 
-##### Simon Steinmann [Moderator] 08/14/2020 16:02:38
+##### Luftwaffel [Moderator] 08/14/2020 16:02:38
 Multiple KUKA robotic arms are now available in the Community Projects Repository!! Check them out :)
 
 [https://github.com/cyberbotics/community-projects](https://github.com/cyberbotics/community-projects)
@@ -560,7 +577,7 @@ You can fin the documentation about this new Webots robot model here: [https://c
 
 We are happy to share with you a simulation of the Spot robot from Boston Dynamic in Webots: [https://www.youtube.com/watch?v=b5mVe6dk0wI](https://www.youtube.com/watch?v=b5mVe6dk0wI)
 
-##### Simon Steinmann [Moderator] 04/14/2020 12:25:54
+##### Luftwaffel [Moderator] 04/14/2020 12:25:54
 This in python and with inverse kinematics would be awesome 😄
 
 ##### sh33p 04/08/2020 20:17:10

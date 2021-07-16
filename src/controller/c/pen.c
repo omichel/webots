@@ -65,7 +65,7 @@ static void pen_write_request(WbDevice *d, WbRequest *r) {
     request_write_uchar(r, pen->red);
     request_write_uchar(r, pen->green);
     request_write_uchar(r, pen->blue);
-    request_write_uchar(r, (unsigned char)(pen->density * 255));
+    request_write_double(r, pen->density);
     pen->set_color = false;
   }
 }

@@ -190,6 +190,7 @@ void WbBackground::downloadAsset(const QString &url, int index, bool postpone) {
   }
   delete mDownloader[index];
   mDownloader[index] = new WbDownloader(this);
+  mDownloader[index]->setIsBackground(true);
   if (postpone)
     connect(mDownloader[index], &WbDownloader::complete, this, &WbBackground::downloadUpdate);
 

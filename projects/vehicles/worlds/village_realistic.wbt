@@ -1685,7 +1685,7 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 8
   rightBorderBoundingObject TRUE
@@ -1792,7 +1792,7 @@ Road {
   ]
   startLine [
     "webots://projects/objects/road/protos/textures/road_line_dashed.png"
-    "webots://projects/vehicles/worlds/textures/road_line_triangle.png"
+    "webots://projects/objects/road/protos/textures/road_line_triangle.png"
   ]
   splineSubdivision 8
   rightBorderBoundingObject TRUE

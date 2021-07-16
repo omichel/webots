@@ -32,7 +32,7 @@
 #include <webots/range_finder.h>
 #include <webots/robot.h>
 
-#define WHEEL_RADIUS 0.127
+#define WHEEL_RADIUS 0.123
 #define LX 0.2045  // lateral distance from robot's COM to wheel [m].
 #define LY 0.2225  // longitudinal distance from robot's COM to wheel [m].
 #define SPEED_INCREMENT 0.1

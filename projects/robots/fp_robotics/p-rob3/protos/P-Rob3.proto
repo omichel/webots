@@ -131,7 +131,7 @@ PROTO P-Rob3 [
         }
         device [
           RotationalMotor {
-            name "1"
+            name "motor 1"
             acceleration 2.61799
             controlPID 3 0 0
             maxVelocity 1.74533
@@ -140,7 +140,7 @@ PROTO P-Rob3 [
             maxTorque 159.6959
           }
           PositionSensor {
-            name "1 sensor"
+            name "motor 1 sensor"
           }
         ]
         endPoint Solid {
@@ -233,7 +233,7 @@ PROTO P-Rob3 [
               }
               device [
                 RotationalMotor {
-                  name "2"
+                  name "motor 2"
                   acceleration 2.61799
                   controlPID 3 0 0
                   maxVelocity 1.74533
@@ -242,7 +242,7 @@ PROTO P-Rob3 [
                   maxTorque 159.6959
                 }
                 PositionSensor {
-                  name "2 sensor"
+                  name "motor 2 sensor"
                 }
               ]
               endPoint Solid {
@@ -307,7 +307,7 @@ PROTO P-Rob3 [
                     }
                     device [
                       RotationalMotor {
-                        name "3"
+                        name "motor 3"
                         acceleration 4.36332
                         controlPID 3 0 0
                         maxVelocity 2.44346
@@ -316,7 +316,7 @@ PROTO P-Rob3 [
                         maxTorque 80.1455
                       }
                       PositionSensor {
-                        name "3 sensor"
+                        name "motor 3 sensor"
                       }
                     ]
                     endPoint Solid {
@@ -405,7 +405,7 @@ PROTO P-Rob3 [
                           }
                           device [
                             RotationalMotor {
-                              name "4"
+                              name "motor 4"
                               acceleration 3.49066
                               controlPID 3 0 0
                               maxVelocity 2.79253
@@ -414,7 +414,7 @@ PROTO P-Rob3 [
                               maxTorque 30.1005
                             }
                             PositionSensor {
-                              name "4 sensor"
+                              name "motor 4 sensor"
                             }
                           ]
                           endPoint Solid {
@@ -484,7 +484,7 @@ PROTO P-Rob3 [
                                 }
                                 device [
                                   RotationalMotor {
-                                    name "5"
+                                    name "motor 5"
                                     acceleration 3.49066
                                     controlPID 3 0 0
                                     maxVelocity 2.79253
@@ -493,7 +493,7 @@ PROTO P-Rob3 [
                                     maxTorque 30.1005
                                   }
                                   PositionSensor {
-                                    name "5 sensor"
+                                    name "motor 5 sensor"
                                   }
                                 ]
                                 endPoint Solid {
@@ -563,7 +563,7 @@ PROTO P-Rob3 [
                                       }
                                       device [
                                         RotationalMotor {
-                                          name "6"
+                                          name "motor 6"
                                           acceleration 6.98132
                                           controlPID 3 0 0
                                           maxVelocity 2.79253
@@ -572,7 +572,7 @@ PROTO P-Rob3 [
                                           maxTorque 16.4816
                                         }
                                         PositionSensor {
-                                          name "6 sensor"
+                                          name "motor 6 sensor"
                                         }
                                       ]
                                       endPoint Solid {

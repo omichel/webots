@@ -99,11 +99,6 @@ lib/controller/driver.lib [windows]
 
 lib/controller/generic_robot_window [dll]
 
-lib/controller/python27/
-lib/controller/python27/*.py
-lib/controller/python27/_*.so [linux,mac]
-lib/controller/python27/_*.pyd [windows]
-
 lib/controller/python36/ [linux]
 lib/controller/python36/*.py [linux]
 lib/controller/python36/_*.so [linux]
@@ -320,6 +315,7 @@ resources/projects/worlds/
 resources/projects/worlds/empty.wbt
 resources/stylesheet.linux.qss [linux]
 resources/stylesheet.macos.qss [mac]
+resources/stylesheet.windows.qss [windows]
 resources/webots_classic.qss
 resources/webots_dusk.qss
 resources/webots_night.qss

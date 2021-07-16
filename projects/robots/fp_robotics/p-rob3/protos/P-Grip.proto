@@ -99,7 +99,7 @@ PROTO P-Grip [
         }
         device [
           RotationalMotor {
-            name "7"
+            name "motor 7"
             acceleration 17.4533
             controlPID 3 0 0
             maxVelocity 1.0472
@@ -107,7 +107,7 @@ PROTO P-Grip [
             maxTorque 5.44164
           }
           PositionSensor {
-            name "7 sensor"
+            name "motor 7 sensor"
           }
         ]
         endPoint Solid {
@@ -288,7 +288,7 @@ PROTO P-Grip [
         }
         device [
           RotationalMotor {
-            name "7 left"
+            name "motor 7 left"
             acceleration 17.4533
             controlPID 3 0 0
             maxVelocity 1.0472
@@ -296,7 +296,7 @@ PROTO P-Grip [
             maxTorque 5.44164
           }
           PositionSensor {
-            name "7 left sensor"
+            name "motor 7 left sensor"
           }
         ]
         endPoint Solid {

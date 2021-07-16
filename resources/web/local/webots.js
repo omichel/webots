@@ -62,11 +62,12 @@ webots.window = function(name) {
 };
 
 webots.setupQtChannelTransport = function(callbackFunction) {
-  new QWebChannel(qt.webChannelTransport, function(channel) { // eslint-disable-line no-new
-    window._webots = channel.objects._webots;
-    if (callbackFunction)
-      callbackFunction();
-  });
+  if (typeof QWebChannel === 'function')
+    new QWebChannel(qt.webChannelTransport, function(channel) { // eslint-disable-line no-new
+      window._webots = channel.objects._webots;
+      if (callbackFunction)
+        callbackFunction();
+    });
 };
 
 webots.userCredentials = function() {

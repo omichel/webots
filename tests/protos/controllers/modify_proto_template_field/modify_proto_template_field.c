@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <webots/distance_sensor.h>
 #include <webots/robot.h>
 #include <webots/supervisor.h>
@@ -9,29 +10,28 @@
 #define TIME_STEP 32
 
 int main(int argc, char **argv) {
-  ts_setup(argv[0]);  // give the controller args
+  ts_setup(argv[1]);  // give the controller args
 
   WbDeviceTag ds = wb_robot_get_device("ds");
   wb_distance_sensor_enable(ds, TIME_STEP);
 
   wb_robot_step(TIME_STEP);
-
-  const double ds_value_grey = wb_distance_sensor_get_value(ds);
-  ts_assert_double_in_delta(ds_value_grey, 277,
-                            1000.0,  // FIXME: the tolerance was originally 20, but something is going wrong on the CI machine
-                            "Wrong distance sensor value with grey texture: expecting 277, received %g.", ds_value_grey);
-
   WbNodeRef node = wb_supervisor_node_get_from_def("TEST_NODE");
   WbFieldRef urlField = wb_supervisor_node_get_field(node, "url");
+  const char *url = wb_supervisor_field_get_mf_string(urlField, 0);
+  const double ds_value_grey = wb_distance_sensor_get_value(ds);
+  ts_assert_double_in_delta(ds_value_grey, 277, 20.0,
+                            "Wrong distance sensor value with \"%s\" texture: expecting 277, received %g.", url, ds_value_grey);
   wb_supervisor_field_set_mf_string(urlField, 0, "textures/green.jpg");
 
   wb_robot_step(TIME_STEP);
 
   // test appearance after regeneration
+  url = wb_supervisor_field_get_mf_string(urlField, 0);
   const double ds_value_green = wb_distance_sensor_get_value(ds);
-  ts_assert_double_in_delta(
-    ds_value_green, 381, 1000.0,  // FIXME: the tolerance was originally 20, but something is going wrong on the CI machine
-    "Wrong distance sensor value with green texture after regeneration: expecting 381, received %g.", ds_value_green);
+  ts_assert_double_in_delta(ds_value_green, 381, 20.0,
+                            "Wrong distance sensor value with \"%s\" texture after regeneration: expecting 381, received %g.",
+                            url, ds_value_green);
 
   wb_robot_step(TIME_STEP);
 

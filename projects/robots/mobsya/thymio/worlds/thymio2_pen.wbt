@@ -33,6 +33,7 @@ RectangleArena {
   }
 }
 Thymio2 {
+  controller "thymio2_demo"
   window "thymio2"
   bodySlot [
     Thymio2Pen {

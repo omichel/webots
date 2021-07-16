@@ -173,8 +173,8 @@ PROTO SummitXlSteel [
           boundingObject Transform {
             rotation 1 0 0 1.5708
             children [
-              Cylinder {
-                height 0.087
+              DEF WHEEL_BO Cylinder {
+                height 0.08
                 radius 0.123
               }
             ]
@@ -238,10 +238,7 @@ PROTO SummitXlSteel [
           boundingObject Transform {
             rotation 1 0 0 1.5708
             children [
-              Cylinder {
-                height 0.087
-                radius 0.123
-              }
+              USE WHEEL_BO
             ]
           }
           physics Physics {
@@ -284,10 +281,7 @@ PROTO SummitXlSteel [
           boundingObject Transform {
             rotation 1 0 0 1.5708
             children [
-              Cylinder {
-                height 0.087
-                radius 0.123
-              }
+              USE WHEEL_BO
             ]
           }
           physics Physics {
@@ -330,10 +324,7 @@ PROTO SummitXlSteel [
           boundingObject Transform {
             rotation 1 0 0 1.5708
             children [
-              Cylinder {
-                height 0.087
-                radius 0.123
-              }
+              USE WHEEL_BO
             ]
           }
           physics Physics {

@@ -1,12 +1,16 @@
 """Controller program to manage the benchmark."""
-from controller import Supervisor
-from shapely.geometry import Point
-from shapely.geometry import LineString
-
 import os
 import random
 import socket
 import sys
+
+from controller import Supervisor
+try:
+    from shapely.geometry import Point
+    from shapely.geometry import LineString
+except ImportError:
+    sys.stderr.write("Error: 'shapely' module not found.\n")
+    sys.exit(0)
 
 VEHICLE_DEF_NAME = 'WEBOTS_VEHICLE0'
 SUMO_PORTS_RANGE = [1024, 1998]

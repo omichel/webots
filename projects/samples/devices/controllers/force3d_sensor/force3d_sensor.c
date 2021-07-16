@@ -22,7 +22,7 @@ Instructions:
 This demo is intentionally very simple:
 The transparent box is a "force-3d" TouchSensor. The opaque box in the
 center of the transparent one is a Robot node. The TouchSensor is the
-child of the Robot node (Scene tree). This simple setup allow to measure
+child of the Robot node (Scene tree). This simple setup allows to measure
 the force on all (six) sides of the TouchSensor.
 
 To do:

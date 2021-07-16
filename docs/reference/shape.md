@@ -16,7 +16,7 @@ Visible objects are constituted by a geometry and an appearance.
 
 ### Field Summary
 
-- The `appearance` field contains an [Appearance](appearance.md) node that specifies the visual attributes (e.g., material and texture) to be applied to the geometry.
+- The `appearance` field contains an [Appearance](appearance.md) or [PBRAppearance](pbrappearance.md) node that specifies the visual attributes (e.g., material and texture) to be applied to the geometry.
 
 - The `geometry` field contains a `Geometry` node: [Box](box.md), [Capsule](capsule.md), [Cone](cone.md), [Cylinder](cylinder.md), [ElevationGrid](elevationgrid.md), [IndexedFaceSet](indexedfaceset.md), [IndexedLineSet](indexedlineset.md), [Mesh](mesh.md), [Plane](plane.md), [PointSet](pointset.md) or [Sphere](sphere.md).
 The specified `Geometry` node is rendered with the specified appearance nodes applied.

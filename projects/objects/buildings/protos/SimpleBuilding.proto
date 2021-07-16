@@ -13,7 +13,7 @@ PROTO SimpleBuilding [
   field SFInt32     floorNumber            3                                  # Defines the number of floors (excluding roof).
   field SFInt32     startingFloor          0                                  # Defines the floor number for the "ground floor" of the building, as not all buildings start at the ground floor.
   field MFVec2f     corners                [10 10, 10 -10, -10 -10, -10 10 ]  # Defines the 2D geometry of the building (2D ground footprint of the building).
-  field SFString{"glass building", "classic building", "orange building", "gray glass building", "blue glass building", "arcade-style building", "transparent highrise", "windowed building", "old brick building", "red and white building", "construction building", "red brick wall", "old brick wall", "stone brick", "stone wall", "glass highrise", "old house", "old building", "highrise", "brick building", "residential building", "old office building", "factory building", "tall house", "office building", "concrete building"}
+  field SFString{"glass building", "classic building", "orange building", "gray glass building", "blue glass building", "arcade-style building", "transparent highrise", "windowed building", "old brick building", "red and white building", "construction building", "stone brick", "stone wall", "glass highrise", "old house", "old building", "highrise", "brick building", "residential building", "old office building", "factory building", "tall house", "office building", "concrete building"}
                     wallType               "windowed building"                # Defines the wall type.
   field MFColor     wallColor              []                                 # Defines the wall color.
   field MFString    groundFloor            []                                 # Defines the texture to be used for the first floor (optional).
@@ -54,8 +54,6 @@ PROTO SimpleBuilding [
       'old brick building'     : {textureFloorNumber: 8,   textureWidth: 20,  textureLateralWindowNumber: 5,  colors: [[0.53, 0.48, 0.42], [0.85, 0.86, 0.84]], pbr: false},
       'red and white building' : {textureFloorNumber: 3,   textureWidth: 15,  textureLateralWindowNumber: 5,  colors: [[0.75, 0.8, 0.77], [0.62, 0.12, 0.12]], pbr: false},
       'construction building'  : {textureFloorNumber: 8,   textureWidth: 12,  textureLateralWindowNumber: 8,  colors: [[0.38, 0.38, 0.40]], pbr: true},
-      'red brick wall'         : {textureFloorNumber: 0.3, textureWidth: 0.3, textureLateralWindowNumber: 1,  colors: [[0.77, 0.33, 0.23]], pbr: false},
-      'old brick wall'         : {textureFloorNumber: 0.3, textureWidth: 0.6, textureLateralWindowNumber: 1,  colors: [[0.53, 0.48, 0.33]], pbr: false},
       'stone brick'            : {textureFloorNumber: 0.5, textureWidth: 1,   textureLateralWindowNumber: 1,  colors: [[0.7, 0.6, 0.51]], pbr: false},
       'stone wall'             : {textureFloorNumber: 0.8, textureWidth: 3,   textureLateralWindowNumber: 1,  colors: [[0.47, 0.5, 0.53]], pbr: false},
       'glass highrise'         : {textureFloorNumber: 7,   textureWidth: 20,  textureLateralWindowNumber: 13, colors: [[0.19, 0.25, 0.29], [0.29, 0.38, 0.48]], pbr: false},
@@ -234,7 +232,7 @@ PROTO SimpleBuilding [
     let roofTextureSize = roofTypes[roofType].textureSize;
 
     let model = '"' +  wallType + '"';
-    if(wallType.substring(wallType.length - 'buildings'.length) !== 'buildings')
+    if (wallType.substring(wallType.length - 'buildings'.length) !== 'buildings')
       model = '"' + wallType + " building" + '"';
   >%
   Building {

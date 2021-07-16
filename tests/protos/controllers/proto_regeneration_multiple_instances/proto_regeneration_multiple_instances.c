@@ -9,7 +9,7 @@
 #define TIME_STEP 32
 
 int main(int argc, char **argv) {
-  ts_setup(argv[0]);  // give the controller args
+  ts_setup(argv[1]);  // give the controller args
 
   WbNodeRef protoNode = wb_supervisor_node_get_from_def("TEST_NODE");
   WbFieldRef sizeField = wb_supervisor_node_get_field(protoNode, "size");

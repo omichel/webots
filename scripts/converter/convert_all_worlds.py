@@ -39,7 +39,7 @@ nue_world_files = ['tests/api/worlds/*.wbt',
                    'projects/vehicles/worlds/*.wbt',
                    'scripts/icon_studio/worlds/icon_studio.wbt'
                    ]
-skip_world_files = ['projects/samples/howto/enu_coordinate_system/worlds/enu_coordinate_system.wbt']
+skip_world_files = []
 skipped_world_files = []
 for file in skip_world_files:
     skipped_world_files.append(os.path.join(WEBOTS_HOME, file.replace('/', os.sep)))

@@ -19,6 +19,7 @@ message through an emitter or handle the position of Robot1.
 """
 
 from controller import Supervisor
+from common import common_print
 
 
 class Driver (Supervisor):
@@ -86,4 +87,5 @@ class Driver (Supervisor):
 
 
 controller = Driver()
+common_print('driver')
 controller.run()

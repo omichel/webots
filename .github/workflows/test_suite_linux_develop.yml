@@ -52,12 +52,12 @@ jobs:
         export ROS_DISTRO=${{ matrix.ROS_DISTRO }}
         xvfb-run --auto-servernum make distrib -j4
     - name: Prepare Webots Controller Deployment
-      if: ${{ github.event_name == 'schedule' }}
-      uses: webfactory/ssh-agent@v0.5.2
+      if: ${{ github.event_name == 'schedule' && matrix.os == 'ubuntu-18.04' }}
+      uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.WEBOTS_CONTROLLER_DEPLOY_KEY }}
     - name: Deploy Webots Controller
-      if: ${{ github.event_name == 'schedule' }}
+      if: ${{ github.event_name == 'schedule' && matrix.os == 'ubuntu-18.04' }}
       run: scripts/packaging/sync_controller_lib.sh
     - name: Rename Webots Tarball Package
       if: ${{ matrix.os == 'ubuntu-18.04' }}
@@ -110,7 +110,7 @@ jobs:
       run: |
         export LIBGL_ALWAYS_SOFTWARE=true
         export WEBOTS_DISABLE_SAVE_SCREEN_PERSPECTIVE_ON_CLOSE=true
-        xvfb-run --auto-servernum python scripts/packaging/update_worlds_and_protos.py ${{ github.sha }}
+        xvfb-run --auto-servernum python scripts/packaging/update_urls.py ${{ github.sha }}
         export WEBOTS_HOME=$PWD/artifact/webots
         xvfb-run --auto-servernum python tests/test_suite.py
   test-ros:

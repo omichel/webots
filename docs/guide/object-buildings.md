@@ -893,7 +893,7 @@ SimpleBuilding {
 
 - `corners`: Defines the 2D geometry of the building (2D ground footprint of the building).
 
-- `wallType`: Defines the wall type. This field accepts the following values: `"glass building"`, `"classic building"`, `"orange building"`, `"gray glass building"`, `"blue glass building"`, `"arcade-style building"`, `"transparent highrise"`, `"windowed building"`, `"old brick building"`, `"red and white building"`, `"construction building"`, `"red brick wall"`, `"old brick wall"`, `"stone brick"`, `"stone wall"`, `"glass highrise"`, `"old house"`, `"old building"`, `"highrise"`, `"brick building"`, `"residential building"`, `"old office building"`, `"factory building"`, `"tall house"`, `"office building"`, and `"concrete building"`.
+- `wallType`: Defines the wall type. This field accepts the following values: `"glass building"`, `"classic building"`, `"orange building"`, `"gray glass building"`, `"blue glass building"`, `"arcade-style building"`, `"transparent highrise"`, `"windowed building"`, `"old brick building"`, `"red and white building"`, `"construction building"`, `"stone brick"`, `"stone wall"`, `"glass highrise"`, `"old house"`, `"old building"`, `"highrise"`, `"brick building"`, `"residential building"`, `"old office building"`, `"factory building"`, `"tall house"`, `"office building"`, and `"concrete building"`.
 
 - `wallColor`: Defines the wall color.
 
@@ -1223,4 +1223,3 @@ Windmill {
 ### Windmill Field Summary
 
 - `enableBoundingObject`: Defines whether the windmill should have a bounding object.
-

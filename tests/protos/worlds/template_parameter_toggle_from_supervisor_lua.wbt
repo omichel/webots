@@ -34,6 +34,9 @@ Robot {
     }
   ]
   controller "template_parameter_toggle_from_supervisor"
+  controllerArgs [
+    "template_parameter_toggle_from_supervisor (lua)"
+  ]
   supervisor TRUE
 }
 DEF TEMPLATE TemplateSimpleSolidWithPhysicsToggleLua {

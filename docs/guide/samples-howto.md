@@ -46,6 +46,13 @@ The inertia of the heavy mass lets the robot base turn round.
 The overall center of mass of the robot is changing.
 This can be visualized with the `View / Optional Rendering / Show Center of Mass...` or `mass` tab of in the node editor when the robot is selected.
 
+### [console.wbt]({{ url.github_tree }}/projects/samples/howto/console/worlds/console.wbt)
+
+**Keywords**: Console
+
+![console.png](images/samples/console.png) In this example is shown how to customize the formatting of the text in the [console](controller-programming.md#console-output).
+It allows to change the color, modify the style and clear the console.
+
 ### [custom\_robot\_window\_simple.wbt]({{ url.github_tree }}/projects/samples/howto/custom_robot_window_simple/worlds/custom_robot_window_simple.wbt)
 
 **Keywords**: custom robot window, [controller plugin](controller-plugin.md), HTML, JavaScript

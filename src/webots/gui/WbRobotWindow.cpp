@@ -80,10 +80,8 @@ void WbRobotWindow::setupPage() {
   assert(mWebView);
   mLoaded = false;
 
-#ifdef _WIN32
   if (mWebView->page())
     delete mWebView->page();
-#endif
 
   mWebView->setPage(new WbWebPage());
 
@@ -107,8 +105,7 @@ void WbRobotWindow::setupPage() {
   if (htmlFile.open(QFile::ReadOnly | QFile::Text)) {
     QTextStream htmlInput(&htmlFile);
 
-    QString prependToHead = linkTag(WbStandardPaths::resourcesPath() + "web/local/webots.css") +
-                            linkTag(WbStandardPaths::localDocPath() + "dependencies/jqueryui/1.11.4/jquery-ui.min.css");
+    QString prependToHead = linkTag(WbStandardPaths::resourcesPath() + "web/local/webots.css");
 #ifdef __APPLE__
     // Chromium bug on macOS:
     // - warnings like the following one are displayed in the console: "2018-05-08 11:17:37.496
@@ -120,9 +117,7 @@ void WbRobotWindow::setupPage() {
 #ifndef _WIN32
       scriptTag(WbStandardPaths::resourcesPath() + "web/local/qwebchannel.js") +
 #endif
-      scriptTag(WbStandardPaths::resourcesPath() + "web/local/webots.js") +
-      scriptTag(WbStandardPaths::localDocPath() + "dependencies/jquery/1.11.3/jquery.min.js") +
-      scriptTag(WbStandardPaths::localDocPath() + "dependencies/jqueryui/1.11.4/jquery-ui.min.js");
+      scriptTag(WbStandardPaths::resourcesPath() + "web/local/webots.js");
     QString content;
     const QRegularExpression script("<script[^>]*src=[\"']([^\"'>]*)[\"']");
     const QRegularExpression link("<link[^>]*href=[\"']([^\"'>]*)[\"']");

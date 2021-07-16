@@ -1,7 +1,7 @@
 # Webots R2021 Change Log
 
 ## Webots R2021b
-Released on July, 5th, 2021.
+Released on July, 16th, 2021.
 
   - New Robots
     - Added a model of the [Summit-XL Steel](../guide/summit-xl-steel.md) robot from [Robotnik](https://robotnik.eu/products/mobile-robots/summit-xl-steel-en/) ([#3121](https://github.com/cyberbotics/webots/pull/3121)).
@@ -22,7 +22,7 @@ Released on July, 5th, 2021.
     - Added a simple room with a Nao robot ([#2701](https://github.com/cyberbotics/webots/pull/2701)).
   - New Features:
     - Support `http://` and `https://` file download and cache for the URL fields of [Background](background.md), [Camera](camera.md), [ContactProperties](contactproperties.md), [ImageTexture](imagetexture.md), [Mesh](mesh.md), and [Motor](motor.md) ([#2591](https://github.com/cyberbotics/webots/pull/2591) and [#2787](https://github.com/cyberbotics/webots/pull/2787)).
-    - Reduced installation package size by using online resources for images, meshes, etc. ([#2787](https://github.com/cyberbotics/webots/pull/2787)).
+    - Reduced installation package size by using online resources for images, meshes, etc. ([#2787](https://github.com/cyberbotics/webots/pull/2787)). **The local URLs to textures and meshes in previous worlds files should be updated to point to online resources, e.g., "textures/carpet.jpg" should be changed to "https://raw.githubusercontent.com/cyberbotics/webots/R2021b/projects/default/worlds/textures/carpet.jpg".**
     - Added the `wb_supervisor_node_set_joint_position` function to artificially set the position of active and passive joints ([#3160](https://github.com/cyberbotics/webots/pull/3160)).
     - Added the `wb_supervisor_node_export_string` function which returns a string from which the node is constructed ([#2743](https://github.com/cyberbotics/webots/pull/2743)).
     - Added the `wb_supervisor_node_save/load_state` functions that allow partial world reverting to a saved state ([#2740](https://github.com/cyberbotics/webots/pull/2740)).
@@ -76,6 +76,10 @@ Released on July, 5th, 2021.
       - Exposed the `robot_description` ROS parameter (activated through the `--robot-description` flag) that contains the URDF of the robot.
     - Improved the URDF naming convention ([#2875](https://github.com/cyberbotics/webots/pull/2875)).
   - Bug fixes:
+    - Fixed resource leak in simulation server script ([#3412](https://github.com/cyberbotics/webots/pull/3412), thanks to [Luiz Felipe Vecchietti](https://github.com/lfelipesv)).
+    - Sanitized controller name in MATLAB launcher ([#3404](https://github.com/cyberbotics/webots/pull/3404), thanks to [Bartek Łukawski](https://github.com/PeterBowman) and [Juan Victores](https://github.com/jgvictores)).
+    - Fixed bug in [Lidar](lidar.md) / [RangeFinder](../guide/range-finder-sensors.md) measurement when hitting an edge ([#3230](https://github.com/cyberbotics/webots/pull/3230)).
+    - Fixed the restart of Webots on Windows after changing the theme or the language from the preferences ([#3367](https://github.com/cyberbotics/webots/pull/3367)).
     - Fixed instabilities in the box-cylinder collision detection ([#3105](https://github.com/cyberbotics/webots/pull/3105)).
     - Fixed wrong computation of the asymmetric friction force direction for [Cylinder](cylinder.md) and [Box](box.md) ([#3150](https://github.com/cyberbotics/webots/pull/3150)).
     - Fixed the return value handling from the `webots_physics_collide` when the [Group](group.md) node is one of the colliding objects ([#2781](https://github.com/cyberbotics/webots/pull/2781)).
@@ -114,7 +118,7 @@ Released on July, 5th, 2021.
       - Fixed incorrect position retrieval immediately after resetting nested [Transform](transform.md) nodes ([#3051](https://github.com/cyberbotics/webots/issues/3051)).
       - Fixed reset of [Charger](charger.md) energy when the recharging [Robot](robot.md) battery is full ([#2879](https://github.com/cyberbotics/webots/pull/2879)).
       - Fixed [Camera](camera.md) image update in controllers after simulation reset ([#2725](https://github.com/cyberbotics/webots/pull/2725)).
-      - Fixed reset of simulations including [BallJoint](balljoint.md) nodes like the [Stewart Platform](https://github.com/cyberbotics/webots/blob/master/projects/samples/demos/worlds/stewart_platform.wbt) ([#2593](https://github.com/cyberbotics/webots/pull/2593)).
+      - Fixed reset of simulations including [BallJoint](balljoint.md) nodes like the [Stewart Platform](https://github.com/cyberbotics/webots/blob/master/projects/samples/demos/worlds/stewart_platform.wbt) ([#2593](https://github.com/cyberbotics/webots/pull/2593)) and ([#3394](https://github.com/cyberbotics/webots/pull/3394)).
       - Fixed step button status if simulation is reset from UI when the step button is disabled ([#2741](https://github.com/cyberbotics/webots/pull/2741)).
     - Fixed bug in the C++, Python and Java API where the [Robot.getDevice()](robot.md#wb_robot_get_device) methods were returning different objects when passing the same string argument for the device name ([#2957](https://github.com/cyberbotics/webots/pull/2957)).
     - Fixed the `robot_get_urdf` function to include leaf nodes in URDF ([#2803](https://github.com/cyberbotics/webots/pull/2803)).
@@ -141,6 +145,11 @@ Released on July, 5th, 2021.
     - Fixed [PedestrianCrossing](../guide/object-traffic.md#pedestriancrossing) PROTO model not correctly displaying the yellow stripes ([#2857](https://github.com/cyberbotics/webots/pull/2857)).
     - **Changed ROS message type published by the [Camera Recognition Objects](camera.md#wb_camera_recognition_get_objects) node that now sends a single message including all the recognized objects ([#3234](https://github.com/cyberbotics/webots/pull/3234))**.
     - **Changed ROS data type of [`/supervisor/node/get_type_name`](supervisor.md#wb_supervisor_node_get_type_name) service that now uses `webots_ros::node_get_name` instead of `webots_ros::node_get_type_name` ([#3202](https://github.com/cyberbotics/webots/pull/3202))**.
+    - Fixed incorrect resetting of [PointLight](pointlight.md) nodes ([#3345](https://github.com/cyberbotics/webots/pull/3345)).
+    - Fixed incorrect cleaning of [Light](light.md) node ([3374](https://github.com/cyberbotics/webots/pull/3374)).
+    - Fixed crash provoked by canceling and switching world in the Guided Tour ([#3376](https://github.com/cyberbotics/webots/pull/3376)).
+    - Fixed the path to the python command on macOS ([#3402](https://github.com/cyberbotics/webots/pull/3402)).
+    - Fixed [HighwaySign](../guide/object-traffic.md#highwaysign) PROTO not displaying the texture ([#3407](https://github.com/cyberbotics/webots/pull/3407)).
   - Cleanup
     - Deleted deprecated DifferentialWheels node ([#2749](https://github.com/cyberbotics/webots/pull/2749)).
     - Changed structure of the [projects/samples/howto]({{ url.github_tree }}/projects/samples/howto) directory, so each demonstration is in a dedicated directory ([#2639](https://github.com/cyberbotics/webots/pull/2639)).

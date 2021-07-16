@@ -13,7 +13,6 @@ PROTO CabinetDoor [
   field SFFloat  thickness           0.03              # Defines the thickness of the door.
   field SFFloat  mass                1.5               # Defines the mass of the door.
   field SFNode   handle              CabinetHandle {}  # Defines door handle.
-  field SFNode   primaryAppearance   NULL              # Defines the primary appearance (this field is not used but is required for compatibilty reason with the other cabinet modules).
   field SFNode   secondaryAppearance NULL              # Defines the secondary appearance.
 ]
 {
@@ -92,17 +91,5 @@ PROTO CabinetDoor [
     ]
     name IS name
     model "cabinet door"
-    physics Physics {
-      density -1
-      mass 0.01
-    }
-    boundingObject Transform {
-      translation 0 0 %<= - size.z >%
-      children [
-        Sphere {
-          radius 0.01
-        }
-      ]
-    }
   }
 }

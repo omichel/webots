@@ -375,7 +375,7 @@ DEF ENVIRONMENT Solid {
       signBoards [
         DirectionPanel {
           frontTextTexture [
-            "textures/panel_hbp_office_front.png"
+            "webots://projects/samples/robotbenchmark/humanoid_marathon/worlds/textures/panel_hbp_office_front.png"
           ]
         }
       ]

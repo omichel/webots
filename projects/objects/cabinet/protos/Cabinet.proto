@@ -206,7 +206,9 @@ PROTO Cabinet [
                   %< } >%
                   thickness IS innerThickness
                   handle IS handle
-                  primaryAppearance IS primaryAppearance
+                  %< if (data[0] === 'Drawer') { >%
+                    primaryAppearance IS primaryAppearance
+                  %< } >%
                   secondaryAppearance IS secondaryAppearance
                 }
             %< } else if (data[0] === 'Shelf') { >%

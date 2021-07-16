@@ -1511,11 +1511,11 @@ For example:
 ; runtime.ini for a Python controller on macOS
 
 [python]
-COMMAND = /opt/local/bin/python2.7
+COMMAND = /opt/local/bin/python3.8
 OPTIONS = -m package.name.given
 ```
 
-In the example above, the resulting command issued by Webots will be: `/opt/local/bin/python2.7 -m package.name.given my_controller.py` possibly followed by the value of the `controllerArgs` field of the corresponding [Robot](../reference/robot.md) node.
+In the example above, the resulting command issued by Webots will be: `/opt/local/bin/python3.8 -m package.name.given my_controller.py` possibly followed by the value of the `controllerArgs` field of the corresponding [Robot](../reference/robot.md) node.
 
 ```ini
 ; runtime.ini for a Java controller on Windows

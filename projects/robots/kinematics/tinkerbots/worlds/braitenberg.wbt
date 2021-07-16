@@ -38,10 +38,7 @@ DEF WALLS SolidPipe {
   height 0.2
   thickness 0.05
   subdivision 60
-  appearance OldPlywood {
-    textureTransform TextureTransform {
-      scale 20 1
-    }
+  appearance BakelitePlastic {
   }
 }
 TinkerbotsBase {

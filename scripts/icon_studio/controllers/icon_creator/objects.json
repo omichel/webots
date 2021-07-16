@@ -11,6 +11,9 @@
   "projects/bounding_objects/protos/TorusBoundingObject": {
     "nodeString": "SolidTorus { translation 0 1 0 appearance PBRAppearance { baseColor 0.93 0.16 0.16 roughness 1 metalness 0 } }"
   },
+  "projects/devices/sick/protos/SickS300": {
+    "nodeString": "Robot { translation 0 0.1151 0 rotation 0 -1 0 0.2618 children [ SickS300 { } ] }"
+  },
   "projects/devices/sharp/protos/SharpGP2D120": {
     "nodeString": "Robot { translation 0 0.005 0 rotation 0 -1 0 0.2618 children [ SharpGP2D120 { } ] }"
   },

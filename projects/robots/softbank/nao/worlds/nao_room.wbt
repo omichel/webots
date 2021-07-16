@@ -139,7 +139,6 @@ WoodenChair {
 Nao {
   translation 0.997971 0.34 -1.74563
   rotation 0.57735126918836 0.57735126918836 0.5773482691869614 -2.094395307179586
-  controller "nao_demo_python"
   cameraWidth 320
   cameraHeight 240
 }

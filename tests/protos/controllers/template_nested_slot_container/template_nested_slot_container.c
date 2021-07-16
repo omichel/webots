@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 int main(int argc, char **argv) {
-  ts_setup(argv[0]);  // give the controller args
+  ts_setup(argv[1]);  // give the controller args
 
   int time_step = wb_robot_get_basic_time_step();
 

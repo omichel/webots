@@ -174,7 +174,7 @@ void WbLidar::initializeImageSharedMemory() {
   if (mImageShm) {
     // initialize the shared memory with a black image
     float *im = lidarImage();
-    const int size = width() * actualNumberOfLayers();
+    const int size = actualHorizontalResolution() * actualNumberOfLayers();
     for (int i = 0; i < size; i++)
       im[i] = 0.0f;
   }
@@ -235,13 +235,14 @@ void WbLidar::addConfigureToStream(QDataStream &stream, bool reconfigure) {
 }
 
 void WbLidar::writeAnswer(QDataStream &stream) {
-  if (isRotating())
-    mImageChanged = false;
-
-  WbAbstractCamera::writeAnswer(stream);
-
-  if (!isRotating() && mSensor->isEnabled())
-    copyAllLayersToSharedMemory();
+  if (mImageChanged) {
+    mImageChanged = false;  // prevents the AbstractCamera from copying the whole content of the camera in the shared memory
+    WbAbstractCamera::writeAnswer(stream);
+    mSensor->resetPendingValue();
+    if (!isRotating() && mSensor->isEnabled())  // in case of rotating lidar, the copy is done during the step
+      copyAllLayersToSharedMemory();            // for non-rotating lidar, copy the layers needed in the shared memory
+  } else
+    WbAbstractCamera::writeAnswer(stream);
 }
 
 void WbLidar::handleMessage(QDataStream &stream) {

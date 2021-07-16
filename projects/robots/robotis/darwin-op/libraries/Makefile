@@ -19,16 +19,9 @@ include $(WEBOTS_HOME_PATH)/resources/Makefile.os.include
 
 TARGETS=robotis-op2.Makefile managers.Makefile python.Makefile
 
-ifeq ($(OSTYPE),windows)
-PYTHON_MAKE = PATH="$(PYTHON27_HOME):$(PATH)" make
-else
-PYTHON_MAKE = make
-endif
-
 .PHONY: release debug profile clean
 
 release debug profile: $(TARGETS)
-	cp python27/*managers.* python || true # kept for backward compatibility with < R2019b
 
 clean: $(TARGETS)
 	# Remove python/*managers.* except python/managers.i
@@ -42,12 +35,6 @@ managers.Makefile robotis-op2.Makefile:
 
 python.Makefile: managers.Makefile
 ifeq ($(OSTYPE),linux)
-	@echo "# make" $@ python2.7;
-	+PYTHON_COMMAND=python2.7 make -s -C python $(MAKECMDGOALS)
-ifeq ($(UBUNTU_VERSION), 16.04)
-	@echo "# make" $@ python3.5;
-	+PYTHON_COMMAND=python3.5 make -s -C python $(MAKECMDGOALS)
-endif
 	@echo "# make" $@ python3.6;
 	+PYTHON_COMMAND=python3.6 make -s -C python $(MAKECMDGOALS)
 	@echo "# make" $@ python3.7;
@@ -64,12 +51,8 @@ ifeq ($(OSTYPE),windows)
 	+PATH="$(PYTHON38_HOME):$(PATH)" make -s -C python $(MAKECMDGOALS)
 	@echo "# make" $@ python3.7;
 	+PATH="$(PYTHON37_HOME):$(PATH)" make -s -C python $(MAKECMDGOALS)
-	@echo "# make" $@ python2.7;
-	+PATH="$(PYTHON27_HOME):$(PATH)" make -s -C python $(MAKECMDGOALS)
 endif
 ifeq ($(OSTYPE),darwin)
-	@echo "# make" $@ python2.7;
-	+make -s -C python $(MAKECMDGOALS)
 	@echo "# make" $@ python3.7;
 	+PYTHON_COMMAND=python3.7 make -s -C python $(MAKECMDGOALS)
 	@echo "# make" $@ python3.8;

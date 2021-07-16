@@ -1,0 +1,53 @@
+#VRML_SIM R2021c utf8
+WorldInfo {
+  coordinateSystem "NUE"
+  lineScale 0.4
+}
+Viewpoint {
+  orientation -0.17893748710767574 -0.9740180887954226 -0.1388169240651244 1.5294095694295469
+  position -0.7633347051256945 0.24038376817935225 0.1030482734348383
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF BALL_JOINT_ROBOT Robot {
+  children [
+    BallJoint {
+      jointParameters BallJointParameters {
+        position 1
+      }
+      jointParameters2 JointParameters {
+        position 2
+      }
+      jointParameters3 JointParameters {
+        position 1
+        axis 1 0 0
+      }
+      endPoint DEF SOLID_ENDPOINT Solid {
+        rotation 0.06288823946284747 0.9406150471981956 -0.333599164150032 2.611508937346137
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+      }
+    }
+  ]
+  name "robot"
+}
+DEF SUPERVISOR Robot {
+  children [
+    TestSuiteEmitter {
+    }
+  ]
+  controller "ball_joint_reset"
+  name "supervisor"
+  supervisor TRUE
+}
+TestSuiteSupervisor {
+}

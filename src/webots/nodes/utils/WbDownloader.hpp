@@ -31,6 +31,7 @@ public:
   QIODevice *device() const;
   bool isCopy() const { return mCopy; }
   bool hasFinished() const { return mFinished; }
+  void setIsBackground(bool isBackground) { mIsBackground = isBackground; }
   const QString &error() const { return mError; }
   static int progress();
   static void reset();
@@ -46,6 +47,7 @@ private:
   QString mError;
   bool mOffline;
   bool mCopy;
+  bool mIsBackground;
 
 private slots:
   void finished();

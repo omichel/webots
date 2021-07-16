@@ -160,7 +160,7 @@ WbVector3 WbBallJoint::axis() const {
 }
 
 WbVector3 WbBallJoint::axis2() const {
-  return axis().cross(axis3());
+  return axis3().cross(axis());
 }
 
 WbVector3 WbBallJoint::axis3() const {
@@ -192,7 +192,7 @@ void WbBallJoint::updateEndPointZeroTranslationAndRotation() {
   else {
     const WbQuaternion q(axis(), -mPosition);
     const WbQuaternion q2(axis2(), -mPosition2);
-    const WbQuaternion q3(axis2(), -mPosition3);
+    const WbQuaternion q3(axis3(), -mPosition3);
     qp = q3 * q2 * q;
     const WbQuaternion &iq = ir.toQuaternion();
     WbQuaternion qr = qp * iq;
@@ -207,7 +207,7 @@ void WbBallJoint::updateEndPointZeroTranslationAndRotation() {
 void WbBallJoint::computeEndPointSolidPositionFromParameters(WbVector3 &translation, WbRotation &rotation) const {
   WbQuaternion qp;
   const WbQuaternion q(axis(), mPosition);
-  const WbQuaternion q2(-axis2(), mPosition2);
+  const WbQuaternion q2(axis2(), mPosition2);
   const WbQuaternion q3(axis3(), mPosition3);
   WbQuaternion qi = mEndPointZeroRotation.toQuaternion();
   qp = q * q2 * q3;
@@ -256,7 +256,6 @@ void WbBallJoint::updatePositions(double position, double position2, double posi
 }
 
 void WbBallJoint::updatePosition(double position) {
-  mPosition = position;
   updatePositions(mPosition, mPosition2, mPosition3);
 }
 

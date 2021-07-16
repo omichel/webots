@@ -53,7 +53,7 @@ jobs:
         make distrib -j4
     - name: Prepare Webots Controller Deployment
       if: ${{ github.event_name == 'schedule' }}
-      uses: webfactory/ssh-agent@v0.5.2
+      uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.WEBOTS_CONTROLLER_DEPLOY_KEY }}
     - name: Deploy Webots Controller

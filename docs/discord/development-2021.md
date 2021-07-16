@@ -4,13 +4,13 @@ This is an archive of the `development` channel of the [Webots Discord server](h
 
 ## January
 
-##### Simon Steinmann [Moderator] 01/05/2021 09:27:08
+##### Luftwaffel [Moderator] 01/05/2021 09:27:08
 The conversation in technical-questions made me think: Wouldn't it be a nice feature, to have an 'odometry' device? Which retrieves the pose of it's parent. Of course this can be done manually with a supervisor, however that is more complicated for beginners and well, requires a supervisor.
 
 ##### Olivier Michel [Cyberbotics] 01/05/2021 09:47:22
 Yes, but I believe that such an odometry device doesn't exists in real life...
 
-##### Simon Steinmann [Moderator] 01/05/2021 09:56:13
+##### Luftwaffel [Moderator] 01/05/2021 09:56:13
 no it doesnt, but it can be a good first step / validation tool. This is used all the time in ROS and Gazebo
 
 
@@ -19,7 +19,7 @@ It could be implemented in the Robot node perhaps. "getPosition", "getOrientatio
 ##### Olivier Michel [Cyberbotics] 01/05/2021 10:01:28
 It is already there when you turn your robot into a supervisor.
 
-##### Simon Steinmann [Moderator] 01/05/2021 10:10:39
+##### Luftwaffel [Moderator] 01/05/2021 10:10:39
 well I guess that's true. Still could be useful to have a device one could add to Solids/Transforms, in order to retrieve the pose
 
 
@@ -28,7 +28,7 @@ Found a strange behavior, exporting a robot as URDF uses the boundingObject as t
 ##### Darko Lukić [Cyberbotics] 01/07/2021 08:00:15
 Yes, it is described in the note under `wb_robot_get_urdf` documentation. We have a basic implementation of URDF exporter that can work for most use-cases (publish ROS transforms, calculate inverse kinematics, and similar), but only a basic visualization is possible.
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:01:47
+##### Luftwaffel [Moderator] 01/07/2021 10:01:47
 `@Darko Lukić` launching the dynamic rviz with ros2, this Error comes up
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/796679973011718164/unknown.png)
@@ -55,7 +55,7 @@ loading the same config again once it is running, no errors come up
 ##### Darko Lukić [Cyberbotics] 01/07/2021 10:04:06
 RViz2 is a bit buggy, just uncheck/check the RobotModel checkbox and it should work
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:04:29
+##### Luftwaffel [Moderator] 01/07/2021 10:04:29
 you're right
 
 
@@ -74,19 +74,19 @@ static_tf = Node(
 )
 ```
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:07:00
+##### Luftwaffel [Moderator] 01/07/2021 10:07:00
 what if the robot is mobile?
 
 ##### Darko Lukić [Cyberbotics] 01/07/2021 10:07:48
 Than you have to publish the transforms manually :/
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:09:00
+##### Luftwaffel [Moderator] 01/07/2021 10:09:00
 does that work alongside the robot\_state\_publisher?
 
 ##### Darko Lukić [Cyberbotics] 01/07/2021 10:10:07
 Sure
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:10:37
+##### Luftwaffel [Moderator] 01/07/2021 10:10:37
 maybe that should be a feature of the webots\_ros2\_core
 
 ##### Darko Lukić [Cyberbotics] 01/07/2021 10:11:42
@@ -97,7 +97,7 @@ We do it here for example:
 
 The robot state publisher is in the core, what would you like to add in addition to it?
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:13:18
+##### Luftwaffel [Moderator] 01/07/2021 10:13:18
 have an option (or by default) to pulbish the world - baselink transform
 
 
@@ -106,7 +106,7 @@ static robots are one thing, but especially for mobile ones, it is kinda essenti
 ##### Darko Lukić [Cyberbotics] 01/07/2021 10:14:52
 But that is something that a user has to handle
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:15:37
+##### Luftwaffel [Moderator] 01/07/2021 10:15:37
 Gazebo publishes it by default, people are used to simply selecting "world" in rviz
 
 ##### Darko Lukić [Cyberbotics] 01/07/2021 10:17:16
@@ -115,13 +115,13 @@ Gazebo publishes transform between `world` and `base_link` for mobile robots? Th
 
 In the real-world transform between `world` and `base_link` is not available
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:18:02
+##### Luftwaffel [Moderator] 01/07/2021 10:18:02
 maybe it is just static. Has been a while, dont remember
 
 ##### Darko Lukić [Cyberbotics] 01/07/2021 10:18:31
 We can easily add it using Supervisor, but it is strange to have something like that
 
-##### Simon Steinmann [Moderator] 01/07/2021 10:20:13
+##### Luftwaffel [Moderator] 01/07/2021 10:20:13
 hmmm where exactly would I add that tf\_static node?
 
 
@@ -147,7 +147,7 @@ Sure.
 ##### Moha 01/13/2021 08:07:09
 👍
 
-##### Simon Steinmann [Moderator] 01/13/2021 08:44:39
+##### Luftwaffel [Moderator] 01/13/2021 08:44:39
 I'm curious, wouldn't it be possible to set system environment variables during installation?
 
 
@@ -162,7 +162,7 @@ I already did some work in that direction with my proto-splitter script. That on
 ##### Olivier Michel [Cyberbotics] 01/13/2021 09:42:21
 Probably yes on Windows, probably not possible on Mac and Linux...
 
-##### Simon Steinmann [Moderator] 01/13/2021 09:44:28
+##### Luftwaffel [Moderator] 01/13/2021 09:44:28
 ahh okay
 
 
@@ -265,7 +265,7 @@ After a few tests it seems you are correct. The same issue presents when the rob
 ##### Olivier Michel [Cyberbotics] 01/18/2021 07:58:52
 In Webots images are read from the GPU memory directly into a shared memory segment which is readable by both Webots and the local robot controller to optimize efficiency and avoid unnecessary image copy. In the context of RoboCup (and other frameworks, like ROS or ROS2), the local robot controller acts as a relay between the simulator and the actual robot controller which may run on a different machine over the network. Therefore, while implementing this relay controller, it is very easy to add JPEG compression to the camera image to be sent to the actual controller over the network. This is indeed exactly what happens when you use a ROS 2 controller with Webots to publish a camera image, it gets automatically compressed in JPEG (and you can even choose the compression ratio) before being sent to the controller.
 
-##### babaev1 01/18/2021 09:23:07
+##### Azer Babaev [Starkit, TC] 01/18/2021 09:23:07
 Thank you for prompt reply. For me it is clear. I shall share your answer with Robocup community for possible definitions.
 
 ##### Moha 01/19/2021 09:49:08
@@ -313,7 +313,7 @@ You can compile as here:
 
 [https://github.com/cyberbotics/webots\_ros2/wiki/Build-and-Install](https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install)
 
-##### Simon Steinmann [Moderator] 01/20/2021 09:48:01
+##### Luftwaffel [Moderator] 01/20/2021 09:48:01
 Is there documentation for custom robot window? I cannot seem to find it.
 
 ##### Olivier Michel [Cyberbotics] 01/20/2021 09:58:59
@@ -328,7 +328,7 @@ Is there documentation for custom robot window? I cannot seem to find it.
 
 (to be released in the next revision)
 
-##### Simon Steinmann [Moderator] 01/20/2021 10:01:32
+##### Luftwaffel [Moderator] 01/20/2021 10:01:32
 yeah, i'm excited for the new changes there. I'm gonna wait then until I dive back in
 
 ##### fowzan 01/21/2021 18:08:36
@@ -349,13 +349,13 @@ you seem to be missiong ros-<version>-console-bridge
 ##### adiagr 01/24/2021 18:32:16
 You can first threshold the image and then find contours in the image. Select the contour with the maximum area. Finally, find centroid of that contour and use it as an input to a PID controller or something similar to drive your robot
 
-##### Simon Steinmann [Moderator] 01/25/2021 15:11:40
+##### Luftwaffel [Moderator] 01/25/2021 15:11:40
 I got the suggestion from a user to add voice channels to the discord server.  Could be a nice addition
 
 ##### Olivier Michel [Cyberbotics] 01/25/2021 15:29:48
 I just created one. Can you try it?
 
-##### Simon Steinmann [Moderator] 01/25/2021 15:30:06
+##### Luftwaffel [Moderator] 01/25/2021 15:30:06
 seems to work
 
 ##### Krish 01/25/2021 15:33:10
@@ -364,16 +364,16 @@ oh wow, already created.
 ##### mayank.kishore 01/25/2021 15:55:58
 Does anyone have experience creating an overhead map with a camera? And potentially stitching multiple images together to create an encompassing overhead map?
 
-##### babaev1 01/25/2021 16:04:06
+##### Azer Babaev [Starkit, TC] 01/25/2021 16:04:06
 There is good feature in Coppelia which I couldn’t find in Webots: position and orientation of each node can be measured and modified from GUI.
 
-##### Simon Steinmann [Moderator] 01/25/2021 17:13:51
+##### Luftwaffel [Moderator] 01/25/2021 17:13:51
 you can do the same in Webots in the scene tree
 
-##### babaev1 01/25/2021 17:34:59
+##### Azer Babaev [Starkit, TC] 01/25/2021 17:34:59
 Yes, it is possible to read absolute position in scene tree, but modification of absolute position or orientation is not accessible there.
 
-##### Simon Steinmann [Moderator] 01/25/2021 17:38:12
+##### Luftwaffel [Moderator] 01/25/2021 17:38:12
 it is
 
 
@@ -382,35 +382,35 @@ just change the values
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/803317976853905448/unknown.png)
 %end
 
-##### babaev1 01/25/2021 17:43:41
+##### Azer Babaev [Starkit, TC] 01/25/2021 17:43:41
 In case if in children of parent Solid child Solid is added direct change of values of child Solid appears complex especially in case if in parent Solid rotation is not zero.
 
 
 I try to compose humanoid robot with 6 DOF in each branch. Direct modification of absolute position of deep level child elements is really challenging.
 
-##### Simon Steinmann [Moderator] 01/25/2021 17:50:44
+##### Luftwaffel [Moderator] 01/25/2021 17:50:44
 that is the nature of kinematic chains
 
 
 that is where you need inverse kinematics
 
-##### babaev1 01/25/2021 17:56:54
+##### Azer Babaev [Starkit, TC] 01/25/2021 17:56:54
 In case if I select node in scene tree I can see absolute position and rotation of node, but values are not editable. Possibility of modification of absolute position and orientation through editing values could be helpful.
 
 
 In Coppelia it is possible
 
-##### Simon Steinmann [Moderator] 01/26/2021 09:11:26
-`@babaev1` If I understand you correctly, you want to position a child node using absolute coordinates, which would automatically calculate the relative coordinates to the parent?
+##### Luftwaffel [Moderator] 01/26/2021 09:11:26
+`@Azer Babaev [Starkit, TC]` If I understand you correctly, you want to position a child node using absolute coordinates, which would automatically calculate the relative coordinates to the parent?
 
-##### babaev1 01/26/2021 13:51:17
+##### Azer Babaev [Starkit, TC] 01/26/2021 13:51:17
 I am using Coppelia for teaching robotics in school since 2 years. There is functionally which I consider useful and I use it often. It is possible to call pop-up widow for reading and editing absolute coordinate of any node which you select on scene tree or directly on 3D rendering window. After giving new coordinate and position old link to parent node is replaced by new link. Position and orientation of parent node remain unchanged. Position and orientation of all child nodes changes together with selected node new position and orientation. In case if you want to protect complex structures from being destroyed by this action node can be protected from being selected in node properties. I started to study Webots 2 weeks ago and I didn’t find similar useful functionality.
 
 
 window (not widow)
 
-##### Simon Steinmann [Moderator] 01/27/2021 10:35:31
-`@babaev1` So you want the reference frame selected here (in this case 'Absolute') to change the axis in the 3D view and the translation + rotation field in the scene tree. So they can be edited in the chosen frame. However, the saved definition is still the relative position to its parent.
+##### Luftwaffel [Moderator] 01/27/2021 10:35:31
+`@Azer Babaev [Starkit, TC]` So you want the reference frame selected here (in this case 'Absolute') to change the axis in the 3D view and the translation + rotation field in the scene tree. So they can be edited in the chosen frame. However, the saved definition is still the relative position to its parent.
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/803936219175452702/unknown.png)
 %end
@@ -421,7 +421,7 @@ window (not widow)
 ##### Olivier Michel [Cyberbotics] 01/27/2021 10:41:53
 Yes, I believe changing these position and rotation fields from read-only to read/write should be fairly easy to implement. However, I am not sure to understand why it seems useful. In general objects can be moved from the root-level translation/rotation. Moving an object inside its parent is not something we want to do from the global coordinate system. So, I am not sure to understand the use case for this...
 
-##### babaev1 01/27/2021 10:43:34
+##### Azer Babaev [Starkit, TC] 01/27/2021 10:43:34
 This is useful during building new robot
 
 
@@ -430,21 +430,21 @@ In order to build 23 DOF robot from primitives I spent 2 days in Coppelia and ab
 ##### Olivier Michel [Cyberbotics] 01/27/2021 10:54:57
 Ok, thank you for the explanation. Then, you should probably open an issue about this (or implement it by yourself if you want).
 
-##### babaev1 01/27/2021 11:01:24
+##### Azer Babaev [Starkit, TC] 01/27/2021 11:01:24
 First variant is more realistic for my statement of amateur programmer.
 
 ##### Olivier Michel [Cyberbotics] 01/27/2021 11:09:23
 I believe this really not so difficult to implement...
 
-##### babaev1 01/28/2021 22:07:31
+##### Azer Babaev [Starkit, TC] 01/28/2021 22:07:31
 Dear Webots developers, do you have plan to add Russian language to variety of GUI languages in 2021? Together with pandemic and moving robotic lessons and competitions to virtual format there is higher interest to use simulation software in education. Unfortunately not many teachers and students are fluent with English in Russian schools.  Adding optional Russian language to GUI can give good advantage to Webots to be widely used in Russian schools.
 
 ##### Darko Lukić [Cyberbotics] 01/28/2021 22:15:23
-Hello `@babaev1`, feel free to add translations, we will be happy to review your PR:
+Hello `@Azer Babaev [Starkit, TC]`, feel free to add translations, we will be happy to review your PR:
 
 [https://github.com/cyberbotics/webots/tree/master/resources/translations](https://github.com/cyberbotics/webots/tree/master/resources/translations)
 
-##### babaev1 01/28/2021 22:19:39
+##### Azer Babaev [Starkit, TC] 01/28/2021 22:19:39
 Thank you. Good to know that it is so easy. I shall arrange people at my side to add Russian translation.
 
 ##### Professor Felix 01/29/2021 04:31:27
@@ -462,7 +462,7 @@ But I think I heard wrong
 ##### Olivier Michel [Cyberbotics] 01/29/2021 08:34:33
 Yes, there not such a limit in GitHub.
 
-##### Simon Steinmann [Moderator] 01/29/2021 09:58:03
+##### Luftwaffel [Moderator] 01/29/2021 09:58:03
 `@Darko Lukić` wouldn't it be possible to run a translator api over the language files and do a base translation? That seems like a fairly easy and quick way to at least offer more languages. Of course they may not be perfect, but might be bettter than nothing
 
 ##### Darko Lukić [Cyberbotics] 01/29/2021 10:08:53
@@ -477,22 +477,22 @@ Hello, everyone! I've just recently pick up WeBots as I have an university proje
 ##### Bitbots\_Jasper [Moderator] 01/29/2021 12:49:47
 `@Ginzo1` this question has been asked a while back, maybe there is something useful for you there [https://cyberbotics.com/doc/discord/development-2020#lukulus-11132020-10-48-16](https://cyberbotics.com/doc/discord/development-2020#lukulus-11132020-10-48-16)
 
-##### babaev1 01/30/2021 10:34:05
+##### Azer Babaev [Starkit, TC] 01/30/2021 10:34:05
 Dear Webots developers, it is more or less clear how to translate GUI to Russian language. Students in our University started to undertake this work. Separate story is how to translate and publish User Guide and Reference Manual which  is located in website of Cyberbotics. There are 2 variants: 1. Russian translation will be published in Cyberbotics site along with English. 2. In Russian GUI link to User Guide will be different, then we can undertake providing space on web for translated User Guide.
 
-##### Simon Steinmann [Moderator] 01/30/2021 14:18:53
-`@babaev1` Awesome! Thank you for the contribution. I'm sure the devs will do everything they can to support your effort!
+##### Luftwaffel [Moderator] 01/30/2021 14:18:53
+`@Azer Babaev [Starkit, TC]` Awesome! Thank you for the contribution. I'm sure the devs will do everything they can to support your effort!
 
 
 [https://github.com/cyberbotics/webots/tree/master/docs](https://github.com/cyberbotics/webots/tree/master/docs) this is the documentation location of Webots. "guide" and "reference" are the 2 big documentation directories. I'm sure you can make a fork and start translating these. `@Olivier Michel` Perhaps we should slightly change the structure to accommodate any new translations.
 
-##### babaev1 01/31/2021 11:10:23
+##### Azer Babaev [Starkit, TC] 01/31/2021 11:10:23
 Thank you, I shall look for opportunity to make this part to be translated too.
 
 ## February
 
 ##### Olivier Michel [Cyberbotics] 02/01/2021 10:52:38
-`@babaev1`: thank you for undertaking this translation effort.
+`@Azer Babaev [Starkit, TC]`: thank you for undertaking this translation effort.
 
 For translating the GUI, please follow the procedure at [https://github.com/cyberbotics/webots/tree/released/resources/translations](https://github.com/cyberbotics/webots/tree/released/resources/translations)
 
@@ -517,7 +517,7 @@ ye i use to work with moveit but moveit2 currently only supports c++
 
 and im tryin to create a ROS2 class for my university and it should be in python because the students are learing python in prev classes. So im lookin for an alternativ so that the students can still learn ros2 but with python instead of c++
 
-##### Simon Steinmann [Moderator] 02/09/2021 11:31:47
+##### Luftwaffel [Moderator] 02/09/2021 11:31:47
 `@Lumii` Cyberbotics and I also developed a standalone IKFast Python module
 
 
@@ -548,11 +548,11 @@ I'd argue that besides the incorrect handling of the greek characters (and possi
 ##### Olivier Michel [Cyberbotics] 02/11/2021 06:36:27
 Can you please open a bug report about it? [https://github.com/cyberbotics/webots/issues/new?assignees=&labels=&template=bug\_report.md](https://github.com/cyberbotics/webots/issues/new?assignees=&labels=&template=bug_report.md)
 
-##### AJ121 02/12/2021 21:32:21
+##### Adyasha 02/12/2021 21:32:21
 Can't I set a motor speed more than 10 in webots? It shows error ! My bot is too slow
 
 ##### Stefania Pedrazzi [Cyberbotics] 02/15/2021 07:11:58
-`@AJ121` the maximum speed for a robot is defined in the `Motor.maxVelocity` field. You should check the value for your robot model and adjust it:
+`@Adyasha` the maximum speed for a robot is defined in the `Motor.maxVelocity` field. You should check the value for your robot model and adjust it:
 
 [https://www.cyberbotics.com/doc/reference/motor#field-summary](https://www.cyberbotics.com/doc/reference/motor#field-summary)
 
@@ -595,9 +595,9 @@ in the controllers code file if this is what you mean
 Hi, I wanted to know if there was any sample code available for a robot that has to detect, collect and drop an object at a particular location? I'm trying to work towards a swarm implementation eventually. Any help will be much appreciated. Cheers!
 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 16:56:46
-`@Simon Steinmann` Regarding the RAM usage. I have just tried add the UR5 in the empty world and uses like 850MB of RAM. It seems the complex models cause the high RAM usage.
+`@Luftwaffel` Regarding the RAM usage. I have just tried add the UR5 in the empty world and uses like 850MB of RAM. It seems the complex models cause the high RAM usage.
 
-##### Simon Steinmann [Moderator] 02/23/2021 16:57:58
+##### Luftwaffel [Moderator] 02/23/2021 16:57:58
 340 -> 1.250 -> 520    (ram usage for your described scenario)
 
 
@@ -612,25 +612,25 @@ it sounds like there is lots of room for optimization. A Model that has 50MB at 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:05:21
 Let's say you have 8 core CPU with 16 thread. To reach the full CPU utilization you should run 8 instances (2 processes per instance, 1 Webots process + 1 controller process). Let's say your simulation uses 1GB of RAM. That means that Webots parallel simulations will use 8GB of RAM in total. Considering that typical 8 core PC is equipped with 16GB of RAM (and RAM is cheap) then running the parallel simulations should be fine?
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:06:38
+##### Luftwaffel [Moderator] 02/23/2021 17:06:38
 If it were just the simulation, yes, but running deep neural networks takes lots of resources as well
 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:08:18
 True, in my tests, the RL controllers use like above 1GB of RAM per instance. But then, it is not fair to expect from simulation to use significantly less RAM.
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:08:21
+##### Luftwaffel [Moderator] 02/23/2021 17:08:21
 plus, if we were to scale it up on server level, the amounts of RAM get huge. A partner company in our past research project had a 128 core 256 thread server.
 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:10:07
 I am trying to understand how import is to invest time in the RAM/VRAM optimization.
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:11:25
+##### Luftwaffel [Moderator] 02/23/2021 17:11:25
 well, same simulation and setup in Pybullet were in the order of 100-300MB RAM
 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:11:45
 Per instance?
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:11:48
+##### Luftwaffel [Moderator] 02/23/2021 17:11:48
 yes
 
 
@@ -660,7 +660,7 @@ But quality of the Webots model is much higher (pybullet model in the image)
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/813822734861598720/unknown.png)
 %end
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:21:27
+##### Luftwaffel [Moderator] 02/23/2021 17:21:27
 we used the same model
 
 
@@ -684,13 +684,13 @@ I have just done some tests with UR5e in an empty world:
 
 Does it make sense that we add a CLI argument to disable meshes and textures?
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:39:37
+##### Luftwaffel [Moderator] 02/23/2021 17:39:37
 CLI argument?
 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:40:05
 Yes, something like, `webots --disable-meshes`
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:40:17
+##### Luftwaffel [Moderator] 02/23/2021 17:40:17
 being able to run a simulation with all graphics turned off, would be fantastic. There is tons of simulation, where no visual sensors are needed
 
 
@@ -705,7 +705,7 @@ Nice! 😄
 
 Can you make an issue about this?
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:41:30
+##### Luftwaffel [Moderator] 02/23/2021 17:41:30
 you already described it better :p
 
 
@@ -714,7 +714,7 @@ but I can open it if you want
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:41:55
 Ahh, ok, I will 🙂
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:42:01
+##### Luftwaffel [Moderator] 02/23/2021 17:42:01
 thx ^^
 
 
@@ -732,7 +732,7 @@ I mean
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/813828413441441802/unknown.png)
 %end
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:43:43
+##### Luftwaffel [Moderator] 02/23/2021 17:43:43
 ohhhhhhhhhhh
 
 
@@ -747,7 +747,7 @@ but your suggestion is already super great 🙂
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:49:04
 [https://github.com/cyberbotics/webots/issues/2777](https://github.com/cyberbotics/webots/issues/2777)
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:50:20
+##### Luftwaffel [Moderator] 02/23/2021 17:50:20
 would this include the graphics settingsß
 
 
@@ -759,19 +759,19 @@ perhaps "no render" mode can turn those off, if it frees up ram
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:50:58
 `--no-rendering` still renders meshes for the camera based devices, so it is not the same
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:51:14
+##### Luftwaffel [Moderator] 02/23/2021 17:51:14
 ohhh makes sense
 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:51:25
 Add a comment 🙂
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:55:12
+##### Luftwaffel [Moderator] 02/23/2021 17:55:12
 no textures and no meshes, does it still render? just with the bounding objects?
 
 ##### Darko Lukić [Cyberbotics] 02/23/2021 17:56:48
 Yes
 
-##### Simon Steinmann [Moderator] 02/23/2021 17:57:16
+##### Luftwaffel [Moderator] 02/23/2021 17:57:16
 thx
 
 ##### Srivastav\_Udit 02/24/2021 14:06:04
@@ -803,7 +803,7 @@ Here the y-axis is in green and z-axis is in blue and that's why I was trying to
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/814458435525410826/unknown.png)
 %end
 
-##### Simon Steinmann [Moderator] 02/25/2021 13:21:47
+##### Luftwaffel [Moderator] 02/25/2021 13:21:47
 what is happening instead? Is the field changing? Or is it just not behaving as expected?
 
 ##### Darko Lukić [Cyberbotics] 02/25/2021 13:22:37
@@ -829,13 +829,13 @@ To rotate around the Z axis from the initial rotation you have to:
 
 - convert back to the angle-axis representation.
 
-##### Simon Steinmann [Moderator] 02/25/2021 22:22:13
+##### Luftwaffel [Moderator] 02/25/2021 22:22:13
 I highly recommend this library for the conversions: [https://matthew-brett.github.io/transforms3d/](https://matthew-brett.github.io/transforms3d/)
 
 ##### Gonçalo Carrola Silva 02/26/2021 11:20:21
 Hi everyone!!! I'm totally new to using WEBOTS so I have a simple (I hope) problem of development of my robot. I want to use inverse kinematics on PR2 robot (it has to be PR2) to move the right hand to a certain position of the world. For that, I tried to use the ikpy library just like in the ABB' IRB 4600/40 example, and then adapting that code to the PR2 robot, but it seems that it does not work. What do you guys think I am doing wrong? Is there any other way that you suggest to implement an inverse kinematics solution for the PR2 robot using Python?
 
-##### Simon Steinmann [Moderator] 02/26/2021 11:21:10
+##### Luftwaffel [Moderator] 02/26/2021 11:21:10
 [https://github.com/cyberbotics/pyikfast](https://github.com/cyberbotics/pyikfast)
 
 
@@ -857,7 +857,7 @@ Simon, I do not know what to replace in [base\_link], [effector] and [module\_ex
 
 Note that I am using Windows, so I do not use ROS
 
-##### Simon Steinmann [Moderator] 02/26/2021 12:05:23
+##### Luftwaffel [Moderator] 02/26/2021 12:05:23
 hmm this file looks wrong
 
 
@@ -869,7 +869,7 @@ just right click on the robot, export and then select .urdf
 ##### Gonçalo Carrola Silva 02/26/2021 12:08:24
 Yes, I did that, but the only option to save the file is .wbo. I think that is the problem
 
-##### Simon Steinmann [Moderator] 02/26/2021 12:09:05
+##### Luftwaffel [Moderator] 02/26/2021 12:09:05
 what version of webots do you use?
 
 
@@ -878,7 +878,7 @@ you need R2021a
 ##### Gonçalo Carrola Silva 02/26/2021 12:09:46
 I think mine is R2020b
 
-##### Simon Steinmann [Moderator] 02/26/2021 12:09:55
+##### Luftwaffel [Moderator] 02/26/2021 12:09:55
 you gotta update that
 
 
@@ -894,7 +894,7 @@ so there has to be an inactive link
 ##### Gonçalo Carrola Silva 02/26/2021 12:17:57
 So, in [base\_link] I put base\_link, in [effector] I put base\_footprint?
 
-##### Simon Steinmann [Moderator] 02/26/2021 12:18:17
+##### Luftwaffel [Moderator] 02/26/2021 12:18:17
 base\_link = "torso\_lift\_link"
 
 effector = "r\_wrist\_flex\_link"
@@ -923,7 +923,7 @@ or compile different solvers for DOF = 5 or 4
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/814836233606922240/unknown.png)
 %end
 
-##### Simon Steinmann [Moderator] 02/26/2021 12:29:10
+##### Luftwaffel [Moderator] 02/26/2021 12:29:10
 you need to install docker
 
 ##### Darko Lukić [Cyberbotics] 02/26/2021 13:17:56
@@ -947,19 +947,19 @@ Hello guys! I am new to webots and for the project I am working we require the r
 
 you can use file > open sample world > samples > curriculum > advanced\_genetic\_algorithm as reference on how to exchange info
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:13:07
+##### Luftwaffel [Moderator] 02/26/2021 15:13:07
 `@Gonçalo Carrola Silva` make sure docker is running
 
 ##### Gonçalo Carrola Silva 02/26/2021 15:15:57
 I don't know why docker is not connecting. The message says that the docker daemon is not running but I don't know why
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:16:12
+##### Luftwaffel [Moderator] 02/26/2021 15:16:12
 did you launch docker? you're on windows right?
 
 ##### Gonçalo Carrola Silva 02/26/2021 15:16:30
 I'm on Windows yes
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:16:53
+##### Luftwaffel [Moderator] 02/26/2021 15:16:53
 make sure docker desktop is launched
 
 ##### Gonçalo Carrola Silva 02/26/2021 15:17:20
@@ -971,7 +971,7 @@ make sure docker desktop is launched
 
 I think that is. But I tried to run that container and the message error is the same
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:18:49
+##### Luftwaffel [Moderator] 02/26/2021 15:18:49
 when docker is running, you should be able to open windows power shell
 
 
@@ -983,7 +983,7 @@ ofc you have to navigate to the correct directory first
 ##### Gonçalo Carrola Silva 02/26/2021 15:20:54
 But the directory isn't the one where the .urdf file is?
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:21:16
+##### Luftwaffel [Moderator] 02/26/2021 15:21:16
 you have to navigate there
 
 
@@ -1000,7 +1000,7 @@ I believe there is an arguments field or something similar for exactly that reas
 ##### Gonçalo Carrola Silva 02/26/2021 15:27:57
 The directory where the urdf file is: "C:\Users\gcarr> cd OneDrive\Ambiente de Trabalho\5º ano\Dissertação\WEBOTS>". I cannot put this on powershell because it has spaces in it. But I can navigate to the folder by the command line
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:28:13
+##### Luftwaffel [Moderator] 02/26/2021 15:28:13
 you put it inside of quotation marks
 
 
@@ -1021,7 +1021,7 @@ I don't know what is happening
 
 The first sentence of the error message is: "Invalid characters on the way"
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:32:26
+##### Luftwaffel [Moderator] 02/26/2021 15:32:26
 try a path with no special characters
 
 
@@ -1033,7 +1033,7 @@ Ok, I am there. I will try to run that command on the github
 
 Nope, same error
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:36:28
+##### Luftwaffel [Moderator] 02/26/2021 15:36:28
 try running it as administrator
 
 ##### Gonçalo Carrola Silva 02/26/2021 15:36:48
@@ -1042,7 +1042,7 @@ try running it as administrator
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/814883676290285608/unknown.png)
 %end
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:36:50
+##### Luftwaffel [Moderator] 02/26/2021 15:36:50
 and I dont know what your path or your characters are
 
 
@@ -1054,7 +1054,7 @@ I don't think so
 
 I think the problem is only in the docker. I cannot run docker\_machine either, it seems that it is not installed
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:39:29
+##### Luftwaffel [Moderator] 02/26/2021 15:39:29
 I thought you installed docker?
 
 
@@ -1088,14 +1088,14 @@ I already made all these steps to install docker, except step 5. Maybe the fact 
 
 This is the message error when I run powershell as an administrator
 
-##### Simon Steinmann [Moderator] 02/26/2021 15:52:47
+##### Luftwaffel [Moderator] 02/26/2021 15:52:47
 oh yeah, you should run the shell as admin
 
 ##### Gonçalo Carrola Silva 02/26/2021 15:53:40
 Yes, but running as admin it appears this error
 
 
-`@Simon Steinmann` do I need to install docker toolbox?
+`@Luftwaffel` do I need to install docker toolbox?
 
 
 I think I finally can run docker
@@ -1142,13 +1142,13 @@ Yet about yesterday, I think I made some progress. I finally can run docker but 
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/815203976470331392/unknown.png)
 %end
 
-##### Simon Steinmann [Moderator] 02/27/2021 12:50:21
+##### Luftwaffel [Moderator] 02/27/2021 12:50:21
 you need python3 i'm pretty sure
 
 ##### Gonçalo Carrola Silva 02/27/2021 12:50:38
 I have python3
 
-##### Simon Steinmann [Moderator] 02/27/2021 12:50:43
+##### Luftwaffel [Moderator] 02/27/2021 12:50:43
 can you show the command you entered?
 
 
@@ -1157,7 +1157,7 @@ i'm currently rerunning everything again. I had troubles doing the pip install a
 ##### Gonçalo Carrola Silva 02/27/2021 12:51:35
 docker run -v ${PWD}:/output cyberbotics/pyikfast torso\_lift\_link solid\_363 \_pr2
 
-##### Simon Steinmann [Moderator] 02/27/2021 12:52:02
+##### Luftwaffel [Moderator] 02/27/2021 12:52:02
 you were in the correct directory?
 
 ##### Gonçalo Carrola Silva 02/27/2021 12:52:16
@@ -1166,7 +1166,7 @@ yes. Absolutely sure
 
 In the same directory as the urdf file
 
-##### Simon Steinmann [Moderator] 02/27/2021 12:53:10
+##### Luftwaffel [Moderator] 02/27/2021 12:53:10
 you have wsl2 installed?
 
 
@@ -1175,7 +1175,7 @@ and can you show the entire console output?
 ##### Gonçalo Carrola Silva 02/27/2021 12:53:44
 I can't. It's too big
 
-##### Simon Steinmann [Moderator] 02/27/2021 12:53:52
+##### Luftwaffel [Moderator] 02/27/2021 12:53:52
 you can export as .txt file
 
 
@@ -1187,7 +1187,7 @@ How?
 
 Maybe is something missing in the urdf file?
 
-##### Simon Steinmann [Moderator] 02/27/2021 13:02:03
+##### Luftwaffel [Moderator] 02/27/2021 13:02:03
 `RuntimeError: maximum recursion depth exceeded`
 
 
@@ -1202,7 +1202,7 @@ I ran into that in the past... was a while ago though
 ##### Gonçalo Carrola Silva 02/27/2021 13:18:03
 So, do you know an alternative way to do kinematics with Python for this robot or do you think that the best way is to define it manually? But doing manually maybe the problem maintains, because if I understand it correctly the real challenge is the urdf part.
 
-##### Simon Steinmann [Moderator] 02/27/2021 13:19:24
+##### Luftwaffel [Moderator] 02/27/2021 13:19:24
 inverse kinematics is not easy
 
 
@@ -1383,7 +1383,7 @@ Note that this variable tells the Makefile compilation system that in your C++ c
 ##### cindy 03/08/2021 13:36:12
 i've deleted it completely and the issue is persisting
 
-##### Simon Steinmann [Moderator] 03/08/2021 23:25:40
+##### Luftwaffel [Moderator] 03/08/2021 23:25:40
 <@&568329906048598039> Is there a way to SET the values of a sensor? This would be very useful, allowing external sensors to be connected and to feed the simulation.  On a separate note: Is there a way to directly define an MF field, without having to set every item index by index. Every set call takes a certain time. When filling an array with hundreds of values, this is incredibly slow.
 
 ##### Olivier Michel [Cyberbotics] 03/09/2021 07:17:35
@@ -1398,7 +1398,7 @@ The original purpose of this is to be able to switch a controller between the si
 
 Regarding setting multiple MF fields in a row, it is not possible. If you need to set large amount of MF fields, it is probably better to import the whole node as a string, which includes all the MF fields.
 
-##### Simon Steinmann [Moderator] 03/09/2021 20:25:28
+##### Luftwaffel [Moderator] 03/09/2021 20:25:28
 `@Olivier Michel`  thanks, I will take a look
 
 
@@ -1411,19 +1411,19 @@ I figured it out: As soon as a ray has no collision (no obstacle within max rang
 ##### Olivier Michel [Cyberbotics] 03/09/2021 20:46:35
 That's a known bug which was fixed recently.
 
-##### Simon Steinmann [Moderator] 03/09/2021 20:46:56
+##### Luftwaffel [Moderator] 03/09/2021 20:46:56
 Oh good 🙂
 
 ##### Olivier Michel [Cyberbotics] 03/09/2021 20:47:20
 Did you try a nightly build?
 
-##### Simon Steinmann [Moderator] 03/09/2021 20:47:41
+##### Luftwaffel [Moderator] 03/09/2021 20:47:41
 no, official 2021a I think
 
 ##### Olivier Michel [Cyberbotics] 03/09/2021 20:47:58
 It should be fixed in all nightly builds.
 
-##### Simon Steinmann [Moderator] 03/09/2021 20:48:18
+##### Luftwaffel [Moderator] 03/09/2021 20:48:18
 gonna check it out later
 
 
@@ -1527,13 +1527,13 @@ Hello everyone. im using python and trying to get self node but it gives me erro
 
 TypeError: in method 'Supervisor\_getSelf', argument 1 of type 'webots::Supervisor const *'
 
-##### Simon Steinmann [Moderator] 03/28/2021 18:30:49
+##### Luftwaffel [Moderator] 03/28/2021 18:30:49
 `@ouur` show us your code
 
 ##### Srivastav\_Udit 03/30/2021 03:22:47
 Thank you so much!
 
-##### Simon Steinmann [Moderator] 03/30/2021 19:22:27
+##### Luftwaffel [Moderator] 03/30/2021 19:22:27
 I found a very strange issue. The wheel seems to move the robot in the same direction, regardless of which way it is spinning
 > **Attachment**: [simple\_crashderby\_1.mp4](https://cdn.discordapp.com/attachments/565155651395780609/826536875283447818/simple_crashderby_1.mp4)
 
@@ -1545,7 +1545,7 @@ What's that? Which world?
 ##### Krish 04/01/2021 11:48:12
 Is the other wheel pivoted?
 
-##### Simon Steinmann [Moderator] 04/01/2021 21:13:50
+##### Luftwaffel [Moderator] 04/01/2021 21:13:50
 it's due to kinematics mode (no physics). It works for velocity control, but not position control
 
 ##### Spur 04/02/2021 06:37:26
@@ -1556,14 +1556,14 @@ See this example:
 
 [https://github.com/cyberbotics/webots/blob/ab8b93ff30523825a8193327db756f44f12d390c/projects/samples/devices/controllers/camera\_recognition/camera\_recognition.c#L60-L75](https://github.com/cyberbotics/webots/blob/ab8b93ff30523825a8193327db756f44f12d390c/projects/samples/devices/controllers/camera_recognition/camera_recognition.c#L60-L75)
 
-##### Simon Steinmann [Moderator] 04/04/2021 01:21:49
+##### Luftwaffel [Moderator] 04/04/2021 01:21:49
 <@&568329906048598039> The webots docs directory is huge. I know that transparency is nice with the png files, but they are only included in white documents. These images could be compressed to jpg files, reducing the file size by about 10-20 times.
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/828076864353730600/unknown.png)
 %end
 
 ##### DDaniel [Cyberbotics] 04/04/2021 07:27:53
-`@Simon Steinmann` it's in the works, the offline documentation might be removed entirely by default (with the option of downloading it if needed) among other things. [https://github.com/cyberbotics/webots/pull/2787](https://github.com/cyberbotics/webots/pull/2787)
+<@239507682111913984> it's in the works, the offline documentation might be removed entirely by default (with the option of downloading it if needed) among other things. [https://github.com/cyberbotics/webots/pull/2787](https://github.com/cyberbotics/webots/pull/2787)
 
 ##### Spur 04/08/2021 01:56:50
 Does anyone know how the  'position' field of a Camera Recognition Object works? it says it has 3 values but I'm unsure what they represent
@@ -1595,7 +1595,7 @@ have you tried the rubber ducky method ([https://en.wikipedia.org/wiki/Rubber\_d
 ##### Spur 04/09/2021 00:12:04
 oh ok thanks, do you know what the orientation field values represent, theres 4 so im very unsure
 
-##### Simon Steinmann [Moderator] 04/09/2021 00:24:23
+##### Luftwaffel [Moderator] 04/09/2021 00:24:23
 axis angles usually
 
 ##### Spur 04/09/2021 06:26:06
@@ -1634,7 +1634,7 @@ I found a typo.
 ![unknown.png](https://cdn.discordapp.com/attachments/565155651395780609/831931677990191204/unknown.png)
 %end
 
-##### Simon Steinmann [Moderator] 04/14/2021 19:51:46
+##### Luftwaffel [Moderator] 04/14/2021 19:51:46
 <@&568329906048598039> [https://github.com/cyberbotics/webots/blob/develop/src/webots/nodes/WbLidar.cpp#L728](https://github.com/cyberbotics/webots/blob/develop/src/webots/nodes/WbLidar.cpp#L728) found it. it's supposed to be 'using' right?
 
 
@@ -1667,7 +1667,7 @@ Then, you should use a Lidar with the same position, orientation, field of view,
 ##### Olivier Michel [Cyberbotics] 04/22/2021 12:56:28
 For technical support, you should ask on the different Discord channel. For personal messages, yes, feel free to contact me in DM.
 
-##### Simon Steinmann [Moderator] 04/22/2021 22:06:53
+##### Luftwaffel [Moderator] 04/22/2021 22:06:53
 does anyone here have experience compiling webots for profiling? make has the `profile` and `debug` options. This page says i have to compile in debug [https://github.com/cyberbotics/webots/wiki/Valgrind](https://github.com/cyberbotics/webots/wiki/Valgrind). I remember not being able to successfuly use valgrind in the past. But I think the profile option did not exists back then. Any ideas how to proceed?
 
 ##### Olivier Michel [Cyberbotics] 04/23/2021 06:23:58
@@ -2121,7 +2121,7 @@ Is anyone else having issues downloading SUMO when building webots from source? 
 
 I am setting up a CI/CD pipeline for our controller for robocup, which requires me to build webots from source on several computers. All of them are having issues downloading SUMO for linux64. When they get to the step where they decompress the tar archive, there is an unexpected EOF character - basically the tar archive hasn't downloaded properly. I have downloaded it manually, and decompressed it myself successfully, but that's really painful when it takes an hour to download sumo at 8 KB/s
 
-##### Simon Steinmann [Moderator] 05/28/2021 21:38:37
+##### Luftwaffel [Moderator] 05/28/2021 21:38:37
 <@&568329906048598039> Working with object recognition, I think it could be very useful to expose the "recognitionColors" field in all objects provided by Webots. What do you think? I can create a PR if you agree.
 
 ##### AmorFati 05/28/2021 21:39:12
@@ -2133,7 +2133,7 @@ I think it's a good idea as well.
 ##### Olivier Michel [Cyberbotics] 05/29/2021 11:19:56
 Yes, good idea. Please go ahead.
 
-##### Simon Steinmann [Moderator] 05/29/2021 23:34:26
+##### Luftwaffel [Moderator] 05/29/2021 23:34:26
 [https://github.com/cyberbotics/webots/pull/3108](https://github.com/cyberbotics/webots/pull/3108)
 
 
@@ -2189,4 +2189,142 @@ Hello, thanks for the response, but how i can get the position with de WebotsDif
 
 ##### Darko Lukić [Cyberbotics] 06/02/2021 07:10:45
 It will create an `odom` topic in which it publishes odometry data generated from wheels
+
+##### mmoralesp 06/02/2021 17:07:42
+Thanks it works for me
+
+
+Does anybody know how to get a robot/node name using a topic?
+
+##### Darko Lukić [Cyberbotics] 06/03/2021 06:42:53
+You have to create the topic. Once you have extended the `WebotsDifferentialDriveNode` you have the `self.robot` object available which you can use with standard Webots API.
+
+##### chinex 06/12/2021 23:57:43
+I am glad to be home, please do you have a video guide on transfer of webots files to a real robot?
+
+##### Darko Lukić [Cyberbotics] 06/14/2021 06:33:55
+There is no out-of-the-box way to transfer a Webots controller to an arbitrary robot. You can re-implement all Webots API functions that you used in your controller, so the functions now interact with the hardware (not with the simulation). Another way, if your robot has a ROS API then you can use ROS as a middleware for both, simulation and real-robot.
+
+##### chinex 06/14/2021 06:46:39
+I am using a khepera iv robot, it's uses a GNU C/C++ compiler for native onboard applications
+
+##### Darko Lukić [Cyberbotics] 06/14/2021 06:51:23
+It looks like Khepera IV doesn't have a ROS interface, so re-implementing the functions is probably the simplest solution.
+
+##### chinex 06/14/2021 06:53:47
+Please how can I get it done, kindly help me
+
+##### Darko Lukić [Cyberbotics] 06/18/2021 13:50:24
+There are more details in this document:
+
+[https://cyberbotics.com/doc/guide/transfer-to-your-own-robot](https://cyberbotics.com/doc/guide/transfer-to-your-own-robot)
+
+##### chinex 06/21/2021 10:33:59
+I have been trying to develop the controller plugin for my khepera IV robot it's not working.
+
+##### Naga15 06/23/2021 12:49:26
+Hello! Im working on one project to transfer the gazebo ros simulation to webots. It was suggested to me to use nightly build 2021b. Problem is when I switched builds from official to 2021b the ros simulation won't start, error message-> usr/local/webots/projects/default/controllers/ros/ros: error while loading shared libraries: libboost\_system.so.1.65.1: cannot open shared object file: No such file or directory
+
+WARNING: 'ros' controller exited with status: 127.                                                                                             
+
+Is it the compatability issue, because I use ubuntu 20.04? the nightly build of 2021a works on same stuff without issues. Thanks for help!
+
+##### Darko Lukić [Cyberbotics] 06/23/2021 13:22:21
+Did you source the ROS environment before launching Webots? Something like:
+
+```bash
+source /opt/ros/noetic/setup.bash
+webots
+```
+
+##### Naga15 06/25/2021 13:02:02
+Yes of course, that's sourced and saved in .bashrc. I done all tutorials and I saw webots\_ros samples. Im starting my ros node directly from the launch file as in examples. Like I said the error shows only on nightly builds of 2021b. sorry for the late answer.
+
+##### Darko Lukić [Cyberbotics] 06/25/2021 14:02:14
+The `webots_ros` package for R2021b hasn't been released yet. Did you install the `webots_ros` from apt or from source. When installing from source please use the develop branch.
+
+
+
+- The `develop` branch matches the nightly builds (R2021b)
+
+- The `master` branch matches the latest release (R2021a)
+
+##### michal.mlaticek 06/26/2021 17:38:41
+Hi guys I'm new to Webots. Wanted to ask... is there/does someone have a space environment?
+
+##### Darko Lukić [Cyberbotics] 06/27/2021 14:44:01
+Setting the gravity to 0 allows the space simulation
+
+##### michal.mlaticek 06/28/2021 09:25:43
+Ok, thanks
+
+##### Naga15 06/29/2021 12:20:18
+Hello, I removed webots\_ros from apt and I followed this [http://wiki.ros.org/webots\_ros](http://wiki.ros.org/webots_ros) from 2.2.2,   after cloning the git I switched the branch to develop and after rosdep i typed catkin\_make. There were no errors at compiling. It havent work. in webots console is still this error message when I launch the tutorial nodes like catch\_the\_bird.launch or my written stuff-> usr/local/webots/projects/default/controllers/ros/ros: error while loading shared libraries: libboost\_system.so.1.65.1: cannot open shared object file: No such file or directory
+
+WARNING: 'ros' controller exited with status: 127.                                              I installed the webots from the .deb file. Sorry for the incovenience.
+
+##### Darko Lukić [Cyberbotics] 06/29/2021 12:24:40
+Do you have the Boost library installed (`sudo apt install libboost-dev`)?
+
+##### Naga15 06/29/2021 12:26:38
+yes "libboost-dev is already the newest version"
+
+##### Darko Lukić [Cyberbotics] 06/29/2021 12:39:09
+This will take many questions as I cannot reproduce the problem and I haven't noticed users having similar problems. Can you run:
+
+```bash
+ldd ${WEBOTS_HOME}/projects/default/controllers/ros/ros
+```
+
+##### Naga15 06/29/2021 12:46:02
+I run it and i got this
+> **Attachment**: [console\_output.txt](https://cdn.discordapp.com/attachments/565155651395780609/859414411403198464/console_output.txt)
+
+##### Darko Lukić [Cyberbotics] 06/29/2021 14:40:55
+I don't understand why it is trying to link `libboost_system` and why `1.65.1`. The oldest Boost version for Ubuntu 20.04 is 1.67:
+
+```
+$ apt-cache search libboost-system
+libboost-system-dev - Operating system (e.g. diagnostics support) library (default version)
+libboost-system1.71-dev - Operating system (e.g. diagnostics support) library
+libboost-system1.71.0 - Operating system (e.g. diagnostics support) library
+libboost-system1.67-dev - Operating system (e.g. diagnostics support) library
+libboost-system1.67.0 - Operating system (e.g. diagnostics support) library
+```
+
+
+
+Did you upgrade your system recently, `sudo apt update; sudo apt upgrade`?
+> **Attachment**: [ldd.log](https://cdn.discordapp.com/attachments/565155651395780609/859443319775428628/ldd.log)
+
+##### Naga15 06/30/2021 07:43:33
+I did that before writting to you, I will try it again. I have no problems with official release and nigthly builds of 2021a. Only with  nightly builds of 2021b. But thanks for your help! 🙂 If I find the solution or my mistake I will post it here.
+
+## July
+
+##### Affonso 07/01/2021 19:59:04
+Hey, how can I use a own lib in webots?
+
+##### Olivier Michel [Cyberbotics] 07/02/2021 06:22:41
+You can simply link your controller programs with your own lib.
+
+##### Naga15 07/14/2021 08:18:13
+Hello! I followed [https://github.com/cyberbotics/webots/wiki/Linux-installation](https://github.com/cyberbotics/webots/wiki/Linux-installation) but I pulled develop branch(source) of webots. It starts 2021b and doesn't lokoing for this libboost anymore and its connected to ros :). I have next Problem.  In my robot there are devices and after the activation of everyone I got ros crash. Webots console shows me this: wb\_lidar\_get\_layer\_range\_image() called for a disabled device! Please use: wb\_lidar\_enable().   
+
+
+
+Then I tried to back track the error and I found this trough terminal 
+
+
+
+rosservice call /<lidar\_name>/enable 32
+
+ERROR: transport error completing service call: unable to receive data from sender, check sender's logs for details
+
+
+
+in revision before I didn't had this problem,  even example complete\_test gives errors. I hope that is webots correctly installed.
+
+##### Olivier Michel [Cyberbotics] 07/14/2021 08:29:21
+I would recommend you to try from the current master branch into which we merged the develop branch recently and which is more stable than develop now and contains all its new features.
 

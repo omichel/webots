@@ -40,7 +40,7 @@ Robot {
   ]
   controller "test_cylinder_size_and_resizing"
   controllerArgs [
-    "template_proto_with_nested_template_parameter_3"
+    "template_proto_with_nested_template_parameter_3 (lua)"
     "template_regeneration_disabled"
   ]
   supervisor TRUE

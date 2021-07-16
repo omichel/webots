@@ -250,7 +250,8 @@ int EPuckFacade::cameraValue() const {
     return 0;
 
   const unsigned char *image = wb_camera_get_image(mCamera);
-
+  if (image == NULL)
+    return 0;
   int values[size];
   for (int i = 0; i < size; i++)
     values[i] = wb_camera_image_get_gray(image, size, i, heightToRead);

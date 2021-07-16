@@ -312,6 +312,7 @@ int WbProjectRelocationDialog::copyProject() {
   //    controllers folder at the same level as the protos folder of the PROTO robot
   // 5) possibly the current controller file (even if corresponding to a PROTO robot)
   // 6) project libraries if a project controller or plugin is copied
+  // 7) copy skins folder if it exists
 
   const WbWorld *world = WbWorld::instance();
   const QString &worldFileBaseName = QFileInfo(world->fileName()).baseName();
@@ -406,6 +407,10 @@ int WbProjectRelocationDialog::copyProject() {
 
   if (copyLibraries && !projectLibrariesCopied)
     result += WbFileUtil::copyDir(mProject->path() + "libraries", mTargetPath + "/libraries", true, false, true);
+
+  const QString skinsPath = WbProject::current()->path() + "skins/";
+  if (QDir(skinsPath).exists())
+    result += WbFileUtil::copyDir(skinsPath, mTargetPath + "/skins", true, true, true);
 
   return result;
 }

@@ -819,7 +819,7 @@ Meanwhile, you can revert to the doc embedded inside Webots.
 
 From the Help menu.
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:03:35
+##### Luftwaffel [Moderator] 04/30/2020 10:03:35
 Okay so I finally got it working to quickly and easily calculate any position and orientation of a node relative to any other node. This should be added to the supervisor get\_position and get\_orientation documentation
 
 
@@ -828,7 +828,7 @@ Okay so I finally got it working to quickly and easily calculate any position an
 ##### Olivier Michel [Cyberbotics] 04/30/2020 10:07:41
 That is great. Could you create a PR to add this contribution to the doc? [https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md](https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md)
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:08:41
+##### Luftwaffel [Moderator] 04/30/2020 10:08:41
 Okay will do. Feel free to change or edit it btw.
 
 
@@ -843,13 +843,13 @@ Yes, that seems to be a good idea. Let me search how to do that...
 
 Something like the **Reminder** and **Tips** here: [https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#sensors](https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#sensors) ?
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:18:40
+##### Luftwaffel [Moderator] 04/30/2020 10:18:40
 I think I got it 🙂
 
 ##### Olivier Michel [Cyberbotics] 04/30/2020 10:19:11
 Great. It's the `%spoiler` keyword.
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:24:45
+##### Luftwaffel [Moderator] 04/30/2020 10:24:45
 added it
 
 
@@ -858,7 +858,7 @@ solved it differently
 ##### Olivier Michel [Cyberbotics] 04/30/2020 10:25:15
 OK, looking forward to review it.
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:26:13
+##### Luftwaffel [Moderator] 04/30/2020 10:26:13
 oh btw, it's kinda weird that get\_orientation returns a 1x9 list, instead of 3x3
 
 
@@ -867,7 +867,7 @@ but I guess changing that would break existing code
 ##### Olivier Michel [Cyberbotics] 04/30/2020 10:28:36
 Yes, we may consider changing it on the develop branch.
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:33:59
+##### Luftwaffel [Moderator] 04/30/2020 10:33:59
 perhaps adding a function? Would be the non destructive way
 
 
@@ -882,13 +882,13 @@ most commonly used in ROS and any 3D application. would really be helpfull
 ##### Olivier Michel [Cyberbotics] 04/30/2020 10:35:08
 Yes, that seems to be a good idea.
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:36:03
+##### Luftwaffel [Moderator] 04/30/2020 10:36:03
 A frustrated coder is full of good ideas 😄
 
 ##### Olivier Michel [Cyberbotics] 04/30/2020 10:37:09
 😁 . But feel free to go ahead with these good idea and propose an implementation with a PR. That shouldn't be very difficult.
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:39:36
+##### Luftwaffel [Moderator] 04/30/2020 10:39:36
 where would I propose that?
 
 
@@ -901,7 +901,7 @@ In particular for feature request:
 
 [https://github.com/cyberbotics/webots/issues/new?template=feature\_request.md](https://github.com/cyberbotics/webots/issues/new?template=feature_request.md)
 
-##### Simon Steinmann [Moderator] 04/30/2020 10:54:50
+##### Luftwaffel [Moderator] 04/30/2020 10:54:50
 submitted it
 
 ##### 🍎小苹果🍎 05/01/2020 16:33:48
@@ -1021,13 +1021,13 @@ Do you prefer to do the pull request directly in master or in an other branch ?
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:07:12
 For doc correction you can target master directly
 
-##### Simon Steinmann [Moderator] 05/13/2020 15:22:20
+##### Luftwaffel [Moderator] 05/13/2020 15:22:20
 `@David Mansolino`  I made a commit here [https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md](https://github.com/cyberbotics/webots/edit/master/docs/reference/supervisor.md)
 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:25:07
 Ok perfect, can you then open a pull-request from the branch where you did the commit so that we can review and merge it?
 
-##### Simon Steinmann [Moderator] 05/13/2020 15:26:19
+##### Luftwaffel [Moderator] 05/13/2020 15:26:19
 I can't find my commit
 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:26:46
@@ -1036,9 +1036,9 @@ Did you fork the repo?
 
 > I can't find my commit
 
-`@Simon Steinmann` me neither
+`@Luftwaffel` me neither
 
-##### Simon Steinmann [Moderator] 05/13/2020 15:27:46
+##### Luftwaffel [Moderator] 05/13/2020 15:27:46
 great 😩
 
 
@@ -1047,19 +1047,19 @@ I submitted it April 30th, any way to check all activity? perhaps I submited it 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:35:21
 Let me check if I can find a stale branch, by the way what is your Github username?
 
-##### Simon Steinmann [Moderator] 05/13/2020 15:37:33
+##### Luftwaffel [Moderator] 05/13/2020 15:37:33
 simon-steinmann
 
 ##### David Mansolino [Cyberbotics] 05/13/2020 15:40:17
 Thank you, I will check and let you know
 
 ##### Olivier Michel [Cyberbotics] 05/13/2020 15:53:33
-`@Simon Steinmann`: It's here [https://github.com/cyberbotics/webots/compare/master...Simon-Steinmann:patch-1](https://github.com/cyberbotics/webots/compare/master...Simon-Steinmann:patch-1)
+`@Luftwaffel`: It's here [https://github.com/cyberbotics/webots/compare/master...Simon-Steinmann:patch-1](https://github.com/cyberbotics/webots/compare/master...Simon-Steinmann:patch-1)
 
 
 You have to click the "Create pull request" button.
 
-##### Simon Steinmann [Moderator] 05/13/2020 15:55:41
+##### Luftwaffel [Moderator] 05/13/2020 15:55:41
 `@Olivier Michel`  thank you so much <3. I created a pull request
 
 ##### Olivier Michel [Cyberbotics] 05/13/2020 15:58:07
@@ -1137,7 +1137,7 @@ double right_encoder_value = wb_position_sensor_get_value(right_position_sensor)
 ##### David Mansolino [Cyberbotics] 06/17/2020 09:42:18
 You're welcome
 
-##### Simon Steinmann [Moderator] 07/07/2020 11:41:29
+##### Luftwaffel [Moderator] 07/07/2020 11:41:29
 `@David Mansolino` I created a PR [https://github.com/cyberbotics/webots/pull/1879](https://github.com/cyberbotics/webots/pull/1879)
 
 ##### David Mansolino [Cyberbotics] 07/07/2020 11:51:08
@@ -1164,19 +1164,19 @@ Thank you `@David Mansolino` ! In the mass tab, it seems that moment of inertia 
 
 Then you will be able to select the children Solid nodes and get their inertia matrix too.
 
-##### Kamil Kaya 08/21/2020 11:31:48
+##### Kricklobderno 08/21/2020 11:31:48
 Hi, How can I use display node? When I add it to the child node of camera controller crashes.
 
 ##### David Mansolino [Cyberbotics] 08/21/2020 11:33:36
 Hi, you should have a look at the examples provided within Webots, e.g. [https://cyberbotics.com/doc/guide/samples-devices#display-wbt](https://cyberbotics.com/doc/guide/samples-devices#display-wbt)
 
-##### Kamil Kaya 08/21/2020 16:57:44
+##### Kricklobderno 08/21/2020 16:57:44
 But Can I put the display node to camera as child node? I want to achieve the hough circle transform by taking frames from the camera, processing it and after than showing it to display screen.
 
 ##### David Mansolino [Cyberbotics] 08/24/2020 05:51:00
 You don't need to put it in the camera as child to do this, you just need to retrieve the image of the camera, process it and then use the display functions to draw on it: [https://cyberbotics.com/doc/reference/display#display-functions](https://cyberbotics.com/doc/reference/display#display-functions)
 
-##### Kamil Kaya 08/24/2020 10:15:49
+##### Kricklobderno 08/24/2020 10:15:49
 > You don't need to put it in the camera as child to do this, you just need to retrieve the image of the camera, process it and then use the display functions to draw on it: [https://cyberbotics.com/doc/reference/display#display-functions](https://cyberbotics.com/doc/reference/display#display-functions)
 
 `@David Mansolino` Thank you. I achieved it as you refer.
@@ -1207,7 +1207,7 @@ In any case, to get familiar with the Webots-ros interface, you should probably 
 
 [http://wiki.ros.org/webots\_ros/Tutorials/Sample%20Simulations](http://wiki.ros.org/webots_ros/Tutorials/Sample%20Simulations)
 
-##### Simon Steinmann [Moderator] 09/21/2020 09:17:21
+##### Luftwaffel [Moderator] 09/21/2020 09:17:21
 `@Stefania Pedrazzi` I created an issue about the high cpu usage on <extern> waiting
 
 
@@ -1225,7 +1225,7 @@ It is not possible to launch Webots without GUI, but there are options to avoid 
 
 - run the simulation in `fast` mode (`--mode=fast` in starting option) to disable rendering of the main 3D view
 
-##### Simon Steinmann [Moderator] 09/21/2020 09:37:08
+##### Luftwaffel [Moderator] 09/21/2020 09:37:08
 webots has a fairly large memory footprint. 1.1GB with only a very small and simple simulation. Any methods to decrease that?
 
 
@@ -1249,13 +1249,13 @@ By the way I don't think that the heap is shared between different processes.
 
 We regularly run successfully multiple Webots instances on power enough machines.
 
-##### Simon Steinmann [Moderator] 09/21/2020 09:56:08
+##### Luftwaffel [Moderator] 09/21/2020 09:56:08
 is there  documentation for multiple instances?
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 09:56:42
 no. What kind of documentation do you need?
 
-##### Simon Steinmann [Moderator] 09/21/2020 09:57:28
+##### Luftwaffel [Moderator] 09/21/2020 09:57:28
 I remember reading somewhere, that you have to specify the PID of the webots process you want to connect to
 
 
@@ -1270,7 +1270,7 @@ Are you using ROS or extern controllers?
 
 Otherwise if the simulation quits itself, you don't need to know the PID of the process
 
-##### Simon Steinmann [Moderator] 09/21/2020 10:02:16
+##### Luftwaffel [Moderator] 09/21/2020 10:02:16
 [https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#multiple-concurrent-simulations](https://www.cyberbotics.com/doc/guide/running-extern-robot-controllers#multiple-concurrent-simulations)
 
 
@@ -1299,7 +1299,7 @@ The starting options I pointed out are the way to start Webots in the minimal wa
 
 To inspect memory you could use `valgrind` [https://github.com/cyberbotics/webots/wiki/Valgrind](https://github.com/cyberbotics/webots/wiki/Valgrind)
 
-##### Simon Steinmann [Moderator] 09/21/2020 10:11:00
+##### Luftwaffel [Moderator] 09/21/2020 10:11:00
 I tried started webots like you suggested:
 
 webots --batch --minimize --mode=fast
@@ -1330,9 +1330,9 @@ develop?
 Hi! is there an example for closed loop control of a robot in the sample worlds?
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 10:59:36
-`@Simon Steinmann` to compile in debug mode simply type `make debug -jX`.  For R2021a you have to choose the `develop` branch . I will fix the number of cores in the documentation.
+`@Luftwaffel` to compile in debug mode simply type `make debug -jX`.  For R2021a you have to choose the `develop` branch . I will fix the number of cores in the documentation.
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:00:17
+##### Luftwaffel [Moderator] 09/21/2020 11:00:17
 `@Stefania Pedrazzi` thanks! Please add the 'debug' as well in the documentation
 
 
@@ -1341,7 +1341,7 @@ it is 'debug' and not '-debug' or '--debug' ?
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 11:01:14
 yes, it is `make debug`. This a standard Makefile command
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:01:21
+##### Luftwaffel [Moderator] 09/21/2020 11:01:21
 thx 🙂
 
 
@@ -1358,9 +1358,9 @@ but please include it in the documentation. Not everyone is very familiar with c
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 11:12:01
 > but please include it in the documentation. Not everyone is very familiar with compiling (points at myself) 😄
 
-`@Simon Steinmann` the wiki page already points out that you can get all the available targets (including for debugging) by running `make help`.
+`@Luftwaffel` the wiki page already points out that you can get all the available targets (including for debugging) by running `make help`.
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:12:46
+##### Luftwaffel [Moderator] 09/21/2020 11:12:46
 😅  reading would help
 
 
@@ -1378,16 +1378,16 @@ it will screw things up if people install it somewhere else
 ##### R\_ 09/21/2020 11:14:08
 Thank you! `@Justin Fisher` `@Stefania Pedrazzi`
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:15:20
+##### Luftwaffel [Moderator] 09/21/2020 11:15:20
 
 %figure
 ![unknown.png](https://cdn.discordapp.com/attachments/565155720933146637/757560595988873246/unknown.png)
 %end
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 11:15:44
-`@Simon Steinmann` you should properly set the `WEBOTS_HOME` environment variable
+`@Luftwaffel` you should properly set the `WEBOTS_HOME` environment variable
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:15:55
+##### Luftwaffel [Moderator] 09/21/2020 11:15:55
 it is properly set
 
 
@@ -1402,7 +1402,7 @@ Did you adjust the bashrc values to match your environment?
 
 for ros issue you should try to reset the `ROS_DISTRO` variable before compiling Webots
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:26:03
+##### Luftwaffel [Moderator] 09/21/2020 11:26:03
 I fixed it, for some reason, resources/webots\_ros was modified. I reverted the change and  pulled again
 
 
@@ -1417,7 +1417,7 @@ should I do the 3.12 fix, mentioned in the documentation?
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 11:31:03
 you should first check that the LD\_LIBRARY\_PATH contains `$WEBOTS_HOME/lib/webots`
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:31:44
+##### Luftwaffel [Moderator] 09/21/2020 11:31:44
 let me check, it seems the old installation is still interfering
 
 
@@ -1431,7 +1431,7 @@ this seems a configuration issue and not a valgrind issue.
 
 do you get the same error if you start webots only with `bin/webots-bin` (without valgrind)?
 
-##### Simon Steinmann [Moderator] 09/21/2020 11:53:38
+##### Luftwaffel [Moderator] 09/21/2020 11:53:38
 that started fine. I'm now redoing everything in /home/webots
 
 
@@ -1446,9 +1446,9 @@ Yes, I didn't change it at the end, because the computation was correct.
 
 > maybe mention in the documentation to just run "make help" to get the correct command
 
-`@Simon Steinmann` it is already mentioned in the wiki page
+`@Luftwaffel` it is already mentioned in the wiki page
 
-##### Simon Steinmann [Moderator] 09/21/2020 13:36:35
+##### Luftwaffel [Moderator] 09/21/2020 13:36:35
 In the end it doesnt matter much, but a note, that the number is different from your threadcount, could help
 
 ##### Stefania Pedrazzi [Cyberbotics] 09/21/2020 13:37:27
@@ -2050,4 +2050,85 @@ One approach would be to establish a relation between voltage (PWM) and torque o
 
 
 Converting PWM to speed is probably not a good idea since a load on the motor may vary (except the PWM controls a set-point).
+
+##### birju 06/20/2021 02:12:36
+INFO: emitter\_receiver: Starting controller: C:\Users\Administrator\AppData\Local\Programs\Webots\projects\samples\devices\controllers\emitter\_receiver\emitter\_receiver.exe
+
+INFO: emitter\_receiver: Starting controller: C:\Users\Administrator\AppData\Local\Programs\Webots\projects\samples\devices\controllers\emitter\_receiver\emitter\_receiver.exe
+
+WARNING: emitter\_receiver: The process crashed some time after starting successfully.
+
+WARNING: 'emitter\_receiver' controller crashed.
+
+WARNING: emitter\_receiver: The process crashed some time after starting successfully.
+
+WARNING: 'emitter\_receiver' controller crashed.
+
+
+
+
+
+how can i solve this error 
+
+once i clean and make then it worked for one day 
+
+but its again crashing 
+
+what should i do?
+
+##### Stefania Pedrazzi [Cyberbotics] 06/21/2021 06:00:33
+You should debug your controller and understand what is causing the crash.
+
+If you don't change anything else on your system, then it could be  a problem due to memory management.
+
+##### Maximo Cansino Mateo 06/22/2021 19:11:41
+Hello! does anyone here knows where I can find the fields and the map for self driving cars?
+
+##### Darko Lukić [Cyberbotics] 06/23/2021 06:43:11
+You can try the sample worlds by clicking `File > Open Sample Worlds...` and selecting worlds under the `vehicles` item. Here is what you can expect:
+
+[https://www.cyberbotics.com/doc/automobile/worlds](https://www.cyberbotics.com/doc/automobile/worlds)
+
+##### Maximo Cansino Mateo 06/23/2021 13:40:15
+Thanks!!
+
+##### Johan2021 06/24/2021 12:31:55
+Hi all, when printing the position field of a jointParameters node and comparing it to the output values of a position sensor (inf accuracy, no noise) attached to a corresponding rotational motor (the position of the joint is controlled by this motor), these values are far apart. From the documentation ([https://cyberbotics.com/doc/reference/jointparameters?tab-language=python](https://cyberbotics.com/doc/reference/jointparameters?tab-language=python) and [https://cyberbotics.com/doc/reference/balljoint?tab-language=python#hidden-field-summary](https://cyberbotics.com/doc/reference/balljoint?tab-language=python#hidden-field-summary)) I understood that they should be the same, so would anyone know if there is something I am overlooking when comparing these values for the same joint?
+
+##### DDaniel [Cyberbotics] 06/24/2021 12:36:22
+`@Johan2021` Hi, you're comparing the sensor data to what? The other value you print it from the Webots code side or in a controller by accessing it through another mean like a supervisor? Could you provide a minimal example that shows this?
+
+##### Johan2021 06/24/2021 12:53:00
+I am indeed printing the jointParameters position field using a supervisor controller as shown below (Python). I also attached the relevant parts from both the world and proto file in info.proto.
+
+
+
+> `robot_node = supervisor.getFromDef("ROBOT01")`
+
+> `robot_ankle_node = robot_node.getFromProtoDef("Joint01")`
+
+> `robot_field_ankle = robot_ankle_node.getField("position")`
+
+> `print(" Ankle position %s" %robot_field_ankle.getSFFloat())`
+> **Attachment**: [info.proto](https://cdn.discordapp.com/attachments/565155720933146637/857604222727356436/info.proto)
+
+##### DDaniel [Cyberbotics] 06/24/2021 12:54:24
+and what version of webots are you using?
+
+##### Johan2021 06/24/2021 12:56:06
+Webots R2021a Revision 1
+
+##### DDaniel [Cyberbotics] 06/24/2021 13:20:10
+`@Johan2021` just to be sure, a BallJoint has 3 position fields `position`, `position2` and `position3`, are you comparing them accordingly? From what you provided it seems you get the field `position` using the supervisor but the sensor is in `devices3`
+
+
+It's likely that, I can't reproduce it otherwise in that version of webots. If the issue continues it might be better to open an issue about it with a minimal reproducible example (the bare minimum that shows the issue)
+
+##### Johan2021 06/24/2021 14:42:06
+The position field did indeed not point to the correct axis, my bad - now it corresponds to the sensor output🙂 . However, I am still wondering about the interpretation of this angle / position value. I am using the wb\_motor\_set\_position() commands to control a series of joints (never exceeding 3.14 rad), but the position sensor outputs a value of 4 rad that is not visually represented - could this be a PID issue or am I misinterpreting the position value?
+
+
+
+The value also keeps increasing after I stop controlling the joints (noted as Transition\_Bent in the video) - thanks for your help!
+> **Attachment**: [demo.mp4](https://cdn.discordapp.com/attachments/565155720933146637/857631681456766996/demo.mp4)
 

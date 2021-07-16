@@ -45,8 +45,6 @@ PROTO RandomBuilding [
       'old brick building',
       'red and white building',
       'construction building',
-      'red brick wall',
-      'old brick wall',
       'stone brick',
       'stone wall',
       'glass highrise',
