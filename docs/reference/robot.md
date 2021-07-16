@@ -2064,7 +2064,7 @@ void wb_robot_wwi_send_text(const char *text);
 
 namespace webots {
   class Robot {
-    const char *wwiReceive();
+    const char *wwiReceive(int *size);
     std::string wwiReceiveText();
     void wwiSend(const char *data, int size);
     void wwiSendText(const std::string &text);
